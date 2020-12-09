@@ -1,13 +1,20 @@
 buildscript {
-    ext {
-        springBootVersion = '1.5.8.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id 'java-library'
+	id 'jacoco'
+	id 'maven-publish'
+	id 'checkstyle'
 }
 
 apply plugin: 'java'
@@ -19,16 +26,19 @@ apply plugin: 'jacoco'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+group = 'com.mercadolibre.melidata.catalog'
+version = '2.2.1'
+
 repositories {
-    mavenCentral()
-    jcenter()
-    maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-    maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
-    maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
+	mavenCentral()
+	jcenter()
+	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
+	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
+	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
 }
 
 configurations {
-    providedRuntime
+	providedRuntime
 }
 
 dependencies {
@@ -37,7 +47,7 @@ dependencies {
 
 	compile 'com.amazonaws:aws-java-sdk:1.11.68'
 	compile 'commons-io:commons-io:2.4'
-	compile 'com.mercadolibre.melidata.catalog:commons:2.0.6'
+	compile 'com.mercadolibre.melidata.catalog:commons:2.0.12'
 	compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.220'
 	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 	compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
@@ -64,11 +74,6 @@ jacocoTestReport {
 	}
 }
 
-
-task wrapper(type: Wrapper) {
-	gradleVersion = '2.1'
-}
-
 task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 	println("Coverage, check: ${buildDir}/jacocoHtml")
 }
@@ -76,19 +81,21 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 task testAll (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.TestManager'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-monitoring",
-	"mlo-mon-pyme-pvnm-aas", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
-	"mlo-mon-tagging-flammable-text", "mlo-mon-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
-	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws"]
+	args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
+	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-fda-items-plus-busi", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
+	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
+	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
+    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel"]
 }
 
 task uploadAll(type:JavaExec) {
     main = 'com.melidata.definitions.task.UploadManager'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-monitoring", 
-	"mlo-mon-pyme-pvnm-aas", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
-	"mlo-mon-tagging-flammable-text", "mlo-mon-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
-	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws"]
+    args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
+	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-fda-items-plus-busi", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
+	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
+	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
+    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -101,6 +108,12 @@ task testShipping (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["shipping"]
+}
+
+task testPoint (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["point"]
 }
 
 task testAdvertising (dependsOn: 'classes', type: JavaExec) {
@@ -127,22 +140,34 @@ task testRecommendations (dependsOn: 'classes', type: JavaExec) {
 	args = ["recommendations"]
 }
 
-task testMonitoring (dependsOn: 'classes', type: JavaExec) {
+task testMonitoringTestAppCatalog(dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-monitoring"]
+	args = ["mlo-mon-fda-test-app"]
 }
 
-task testMonitoringPymePvnmAasCatalog (dependsOn: 'classes', type: JavaExec) {
+task testMonitoringTestAppBusiCatalog(dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-pyme-pvnm-aas"]
+	args = ["mlo-mon-fda-test-app-busi"]
+}
+
+task testMonitoringFlanAasCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-flan"]
 }
 
 task testMonitoringFdaItemsPlusCatalog (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-fda-items-plus"]
+}
+
+task testMonitoringFdaItemsPlusBusiCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-items-plus-busi"]
 }
 
 task testMonitoringWagnerDeployCatalog (dependsOn: 'classes', type: JavaExec) {
@@ -163,10 +188,10 @@ task testMonitoringFlammableTextCatalog (dependsOn: 'classes', type: JavaExec) {
 	args = ["mlo-mon-tagging-flammable-text"]
 }
 
-task testMonitoringCategorizerAmlCatalog (dependsOn: 'classes', type: JavaExec) {
+task testMonitoringFdaCategorizerAmlCatalog (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-categorizer-aml"]
+	args = ["mlo-mon-fda-categorizer-aml"]
 }
 
 task testMonitoringAppFakeCatalog (dependsOn: 'classes', type: JavaExec) {
@@ -211,9 +236,28 @@ task testMonitoringDomainDetectorAwsCatalog (dependsOn: 'classes', type: JavaExe
 	args = ["mlo-mon-tagging-domain-detector-aws"]
 }
 
-task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.CronnedQueriesTest'
+task testPortabilityCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
+	args = ["mpb-portability"]
+}
+
+task testMonitoringFdaCatalogDiscoveryCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-catalog-discovery"]
+}
+
+task testMonitoringFdaFraudMercadoenviosCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-fraud-mercadoenvios"]
+}
+
+task testMonitoringFraudMarketplaceCancelCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fraud-marketplace-cancel"]
 }
 
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
@@ -224,10 +268,11 @@ task testMetrics (dependsOn: 'classes', type: JavaExec) {
 task uploadAllCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-monitoring",
-	"mlo-mon-pyme-pvnm-aas", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
-	"mlo-mon-tagging-flammable-text", "mlo-mon-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
-	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws"]
+	args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
+	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-fda-items-plus-busi", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
+	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
+	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
+    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -240,6 +285,12 @@ task uploadShippingCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["shipping"]
+}
+
+task uploadPointCatalog(type:JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["point"]
 }
 
 task uploadAdvertisingCatalog(type:JavaExec) {
@@ -266,22 +317,34 @@ task uploadRecommendationsCatalog(type:JavaExec) {
 	args = ["recommendations"]
 }
 
-task uploadMonitoringCatalog(type:JavaExec) {
+task uploadMonitoringTestAppCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-monitoring"]
+	args = ["mlo-mon-fda-test-app"]
 }
 
-task uploadMonitoringPymePvnmAasCatalog(type:JavaExec) {
+task uploadMonitoringTestAppBusiCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-pyme-pvnm-aas"]
+	args = ["mlo-mon-fda-test-app-busi"]
+}
+
+task uploadMonitoringFlanAasCatalog(type:JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-flan"]
 }
 
 task uploadMonitoringFdaItemsPlusCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-fda-items-plus"]
+}
+
+task uploadMonitoringFdaItemsPlusBusiCatalog(type:JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-items-plus-busi"]
 }
 
 task uploadMonitoringWagnerDeployCatalog(type:JavaExec) {
@@ -302,10 +365,10 @@ task uploadMonitoringFlammableTextCatalog(type: JavaExec) {
 	args = ["mlo-mon-tagging-flammable-text"]
 }
 
-task uploadMonitoringCategorizerAmlCatalog(type: JavaExec) {
+task uploadMonitoringFdaCategorizerAmlCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-categorizer-aml"]
+	args = ["mlo-mon-fda-categorizer-aml"]
 }
 
 task uploadMonitoringAppFakeCatalog(type: JavaExec) {
@@ -350,18 +413,32 @@ task uploadMonitoringDomainDetectorAwsCatalog(type: JavaExec) {
 	args = ["mlo-mon-tagging-domain-detector-aws"]
 }
 
+task uploadPortabilityCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mpb-portability"]
+}
+
+task uploadMonitoringFdaCatalogDiscoveryCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-catalog-discovery"]
+}
+
+task uploadMonitoringFdaFraudMercadoenviosCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-fraud-mercadoenvios"]
+}
+
+task uploadMonitoringFraudMarketplaceCancelCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fraud-marketplace-cancel"]
+}
+
 task uploadMetrics(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.MetricsUploader'
-	classpath = sourceSets.main.runtimeClasspath
-}
-
-task uploadBatchQueries(type:JavaExec) {
-	main = 'com.melidata.definitions.uploaders.QueriesUploader'
-	classpath = sourceSets.main.runtimeClasspath
-}
-
-task exportCronQueries(type:JavaExec) {
-	main = 'com.melidata.metrics.format.QueryFormatter'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
@@ -397,6 +474,17 @@ task exportShipping(type:JavaExec) {
 	main = mainClass
 	classpath = sourceSets.main.runtimeClasspath
 	args ["shipping"]
+}
+
+task exportPoint(type:JavaExec) {
+	def mainClass
+	if (format == 'hive')
+		mainClass = "com.melidata.definitions.format.HiveFormatter"
+	else
+		throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+	main = mainClass
+	classpath = sourceSets.main.runtimeClasspath
+	args ["point"]
 }
 
 task exportAdvertising(type:JavaExec) {
@@ -451,21 +539,17 @@ task exportMetrics(type:JavaExec) {
 task bootRepackage {
 }
 
-uploadArchives {
-    def version = System.getenv("APP_VERSION")
+publishing {
+    println("Publishing version ${version} to repository")
 
-    repositories {
-        mavenDeployer {
-            repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
-                authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
-            }
-            pom.groupId = 'com.mercadolibre.melidata.catalog'
-            pom.artifactId = 'definitions'
-            if(version != null) {
-                pom.version = version
-            } else {
-                pom.version = '0'
-            }
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId 'definitions'
+            version version
+            groupId group
+
+            from components.java
         }
     }
 }
+

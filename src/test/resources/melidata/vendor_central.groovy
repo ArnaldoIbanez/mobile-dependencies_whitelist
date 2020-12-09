@@ -44,6 +44,18 @@ trackTests {
       categories = ["Mochilas", "Banquetas", "Bicicletas"]
       filters = ["active", "status"]
       items = 3
+      type="EDITABLE_INFORMATION"
+      selected_columns=["STATUS", "SKU"]
+    }
+  }
+
+    test("Vendor Central offline bulk download confirm with empty unrequired fields") {
+    "/vendor_central/bulk/offline/download/confirm"(platform: "/", type: TrackType.Event) {
+      categories = ["Mochilas", "Banquetas", "Bicicletas"]
+      filters = []
+      items = 3
+      type="OFFERING"
+      selected_columns=[]
     }
   }
 
@@ -102,5 +114,27 @@ trackTests {
   test("Vendor Central purchase order detail view") {
     "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
   }
+
+  test("Vendor Central Contra COGS list search event") {
+
+    "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
+      filters = ["filter_id_1", "filter_id_2"]
+      sorts = ["sort_id_1"]
+      search_terms = ["term1", "term2"]
+      task = "task_id"
+    }
+  }
+
+  test("Vendor Central contra cogs listing view") {
+    "/vendor_central/contra_cogs/listing"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central contra cogs detail view") {
+    "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
+  }
+
 }
 

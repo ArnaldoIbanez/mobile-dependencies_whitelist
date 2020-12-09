@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1109"
+    initiative = "1254"
 
     // REGISTER
 
@@ -29,11 +29,6 @@ tracks {
         email(type: PropertyType.Boolean, description : "Needed  to access the user main email address.", required:false)
         user_birthday(type: PropertyType.Boolean, description : "Needed  to access date (day and month) of the user birthday.", required:false)
         user_likes(type: PropertyType.Boolean, description : "Needed  to access user liked pages.", required:false)
-    }
-
-    "/register/user_delete"(platform: "/") {
-        application_source(type: PropertyType.String, required:true, description: "Source that made the deletion", values: ["registration"])
-        reason(type: PropertyType.String, required:true, description: "Reason for delete User Account", values: ["register_not_validated"])
     }
 
     // REGISTER WEB
@@ -72,13 +67,6 @@ tracks {
 
     "/register/form/site-identification/url-site-selected"(platform: "/web", type: TrackType.Event) {}
     "/register/form/site-identification/ip-site-selected"(platform: "/web", type: TrackType.Event) {}
-
-    "/register/form/facebook-connect"(platform: "/web", type: TrackType.View) {
-    }
-
-    "/register/form/facebook-connect/facebook-register-selected"(platform: "/web", type: TrackType.Event) {}
-    "/register/form/facebook-connect/email-register-selected"(platform: "/web", type: TrackType.Event) {}
-    "/register/form/facebook-connect/login-selected"(platform: "/web", type: TrackType.Event) {}
 
     "/register/form/geolocation"(platform: "/web/mobile", type: TrackType.Event) {
         geo_location_code(type: PropertyType.Numeric, description: "Code of geolocation result", required:true)
@@ -209,8 +197,6 @@ tracks {
     // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
     "/progressive_registration"(platform: "/mobile", type: TrackType.View, initiative:'1125') {}
 
-    "/register/form/company-link"(platform: "/mobile", type: TrackType.Event){}
-    "/register/form/person-link"(platform: "/mobile", type: TrackType.Event){}
 
     // Company Registration
 
@@ -223,47 +209,20 @@ tracks {
     "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
     "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
 
-    //Nueva experiencia de registro: Registro por teléfono
-
-    "/register/phone_registration"(platform: "/mobile", isAbstract: true){
-        app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+    // Registro V3 HUB
+    "/register/v3"(platform: "/", isAbstract: true){}
+    "/register/v3/hub"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/landing"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/main"(platform: "/", type: TrackType.View){
+      status(type: PropertyType.String, required: true, values: ["finished", "in_progress"], description: "Registration HUB global status")
+      steps(type: PropertyType.ArrayList, , required:true, description: "Array of objects indicating each step id and status")
     }
-
-    "/register/phone_registration/get_phone"(platform: "/mobile", type: TrackType.View){}
-    "/register/phone_registration/get_phone/error"(platform: "/mobile", type: TrackType.View){
-        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
-        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
-    }
-
-    "/register/phone_registration/additional_data"(platform: "/mobile", type: TrackType.View){}
-    "/register/phone_registration/additional_data/error"(platform: "/mobile", type: TrackType.View){
-        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
-        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
-    }
-
-    "/register/phone_registration/get_email"(platform: "/mobile", type: TrackType.View){}
-    "/register/phone_registration/get_email/error"(platform: "/mobile", type: TrackType.View){
-        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
-        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
-    }
-
-    "/register/phone_registration/verification"(platform: "/mobile", type: TrackType.View){
-        channel(type: PropertyType.String, required: true, values: ["sms", "call", "whatsapp"], description: "Channel to which verification code is sent")
-    }
-    "/register/phone_registration/verification/error"(platform: "/mobile", type: TrackType.View){
-        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
-        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
-    }
-
-    "/register/phone_registration/phone_already_registered"(platform: "/mobile", type: TrackType.View){}
-
-
-    "/register/phone_registration/send_code"(platform: "/mobile", type: TrackType.Event){}
-    "/register/phone_registration/resend_code"(platform: "/mobile", type: TrackType.Event){}
-    "/register/phone_registration/email_link"(platform: "/mobile", type: TrackType.Event){}
-    "/register/phone_registration/verification/autodetect_code"(platform: "/mobile", type: TrackType.Event){}
-    "/register/phone_registration/sign_in"(platform: "/mobile", type: TrackType.Event){}
-    "/register/phone_registration/create_account"(platform: "/mobile", type: TrackType.Event){}
+    
+    "/register/v3/hub/email_validation"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/phone_validation"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/kyc"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/email_validation/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
 }
-

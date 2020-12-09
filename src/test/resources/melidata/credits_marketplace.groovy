@@ -9,27 +9,6 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("consumer credits") {
-
-        /******************************************
-        *       Start: Flujo Upsell Consumer
-        ******************************************/
-        "/credits/consumer/upsell/remedy"(platform: "/web/desktop", type: TrackType.View) {
-            remedy_name = 'declarative_info'
-        }
-        "/credits/consumer/upsell/remedy/save_info"(platform: "/web/mobile", type: TrackType.Event) {
-            remedy_name = 'declarative_info'
-        }
-        "/credits/consumer/upsell/congrats"(platform: "/web/desktop", type: TrackType.View) {
-            variant = 'success'
-        }
-        "/credits/consumer/upsell/congrats"(platform: "/web/mobile", type: TrackType.View) {
-            variant = 'retry'
-        }
-        /******************************************
-        *       End: Flujo Upsell Consumer
-        ******************************************/
-
-
         /******************************************
          *       Start: Consumers Public Landings
          ******************************************/
@@ -38,6 +17,7 @@ trackTests {
         //Page views
         "/credits/consumer/public_landing"(platform: "/web/desktop") {
             user_profile = 'no_offer'
+            sk = 'landing'
         }
         "/credits/consumer/public_landing/application_result"(platform: "/web/desktop") {
             result = 'manual_review'
@@ -201,9 +181,10 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
-        
+
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
         //Event Mobile
@@ -224,6 +205,9 @@ trackTests {
             dashboard_status = 'empty_state'
         }
         "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/web/desktop", type: TrackType.Event) {
             dashboard_status = 'overdue'
         }
         "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {
@@ -561,11 +545,14 @@ trackTests {
 
         "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
             prepaid = true
+            virtual_card = true
+            physical_card = false
         }
 
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
             page = 1
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
@@ -579,6 +566,7 @@ trackTests {
 
         "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {
@@ -677,12 +665,12 @@ trackTests {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
@@ -710,7 +698,7 @@ trackTests {
         "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
             is_partial_amount = true
@@ -723,7 +711,7 @@ trackTests {
         "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }
@@ -734,6 +722,28 @@ trackTests {
 
         "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+            bulk_amount = 7000
+            total_amount = 14000
+            min_amount = true
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+            bulk_amount = 7000
+            total_amount = 14000
+            installments_id = [ 1002, 1003, 1004]
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
         }
 
         /******************************************
