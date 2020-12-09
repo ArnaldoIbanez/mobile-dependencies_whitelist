@@ -1098,67 +1098,67 @@ trackTests {
 
     // NFC Tokenization Status
     test("cards hybrid nfc enrollment tokenization") {
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "success_enrollment"
             result = "tokenization completed event"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "missing enrollment push notification"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "cardInfo error"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "checkCardEligibility error"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "partial enrollment CardDeleteResult UNKNOWN_DIGITAL_CARD_ID"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "partial enrollment CardDeleteResult error"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "partial enrollment deleteCard DELETE_RETRIES exceeded"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "partial enrollment deleteCard error"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "digitize error"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "error_enrollment"
             result = "fetchTokenizationDataWorker error"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "success_callback"
             result = "checkCardEligibility success"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "success_callback"
             result = "checkCardEligibility partial enrollment"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "success_callback"
             result = "partial enrollment CardDeleteResult success"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "success_callback"
             result = "digitize success"
         }
-        "/cards/nfc/enrollment/worker/callback"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "success_callback"
             result = "fetchTokenizationDataWorker success"
         }
