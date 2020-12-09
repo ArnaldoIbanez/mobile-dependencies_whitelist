@@ -56,41 +56,44 @@ tracks {
     }
 
     // VSP
+
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
     }
 
-    // DETAIL
-
-    def section_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true, description: "The section identifier")
-        type(type: PropertyType.String, required: true, description: "The section type")
-        position(type: PropertyType.Numeric, required: true, description: "The position of the section in the list")
+    def vsp_components_definition = objectSchemaDefinitions {
+        actionable_info(required: false, type: PropertyType.ArrayList(PropertyType.Map(vsp_actionable_info_definition)), description: "Actionable info components")
     }
 
-    "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-        title(required: false, type: PropertyType.String, description: "The discount name")
-        enabled(required: false, type: PropertyType.Boolean, description: "If the discount can be consumed or not")
-        availability(required: false, type: PropertyType.String, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
-        mcc(required: false, type: PropertyType.String, description: "The mcc of the category of the discount")
-        level(required: false, type: PropertyType.Numeric, description: "The discount level")
-        blocked(required: false, type: PropertyType.Boolean, description: "If the discount is not available for the user level")
-        amount(required: false, type: PropertyType.Numeric, description: "The discount campaign amount")
-        amount_type(required: false, type: PropertyType.String,  values: ['fixed', 'percent'], description: "The amount type")
-        status(required: false, type: PropertyType.String, values: ['active', 'inactive', 'finished'], description: "The discount campaign status")
-        stores_id(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "A list of stores who are in a nearby radius")
-        has_logo(type: PropertyType.Boolean, required: false, description: "If the discount has a logo or not")
-        coupon_used(type: PropertyType.Boolean, required: false, description: "If the coupon is used")
-        sections(required: false, type: PropertyType.ArrayList(PropertyType.Map(section_definition)), description: "Sections shown in the list")
-        tracking_id(required: false, type: PropertyType.String, description: "Tracking id of the presented detail")
+    def vsp_actionable_info_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(actionable_info_item_definition)), description: "Actionable info item")
+    }
+
+    def actionable_info_item_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        tracking_id(type: PropertyType.String, required: true, description: "The unique id of the actionable info item item we are showing")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+    }
+
+    "/discount_center/payers/vsp/components" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) { 
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
-        referer_origin(required: false, type: PropertyType.String, description: "The user who share the discount")
-        category(type: PropertyType.String, required: false, description: "The category of the item")
-        collector_id(type: PropertyType.String, required: false, description: "The collector id of the item")
-        store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
     }
 
-    "/discount_center/payers/detail/tap" (platform: "/mobile", type: TrackType.Event) {}
+    "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+    }
+
+    "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
+      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+    }
+
+    "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
+      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+    }
 
     // LOCATION REQUEST
 
@@ -211,7 +214,7 @@ tracks {
       session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
     }
 
-    "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.View) { }
+    "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.Event, isAbstract: true) { }
 
     "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
       marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
