@@ -731,6 +731,17 @@ tracks {
         )
     }
 
+    // Request: Expired Challenge
+    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+        action(
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "continue"],
+            description: "action tap by the user in the expired challenge view"
+        )
+    }
+
     // Request: Review
     "/cards/mpcard/request/physical/review"(platform: "/", isAbstract: true) {}
 

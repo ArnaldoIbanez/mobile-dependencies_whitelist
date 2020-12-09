@@ -813,6 +813,19 @@ trackTests {
         }
     }
 
+    // Request: Expired Challenge
+    test("cards mpcard request physical expired challenge") {
+        "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard request physical pending challenge tap") {
+        "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+
     // Request: review
     test("cards mpcard request physical review") {
         "/cards/mpcard/request/physical/review"(platform: "/", type: TrackType.View) {}
