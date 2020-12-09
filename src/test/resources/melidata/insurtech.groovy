@@ -1286,6 +1286,32 @@ trackTests {
             ]
         }
 
+         "/insurtech/protections/detail/roda/imei_help"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/imei_activation"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
         "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
@@ -1346,6 +1372,8 @@ trackTests {
             ]
         }∫
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
+
+         "/insurtech/protections/detail/roda/congrats"(platform:"/web", type: TrackType.View) {}
     }
 
     ["mercadolibre", "mercadopago"].each { business ->
