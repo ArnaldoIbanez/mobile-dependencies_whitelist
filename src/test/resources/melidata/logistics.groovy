@@ -529,6 +529,21 @@ trackTests {
             picked_count = 10
             estimated_count = 12
         }
+        "/logistics/first_mile/pickup/partial"(platform: "/mobile", type: TrackType.View) {
+            route_id = "125"
+            driver_id = 123
+            pickup_point_id = "123"
+        }
+        "/logistics/first_mile/pickup/partial/full_vehicle"(platform: "/mobile", type: TrackType.Event) {
+            route_id = "125"
+            driver_id = 123
+            pickup_point_id = "123"
+        }
+        "/logistics/first_mile/pickup/partial/all_picked"(platform: "/mobile", type: TrackType.Event) {
+            route_id = "125"
+            driver_id = 123
+            pickup_point_id = "123"
+        }
         "/logistics/first_mile/pickup/seller_document_form"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             first_mile_logistic_type = "FF"

@@ -212,4 +212,8 @@ tracks {
     "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
         type(required_:false, description: "Indicates the type selected ")
     }
+
+    //Cashout - modals
+    "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
 }

@@ -19,11 +19,14 @@ tracks
                 description: "Specifies the container assigned to a driver when routing was made")
         container_packages(required: true, type: PropertyType.Numeric,
                 description: "Specifies the amount of packages in the scanned container")
+
+        stop_order(type: PropertyType.Numeric, required: false)
     }
 
     propertyGroups {
         driver_info(vehicle_id, latitude, longitude)
         sorting_info(container_scanned, container_assigned, container_packages)
+        delivery_info(latitude, longitude, stop_order)
     }
 
     def receiver_definition = objectSchemaDefinitions {
@@ -189,6 +192,19 @@ tracks
         qr_data(required: true, type: PropertyType.String, description: "Specifies the qr data scanned by driver")
     }
 
+    "/driver/stops/toc"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+    }
+
+    "/driver/stops/toc/save"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.Event) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+        problem_description(required: true, type: PropertyType.String, description: "Specifies the problem in route")
+    }
+
     //DETAIL TRACKS
 
     "/driver/stops/detail"(platform: "/mobile", type: TrackType.View) {
@@ -209,6 +225,45 @@ tracks
 
     "/driver/stops/detail/map"(platform: "/mobile", type: TrackType.Event) {
         stop_order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
+    }
+
+/// DELIVERY FLOW TRACKS
+
+    "/driver/delivery"(platform: "/mobile", isAbstract: true) {
+        delivery_info
+        packs_info(type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), required: true)
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+    }
+
+    "/driver/delivery/receipt"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/delivery/receipt/selection"(platform: "/mobile", type: TrackType.Event) {
+        receiver_type(required: true, type: PropertyType.String,
+                values: ["holder", "reception", "family", "neighbour"],
+                description: "Describes the relationship between receiver and buyer")
+    }
+
+    "/driver/delivery/receiver_info"(platform: "/mobile", type: TrackType.View) {
+        receiver_type(required: true, type: PropertyType.String,
+                values: ["holder", "reception", "family", "neighbour"],
+                description: "Describes the relationship between receiver and buyer")
+    }
+
+    "/driver/delivery/delivery_ok"(platform: "/mobile", type: TrackType.View) {
+        receiver_type(required: true, type: PropertyType.String,
+                values: ["holder", "reception", "family", "neighbour"],
+                description: "Describes the relationship between receiver and buyer")
+        doc_type(required: true, type: PropertyType.String,
+                description: "Describes the doc type filled by receiver (but not the doc number)")
+    }
+
+    "/driver/delivery/undeliver_reason"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/delivery/undelivery_ok"(platform: "/mobile", type: TrackType.View) {
+        selected_reason(required: true, type: PropertyType.String,
+                description: "Describes why the driver couldn't deliver the packages")
     }
 }
 

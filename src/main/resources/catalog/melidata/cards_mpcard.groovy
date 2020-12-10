@@ -827,5 +827,17 @@ tracks {
             description: "Coachmark identificator"
         )
     }
+    
+    "/cards/mpcard/contingency"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/contingency/nip"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/contingency/nip/physical"(platform:"/mobile", type: TrackType.View) {}
+    "/cards/mpcard/contingency/nip/physical/tap"(platform:"/mobile", type: TrackType.Event) { 
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back_button"],
+            description: "Cards contingency nip tap"
+            )
+    }
 
 }

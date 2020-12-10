@@ -459,6 +459,10 @@ trackTests {
         "/cards/engagement/error"(platform: "/", type: TrackType.View) {
             screen = "dashboard"
         }
+        "/cards/engagement/decrypting/error" (platform: "/", type: TrackType.Event) {
+            error = "keyGenerationError"
+            from = "CEEncryptTextBrickPresenter"
+        }
     }
 
     // SETUP VIRTUAL
@@ -1085,4 +1089,10 @@ trackTests {
             action = "success_redirect"
         }
     } 
+    test("cards hybrid nfc onboarding") {
+        "/cards/nfc/enrollment/hub/onboarding"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "main"
+        }
+    }
 }
