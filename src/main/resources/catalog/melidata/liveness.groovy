@@ -35,7 +35,6 @@ tracks {
         time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
         challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
         challenge_result_description(type: PropertyType.String, required: true, description: "Description of validation")
-        is_low_light_mode_active(type: PropertyType.Boolean, required: false, description: "Status type of customization")
     }
 
     "/liveness/result"(platform: "/", type: TrackType.Event) {

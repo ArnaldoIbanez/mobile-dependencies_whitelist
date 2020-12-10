@@ -30,7 +30,6 @@ trackTests {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
-            is_low_light_mode_active = false
         }
 
         "/liveness/result"(platform: "/mobile/android") {
@@ -148,7 +147,6 @@ trackTests {
             challenge_result_description = "test"
             transaction_id = "fdsf21341fdsf13123"
             transaction_user_id = 124123123
-            is_low_light_mode_active = true
         }
 
         "/liveness/result"(platform: "/web") {
