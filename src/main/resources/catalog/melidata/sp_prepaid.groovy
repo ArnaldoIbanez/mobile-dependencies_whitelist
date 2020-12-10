@@ -440,6 +440,27 @@ tracks {
     }
 
 
+    // Errors - Not Enough Money
+    "/single_player/prepaid/error/not_enough_money"(platform: "/mobile", type: TrackType.View) {
+        error_code(required: false, PropertyType.String, description: "Not enough money")
+    }
+
+    "/single_player/prepaid/error/not_enough_money/not_enough_money"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Errors - Not Allowed Version
+    "/single_player/prepaid/error/not_allowed_version"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/error/not_allowed_version/not_allowed_version"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/error/not_allowed_version/go_to_store"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
     // Errors - Connection error
     "/single_player/prepaid/error/connection"(platform: "/mobile", type: TrackType.View) {}
 
@@ -558,6 +579,15 @@ tracks {
         view_time
     }
 
+    // Break New plate
+    "/single_player/paygo/break_new_plate"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/break_new_plate/new_activation_number"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/break_new_plate/activate_activation_number"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     // Freeways Available
     "/single_player/paygo/freeways_available"(platform: "/mobile", type: TrackType.View) {}
@@ -569,6 +599,31 @@ tracks {
         view_time
     }
 
+    // New activation number
+    "/single_player/paygo/new_activation_number"(platform: "/mobile", type: TrackType.View) {}
+
+    // Challenge KYC
+    "/single_player/paygo/challenge_kyc"(platform: "/mobile", type: TrackType.View) {}
+
+    // New activation number not allowed
+    "/single_player/paygo/new_activation_number_not_allowed"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/new_activation_number_not_allowed/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Add activation number
+    "/single_player/paygo/add_activation_number"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/add_activation_number/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/add_activation_number/add_activation_number"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/add_activation_number/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     // Add device number
     "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {}
@@ -640,6 +695,9 @@ tracks {
     "/single_player/paygo/review_new_device/edit_address"(platform: "/mobile", type: TrackType.Event) {
         view_time
         item_structure
+    }
+    "/single_player/paygo/review_new_device/edit_activation_number"(platform: "/mobile", type: TrackType.Event) {
+        view_time
     }
     "/single_player/paygo/review_new_device/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
