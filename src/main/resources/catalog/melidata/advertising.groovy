@@ -319,7 +319,7 @@ tracks {
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
         selected_budget(required: true, description: "selected budget campaign Modal campaign")
         select_budget_pct(required: true, description: "select budget pct Modal campaign")
-        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
 
     }
     "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -847,7 +847,7 @@ tracks {
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
         selected_budget(required: true, description: "selected budget campaign Modal campaign")
         select_budget_pct(required: true, description: "select budget pct Modal campaign")
-        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
 
     }
 
@@ -858,7 +858,7 @@ tracks {
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
         selected_budget(required: true, description: "selected budget campaign Modal campaign")
         select_budget_pct(required: true, description: "select budget pct Modal campaign")
-        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
     }
 
     // Multicampaña - Sads New
