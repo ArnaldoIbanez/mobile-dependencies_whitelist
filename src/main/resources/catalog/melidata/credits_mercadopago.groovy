@@ -383,30 +383,30 @@ tracks {
             required: true,
             description: "Flow which the user is being redirected",
             values: [
-                'fixed_term_loan_collect', 
-                'sales_percentage_loan_collect', 
-                'express_money_collect', 
-                'personal_loan_collect', 
-                'consumer_loan_collect', 
-                'fixed_term_loan_prior_to_collect', 
-                'sales_percentage_loan_prior_to_collect', 
-                'express_money_prior_to_collect', 
-                'personal_loan_prior_to_collect', 
-                'consumer_loan_prior_to_collect', 
-                'fixed_term_loan_adoption', 
-                'sales_percentage_loan_adoption', 
-                'express_money_adoption', 
-                'personal_loan_adoption', 
-                'express_money_on_time', 
-                'fixed_term_loan_on_time', 
-                'sales_percentage_loan_on_time', 
-                'personal_loan_on_time', 
-                'consumer_loan_on_time', 
-                'sales_percentage_loan_finished', 
-                'fixed_term_loan_finished', 
-                'express_money_finished', 
-                'personal_loan_finished', 
-                'consumer_loan_finished', 
+                'fixed_term_loan_collect',
+                'sales_percentage_loan_collect',
+                'express_money_collect',
+                'personal_loan_collect',
+                'consumer_loan_collect',
+                'fixed_term_loan_prior_to_collect',
+                'sales_percentage_loan_prior_to_collect',
+                'express_money_prior_to_collect',
+                'personal_loan_prior_to_collect',
+                'consumer_loan_prior_to_collect',
+                'fixed_term_loan_adoption',
+                'sales_percentage_loan_adoption',
+                'express_money_adoption',
+                'personal_loan_adoption',
+                'express_money_on_time',
+                'fixed_term_loan_on_time',
+                'sales_percentage_loan_on_time',
+                'personal_loan_on_time',
+                'consumer_loan_on_time',
+                'sales_percentage_loan_finished',
+                'fixed_term_loan_finished',
+                'express_money_finished',
+                'personal_loan_finished',
+                'consumer_loan_finished',
                 'consumer_loan_adoption',
             ]
         )
@@ -1712,8 +1712,13 @@ tracks {
             )
             installments_id(
                 required: true,
-                description: "Total debt amount",
+                description: "Array of Installments reached by the punitive condonation",
                 type: PropertyType.ArrayList
+            )
+            debt_relief_amount(
+                required: true,
+                description: "final Debt relief amount",
+                type: PropertyType.Numeric
             )
         }
 
