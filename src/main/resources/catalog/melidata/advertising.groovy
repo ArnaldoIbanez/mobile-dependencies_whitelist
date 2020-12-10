@@ -310,6 +310,31 @@ tracks {
         sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
+    //Budget Dynamic
+    "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
+    "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+        selected_budget(required: true, description: "selected budget campaign Modal campaign")
+        select_budget_pct(required: true, description: "select budget pct Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
+
+    }
+    "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+    "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+    }
+    "/advertising/pads2/manager/budget/tooltip/edit_new"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
     //Buybox
     "/advertising/pads2/manager/buybox_winners"(platform: "/", isAbstract: true) {}
     "/advertising/pads2/manager/buybox_winners/landing"(platform: "/", isAbstract: true) {}
@@ -821,12 +846,22 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         budget_previous(required: true, description: "Previous budget related to the campaign")
         budget_new(required: true, type: PropertyType.Numeric, description: "New budget related to the campaign.")
+        budget(required: false, description: "budget related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+        selected_budget(required: true, description: "selected budget campaign Modal campaign")
+        select_budget_pct(required: true, description: "select budget pct Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
+
     }
 
     "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
         multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        budget(required: true, description: "Budget related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+        selected_budget(required: true, description: "selected budget campaign Modal campaign")
+        select_budget_pct(required: true, description: "select budget pct Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
     }
 
     // Multicampaña - Sads New
