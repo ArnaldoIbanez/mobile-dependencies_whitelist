@@ -1307,19 +1307,19 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
-    "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         sellerCentralCatalogOptinGroup
         sellerCentralCatalogOptinTaskGroup
     }
 
-    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         sellerCentralCatalogOptinGroup
         sellerCentralCatalogOptinTaskGroup
     }
 
     "/seller_central/catalog/optin/product_problem"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         reason(required: true, type: PropertyType.String, description: "Reason of problem with the product", values: ["PRODUCT_ERRORS", "KIT", "OTHER"])
         sellerCentralCatalogOptinGroup
     }
@@ -1404,7 +1404,7 @@ tracks {
 
     "/seller_central/catalog/optin/other_product_problem/product_problem_description_task"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         product_problem_reason(required: true, type: PropertyType.String, description: "Reason of other problem with the product")
         sellerCentralCatalogOptinGroup
     }
