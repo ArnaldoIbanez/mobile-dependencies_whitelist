@@ -477,6 +477,8 @@ tracks {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
 
-    "/insurtech/protections/detail/roda/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) { }
+    "/insurtech/protections/detail/roda/congrats/imei"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the protection.")
+     }
 
 }
