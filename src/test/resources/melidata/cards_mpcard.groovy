@@ -785,6 +785,13 @@ trackTests {
     }
 
     // Request: Challenge
+
+    test("cards mpcard request physical challenge success") {
+        "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
+    }
+
     test("cards mpcard request physical challenge") {
         "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     }

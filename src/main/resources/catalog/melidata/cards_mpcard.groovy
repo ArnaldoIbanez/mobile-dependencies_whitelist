@@ -711,6 +711,15 @@ tracks {
 
     // Request: Challenge
     "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+
+    "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
+
     "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
