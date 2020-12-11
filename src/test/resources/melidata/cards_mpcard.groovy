@@ -785,6 +785,13 @@ trackTests {
     }
 
     // Request: Challenge
+
+    test("cards mpcard request physical challenge success") {
+        "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
+    }
+
     test("cards mpcard request physical challenge") {
         "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     }
@@ -871,7 +878,9 @@ trackTests {
 
     // Request: Success Physical
     test("cards mpcard physical success event"){
-        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
     }
 
     // CARD IDENTIFICATION
@@ -903,7 +912,9 @@ trackTests {
 
     // Request: Success Virtual
     test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_physical_first_whitelist"]
+        }
     }
 
     test ("mpcard Setup") {
@@ -918,11 +929,6 @@ trackTests {
         "/cards/mp-card/mpcard/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
              deviceType = "desktop"
         }
-    }
-    
-    // Request: Success Virtual
-    test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
     }
 
     //COACHMARK
