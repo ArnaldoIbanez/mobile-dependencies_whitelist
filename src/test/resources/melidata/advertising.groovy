@@ -479,7 +479,33 @@ trackTests {
         }
 
     }
-
+    test("Advertising Dynamic budget update "){
+        "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
+        }
+        "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+            budget_type = "D"
+            selected_budget = 2500
+            select_budget_pct = "18.8"
+            selected_budget_type = "D"
+        }
+    }
+    test("Advertising Dynamic budget ") {
+        "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+        }
+        "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+            budget_type = "D"
+        }
+        "/advertising/pads2/manager/budget/tooltip/edit_new"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+        }
+    }
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
             winners_suggested = "20"
@@ -1023,12 +1049,20 @@ trackTests {
             campaign_id = "2222222"
             budget_previous = 4000
             budget_new = 5600
+            budget_type = "D"
+            selected_budget = 2500
+            select_budget_pct = "18.8"
+            selected_budget_type = "D"
         }
 
         "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
             multi = true
             campaign_id = "2222222"
             budget = "4000"
+            budget_type = "D"
+            selected_budget = 2500
+            select_budget_pct = "18.8"
+            selected_budget_type = "D"
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {

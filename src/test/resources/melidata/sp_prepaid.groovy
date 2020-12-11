@@ -597,6 +597,33 @@ trackTests {
             mandatory()
         }
 
+        // Not Allowed Version error
+        "/single_player/prepaid/error/not_allowed_version"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/error/not_allowed_version/not_allowed_version"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/error/not_allowed_version/go_to_store"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Not Enough money
+        "/single_player/prepaid/error/not_enough_money"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/not_enough_money"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
 
         // Shield
         "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {
@@ -1213,6 +1240,34 @@ trackTests {
         }
 
 
+        // Not Allowed Version error
+        "/single_player/prepaid/error/not_allowed_version"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/error/not_allowed_version/not_allowed_version"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/error/not_allowed_version/go_to_store"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Not Enough money
+        "/single_player/prepaid/error/not_enough_money"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/error/not_enough_money/not_enough_money"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
         // Shield
         "/single_player/prepaid/shield"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
@@ -1395,6 +1450,46 @@ trackTests {
         }
 
 
+        // Break New Plate
+        "/single_player/paygo/break_new_plate"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/break_new_plate/new_activation_number"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/break_new_plate/activate_activation_number"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Challenge KYC
+        "/single_player/paygo/challenge_kyc"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        // New activation number
+        "/single_player/paygo/new_activation_number"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+
+        // New activation number not allowed
+        "/single_player/paygo/new_activation_number_not_allowed"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+        "/single_player/paygo/new_activation_number_not_allowed/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
         // Break Freeways Available
         "/single_player/paygo/break_freeways_available"(platform: "/mobile", type: TrackType.View) {
             mandatory()
@@ -1426,6 +1521,25 @@ trackTests {
             view_time()
         }
 
+
+        // Add device number
+        "/single_player/paygo/add_activation_number"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/add_activation_number/add_activation_number"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
         // Add device number
         "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {
@@ -1509,6 +1623,10 @@ trackTests {
             view_time()
         }
         "/single_player/paygo/review_new_device/edit_device_number"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/review_new_device/edit_activation_number"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1989,6 +2107,29 @@ trackTests {
         }
 
 
+        // Break New Plate
+        "/single_player/paygo/break_new_plate"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/break_new_plate/new_activation_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/break_new_plate/activate_activation_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Challenge KYC
+        "/single_player/paygo/challenge_kyc"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+
         // Break Freeways Available
         "/single_player/paygo/break_freeways_available"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
@@ -2016,6 +2157,44 @@ trackTests {
             view_time()
         }
         "/single_player/paygo/freeways_available/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // New activation number
+        "/single_player/paygo/new_activation_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+
+        // New activation number not allowed
+        "/single_player/paygo/new_activation_number_not_allowed"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+        "/single_player/paygo/new_activation_number_not_allowed/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Add activation number
+        "/single_player/paygo/add_activation_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/add_activation_number/add_activation_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -2103,6 +2282,10 @@ trackTests {
             view_time()
         }
         "/single_player/paygo/review_new_device/edit_device_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/review_new_device/edit_activation_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }

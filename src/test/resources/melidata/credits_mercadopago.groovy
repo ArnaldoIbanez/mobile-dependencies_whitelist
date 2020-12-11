@@ -1563,6 +1563,7 @@ trackTests {
             total_amount = 14000
             installments_id = [ 1002, 1003, 1004]
             user_type = "consumer"
+            debt_relief_amount = 6000
         }
 
         "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
