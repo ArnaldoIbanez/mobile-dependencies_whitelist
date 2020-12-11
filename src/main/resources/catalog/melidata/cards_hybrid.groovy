@@ -1114,7 +1114,7 @@ tracks {
     }
     // PAYMENTS-NFC
     // -------------------
-    "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
         result (
             required: true,
             type: PropertyType.String,

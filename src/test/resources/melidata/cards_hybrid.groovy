@@ -1190,11 +1190,11 @@ trackTests {
     // NFC Payment
     test("cards hybrid nfc payment") {
         "/cards/nfc/payment"(platform:"/", type: TrackType.View) {}
-        "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
             result = "error_payment"
             reasons = "payment is not allowed as SDK initialization is ongoing"
         }
-        "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
             result = "error_payment"
             reasons = "payment is not allowed as SDK is not initialized"
         }
