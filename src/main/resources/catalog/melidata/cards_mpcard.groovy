@@ -768,7 +768,13 @@ tracks {
         )
     }
     // Request: Success Physical
-    "/cards/mpcard/request/physical/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/mpcard/request/physical/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
     
     // CARD IDENTIFICATION
     // --------
@@ -814,7 +820,13 @@ tracks {
     } 
 
     // Request: Success Virtual
-    "/cards/mpcard/request/virtual/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/mpcard/request/virtual/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
 
     //COACHMARK
     // --------

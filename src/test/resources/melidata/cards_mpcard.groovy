@@ -913,11 +913,6 @@ trackTests {
              deviceType = "desktop"
         }
     }
-    
-    // Request: Success Virtual
-    test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
-    }
 
     //COACHMARK
     // --------
