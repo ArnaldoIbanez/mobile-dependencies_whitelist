@@ -865,7 +865,9 @@ trackTests {
 
     // Request: Success Physical
     test("cards mpcard physical success event"){
-        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
     }
 
     // CARD IDENTIFICATION
@@ -897,7 +899,9 @@ trackTests {
 
     // Request: Success Virtual
     test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_physical_first_whitelist"]
+        }
     }
 
     test ("mpcard Setup") {
