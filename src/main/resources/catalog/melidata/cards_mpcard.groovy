@@ -711,6 +711,15 @@ tracks {
 
     // Request: Challenge
     "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+
+    "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
+
     "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -728,6 +737,17 @@ tracks {
             type: PropertyType.String,
             values: ["back", "add_money", "info_payment"],
             description: "action tap by the user in the pending challenge view"
+        )
+    }
+
+    // Request: Expired Challenge
+    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+        action(
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "continue"],
+            description: "action tap by the user in the expired challenge view"
         )
     }
 
@@ -759,7 +779,13 @@ tracks {
         )
     }
     // Request: Success Physical
-    "/cards/mpcard/request/physical/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/mpcard/request/physical/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
     
     // CARD IDENTIFICATION
     // --------
@@ -805,7 +831,13 @@ tracks {
     } 
 
     // Request: Success Virtual
-    "/cards/mpcard/request/virtual/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/mpcard/request/virtual/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
 
     //COACHMARK
     // --------
@@ -826,6 +858,18 @@ tracks {
             type: PropertyType.String,
             description: "Coachmark identificator"
         )
+    }
+    
+    "/cards/mpcard/contingency"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/contingency/nip"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/contingency/nip/physical"(platform:"/mobile", type: TrackType.View) {}
+    "/cards/mpcard/contingency/nip/physical/tap"(platform:"/mobile", type: TrackType.Event) { 
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back_button"],
+            description: "Cards contingency nip tap"
+            )
     }
 
 }

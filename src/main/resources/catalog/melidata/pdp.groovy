@@ -116,6 +116,7 @@ tracks {
     }
 
     def highlights_definition  = objectSchemaDefinitions {
+        id(required: false, type: PropertyType.String, description: "Id of the highlight")
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
         melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
@@ -649,5 +650,18 @@ tracks {
     }
 
     "/pdp/technical_specs/view_more"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/technical_specs_features"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        is_highlighted(required: true, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        seller_id(required: false, type: PropertyType.Numeric, description: "The Id of the seller")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
+    }
+
+    "/pdp/technical_specs_features/view_more"(platform: "/", parentPropertiesInherited: true) {
     }
 }

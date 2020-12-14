@@ -181,9 +181,10 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
-        
+
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
         //Event Mobile
@@ -664,12 +665,12 @@ trackTests {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
@@ -697,7 +698,7 @@ trackTests {
         "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
             is_partial_amount = true
@@ -710,7 +711,7 @@ trackTests {
         "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }
@@ -721,6 +722,29 @@ trackTests {
 
         "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+            bulk_amount = 7000
+            total_amount = 14000
+            min_amount = true
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+            bulk_amount = 7000
+            total_amount = 14000
+            installments_id = [ 1002, 1003, 1004]
+            user_type = "consumer"
+            debt_relief_amount = 6000
+        }
+
+        "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
         }
 
         /******************************************

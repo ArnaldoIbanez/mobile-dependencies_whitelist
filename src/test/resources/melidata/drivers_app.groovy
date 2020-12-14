@@ -194,6 +194,17 @@ trackTests {
             defaultLocation()
         }
 
+        "/driver/stops/toc"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultLocation()
+        }
+
+        "/driver/stops/toc/save"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultLocation()
+            problem_description = "vehicle_problem"
+        }
+
         "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
             defaultDeliveryData()
             defaultPackInfo()
@@ -283,6 +294,88 @@ trackTests {
             stop_order = 4
             defaultLocation()
             error_type = "PERMISSION_DENIED"
+        }
+    }
+
+    test("MercadoEnvíos - Driver Apps - Testing Delivery Flow") {
+        def defaultDeliveryData = {
+            route_info = [
+                    route_id : "323232",
+                    route_status : "active",
+                    facility_id : "SMX1",
+                    route_type : "LM",
+                    vehicle_id : "dyuwduw"
+            ]
+        }
+
+        def defaultPackInfo = {
+            packs_info = [
+                    [
+                            sender_id: "12345",
+                            shipment_id: "1234456",
+                            shipment_substatus: "test",
+                            receiver_info: [
+                                    id: "123",
+                                    geo_type: "ROOFTOP",
+                                    delivery_preference: "residential",
+                                    latitude: "-36.34443",
+                                    longitude: "-35.34332"
+                            ]
+                    ]
+            ]
+        }
+
+        def defaultLocation = {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
+        def defaultStopOrder = 3
+
+        "/driver/delivery/receipt"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+        }
+
+        "/driver/delivery/receipt/selection"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+            receiver_type = "reception"
+        }
+
+        "/driver/delivery/receiver_info"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+            receiver_type = "reception"
+        }
+
+        "/driver/delivery/delivery_ok"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+            receiver_type = "reception"
+            doc_type = "CURP"
+        }
+
+        "/driver/delivery/undeliver_reason"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+        }
+
+        "/driver/delivery/undelivery_ok"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+            selected_reason = "nobody_address"
         }
     }
 }
