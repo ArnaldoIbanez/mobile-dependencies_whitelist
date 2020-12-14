@@ -505,7 +505,14 @@ trackTests {
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
             promise = 'view_promise'
-
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'overdue'
+            promise = 'view_debt_relief'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'overdue'
+            promise = 'create_debt_relief'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'empty'
@@ -1073,28 +1080,28 @@ trackTests {
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
 
         "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-            flow = "open_sea_mp"
+            flow = "fixed_term_loan_collect"
         }
 
-        "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
 
-        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
             flow = "consumer"
         }
 
-        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
 
-        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+        "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
             flow = "merchant"
         }
 
-        "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/stop/faqs_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
 
-        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+        "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
             flow = "generic"
         }
 
@@ -1442,6 +1449,7 @@ trackTests {
 
         "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
 
         /******************************************
@@ -1537,6 +1545,29 @@ trackTests {
 
         "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+            bulk_amount = 7000
+            total_amount = 14000
+            min_amount = true
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+            bulk_amount = 7000
+            total_amount = 14000
+            installments_id = [ 1002, 1003, 1004]
+            user_type = "consumer"
+            debt_relief_amount = 6000
+        }
+
+        "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
         }
 
         /******************************************

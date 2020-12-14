@@ -72,11 +72,6 @@ trackTests {
             user_birthday = true
             user_likes = true
         }
-
-        "/register/user_delete"(platform: "/"){
-            application_source = "registration"
-            reason = "register_not_validated"
-        }
     }
 
     test("Register Web") {
@@ -137,38 +132,6 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             geo_location_code = 1
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect"(platform:"/web/desktop") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/mobile") {
-            app = "registration"
-            source = "facebook"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/email-register-selected"(platform:"/web/desktop") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/login-selected"(platform:"/web/mobile") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
 
@@ -473,16 +436,6 @@ trackTests {
             item_id = "MLM23143"
         }
 
-        "/register/form/company-link"(platform: "/mobile"){
-            app = "normal"
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/person-link"(platform: "/mobile"){
-            app = "normal"
-            registration_version = "regi_v0_web"
-        }
-
         "/register/congrats/complete-fiscal-data"(platform: "/mobile"){
             app = "normal"
             register_type = "company"
@@ -532,103 +485,6 @@ trackTests {
         }
     }
 
-    test("Phone registration") {
-        "/register/phone_registration/get_phone"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/get_phone/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'identification_phone'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/additional_data"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/additional_data/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'first_name'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/get_email"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/get_email/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'email'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/verification"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-        }
-
-        "/register/phone_registration/verification/error"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'verification_code'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/phone_already_registered"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/send_code"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/resend_code"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/email_link"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/verification/autodetect_code"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-        }
-
-        "/register/phone_registration/sign_in"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/create_account"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/success"(platform:"/mobile") {
-            app = "mp"
-            source = "phone"
-        }
-    }
 
     test("Landing mercadopago home") {
         "/landing/home" (platform: "/web") {}
@@ -3089,6 +2945,19 @@ trackTests {
         "/bill_payments/search_error"(platform: "/mobile") {
             mandatory()
         }
+
+        // Contingency screen
+        "/bill_payments/contingency_screen"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/contingency_screen/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
     }
 
     test("Fund account") {
@@ -3489,26 +3358,11 @@ trackTests {
             is_otp = false
             is_admin_otp = false
         }
-       "/login/auth/challenge_decline"(platform: "/", type: TrackType.View) {
-            challenge = "pass"
-            source = "QUESTION"
-            tx = "tx"
-            operator_id = null
-        }
         "/logout"(platform: "/", type: TrackType.Event) {
             source = "MSL"
         }
         "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
             error = "network"
-        }
-    }
-    test("App authorization tracks") {
-        "/oauth/authorization/form"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-        }
-        "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-            authorize = true
         }
     }
 
@@ -3627,10 +3481,6 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-            is_webview = true
-        }
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
@@ -3651,26 +3501,6 @@ trackTests {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "continue_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-            status_code = "429"
-            is_webview = true
-        }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-            status_code = "403"
             is_webview = true
         }
     }
@@ -3764,64 +3594,6 @@ trackTests {
             id = "id"
             event_type = "submit"
             target = "enter_code"
-        }
-    }
-
-    test("Phone Enrollment flow") {
-        "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
-            redirect_url = 'www.mercadopago.com'
-            flow_type = 'sms_enrollment'
-            flow_sub_type = 'ULTIMATUM'
-        }
-        "/auth/recovery/phone/save"(platform: "/web", type: TrackType.Event) {
-            redirect_url = "www.mercadopago.com"
-            selected_phone_source = "manual"
-            verified = false
-            flow_type = "sms_enrollment"
-            flow_sub_type = "LOGIN"
-            visual_validation_allowed = true
-        }
-        "/auth/recovery/phone/verified"(platform: "/web", type: TrackType.Event) {
-            redirect_url = "www.mercadopago.com"
-            selected_phone_source = "manual"
-            flow_type = "sms_enrollment"
-            flow_sub_type = "LOGIN_NOTIF"
-        }
-        "/auth/phone_confirmation"(platform: "/", type: TrackType.Event) {
-            event = "confirm"
-        }
-    }
-
-    test("Authenticators") {
-        "/auth/authentication_factors/sms"(platform: "/web", type: TrackType.Event) {
-            event = "method_selector"
-            flow_type = 'sms_enrollment'
-            reauthentication = true
-            risk_context = false
-            sms_option = true
-            call_option = true
-            push_option = false
-            option_selected = "sms"
-        }
-        "/auth/authentication_factors/primary_email"(platform: "/web", type: TrackType.Event) {
-            event = "start_validation"
-            flow_type = 'sms_enrollment'
-            reauthentication = false
-            risk_context = true
-            option_selected = "primary_email"
-            primary_email_option = true
-            domain = "gmail"
-        }
-        "/auth/authentication_factors/social_connect"(platform: "/web", type: TrackType.Event) {
-            event = "close_validation"
-            flow_type = 'sms_enrollment'
-            reauthentication = true
-            risk_context = true
-            option_selected = "microsoft_connect"
-            google_connect_option = true
-            domain = "gmail"
-            is_google_account_of_different_user = "false"
-            authenticator = "emailValidation"
         }
     }
 
@@ -4469,13 +4241,6 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
-        }
-    }
-
-    test("Push Notification") {
-        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {}
-        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
-            notified_user = "123"
         }
     }
 

@@ -785,6 +785,13 @@ trackTests {
     }
 
     // Request: Challenge
+
+    test("cards mpcard request physical challenge success") {
+        "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
+    }
+
     test("cards mpcard request physical challenge") {
         "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     }
@@ -810,6 +817,19 @@ trackTests {
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "info_payment"
+        }
+    }
+
+    // Request: Expired Challenge
+    test("cards mpcard request physical expired challenge") {
+        "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard request physical pending challenge tap") {
+        "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
         }
     }
 
@@ -858,7 +878,9 @@ trackTests {
 
     // Request: Success Physical
     test("cards mpcard physical success event"){
-        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
     }
 
     // CARD IDENTIFICATION
@@ -890,7 +912,9 @@ trackTests {
 
     // Request: Success Virtual
     test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_physical_first_whitelist"]
+        }
     }
 
     test ("mpcard Setup") {
@@ -905,11 +929,6 @@ trackTests {
         "/cards/mp-card/mpcard/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
              deviceType = "desktop"
         }
-    }
-    
-    // Request: Success Virtual
-    test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
     }
 
     //COACHMARK
@@ -929,6 +948,15 @@ trackTests {
             action = "previous"
             step = 2
             id = "dashboard_physical"
+        }
+    }
+
+    //Contingency
+    test("Cards contingency tests"){
+        "/cards/mpcard/contingency/nip/physical"(platform: "/mobile", type: TrackType.View) {}
+
+        "/cards/mpcard/contingency/nip/physical/tap"(platform: "/mobile", type: TrackType.Event) {
+            action = "back_button"
         }
     }
 }

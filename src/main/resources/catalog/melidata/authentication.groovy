@@ -19,7 +19,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1127"
+    initiative = "1254"
 
     "/login"(platform: "/", isAbstract: true) {
 	    flow(type: PropertyType.String, required: false)
@@ -94,13 +94,6 @@ tracks {
         challenge(type: PropertyType.String, required: true, description: "Login step")
         is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
-    }
-
-    "/login/auth/challenge_decline"(platform: "/", type: TrackType.View) {
-        challenge(type: PropertyType.String, required: true, description: "Login step")
-        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
-        tx(type: PropertyType.String, required: true)
-        operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
     }
 
     // New Multi Step Login Android
@@ -188,23 +181,11 @@ tracks {
 
     "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/oauth"(platform: "/", isAbstract: true) {}
-
-    "/oauth/authorization"(platform: "/", isAbstract: true) {}
-
-    "/oauth/authorization/form"(platform: "/", type: TrackType.View) {
-        source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
-    }
-
-    "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
-        authorize(type: PropertyType.Boolean, required: true)
-    }
-
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}
 
     //Security Feedback
-    "/login/auth/feedback"(platform: "/", type: TrackType.Event) {
+    "/login/auth/feedback"(platform: "/", type: TrackType.Event, initiative: 1127) {
         view(type: PropertyType.String, required: true, description: "Current Feedback step name where the action is taking place")
         event_type(type: PropertyType.String, required: true, description: "Describes user action in current step")
         view_type(type: PropertyType.String, required: false, description: "Feedback step flavor, dependent on user answer")
@@ -222,7 +203,6 @@ tracks {
 
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/phone_number_verification"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
@@ -236,19 +216,8 @@ tracks {
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
-    "/auth/account_recovery/phone_number_verification/action"(platform: "/", type: TrackType.Event) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-    }
-
-    "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-        status_code(type: PropertyType.String, required: true, description: "Describes relation between this view and current status code")
-    }
-
     //TOTP
-    "/auth/totp"(platform: "/", isAbstract: true) {
+    "/auth/totp"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
@@ -315,7 +284,7 @@ tracks {
     }
 
     //Attestation App
-    "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
+    "/auth/attestation"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
 
     "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
         mode(type: PropertyType.String, required: false, description: "In which mode attestation was started" , values:['publish_result', 'prefetch_only', 'cache_only'])
@@ -348,33 +317,6 @@ tracks {
     //SMS Enrollment
     "/auth/recovery"(platform: "/", isAbstract: true) {}
 
-    "/auth/recovery/phone"(platform: "/", isAbstract: true) {
-        redirect_url(type: PropertyType.String, required: true, description: "Go to Url after enrollment")
-        flow_type(type: PropertyType.String, required: true, description: "Current enrollment flow type")
-        flow_sub_type(type: PropertyType.String, required: false, description: "Name that represents previous flow")
-    }
-
-    "/auth/recovery/phone/registration"(platform: "/", type: TrackType.Event) {}
-
-    "/auth/recovery/phone/save"(platform: "/", type: TrackType.Event) {
-        selected_phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
-        verified(type: PropertyType.Boolean, required: true, description: "Is selected phone already verified")
-        visual_validation_allowed(type: PropertyType.Boolean, required: true, description: "Is phone available for visual validation")
-    }
-
-    "/auth/recovery/phone/verified"(platform: "/", type: TrackType.Event) {
-        selected_phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
-    }
-
-    "/auth/phone_confirmation"(platform: "/", type: TrackType.Event) {
-        event(type: PropertyType.String, required: true, description: "Describes which step is user doing in phone confirmation flow")
-    }
-
-    // Push Notification
-    "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
-        notified_user(type: PropertyType.String, required: false)
-    }
-
     // Authenticators
     "/auth/authentication_factors"(platform: "/", isAbstract: true) {
         event(type: PropertyType.String, required: true, description: "Describes which step is user doing in authentication flow")
@@ -386,31 +328,11 @@ tracks {
         domain(type: PropertyType.String, required: false, description: "Describes email domain")
     }
 
-    "/auth/authentication_factors/sms"(platform: "/", type: TrackType.Event) {
-        sms_option(type: PropertyType.Boolean, required: true, description: "Is SMS available to authenticate user")
-        call_option(type: PropertyType.Boolean, required: true, description: "Is CALL available to authenticate user")
-        push_option(type: PropertyType.Boolean, required: true, description: "Is PUSH available to authenticate user")
-    }
-
-    "/auth/authentication_factors/primary_email"(platform: "/", type: TrackType.Event) {
-        primary_email_option(type: PropertyType.Boolean, required: true, description: "Is email available to authenticate user")
-        is_google_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
-        is_microsoft_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
-        email_id(type: PropertyType.String, required: false, description: "Email identification")
-    }
-
-    "/auth/authentication_factors/social_connect"(platform: "/", type: TrackType.Event) {
-        microsoft_connect_option(type: PropertyType.Boolean, required: false, description: "Is microsoft connect available to authenticate user")
-        primary_email_option(type: PropertyType.Boolean, required: false, description: "As a fallback for social connect")
-        google_connect_option(type: PropertyType.Boolean, required: false, description: "Is google connect available to authenticate user")
-        is_google_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
-        is_microsoft_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
-    }
-
+    "/authenticators"(platform: "/", isAbstract: true, ) {}
+    
     // Device Authorization Authenticator
-    "/authenticators"(platform: "/", isAbstract: true) {}
 
-    "/authenticators/device_authorization"(platform: "/", isAbstract: true) {}
+    "/authenticators/device_authorization"(platform: "/", isAbstract: true, initiative: 1127) {}
 
     "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
 
@@ -495,6 +417,8 @@ tracks {
         action(type: PropertyType.String, required: true,values: ["confirm", "change_number"], description: "Option selected about current phone")
     }
 
+    "/authenticators/phone_validation/max_attempts"(platform: "/", type: TrackType.View) {}
+
     // Email Validation Authenticator
 
     "/authenticators/email_validation"(platform: "/", isAbstract: true) {
@@ -538,7 +462,7 @@ tracks {
     }
 
     // Biometrics / Screenlock
-    "/screenlock"(platform: "/mobile", isAbstract: true) {
+    "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1127) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
     }
@@ -593,6 +517,7 @@ tracks {
     }
 
     // IFPE Auth restrictions & Reauth errors
+    "/auth/restrictions"(platform: "/", isAbstract: true, initiative: 1127) {}
     "/auth/restrictions"(platform: "/", type: TrackType.View) {}
     "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
         retry_url_present(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")

@@ -12,11 +12,12 @@ tracks {
     //Myaccount_Billing
     "/myaccount"(type: TrackType.View, isAbstract: true) {}
     "/myaccount/billing"(type: TrackType.View, isAbstract: true) {}
-    "/myaccount/billing/summary"(type: TrackType.View) {
+    "/myaccount/billing/summary"(platform: "/") {
         bills_to_pay(type: PropertyType.Numeric, required: true)
         total_debt(type: PropertyType.Numeric, required: true)
         has_automatic_debit(type: PropertyType.Boolean, required: true)
-        completed(type: PropertyType.Boolean, required: true)
+        is_subscription_user(type: PropertyType.Boolean, required: true)
+        type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
 
     }
     "/myaccount/billing/detail"(platform: "/") {
@@ -28,6 +29,9 @@ tracks {
         is_open_bill(type: PropertyType.Boolean, required: true, description: "Indicates if is an open bill")
         is_paid_bill(type: PropertyType.Boolean, required: true, description: "Indicates if is a paid bill")
         user_can_pay(type: PropertyType.Boolean, required: true, description: "Indicates if the user can pay the bill")
+        type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
+    }
+     "/myaccount/billing/reports"(platform: "/") {
         type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
     }
 }

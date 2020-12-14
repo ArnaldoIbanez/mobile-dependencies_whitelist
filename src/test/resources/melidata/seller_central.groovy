@@ -635,6 +635,42 @@ trackTests {
     }
   }
 
+  test("seller central showing detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "show"
+    }
+  }
+
+  test("seller central confirm detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "confirm"
+    }
+  }
+
+  test("seller central cancel detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "cancel"
+    }
+  }
+
   test("seller central render detail quick_edit_standard for motors"){
     "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event){
       item_type = "default"
@@ -2080,6 +2116,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2099,6 +2136,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2190,6 +2228,36 @@ trackTests {
     }
   }
 
+   test("seller central catalog optin product v0 resume card showed"){
+    "/seller_central/catalog/optin/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
   test("seller central catalog invalid product page view") {
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
       item_id = "MLA123"
@@ -2206,6 +2274,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2225,6 +2294,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2244,6 +2314,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2335,6 +2406,36 @@ trackTests {
     }
   }
 
+  test("seller central catalog optin moderated product resume card showed"){
+    "/seller_central/catalog/optin/optin_moderated/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
   test("seller central catalog optin_moderated congrats page view") {
     "/seller_central/catalog/optin/optin_moderated/congrats"(platform: "/web", type: TrackType.View) {
       item_id = "MLA123"
@@ -2352,6 +2453,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2373,6 +2475,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2453,6 +2556,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2559,6 +2663,7 @@ trackTests {
       variation_id = 49478478975
       seller_profile = "INTERMEDIATE"
       invalid_product_cause = null
+      list_mode = "OPTIN"
     }
   }
 
@@ -2887,6 +2992,22 @@ trackTests {
       item_status = "inactivo"
       question_date_created = "2020-11-08T05:00:00"
       question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central open modal advice Questions") {
+    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central open modal stock Questions") {
+    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_date_action = "2020-11-08T10:30:00"
     }
   }
 
@@ -3273,6 +3394,43 @@ trackTests {
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
+    }
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Optinator New Listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Seller Central - Optinator - New Listing - Optined item") {
+    "/seller_central/optinator/new_listing/end"(platform: "/web", type: TrackType.Event) {
+      flow = "new_listing"
+      domain_id = "MLA-CELLPHONES"
+      item_mk_id = "MLA899085795"
+      item_mk_status = "active"
+      item_mk_sub_status = []
+      item_mk_tags = ["test_item", "immediate_payment", "cart_eligible"]
+      processing_data = [
+              item_cat_id: "MLA899086757",
+              catalog_product_id: "MLA15149561",
+              match_type: "SELLER",
+              safe_match: true,
+              status: "success",
+              is_already_optined: false
+      ]
+      variations = [
+              [
+                      id: "67914990318",
+                      processing_data: [
+                              item_cat_id: "MLA896825803",
+                              catalog_product_id: "MLA10205674",
+                              match_type: "SELLER",
+                              safe_match: true,
+                              status: "success",
+                              is_already_optined: false
+                      ]
+              ]
+      ]
     }
   }
 }
