@@ -417,6 +417,8 @@ tracks {
         action(type: PropertyType.String, required: true,values: ["confirm", "change_number"], description: "Option selected about current phone")
     }
 
+    "/authenticators/phone_validation/max_attempts"(platform: "/", type: TrackType.View) {}
+
     // Email Validation Authenticator
 
     "/authenticators/email_validation"(platform: "/", isAbstract: true) {
