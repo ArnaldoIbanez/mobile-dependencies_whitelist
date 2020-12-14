@@ -39,6 +39,8 @@ tracks {
             description: "Indicates the source url if when found a broken link")
         portal_broken_link_destination_url(required: false, type: PropertyType.String, 
             description: "Indicates the destination url if when found a broken link")
+        portal_content_transactional_data(required: false, type: PropertyType.String, 
+            description: "Indicates the transactional data include in a url")
     }
 
     propertyGroups {
@@ -52,6 +54,7 @@ tracks {
         portal_broken_link_error(portal_broken_link_error)
         portal_broken_link_source_url(portal_broken_link_source_url)
         portal_broken_link_destination_url(portal_broken_link_destination_url)
+        portal_content_transactional_data(portal_content_transactional_data)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -177,11 +180,18 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/support/widget/folder/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
+    }
+
     "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
         portal_source_id
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+    }
+    "/support/widget/folder_rules/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
     }
 
     "/support/widget/home"(platform: "/", type: TrackType.View) {
@@ -209,6 +219,10 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+    }
+
+    "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
