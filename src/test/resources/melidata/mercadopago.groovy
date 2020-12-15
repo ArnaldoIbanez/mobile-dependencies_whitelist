@@ -554,7 +554,7 @@ trackTests {
           price = 299
           is_guest = true
           has_coupon = true
-          coupon_code = "GHZM"
+          discount_code = "GHZM"
           user_id = 5010815
           e2e_test = false
         }
@@ -564,6 +564,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -574,6 +575,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -584,6 +586,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -594,6 +597,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -604,6 +608,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -614,6 +619,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -624,6 +630,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -634,6 +641,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -644,6 +652,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -657,6 +666,7 @@ trackTests {
           is_guest = true
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
+          discount_code = "GHZM"
           installments = 6
           user_id = 5010815
           e2e_test = false
@@ -670,6 +680,7 @@ trackTests {
           is_guest = true
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
+          discount_code = "GHZM"
           installments = 6
           user_id = 5010815
           e2e_test = false
@@ -681,6 +692,7 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
+          discount_code = "GHZM"
           error_code = 6
           user_id = 5010815
           e2e_test = false
@@ -691,6 +703,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -701,6 +714,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -711,6 +725,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
