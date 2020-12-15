@@ -16,6 +16,7 @@ trackTests {
             is_carrito = true
             reservation = true
             subscription = true
+            auto_purchase = true
 
             seller = [[ id: 135201044, nickname: "XXXXXX" ]]
             buyer = [ id: 75961818, nickname: "YYYYYY" ]

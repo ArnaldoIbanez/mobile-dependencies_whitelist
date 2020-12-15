@@ -44,8 +44,23 @@ tracks {
     "/home/back"(platform: "/mobile") {
     }
 
-    "/home/navigation_history"(platform: "/mobile"){
+    "/home/navigation_history"(platform: "/") {
+        privacy_config_state(required: false, type: PropertyType.Boolean)
+    }
 
+    "/home/navigation_history/privacy_config_on"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/privacy_config_off"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/remove_all"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/remove"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String)
+        product_id(required: false, type: PropertyType.String)
+        parent_product_id(required: false, type: PropertyType.String)
     }
 
     "/home/pulltorefresh"(platform: "/mobile", type: TrackType.Event) {
@@ -98,6 +113,7 @@ tracks {
     "/home/category"(platform: "/", type: TrackType.View) {
         category_id(required: true,  description: "Home's category")
         category_path(required: true, description: "Category path of this category home")
+        last_modified(required: false, description: "Date of last modification")
     }
 
     // Real estate page view
@@ -207,4 +223,18 @@ tracks {
     "/home/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
 
     "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
+
+
+    "/home_com"(platform: "/", type: TrackType.View) {}
+
+    "/home_com/site_click"(platform: "/", type: TrackType.Event) {
+        site_click(required: true, type: PropertyType.String)
+    }
+
+    "/home/category/real_estate/request_contract"(platform: "/", type: TrackType.View) {}
+
+    "/home/advertising"(platform: "/", type: TrackType.Event) {}
+
+    "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+
 }

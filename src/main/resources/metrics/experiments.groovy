@@ -5,7 +5,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 metrics {
 
 	
-	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best") {
+	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best", deprecation_date:"2020/08/12") {
         startWith {
             experiment("loyalty/buy-level-installments")
         }
@@ -20,7 +20,7 @@ metrics {
 		}
 	}
 
-	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user") {
+	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user", deprecation_date:"2020/08/12") {
 		startWith {
 			experiment("auth/identity-validation_recommendation")
 		}
@@ -37,8 +37,5 @@ metrics {
 			}
 		}
 	}
-
-
-
 
 }

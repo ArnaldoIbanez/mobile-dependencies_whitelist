@@ -15,17 +15,34 @@ the name for the section must be the experiment name where the property will be 
 
 metrics {
 
-    "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
+
+    // =======================================================================
+    //  Deprecated Properties
+    // =======================================================================
+
+    "buyingflow/accountmoney_not_bep"(description: "define properties for order_id", deprecation_date:"2020/08/12") {
+        startWith {
+            set_property("order_id", "event_data.order_id")
+        }
+    }
+
+    "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment", deprecation_date:"2020/08/12") {
         startWith {
             set_property("item_id", "event_data.item_id")
         }
     }
 
-    "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment") {
+    "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment", deprecation_date:"2020/08/12") {
         startWith {
             set_property("item_id", "event_data.item_id")
         }
     }
+
+
+
+    // =======================================================================
+    //  Active Properties
+    // =======================================================================
 
     "qadb/qadb-on-viewport"(description: "define properties for catalog_product_id qadb viewport experiment") {
         startWith {
@@ -49,11 +66,6 @@ metrics {
         }
     }
 
-    "buyingflow/accountmoney_not_bep"(description: "define properties for order_id") {
-        startWith {
-            set_property("order_id", "event_data.order_id")
-        }
-    }
 
     "search_properties"(description: "define properties for order_id") {
         startWith {
@@ -85,10 +97,11 @@ metrics {
         }
     }
 
-    "insurtech_properties"(description: "define properties for insurtech experiments") {
+    "new_congrats_properties"(description: "define properties for order_id in new_congrats experiments") {
         startWith {
-            set_property("item_id", "event_data.item.id")
-            experiment(regex("insurtech/.*"))
+            set_property("order_id", "event_data.order_id")
+            experiment(regex("buyingflow/new_congrats.*"))
         }
     }
+
 }

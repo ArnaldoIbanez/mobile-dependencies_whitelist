@@ -1,13 +1,13 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMotors|buyingflow/reservationMLAv5|sell/congrats_upgrade_listing_type|vip/servicesNewDesignMobileMLA|vip/servicesNewDesignDesktopMLA|search.*|vip/realEstate.*)"
+def searchVipClassifiedExperiments = "((search|vip|classifieds|vis)/.*)|(pdp/viewItemPageMigration.*)|(sparkle/vis.*)"
 
 metrics {
 
 	"reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
 
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -21,6 +21,9 @@ metrics {
 	}
 
 	"vip/reservation_intention"(description: "track vip reservations init process for classifieds") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
 		countsOn {
 			condition {
 				path("/vip/reservation_intention")
@@ -30,11 +33,11 @@ metrics {
 
 	"seller_contacted"(description: "track vip contact seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/vip/contact_seller")
+				path("/vip/call_seller", "/vip/contact_seller", "/vip/contact_whatsapp")
 			}
 		}
 	}
@@ -42,31 +45,31 @@ metrics {
 
 	"classifieds_user_contact"(description: "track vip user interaction as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller")
+				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller", "/vip/contact_whatsapp")
 			}
 		}
 	}
 
 	"classifieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/questions/ask/post")
+				path("/vip/call_seller", "/questions/ask/post", "/vip/contact_whatsapp")
 			}
 		}
 	}
 
 	"call_seller"(description: "track vip call seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -78,7 +81,7 @@ metrics {
 
 	"show_phone"(description: "track vip show phone as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -90,7 +93,7 @@ metrics {
 
 	"contact_seller"(description: "track vip contact seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -100,7 +103,23 @@ metrics {
 		}
 	}
 
+	"contact_whatsapp"(description: "track vip contact whatsapp as success for classifieds") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/contact_whatsapp")
+			}
+		}
+	}
+
+
 	"quotations"(description: "track quotation as success for classifieds") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
 		countsOn {
 			condition {
 				path("/quotation/congrats","/quotation/congrats/unregistered")

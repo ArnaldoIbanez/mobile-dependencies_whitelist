@@ -11,81 +11,89 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     initiative = "1218"
-
-    def item_definition = objectSchemaDefinitions {
-        tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
-        blocked(type: PropertyType.Boolean, required: true, description: "If the discount is blocked or not")
-        name(type: PropertyType.String, required: true, description: "The name of the discount")
-        category(type: PropertyType.String, required: false, description: "The category of the discount")
-        mcc(type: PropertyType.Numeric, required: false, description: "The mcc of the category of the discount")
-        position(type: PropertyType.Numeric, required: true, description: "The position of the discount in the list")
-        index(type: PropertyType.Numeric, required: true, description: "The index of the discount in the list")
-        availability(type: PropertyType.String, required: false, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
-        level(type: PropertyType.Numeric, required: true, description: "The minimum loyalty level required for the discount")
-        distance(type: PropertyType.Numeric, required: false, description: "The distance to the closest store")
-        store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
-        amount_type(type: PropertyType.String, required: true, values: ['fixed', 'percent'], description: "The amount type")
-        amount(type: PropertyType.Numeric, required: false, description: "The discount amount in fixed values")
-        priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
-        collector_id(type: PropertyType.Numeric, required: false, description: "The discount collector id")
-        has_logo(type: PropertyType.Boolean, required: true, description: "If the discount has a logo or not")
-        coupon_used(type: PropertyType.Boolean, required: true, description: "If the coupon is used")
-    }
-
-    def section_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true, description: "The section identifier")
-        type(type: PropertyType.String, required: true, description: "The section type")
-        position(type: PropertyType.Numeric, required: true, description: "The position of the section in the list")
-    }
 	
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
     "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
 
-    // LIST
-
-    "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {
-      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    propertyDefinitions {
+        session_id(required: false, type: PropertyType.String, description: "Internal session id")
+        collector_id(required: false, description: "Collector external id")
+        category(type: PropertyType.String, required: false, description: "The category id")
+        mcc(type: PropertyType.String, required: true, description: "The mcc")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        brand_id(type: PropertyType.Numeric, required: false, description: "The brand id")
+        name(type: PropertyType.String, required: false, description: "The name")
+        distance(type: PropertyType.Numeric, required: true, description: "The distance")
+        review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
+        discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
+        delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
     }
 
-    "/discount_center/payers/list/print" (platform: "/mobile", type: TrackType.Event) {
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
+    propertyGroups {
+        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
     }
 
-    "/discount_center/payers/list/show" (platform: "/mobile", type: TrackType.Event) {
-      items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
-      offset(required: false, type: PropertyType.Numeric, description: "The offset in the list")
-      filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The enabled filters")
-      user_loyalty_level(required: true, type: PropertyType.Numeric, description: "The user loyalty level")
+    def store_review_definition = objectSchemaDefinitions {
+        rating(type: PropertyType.Numeric, required: true, description: "The store rating")
+        count(type: PropertyType.Numeric, required: true, description: "The number of reviews")
     }
 
-    "/discount_center/payers/list/tap_filter" (platform: "/mobile", type: TrackType.Event) {
-        filter_id(required: true, type: PropertyType.String, description: "The filter identifier")
-        index(required: true, type: PropertyType.Numeric, description: "The filter position")
-        action(required: true, type: PropertyType.String, description: "The filter state")
+    def store_discount_definition = objectSchemaDefinitions {
+        campaign_id(type: PropertyType.Numeric, required: true, description: "The campaign id")
+        index(type: PropertyType.Numeric, required: true, description: "The position in the list")
+        blocked(type: PropertyType.Boolean, required: true, description: "If the discount is not usable")
+        availability(type: PropertyType.String, required: false, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status")
+        level(type: PropertyType.Numeric, required: true, description: "The minimum loyalty level required")
+        amount_type(type: PropertyType.String, required: true, values: ['fixed', 'percent'], description: "The amount type")
+        amount(type: PropertyType.Numeric, required: true, description: "The amount")
+        priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
     }
 
-    // DETAIL
+    def store_delivery_definition = objectSchemaDefinitions {
+        radius(type: PropertyType.Numeric, required: false, description: "The delivery radius")
+        delivery(type: PropertyType.Boolean, required: true, description: "If the store has delivery")
+        pickup(type: PropertyType.Boolean, required: true, description: "If the store has pickup")
+    }
 
-    "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-        title(required: false, type: PropertyType.String, description: "The discount name")
-        enabled(required: false, type: PropertyType.Boolean, description: "If the discount can be consumed or not")
-        availability(required: false, type: PropertyType.String, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
-        mcc(required: false, type: PropertyType.String, description: "The mcc of the category of the discount")
-        level(required: false, type: PropertyType.Numeric, description: "The discount level")
-        blocked(required: false, type: PropertyType.Boolean, description: "If the discount is not available for the user level")
-        amount(required: false, type: PropertyType.Numeric, description: "The discount campaign amount")
-        amount_type(required: false, type: PropertyType.String,  values: ['fixed', 'percent'], description: "The amount type")
-        status(required: false, type: PropertyType.String, values: ['active', 'inactive', 'finished'], description: "The discount campaign status")
-        stores_id(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "A list of stores who are in a nearby radius")
-        has_logo(type: PropertyType.Boolean, required: true, description: "If the discount has a logo or not")
-        coupon_used(type: PropertyType.Boolean, required: true, description: "If the coupon is used")
-        sections(required: false, type: PropertyType.ArrayList(PropertyType.Map(section_definition)), description: "Sections shown in the list")
-        tracking_id(required: false, type: PropertyType.String, description: "Tracking id of the presented detail")
+    // VSP
+
+    "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
+        storeGroup
+    }
+
+    def vsp_components_definition = objectSchemaDefinitions {
+        actionable_info(required: false, type: PropertyType.ArrayList(PropertyType.Map(vsp_actionable_info_definition)), description: "Actionable info components")
+    }
+
+    def vsp_actionable_info_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(actionable_info_item_definition)), description: "Actionable info item")
+    }
+
+    def actionable_info_item_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        tracking_id(type: PropertyType.String, required: true, description: "The unique id of the actionable info item item we are showing")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+    }
+
+    "/discount_center/payers/vsp/components" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) { 
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
-        referer_origin(required: false, type: PropertyType.String, description: "The user who share the discount")
     }
 
-    "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {}
+    "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+    }
+
+    "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
+      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+    }
+
+    "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
+      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+    }
 
     // LOCATION REQUEST
 
@@ -107,40 +115,17 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Unique code that identifies a user's session")
     }
 
-    // TOUCH POINT
-
-    propertyDefinitions {
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
-        session_id(required: false, type: PropertyType.String, description: "Internal session id")
-        session_time(required: false, type: PropertyType.Numeric, description: "Session time")
-        checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
-        collector_id(required: false, description: "Collector external id")
-        security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
-    }
-
-    def touchpoint_item_definition = objectSchemaDefinitions {
-        tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
-    }
-
-    propertyGroups {
-        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled)
-    }
-
-    "/discount_center/payers/touchpoint" (platform: "/mobile", isAbstract: true) {}
-    "/discount_center/payers/touchpoint/px_congrats" (platform: "/mobile", isAbstract: true) {}
-
-    "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
-        externalData
-        tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
-    }
-
-    "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
-        externalData
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(touchpoint_item_definition)), description: "The items")
-    }
-
     // MARKETPLACE
+
+    def store_item_definition = objectSchemaDefinitions {
+        storeGroup
+    }
+
+    def card_item_definition = objectSchemaDefinitions {
+        type(type: PropertyType.String, required: true, description: "The card type identifier")
+        index(type: PropertyType.Numeric, required: true, description: "The position card within the component")
+        store(type: PropertyType.Map(store_item_definition), required: false, description: "The store tracking definition for type 'store' cards")
+    }
 
     def main_slider_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the main slider item we are showing")
@@ -150,6 +135,11 @@ tracks {
     def main_actions_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the main action we are showing")
         index(type: PropertyType.Numeric, required: true, description: "The position of the main action")
+    }
+
+    def image_banner_item_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
+        index(type: PropertyType.Numeric, required: true, description: "The position of the image banner")
     }
 
     def marketplace_main_slider_definition = objectSchemaDefinitions {
@@ -170,14 +160,40 @@ tracks {
         segment_id(type: PropertyType.String, required: true, description: "The section segment")
         marketplace_type(type: PropertyType.String, required: true, description: "The section type")
         marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the carousel")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_item_definition)), description: "Items shown in the carousel")
     }
 
     def marketplace_row_definition = objectSchemaDefinitions {
         segment_id(type: PropertyType.String, required: true, description: "The section segment")
         marketplace_type(type: PropertyType.String, required: true, description: "The section type")
         marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the carousel")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the carousel")
+    }
+
+    def marketplace_image_banner_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(image_banner_item_definition)), description: "Items shown in the banner")
+    }
+
+    def marketplace_last_viewed_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the last viewed section")
+    }
+
+    def marketplace_filters_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
+        selected(type: PropertyType.String, required: true, values: ['selected', 'unselected', 'none'], description: "The state of the displayed filters")
+        index(type: PropertyType.Numeric, required: true, description: "The position of the filter within the component")
+    }
+
+    def marketplace_filters_l2_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
+        selected(type: PropertyType.Boolean, required: true, description: "The state of the filter we are showing")
+        index(type: PropertyType.Numeric, required: true, description: "The position of the filter within the component")
     }
 
     def marketplace_components_definition = objectSchemaDefinitions {
@@ -185,13 +201,20 @@ tracks {
         main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
         carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
         row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Row components")
+        image_banner(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_image_banner_definition)), description: "Image banner components")
+        last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
+        hybrid_last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
+        hybrid_row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Hybrid Row components")
+        hybrid_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
+        filters(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_definition)), description: "Filters components")
+        filters_l2(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_l2_definition)), description: "Filters L2 components")
     }
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
       session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
     }
 
-    "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.View) { }
+    "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.Event, isAbstract: true) { }
 
     "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
       marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
