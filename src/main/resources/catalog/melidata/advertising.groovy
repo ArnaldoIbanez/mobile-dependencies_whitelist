@@ -1386,6 +1386,13 @@ tracks {
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
 
+    "/advertising/pads2/manager/modal/bidding/trtarget/helper/impact"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
+
     "/advertising/pads2/manager/modal/bidding/impact"(platform: "/", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/modal/bidding/impact/helper"(platform: "/", type: TrackType.Event) {
