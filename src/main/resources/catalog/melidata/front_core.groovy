@@ -460,6 +460,10 @@ tracks {
 
     "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {}
 
+    "/wallet_home/section/tap/banking_v2" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {}
+
     "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/activities" (platform: "/mobile", type: TrackType.Event) {}
