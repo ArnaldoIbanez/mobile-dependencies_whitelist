@@ -184,7 +184,16 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false
+                    is_default             : false,
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -322,7 +331,16 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false
+                    is_default             : false,
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -626,7 +644,16 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false
+                    is_default             : false,
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                query_and_category_strategy : true,
+                                exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",

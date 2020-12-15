@@ -2116,6 +2116,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2135,6 +2136,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2272,6 +2274,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2291,6 +2294,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2310,6 +2314,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2448,6 +2453,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2469,6 +2475,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2549,6 +2556,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2655,6 +2663,7 @@ trackTests {
       variation_id = 49478478975
       seller_profile = "INTERMEDIATE"
       invalid_product_cause = null
+      list_mode = "OPTIN"
     }
   }
 
@@ -2983,6 +2992,22 @@ trackTests {
       item_status = "inactivo"
       question_date_created = "2020-11-08T05:00:00"
       question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central open modal advice Questions") {
+    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central open modal stock Questions") {
+    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_date_action = "2020-11-08T10:30:00"
     }
   }
 
@@ -3369,6 +3394,43 @@ trackTests {
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
+    }
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Optinator New Listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Seller Central - Optinator - New Listing - Optined item") {
+    "/seller_central/optinator/new_listing/end"(platform: "/web", type: TrackType.Event) {
+      flow = "new_listing"
+      domain_id = "MLA-CELLPHONES"
+      item_mk_id = "MLA899085795"
+      item_mk_status = "active"
+      item_mk_sub_status = []
+      item_mk_tags = ["test_item", "immediate_payment", "cart_eligible"]
+      processing_data = [
+              item_cat_id: "MLA899086757",
+              catalog_product_id: "MLA15149561",
+              match_type: "SELLER",
+              safe_match: true,
+              status: "success",
+              is_already_optined: false
+      ]
+      variations = [
+              [
+                      id: "67914990318",
+                      processing_data: [
+                              item_cat_id: "MLA896825803",
+                              catalog_product_id: "MLA10205674",
+                              match_type: "SELLER",
+                              safe_match: true,
+                              status: "success",
+                              is_already_optined: false
+                      ]
+              ]
+      ]
     }
   }
 }

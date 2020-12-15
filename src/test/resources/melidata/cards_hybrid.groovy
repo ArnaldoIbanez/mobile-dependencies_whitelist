@@ -459,6 +459,10 @@ trackTests {
         "/cards/engagement/error"(platform: "/", type: TrackType.View) {
             screen = "dashboard"
         }
+        "/cards/engagement/decrypting/error" (platform: "/", type: TrackType.Event) {
+            error = "keyGenerationError"
+            from = "CEEncryptTextBrickPresenter"
+        }
     }
 
     // SETUP VIRTUAL
@@ -1084,11 +1088,115 @@ trackTests {
         "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
             action = "success_redirect"
         }
-    } 
+    }
     test("cards hybrid nfc onboarding") {
         "/cards/nfc/enrollment/hub/onboarding"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
             action = "main"
+        }
+    }
+
+    // NFC Tokenization Status
+    test("cards hybrid nfc enrollment tokenization") {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_enrollment"
+            result = "tokenization completed event"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "missing enrollment push notification"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "cardInfo error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "checkCardEligibility error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment CardDeleteResult UNKNOWN_DIGITAL_CARD_ID"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment CardDeleteResult error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment deleteCard DELETE_RETRIES exceeded"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment deleteCard error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "digitize error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "fetchTokenizationDataWorker error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "checkCardEligibility success"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "checkCardEligibility partial enrollment"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "partial enrollment CardDeleteResult success"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "digitize success"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "fetchTokenizationDataWorker success"
+        }
+    }
+
+    // NFC Tokenization Time
+    test("cards hybrid nfc enrollment tokenization time") {
+        "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+            action = "success_enrollment"
+            result = 16511
+        }
+        "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+            action = "success_async_callback"
+            result = 12151
+        }
+        "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+            action = "success_push_received"
+            result = 4360
+        }
+    }
+
+    // NFC Tokenization Time
+    test("cards hybrid nfc enrollment tokenization attempts") {
+        "/cards/nfc/enrollment/tokenization/attempts"(platform:"/", type: TrackType.Event) {
+            result = 1
+        }
+    }
+
+    // NFC Payment
+    test("cards hybrid nfc payment") {
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+            result = "error_payment"
+            reasons = "payment is not allowed as SDK initialization is ongoing"
+        }
+        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+            result = "error_payment"
+            reasons = "payment is not allowed as SDK is not initialized"
         }
     }
 }

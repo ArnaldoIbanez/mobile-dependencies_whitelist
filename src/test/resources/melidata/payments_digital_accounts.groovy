@@ -1,6 +1,6 @@
 package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
+import com.ml.melidata.TrackType
 
 trackTests {
     defaultBusiness = "mercadopago"
@@ -31,5 +31,11 @@ trackTests {
 
     test("PNF") {
         "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking Balance Merch Engine Events") {
+        "/banking/balance/credits" (platform: "/", type: TrackType.Event) {}
+        "/banking/balance/credits/print" (platform: "/", type: TrackType.Event) {}
+        "/banking/balance/credits/tap" (platform: "/", type: TrackType.Event) {}
     }
 }
