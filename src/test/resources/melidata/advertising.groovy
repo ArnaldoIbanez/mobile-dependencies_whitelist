@@ -785,25 +785,16 @@ trackTests {
 
         "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
 
-        "/advertising/pads2/createcampaign/step1"(platform: "/web", type: TrackType.View) {
-        campaign_name = "celulares"
-        budget = 4000
-        }
+        "/advertising/pads2/createcampaign/step1"(platform: "/web", type: TrackType.View) {}
 
         "/advertising/pads2/createcampaign/step1/next"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
         budget = 4000
         }
 
-        "/advertising/pads2/createcampaign/step1/breadcrumb"(platform: "/web", type: TrackType.Event) {
-        campaign_name = "celulares"
-        budget = 4000
-        }
+        "/advertising/pads2/createcampaign/step1/breadcrumb"(platform: "/web", type: TrackType.Event) {}
 
-        "/advertising/pads2/createcampaign/step1/helperbudget"(platform: "/web", type: TrackType.Event) {
-        campaign_name = "celulares"
-        budget = 4000
-        }
+        "/advertising/pads2/createcampaign/step1/helperbudget"(platform: "/web", type: TrackType.Event) {}
 
         "/advertising/pads2/createcampaign/step2"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
@@ -1657,6 +1648,8 @@ trackTests {
         "/advertising/pads2/manager/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
             multi = false
             campaign_id = 1
+            strategy = "PROFITABILITY"
+            trtarget = 15
         }
 
         "/advertising/pads2/manager/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
@@ -1720,9 +1713,14 @@ trackTests {
         "/advertising/pads2/hub/bidding/upgrade/row"(platform: "/", type: TrackType.Event){}
 
         "/advertising/pads2/hub/bidding/upgrade/row/show"(platform: "/", type: TrackType.View) {
-            campaign_id = 34
-            strategy = "LAUNCHING"
-            trtarget = 3
+            total_campaigns = 5
+            campaigns = [
+                    {
+                        campaign_id: 222
+                        strategy: "PROFITABILITY"
+                        trtarget: 5
+                    }
+            ]
         }
 
         "/advertising/pads2/hub/bidding/upgrade/row/go"(platform: "/", type: TrackType.Event) {

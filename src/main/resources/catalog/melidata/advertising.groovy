@@ -446,6 +446,12 @@ tracks {
         pads(required: true, type: PropertyType.Numeric)
     }
 
+    def campaigns_bidding = objectSchemaDefinitions {
+        campaign_id(required: true, type: PropertyType.Numeric)
+        strategy(required: true, type: PropertyType.String)
+        trtarget(required: true, type: PropertyType.Numeric)
+    }
+
     "/advertising/pads2/manager/filters"(
         platform: "/",
         type: TrackType.Event) {
@@ -1417,8 +1423,6 @@ tracks {
     "/advertising/pads2/hub/bidding/upgrade/row/show"(platform: "/", type: TrackType.View) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_bidding)), description: "Array campaign")
-        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
-        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
 
     "/advertising/pads2/hub/bidding/upgrade/row/go"(platform: "/", type: TrackType.Event) {
