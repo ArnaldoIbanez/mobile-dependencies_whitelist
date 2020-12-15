@@ -22,6 +22,11 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "payment flow")
     }
 
+    def propertyFiltersModal = objectSchemaDefinitions {
+    	tag(required: false, type: PropertyType.String, description:  "tag of filter")
+        value(required: false, type: PropertyType.String, description:  "value of filter")
+    }
+
     /**
     * INSTORES Screen Tracks
     */
@@ -447,7 +452,34 @@ tracks {
     }
 
 
-    // Discovery
+    //UIComponents Modal
+
+    "/instore/filter_modal"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/instore/filter_modal/show"(platform: "/mobile", type:TrackType.View) {
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required:true)
+    }
+
+    "/instore/filter_modal/close"(platform: "/mobile", type:TrackType.Event) {}
+
+    "/instore/filter_modal/save_filter"(platform: "/mobile",type: TrackType.Event) { 
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required:true)
+    }
+
+    "/instore/filter_modal/clear_filter"(platform: "/mobile",type: TrackType.Event) {
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required:true)
+    }
+
+    "/instore/filter_modal/categories"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/instore/filter_modal/categories/show"(platform: "/mobile", type:TrackType.View) {}
+
+    "/instore/filter_modal/categories/save_category"(platform: "/mobile", type:TrackType.Event) {}
+
+    "/instore/filter_modal/categories/close"(platform: "/mobile",type:TrackType.Event) {}
+
+
+	// Discovery
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
         location(required: false, inheritable: false, PropertyType.String, description: "a location coming from the deeplink")
         radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
