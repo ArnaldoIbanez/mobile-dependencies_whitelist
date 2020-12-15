@@ -50,7 +50,14 @@ trackTests {
             portal_content_id = 987
             portal_source_id = 999
         }
+        "/support/widget/folder/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_source_id = 999
+        }
         "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
+            portal_source_id = 999
+        }
+        "/support/widget/folder_rules/click"(platform: "/", type: TrackType.Event) {
             portal_source_id = 999
         }
         "/support/widget/home"(platform: "/", type: TrackType.View) {
@@ -60,6 +67,11 @@ trackTests {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
+        "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
@@ -99,7 +111,17 @@ trackTests {
             portal_content_type = 'HOME'
             portal_source_id = 999
         }
+        "/support/widget/folder/click"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'HOME'
+            portal_source_id = 999
+        }
         "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'FOLDER'
+            portal_source_id = 999
+        }
+        "/support/widget/folder/click"(platform: "/", type: TrackType.View) {
             portal_content_id = 123
             portal_content_type = 'FOLDER'
             portal_source_id = 999
@@ -110,7 +132,19 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
         }
+        "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_content_type = 'RENDER'
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_content_type = 'SHOW_CONTACT'
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
+        "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
             portal_content_id = 987
             portal_content_type = 'SHOW_CONTACT'
             portal_source_id = 123
@@ -203,7 +237,14 @@ trackTests {
             portal_content_id = 987
             portal_source_id = 999
         }
+        "/support/widget/folder/click"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 999
+        }
         "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
+            portal_source_id = 999
+        }
+        "/support/widget/folder_rules/click"(platform: "/", type: TrackType.View) {
             portal_source_id = 999
         }
         "/support/widget/home"(platform: "/", type: TrackType.View) {
@@ -213,6 +254,11 @@ trackTests {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+        }
+        "/support/widget/faq/click"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
