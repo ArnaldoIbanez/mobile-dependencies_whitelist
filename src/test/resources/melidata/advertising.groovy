@@ -1603,6 +1603,18 @@ trackTests {
             trtarget = 35
         }
 
+        "/advertising/pads2/hub/modal/bidding/trtarget/helper/takerate"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "PROFITABILITY"
+            trtarget = 5
+        }
+
+        "/advertising/pads2/hub/modal/bidding/trtarget/helper/impact"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "PROFITABILITY"
+            trtarget = 5
+        }
+
         "/advertising/pads2/hub/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
@@ -1686,6 +1698,20 @@ trackTests {
             multi = true
             campaign_id = 34
             strategy = "LAUNCHING"
+            trtarget = 3
+        }
+
+        "/advertising/pads2/manager/modal/bidding/trtarget/helper/takerate"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "PROFITABILITY"
+            trtarget = 10
+        }
+
+        "/advertising/pads2/manager/modal/bidding/trtarget/helper/impact"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "PROFITABILITY"
             trtarget = 3
         }
 
