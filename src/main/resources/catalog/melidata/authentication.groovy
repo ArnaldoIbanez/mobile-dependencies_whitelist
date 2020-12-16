@@ -194,24 +194,30 @@ tracks {
     }
 
     //Account Recovery
-    "/auth/account_recovery"(platform: "/", isAbstract: true) {
+    "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
-    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
-
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
-
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
+    "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {}
+
+    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
-    "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
+    "/auth/account_recovery/confirm/action"(platform: "/", type: TrackType.View) {
+        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
+        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    }
+
+    "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
