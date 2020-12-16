@@ -785,7 +785,10 @@ trackTests {
 
         "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
 
-        "/advertising/pads2/createcampaign/step1"(platform: "/web", type: TrackType.View) {}
+        "/advertising/pads2/createcampaign/step1"(platform: "/web", type: TrackType.View) {
+        campaign_name = "celulares"
+        budget = 4000
+        }
 
         "/advertising/pads2/createcampaign/step1/next"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"

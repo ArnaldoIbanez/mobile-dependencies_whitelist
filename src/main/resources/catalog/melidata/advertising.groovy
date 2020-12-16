@@ -625,7 +625,11 @@ tracks {
 
     "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/createcampaign/step1"(platform: "/", type: TrackType.View) {}
+     "/advertising/pads2/createcampaign/step1"(platform: "/", type: TrackType.View) {
+        //CONSULTAR SOBRE VALORES 
+        campaign_name(required: false, type: PropertyType.String, description: "Name related to the campaign")
+        budget(required: false, type: PropertyType.String, description: "Budget related to the campaign")
+    }
 
     "/advertising/pads2/createcampaign/step1/next"(platform: "/", type: TrackType.Event) {
         campaign_name(required: true, type: PropertyType.String, description: "Name related to the campaign")
