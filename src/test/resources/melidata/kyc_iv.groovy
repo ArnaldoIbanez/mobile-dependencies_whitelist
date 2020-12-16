@@ -509,8 +509,8 @@ trackTests {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
-        
-        "/kyc/iv/redirect"(platform: "/web") {
+
+        "/kyc/iv/handoff"(platform: "/web") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
             url = "https://www.mercadolibre.com.ar"
@@ -1010,7 +1010,7 @@ trackTests {
             reason = "thereason"
         }
 
-        "/kyc/iv/redirect"(platform: "/web") {
+        "/kyc/iv/handoff"(platform: "/web") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
             url = "https://www.mercadolibre.com.ar"
