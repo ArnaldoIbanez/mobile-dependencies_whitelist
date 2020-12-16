@@ -411,7 +411,7 @@ tracks {
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
 
-    "/kyc/iv/redirect"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/redirect"(platform: "/web", type: TrackType.Event) {
         url(required: true, type: PropertyType.String, description: "The url to redirect")
     }
 
