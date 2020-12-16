@@ -3501,7 +3501,7 @@ trackTests {
             target = "go_home_button"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
@@ -3517,6 +3517,12 @@ trackTests {
             id = "id--fury"
             event_type = "click"
             target = "cancel_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
             is_webview = true
         }
     }
