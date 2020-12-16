@@ -754,6 +754,10 @@ trackTests {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
         }
 
+        "/insurtech/hardware_check/onboarding/back"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
         "/insurtech/hardware_check/onboarding/start_tests"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
         }
@@ -779,6 +783,10 @@ trackTests {
         }
 
         "/insurtech/hardware_check/permission_denied/exit"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/permission_denied/back"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
         }
 
