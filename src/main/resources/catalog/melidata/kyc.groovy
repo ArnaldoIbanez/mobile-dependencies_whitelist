@@ -413,6 +413,7 @@ tracks {
 
     "/kyc/iv/handoff"(platform: "/web", type: TrackType.Event) {
         url(required: true, type: PropertyType.String, description: "The url to redirect")
+        type(required: true, type: PropertyType.String, description: "Handoff type", values: ["user_swap", "no_camera"])
     }
 
     // KYC File Upload
