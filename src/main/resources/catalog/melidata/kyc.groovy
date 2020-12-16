@@ -411,6 +411,10 @@ tracks {
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
 
+    "/kyc/iv/redirect"(platform: "/web", type: TrackType.View) {
+        url(required: true, type: PropertyType.String, description: "The url to redirect")
+    }
+
     // KYC File Upload
     "/kyc/upload_file"(platform: "/", isAbstract: true) {}
 
