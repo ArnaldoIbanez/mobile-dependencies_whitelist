@@ -650,13 +650,10 @@ tracks {
     }
 
     "/advertising/pads2/createcampaign/step2/createcampaign"(platform: "/", type: TrackType.Event) {
-        campaign_name(required: true, type: PropertyType.String, description: "Name related to the campaign")
-        budget(required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
         ads(required: true, description: "Number of ads included for new campaign")
         check_active(required: true, description: "Indicates if all included ads must be activated", values: ['true', 'false'])
         //BIDDING
         trtarget(required: false, type: PropertyType.Numeric, description: "Take Rate selected")
-        strategy(required: false, type: PropertyType.String, description: "Campaign Strategy")
     }
 
     "/advertising/pads2/createcampaign/step2/breadcrumb"(platform: "/web", type: TrackType.Event) {
