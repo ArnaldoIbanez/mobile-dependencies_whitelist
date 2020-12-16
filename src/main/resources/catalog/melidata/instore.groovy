@@ -457,24 +457,26 @@ tracks {
     "/instore/filter_modal"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
 
     "/instore/filter_modal/show"(platform: "/mobile", type:TrackType.View) {
-    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required:true)
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required: true, description: "Filters selected in filter bar")
     }
 
     "/instore/filter_modal/close"(platform: "/mobile", type:TrackType.Event) {}
 
     "/instore/filter_modal/save_filter"(platform: "/mobile",type: TrackType.Event) { 
-    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required:true)
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required: true, description: "Filters selected in modal view")
     }
 
     "/instore/filter_modal/clear_filter"(platform: "/mobile",type: TrackType.Event) {
-    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required:true)
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required: true,  description: "Filters cleaned in modal view")
     }
 
     "/instore/filter_modal/categories"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
 
     "/instore/filter_modal/categories/show"(platform: "/mobile", type:TrackType.View) {}
 
-    "/instore/filter_modal/categories/save_category"(platform: "/mobile", type:TrackType.Event) {}
+    "/instore/filter_modal/categories/save_category"(platform: "/mobile", type:TrackType.Event) {
+    	category_selected(type: PropertyType.String, required: true, description: "Category selected in category view")
+    }
 
     "/instore/filter_modal/categories/close"(platform: "/mobile",type:TrackType.Event) {}
 
