@@ -323,8 +323,6 @@ tracks {
 
     }
 
-    "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    }
     "/advertising/pads2/hub/update/budget/tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
