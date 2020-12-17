@@ -455,6 +455,12 @@ tracks {
         pads(required: true, type: PropertyType.Numeric)
     }
 
+    def campaigns_bidding = objectSchemaDefinitions {
+        campaign_id(required: true, type: PropertyType.Numeric)
+        strategy(required: true, type: PropertyType.String)
+        trtarget(required: true, type: PropertyType.Numeric)
+    }
+
     "/advertising/pads2/manager/filters"(
         platform: "/",
         type: TrackType.Event) {
@@ -628,7 +634,7 @@ tracks {
 
     "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/createcampaign/step1"(platform: "/", type: TrackType.View) {
+     "/advertising/pads2/createcampaign/step1"(platform: "/", type: TrackType.View) {
         //CONSULTAR SOBRE VALORES 
         campaign_name(required: false, type: PropertyType.String, description: "Name related to the campaign")
         budget(required: false, type: PropertyType.String, description: "Budget related to the campaign")
@@ -1298,6 +1304,16 @@ tracks {
         strategy(required: true, type: PropertyType.String, description: "Strategy selected")
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
+    "/advertising/pads2/hub/modal/bidding/trtarget/helper/takerate"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
+    "/advertising/pads2/hub/modal/bidding/trtarget/helper/impact"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
     "/advertising/pads2/hub/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         strategy(required: true, type: PropertyType.String, description: "Strategy selected")
@@ -1367,6 +1383,8 @@ tracks {
     "/advertising/pads2/manager/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
         multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
     "/advertising/pads2/manager/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
         multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
@@ -1401,6 +1419,19 @@ tracks {
         strategy(required: true, type: PropertyType.String, description: "Strategy selected")
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
+    "/advertising/pads2/manager/modal/bidding/trtarget/helper/takerate"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
+
+    "/advertising/pads2/manager/modal/bidding/trtarget/helper/impact"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
 
     "/advertising/pads2/manager/modal/bidding/impact"(platform: "/", type: TrackType.Event) {}
 
@@ -1424,9 +1455,8 @@ tracks {
     "/advertising/pads2/hub/bidding/upgrade/row"(platform: "/", type: TrackType.Event){}
 
     "/advertising/pads2/hub/bidding/upgrade/row/show"(platform: "/", type: TrackType.View) {
-        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
-        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
-        trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+        total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_bidding)), description: "Array campaign")
     }
 
     "/advertising/pads2/hub/bidding/upgrade/row/go"(platform: "/", type: TrackType.Event) {
