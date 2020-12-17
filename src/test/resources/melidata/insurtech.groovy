@@ -913,7 +913,6 @@ trackTests {
             step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
             session_id = "348536772342324"
-            view_time = 64578
         }
 
         "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {
