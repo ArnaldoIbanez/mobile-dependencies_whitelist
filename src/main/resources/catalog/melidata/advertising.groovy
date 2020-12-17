@@ -1312,7 +1312,7 @@ tracks {
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
 
-    "/advertising/pads2/hub/update"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    "/advertising/pads2/hub/update"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {}
     "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
     
