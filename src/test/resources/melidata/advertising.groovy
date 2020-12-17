@@ -506,6 +506,8 @@ trackTests {
             budget = 3990
             campaign_id = 235666
         }
+        "/advertising/pads2/hub/budget"(platform: "/", type: TrackType.Event) {
+        }
         "/advertising/pads2/hub/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
