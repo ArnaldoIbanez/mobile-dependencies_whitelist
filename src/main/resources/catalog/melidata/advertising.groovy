@@ -342,6 +342,12 @@ tracks {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
     }
+    "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event,parentPropertiesInherited: false) {
+    }
+    "/advertising/pads2/hub/update/budget/go"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
 
     //Buybox
     "/advertising/pads2/manager/buybox_winners"(platform: "/", isAbstract: true) {}
