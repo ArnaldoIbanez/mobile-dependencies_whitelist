@@ -1048,9 +1048,9 @@ trackTests {
             multi = true
             campaign_id = "2222222"
             budget_previous = 4000
+            budget = "4000"
             budget_new = 5600
             budget_type = "D"
-            budget_new = 2500
             budget_pct_new = "18.8"
             budget_type_new = "D"
         }
