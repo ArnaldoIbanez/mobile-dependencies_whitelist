@@ -41,8 +41,8 @@ tracks {
             description: "Indicates the destination url if when found a broken link")
         portal_content_transactional_data(required: false, type: PropertyType.String, 
             description: "Indicates the transactional data include in a url")
-        portal_effectivity_survey_value(required: false, type: PropertyType.Boolean,
-            description: "Indicates the effectivity survey value for an user")
+        portal_effectivity_survey_value(required: false, type: PropertyType.Numeric,
+            description: "Indicates the value of the effectivity survey given by a user to a certain faq")
         portal_search_criteria(required: false, type: PropertyType.String, 
             description: "Indicates the criteria used in the search in the help portal")
     }
