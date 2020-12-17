@@ -54,6 +54,7 @@ tracks {
     "/register/form/error"(platform: "/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/form/another-email"(platform: "/web", type: TrackType.View) {
@@ -126,11 +127,14 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
         registration_version(type: PropertyType.String, description: "Registration Version")
     }
-    "/register/form/validate"(platform: "/mobile", type: TrackType.Event){s
+    "/register/form/validate"(platform: "/mobile", type: TrackType.Event){
+      registration_version(type: PropertyType.String, required:false, description: "Registration Version")
       step_valid(type: PropertyType.String, required: true, description: "checks if TyC checkbox is marked")
       checkbox_valid(type: PropertyType.String, required: true, description: "checks if all fields have been completed")
       components_valid(type: PropertyType.String, required: true, description: "checks if all fields, tyc included, are completed")
     }
+    "/register/form/continue"(platform: "/mobile", type: TrackType.Event){}
+
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/google_hint"(platform: "/mobile", isAbstract: true){
         step(type: PropertyType.String, required: true, values: ["registration", "phoneRegistration", "getEmail"], description: "Step where the google hint is provided to the user")
@@ -153,6 +157,7 @@ tracks {
     "/register/form/error"(platform: "/mobile", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/form/another-email"(platform: "/mobile", type: TrackType.View){

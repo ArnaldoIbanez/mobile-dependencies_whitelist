@@ -59,7 +59,6 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -80,7 +79,6 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 1
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -96,7 +94,6 @@ trackTests {
             ]
             errors_validation = 'front'
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -133,7 +130,6 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -293,6 +289,11 @@ trackTests {
             checkbox_valid = "true"
             components_valid = "true"
         }
+        "/register/form/continue"(platform:"/mobile") {
+            app = "normal"
+            registration_version = "regi_v0_mobile_normal_with_login_tyc"
+            origin = "home"
+        }
         "/register/form/email-suggest"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
@@ -390,7 +391,6 @@ trackTests {
                     ]
             ]
             register_type = "person"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -402,7 +402,6 @@ trackTests {
                     ]
             ]
             register_type = "company"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {

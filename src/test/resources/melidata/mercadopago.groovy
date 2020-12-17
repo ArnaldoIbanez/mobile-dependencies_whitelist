@@ -97,7 +97,6 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -106,7 +105,6 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -263,6 +261,11 @@ trackTests {
             checkbox_valid = "true"
             components_valid = "true"
         }
+        "/register/form/continue"(platform:"/mobile") {
+            app = "mp"
+            registration_version = "regi_v0_mobile_normal_with_login_tyc"
+            origin = "home"
+        }
 
         "/register/form/challenge/require" (platform: "/mobile") {
             app = "normal"
@@ -348,7 +351,6 @@ trackTests {
                     ]
             ]
             register_type = "person"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -360,7 +362,6 @@ trackTests {
                     ]
             ]
             register_type = "company"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {
