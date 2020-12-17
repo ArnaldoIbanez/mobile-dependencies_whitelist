@@ -1144,7 +1144,7 @@ tracks {
     "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
         action (
-            required:true,
+            required: true,
             type: String,
             values: ["money_in"],
             description: "Add money tapped"
