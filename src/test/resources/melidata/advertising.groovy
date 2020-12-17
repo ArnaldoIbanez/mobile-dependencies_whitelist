@@ -512,12 +512,16 @@ trackTests {
             budget = 3990
             campaign_id = 235666
         }
+    }
+
+    test("Advertising Dynamic budget hub"){
         "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {
         }
         "/advertising/pads2/hub/update/budget/go"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
         }
+
     }
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
