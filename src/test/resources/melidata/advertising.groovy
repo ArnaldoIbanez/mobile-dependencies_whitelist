@@ -480,9 +480,9 @@ trackTests {
 
     }
     test("Advertising Dynamic budget update "){
-        "/advertising/pads2/manager/update/budget"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
         }
-        "/advertising/pads2/manager/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
             budget_type = "D"
@@ -493,9 +493,9 @@ trackTests {
     }
 
     test("Advertising Dynamic budget hub "){
-        "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event) {
         }
-        "/advertising/pads2/hub/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/hub/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
             budget_type = "D"
