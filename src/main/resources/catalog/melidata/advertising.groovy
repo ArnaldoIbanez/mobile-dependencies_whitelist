@@ -311,7 +311,7 @@ tracks {
     }
 
     //Budget Dynamic
-    "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
     }
     "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
@@ -323,17 +323,7 @@ tracks {
 
     }
 
-    "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
-    }
-    "/advertising/pads2/hub/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
-        budget(required: true, description: "current budget related to the campaign")
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
-        budget_new(required: true, description: " new budget campaign Modal campaign")
-        budget_pct_new(required: true, description: "select budget pct Modal campaign")
-        budget_type_new(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
 
-    }
 
 
     "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
