@@ -41,6 +41,10 @@ tracks {
             description: "Indicates the destination url if when found a broken link")
         portal_content_transactional_data(required: false, type: PropertyType.String, 
             description: "Indicates the transactional data include in a url")
+        portal_effectivity_survey_value(required: false, type: PropertyType.Boolean,
+            description: "Indicates the effectivity survey value for an user")
+        portal_search_criteria(required: false, type: PropertyType.String, 
+            description: "Indicates the criteria used in the search in the help portal")
     }
 
     propertyGroups {
@@ -55,6 +59,8 @@ tracks {
         portal_broken_link_source_url(portal_broken_link_source_url)
         portal_broken_link_destination_url(portal_broken_link_destination_url)
         portal_content_transactional_data(portal_content_transactional_data)
+        portal_effectivity_survey_value(portal_effectivity_survey_value)
+        portal_search_criteria(portal_search_criteria)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -71,6 +77,10 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+    }
+
+    "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_effectivity_survey_value
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -138,6 +148,7 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+        portal_search_criteria
     }
 
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {
@@ -223,6 +234,10 @@ tracks {
 
     "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+    }
+
+    "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_effectivity_survey_value
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
