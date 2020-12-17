@@ -493,8 +493,6 @@ trackTests {
     }
 
     test("Advertising Dynamic budget hub "){
-        "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {
-        }
         "/advertising/pads2/hub/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
