@@ -486,10 +486,39 @@ trackTests {
             budget = 3990
             campaign_id = 235666
             budget_type = "D"
-            selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
+    }
+    test("Advertising Dynamic budget hub "){
+        "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {
+        }
+        "/advertising/pads2/hub/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+            budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
+        "/advertising/pads2/hub/update/budget/go"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+            budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
+        "/advertising/pads2/hub/update/budget/close"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+            budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
+
     }
     test("Advertising Dynamic budget ") {
         "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
@@ -504,6 +533,17 @@ trackTests {
         "/advertising/pads2/manager/budget/tooltip/edit_new"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
+        }
+    }
+    test("Advertising Dynamic budget hub ") {
+        "/advertising/pads2/hub/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+        }
+        "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+            budget_type = "D"
         }
     }
     test("Advertising buybox opportunity") {
@@ -1050,19 +1090,19 @@ trackTests {
             budget_previous = 4000
             budget_new = 5600
             budget_type = "D"
-            selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
 
         "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
             multi = true
             campaign_id = "2222222"
             budget = "4000"
-            budget_type = "D"
+            budget_new = "D"
             selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
