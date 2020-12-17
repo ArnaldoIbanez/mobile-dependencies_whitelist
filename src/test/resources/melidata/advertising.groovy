@@ -490,8 +490,7 @@ trackTests {
             budget_pct_new = "18.8"
             budget_type_new = "D"
         }
-        "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event) {
-        }
+
         "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event) {
         }
         "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
