@@ -1651,6 +1651,14 @@ trackTests {
             budget_pct_new = "18.8"
             budget_type_new = "D"
         }
+        "/advertising/pads2/hub/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            budget_new = 5600
+            budget_type = "D"
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
