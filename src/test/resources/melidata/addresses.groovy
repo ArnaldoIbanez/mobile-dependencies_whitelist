@@ -112,7 +112,7 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }        
-        "/addresses/input_address/dont_know_my_zip_code/success"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/dont_know_my_zip_code/submit"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
@@ -258,7 +258,7 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }        
-        "/addresses/input_address/dont_know_my_zip_code/success"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/dont_know_my_zip_code/submit"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
