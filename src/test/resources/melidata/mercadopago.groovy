@@ -257,6 +257,12 @@ trackTests {
             register_type = "company"
             registration_version = "regi_v0_web"
         }
+        "/register/form/validate"(platform:"/mobile") {
+            app = "mp"
+            step_valid = "true"
+            checkbox_valid = "true"
+            components_valid = "true"
+        }
 
         "/register/form/challenge/require" (platform: "/mobile") {
             app = "normal"

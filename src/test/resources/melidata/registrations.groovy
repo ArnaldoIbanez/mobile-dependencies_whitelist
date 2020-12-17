@@ -287,6 +287,12 @@ trackTests {
             prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
+        "/register/form/validate"(platform:"/mobile") {
+            app = "registration"
+            step_valid = "true"
+            checkbox_valid = "true"
+            components_valid = "true"
+        }
         "/register/form/email-suggest"(platform:"/mobile") {
             app = "favorite"
             origin = "email"

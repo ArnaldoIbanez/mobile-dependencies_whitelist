@@ -126,6 +126,11 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
         registration_version(type: PropertyType.String, description: "Registration Version")
     }
+    "/register/form/validate"(platform: "/mobile", type: TrackType.Event){s
+      step_valid(type: PropertyType.String, required: true, description: "checks if TyC checkbox is marked")
+      checkbox_valid(type: PropertyType.String, required: true, description: "checks if all fields have been completed")
+      components_valid(type: PropertyType.String, required: true, description: "checks if all fields, tyc included, are completed")
+    }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/google_hint"(platform: "/mobile", isAbstract: true){
         step(type: PropertyType.String, required: true, values: ["registration", "phoneRegistration", "getEmail"], description: "Step where the google hint is provided to the user")
