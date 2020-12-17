@@ -12,6 +12,7 @@ tracks {
 
     propertyDefinitions {
         view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
+        session_id(required: false, type: PropertyType.String, description: "Session id of the user")
     }
 
     def roda_device = objectSchemaDefinitions {
@@ -217,6 +218,7 @@ tracks {
     "/insurtech/hardware_check"(platform: "/", isAbstract: true) {}
 
     "/insurtech/hardware_check/onboarding"(platform:"/mobile", type: TrackType.View) {
+        session_id
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
     }
 
@@ -244,9 +246,12 @@ tracks {
         view_time
     }
 
-    "/insurtech/hardware_check/onboarding/permission_application_information"(platform:"/mobile", type: TrackType.Event) {}
+    "/insurtech/hardware_check/onboarding/permission_application_information"(platform:"/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     "/insurtech/hardware_check/permission_denied"(platform:"/mobile", type: TrackType.View) {
+        session_id
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
     }
 
@@ -263,6 +268,7 @@ tracks {
     }
 
     "/insurtech/hardware_check/checkups"(platform:"/mobile", type: TrackType.View) {
+        session_id
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
     }
 
@@ -284,6 +290,8 @@ tracks {
         check_id(required: true, type: PropertyType.String, description: "check ID.")
         cycle(required: true, type: PropertyType.Numeric, description: "Cycle within the check to which the event corresponds.")
         time_assigned(required: true, type: PropertyType.Numeric, description: "Allotted time for checking.")
+        session_id
+        view_time
     }
 
     "/insurtech/hardware_check/checkups/try_again"(platform:"/mobile", type: TrackType.Event) {
@@ -294,6 +302,7 @@ tracks {
 
     "/insurtech/hardware_check/checkups/skip_check"(platform:"/mobile", type: TrackType.Event) {
         check_id(required: true, type: PropertyType.String, description: "check ID.")
+        session_id
         view_time
     }
 
@@ -311,6 +320,7 @@ tracks {
 
     "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+        session_id
     }
 
     "/insurtech/hardware_check/congrats_success/exit"(platform:"/mobile", type: TrackType.Event) {
@@ -328,6 +338,7 @@ tracks {
     }
 
     "/insurtech/hardware_check/congrats_failed"(platform:"/mobile", type: TrackType.View) {
+        session_id
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
     }
 
@@ -349,6 +360,7 @@ tracks {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         step(required: true, type: PropertyType.String, description: "Indicates which step of the flow occurred.", values: ["ONBOARDING", "CONGRATS"])
         context(required: true, type: PropertyType.String, description: "Information on what was the problem causing the error.")
+        session_id
     }
 
     "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {

@@ -752,10 +752,14 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/exit"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 234578
         }
 
         "/insurtech/hardware_check/onboarding/back"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 284578
         }
 
         "/insurtech/hardware_check/onboarding/start_tests"(platform:"/mobile", type: TrackType.Event) {
@@ -764,6 +768,8 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 24578
         }
 
         "/insurtech/hardware_check/onboarding/permission_deny"(platform:"/mobile", type: TrackType.Event) {
@@ -772,6 +778,8 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/permission_dont_ask_again"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 2345782
         }
 
         "/insurtech/hardware_check/onboarding/permission_application_information"(platform:"/mobile", type: TrackType.Event) {
@@ -788,14 +796,19 @@ trackTests {
 
         "/insurtech/hardware_check/permission_denied/back"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 134578
         }
 
         "/insurtech/hardware_check/permission_denied/accept"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 664578
         }
 
         "/insurtech/hardware_check/checkups"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
         }
 
         "/insurtech/hardware_check/checkups/exit"(platform:"/mobile", type: TrackType.Event) {
@@ -810,6 +823,8 @@ trackTests {
             check_id = "BACK_BUTTON"
             cycle = 1
             time_assigned = 60
+            session_id = "348536772342324"
+            view_time = 204578
         }
 
         "/insurtech/hardware_check/checkups/time_ended"(platform:"/mobile", type: TrackType.Event) {
@@ -823,6 +838,8 @@ trackTests {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             check_id = "BACK_BUTTON"
             cycle = 2
+            session_id = "348536772342324"
+            view_time = 14578
         }
 
         "/insurtech/hardware_check/checkups/skip_check"(platform:"/mobile", type: TrackType.Event) {
@@ -835,15 +852,20 @@ trackTests {
             check_id = "VOLUME_UP"
             cycle = 1
             time_success = 12
+            session_id = "348536772342324"
+            view_time = 1094578
         }
 
         "/insurtech/hardware_check/checkups/failed"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             check_id = "VOLUME_DOWN"
+            session_id = "348536772342324"
+            view_time = 604578
         }
 
         "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
         }
 
         "/insurtech/hardware_check/congrats_success/exit"(platform:"/mobile", type: TrackType.Event) {
@@ -853,11 +875,15 @@ trackTests {
         "/insurtech/hardware_check/congrats_success/main_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Continuar para o pagamento"
+            session_id = "348536772342324"
+            view_time = 64578
         }
 
         "/insurtech/hardware_check/congrats_success/secondary_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Continuar para o pagamento"
+            session_id = "348536772342324"
+            view_time = 214578
         }
 
         "/insurtech/hardware_check/congrats_failed"(platform:"/mobile", type: TrackType.View) {
@@ -866,6 +892,8 @@ trackTests {
 
         "/insurtech/hardware_check/congrats_failed/exit"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 94578
         }
 
         "/insurtech/hardware_check/congrats_failed/main_action"(platform:"/mobile", type: TrackType.Event) {
@@ -876,12 +904,16 @@ trackTests {
         "/insurtech/hardware_check/congrats_failed/secondary_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Tentar novamente"
+            session_id = "348536772342324"
+            view_time =294578
         }
 
         "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
+            session_id = "348536772342324"
+            view_time = 64578
         }
 
         "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {
@@ -894,6 +926,8 @@ trackTests {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
+            session_id = "348536772342324"
+            view_time = 964578
         }
 
         // INSURTECH RODA Payments
