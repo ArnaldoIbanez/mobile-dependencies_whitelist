@@ -1159,7 +1159,7 @@ tracks {
             description: "type of congrats"
         )
     }
-    "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: String,
