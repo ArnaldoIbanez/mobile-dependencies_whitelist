@@ -342,8 +342,9 @@ tracks {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
     }
-
     "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event, isAbstract: true) {
+    }
+    "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event) {
     }
     "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
