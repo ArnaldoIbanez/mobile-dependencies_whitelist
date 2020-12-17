@@ -29,7 +29,6 @@ tracks {
     "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/payment"(platform: "/", isAbstract: true) { }
 
 
 
@@ -1114,6 +1113,7 @@ tracks {
     }
     // PAYMENTS-NFC
     // -------------------
+    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
         result (
             required: true,
@@ -1129,6 +1129,42 @@ tracks {
                 "payment is not allowed as SDK is not initialized"
             ],
             description: "Reasons that one tap payment failed with closed application"
+        )
+    }
+    "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required:true,
+            type: String,
+            values: ["faq"],
+            description: "Help button tapped"
+        )
+    }
+    "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required:true,
+            type: String,
+            values: ["money_in"],
+            description: "Add money tapped"
+        )
+    }
+    "/cards/nfc/payment/without_money"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["success", "unknown"],
+            description: "type of congrats"
+        )
+    }
+    "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: String,
+            values: ["finish"],
+            description: "Finish button tapped"
         )
     }
 }

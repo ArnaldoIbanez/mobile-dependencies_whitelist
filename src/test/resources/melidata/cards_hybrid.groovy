@@ -1,5 +1,7 @@
 package src.test.resources.melidata
 
+import com.ml.melidata.catalog.PropertyType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
 
@@ -1197,6 +1199,25 @@ trackTests {
         "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
             result = "error_payment"
             reasons = "payment is not allowed as SDK is not initialized"
+        }
+        "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+            action = "faq"
+        }
+        "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
+            action = "money_in"
+        }
+        "/cards/nfc/payment/without_money"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "success"
+        }
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "unknown"
+        }
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.Event) {
+            action = "finish"
         }
     }
 }
