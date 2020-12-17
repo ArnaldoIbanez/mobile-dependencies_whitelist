@@ -21,8 +21,6 @@ tracks {
     }
     
     "/addresses/input_address/map"(platform:"/", type: TrackType.View) {}
-    
-    "/addresses/input_address/zip_code_query"(platform: "/", type: TrackType.View) {}
 
     // VIEWS ACTIONS
     "/addresses/input_address/back"(platform: "/", type: TrackType.Event) {}
@@ -32,8 +30,6 @@ tracks {
     "/addresses/input_address/map/back"(platform:"/", type: TrackType.Event) {}
     
     "/addresses/input_address/map/submit"(platform:"/", type: TrackType.Event) {}
-    
-    "/addresses/input_address/zip_code_query/submit"(platform:"/", type: TrackType.Event) {}
 
     // INPUT ERRORS
     "/addresses/input_address/name"(platform:"/", type: TrackType.Event) {
@@ -92,6 +88,10 @@ tracks {
     }
 
     // UX INFORMATION
+    "/addresses/input_address/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}
+
+    "/addresses/input_address/dont_know_my_zip_code/submit"(platform:"/", type: TrackType.Event) {}
+
     "/addresses/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
         written(required: true, type: PropertyType.String, description: "The written text before selecting a street suggestion")
         finalText(required: true, type: PropertyType.String, description: "The final text after selecting a street suggestion")
