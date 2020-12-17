@@ -491,14 +491,6 @@ trackTests {
             budget_type_new = "D"
         }
 
-        "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "2222222"
-            budget = "4000"
-            budget_new = 5600
-            budget_type = "D"
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-        }
     }
     
     test("Advertising Dynamic budget ") {
@@ -1641,6 +1633,14 @@ trackTests {
 
         "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
 
+        "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            budget_new = 5600
+            budget_type = "D"
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"

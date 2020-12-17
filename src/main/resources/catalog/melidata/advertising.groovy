@@ -343,14 +343,6 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
-        budget(required: true, description: "current budget related to the campaign")
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
-        budget_new(required: true, description: " new budget campaign Modal campaign")
-        budget_pct_new(required: true, description: "select budget pct Modal campaign")
-        budget_type_new(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
-    }
 
     //Buybox
     "/advertising/pads2/manager/buybox_winners"(platform: "/", isAbstract: true) {}
@@ -1315,6 +1307,14 @@ tracks {
     "/advertising/pads2/hub/update"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
     "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+        budget_new(required: true, description: " new budget campaign Modal campaign")
+        budget_pct_new(required: true, description: "select budget pct Modal campaign")
+        budget_type_new(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
+    }
     
     "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
