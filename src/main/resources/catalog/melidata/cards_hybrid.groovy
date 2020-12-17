@@ -1133,7 +1133,7 @@ tracks {
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required:true,
+            required: true,
             type: String,
             values: ["faq"],
             description: "Help button tapped"
