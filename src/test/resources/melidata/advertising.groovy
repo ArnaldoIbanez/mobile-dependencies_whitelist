@@ -1632,6 +1632,8 @@ trackTests {
         "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
 
         "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+        
+        "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {}
 
         "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
