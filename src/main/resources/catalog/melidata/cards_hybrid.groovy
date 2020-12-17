@@ -1134,7 +1134,7 @@ tracks {
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
-            type: String,
+            type: PropertyType.String,
             values: ["faq"],
             description: "Help button tapped"
         )
@@ -1145,7 +1145,7 @@ tracks {
     "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
-            type: String,
+            type: PropertyType.String,
             values: ["money_in"],
             description: "Add money tapped"
         )
@@ -1162,7 +1162,7 @@ tracks {
     "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
-            type: String,
+            type: PropertyType.String,
             values: ["finish"],
             description: "Finish button tapped"
         )
