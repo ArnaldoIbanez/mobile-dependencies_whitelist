@@ -4598,6 +4598,7 @@ trackTests {
             user_id = "1321312"
             lang = "es"
             site = "mla"
+            uri = "/guides"
             like = "yes"
         }
     }
