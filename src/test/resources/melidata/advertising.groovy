@@ -486,9 +486,9 @@ trackTests {
             budget = 3990
             campaign_id = 235666
             budget_type = "D"
-            selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
     }
     test("Advertising Dynamic budget ") {
