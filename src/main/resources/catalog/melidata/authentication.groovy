@@ -344,9 +344,7 @@ tracks {
         status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the access?")
     }
 
-    "/authenticators/device_authorization/enrollment"(platform: "/", isAbstract: true) {
-        section(type: PropertyType.String, required: true, description: "How did the user land at the enrollment flow?")
-    }
+    "/authenticators/device_authorization/enrollment"(platform: "/", isAbstract: true) {}
 
     "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
 
