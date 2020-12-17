@@ -844,13 +844,13 @@ tracks {
     "/advertising/pads2/manager/update/budget/go"(platform: "/web", type: TrackType.Event) {
         multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
-        budget_previous(required: true, description: "Previous budget related to the campaign")
+        budget_previous(required: false, description: "Previous budget related to the campaign")
         budget_new(required: true, type: PropertyType.Numeric, description: "New budget related to the campaign.")
-        budget(required: false, description: "budget related to the campaign")
+        budget(required: true, description: "budget related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
-        selected_budget(required: true, description: "selected budget campaign Modal campaign")
-        select_budget_pct(required: true, description: "select budget pct Modal campaign")
-        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
+        budget_new(required: true, description: "selected budget campaign Modal campaign")
+        budget_pct_new(required: true, description: "select budget pct Modal campaign")
+        budget_type_new(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
 
     }
 
