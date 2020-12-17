@@ -79,6 +79,7 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_effectivity_survey_value
     }
@@ -235,7 +236,7 @@ tracks {
     "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
     }
-
+    "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_effectivity_survey_value
     }
