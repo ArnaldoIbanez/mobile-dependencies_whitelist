@@ -343,7 +343,7 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/update/budget"(platform: "/web", type: TrackType.Event, isAbstract: true) {
     }
     "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
@@ -1314,7 +1314,7 @@ tracks {
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
 
-    "/advertising/pads2/hub/update"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/advertising/pads2/hub/update"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
     "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
     
