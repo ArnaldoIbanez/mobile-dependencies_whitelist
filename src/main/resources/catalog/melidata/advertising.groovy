@@ -859,9 +859,9 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, description: "Budget related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
-        selected_budget(required: true, description: "selected budget campaign Modal campaign")
-        select_budget_pct(required: true, description: "select budget pct Modal campaign")
-        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
+        budget_new(required: true, description: "selected budget campaign Modal campaign")
+        budget_pct_new(required: true, description: "select budget pct Modal campaign")
+        budget_type_new(required: true, description: "selected budget type  F  or  D Modal campaign",values: ['D', 'F'])
     }
 
     // Multicampaña - Sads New

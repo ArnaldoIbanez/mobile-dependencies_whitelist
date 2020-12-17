@@ -1060,9 +1060,9 @@ trackTests {
             campaign_id = "2222222"
             budget = "4000"
             budget_type = "D"
-            selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
