@@ -37,7 +37,7 @@ tracks {
         check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
         value(type: PropertyType.Numeric, required: true)
         is_default(type: PropertyType.Boolean, required: true)
-        allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: false, description: "seo allowlist data")
+        allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
     }
 
     def location_info_definition = objectSchemaDefinitions {
