@@ -107,6 +107,9 @@ tracks {
     "/single_player/prepaid/add_device_number/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/prepaid/add_device_number/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/prepaid/add_device_number/show_contacts"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
@@ -121,6 +124,9 @@ tracks {
         view_time
     }
     "/single_player/prepaid/invalid_input/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/invalid_input/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -221,6 +227,9 @@ tracks {
         view_time
     }
     "/single_player/prepaid/edit_alias/cancel_delete"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/edit_alias/close"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/prepaid/edit_alias/back"(platform: "/mobile", type: TrackType.Event) {
@@ -420,6 +429,18 @@ tracks {
     // Errors
     "/single_player/prepaid/error"(platform: "/mobile", isAbstract: true) {}
 
+
+    // Errors - Blocked error
+    "/single_player/prepaid/error/blocked"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/error/blocked/another_device"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/error/blocked/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
     // Errors - Internal error
     "/single_player/prepaid/error/internal"(platform: "/mobile", type: TrackType.View) {}
 
@@ -555,6 +576,21 @@ tracks {
     "/single_player/paygo"(platform: "/mobile", isAbstract: true) {
         mandatory
         step_information
+    }
+
+
+    // Base
+    "/single_player/paygo/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/change_detail"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/view_reciept"(platform: "/mobile", type: TrackType.Event) {
+        view_time
     }
 
 
@@ -751,6 +787,9 @@ tracks {
         vertical_id(required: true, PropertyType.String, description: "Vertical of the flow")
         provider_id(required: true, PropertyType.String, description: "Provider of the operation")
     }
+    "/single_player/paygo/congrats_success/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+    }
     "/single_player/paygo/congrats_success/back_to_home"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
     }
@@ -765,6 +804,7 @@ tracks {
     "/single_player/paygo/congrats_rejected"(platform: "/mobile", type: TrackType.View) {
         error_code(required: false, PropertyType.String, description: "Error code in server")
     }
+    "/single_player/paygo/congrats_rejected/back"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/paygo/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/paygo/congrats_pending/back"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -772,24 +812,27 @@ tracks {
     // Recurrence
     "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
-        item_structure
+    "/single_player/paygo/recurrence/add_money"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/recurrence/another_device"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/recurrence/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/recurrence/device_list"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/paygo/recurrence/more_charges"(platform: "/mobile", type: TrackType.Event) {
         item_structure
         view_time
     }
-    "/single_player/paygo/recurrence/device_list"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/recurrence/more_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/paygo/recurrence/another_device"(platform: "/mobile", type: TrackType.Event) {
-        view_time
-    }
-    "/single_player/paygo/recurrence/add_money"(platform: "/mobile", type: TrackType.Event) {
-        view_time
-    }
-    "/single_player/paygo/recurrence/back"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
+        item_structure
         view_time
     }
 
@@ -826,6 +869,9 @@ tracks {
     // Debt Detail
     "/single_player/paygo/debt_detail"(platform: "/mobile", type: TrackType.View) {}
 
+    "/single_player/paygo/debt_detail/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/debt_detail/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
@@ -837,6 +883,9 @@ tracks {
     // Debt Detail With Others
     "/single_player/paygo/debt_detail_with_others"(platform: "/mobile", type: TrackType.View) {}
 
+    "/single_player/paygo/debt_detail_with_others/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/debt_detail_with_others/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
@@ -1021,10 +1070,16 @@ tracks {
         error_code(required: false, PropertyType.String, description: "Error code in server")
     }
 
+    "/single_player/paygo/error/server/add_money"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/paygo/error/server/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/error/server/select_device"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
