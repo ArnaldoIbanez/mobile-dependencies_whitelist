@@ -943,6 +943,14 @@ trackTests {
             status = "active"
             budget = "4000"
         }
+        "/advertising/pads2/manager/addads/budget"(platform: "/web", type: TrackType.Event) {
+
+        }
+        "/advertising/pads2/manager/addads/budget/tooltip"(platform: "/web", type: TrackType.Event) {
+            budget = "4000"
+            campaign_id = "2222222"
+            budget_type = "D"
+        }
 
         "/advertising/pads2/manager/addads/breadcrumb"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
