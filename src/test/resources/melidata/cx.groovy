@@ -16,6 +16,15 @@ trackTests {
             portal_content_id = 96
             portal_has_channels_configured = true
         }
+        "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_contact = [
+                    channels: [:],
+                    contact_config: false
+            ]
+            portal_content_id = 96
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = 1
+        }
         "/portal/hub"(platform: "/", type: TrackType.View) {
             portal_contact = [
                     channels: [:],
@@ -76,6 +85,12 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
         }
+        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = 1
+        }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
@@ -102,6 +117,10 @@ trackTests {
             portal_source_id = 123
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+        }
+         "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_custom_order_id = 12345678
         }
     }
 
@@ -198,6 +217,14 @@ trackTests {
             portal_content_id = 96
             portal_has_channels_configured = true
         }
+        "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_contact = [
+                    channels: [:],
+                    contact_config: false
+            ]
+            portal_content_id = 96
+            portal_has_channels_configured = true
+        }
         "/portal/hub"(platform: "/", type: TrackType.View) {
             portal_contact = [
                     channels: [:],
@@ -229,6 +256,11 @@ trackTests {
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/portal/validate_user"(platform: "/", type: TrackType.View) {}
+
+        "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_custom_order_id = 12345678
+        }
     }
 
 
@@ -262,6 +294,12 @@ trackTests {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
+        }
+        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = 1
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987

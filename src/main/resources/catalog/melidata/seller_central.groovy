@@ -150,6 +150,9 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "ID of the catalog product related to the optined item/variation")
         match_type(required: true, values: ["CATALOG", "AUTO", "SELLER", "none"], type: PropertyType.String, description: "Match type of the association related to the item/variation")
         safe_match(required: true, type: PropertyType.Boolean, description: "Property that describes whether the association match is safe or not for the item/variation")
+        is_eligible(required: true, type: PropertyType.Boolean, description: "Property that describes whether the item/variation is eligible or not")
+        eligibility_status(required: true, type: PropertyType.String, description: "Eligibility status related to the item/variation")
+        eligibility_reason(required: true, type: PropertyType.String, description: "Eligibility reason related to the item/variation")
         status(required: true, values: ["success", "enqueue", "not_enqueue", "syi_client"], type: PropertyType.String, description: "Property that describes the final state of the processing for the item/variation")
         is_already_optined(required: true, type: PropertyType.Boolean, description: "Property that describes whether the item/variation is already optined or not")
     }

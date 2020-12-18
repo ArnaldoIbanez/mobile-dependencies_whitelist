@@ -1456,6 +1456,10 @@ trackTests {
             step_information()
         }
 
+        "/single_player/paygo/break_new_plate/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/break_new_plate/new_activation_number"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -1532,11 +1536,23 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/add_activation_number/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/add_activation_number/confirm"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
         "/single_player/paygo/add_activation_number/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/close"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1566,6 +1582,11 @@ trackTests {
         "/single_player/paygo/add_device_number/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+        "/single_player/paygo/add_device_number/invalid_input"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            device_number = "12345678"
         }
 
 
@@ -2113,6 +2134,10 @@ trackTests {
             step_information()
         }
 
+        "/single_player/paygo/break_new_plate/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/break_new_plate/new_activation_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -2190,11 +2215,23 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/add_activation_number/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/add_activation_number/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
         "/single_player/paygo/add_activation_number/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/add_activation_number/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -2225,6 +2262,11 @@ trackTests {
         "/single_player/paygo/add_device_number/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+        "/single_player/paygo/add_device_number/invalid_input"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            device_number = "12345678"
         }
 
 

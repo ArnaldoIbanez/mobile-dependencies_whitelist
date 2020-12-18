@@ -1483,12 +1483,14 @@ trackTests {
     	}
 
     	"/instore/filter_modal/clear_filter"(platform: "/mobile",type: TrackType.Event) {
-       	 filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
+       	 	filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
     	}
 
      	"/instore/filter_modal/categories/show"(platform: "/mobile",type:TrackType.View) {}
 
-    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",type: TrackType.Event) {}
+    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",type: TrackType.Event) {
+    		category_selected = "markets"
+    	}
 
     	"/instore/filter_modal/categories/close"(platform: "/mobile",type: TrackType.Event) {}
 
@@ -3403,12 +3405,14 @@ trackTests {
     	}
 
     	"/instore/filter_modal/clear_filter"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
-       	 filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
+       	 	filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
     	}
 
      	"/instore/filter_modal/categories/show"(platform: "/mobile",, business: "mercadopago", type: TrackType.View) {}
 
-    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",, business: "mercadopago", type: TrackType.Event) {}
+    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",, business: "mercadopago", type: TrackType.Event) {
+    		category_selected = "markets"
+    	}
 
     	"/instore/filter_modal/categories/close"(platform: "/mobile",, business: "mercadopago", type: TrackType.Event) {}
     }

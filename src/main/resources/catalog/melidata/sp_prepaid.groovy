@@ -588,6 +588,9 @@ tracks {
     "/single_player/paygo/break_new_plate/activate_activation_number"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/paygo/break_new_plate/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     // Freeways Available
     "/single_player/paygo/freeways_available"(platform: "/mobile", type: TrackType.View) {}
@@ -624,6 +627,15 @@ tracks {
     "/single_player/paygo/add_activation_number/understood_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/paygo/add_activation_number/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/add_activation_number/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/add_activation_number/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     // Add device number
     "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {}
@@ -642,6 +654,10 @@ tracks {
     }
     "/single_player/paygo/add_device_number/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
+    }
+    "/single_player/paygo/add_device_number/invalid_input"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+        device_number(required: true, PropertyType.String, description: "Add device number invalid")
     }
 
 

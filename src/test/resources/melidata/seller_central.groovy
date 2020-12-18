@@ -3415,6 +3415,9 @@ trackTests {
               catalog_product_id: "MLA15149561",
               match_type: "SELLER",
               safe_match: true,
+              is_eligible: false,
+              eligibility_status: "NOT_ELIGIBLE",
+              eligibility_reason: "cellphone_not_unlocked",
               status: "success",
               is_already_optined: false
       ]
@@ -3426,6 +3429,9 @@ trackTests {
                               catalog_product_id: "MLA10205674",
                               match_type: "SELLER",
                               safe_match: true,
+                              is_eligible: false,
+                              eligibility_status: "NOT_ELIGIBLE",
+                              eligibility_reason: "cellphone_not_unlocked",
                               status: "success",
                               is_already_optined: false
                       ]
