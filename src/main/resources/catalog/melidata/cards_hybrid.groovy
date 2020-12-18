@@ -1156,7 +1156,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["success", "unknown"],
-            description: "type of congrats"
+            description: "Type of congrats"
         )
     }
     "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
