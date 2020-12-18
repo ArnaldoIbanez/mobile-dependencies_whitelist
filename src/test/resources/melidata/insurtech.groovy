@@ -729,7 +729,7 @@ trackTests {
             quotable= true
             buying_mode = 'buy_it_now'
         }
-       
+
        "/insurtech/roda/qpage/congrats_subscription"(platform:"/", type: TrackType.View) {
           preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
           payment_id=10341173315
@@ -1351,6 +1351,8 @@ trackTests {
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
+            imei = '8978930'
+            protection_status = 'pending_activation'
         }
 
         "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
@@ -1415,7 +1417,7 @@ trackTests {
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
 
         "/insurtech/protections/detail/roda/congrats/imei"(platform:"/web", type: TrackType.View) {
-            insurance_purchase: "roda-ABC125"
+            insurance_purchase = 'roda-ABC125'
         }
     }
 

@@ -502,7 +502,7 @@ tracks {
     "/insurtech/protections/detail/roda/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
     }
-       
+
     "/insurtech/protections/detail/roda/imei_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
     }
@@ -532,7 +532,7 @@ tracks {
     "/insurtech/protections/detail/roda/congrats"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
 
     "/insurtech/protections/detail/roda/congrats/imei"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        insurance_purchase(required: false, type: PropertyType.String, description: "Insurance purchase key associated to the protection.")
+        insurance_purchase(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the protection.")
      }
 
 }
