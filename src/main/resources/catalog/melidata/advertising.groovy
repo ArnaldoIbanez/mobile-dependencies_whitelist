@@ -776,9 +776,9 @@ tracks {
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
     }
-    "/advertising/pads2/manager/addads/budget"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/addads/budget"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
 
-    "/advertising/pads2/manager/addads/budget/tooltip"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/addads/budget/tooltip"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
