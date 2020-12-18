@@ -592,6 +592,7 @@ trackTests {
         "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
             written = "123"
             finalText = "12345678"
+            session_id = "1234567"
         }
         
         "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
@@ -600,6 +601,7 @@ trackTests {
         
         "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 2.0
+            session_id = "1234567"
         }
 
         "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
