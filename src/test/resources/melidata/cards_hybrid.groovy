@@ -1217,11 +1217,9 @@ trackTests {
             status = "unknown"
         }
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
-            status = "success"
             action = "finish"
         }
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
-            status = "unknown"
             action = "finish"
         }
 
