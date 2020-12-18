@@ -486,11 +486,13 @@ trackTests {
             budget = 3990
             campaign_id = 235666
             budget_type = "D"
-            selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
+
     }
+    
     test("Advertising Dynamic budget ") {
         "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
             budget = 3990
@@ -505,7 +507,14 @@ trackTests {
             budget = 3990
             campaign_id = 235666
         }
+        "/advertising/pads2/hub/budget"(platform: "/", type: TrackType.Event) {
+        }
+        "/advertising/pads2/hub/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+        }
     }
+
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
             winners_suggested = "20"
@@ -795,15 +804,9 @@ trackTests {
         budget = 4000
         }
 
-        "/advertising/pads2/createcampaign/step1/breadcrumb"(platform: "/web", type: TrackType.Event) {
-        campaign_name = "celulares"
-        budget = 4000
-        }
+        "/advertising/pads2/createcampaign/step1/breadcrumb"(platform: "/web", type: TrackType.Event) {}
 
-        "/advertising/pads2/createcampaign/step1/helperbudget"(platform: "/web", type: TrackType.Event) {
-        campaign_name = "celulares"
-        budget = 4000
-        }
+        "/advertising/pads2/createcampaign/step1/helperbudget"(platform: "/web", type: TrackType.Event) {}
 
         "/advertising/pads2/createcampaign/step2"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
@@ -1048,11 +1051,11 @@ trackTests {
             multi = true
             campaign_id = "2222222"
             budget_previous = 4000
+            budget = "4000"
             budget_new = 5600
             budget_type = "D"
-            selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
 
         "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
@@ -1060,9 +1063,9 @@ trackTests {
             campaign_id = "2222222"
             budget = "4000"
             budget_type = "D"
-            selected_budget = 2500
-            select_budget_pct = "18.8"
-            selected_budget_type = "D"
+            budget_new = 2500
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
@@ -1612,6 +1615,18 @@ trackTests {
             trtarget = 35
         }
 
+        "/advertising/pads2/hub/modal/bidding/trtarget/helper/takerate"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "PROFITABILITY"
+            trtarget = 5
+        }
+
+        "/advertising/pads2/hub/modal/bidding/trtarget/helper/impact"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "PROFITABILITY"
+            trtarget = 5
+        }
+
         "/advertising/pads2/hub/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
@@ -1624,6 +1639,32 @@ trackTests {
 
         "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
 
+        "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            budget_new = 5600
+            budget_type = "D"
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
+        "/advertising/pads2/hub/update/budget/close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            budget_new = 5600
+            budget_type = "D"
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
+        "/advertising/pads2/hub/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            budget_new = 5600
+            budget_type = "D"
+            budget_pct_new = "18.8"
+            budget_type_new = "D"
+        }
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
@@ -1657,6 +1698,8 @@ trackTests {
         "/advertising/pads2/manager/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
             multi = false
             campaign_id = 1
+            strategy = "PROFITABILITY"
+            trtarget = 15
         }
 
         "/advertising/pads2/manager/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
@@ -1696,6 +1739,20 @@ trackTests {
             trtarget = 3
         }
 
+        "/advertising/pads2/manager/modal/bidding/trtarget/helper/takerate"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "PROFITABILITY"
+            trtarget = 10
+        }
+
+        "/advertising/pads2/manager/modal/bidding/trtarget/helper/impact"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "PROFITABILITY"
+            trtarget = 3
+        }
+
         "/advertising/pads2/manager/modal/bidding/impact"(platform: "/", type: TrackType.Event) {}
 
         "/advertising/pads2/manager/modal/bidding/impact/helper"(platform: "/", type: TrackType.Event) {
@@ -1720,9 +1777,14 @@ trackTests {
         "/advertising/pads2/hub/bidding/upgrade/row"(platform: "/", type: TrackType.Event){}
 
         "/advertising/pads2/hub/bidding/upgrade/row/show"(platform: "/", type: TrackType.View) {
-            campaign_id = 34
-            strategy = "LAUNCHING"
-            trtarget = 3
+            total_campaigns = 5
+            campaigns = [
+                    {
+                        campaign_id: 222
+                        strategy: "PROFITABILITY"
+                        trtarget: 5
+                    }
+            ]
         }
 
         "/advertising/pads2/hub/bidding/upgrade/row/go"(platform: "/", type: TrackType.Event) {

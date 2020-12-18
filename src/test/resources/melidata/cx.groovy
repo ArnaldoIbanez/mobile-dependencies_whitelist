@@ -118,6 +118,10 @@ trackTests {
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
+         "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_custom_order_id = 12345678
+        }
     }
 
     test("Support Widget having Content Type") {
@@ -252,6 +256,11 @@ trackTests {
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/portal/validate_user"(platform: "/", type: TrackType.View) {}
+
+        "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_custom_order_id = 12345678
+        }
     }
 
 

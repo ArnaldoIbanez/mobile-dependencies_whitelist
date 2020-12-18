@@ -3473,10 +3473,6 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-            is_webview = true
-        }
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
@@ -3485,10 +3481,12 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
@@ -3498,6 +3496,30 @@ trackTests {
             is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
@@ -4598,6 +4620,7 @@ trackTests {
             user_id = "1321312"
             lang = "es"
             site = "mla"
+            uri = "/guides"
             like = "yes"
         }
     }
