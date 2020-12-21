@@ -497,6 +497,7 @@ trackTests {
         "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
+            budget_type = "D"
         }
         "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget = 3990
@@ -506,12 +507,14 @@ trackTests {
         "/advertising/pads2/manager/budget/tooltip/edit_new"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
+            budget_type = "D"
         }
         "/advertising/pads2/hub/budget"(platform: "/", type: TrackType.Event) {
         }
         "/advertising/pads2/hub/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
+            budget_type = "D"
         }
     }
 
