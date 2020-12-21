@@ -489,6 +489,7 @@ trackTests {
             budget_new = 2500
             budget_pct_new = "18.8"
             budget_type_new = "D"
+            budget_pct_old = "17.0"
         }
 
     }
@@ -1067,6 +1068,7 @@ trackTests {
             budget_type = "D"
             budget_pct_new = "18.8"
             budget_type_new = "D"
+            budget_pct_old = "17.0"
         }
 
         "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
@@ -1077,6 +1079,7 @@ trackTests {
             budget_new = 2500
             budget_pct_new = "18.8"
             budget_type_new = "D"
+            budget_pct_old = "17.0"
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
@@ -1659,6 +1662,7 @@ trackTests {
             budget_type = "D"
             budget_pct_new = "18.8"
             budget_type_new = "D"
+            budget_pct_old = "17.0"
         }
         "/advertising/pads2/hub/update/budget/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
@@ -1667,6 +1671,7 @@ trackTests {
             budget_type = "D"
             budget_pct_new = "18.8"
             budget_type_new = "D"
+            budget_pct_old = "17.0"
         }
         "/advertising/pads2/hub/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
@@ -1675,6 +1680,7 @@ trackTests {
             budget_type = "D"
             budget_pct_new = "18.8"
             budget_type_new = "D"
+            budget_pct_old = "17.0"
         }
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
