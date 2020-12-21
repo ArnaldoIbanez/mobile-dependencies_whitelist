@@ -321,7 +321,7 @@ trackTests {
       module_id = "publicationsTasksCard"
       task_id = "CATALOG_PRIORITY"
       seller_experience = "ADVANCED"
-    }attentionCard
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
