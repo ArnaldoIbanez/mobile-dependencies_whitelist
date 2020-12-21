@@ -315,8 +315,9 @@ trackTests {
       task_id = "BEST_PRICE_ELIGIBLE"
       seller_experience = "ADVANCED"
     }
+   } 
 
-      test("Seller central summary task click") {
+  test("Seller central summary task click") {
     "/seller_central/summary/task"(platform: "/mobile", type: TrackType.Event) {
       module_id = "publicationsTasksCard"
       task_id = "CATALOG_PRIORITY"
