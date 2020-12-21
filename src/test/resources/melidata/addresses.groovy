@@ -116,6 +116,10 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
+        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
         "/addresses/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
             written = "sug"
             final_text = "suggested street"
@@ -259,6 +263,10 @@ trackTests {
             editing_address = 12312312312
         }        
         "/addresses/input_address/dont_know_my_zip_code/submit"(platform: "/", type: TrackType.Event) {
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
+        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
