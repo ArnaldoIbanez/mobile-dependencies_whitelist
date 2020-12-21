@@ -1515,6 +1515,7 @@ tracks {
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
+        slide(required: false, type: PropertyType.Numeric, description: "Slide where the card is shown. Only tracked when there are multiple slides.")
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
