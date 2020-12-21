@@ -32,60 +32,32 @@ tracks {
     "/addresses/input_address/map/submit"(platform:"/", type: TrackType.Event) {}
 
     // INPUT ERRORS
-    "/addresses/input_address/name"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the name track the name value")
-    }
-    
-    "/addresses/input_address/zip_code"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
+    "/addresses/input_address/error"(platform:"/", type: TrackType.Event, isAbstract: true) {
+        label(required: true, type: PropertyType.String, description: "The address input error message shown")
+        value(required: false, type: PropertyType.String, description: "The address input error value")
     }
 
-    "/addresses/input_address/street_name"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_name track the street_name value")
-    }
+    "/addresses/input_address/error/name"(platform:"/", type: TrackType.Event) {}
     
-    "/addresses/input_address/street_number"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
-    }
+    "/addresses/input_address/error/zip_code"(platform:"/", type: TrackType.Event) {}
+
+    "/addresses/input_address/error/street_name"(platform:"/", type: TrackType.Event) {}
     
-    "/addresses/input_address/city"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
-    }
+    "/addresses/input_address/error/street_number"(platform:"/", type: TrackType.Event) {}
     
-    "/addresses/input_address/colony"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
-    }
+    "/addresses/input_address/error/city"(platform:"/", type: TrackType.Event) {}
     
-    "/addresses/input_address/delivery"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery track the delivery value")
-    }
+    "/addresses/input_address/error/colony"(platform:"/", type: TrackType.Event) {}
+    
+    "/addresses/input_address/error/delivery"(platform:"/", type: TrackType.Event) {}
 
-    "/addresses/input_address/delivery_instructions"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery_instructions")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery_instructions track the delivery_instructions value")
-    }
+    "/addresses/input_address/error/delivery_instructions"(platform:"/", type: TrackType.Event) {}
 
-    "/addresses/input_address/phone"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
-    }
+    "/addresses/input_address/error/phone"(platform:"/", type: TrackType.Event) {}
 
-    "/addresses/input_address/additional_info"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the additional info")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the additional info track the additional info value")
-    }
+    "/addresses/input_address/error/additional_info"(platform:"/", type: TrackType.Event) {}
 
-    "/addresses/input_address/error_map"(platform: "/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the map step")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the map step track the map coordiantes value")
-    }
+    "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {}
 
     // UX INFORMATION
     "/addresses/input_address/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}

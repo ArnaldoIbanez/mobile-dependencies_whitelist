@@ -39,67 +39,67 @@ trackTests {
     }
 
     test("Addresses - Test the input errors") { 
-        "/addresses/input_address/name"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }        
-        "/addresses/input_address/zip_code"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/zip_code"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = "00"
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/street_name"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/street_number"(platform:"/",  type: TrackType.Event){
+        "/addresses/input_address/error/street_number"(platform:"/",  type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             value = "aaa"
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/city"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/city"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/colony"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/delivery"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/delivery"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/delivery_instructions"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/delivery_instructions"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/phone"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/phone"(platform:"/", type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/additional_info"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/additional_info"(platform:"/", type: TrackType.Event){
             label = "Revisa este dato"
             value = "!*"
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/error_map"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             context = "MY_ML"
@@ -185,67 +185,67 @@ trackTests {
     }
 
     test("Addresses - Test the input errors") { 
-        "/addresses/input_address/name"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }        
-        "/addresses/input_address/zip_code"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/zip_code"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = "00"
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/street_name"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/street_number"(platform:"/",  type: TrackType.Event){
+        "/addresses/input_address/error/street_number"(platform:"/",  type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             value = "aaa"
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/city"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/city"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/colony"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/delivery"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/delivery"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/delivery_instructions"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/delivery_instructions"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/phone"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/phone"(platform:"/", type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/additional_info"(platform:"/", type: TrackType.Event){
+        "/addresses/input_address/error/additional_info"(platform:"/", type: TrackType.Event){
             label = "Revisa este dato"
             value = "!*"
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/error_map"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             context = "MY_ML"
