@@ -875,6 +875,7 @@ tracks {
         budget_previous(required: false, description: "Previous budget related to the campaign")
         budget_new(required: true, description: "New budget related to the campaign.")
         budget(required: true, description: "budget related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
         budget_pct_new(required: true, description: "budget pct new Modal campaign")
         budget_type_new(required: true, description: "budget type new  F  or  D Modal campaign",values: ['D', 'F'])
         budget_pct_old(required: true, description: " budget pct old Modal campaign")
