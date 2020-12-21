@@ -89,6 +89,7 @@ catalog {
         include business, "cookie_disclaimer.groovy"
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
+        include business, "addresses.groovy"
     }
 
     mercadolibre.each { business ->
