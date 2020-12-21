@@ -250,6 +250,7 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
         include business, "drivers_app.groovy"
+        include business, "crowd.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
     }
