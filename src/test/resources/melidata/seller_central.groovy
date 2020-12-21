@@ -1991,8 +1991,14 @@ trackTests {
     }
   }
 
-  test("metrics section view for mobile") {
+  test("metrics section view for web mobile") {
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics section view for mobile") {
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+      fragment_from_webview = "summary"
+    }
   }
 
   test("metrics section view for web") {

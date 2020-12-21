@@ -1216,6 +1216,10 @@ tracks {
 
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
 
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+        fragment_from_webview(required: false, type: PropertyType.String, description: "The webview where is opened the fragment")
+    }
+
     "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales
         sellerMetricsContext
