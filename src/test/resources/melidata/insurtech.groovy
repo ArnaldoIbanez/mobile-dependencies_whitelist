@@ -729,17 +729,26 @@ trackTests {
             quotable= true
             buying_mode = 'buy_it_now'
         }
-       
+
        "/insurtech/roda/qpage/congrats_subscription"(platform:"/", type: TrackType.View) {
-          preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
-          payment_id=10341173315
-          status='success'
+            purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
+            preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
+            payment_id=10341173315
+            status='success'
         }
 
-       "/insurtech/roda/qpage/congrats_subscription/go_to_protection"(platform:"/", type: TrackType.Event) {
-          preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
-          payment_id=10341173315
-          status='success'
+       "/insurtech/roda/qpage/congrats_subscription/go_to_protections"(platform:"/", type: TrackType.Event) {
+            purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
+            preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
+            payment_id=10341173315
+            status='success'
+        }
+
+       "/insurtech/roda/qpage/congrats_subscription/go_to_protection_detail"(platform:"/", type: TrackType.Event) {
+            purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
+            preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
+            payment_id=10341173315
+            status='success'
         }
 
         //Mobile
