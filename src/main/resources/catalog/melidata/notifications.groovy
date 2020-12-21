@@ -795,6 +795,30 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         type(required: false, type: PropertyType.String, description: "Payment pending type.")
     }
+    "/notification_center/subscription_disney_activation_on"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
+    "/notification_center/subscription_disney_activation_off"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
+    "/notification_center/subscription_disney_activation_free_trial"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
     "/notification_center/prepaid_card_delivery"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -872,6 +896,10 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/wallet_integrator_ticket_acredited"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/wallet_integrator_personal_loan"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -996,6 +1024,27 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         debt_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification_center/single_player_payment_reminder_new_solo_debt"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        debt_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification_center/single_player_payg_unlock_device_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_payg_new_debt_without_block_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_payg_create_device_success_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_payg_blocked_device_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
     "/notification_center/seller_journey_congrats"(platform: "/", type: TrackType.Event){
@@ -1920,6 +1969,24 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         type(required: false, type: PropertyType.String, description: "Payment pending type.")
     }
+    "/notification/subscription_disney_activation_on"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
+    "/notification/subscription_disney_activation_off"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
+    "/notification/subscription_disney_activation_free_trial"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
 
     "/notification/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {}
     "/notification/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {}
@@ -2167,6 +2234,13 @@ tracks {
     "/notification/single_player_payment_reminder_expiring_grouped_debt"(platform: "/mobile") {
         debt_id(required: true, type: PropertyType.Numeric)
     }
+    "/notification/single_player_payment_reminder_new_solo_debt"(platform: "/mobile") {
+        debt_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/single_player_payg_unlock_device_mp"(platform: "/mobile") {}
+    "/notification/single_player_payg_new_debt_without_block_mp"(platform: "/mobile") {}
+    "/notification/single_player_payg_create_device_success_mp"(platform: "/mobile") {}
+    "/notification/single_player_payg_blocked_device_mp"(platform: "/mobile") {}
 
     //Shipping
     "/notification/shipping_moderation_cross_docking_release_below"(platform: "/") {}
@@ -2186,6 +2260,8 @@ tracks {
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
     "/notification/wallet_integrator_payment_success"(platform: "/mobile") {}
     "/notification/wallet_integrator_insufficient_funds"(platform: "/mobile") {}
+    "/notification/wallet_integrator_insufficient_funds"(platform: "/mobile") {}
+    "/notification/wallet_integrator_personal_loan"(platform: "/mobile") {}
 
     //Withdraw
     "/notification/withdraw_approved_contingency"(platform: "/", type: TrackType.Event) {} //At web, only mp business

@@ -1025,6 +1025,38 @@ trackTests {
             date = "20181211"
             type = "activate_before"
         }
+
+        "/notification_center/subscription_disney_activation_on"(platform: "/mobile") {
+            newsgroup_id = "subscription_disney_activation_on-186785675"
+            latest_news_id= "subscription_disney_activation_on-186785675"
+            latest_news_type= "subscription_disney_activation_on"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_disney_activation_off"(platform: "/mobile") {
+            newsgroup_id = "subscription_disney_activation_off-186785675"
+            latest_news_id= "subscription_disney_activation_off-186785675"
+            latest_news_type= "subscription_disney_activation_off"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_disney_activation_free_trial"(platform: "/mobile") {
+            newsgroup_id = "subscription_disney_activation_free_trial-186785675"
+            latest_news_id= "subscription_disney_activation_free_trial-186785675"
+            latest_news_type= "subscription_disney_activation_free_trial"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
@@ -1258,6 +1290,12 @@ trackTests {
             latest_news_type= "wallet_integrator_insufficient_funds"
             status= "read"
         }
+        "/notification_center/wallet_integrator_personal_loan"(platform: "/mobile"){
+            newsgroup_id= "wallet_integrator_personal_loan-186785675-76283123"
+            latest_news_id= "wallet_integrator_personal_loan-186785675-76283123"
+            latest_news_type= "wallet_integrator_personal_loan"
+            status= "read"
+        }
         "/notification_center/wallet_integrator_ticket_acredited"(platform: "/mobile"){
             newsgroup_id= "wallet_integrator-ticket_acredited-186785675-76283123"
             latest_news_id= "wallet_integrator-ticket_acredited-186785675-76283123"
@@ -1343,6 +1381,29 @@ trackTests {
             latest_news_id= "single_player_payment_reminder_new_grouped_debt-143816022-MLB1013046714"
             debt_id=123
         }
+
+        "/notification_center/single_player_payment_reminder_new_solo_debt"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payment_reminder_new_solo_debt"
+            latest_news_id= "single_player_payment_reminder_new_solo_debt-143816022-MLB1013046714"
+            debt_id=123
+        }
+        "/notification_center/single_player_payg_unlock_device_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_unlock_device_mp"
+            latest_news_id= "single_player_payg_unlock_device_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_new_debt_without_block_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_new_debt_without_block_mp"
+            latest_news_id= "single_player_payg_new_debt_without_block_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_create_device_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_create_device_success_mp"
+            latest_news_id= "single_player_payg_create_device_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_blocked_device_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_blocked_device_mp"
+            latest_news_id= "single_player_payg_blocked_device_mp-143816022-MLB1013046714"
+        }
+
         "/notification_center/single_player_payment_reminder_expiring_grouped_debt"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_payment_reminder_expiring_grouped_debt"
             latest_news_id= "single_player_payment_reminder_expiring_grouped_debt-143816022-MLB1013046714"
@@ -3317,6 +3378,30 @@ trackTests {
             date = "20181211"
             type = "activate_before"
         }
+        "/notification/subscription_disney_activation_on"(platform: "/mobile") {
+            news_id = "subscription_disney_activation_on-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_disney_activation_off"(platform: "/mobile") {
+            news_id = "subscription_disney_activation_off-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_disney_activation_free_trial"(platform: "/mobile") {
+            news_id = "subscription_disney_activation_free_trial-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
             news_id = "123"
@@ -4086,6 +4171,27 @@ trackTests {
             event_type = "open"
             debt_id=123
         }
+        "/notification/single_player_payment_reminder_new_solo_debt"(platform: "/mobile") {
+            news_id = "single_player_payment_reminder_new_solo_debt"
+            event_type = "open"
+            debt_id=123
+        }
+        "/notification/single_player_payg_unlock_device_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_unlock_device_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_new_debt_without_block_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_new_debt_without_block_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_create_device_success_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_create_device_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_blocked_device_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_blocked_device_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_payment_reminder_expiring_grouped_debt"(platform: "/mobile") {
             news_id = "single_player_payment_reminder_expiring_grouped_debt_123"
             event_type = "open"
@@ -4110,6 +4216,11 @@ trackTests {
 
         "/notification/wallet_integrator_insufficient_funds"(platform: "/mobile") {
             news_id = "wallet_integrator-insufficient_funds-186785675"
+            event_type = "open"
+        }
+
+        "/notification/wallet_integrator_personal_loan"(platform: "/mobile") {
+            news_id = "wallet_integrator_personal_loan-186785675"
             event_type = "open"
         }
 
@@ -5083,6 +5194,36 @@ trackTests {
             date = "20181211"
             type = "activate_before"
         }
+        "/notification_center/subscription_disney_activation_on"(platform: "/mobile") {
+            newsgroup_id = "subscription_disney_activation_on-186785675"
+            latest_news_id= "subscription_disney_activation_on-186785675"
+            latest_news_type= "subscription_disney_activation_on"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_disney_activation_off"(platform: "/mobile") {
+            newsgroup_id = "subscription_disney_activation_off-186785675"
+            latest_news_id= "subscription_disney_activation_off-186785675"
+            latest_news_type= "subscription_disney_activation_off"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_disney_activation_free_trial"(platform: "/mobile") {
+            newsgroup_id = "subscription_disney_activation_free_trial-186785675"
+            latest_news_id= "subscription_disney_activation_free_trial-186785675"
+            latest_news_type= "subscription_disney_activation_free_trial"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
@@ -5360,6 +5501,27 @@ trackTests {
             latest_news_id= "single_player_payment_reminder_new_grouped_debt-143816022-MLB1013046714"
             debt_id=123
         }
+        "/notification_center/single_player_payment_reminder_new_solo_debt"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payment_reminder_new_solo_debt"
+            latest_news_id= "single_player_payment_reminder_new_solo_debt-143816022-MLB1013046714"
+            debt_id=123
+        }
+        "/notification_center/single_player_payg_unlock_device_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_unlock_device_mp"
+            latest_news_id= "single_player_payg_unlock_device_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_new_debt_without_block_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_new_debt_without_block_mp"
+            latest_news_id= "single_player_payg_new_debt_without_block_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_create_device_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_create_device_success_mp"
+            latest_news_id= "single_player_payg_create_device_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_blocked_device_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_blocked_device_mp"
+            latest_news_id= "single_player_payg_blocked_device_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_payment_reminder_expiring_grouped_debt"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_payment_reminder_expiring_grouped_debt"
             latest_news_id= "single_player_payment_reminder_expiring_grouped_debt-143816022-MLB1013046714"
@@ -5489,6 +5651,12 @@ trackTests {
             newsgroup_id= "wallet_integrator-insufficient_funds-186785675-76283123"
             latest_news_id= "wallet_integrator-insufficient_funds-186785675-76283123"
             latest_news_type= "wallet_integrator_insufficient_funds"
+            status= "read"
+        }
+        "/notification_center/wallet_integrator_personal_loan"(platform: "/mobile"){
+            newsgroup_id= "wallet_integrator_personal_loan-186785675-76283123"
+            latest_news_id= "wallet_integrator_personal_loan-186785675-76283123"
+            latest_news_type= "wallet_integrator_personal_loan"
             status= "read"
         }
         "/notification_center/wallet_integrator_ticket_acredited"(platform: "/mobile"){
@@ -6396,6 +6564,27 @@ trackTests {
             news_id = "single_player_payment_reminder_new_grouped_debt_123"
             event_type = "open"
             debt_id=123
+        }
+        "/notification/single_player_payment_reminder_new_solo_debt"(platform: "/mobile") {
+            news_id = "single_player_payment_reminder_new_solo_debt"
+            event_type = "open"
+            debt_id=123
+        }
+        "/notification/single_player_payg_unlock_device_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_unlock_device_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_new_debt_without_block_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_new_debt_without_block_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_create_device_success_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_create_device_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_blocked_device_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_blocked_device_mp_123"
+            event_type = "open"
         }
         "/notification/single_player_payment_reminder_expiring_grouped_debt"(platform: "/mobile") {
             news_id = "single_player_payment_reminder_expiring_grouped_debt_123"
@@ -7462,6 +7651,31 @@ trackTests {
             type = "activate_before"
         }
 
+        "/notification/subscription_disney_activation_on"(platform: "/mobile") {
+            news_id = "subscription_disney_activation_on-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_disney_activation_off"(platform: "/mobile") {
+            news_id = "subscription_disney_activation_off-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_disney_activation_free_trial"(platform: "/mobile") {
+            news_id = "subscription_disney_activation_free_trial-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -8107,6 +8321,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/wallet_integrator_personal_loan"(platform: "/mobile") {
+            news_id = "wallet_integrator_personal_loan-186785675"
+            event_type = "open"
+        }
+
         //Withdrawal
         "/notification/withdraw_approved_contingency"(platform: "/mobile") {
             news_id = "withdraw_approved_contingency-186785675"
@@ -8325,7 +8544,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-      
+
         "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
             news_id = "card_transactions_payment_reject_whit_contactless-186785675"
             event_type = "open"
@@ -8597,7 +8816,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-      
+
       "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
             news_id = "card_transactions_payment_reject_whit_contactless-186785675"
             event_type = "open"
