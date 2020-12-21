@@ -143,7 +143,7 @@ trackTests {
                 "latitude": 12.12,
                 "longitude": 42.42
             ]
-            finalCoordinates = [
+            final_coordinates = [
                 "latitude": 12.13,
                 "longitude": 42.40
             ]
@@ -289,7 +289,7 @@ trackTests {
                 "latitude": 12.12,
                 "longitude": 42.42
             ]
-            finalCoordinates = [
+            final_coordinates = [
                 "latitude": 12.13,
                 "longitude": 42.40
             ]

@@ -2464,6 +2464,7 @@ trackTests {
         
         "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 2.0
+            session_id = "1234567"
         }
 
         "/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
@@ -2471,10 +2472,11 @@ trackTests {
                 "latitude": 12.12,
                 "longitude": 42.42
             ]
-            finalCoordinates = [
+            final_coordinates = [
                 "latitude": 12.13,
                 "longitude": 42.40
             ]
+            session_id = "1234567"
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

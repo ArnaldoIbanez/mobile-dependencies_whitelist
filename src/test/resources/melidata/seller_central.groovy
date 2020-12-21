@@ -2878,6 +2878,13 @@ trackTests {
     }
   }
 
+  test("seller central listing promos card filter action with slide") {
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+      type = "lightning"
+      slide = 2
+    }
+  }
+
   test("seller central listing promos render with onboarding") {
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
   }
