@@ -710,6 +710,11 @@ trackTests {
             card_id = "Axs12345"
         }
     }
+    test("cards mpcard nip screen") {
+        "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
+            action = "header_help"
+        }
+    }
     test("cards mpcard nip, It_was_not_me link message tap") {
         "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
@@ -957,6 +962,12 @@ trackTests {
 
         "/cards/mpcard/contingency/nip/physical/tap"(platform: "/mobile", type: TrackType.Event) {
             action = "back_button"
+        }
+    }
+
+    test("Feedback Tap event"){
+        "/cards/mpcard/tracking/feedback/tap"(platform:"/mobile", type: TrackType.Event) {
+            action = "research_form"
         }
     }
 }

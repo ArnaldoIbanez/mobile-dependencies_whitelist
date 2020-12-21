@@ -846,7 +846,7 @@ tracks {
     		)
     }
     // Hybrid sendSMS Event
-    "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
+    "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web", type: TrackType.Event) {
         status (
             required: true,
             type: PropertyType.String,
@@ -901,7 +901,7 @@ tracks {
     propertyDefinitions {
         product_type(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'virtual_debit',
                 'virtual_prepaid',

@@ -642,6 +642,14 @@ tracks {
             inheritable:false
         )
     }
+    "/cards/mpcard/nip/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_help"],
+            description: "Help button tapped"
+        )
+    }
     "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -735,7 +743,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "add_money", "info_payment"],
+            values: ["back", "add_money", "info_payment", "money_in"],
             description: "action tap by the user in the pending challenge view"
         )
     }
@@ -869,6 +877,17 @@ tracks {
             type: PropertyType.String,
             values: ["back_button"],
             description: "Cards contingency nip tap"
+            )
+    }
+
+    "/cards/mpcard/tracking"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/tracking/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/tracking/feedback/tap" (platform:"/mobile", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Taps feedback in App"
             )
     }
 
