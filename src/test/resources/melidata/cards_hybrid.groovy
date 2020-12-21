@@ -1227,242 +1227,242 @@ trackTests {
     test("cards hybrid nfc core"){
 
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "wse_internal_error"
+            error_code = "wse_internal_error"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "common_no_internet"
+            error_code = "common_no_internet"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "common_comm_error"
+            error_code = "common_comm_error"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "common_server_error"
+            error_code = "common_server_error"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "re_enrollment_required"
+            error_code = "re_enrollment_required"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "wse_storage_access_error"
+            error_code = "wse_storage_access_error"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "json_parsing_error"
+            error_code = "json_parsing_error"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "wse_request_error"
+            error_code = "wse_request_error"
         }
         "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "wse_download_error"
+            error_code = "wse_download_error"
         }
         
         "/cards/nfc/core/error/enroll-device"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "common_no_internet"
+            error_code = "common_no_internet"
         }
         
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "common_comm_error"
+            error_code = "common_comm_error"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "common_server_error"
+            error_code = "common_server_error"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "enrollment_wrong_credentials"
+            error_code = "enrollment_wrong_credentials"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "enrollment_credential_expired"
+            error_code = "enrollment_credential_expired"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "enrollment_try_limit_exceeded"
+            error_code = "enrollment_try_limit_exceeded"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_activation_mobile_pin_invalid_length"
+            error_code = "card_activation_mobile_pin_invalid_length"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_activation_mobile_pin_mismatch"
+            error_code = "card_activation_mobile_pin_mismatch"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "change_pin_reentry_mismatch"
+            error_code = "change_pin_reentry_mismatch"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "common_comm_error"
+            error_code = "common_comm_error"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "change_pin_card_not_active"
+            error_code = "change_pin_card_not_active"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "change_pin_card_not_exist"
+            error_code = "change_pin_card_not_exist"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_not_enrolled"
+            error_code = "card_not_enrolled"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_state_unknown"
+            error_code = "card_state_unknown"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "replenishment_not_allowed"
+            error_code = "replenishment_not_allowed"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "sdk_internal_component_error"
+            error_code = "sdk_internal_component_error"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "enrollment_wrong_activation_code"
+            error_code = "enrollment_wrong_activation_code"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "enrollment_blocked_secure_wallet_enrollment_required"
+            error_code = "enrollment_blocked_secure_wallet_enrollment_required"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "replenishment_blocked_secure_wallet_enrollment_required"
+            error_code = "replenishment_blocked_secure_wallet_enrollment_required"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "invalid_replenish_missing_payment"
+            error_code = "invalid_replenish_missing_payment"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "asm_error"
+            error_code = "asm_error"
         }
         "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "invalid_digitalcardid"
+            error_code = "invalid_digitalcardid"
         }
         
         "/cards/nfc/core/error/check-card-eligibility"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "no_internet"
+            error_code = "no_internet"
         }
         
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "connection_timeout"
+            error_code = "connection_timeout"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "communication_error"
+            error_code = "communication_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "server_error"
+            error_code = "server_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "internal_error"
+            error_code = "internal_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_bin"
+            error_code = "unknown_bin"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_card_product"
+            error_code = "unknown_card_product"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_product_not_supported"
+            error_code = "card_product_not_supported"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "incorrect_cvv"
+            error_code = "incorrect_cvv"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_already_provisioned_in_wallet"
+            error_code = "card_already_provisioned_in_wallet"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "device_not_eligible"
+            error_code = "device_not_eligible"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "incorrect_authentication_token"
+            error_code = "incorrect_authentication_token"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_provisioning_count_exceeded"
+            error_code = "card_provisioning_count_exceeded"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unkonown_idv_method"
+            error_code = "unkonown_idv_method"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "provisioning_not_allowed"
+            error_code = "provisioning_not_allowed"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "incorrect_otp"
+            error_code = "incorrect_otp"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "incorrect_otp_max_try_exceeded"
+            error_code = "incorrect_otp_max_try_exceeded"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "otp_expired"
+            error_code = "otp_expired"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "idv_method_not_available"
+            error_code = "idv_method_not_available"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unexpected_internal_error"
+            error_code = "unexpected_internal_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "external_system_unavailable"
+            error_code = "external_system_unavailable"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_wallet_provider_id"
+            error_code = "unknown_wallet_provider_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_wallet_id"
+            error_code = "unknown_wallet_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_digital_card_id"
+            error_code = "unknown_digital_card_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_correlation_id"
+            error_code = "unknown_correlation_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_state_does_not_allow_requested_operation"
+            error_code = "card_state_does_not_allow_requested_operation"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "operation_already_ongoing"
+            error_code = "operation_already_ongoing"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "operation_failed"
+            error_code = "operation_failed"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_device_id"
+            error_code = "unknown_device_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "missing_required_parameter"
+            error_code = "missing_required_parameter"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_issuer_id"
+            error_code = "unknown_issuer_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "unknown_card_id"
+            error_code = "unknown_card_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "no_tnc_resource_id"
+            error_code = "no_tnc_resource_id"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "invalid_tnc_data_type"
+            error_code = "invalid_tnc_data_type"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "securestorage_write_config_data_error"
+            error_code = "securestorage_write_config_data_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "securestorage_wipe_all_error"
+            error_code = "securestorage_wipe_all_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "context_missing_error"
+            error_code = "context_missing_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "web_3ds_authentication_failed"
+            error_code = "web_3ds_authentication_failed"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "web_3ds_data_error"
+            error_code = "web_3ds_data_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "invalid_card_data"
+            error_code = "invalid_card_data"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "no_card_meta_data"
+            error_code = "no_card_meta_data"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "card_meta_data_json_error"
+            error_code = "card_meta_data_json_error"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "no_card_data"
+            error_code = "no_card_data"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "invalid_asset_type"
+            error_code = "invalid_asset_type"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "invalid_asset_version"
+            error_code = "invalid_asset_version"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "asset_not_available"
+            error_code = "asset_not_available"
         }
         "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
-            nfc_wallet_secure_enrollment_error_code = "blocked_secure_wallet_enrollment_required"
+            error_code = "blocked_secure_wallet_enrollment_required"
         }
     }
 }
