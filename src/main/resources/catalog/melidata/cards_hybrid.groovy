@@ -1172,7 +1172,7 @@ tracks {
     
     // CORE-NFC
 
-    "/cards/nfc/core/error/start-secure-enrollment"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
         error_code (
             type: PropertyType.String,
             required: true,
@@ -1190,7 +1190,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/core/error/enroll-device"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/error/enroll_device"(platform: "/", type: TrackType.Event) {
         error_code (
             type: PropertyType.String,
             required: true,
@@ -1222,7 +1222,7 @@ tracks {
         )
     }
     
-    "/cards/nfc/core/error/replenish-payment-keys"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
         error_code (
             type: PropertyType.String,
             required: true,
@@ -1254,7 +1254,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/core/error/check-card-eligibility"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/error/check_card_eligibility"(platform: "/", type: TrackType.Event) {
         error_code (
             type: PropertyType.String,
             required: true,
@@ -1312,7 +1312,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/core/error/digitize-card"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
         error_code (
             type: PropertyType.String,
             required: true,
