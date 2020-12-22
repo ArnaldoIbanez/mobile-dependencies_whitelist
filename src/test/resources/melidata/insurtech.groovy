@@ -1351,7 +1351,7 @@ trackTests {
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
-            imei = '8978930'
+            imeiValid = true
             protection_status = 'pending_activation'
         }
 
