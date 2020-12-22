@@ -16,6 +16,7 @@ tracks {
     propertyDefinitions {
         tab_context(required: true, type: PropertyType.String, description: "the tab where the actions are clicked", values: ["/stores/details_pos", "/stores/details_devices"])
         types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
+        rowActionType(required: true, type: PropertyType.String, description: "the action type from the row selected by the user", values: ['navigate', 'picker', 'switch'])
     }
 
     //Account mydata
@@ -111,6 +112,149 @@ tracks {
         action(required: true, values: ["activate", "deactivate"], description: "value to describe wheter the user activated or deactivated ahora12 feature", type: PropertyType.String)
     }
 
+    //Business Config
+    "/business-config"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/message"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/row"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/tooltip"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/disable"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/row"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/row/disable"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/row/disable/tooltip"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/row/tooltip"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/card/row/message"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/form"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/form/image"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/form/input"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/form/input/tooltip"(platform: "/", isAbstract: true) {}
+    "/business-config/landing/message"(platform: "/", isAbstract: true) {}
+    "/business-config/landing"(platform: "/", isAbstract: true) {}
+    
+    "/business-config/landing/success"(platform: "/", type: TrackType.View) {}
+    "/business-config/landing/error"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.String, description: "The code status")
+        message(required: true, type: PropertyType.String, description: "The message error")
+    }
+    "/business-config/landing/close"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/business-config/landing/card/row/action"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        rowActionType(required: true, type: PropertyType.String, description: "The action type from the row")
+        value(required: true, type: PropertyType.String, description: "Deeplink or url according to the row action type")
+    }
+    "/business-config/landing/card/row/disable/tooltip/show"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+    }
+    "/business-config/landing/card/row/disable/tooltip/hide"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+    }
+    "/business-config/landing/card/row/disable/tooltip/primary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/row/disable/tooltip/secondary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/row/tooltip/show"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+    }
+    "/business-config/landing/card/row/tooltip/hide"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+    }
+    "/business-config/landing/card/row/tooltip/primary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/row/tooltip/secondary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/row/message/dismiss"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        message(required: true, type: PropertyType.String, description: "The message id")
+    }
+    "/business-config/landing/card/row/message/primary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        message(required: true, type: PropertyType.String, description: "The message id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/row/message/secondary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        message(required: true, type: PropertyType.String, description: "The message id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/message/dismiss"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        message(required: true, type: PropertyType.String, description: "The message id")
+    }
+    "/business-config/landing/card/message/primary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        message(required: true, type: PropertyType.String, description: "The message id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/message/secondary"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        message(required: true, type: PropertyType.String, description: "The message id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/message/dismiss"(platform: "/", type: TrackType.Event) {
+        message(required: true, type: PropertyType.String, description: "The message id")
+    }
+    "/business-config/landing/message/primary"(platform: "/", type: TrackType.Event) {
+        message(required: true, type: PropertyType.String, description: "The message id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/message/secondary"(platform: "/", type: TrackType.Event) {
+        message(required: true, type: PropertyType.String, description: "The message id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/card/help"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        url(required: true, type: PropertyType.String, description: "The url")
+    }
+    "/business-config/landing/form/image/success"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+    }
+    "/business-config/landing/form/image/error"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        status(required: true, type: PropertyType.String, description: "The error status")
+        message(required: true, type: PropertyType.String, description: "The error message")
+    }
+    "/business-config/landing/form/success"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        input(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The input ids")
+    }
+    "/business-config/landing/form/error"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        status(required: true, type: PropertyType.String, description: "The error status")
+        message(required: true, type: PropertyType.String, description: "The error message")
+    }
+    "/business-config/landing/form/input/tooltip/primary"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business-config/landing/form/input/tooltip/secondary"(platform: "/web", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        row(required: true, type: PropertyType.String, description: "The row id")
+        url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
 
     // Traks for dashboard section
     "/tfs_dashboard"(platform: "/", isAbstract: true) {}
