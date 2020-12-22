@@ -172,6 +172,26 @@ trackTests {
         }
     }
 
+    test("IDFA Permission dialog") {
+        "/permissions/idfa"(platform: "/mobile") {}
+        "/permissions/idfa"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog shown") {
+        "/permissions/idfa/show"(platform: "/mobile") {}
+        "/permissions/idfa/show"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog accepted") {
+        "/permissions/idfa/accept"(platform: "/mobile") {}
+        "/permissions/idfa/accept"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog denied") {
+        "/permissions/idfa/deny"(platform: "/mobile") {}
+        "/permissions/idfa/deny"(platform: "/mobile", business: "mercadopago") {}
+    }
+
     test("Devices Metadata") {
         "/devices/metadata"(platform:"/mobile") {
             total_storage = 12582912
