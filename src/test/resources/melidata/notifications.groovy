@@ -571,8 +571,23 @@ trackTests {
             latest_news_id= "point_pos_closed-1000000016305386"
         }
         "/notification_center/point_pos_close_soon"(platform: "/mobile") {
-            latest_news_type= "point_pos_close_soon"
-            latest_news_id= "point_pos_close_soon-1000000016305386"
+            latest_news_type= "point_pos_closed_soon"
+            latest_news_id= "point_pos_closed_soon-1000000016305386"
+        }
+        "/notification_center/partners_pin_ml"(platform: "/mobile") {
+            latest_news_type= "partners_pin_ml"
+            latest_news_id= "partners_pin_ml-1000000016305386"
+            partner= "123"
+        }
+        "/notification_center/partners_pin_mp"(platform: "/mobile") {
+            latest_news_type= "partners_pin_mp"
+            latest_news_id= "partners_pin_mp-1000000016305386"
+            partner= "123"
+        }
+
+        "/notification_center/point_voucher_sodexo"(platform: "/mobile") {
+            latest_news_type= "point_voucher_sodexo"
+            latest_news_id= "point_voucher_sodexo-1000000016305386"
         }
         "/notification_center/point_voucher_sodexo"(platform: "/mobile") {
             latest_news_type= "point_voucher_sodexo"
@@ -1107,6 +1122,10 @@ trackTests {
         "/notification_center/mp_seller_campaign_end_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_seller-campaign_end_campaign-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_seller_moderation"(platform: "/mobile") {
+            latest_news_type= "mp_seller_moderation"
+            latest_news_id= "mp_seller_moderation-143816022-MLB1013046714"
         }
         "/notification_center/mp_seller_campaign_moderation"(platform: "/mobile") {
             latest_news_type= "mp_seller_campaign_moderation"
@@ -2223,6 +2242,16 @@ trackTests {
         "/notification/purchase_invoice"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
+        }
+        "/notification/partners_pin_ml"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            partner= "123"
+        }
+        "/notification/partners_pin_mp"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            partner= "123"
         }
         "/notification/qrviral_onboard"(platform: "/mobile") {
             news_id = "qrviral-onboard-1234-186785675"
@@ -3542,6 +3571,21 @@ trackTests {
 
         "/notification/mp_seller_campaign_end_campaign"(platform: "/mobile") {
             news_id = "mp_seller-campaign_end_campaignn-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_marketplace_must"(platform: "/mobile") {
+            news_id = "mp_seller_marketplace_must-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_generic_wish"(platform: "/mobile") {
+            news_id = "mp_seller_generic_wish-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_discount_center_must"(platform: "/mobile") {
+            news_id = "mp_seller_discount_center_must-12345678-123123"
             event_type = "shown"
         }
 
@@ -4933,6 +4977,16 @@ trackTests {
             latest_news_type= "purchase_invoice"
             latest_news_id= "purchase_invoice-1000000016305386"
         }
+        "/notification_center/partners_pin_ml"(platform: "/mobile") {
+            latest_news_type= "partners_pin_ml"
+            latest_news_id= "partners_pin_ml-1000000016305386"
+            partner= "123"
+        }
+        "/notification_center/partners_pin_mp"(platform: "/mobile") {
+            latest_news_type= "partners_pin_mp"
+            latest_news_id= "partners_pin_mp-1000000016305386"
+            partner= "123"
+        }
         "/notification_center/point_pos_closed"(platform: "/mobile") {
             latest_news_type= "point_pos_closed"
             latest_news_id= "point_pos_closed-1000000016305386"
@@ -5426,6 +5480,10 @@ trackTests {
         "/notification_center/mp_seller_campaign_end_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_seller-campaign_end_campaign-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_seller_moderation"(platform: "/mobile") {
+            latest_news_type= "mp_seller_moderation"
+            latest_news_id= "mp_seller_moderation-143816022-MLB1013046714"
         }
         "/notification_center/mp_seller_campaign_moderation"(platform: "/mobile") {
             latest_news_type= "mp_seller_campaign_moderation"
@@ -6565,6 +6623,16 @@ trackTests {
         "/notification/purchase_invoice"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
+        }
+        "/notification/partners_pin_ml"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            partner= "123"
+        }
+        "/notification/partners_pin_mp"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            partner= "123"
         }
         "/notification/qrviral_onboard"(platform: "/mobile") {
             news_id = "qrviral-onboard-1234-186785675"
@@ -8042,6 +8110,21 @@ trackTests {
 
         "/notification/mp_seller_campaign_end_campaign"(platform: "/mobile") {
             news_id = "mp_seller-campaign_end_campaignn-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_marketplace_must"(platform: "/mobile") {
+            news_id = "mp_seller_marketplace_must-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_generic_wish"(platform: "/mobile") {
+            news_id = "mp_seller_generic_wish-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_discount_center_must"(platform: "/mobile") {
+            news_id = "mp_seller_discount_center_must-12345678-123123"
             event_type = "shown"
         }
 
