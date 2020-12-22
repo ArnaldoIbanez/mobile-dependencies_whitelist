@@ -26,6 +26,7 @@ tracks {
     "/asset_management/legal_entity_block"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/optin"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/pre_boarding"(platform: "/", type: TrackType.View) {}
 
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
@@ -191,7 +192,7 @@ tracks {
     "/asset_management/next_year"(platform: "/", type: TrackType.Event) {}
     "/asset_management/previous_month"(platform: "/", type: TrackType.Event) {}
     "/asset_management/next_month"(platform: "/", type: TrackType.Event) {}
-    
+
     //Clarifications events
     "/asset_management/show_clarifications"(platform: "/", type: TrackType.Event) {}
 }

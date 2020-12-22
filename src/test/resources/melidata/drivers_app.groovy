@@ -280,6 +280,21 @@ trackTests {
             stop_order = 4
             defaultLocation()
         }
+
+        "/driver/stops/detail/out_of_distance"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/detail/out_of_distance/error"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+            error_type = "PERMISSION_DENIED"
+        }
     }
 
     test("MercadoEnvíos - Driver Apps - Testing Delivery Flow") {

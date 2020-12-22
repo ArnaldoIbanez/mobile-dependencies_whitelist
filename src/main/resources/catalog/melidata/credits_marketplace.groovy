@@ -874,8 +874,13 @@ tracks {
                 )
                 installments_id(
                     required: true,
-                    description: "Total debt amount",
+                    description: "Array of Installments reached by the punitive condonation",
                     type: PropertyType.ArrayList
+                )
+                debt_relief_amount(
+                    required: true,
+                    description: "final Debt relief amount",
+                    type: PropertyType.Numeric
                 )
             }
 

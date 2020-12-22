@@ -150,6 +150,9 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "ID of the catalog product related to the optined item/variation")
         match_type(required: true, values: ["CATALOG", "AUTO", "SELLER", "none"], type: PropertyType.String, description: "Match type of the association related to the item/variation")
         safe_match(required: true, type: PropertyType.Boolean, description: "Property that describes whether the association match is safe or not for the item/variation")
+        is_eligible(required: true, type: PropertyType.Boolean, description: "Property that describes whether the item/variation is eligible or not")
+        eligibility_status(required: true, type: PropertyType.String, description: "Eligibility status related to the item/variation")
+        eligibility_reason(required: true, type: PropertyType.String, description: "Eligibility reason related to the item/variation")
         status(required: true, values: ["success", "enqueue", "not_enqueue", "syi_client"], type: PropertyType.String, description: "Property that describes the final state of the processing for the item/variation")
         is_already_optined(required: true, type: PropertyType.Boolean, description: "Property that describes whether the item/variation is already optined or not")
     }
@@ -273,10 +276,10 @@ tracks {
     }
 
     // Summary
-    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/summary"(platform: "/", type: TrackType.View) {}
 
     // La idea es saber como fue la ejecución de cada módulo
-    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/modules_render"(platform: "/", type: TrackType.Event) {
         modules(required: true, type: PropertyType.ArrayList(PropertyType.Map(summaryModule)), description: "Array of modules")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
@@ -300,7 +303,7 @@ tracks {
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
 
-    "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/task"(platform: "/", type: TrackType.Event) {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
@@ -1213,6 +1216,10 @@ tracks {
 
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
 
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+        fragment_from_webview(required: false, type: PropertyType.String, description: "The webview where is opened the fragment")
+    }
+
     "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales
         sellerMetricsContext
@@ -1258,6 +1265,7 @@ tracks {
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
 
     "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
@@ -1304,19 +1312,19 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
-    "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         sellerCentralCatalogOptinGroup
         sellerCentralCatalogOptinTaskGroup
     }
 
-    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         sellerCentralCatalogOptinGroup
         sellerCentralCatalogOptinTaskGroup
     }
 
     "/seller_central/catalog/optin/product_problem"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         reason(required: true, type: PropertyType.String, description: "Reason of problem with the product", values: ["PRODUCT_ERRORS", "KIT", "OTHER"])
         sellerCentralCatalogOptinGroup
     }
@@ -1395,7 +1403,7 @@ tracks {
 
     "/seller_central/catalog/optin/other_product_problem/product_problem_description_task"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         product_problem_reason(required: true, type: PropertyType.String, description: "Reason of other problem with the product")
         sellerCentralCatalogOptinGroup
     }
@@ -1511,6 +1519,7 @@ tracks {
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
+        slide(required: false, type: PropertyType.Numeric, description: "Slide where the card is shown. Only tracked when there are multiple slides.")
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}

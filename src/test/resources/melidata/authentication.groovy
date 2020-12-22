@@ -235,10 +235,6 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-            is_webview = true
-        }
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
@@ -247,10 +243,12 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
@@ -260,6 +258,30 @@ trackTests {
             is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
@@ -597,85 +619,90 @@ trackTests {
         }
     }
 
-    test("Phone Validation - Registration v3") {
-        "/authenticators/phone_validation/input_phone"(platform: "/mobile", type: TrackType.View) {
-            enrollment = false
-            flow_type=  "registration_v3"
-        }
-
-         "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "success"
-        }
-        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "user_exists"
-        }
-        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "invalid_phone_format"
-        }
-        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "empty"
-        }
-        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "server_error"
-        }
-
-        "/authenticators/phone_validation/enter_code"(platform: "/mobile", type: TrackType.View) {
-            enrollment = false
-            flow_type = "registration_v3"
-            selected_channel = "sms"
-        }
-
-        "/authenticators/phone_validation/enter_code"(platform: "/mobile", type: TrackType.View) {
-            enrollment = false
-            flow_type = "registration_v3"
-            selected_channel = "whatsapp"
-        }
-
-        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "success"
-            selected_channel = "sms"
-        }
-        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "invalid_code_length"
-            selected_channel = "sms"
-        }
-        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "empty"
-            selected_channel = "sms"
-        }
-        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "server_error"
-            selected_channel = "whatsapp"
-        }
-        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
-            enrollment = false
-            flow_type = "registration_v3"
-            validation_status = "failure"
-            selected_channel = "whatsapp"
-        }
-    }
-
     ["mercadolibre", "mercadopago"].each { business ->
 
         defaultBusiness = business
+
+        test("Phone Validation - Registration v3") {
+            "/authenticators/phone_validation/input_phone"(platform: "/mobile", type: TrackType.View) {
+                enrollment = false
+                flow_type=  "registration_v3"
+            }
+
+            "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "success"
+            }
+            "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "user_exists"
+            }
+            "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "invalid_phone_format"
+            }
+            "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "empty"
+            }
+            "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "server_error"
+            }
+
+            "/authenticators/phone_validation/enter_code"(platform: "/mobile", type: TrackType.View) {
+                enrollment = false
+                flow_type = "registration_v3"
+                selected_channel = "sms"
+            }
+
+            "/authenticators/phone_validation/enter_code"(platform: "/mobile", type: TrackType.View) {
+                enrollment = false
+                flow_type = "registration_v3"
+                selected_channel = "whatsapp"
+            }
+
+            "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "success"
+                selected_channel = "sms"
+            }
+            "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "invalid_code_length"
+                selected_channel = "sms"
+            }
+            "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "empty"
+                selected_channel = "sms"
+            }
+            "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "server_error"
+                selected_channel = "whatsapp"
+            }
+            "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+                enrollment = false
+                flow_type = "registration_v3"
+                validation_status = "failure"
+                selected_channel = "whatsapp"
+            }
+
+            "/authenticators/phone_validation/max_attempts"(platform: "/mobile", type: TrackType.View) {
+                enrollment = false
+                flow_type = "registration_v3"
+            }
+          }
 
         test("Email validation - Authentication") {
 
@@ -818,6 +845,19 @@ trackTests {
                 scenario = "single_enrolled"
             }
 
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+                from = "registration"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "activate_security_success"
+            }
+
             "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
@@ -828,6 +868,32 @@ trackTests {
                         "opening_custom": "0"
                 ]
                 scenario = "both_enrolled"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+                from = "login"
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+                from = "campaign"
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "activate_security_success"
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {

@@ -137,10 +137,11 @@ tracks {
     //Final Views
     "/checkout_off/congrats"(platform: "/", type: TrackType.View) {
         payment_installments(required: false, description: "Installments selected")
-        payment_status_detail(required: true, description: "Reason for the payment status")
-        payment_status(required: true, description: "Reason for the payment status")
-        payment_id(required: true, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
+        payment_status_detail(required: false, description: "Reason for the payment status")
+        payment_status(required: false, description: "Reason for the payment status")
+        payment_id(required: false, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
         total_amount_usd(required: true, serverSide:true, description: "payment amount in usd acording to currency conversion", type: PropertyType.Numeric)
+        congrats_status(required: true, description: "Reason for the congrats status")
     }
 
     "/checkout_off/congrats/no_display"(platform: "/", type: TrackType.View) {

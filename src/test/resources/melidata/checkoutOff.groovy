@@ -40,6 +40,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            congrats_status = "success"
         }
 
         def onlyRequiredProperties = {
@@ -59,6 +60,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            congrats_status = "success"
         }
 
         // ALL PROPERTIES TESTS
@@ -482,10 +484,11 @@ trackTests {
             payment_status_detail = "accredited"
             payment_status = "approved"
             payment_id = "5408994392"
-            
+
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            congrats_status = "success"
         }
 
         def onlyRequiredProperties = {
@@ -505,6 +508,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            congrats_status = "success"
         }
 
         // ALL PROPERTIES TESTS
