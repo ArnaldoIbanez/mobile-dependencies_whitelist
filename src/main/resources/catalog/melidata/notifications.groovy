@@ -364,6 +364,18 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/me_flex_rehunting_generic"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/me_flex_rehunting_address"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/me_flex_hunting_generic"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/returns"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1718,6 +1730,9 @@ tracks {
       //Me Flex
       "/notification/me_flex_optin_activation"(platform: "/") {}
       "/notification/me_flex_optin_reminder"(platform: "/") {}
+      "/notification/me_flex_rehunting_generic"(platform: "/") {}
+      "/notification/me_flex_rehunting_address"(platform: "/") {}
+      "/notification/me_flex_hunting_generic"(platform: "/") {}
 
       //Mediations
       "/notification/mediations_complainant"(platform: "/") {

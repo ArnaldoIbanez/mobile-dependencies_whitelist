@@ -511,6 +511,18 @@ trackTests {
             latest_news_type= "me_flex-optin"
             latest_news_id= "me_flex-optin-143816022-MLB1013046714"
         }
+        "/notification_center/me_flex_rehunting_generic"(platform: "/mobile"){
+            latest_news_type= "me_flex_rehunting_generic"
+            latest_news_id= "me_flex_rehunting_generic-143816022-MLB1013046714"
+        }
+        "/notification_center/me_flex_rehunting_address"(platform: "/mobile"){
+            latest_news_type= "me_flex_rehunting_address"
+            latest_news_id= "me_flex_rehunting_address-143816022-MLB1013046714"
+        }
+        "/notification_center/me_flex_hunting_generic"(platform: "/mobile"){
+            latest_news_type= "me_flex_hunting_generic"
+            latest_news_id= "me_flex_hunting_generic-143816022-MLB1013046714"
+        }
         "/notification_center/returns"(platform: "/mobile"){
             newsgroup_id= "packages-seller-2000000031949978"
             event_type= "open"
@@ -1978,6 +1990,21 @@ trackTests {
 
         "/notification/me_flex_optin_activation"(platform: "/mobile"){
             news_id = "me_flex-optin_activation-315571651"
+            event_type = "sent"
+        }
+
+        "/notification/me_flex_rehunting_generic"(platform: "/mobile"){
+            news_id = "me_flex_rehunting_generic-315571651"
+            event_type = "sent"
+        }
+
+        "/notification/me_flex_rehunting_address"(platform: "/mobile"){
+            news_id = "me_flex_rehunting_address-315571651"
+            event_type = "sent"
+        }
+
+        "/notification/me_flex_hunting_generic"(platform: "/mobile"){
+            news_id = "me_flex_hunting_generic-315571651"
             event_type = "sent"
         }
 
@@ -5034,6 +5061,18 @@ trackTests {
             latest_news_type= "me_flex-optin"
             latest_news_id= "me_flex-optin-143816022-MLB1013046714"
         }
+        "/notification_center/me_flex_rehunting_generic"(platform: "/mobile"){
+            latest_news_type= "me_flex_rehunting_generic"
+            latest_news_id= "me_flex_rehunting_generic-143816022-MLB1013046714"
+        }
+        "/notification_center/me_flex_rehunting_address"(platform: "/mobile"){
+            latest_news_type= "me_flex_rehunting_address"
+            latest_news_id= "me_flex_rehunting_address-143816022-MLB1013046714"
+        }
+        "/notification_center/me_flex_hunting_generic"(platform: "/mobile"){
+            latest_news_type= "me_flex_hunting_generic"
+            latest_news_id= "me_flex_hunting_generic-143816022-MLB1013046714"
+        }
         "/notification_center/returns"(platform: "/mobile"){
             newsgroup_id= "packages-seller-2000000031949978"
             event_type= "open"
@@ -6514,6 +6553,21 @@ trackTests {
 
         "/notification/me_flex_optin_reminder"(platform: "/mobile"){
             news_id = "me_flex-optin_reminder-315571651"
+            event_type = "sent"
+        }
+
+        "/notification/me_flex_rehunting_generic"(platform: "/mobile"){
+            news_id = "me_flex_rehunting_generic-315571651"
+            event_type = "sent"
+        }
+
+        "/notification/me_flex_rehunting_address"(platform: "/mobile"){
+            news_id = "me_flex_rehunting_address-315571651"
+            event_type = "sent"
+        }
+
+        "/notification/me_flex_hunting_generic"(platform: "/mobile"){
+            news_id = "me_flex_hunting_generic-315571651"
             event_type = "sent"
         }
 
