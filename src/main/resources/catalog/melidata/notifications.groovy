@@ -678,6 +678,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/kyc_bo_success"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/merchants_growth_mgm"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2222,6 +2226,12 @@ tracks {
     "/notification/merchants_growth_mgm"(platform: "/mobile") {
         gift_reason_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+
+    //kyc
+    "/notification/kyc_user_notification_mp"(platform: "/mobile") {}
+    "/notification/kyc_user_notification_ml"(platform: "/mobile") {}
+    "/notification/kyc_bo_success"(platform: "/mobile") {}
+    "/notification/kyc_afip_user_notification_mp"(platform: "/mobile") {}
 
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}

@@ -437,6 +437,10 @@ trackTests {
             latest_news_id= "kyc_afip_user_notification_mp-186785675-76283123"
             latest_news_type= "kyc_afip_user_notification_mp"
         }
+        "/notification_center/kyc_bo_success"(platform: "/mobile"){
+            latest_news_id= "kyc_bo_success-186785675-76283123"
+            latest_news_type= "kyc_bo_success"
+        }
         "/notification_center/kyc_afip_user_notification_ml"(platform: "/mobile"){
             latest_news_id= "kyc_afip_user_notification_ml-186785675-76283123"
             latest_news_type= "kyc_afip_user_notification_ml"
@@ -3824,6 +3828,23 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/kyc_user_notification_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_user_notification_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_bo_success"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_afip_user_notification_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/money_transfer_request"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -5671,6 +5692,10 @@ trackTests {
         "/notification_center/kyc_afip_user_notification_mp"(platform: "/mobile"){
             latest_news_id= "kyc_afip_user_notification_mp-186785675-76283123"
             latest_news_type= "kyc_afip_user_notification_mp"
+        }
+        "/notification_center/kyc_bo_success"(platform: "/mobile"){
+            latest_news_id= "kyc_bo_success-186785675-76283123"
+            latest_news_type= "kyc_bo_success"
         }
         "/notification_center/kyc_afip_user_notification_ml"(platform: "/mobile"){
             latest_news_id= "kyc_afip_user_notification_ml-186785675-76283123"
@@ -8558,6 +8583,23 @@ trackTests {
         }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/kyc_user_notification_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_user_notification_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_bo_success"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_afip_user_notification_mp"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }
