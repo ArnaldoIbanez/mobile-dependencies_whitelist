@@ -82,8 +82,13 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/faq/click"(platform: "/", type: TrackType.View) {
+        portal_content_transactional_data
+    }
+
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
         portal_effectivity_survey_value
     }
 
@@ -134,6 +139,10 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/folder/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
+    }
+
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
         portal_form_id
         portal_content_id(required: false, type: PropertyType.Numeric,
@@ -161,6 +170,10 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+    }
+
+    "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
     }
 
     "/portal/home"(platform: "/", type: TrackType.View) {
@@ -246,6 +259,7 @@ tracks {
     }
     "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
         portal_effectivity_survey_value
     }
 
