@@ -250,6 +250,10 @@ trackTests {
     "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("Seller central summary view_mobile") {
+    "/seller_central/summary"(platform: "/mobile", type: TrackType.View) {}
+  }
+
   test("Seller central summary module") {
     "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
       modules = [
@@ -262,6 +266,21 @@ trackTests {
               ]
       ]
       seller_experience = "ADVANCED"
+    }
+  }
+
+  test("Seller central summary module_mobile") {
+    "/seller_central/summary/modules_render"(platform: "/mobile", type: TrackType.Event) {
+      modules = [
+              [
+                module_id: "publicityCard",
+                kind: "normal"
+              ], [
+                module_id: "coronaNoticeCard",
+                kind: "normal"
+              ]
+      ]
+      seller_experience = "NEWBIE"
     }
   }
 
@@ -294,6 +313,14 @@ trackTests {
     "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
       module_id = "listing"
       task_id = "BEST_PRICE_ELIGIBLE"
+      seller_experience = "ADVANCED"
+    }
+   } 
+
+  test("Seller central summary task click") {
+    "/seller_central/summary/task"(platform: "/mobile", type: TrackType.Event) {
+      module_id = "publicationsTasksCard"
+      task_id = "CATALOG_PRIORITY"
       seller_experience = "ADVANCED"
     }
   }
@@ -1964,8 +1991,14 @@ trackTests {
     }
   }
 
-  test("metrics section view for mobile") {
+  test("metrics section view for web mobile") {
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics section view for mobile") {
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+      fragment_from_webview = "summary"
+    }
   }
 
   test("metrics section view for web") {
@@ -2875,6 +2908,13 @@ trackTests {
   test("seller central listing promos card filter action") {
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
       type = "lightning"
+    }
+  }
+
+  test("seller central listing promos card filter action with slide") {
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+      type = "lightning"
+      slide = 2
     }
   }
 
