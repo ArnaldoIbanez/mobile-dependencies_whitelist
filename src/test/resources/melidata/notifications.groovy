@@ -574,6 +574,27 @@ trackTests {
             latest_news_type= "point_pos_close_soon"
             latest_news_id= "point_pos_close_soon-1000000016305386"
         }
+        "/notification_center/point_voucher_sodexo"(platform: "/mobile") {
+            latest_news_type= "point_voucher_sodexo"
+            latest_news_id= "point_voucher_sodexo-1000000016305386"
+        }
+
+        "/notification_center/pix_transfer_mo_rejected"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mo_rejected"
+            latest_news_id= "pix_transfer_mo_rejected-1000000016305386"
+        }
+        "/notification_center/pix_transfer_mo_manual_review"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mo_manual_review"
+            latest_news_id= "pix_transfer_mo_manual_review-1000000016305386"
+        }
+        "/notification_center/pix_transfer_mi_approved"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mi_approved"
+            latest_news_id= "pix_transfer_mi_approved-1000000016305386"
+        }
+        "/notification_center/pix_transfer_mo_approved"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mo_approved"
+            latest_news_id= "pix_transfer_mo_approved-1000000016305386"
+        }
 
         "/notification_center/qrviral"(platform: "/mobile") {}
         "/notification_center/questions-buyer"(platform: "/mobile"){
@@ -3219,6 +3240,12 @@ trackTests {
             order_id = 1703067817
         }
 
+        "/notification/returns_label_unavailable"(platform: "/mobile") {
+            news_id = "returns_label_unavailable-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -4076,6 +4103,72 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/point_voucher_sodexo"(platform: "/mobile") {
+            news_id = "point_voucher_sodexo-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/pix_transfer_mo_rejected"(platform: "/mobile") {
+            news_id = "pix_transfer_mo_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_transfer_mo_manual_review"(platform: "/mobile") {
+            news_id = "pix_transfer_mo_manual_review-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_transfer_mi_approved"(platform: "/mobile") {
+            news_id = "pix_transfer_mi_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_transfer_mo_approved"(platform: "/mobile") {
+            news_id = "pix_transfer_mo_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_portability_request"(platform: "/mobile") {
+            news_id = "pix_key_portability_request-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_portability_rejected"(platform: "/mobile") {
+            news_id = "pix_key_portability_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_portability_approved"(platform: "/mobile") {
+            news_id = "pix_key_portability_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_request"(platform: "/mobile") {
+            news_id = "pix_key_claim_request-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_rejected"(platform: "/mobile") {
+            news_id = "pix_key_claim_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_key_expired"(platform: "/mobile") {
+            news_id = "pix_key_claim_key_expired-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_key_deleted"(platform: "/mobile") {
+            news_id = "pix_key_claim_key_deleted-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_approved"(platform: "/mobile") {
+            news_id = "pix_key_claim_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
             news_id = "123"
@@ -4847,6 +4940,26 @@ trackTests {
         "/notification_center/point_pos_close_soon"(platform: "/mobile") {
             latest_news_type= "point_pos_close_soon"
             latest_news_id= "point_pos_close_soon-1000000016305386"
+        }
+        "/notification_center/point_voucher_sodexo"(platform: "/mobile") {
+            latest_news_type= "point_voucher_sodexo"
+            latest_news_id= "point_voucher_sodexo-1000000016305386"
+        }
+        "/notification_center/pix_transfer_mo_rejected"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mo_rejected"
+            latest_news_id= "pix_transfer_mo_rejected-1000000016305386"
+        }
+        "/notification_center/pix_transfer_mo_manual_review"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mo_manual_review"
+            latest_news_id= "pix_transfer_mo_manual_review-1000000016305386"
+        }
+        "/notification_center/pix_transfer_mi_approved"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mi_approved"
+            latest_news_id= "pix_transfer_mi_approved-1000000016305386"
+        }
+        "/notification_center/pix_transfer_mo_approved"(platform: "/mobile") {
+            latest_news_type= "pix_transfer_mo_approved"
+            latest_news_id= "pix_transfer_mo_approved-1000000016305386"
         }
 
         "/notification_center/qrviral"(platform: "/mobile") {}
@@ -6667,6 +6780,71 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/point_voucher_sodexo"(platform: "/mobile") {
+            news_id = "point_voucher_sodexo-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_transfer_mo_rejected"(platform: "/mobile") {
+            news_id = "pix_transfer_mo_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_transfer_mo_manual_review"(platform: "/mobile") {
+            news_id = "pix_transfer_mo_manual_review-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_transfer_mi_approved"(platform: "/mobile") {
+            news_id = "pix_transfer_mi_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_transfer_mo_approved"(platform: "/mobile") {
+            news_id = "pix_transfer_mo_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_portability_request"(platform: "/mobile") {
+            news_id = "pix_key_portability_request-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_portability_rejected"(platform: "/mobile") {
+            news_id = "pix_key_portability_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_portability_approved"(platform: "/mobile") {
+            news_id = "pix_key_portability_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_request"(platform: "/mobile") {
+            news_id = "pix_key_claim_request-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_rejected"(platform: "/mobile") {
+            news_id = "pix_key_claim_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_key_expired"(platform: "/mobile") {
+            news_id = "pix_key_claim_key_expired-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_key_deleted"(platform: "/mobile") {
+            news_id = "pix_key_claim_key_deleted-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/pix_key_claim_approved"(platform: "/mobile") {
+            news_id = "pix_key_claim_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/shipping_shipped"(platform: "/mobile") {
             news_id = "12332323"
@@ -7553,6 +7731,12 @@ trackTests {
 
         "/notification/returns_no_shipping_option"(platform: "/mobile") {
             news_id = "returns_no_shipping_option-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_label_unavailable"(platform: "/mobile") {
+            news_id = "returns_label_unavailable-1703067817-269729837"
             event_type = "sent"
             order_id = 1703067817
         }

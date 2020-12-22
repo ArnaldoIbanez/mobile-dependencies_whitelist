@@ -755,6 +755,26 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/point_voucher_sodexo"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/pix_transfer_mo_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/pix_transfer_mo_manual_review"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/pix_transfer_mi_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/pix_transfer_mo_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/subscription_expiring_notice"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1915,6 +1935,9 @@ tracks {
       "/notification/returns_no_shipping_option"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
+      "/notification/returns_label_unavailable"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
 
     //Security
     "/notification/security_enrollment"(platform: "/") {}
@@ -2217,6 +2240,20 @@ tracks {
     //Protected Purchase
     "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {}
 
+    //Pix
+    "/notification/pix_transfer_mo_rejected"(platform: "/mobile") {}
+    "/notification/pix_transfer_mo_manual_review"(platform: "/mobile") {}
+    "/notification/pix_transfer_mi_approved"(platform: "/mobile") {}
+    "/notification/pix_transfer_mo_approved"(platform: "/mobile") {}
+    "/notification/pix_key_portability_request"(platform: "/mobile") {}
+    "/notification/pix_key_portability_rejected"(platform: "/mobile") {}
+    "/notification/pix_key_portability_approved"(platform: "/mobile") {}
+    "/notification/pix_key_claim_request"(platform: "/mobile") {}
+    "/notification/pix_key_claim_rejected"(platform: "/mobile") {}
+    "/notification/pix_key_claim_key_expired"(platform: "/mobile") {}
+    "/notification/pix_key_claim_key_deleted"(platform: "/mobile") {}
+    "/notification/pix_key_claim_approved"(platform: "/mobile") {}
+
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
     "/notification/point_shipping_shipped"(platform: "/mobile") {}
@@ -2229,6 +2266,7 @@ tracks {
     "/notification/point_pos_closed"(platform: "/mobile") {}
     "/notification/point_pos_close_soon"(platform: "/mobile") {}
     "/notification/point_improvement"(platform: "/mobile") {}
+    "/notification/point_voucher_sodexo"(platform: "/mobile") {}
 
     //Recurring Recharge
     "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {}
