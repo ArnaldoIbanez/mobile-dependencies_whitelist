@@ -2489,6 +2489,66 @@ trackTests {
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
         }
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_shipped_withdrawal_to_agency_places"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_shipped_to_agency_places"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_reminder_places_withdrawal"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_waiting_for_withdrawal"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_soon_to_be_returned"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_delivered_cart_without_express_return"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_delivered_cart_express_return"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_agency_receiver_for_failed_delivery"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
         "/notification/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
@@ -6787,6 +6847,66 @@ trackTests {
             order_id = 123
         }
         "/notification/shipping_not_delivered_retained_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_shipped_withdrawal_to_agency_places"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_shipped_to_agency_places"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_reminder_places_withdrawal"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_waiting_for_withdrawal"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_not_delivered_soon_to_be_returned"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_delivered_cart_without_express_return"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_delivered_cart_express_return"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_agency_receiver_for_failed_delivery"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"

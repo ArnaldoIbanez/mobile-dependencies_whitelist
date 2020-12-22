@@ -1368,6 +1368,37 @@ tracks {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
+    "/notification/shipping_wrong_address_driver_action"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_shipped_withdrawal_to_agency_places"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_shipped_to_agency_places"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_reminder_places_withdrawal"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_not_delivered_waiting_for_withdrawal"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_not_delivered_soon_to_be_returned"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_delivered_cart_without_express_return"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_delivered_cart_express_return"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_buyer_absent_driver_action"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_agency_receiver_for_failed_delivery"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
       //Seller questions
       "/notification/questions_new"(platform: "/") {
           question_id(required: true, type: PropertyType.Numeric)
