@@ -88,11 +88,13 @@ tracks {
 
     "/register/congrats"(platform: "/web", type: TrackType.View){
         app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        source(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
         // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, required: false, description: "Registration Version")
+        captcha_showed(type: PropertyType.Boolean, description: "Checks if the registration done had a recaptcha")
+        prog_reg_version(type: PropertyType.Numeric, required:false, description: "Version of progressive registration, if is 0 is normal registration")
     }
 
     "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
@@ -167,6 +169,7 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/account-recovery-hub/account-recovery"(platform: "/mobile", type: TrackType.Event){}
@@ -199,6 +202,12 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
+    }
+
+    "/register/upgrade_version"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, description: "Current Flow")
+        origin(type: PropertyType.String, description: "The source where the flow was called")
+        registration_version(type: PropertyType.String, description: "Registration Version" )
     }
 
     // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo

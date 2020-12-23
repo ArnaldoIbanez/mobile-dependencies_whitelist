@@ -54,6 +54,19 @@ trackTests {
             registration_version = "regi_v0_web"
         }
 
+        "/register/form"(platform: "/web/desktop") {
+            app = "registration-mt"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+        "/register/form"(platform: "/web/desktop") {
+            app = "registration-question-mt"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+            item_id = 'MLM845376235'
+        }
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
@@ -240,13 +253,19 @@ trackTests {
             prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
+        "/register/form/email-suggest"(platform: "/web/mobile") {
+            app = "registration-question-mt"
+            captcha_showed = false
+            item_id = "MLM797223740"
+            source = "email"
+            prog_reg_version = 0
+        }
 
         "/register/congrats"(platform:"/web/desktop") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-            register_type = "person"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            captcha_showed = false
+            source = "email"
+            prog_reg_version = 0
         }
 
     }
@@ -293,6 +312,10 @@ trackTests {
             origin = "email"
             register_type = "person"
             registration_version = "regi_v0_web"
+        }
+        "/register/form/email-suggest"(platform:"/mobile") {
+            app = "alice"
+            registration_version = "alice"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
@@ -511,6 +534,11 @@ trackTests {
             step = "registration"
             field = "email"
             origin = "home"
+        }
+        "/register/upgrade_version"(platform: "/mobile") {
+          app = "normal"
+          registration_version = "unsuported_version"
+          origin = "my_account"
         }
     }
 

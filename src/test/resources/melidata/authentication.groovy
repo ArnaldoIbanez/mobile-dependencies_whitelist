@@ -697,6 +697,16 @@ trackTests {
                 client_type = "mobile"
             }
 
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "pix"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+            }
+
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
                 flow = "registration"
                 client_type = "mobile"

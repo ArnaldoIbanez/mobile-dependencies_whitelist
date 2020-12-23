@@ -420,7 +420,7 @@ tracks {
     // Email Validation Authenticator
 
     "/authenticators/email_validation"(platform: "/", isAbstract: true) {
-        flow(PropertyType.String, required: false, values: ["login", "registration", "registration_v3", "forgot_password", "reauthentication" ], description: "Flow using authenticator")
+        flow(PropertyType.String, required: false, values: ["login", "registration", "registration_v3", "forgot_password", "reauthentication", "pix" ], description: "Flow using authenticator")
         client_type(PropertyType.String, required: false, values: ["web", "mobile"], description: "Client using flow")
     }
 

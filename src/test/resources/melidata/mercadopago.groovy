@@ -168,6 +168,13 @@ trackTests {
             prog_reg_version = 1
         }
 
+        "/register/success"(platform: "/web/desktop") {
+            app = "registration-buy"
+            captcha_showed = false
+            prog_reg_version = 0
+            source = "email"
+        }
+
         "/register/success"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
@@ -369,11 +376,18 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
         }
+        "/register/account-recovery-hub"(platform: "/mobile"){
+            app = "mp"
+            registration_version = "regi_v0_mobile_mp_tyc"
+        }
         "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
-
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
+            app = "mp"
+            registration_version = "regi_v0_mobile_mp_tyc"
         }
         "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
             app = "favorite"
@@ -461,6 +475,11 @@ trackTests {
             step = "phoneRegistration"
             field = "phone"
             registration_version = "regi_v0_web"
+        }
+        "/register/upgrade_version"(platform: "/mobile") {
+          app = "mp"
+          registration_version = "unsuported_version"
+          origin = "my_account"
         }
     }
 
