@@ -40,7 +40,7 @@ tracks {
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
@@ -54,7 +54,6 @@ tracks {
     "/register/form/error"(platform: "/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
-        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/form/another-email"(platform: "/web", type: TrackType.View) {
@@ -109,12 +108,12 @@ tracks {
     }
 
     "/register/hub"(platform: "/mobile", type: TrackType.View){
+        registration_version(type: PropertyType.String, description: "Registration Version")
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
     }
     "/register/hub/register-with-email"(platform: "/mobile", type: TrackType.Event){}
-    "/register/hub/register-with-facebook"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/form"(platform: "/mobile", type: TrackType.View){
         app(type: PropertyType.String, required:true, description: "Current Flow")
@@ -125,10 +124,9 @@ tracks {
         source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:false)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
     "/register/form/validate"(platform: "/mobile", type: TrackType.Event){
-      registration_version(type: PropertyType.String, required:false, description: "Registration Version")
       step_valid(type: PropertyType.String, required: true, description: "checks if TyC checkbox is marked")
       checkbox_valid(type: PropertyType.String, required: true, description: "checks if all fields have been completed")
       components_valid(type: PropertyType.String, required: true, description: "checks if all fields, tyc included, are completed")
@@ -157,7 +155,6 @@ tracks {
     "/register/form/error"(platform: "/mobile", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
-        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/form/another-email"(platform: "/mobile", type: TrackType.View){

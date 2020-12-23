@@ -254,20 +254,14 @@ trackTests {
     test("Registration App"){
         // app module
         "/register/hub"(platform: "/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+           app = "normal"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
-        "/register/hub/register-with-email"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-
-        }
-        "/register/hub/register-with-facebook"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+        "/register/hub/register-with-email"(platform: "/mobile") {
+           app = "normal"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
         "/register/form"(platform:"/mobile") {
             app = "favorite"
@@ -506,17 +500,17 @@ trackTests {
         }
 
         "/register/form/google_hint/show"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            step = "registration"
+            field = "email"
+            origin = "home"
         }
 
         "/register/form/google_hint/select"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            step = "registration"
+            field = "email"
+            origin = "home"
         }
     }
 
