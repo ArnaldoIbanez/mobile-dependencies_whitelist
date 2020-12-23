@@ -81,7 +81,7 @@ tracks {
     "/permissions/idfa"(platform: "/mobile", isAbstract: true){}
     "/permissions/idfa/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/idfa/deny"(platform: "/mobile", type: TrackType.Event){}
-    "/permissions/idfa/show"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/shown"(platform: "/mobile", type: TrackType.Event){}
 
     "/settings"(platform: "/mobile", isAbstract: true){}
     "/settings/about"(platform: "/mobile", type: TrackType.View){}

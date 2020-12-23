@@ -178,8 +178,8 @@ trackTests {
     }
 
     test("IDFA Permission dialog shown") {
-        "/permissions/idfa/show"(platform: "/mobile") {}
-        "/permissions/idfa/show"(platform: "/mobile", business: "mercadopago") {}
+        "/permissions/idfa/shown"(platform: "/mobile") {}
+        "/permissions/idfa/shown"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("IDFA Permission dialog accepted") {
