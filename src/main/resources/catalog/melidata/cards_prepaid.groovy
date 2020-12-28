@@ -358,5 +358,33 @@ tracks {
             type: PropertyType.String,
             description: "Device type click ask for card"
         )
-    } 
+    }
+
+    //Prepaid regret flow
+    "/prepaid/regret" (platform: "/", type: TrackType.View) {}
+    "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancel_card","back"],
+            description: "user regrets having the prepaid"
+            )
+        cardStatus (
+            required: true,
+            type: PropertyType.String,
+            description: "card status before block"
+            )
+        cardStatusDetail (
+            required: false,
+            type: PropertyType.String,
+            description: "card status detail before block"
+            )
+        blockStatus (
+            required: true,
+            type: PropertyType.String,
+            values: ["unknow","sucess","apiError","localError"],
+            description: "result state of the api-call"
+            )
+    }
+
 }

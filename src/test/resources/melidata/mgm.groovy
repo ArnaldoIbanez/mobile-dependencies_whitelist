@@ -168,17 +168,17 @@ trackTests {
 
             "/mgm/v3/error"(platform: "/mobile", type: TrackType.View) {
                     program_id = "mla_payers"
-                    reason = "kyc_invitado"
+                    reason = "kyc_guest"
             }
 
             "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {
                     program_id = "mla_payers"
-                    reason = "kyc_invitado"
+                    reason = "kyc_guest"
             }
 
             "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
                     program_id = "mla_payers"
-                    reason = "kyc_invitado"
+                    reason = "kyc_guest"
                     link = "meli://coupon/input"
             }
         }

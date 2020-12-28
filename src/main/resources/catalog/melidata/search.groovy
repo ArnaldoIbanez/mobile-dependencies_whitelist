@@ -25,11 +25,19 @@ tracks {
         position(type: PropertyType.Numeric, required: true)
     }
 
+    def seo_allowlist_item_definition = objectSchemaDefinitions {
+        seo_is_allowlisted(type: PropertyType.Boolean, required: true)
+        seo_apply_no_index(type: PropertyType.Boolean, required: true)
+        search_no_index_applied(type: PropertyType.Boolean, required: true)
+        results_by_strategy(type: PropertyType.Map, required: true)
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
         check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
         value(type: PropertyType.Numeric, required: true)
         is_default(type: PropertyType.Boolean, required: true)
+        allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
     }
 
     def location_info_definition = objectSchemaDefinitions {
