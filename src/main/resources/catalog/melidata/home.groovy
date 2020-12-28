@@ -11,14 +11,14 @@ tracks {
     initiative = "1171"
 
     def discoverys = objectSchemaDefinitions {
-        audience(type: PropertyType.String, required: true)
-        bu(type: PropertyType.String, required: true)
-        bu_line(type: PropertyType.String, required: true)
-        component_id(type: PropertyType.String, required: true)
-        content_id(type: PropertyType.String, required: true)
-        flow(type: PropertyType.String, required: true)
-        logic(type: PropertyType.String, required: true)
-        position(type: PropertyType.String, required: true)
+        audience(type: PropertyType.String, required: true, description: "audience for the content")
+        bu(type: PropertyType.String, required: true, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: true,  description: "realestate id")
+        content_id(type: PropertyType.String, required: true, description: "content id")
+        flow(type: PropertyType.String, required: true, description: "flow for the content")
+        logic(type: PropertyType.String, required: true, description: "logic of the content")
+        position(type: PropertyType.String, required: false, description: "position in array of the content")
     }
 
     def realestate = objectSchemaDefinitions {
