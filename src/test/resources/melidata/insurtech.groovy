@@ -1425,9 +1425,6 @@ trackTests {
         }∫
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
 
-        "/insurtech/protections/detail/roda/congrats/imei"(platform:"/web", type: TrackType.View) {
-            insurance_purchase = 'roda-ABC125'
-        }
     }
 
     ["mercadolibre", "mercadopago"].each { business ->
