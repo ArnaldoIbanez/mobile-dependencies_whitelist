@@ -48,6 +48,7 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             has_good_price = true
+            has_highlighted_sale_specs=true
             price_comparison_position =  0.75
             catalog_market_price =  37855
             whatsapp_available = "false"
@@ -62,6 +63,7 @@ trackTests {
             vip_version = "new"
             best_seller_position = 5
             highlights = [
+                "id": "id_highlight",
                 "best_seller_position": 5,
                 "melichoice_domain": "CELLPHONES",
                 "melichoice_origin": "killer",
@@ -179,6 +181,7 @@ trackTests {
             deal_ids = []
             item_condition= "new"
             has_good_price= true
+            has_highlighted_sale_specs=true
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -229,6 +232,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_premium"
             has_good_price = false
+            has_highlighted_sale_specs=false
             seller_id = 210183916
         })
 
@@ -403,6 +407,7 @@ trackTests {
             unregistered_contact= false
             unregistered_contact_context= false
             has_good_price= false
+            has_highlighted_sale_specs=false
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -597,15 +602,22 @@ trackTests {
             video_type = "NONE"
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             tourOption()
         }
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             videoOption()
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "TOUR360"
+        }
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIDEO"
         }
     }
 
@@ -825,6 +837,7 @@ trackTests {
         "/vip/show_all_description"(platform: "/", type: TrackType.Event){
             item_id = "MLA213512313"
             has_good_price = true
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs"(platform: "/web", type: TrackType.View){
@@ -832,6 +845,7 @@ trackTests {
             vertical = "core"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -846,6 +860,7 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -860,12 +875,14 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -880,6 +897,7 @@ trackTests {
             catalog_product_id="MLA123456"
             vip_version = "new"
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -1860,5 +1878,67 @@ trackTests {
         "/vip/advertising"(platform: "/", type: TrackType.Event) {
             advertising_id = "fullscreen-core"
         }
+    }
+
+    // Points of Interest - RealEstate
+
+    test("VIP Points of Interest section for properties RE"){
+        def properties = {
+            vertical = "realEstate"
+            seller_id =  430012134
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+            deal_ids = []
+            points_interest_available = true
+        }
+
+        "/vip/points_of_interest/transport"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/transport"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/education"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/education"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/leisure"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/leisure"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/commerce"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/commerce"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/health"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/health"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+
     }
 }

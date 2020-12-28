@@ -89,6 +89,7 @@ catalog {
         include business, "cookie_disclaimer.groovy"
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
+        include business, "addresses.groovy"
     }
 
     mercadolibre.each { business ->
@@ -135,6 +136,7 @@ catalog {
         include business, "advertising.groovy"
         include business, "classifieds_landings.groovy"
         include business, "instore.groovy"
+        include business, "discount_center_touchpoints.groovy"
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
@@ -214,6 +216,7 @@ catalog {
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
+        include business, "discount_center_touchpoints.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
@@ -233,6 +236,7 @@ catalog {
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
+        include business, "black_friday.groovy"
     }
 
     mercadoshops.each { business ->
@@ -246,6 +250,7 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
         include business, "drivers_app.groovy"
+        include business, "crowd.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
     }

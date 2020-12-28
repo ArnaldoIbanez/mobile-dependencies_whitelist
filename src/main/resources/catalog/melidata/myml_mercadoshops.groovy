@@ -268,12 +268,20 @@ tracks {
         dns_list(required: true, type: PropertyType.ArrayList, description: "Array of dns registers to copy")
     }
 
+    "/mercado_shops/domains/migration_delegation_instructions"(platform: "/", type: TrackType.View){
+        dns_list(required: true, type: PropertyType.ArrayList, description: "Array of dns registers to copy")
+    }
+
     "/mercado_shops/domains/congrats"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/domains/error_details"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/domains/delegation_init"(platform: "/", type: TrackType.Event){
         domain(required: true, type: PropertyType.String, description: "New domain to delegate")
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/domains/partial_migration_start"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
@@ -462,7 +470,9 @@ tracks {
 
     "/mercado_shops/marketing/google_shopping_smart/campaign"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
     "/mercado_shops/marketing/google_shopping_smart/campaign/context_help"(platform: "/", type: TrackType.Event){}
 
@@ -483,6 +493,10 @@ tracks {
     }
 
     "/mercado_shops/marketing/google_shopping_smart/dashboard/set_budget"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_shopping_smart/campaign/set_budget"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
@@ -523,4 +537,7 @@ tracks {
         percentage(required: true, type: PropertyType.Numeric, description: "Discount Percentage")
         status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
+
+    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){}
 }

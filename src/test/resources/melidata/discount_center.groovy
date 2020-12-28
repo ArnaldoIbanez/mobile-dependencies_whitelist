@@ -39,67 +39,66 @@ trackTests {
         }
     }
 
-    // DETAIL
-
-    test("Mercado Pago discount center payers detail") {
-        "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-            title = "Angus"
-            enabled = true
-            availability = "full"
-            level = 1
-            blocked = false
-            amount = 20.0
-            amount_type = "percent"
-            status = "active"
-            stores_id = [
-                    30091700
+    test("Mercado Pago discount center payers vsp tap") {
+        "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
             ]
-            has_logo = false
-            coupon_used = true
-            sections= [
-                    [
-                        id: "header",
-                        type: "header",
-                        position: 0
-                    ]
-            ]
-            tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            referer_origin= "12341234"
-            category="Restaurant"
-            collector_id="1234"
-            store_id="1234"
         }
     }
 
-    test("Mercado Pago discount center payers detail tap") {
-        "/discount_center/payers/detail/tap" (platform: "/mobile", type: TrackType.Event) {
-            title = "Angus"
-            enabled = true
-            availability = "full"
-            level = 1
-            blocked = false
-            amount = 20.0
-            amount_type = "percent"
-            status = "active"
-            stores_id = [
-                    30091700
+    test("Mercado Pago discount center payers vsp print") {
+        "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
             ]
-            has_logo = false
-            coupon_used = true
-            sections= [
-                    [
-                            id: "header",
-                            type: "header",
-                            position: 0
-                    ]
-            ]
-            tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            referer_origin= "12341234"
-            category="Restaurant"
-            collector_id="1234"
-            store_id="1234"
+        }
+    }
+
+    test("Mercado Pago discount center payers vsp show") {
+        "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
@@ -130,77 +129,10 @@ trackTests {
         }
     }
 
-    // TOUCH POINT
-
-    test("Mercado Pago discount center payers touchpoint px congrats tap") {
-        "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
-            tracking_id= "346859234"
-            flow= "/instore"
-            checkout_type= "one_tap"
-            security_enabled= false
-            session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
-            session_time= 58
-            flow_detail= [
-                store_id: "30974197",
-                pos_id: "7414488"
-            ]
-            category="category_test"
-            experiments="experiment_test"
-        }
-    }
-
-    test("Mercado Pago discount center payers touchpoint px congrats show") {
-        "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
-            items= [
-                [
-                    tracking_id: "346859234"
-                ]
-            ]
-            flow= "/instore"
-            checkout_type= "one_tap"
-            security_enabled= false
-            session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
-            session_time= 58
-            flow_detail= [
-                store_id: "30974197",
-                pos_id: "7414488"
-            ]
-            category="category_test"
-            experiments="experiment_test"
-        }
-    }
-
-    test("Mercado Pago discount center payers touchpoint px congrats print") {
-        "/discount_center/payers/touchpoint/px_congrats/print" (platform: "/mobile", type: TrackType.Event) {
-            items= [
-                    [
-                            tracking_id: "346859234"
-                    ]
-            ]
-            flow= "/instore"
-            checkout_type= "one_tap"
-            security_enabled= false
-            session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
-            session_time= 58
-            flow_detail= [
-                    store_id: "30974197",
-                    pos_id: "7414488"
-            ]
-            category="category_test"
-            experiments="experiment_test"
-        }
-    }
-
     // MARKETPLACE
 
     test("Mercado Pago discount center payers marketplace") {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
-            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-        }
-    }
-
-    test("Mercado Pago discount center payers marketplace components") {
-        "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
@@ -465,24 +397,24 @@ trackTests {
                 filters: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: true,
+                                selected: "none",
                                 tracking_id: "filter1_tracking_id",
                         ],
                 ],
                 filters_l2: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "unselected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
@@ -648,24 +580,29 @@ trackTests {
                 filters: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "unselected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: true,
+                                selected: "none",
                                 tracking_id: "filter1_tracking_id",
+                        ],
+                        [
+                                index: 2,
+                                selected: "selected",
+                                tracking_id: "filter2_tracking_id",
                         ],
                 ],
                 filters_l2: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: false,
+                                selected: "unselected",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
@@ -756,7 +693,7 @@ trackTests {
                     filters_l2: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ]
                 ],

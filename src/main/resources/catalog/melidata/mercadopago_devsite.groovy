@@ -19,6 +19,7 @@ tracks {
     }
 
     "/devsite/feedback"(platform: "/", type: TrackType.Event){
+        uri(required: true, description: "current path")
         like(required: true, values: ["yes", "no"], description:"user feedback")
     }
 

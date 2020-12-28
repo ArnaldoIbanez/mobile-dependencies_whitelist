@@ -584,6 +584,37 @@ trackTests {
             session_id="some_session_id"
         }
 
+        "/cart/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
+            written = "sug"
+            final_text = "suggested street"
+        }
+
+        "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
+            written = "123"
+            final_text = "12345678"
+            session_id = "1234567"
+        }
+        
+        "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 10.0
+        }
+        
+        "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 2.0
+            session_id = "1234567"
+        }
+
+        "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
+            suggested = [
+                "latitude": 12.12,
+                "longitude": 42.42
+            ]
+            final_coordinates = [
+                "latitude": 12.13,
+                "longitude": 42.40
+            ]
+        }
+
         // First Visit
         // Page
         "/cart/checkout/shipping/address_profile"(platform: "/mobile", dataSet)

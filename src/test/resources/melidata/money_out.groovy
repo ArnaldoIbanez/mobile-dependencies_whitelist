@@ -241,5 +241,9 @@ trackTests {
         type = "datos_conta"
       }
 
+      //Cashout - Modals
+      "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
+
     }
 }
