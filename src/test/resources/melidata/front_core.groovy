@@ -1839,7 +1839,20 @@ trackTests {
 
     }
 
-    test("Mercadopago Merch Control Group") {
-        "/wallet_home/merch/control_group" (platform: "/mobile", type: TrackType.Event) {}
+    ["mercadolibre", "mercadopago"].each { business ->
+        defaultBusiness = business
+
+        test("Merch Control Group [${business}]") {
+            "/wallet_home/merch/control_group"(platform: "/mobile", type: TrackType.Event) {
+                component_id =  "modal_home_mp_v2"
+                content_id = "modal_test_proof_2"
+                audience = "all"
+                position = 0
+                logic = "campaigns"
+                bu = "4"
+                bu_line = "10"
+                flow = "-1"
+            }
+        }
     }
 }

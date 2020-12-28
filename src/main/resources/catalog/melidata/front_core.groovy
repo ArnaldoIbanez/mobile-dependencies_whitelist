@@ -414,7 +414,9 @@ tracks {
 
     //Control Group - Merch Engine
     "/wallet_home/merch" (platform: "/mobile", isAbstract: true) {}
-    "/wallet_home/merch/control_group" (platform: "/mobile", type: TrackType.Event) {}
+    "/wallet_home/merch/control_group" (platform: "/mobile", type: TrackType.Event) {
+        walletHomeMerchEngineFields
+    }
 
     //Notification Center
     "/wallet_home/notification" (platform: "/mobile", isAbstract: true) {}
