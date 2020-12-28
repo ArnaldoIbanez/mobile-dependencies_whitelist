@@ -25,13 +25,14 @@ tracks {
         product (type: PropertyType.String, required: true, description: "Product identifier")
         currency (type: PropertyType.String, required: true, description: "ISO Currency")
         price (type: PropertyType.Numeric, required: true, description: "Price of device")
+        discount_code (type: PropertyType.String, required: true, description: "Discount code")
         is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
         user_id (type: PropertyType.Numeric, required: true, description: "User ID")
         e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id, e2e_test)
+        groupCheckoutProperties(flow_id, product, currency, price, discount_code, is_guest, user_id, e2e_test)
     }
 
     "/"(platform: "/", isAbstract: true) {
@@ -57,7 +58,6 @@ tracks {
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
-        coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
     "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
@@ -123,9 +123,11 @@ tracks {
         groupCheckoutProperties
     }
 
-     "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
     }
+
+    "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {

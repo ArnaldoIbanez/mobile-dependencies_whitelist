@@ -1566,8 +1566,9 @@ trackTests {
             debt_relief_amount = 6000
         }
 
-        "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
+            error_type = "no_offer"
         }
 
         /******************************************

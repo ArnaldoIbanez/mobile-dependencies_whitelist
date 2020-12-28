@@ -227,6 +227,15 @@ tracks
         stop_order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
     }
 
+    "/driver/stops/detail/out_of_distance"(platform: "/mobile", type: TrackType.View) {
+        stop_order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
+    }
+
+    "/driver/stops/detail/out_of_distance/error"(platform: "/mobile", type: TrackType.Event) {
+        stop_order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
+        error_type(required: true, type: PropertyType.String, values: ["PERMISSION_DENIED", "LOCATION_RESULT_EXCEPTION", "GOOGLE_PLAY_SERVICES_DISABLE", "MOCK_LOCATION_ENABLE"], description: "Specifies the qr data scanned by driver")
+
+    }
 /// DELIVERY FLOW TRACKS
 
     "/driver/delivery"(platform: "/mobile", isAbstract: true) {

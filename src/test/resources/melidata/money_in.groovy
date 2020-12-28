@@ -49,6 +49,10 @@ trackTests {
             amount = "30.0"
         }
 
+        "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {
+            payment_method = "bolbradesco"
+        }
+        
         //Checkout PX
         "/money_in/px/error"(platform: "/", type: TrackType.View) {}
         "/money_in/px/success"(platform: "/", type: TrackType.View) {}
@@ -184,6 +188,28 @@ trackTests {
             type = "paycash"
         }
 
+        // Ticket Cashin MLB - congrats
+        "/money_in/cash/congrats"(platform: "/", type: TrackType.View) {
+            type = "error"
+            payment_method = "pec"
+        }
+        "/money_in/cash/congrats"(platform: "/", type: TrackType.View) {
+            type = "success"
+            payment_method = "pec"
+        }
+        "/money_in/cash/copy_code"(platform: "/", type: TrackType.Event) {
+            payment_method = "pec"
+        }
+        "/money_in/cash/copy_code"(platform: "/", type: TrackType.Event) {
+            payment_method = "pec"
+        }
+        "/money_in/cash/go_home"(platform: "/", type: TrackType.Event) {
+            payment_method = "pec"
+        }
+        "/money_in/cash/view_ticket"(platform: "/", type: TrackType.Event) {
+            payment_method = "pec"
+        }
+        
         // Oxxo Tickets - Disuassive Modal 
         "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
         "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
@@ -194,6 +220,17 @@ trackTests {
         "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
         "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
 
+        // Ticket Cashin MLB - RYC
+        "/money_in/cash/review_and_confirm"(platform: "/", type: TrackType.View) {
+            payment_method = "pec"
+        }
+        "/money_in/cash/review_and_confirm/create"(platform: "/", type: TrackType.Event) {
+            payment_method = "pec"
+        }
+        "/money_in/cash/review_and_confirm/edit_amount"(platform: "/", type: TrackType.Event) {
+            payment_method = "pec"
+        }
+        
         //PIX keys - Congrats
         "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
         //PIX keys - Admin

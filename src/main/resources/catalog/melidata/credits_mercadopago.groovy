@@ -1722,7 +1722,18 @@ tracks {
             )
         }
 
-    "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+    "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+        error_type(
+                required: true,
+                description: "Error type message",
+                type: PropertyType.String,
+                values: [
+                    "no_offer",
+                    "not_found",
+                    "invalid_offer",
+                    "unknown",
+                ]
+            )
         }
      /******************************************
      *    End: Self service

@@ -1005,6 +1005,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            success = true
         }
         "/mercado_shops/marketing/google_shopping_smart/campaign/context_help"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
