@@ -133,6 +133,7 @@ trackTests {
          "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
+            portal_prediction_id = 1234
         }
     }
 
@@ -284,6 +285,7 @@ trackTests {
         "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
+            portal_prediction_id = 1234
         }
     }
 

@@ -45,8 +45,10 @@ tracks {
             description: "Indicates the value of the effectivity survey given by a user to a certain faq")
         portal_search_criteria(required: false, type: PropertyType.String, 
             description: "Indicates the criteria used in the search in the help portal")
-         portal_custom_order_id(required: false, type: PropertyType.Numeric, 
-            description: "Indicates the order shown to the user according to the predicted problem")    
+        portal_custom_order_id(required: false, type: PropertyType.Numeric, 
+            description: "Indicates the order shown to the user according to the predicted problem")
+        portal_prediction_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the id of the prediction for the user problem")        
     }
 
     propertyGroups {
@@ -64,6 +66,7 @@ tracks {
         portal_effectivity_survey_value(portal_effectivity_survey_value)
         portal_search_criteria(portal_search_criteria)
         portal_custom_order_id(portal_custom_order_id)
+        portal_prediction_id(portal_prediction_id)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -197,6 +200,7 @@ tracks {
      "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
         portal_source_id
         portal_custom_order_id
+        portal_prediction_id
     }
 
     // Support Widget
