@@ -153,7 +153,6 @@ tracks {
     "/credits/express_money"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
-    "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
@@ -360,6 +359,19 @@ tracks {
     /******************************************
      *       Start: Credits Hub
      *******************************************/
+
+    "/credits/mp-hub"(platform: "/", type: TrackType.View) {
+        user_type(
+            type: PropertyType.String,
+            required: true,
+            description: "User status when entering hub",
+            values: [
+                'mixed',
+                'no_credit_line'
+            ],
+            inheritable: false,
+        )
+    }
 
     "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
         flow(
