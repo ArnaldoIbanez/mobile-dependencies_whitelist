@@ -847,7 +847,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago shortcut favorite edition") { 
+    test("Mercadopago shortcut favorite edition") {
         "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
 
         "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
@@ -1695,7 +1695,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago shortcut favorite edition") { 
+    test("Mercadopago shortcut favorite edition") {
         "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
 
         "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
@@ -1837,5 +1837,22 @@ trackTests {
             }
         }
 
-    }    
+    }
+
+    ["mercadolibre", "mercadopago"].each { business ->
+        defaultBusiness = business
+
+        test("Merch Control Group [${business}]") {
+            "/wallet_home/merch/control_group"(platform: "/mobile", type: TrackType.Event) {
+                component_id =  "modal_home_mp_v2"
+                content_id = "modal_test_proof_2"
+                audience = "all"
+                position = 0
+                logic = "campaigns"
+                bu = "4"
+                bu_line = "10"
+                flow = "-1"
+            }
+        }
+    }
 }
