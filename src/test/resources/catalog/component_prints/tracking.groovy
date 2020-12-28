@@ -23,7 +23,7 @@ trackTests {
                 bu_line = "26"
                 flow = "-1"
                 logic = "campaign"
-                position = "2"
+                position = 2
             }
         }
         "/component"(platform: "/web", component)

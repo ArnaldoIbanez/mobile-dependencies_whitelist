@@ -16,7 +16,7 @@ tracks {
         bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
         flow(type: PropertyType.String, required: true, description: "flow for the content")
         logic(type: PropertyType.String, required: true, description: "logic of the content")
-        position(type: PropertyType.String, required: false, description: "position in array of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
     }
 
     "/component"(platform: "/") {

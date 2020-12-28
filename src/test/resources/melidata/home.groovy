@@ -212,7 +212,7 @@ trackTests {
                             content_id = '1'
                             flow = '2'
                             logic = '2'
-                            position = '2'
+                            position = 2
                         }
                 ]
             }
