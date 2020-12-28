@@ -1077,13 +1077,17 @@ trackTests {
     }
 
     test("Credits Hub") {
-        "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {
+            user_type = "mixed"
+        }
+        
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {
+            user_type = "no_credit_line"
+        }
 
         "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
             flow = "fixed_term_loan_collect"
         }
-
-        "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
 
         "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
             flow = "consumer"
