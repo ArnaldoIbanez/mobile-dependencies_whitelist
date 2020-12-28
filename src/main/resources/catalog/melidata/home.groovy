@@ -10,6 +10,7 @@ tracks {
 
     initiative = "1171"
 
+<<<<<<< HEAD
     "/home"(platform: "/web") {
         realestates(required: false, type: PropertyType.ArrayList)
         //discovery
@@ -21,6 +22,21 @@ tracks {
             //flow
             //logic
             //position
+=======
+    def discoverys = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: true, description: "audience for the content")
+        bu(type: PropertyType.String, required: true, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: true,  description: "realestate id")
+        content_id(type: PropertyType.String, required: true, description: "content id")
+        flow(type: PropertyType.String, required: true, description: "flow for the content")
+        logic(type: PropertyType.String, required: true, description: "logic of the content")
+        position(type: PropertyType.String, required: false, description: "position in array of the content")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        discovery(required: true, type: PropertyType.ArrayList(PropertyType.Map(discoverys)))
+>>>>>>> upstream/master
     }
 
     "/home"(platform: "/mobile") {
@@ -120,6 +136,7 @@ tracks {
     "/home/categories"(platform: "/", type: TrackType.View) {}
 
     "/home"(platform: "/", type: TrackType.View) {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
         from(required: false,  description: "Who is redirecting")
     }
 

@@ -196,12 +196,17 @@ trackTests {
         "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
+<<<<<<< HEAD
     .test("Home Discovery") {
+=======
+    test("Home Discovery Mobile") {
+>>>>>>> upstream/master
         def dataSet = {
             component_count = 25
             newbie = true
             home_version = 'new'
             is_logged = true
+<<<<<<< HEAD
         }
         def realestates = {
             discovery = [{
@@ -217,6 +222,44 @@ trackTests {
         }
         "/home"(platform: "/web", dataSet)
         "/home"(platform: "/web") {realestates}
+=======
+            realestates = {
+                discovery = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = '2'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/mobile", dataSet)
+    }
+
+    test("Home Discovery Web") {
+        def dataSet = {
+            realestates = {
+                discovery = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = '2'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+>>>>>>> upstream/master
     }
 
     test("Supermarket home tracking") {

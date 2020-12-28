@@ -98,7 +98,7 @@ tracks {
         statement_status(
             description: "Status from the user's statement",
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 "closed",
                 "open"

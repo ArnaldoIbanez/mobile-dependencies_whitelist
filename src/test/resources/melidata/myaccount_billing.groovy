@@ -37,7 +37,24 @@ trackTests {
                 bills_to_pay = 2
                 total_debt = 2.56
                 has_automatic_debit = true
-                completed = true
+                is_subscription_user =true
+            }
+
+            "/myaccount/billing/summary"(platform: "/", type: TrackType.Event) {
+                bills_to_pay = 2
+                total_debt = 2.56
+                has_automatic_debit = true
+                is_subscription_user =true
+                type = "SUMMARY_AUT_DEBIT_CONFIG"
+            }
+        }
+
+    test("Reporting Info") {
+            "/myaccount/billing/reports"(platform: "/", type: TrackType.View) {
+            }
+
+            "/myaccount/billing/reports"(platform: "/", type: TrackType.Event) {
+                type = "REPORTING_DOWNLOAD_DETAIL"
             }
         }
 }

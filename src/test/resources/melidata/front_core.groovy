@@ -444,6 +444,10 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            repentance_button= [
+                    ordinal: 16,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -618,6 +622,10 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            repentance_button= [
+                    ordinal: 16,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: true
             ]
@@ -755,6 +763,14 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - Repentance button") {
+        "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="repentance_button"
+            component_id="repentance_button"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - shortcuts") {
         "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -831,7 +847,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago shortcut favorite edition") { 
+    test("Mercadopago shortcut favorite edition") {
         "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
 
         "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
@@ -1301,6 +1317,10 @@ trackTests {
                     level: 3,
                     partner: "HBO"
             ]
+            repentance_button= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -1472,6 +1492,10 @@ trackTests {
                     level: 3,
                     partner: "HBO"
             ]
+            repentance_button= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: true
             ]
@@ -1608,6 +1632,14 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - Survey") {
+        "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="repentance_button"
+            component_id="repentance_button"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - shortcuts") {
         "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1663,7 +1695,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago shortcut favorite edition") { 
+    test("Mercadopago shortcut favorite edition") {
         "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
 
         "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
@@ -1805,5 +1837,22 @@ trackTests {
             }
         }
 
-    }    
+    }
+
+    ["mercadolibre", "mercadopago"].each { business ->
+        defaultBusiness = business
+
+        test("Merch Control Group [${business}]") {
+            "/wallet_home/merch/control_group"(platform: "/mobile", type: TrackType.Event) {
+                component_id =  "modal_home_mp_v2"
+                content_id = "modal_test_proof_2"
+                audience = "all"
+                position = 0
+                logic = "campaigns"
+                bu = "4"
+                bu_line = "10"
+                flow = "-1"
+            }
+        }
+    }
 }

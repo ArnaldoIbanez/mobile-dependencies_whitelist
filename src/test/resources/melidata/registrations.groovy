@@ -54,12 +54,24 @@ trackTests {
             registration_version = "regi_v0_web"
         }
 
+        "/register/form"(platform: "/web/desktop") {
+            app = "registration-mt"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+        "/register/form"(platform: "/web/desktop") {
+            app = "registration-question-mt"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+            item_id = 'MLM845376235'
+        }
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -80,7 +92,6 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 1
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -96,7 +107,6 @@ trackTests {
             ]
             errors_validation = 'front'
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -133,7 +143,6 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -244,13 +253,19 @@ trackTests {
             prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
+        "/register/form/email-suggest"(platform: "/web/mobile") {
+            app = "registration-question-mt"
+            captcha_showed = false
+            item_id = "MLM797223740"
+            source = "email"
+            prog_reg_version = 0
+        }
 
         "/register/congrats"(platform:"/web/desktop") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-            register_type = "person"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            captcha_showed = false
+            source = "email"
+            prog_reg_version = 0
         }
 
     }
@@ -258,20 +273,14 @@ trackTests {
     test("Registration App"){
         // app module
         "/register/hub"(platform: "/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+           app = "normal"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
-        "/register/hub/register-with-email"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-
-        }
-        "/register/hub/register-with-facebook"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+        "/register/hub/register-with-email"(platform: "/mobile") {
+           app = "normal"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
         "/register/form"(platform:"/mobile") {
             app = "favorite"
@@ -287,11 +296,26 @@ trackTests {
             prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
+        "/register/form/validate"(platform:"/mobile") {
+            app = "registration"
+            step_valid = "true"
+            checkbox_valid = "true"
+            components_valid = "true"
+        }
+        "/register/form/continue"(platform:"/mobile") {
+            app = "normal"
+            registration_version = "regi_v0_mobile_normal_with_login_tyc"
+            origin = "home"
+        }
         "/register/form/email-suggest"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
             register_type = "person"
             registration_version = "regi_v0_web"
+        }
+        "/register/form/email-suggest"(platform:"/mobile") {
+            app = "alice"
+            registration_version = "alice"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
@@ -384,7 +408,6 @@ trackTests {
                     ]
             ]
             register_type = "person"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -396,7 +419,6 @@ trackTests {
                     ]
             ]
             register_type = "company"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {
@@ -501,17 +523,22 @@ trackTests {
         }
 
         "/register/form/google_hint/show"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            step = "registration"
+            field = "email"
+            origin = "home"
         }
 
         "/register/form/google_hint/select"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            step = "registration"
+            field = "email"
+            origin = "home"
+        }
+        "/register/upgrade_version"(platform: "/mobile") {
+          app = "normal"
+          registration_version = "unsuported_version"
+          origin = "my_account"
         }
     }
 
