@@ -494,30 +494,19 @@ trackTests {
     }
 
     test("Device Authorization - Enrollment") {
-        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-            section = "security_settings"
-            status = "approve"
+          status = "approve"
         }
 
-        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     }
 
     test("Phone Validation - Authentication") {
@@ -727,6 +716,16 @@ trackTests {
 
             "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
                 flow = "registration"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "pix"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
                 client_type = "mobile"
             }
 

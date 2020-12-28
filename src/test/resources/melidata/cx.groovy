@@ -16,6 +16,14 @@ trackTests {
             portal_content_id = 96
             portal_has_channels_configured = true
         }
+        "/portal/faq/click"(platform: "/", type: TrackType.Event) {
+            portal_contact = [
+                    channels: [:],
+                    contact_config: false
+            ]
+            portal_content_id = 96
+            portal_has_channels_configured = true
+        }
         "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
             portal_contact = [
                     channels: [:],
@@ -41,11 +49,15 @@ trackTests {
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_content_id = 96
         }
+        "/portal/folder/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 96
+        }
         "/portal/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 15
             portal_source_id = 124
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
+        "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {}
         "/portal/home"(platform: "/", type: TrackType.View) {}
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
 
@@ -130,7 +142,7 @@ trackTests {
             portal_content_type = 'HOME'
             portal_source_id = 999
         }
-        "/support/widget/folder/click"(platform: "/", type: TrackType.View) {
+        "/support/widget/folder/click"(platform: "/", type: TrackType.Event) {
             portal_content_id = 123
             portal_content_type = 'HOME'
             portal_source_id = 999
@@ -140,7 +152,7 @@ trackTests {
             portal_content_type = 'FOLDER'
             portal_source_id = 999
         }
-        "/support/widget/folder/click"(platform: "/", type: TrackType.View) {
+        "/support/widget/folder/click"(platform: "/", type: TrackType.Event) {
             portal_content_id = 123
             portal_content_type = 'FOLDER'
             portal_source_id = 999
@@ -217,6 +229,14 @@ trackTests {
             portal_content_id = 96
             portal_has_channels_configured = true
         }
+        "/portal/faq/click"(platform: "/", type: TrackType.Event) {
+            portal_contact = [
+                    channels: [:],
+                    contact_config: false
+            ]
+            portal_content_id = 96
+            portal_has_channels_configured = true
+        }
         "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
             portal_contact = [
                     channels: [:],
@@ -241,11 +261,15 @@ trackTests {
         "/portal/folder"(platform: "/", type: TrackType.View) {
             portal_content_id = 96
         }
+        "/portal/folder/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 96
+        }
         "/portal/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 15
             portal_source_id = 124
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
+        "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {}
         "/portal/home"(platform: "/", type: TrackType.View) {}
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
         "/portal/search"(platform: "/", type: TrackType.View) {}
