@@ -1837,5 +1837,9 @@ trackTests {
             }
         }
 
-    }    
+    }
+
+    test("Mercadopago Merch Control Group") {
+        "/wallet_home/merch/control_group" (platform: "/mobile", type: TrackType.Event) {}
+    }
 }
