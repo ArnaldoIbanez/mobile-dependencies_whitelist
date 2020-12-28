@@ -41,8 +41,10 @@ tracks {
             description: "Indicates the destination url if when found a broken link")
         portal_content_transactional_data(required: false, type: PropertyType.String, 
             description: "Indicates the transactional data include in a url")
-         portal_custom_order_id(required: false, type: PropertyType.Numeric, 
-            description: "Indicates the order shown to the user according to the predicted problem")    
+        portal_custom_order_id(required: false, type: PropertyType.Numeric, 
+            description: "Indicates the order shown to the user according to the predicted problem")
+        portal_prediction_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the id of the prediction for the user problem")
     }
 
     propertyGroups {
@@ -58,6 +60,7 @@ tracks {
         portal_broken_link_destination_url(portal_broken_link_destination_url)
         portal_content_transactional_data(portal_content_transactional_data)
         portal_custom_order_id(portal_custom_order_id)
+        portal_prediction_id(portal_prediction_id)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -172,6 +175,7 @@ tracks {
      "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
         portal_source_id
         portal_custom_order_id
+        portal_prediction_id
     }
 
     // Support Widget
