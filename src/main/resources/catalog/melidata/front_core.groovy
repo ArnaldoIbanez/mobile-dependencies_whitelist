@@ -420,8 +420,8 @@ tracks {
 
     //Notification Center
     "/wallet_home/notification" (platform: "/mobile", isAbstract: true) {}
-    wallet_home/notification/show
-    "/" (platform: "/mobile", type: TrackType.View) {
+
+    "/wallet_home/notification/show" (platform: "/mobile", type: TrackType.View) {
         badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the initial load notification label icon")
     }
 
