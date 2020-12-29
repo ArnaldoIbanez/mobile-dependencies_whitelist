@@ -169,6 +169,7 @@ trackTests {
         //Events
         "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/web/desktop", type: TrackType.Event) {
             installments_qty = 3
+            advance_installment = false
         }
         "/credits/consumer/administrator_v2/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/choose_installments"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -192,6 +193,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
             installments_qty = 3
+            advance_installment = false
         }
         "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
@@ -267,10 +269,12 @@ trackTests {
         "/credits/consumer/administrator/detail/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
             installment_status = 'on_time'
             payment_intention = 'cho'
+            advance_installment = false
         }
         "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/web/desktop", type: TrackType.Event) {
             installment_status = 'on_time'
             payment_intention = 'cho'
+            advance_installment = false
         }
 
         /******************************************
