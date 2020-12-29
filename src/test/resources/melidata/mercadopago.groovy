@@ -97,7 +97,6 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -106,7 +105,6 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -170,6 +168,13 @@ trackTests {
             prog_reg_version = 1
         }
 
+        "/register/success"(platform: "/web/desktop") {
+            app = "registration-buy"
+            captcha_showed = false
+            prog_reg_version = 0
+            source = "email"
+        }
+
         "/register/success"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
@@ -222,20 +227,14 @@ trackTests {
     test("Registration App"){
         // app module
         "/register/hub"(platform: "/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+           app = "mp"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
         "/register/hub/register-with-email"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-
-        }
-        "/register/hub/register-with-facebook"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+           app = "mp"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
         "/register/form"(platform:"/mobile") {
             app = "favorite"
@@ -256,6 +255,17 @@ trackTests {
             app = "normal"
             register_type = "company"
             registration_version = "regi_v0_web"
+        }
+        "/register/form/validate"(platform:"/mobile") {
+            app = "mp"
+            step_valid = "true"
+            checkbox_valid = "true"
+            components_valid = "true"
+        }
+        "/register/form/continue"(platform:"/mobile") {
+            app = "mp"
+            registration_version = "regi_v0_mobile_normal_with_login_tyc"
+            origin = "home"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
@@ -342,7 +352,6 @@ trackTests {
                     ]
             ]
             register_type = "person"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -354,7 +363,6 @@ trackTests {
                     ]
             ]
             register_type = "company"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {
@@ -368,11 +376,18 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
         }
+        "/register/account-recovery-hub"(platform: "/mobile"){
+            app = "mp"
+            registration_version = "regi_v0_mobile_mp_tyc"
+        }
         "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
-
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
+            app = "mp"
+            registration_version = "regi_v0_mobile_mp_tyc"
         }
         "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
             app = "favorite"
@@ -460,6 +475,11 @@ trackTests {
             step = "phoneRegistration"
             field = "phone"
             registration_version = "regi_v0_web"
+        }
+        "/register/upgrade_version"(platform: "/mobile") {
+          app = "mp"
+          registration_version = "unsuported_version"
+          origin = "my_account"
         }
     }
 
@@ -3607,30 +3627,19 @@ trackTests {
     }
 
     test("Device Authorization - Enrollment") {
-        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-            section = "security_settings"
             status = "approve"
         }
 
-        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     }
 
     test("Phone Validation - Authentication") {

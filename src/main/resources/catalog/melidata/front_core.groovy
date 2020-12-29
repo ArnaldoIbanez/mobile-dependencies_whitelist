@@ -412,6 +412,12 @@ tracks {
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
     }
 
+    //Control Group - Merch Engine
+    "/wallet_home/merch" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home/merch/control_group" (platform: "/mobile", type: TrackType.Event) {
+        walletHomeMerchEngineFields
+    }
+
     //Notification Center
     "/wallet_home/notification" (platform: "/mobile", isAbstract: true) {}
 

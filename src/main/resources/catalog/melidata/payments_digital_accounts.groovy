@@ -16,17 +16,17 @@ tracks {
     //Definitions
 
     propertyDefinitions {
-        section_id(required: false, type: PropertyType.String, description: "Identifier for the realestate to consume")
-        component_id(required: false, type: PropertyType.String, description: "Identifier for the component")
-        content_id(required: false, type: PropertyType.String, description: "Identifier for the unique content shown")
-        audience(required: false, type: PropertyType.String, description: "The audience for which this content was prepared")
-        position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
-        logic(required: false, type: PropertyType.String, description: "Origin of the content")
-        bu(required: false, type: PropertyType.String, description: "The business unit")
-        bu_line(required: false, type: PropertyType.String, description: "The business unit related to the content")
-        flow(required: false, type: PropertyType.String, description: "The flow related to the content")
-        action_id(required: false, type: PropertyType.String, description: "The action executed")
-        link(required: false, type: PropertyType.String, description: "Link to execute")
+        section_id(required: true, type: PropertyType.String, description: "Identifier for the realestate to consume")
+        component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
+        content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
+        audience(required: true, type: PropertyType.String, description: "The audience for which this content was prepared")
+        position(required: true, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        logic(required: true, type: PropertyType.String, description: "Origin of the content")
+        bu(required: true, type: PropertyType.String, description: "The business unit")
+        bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content")
+        flow(required: true, type: PropertyType.String, description: "The flow related to the content")
+        action_id(required: true, type: PropertyType.String, description: "The action executed")
+        link(required: true, type: PropertyType.String, description: "Link to execute")
     }
 
     propertyGroups {

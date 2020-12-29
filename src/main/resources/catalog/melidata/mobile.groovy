@@ -77,6 +77,11 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
+    
+    "/permissions/idfa"(platform: "/mobile", isAbstract: true){}
+    "/permissions/idfa/accept"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/deny"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/shown"(platform: "/mobile", type: TrackType.Event){}
 
     "/settings"(platform: "/mobile", isAbstract: true){}
     "/settings/about"(platform: "/mobile", type: TrackType.View){}

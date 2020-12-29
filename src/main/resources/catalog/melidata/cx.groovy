@@ -45,8 +45,10 @@ tracks {
             description: "Indicates the value of the effectivity survey given by a user to a certain faq")
         portal_search_criteria(required: false, type: PropertyType.String, 
             description: "Indicates the criteria used in the search in the help portal")
-         portal_custom_order_id(required: false, type: PropertyType.Numeric, 
-            description: "Indicates the order shown to the user according to the predicted problem")    
+        portal_custom_order_id(required: false, type: PropertyType.Numeric, 
+            description: "Indicates the order shown to the user according to the predicted problem")
+        portal_prediction_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the id of the prediction for the user problem")        
     }
 
     propertyGroups {
@@ -64,6 +66,7 @@ tracks {
         portal_effectivity_survey_value(portal_effectivity_survey_value)
         portal_search_criteria(portal_search_criteria)
         portal_custom_order_id(portal_custom_order_id)
+        portal_prediction_id(portal_prediction_id)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -82,8 +85,13 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/faq/click"(platform: "/", type: TrackType.View) {
+        portal_content_transactional_data
+    }
+
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
         portal_effectivity_survey_value
     }
 
@@ -134,6 +142,10 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/folder/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
+    }
+
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
         portal_form_id
         portal_content_id(required: false, type: PropertyType.Numeric,
@@ -163,6 +175,10 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
+    }
+
     "/portal/home"(platform: "/", type: TrackType.View) {
         portal_source_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
@@ -184,6 +200,7 @@ tracks {
      "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
         portal_source_id
         portal_custom_order_id
+        portal_prediction_id
     }
 
     // Support Widget
@@ -246,6 +263,7 @@ tracks {
     }
     "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
         portal_effectivity_survey_value
     }
 

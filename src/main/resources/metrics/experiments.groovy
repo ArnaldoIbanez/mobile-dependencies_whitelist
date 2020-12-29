@@ -38,4 +38,27 @@ metrics {
 		}
 	}
 
+	"idfa.deny"(description: "IDFA alert shown", deprecation_date:"2021/01/31") {
+		startWith {
+			experiment("mobile/IDFA_Banner")
+		}
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/deny")
+			}
+		}
+	}
+
+	"idfa.accept"(description: "IDFA permission accepted", deprecation_date:"2021/01/31") {
+		startWith {
+			experiment("mobile/IDFA_Banner")
+		}
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/accept")
+			}
+		}
+	}
 }
