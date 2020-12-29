@@ -947,6 +947,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
     }
 
@@ -958,6 +959,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
     }
 
@@ -970,6 +972,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -978,6 +981,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -986,30 +990,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
-        }
-        "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1018,22 +999,7 @@ trackTests {
             amount = 118.11
             is_guest = false
             e2e_test = false
-        }
-        "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+            discount_code = "GHZM"
         }
     }
 
@@ -1046,6 +1012,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1054,6 +1021,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1062,30 +1030,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
-        }
-        "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1094,22 +1039,7 @@ trackTests {
             amount = 118.11
             is_guest = false
             e2e_test = false
-        }
-        "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+            discount_code = "GHZM"
         }
     }
     
