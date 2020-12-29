@@ -128,10 +128,15 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
         registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
-    "/register/form/validate"(platform: "/mobile", type: TrackType.Event){
+    "/register/form/validate"(platform: "/mobile/ios", type: TrackType.Event){
       step_valid(type: PropertyType.String, required: true, description: "checks if TyC checkbox is marked")
       checkbox_valid(type: PropertyType.String, required: true, description: "checks if all fields have been completed")
       components_valid(type: PropertyType.String, required: true, description: "checks if all fields, tyc included, are completed")
+    }
+    "/register/form/validate"(platform: "/mobile/android", type: TrackType.Event){
+      step_valid(type: PropertyType.Boolean, required: true, description: "checks if TyC checkbox is marked")
+      checkbox_valid(type: PropertyType.Boolean, required: true, description: "checks if all fields have been completed")
+      components_valid(type: PropertyType.Boolean, required: true, description: "checks if all fields, tyc included, are completed")
     }
     "/register/form/continue"(platform: "/mobile", type: TrackType.Event){}
 

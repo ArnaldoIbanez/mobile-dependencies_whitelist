@@ -296,11 +296,17 @@ trackTests {
             prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
-        "/register/form/validate"(platform:"/mobile") {
+        "/register/form/validate"(platform:"/mobile/ios") {
             app = "registration"
             step_valid = "true"
             checkbox_valid = "true"
             components_valid = "true"
+        }
+        "/register/form/validate"(platform:"/mobile/android") {
+            app = "onboarding"
+            step_valid = false
+            checkbox_valid = true
+            components_valid = true
         }
         "/register/form/continue"(platform:"/mobile") {
             app = "normal"
