@@ -1414,6 +1414,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
             installments_qty = 3
+            advance_installment = false
         }
         "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'

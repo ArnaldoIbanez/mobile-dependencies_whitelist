@@ -1508,6 +1508,11 @@ tracks {
                 required: true,
                 inheritable: false
         )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
