@@ -29,6 +29,8 @@ tracks {
     "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/configuration"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
 
@@ -1039,6 +1041,34 @@ tracks {
         )
     }
     "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_redirect"],
+            description: "Redirection Done"
+        )
+    }
+    
+        // CONFFIGURATION-HUB-NFC
+    //-------------------
+    "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back","continue_later"],
+            description: "Action Tapped"
+        )
+    }
+    "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["step_tap_and_pay","step_pin","step_nfc","step_nfc_freeze"],
+            description: "Step Button Tapped"
+        )
+    }
+    "/cards/nfc/configuration/hub/redirect"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
