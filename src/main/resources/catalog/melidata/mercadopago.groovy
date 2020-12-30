@@ -167,6 +167,7 @@ tracks {
         amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
         is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
         e2e_test (required: true, type: PropertyType.Boolean, description: "e2e Test")
+        discount_code (required: true, type: PropertyType.String, description: "Discount code")
     }
 
     "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
@@ -176,20 +177,10 @@ tracks {
     "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {}
 
     //congrats OFF
-    "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
