@@ -682,6 +682,22 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/killers_winner_item_recover"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/killers_winner_item_new"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/killers_losing_item_buybox"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/killers_loser_item_new"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/merchants_growth_mgm"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2227,6 +2243,12 @@ tracks {
         gift_reason_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    //killers
+    "/notification/killers_winner_item_recover"(platform: "/mobile") {}
+    "/notification/killers_winner_item_new"(platform: "/mobile") {}
+    "/notification/killers_losing_item_buybox"(platform: "/mobile") {}
+    "/notification/killers_loser_item_new"(platform: "/mobile") {}
+
     //kyc
     "/notification/kyc_user_notification_mp"(platform: "/mobile") {}
     "/notification/kyc_user_notification_ml"(platform: "/mobile") {}
@@ -2290,8 +2312,18 @@ tracks {
     "/notification/card_nip_nip_block"(platform: "/mobile") {}
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}
     "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_capture_exceed_amount"(platform: "/mobile") {}
+    "/notification/card_transactions_first_transaction_chip_pin"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {}
 
-    //Prepaid
+    //Prepaidbuild.gradle
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
     "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
     "/notification/prepaid_card_delivered"(platform: "/mobile") {}

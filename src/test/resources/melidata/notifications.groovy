@@ -426,7 +426,7 @@ trackTests {
             latest_news_type= "kyc_user_notification_mp"
         }
         "/notification_center/kyc_user_notification_ml"(platform: "/mobile"){
-            latest_news_id= "kyc_user_notification_ml-186785675-76283123"
+            latest_news_id= "kyc_user_notification_ml-186785675-76283123"kyc_bo_success
             latest_news_type= "kyc_user_notification_ml"
         }
         "/notification_center/kyc_legal_entity_notification_mp"(platform: "/mobile"){
@@ -440,6 +440,22 @@ trackTests {
         "/notification_center/kyc_bo_success"(platform: "/mobile"){
             latest_news_id= "kyc_bo_success-186785675-76283123"
             latest_news_type= "kyc_bo_success"
+        }
+        "/notification_center/killers_winner_item_recover"(platform: "/mobile"){
+            latest_news_id= "killers_winner_item_recover-186785675-76283123"
+            latest_news_type= "killers_winner_item_recover"
+        }
+        "/notification_center/killers_winner_item_new"(platform: "/mobile"){
+            latest_news_id= "killers_winner_item_new-186785675-76283123"
+            latest_news_type= "killers_winner_item_new"
+        }
+        "/notification_center/killers_losing_item_buybox"(platform: "/mobile"){
+            latest_news_id= "killers_losing_item_buybox-186785675-76283123"
+            latest_news_type= "killers_losing_item_buybox"
+        }
+        "/notification_center/killers_loser_item_new"(platform: "/mobile"){
+            latest_news_id= "killers_loser_item_new-186785675-76283123"
+            latest_news_type= "killers_loser_item_new"
         }
         "/notification_center/kyc_afip_user_notification_ml"(platform: "/mobile"){
             latest_news_id= "kyc_afip_user_notification_ml-186785675-76283123"
@@ -3840,6 +3856,22 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
+        "/notification/killers_loser_item_new"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/killers_winner_item_recover"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/killers_winner_item_new"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/killers_losing_item_buybox"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
         "/notification/kyc_afip_user_notification_mp"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -5696,6 +5728,22 @@ trackTests {
         "/notification_center/kyc_bo_success"(platform: "/mobile"){
             latest_news_id= "kyc_bo_success-186785675-76283123"
             latest_news_type= "kyc_bo_success"
+        }
+        "/notification_center/killers_winner_item_recover"(platform: "/mobile"){
+            latest_news_id= "killers_winner_item_recover-186785675-76283123"
+            latest_news_type= "killers_winner_item_recover"
+        }
+        "/notification_center/killers_winner_item_new"(platform: "/mobile"){
+            latest_news_id= "killers_winner_item_new-186785675-76283123"
+            latest_news_type= "killers_winner_item_new"
+        }
+        "/notification_center/killers_losing_item_buybox"(platform: "/mobile"){
+            latest_news_id= "killers_losing_item_buybox-186785675-76283123"
+            latest_news_type= "killers_losing_item_buybox"
+        }
+        "/notification_center/killers_loser_item_new"(platform: "/mobile"){
+            latest_news_id= "killers_loser_item_new-186785675-76283123"
+            latest_news_type= "killers_loser_item_new"
         }
         "/notification_center/kyc_afip_user_notification_ml"(platform: "/mobile"){
             latest_news_id= "kyc_afip_user_notification_ml-186785675-76283123"
@@ -8599,6 +8647,22 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
+        "/notification/killers_loser_item_new"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/killers_winner_item_recover"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/killers_winner_item_new"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/killers_losing_item_buybox"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
         "/notification/kyc_afip_user_notification_mp"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -9257,6 +9321,57 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
+        "/notification/card_transactions_approved_authorization"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {
+            news_id = "card_transactions_approved_withdraw-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_cancelled_authorization"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_exceed_amount"(platform: "/mobile") {
+            news_id = "card_transactions_capture_exceed_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_first_transaction_chip_pin"(platform: "/mobile") {
+            news_id = "card_transactions_first_transaction_chip_pin-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_by_invalid_amount"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_by_invalid_amount_with_unavailable_balance-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_international_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_withdraw_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -9524,8 +9639,59 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-      "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
+        "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
             news_id = "card_transactions_payment_reject_whit_contactless-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_authorization"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {
+            news_id = "card_transactions_approved_withdraw-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_cancelled_authorization"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_exceed_amount"(platform: "/mobile") {
+            news_id = "card_transactions_capture_exceed_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_first_transaction_chip_pin"(platform: "/mobile") {
+            news_id = "card_transactions_first_transaction_chip_pin-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_by_invalid_amount"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_by_invalid_amount_with_unavailable_balance-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_international_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_withdraw_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
