@@ -169,7 +169,6 @@ tracks {
     "/credits/express_money"(platform: "/web", isAbstract: true) {}
     "/credits/merchant"(platform: "/web", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
-    "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
@@ -377,36 +376,49 @@ tracks {
      *       Start: Credits Hub
      *******************************************/
 
+    "/credits/mp-hub"(platform: "/", type: TrackType.View) {
+        user_type(
+            type: PropertyType.String,
+            required: true,
+            description: "User status when entering hub",
+            values: [
+                'mixed',
+                'no_credit_line'
+            ],
+            inheritable: false,
+        )
+    }
+
     "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
         flow(
             type: PropertyType.String,
             required: true,
             description: "Flow which the user is being redirected",
             values: [
-                'fixed_term_loan_collect',
-                'sales_percentage_loan_collect',
-                'express_money_collect',
-                'personal_loan_collect',
-                'consumer_loan_collect',
-                'fixed_term_loan_prior_to_collect',
-                'sales_percentage_loan_prior_to_collect',
-                'express_money_prior_to_collect',
-                'personal_loan_prior_to_collect',
-                'consumer_loan_prior_to_collect',
-                'fixed_term_loan_adoption',
-                'sales_percentage_loan_adoption',
-                'express_money_adoption',
-                'personal_loan_adoption',
-                'express_money_on_time',
-                'fixed_term_loan_on_time',
-                'sales_percentage_loan_on_time',
-                'personal_loan_on_time',
-                'consumer_loan_on_time',
-                'sales_percentage_loan_finished',
-                'fixed_term_loan_finished',
-                'express_money_finished',
-                'personal_loan_finished',
-                'consumer_loan_finished',
+                'fixed_term_loan_collect', 
+                'sales_percentage_loan_collect', 
+                'express_money_collect', 
+                'personal_loan_collect', 
+                'consumer_loan_collect', 
+                'fixed_term_loan_prior_to_collect', 
+                'sales_percentage_loan_prior_to_collect', 
+                'express_money_prior_to_collect', 
+                'personal_loan_prior_to_collect', 
+                'consumer_loan_prior_to_collect', 
+                'fixed_term_loan_adoption', 
+                'sales_percentage_loan_adoption', 
+                'express_money_adoption', 
+                'personal_loan_adoption', 
+                'express_money_on_time', 
+                'fixed_term_loan_on_time', 
+                'sales_percentage_loan_on_time', 
+                'personal_loan_on_time', 
+                'consumer_loan_on_time', 
+                'sales_percentage_loan_finished', 
+                'fixed_term_loan_finished', 
+                'express_money_finished', 
+                'personal_loan_finished', 
+                'consumer_loan_finished', 
                 'consumer_loan_adoption',
             ]
         )
@@ -1496,6 +1508,11 @@ tracks {
                 required: true,
                 inheritable: false
         )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
@@ -1722,7 +1739,18 @@ tracks {
             )
         }
 
-    "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+    "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+        error_type(
+                required: true,
+                description: "Error type message",
+                type: PropertyType.String,
+                values: [
+                    "no_offer",
+                    "not_found",
+                    "invalid_offer",
+                    "unknown",
+                ]
+            )
         }
      /******************************************
      *    End: Self service

@@ -196,6 +196,13 @@ tracks {
         index(type: PropertyType.Numeric, required: true, description: "The position of the filter within the component")
     }
 
+    def marketplace_cover_carousel_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, values: ['cover_carousel'], description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the carousel")
+    }
+
     def marketplace_components_definition = objectSchemaDefinitions {
         main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_slider_definition)), description: "Main slider components")
         main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
@@ -208,6 +215,7 @@ tracks {
         hybrid_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
         filters(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_definition)), description: "Filters components")
         filters_l2(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_l2_definition)), description: "Filters L2 components")
+        cover_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_cover_carousel_definition)), description: "Cover carousel components")
     }
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {

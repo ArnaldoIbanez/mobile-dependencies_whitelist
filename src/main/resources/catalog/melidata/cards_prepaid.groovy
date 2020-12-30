@@ -369,6 +369,22 @@ tracks {
             values: ["cancel_card","back"],
             description: "user regrets having the prepaid"
             )
+        cardStatus (
+            required: true,
+            type: PropertyType.String,
+            description: "card status before block"
+            )
+        cardStatusDetail (
+            required: false,
+            type: PropertyType.String,
+            description: "card status detail before block"
+            )
+        blockStatus (
+            required: true,
+            type: PropertyType.String,
+            values: ["unknow","sucess","apiError","localError"],
+            description: "result state of the api-call"
+            )
     }
 
 }
