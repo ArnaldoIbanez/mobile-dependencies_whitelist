@@ -352,7 +352,7 @@ tracks {
     "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the access?")
+        status(type: PropertyType.String, required: true, values: ["approved", "aborted", "rejected"], description: "Did the user approve the access?")
     }
 
     "/authenticators/device_authorization/enrollment"(platform: "/", isAbstract: true) {}
@@ -366,7 +366,7 @@ tracks {
     "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
+        status(type: PropertyType.String, required: true, values: ["approved", "aborted", "rejected"], description: "Did the user approve the simulated access?")
     }
 
     "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
@@ -390,8 +390,9 @@ tracks {
     }
 
     "/authenticators/phone_validation/channel_selector"(platform: "/", isAbstract: true) {
-        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
+        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation", "validated" ], description: "challenge status by response")
         available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
+        phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
     }
 
     "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {}
@@ -401,16 +402,13 @@ tracks {
     }
 
     "/authenticators/phone_validation/enter_code"(platform: "/", isAbstract: true) {
-        status(PropertyType.String, required: false, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
+        status(PropertyType.String, required: false, values: ["success", "failure", "pending_validation", "validated" ], description: "challenge status by response")
         available_channels(PropertyType.ArrayList, required: false, description: "channels available to select")
         selected_channel(PropertyType.String, required: true, values: ["push", "sms", "call", "whatsapp" ], description: "channel selected by user")
+        phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
     }
 
     "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {}
-
-    "/authenticators/phone_validation/enter_code"(platform: "/mobile", isAbstract: true) {
-        selected_channel(PropertyType.String, required: true, values: ["sms", "whatsapp" ], description: "channel selected by user")
-    }
 
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
         phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
@@ -440,7 +438,7 @@ tracks {
     "/authenticators/email_validation/enter_email"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/email_validation/enter_email/submit"(platform: "/", type: TrackType.Event) {
-        validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address"], description: "Email submition status by response")
+        validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address", "invalidEmail"], description: "Email submition status by response")
     }
 
     "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}

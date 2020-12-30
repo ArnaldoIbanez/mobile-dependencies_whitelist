@@ -3698,7 +3698,13 @@ trackTests {
         "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
-            status = "approve"
+            status = "approved"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "aborted"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "rejected"
         }
     }
 
@@ -3712,7 +3718,13 @@ trackTests {
         "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-            status = "approve"
+            status = "approved"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "aborted"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "rejected"
         }
 
         "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
