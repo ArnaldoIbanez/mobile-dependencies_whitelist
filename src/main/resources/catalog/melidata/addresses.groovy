@@ -13,7 +13,7 @@ tracks {
 
     // VIEWS
     "/addresses"(platform: "/", isAbstract: true) {
-        context(required: true, description: "The client which is using the addresses flow", values: ["MY_ML","CHO","CART","ONE_TAP"], type: PropertyType.String)
+        context(required: false, description: "The client which is using the addresses flow", values: ["MY_ML"], type: PropertyType.String)
     }
     
     "/addresses/input_address"(platform: "/", type: TrackType.View) {
