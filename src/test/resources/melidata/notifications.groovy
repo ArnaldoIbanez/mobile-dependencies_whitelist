@@ -1286,6 +1286,12 @@ trackTests {
             latest_news_type= "card_unlock_incentive-zero_day"
             status= "read"
         }
+        "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_second_day"
+            status= "read"
+        }
         "/notification_center/card_delivery_tracking"(platform: "/mobile"){
             newsgroup_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
             latest_news_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
@@ -1880,6 +1886,11 @@ trackTests {
             event_type = "shown"
             installment_id= 9876
             loan_id= 12345433
+        }
+
+        "/notification/credits_consumer_congrats_microlines"(platform: "/mobile") {
+            news_id = "credits-credits_consumer_congrats_microlines-21680059-20180516"
+            event_type = "shown"
         }
 
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
@@ -5899,6 +5910,12 @@ trackTests {
             latest_news_type= "card_unlock_incentive-zero_day"
             status= "read"
         }
+        "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_second_day"
+            status= "read"
+        }
         "/notification_center/card_delivery_tracking"(platform: "/mobile"){
             newsgroup_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
             latest_news_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
@@ -6495,6 +6512,11 @@ trackTests {
 
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
             news_id = "credits-consumer_about_to_expire_n_loans_first_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
+        "/notification/credits_consumer_congrats_microlines"(platform: "/mobile") {
+            news_id = "credits-credits_consumer_congrats_microlines-21680059-20180516"
             event_type = "shown"
         }
 
