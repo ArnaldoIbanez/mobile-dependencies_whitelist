@@ -426,7 +426,7 @@ trackTests {
             latest_news_type= "kyc_user_notification_mp"
         }
         "/notification_center/kyc_user_notification_ml"(platform: "/mobile"){
-            latest_news_id= "kyc_user_notification_ml-186785675-76283123"kyc_bo_success
+            latest_news_id= "kyc_user_notification_ml-186785675-76283123"
             latest_news_type= "kyc_user_notification_ml"
         }
         "/notification_center/kyc_legal_entity_notification_mp"(platform: "/mobile"){
