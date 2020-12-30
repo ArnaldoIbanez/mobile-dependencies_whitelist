@@ -49,6 +49,8 @@ tracks {
             description: "Indicates the order shown to the user according to the predicted problem")
         portal_prediction_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the id of the prediction for the user problem")        
+        portal_content_destination_url(required: false, type: PropertyType.String, 
+            description: "Indicates the destination url in an event track")
     }
 
     propertyGroups {
@@ -67,6 +69,7 @@ tracks {
         portal_search_criteria(portal_search_criteria)
         portal_custom_order_id(portal_custom_order_id)
         portal_prediction_id(portal_prediction_id)
+        portal_content_destination_url(portal_content_destination_url)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -87,12 +90,14 @@ tracks {
 
     "/portal/faq/click"(platform: "/", type: TrackType.View) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
+        portal_content_destination_url
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -144,6 +149,7 @@ tracks {
 
     "/portal/folder/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
@@ -177,6 +183,7 @@ tracks {
 
     "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/portal/home"(platform: "/", type: TrackType.View) {
@@ -219,6 +226,7 @@ tracks {
 
     "/support/widget/folder/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
@@ -229,6 +237,7 @@ tracks {
     }
     "/support/widget/folder_rules/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/support/widget/home"(platform: "/", type: TrackType.View) {
@@ -260,11 +269,13 @@ tracks {
 
     "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
     "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
+        portal_content_destination_url
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
