@@ -458,5 +458,33 @@ trackTests {
         "/asset_management/previous_year"(platform: "/", business: "mercadolibre") {}
         "/asset_management/previous_month"(platform: "/", business: "mercadolibre") {}
         "/asset_management/show_clarifications"(platform: "/", business: "mercadolibre") {}
+
+        //Investment Settings
+        "/asset_management/investment_settings"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/investment_settings/switch_false"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/investment_settings/switch_true"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/investment_settings/continue_investing"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/investment_settings/show_opt_out"(platform: "/", business: "mercadolibre") {}
+        
+        //Keypad
+        "/asset_management/investment_keypad"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/investment_keypad/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {
+            invested= 30
+        }
+        
+        //Invest Section
+        "/asset_management/invest_section/empty_no_money"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/empty_no_returns"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/money_to_invest"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/all_invested"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/auto_enabled"(platform: "/", business: "mercadolibre") {}
+
+        "/asset_management/invest_section/show_estimated_yield"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/click_button_empty_no_returns"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/click_button_edit_amount"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
     }
 }
