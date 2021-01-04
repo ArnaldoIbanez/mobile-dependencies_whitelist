@@ -664,4 +664,15 @@ tracks {
 
     "/pdp/technical_specs_features/view_more"(platform: "/", parentPropertiesInherited: true) {
     }
+
+    "/pdp/html_description"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/html_description/show"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/html_description/view_all_action"(platform: "/", parentPropertiesInherited: true) {
+    }
+
 }
