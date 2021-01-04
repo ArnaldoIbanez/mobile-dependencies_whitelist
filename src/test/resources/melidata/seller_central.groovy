@@ -1734,9 +1734,9 @@ trackTests {
     "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event) {
       action = "dynamic_action"
       type = "download"
-      dateCreated = new Date("01/01/2021")
-      dateFinished = new Date("01/01/2021")
-      dateExecuted = new Date("01/01/2021")
+      dateCreated = "01/01/2021"
+      dateFinished = "01/01/2021"
+      dateExecuted = "01/01/2021"
     }
   }
 
@@ -1910,9 +1910,9 @@ trackTests {
     "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event) {
       action = "dynamic_action"
       type = "download"
-      dateCreated = new Date("01/01/2021")
-      dateFinished = new Date("01/01/2021")
-      dateExecuted = new Date("01/01/2021")
+      dateCreated = "01/01/2021"
+      dateFinished = "01/01/2021"
+      dateExecuted = "01/01/2021"
     }
   }
 

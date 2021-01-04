@@ -1077,9 +1077,9 @@ tracks {
     "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, type: PropertyType.String, description: "Action executed")
         type(required: true, type: PropertyType.String, description: "Type action executed")
-        dateCreated(required: false, type: PropertyType.Date, description: "Created date")
-        dateFinished(required: false, type: PropertyType.Date, description: "Finished date")
-        dateExecuted(required: false, type: PropertyType.Date, description: "Executed date")
+        dateCreated(required: false, type: PropertyType.String, description: "Created date")
+        dateFinished(required: false, type: PropertyType.String, description: "Finished date")
+        dateExecuted(required: false, type: PropertyType.String, description: "Executed date")
     }
 
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
@@ -1176,9 +1176,9 @@ tracks {
     "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, type: PropertyType.String, description: "Action executed")
         type(required: true, type: PropertyType.String, description: "Type action executed")
-        dateCreated(required: false, type: PropertyType.Date, description: "Created date")
-        dateFinished(required: false, type: PropertyType.Date, description: "Finished date")
-        dateExecuted(required: false, type: PropertyType.Date, description: "Executed date")
+        dateCreated(required: false, type: PropertyType.String, description: "Created date")
+        dateFinished(required: false, type: PropertyType.String, description: "Finished date")
+        dateExecuted(required: false, type: PropertyType.String, description: "Executed date")
     }
 
     "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
