@@ -474,7 +474,6 @@ trackTests {
         
         //Invest Section
         "/asset_management/invest_section/empty_no_money"(platform: "/", business: "mercadolibre") {}
-        "/asset_management/invest_section/empty_no_returns"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/money_to_invest"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/all_invested"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
