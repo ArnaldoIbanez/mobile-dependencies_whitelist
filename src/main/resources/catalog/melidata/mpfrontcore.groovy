@@ -60,6 +60,11 @@ tracks {
         userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
     }
 
+    // MP Home regret
+    "/mp_home/regret"(platform: "/", type: TrackType.View) {
+        userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+    }
+
     // MP Enigma
     "/not-found"(platform: "/", type: TrackType.View) {}
 

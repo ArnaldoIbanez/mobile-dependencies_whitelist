@@ -25,13 +25,14 @@ tracks {
         product (type: PropertyType.String, required: true, description: "Product identifier")
         currency (type: PropertyType.String, required: true, description: "ISO Currency")
         price (type: PropertyType.Numeric, required: true, description: "Price of device")
+        discount_code (type: PropertyType.String, required: true, description: "Discount code")
         is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
         user_id (type: PropertyType.Numeric, required: true, description: "User ID")
         e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id, e2e_test)
+        groupCheckoutProperties(flow_id, product, currency, price, discount_code, is_guest, user_id, e2e_test)
     }
 
     "/"(platform: "/", isAbstract: true) {
@@ -57,7 +58,6 @@ tracks {
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
         has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
-        coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
     "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
@@ -123,9 +123,11 @@ tracks {
         groupCheckoutProperties
     }
 
-     "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
     }
+
+    "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
@@ -165,6 +167,7 @@ tracks {
         amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
         is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
         e2e_test (required: true, type: PropertyType.Boolean, description: "e2e Test")
+        discount_code (required: true, type: PropertyType.String, description: "Discount code")
     }
 
     "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
@@ -174,20 +177,10 @@ tracks {
     "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {}
 
     //congrats OFF
-    "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}

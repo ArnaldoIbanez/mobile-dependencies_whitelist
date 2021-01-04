@@ -48,6 +48,7 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             has_good_price = true
+            has_highlighted_sale_specs=true
             price_comparison_position =  0.75
             catalog_market_price =  37855
             whatsapp_available = "false"
@@ -180,6 +181,7 @@ trackTests {
             deal_ids = []
             item_condition= "new"
             has_good_price= true
+            has_highlighted_sale_specs=true
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -230,6 +232,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_premium"
             has_good_price = false
+            has_highlighted_sale_specs=false
             seller_id = 210183916
         })
 
@@ -404,6 +407,7 @@ trackTests {
             unregistered_contact= false
             unregistered_contact_context= false
             has_good_price= false
+            has_highlighted_sale_specs=false
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -833,6 +837,7 @@ trackTests {
         "/vip/show_all_description"(platform: "/", type: TrackType.Event){
             item_id = "MLA213512313"
             has_good_price = true
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs"(platform: "/web", type: TrackType.View){
@@ -840,6 +845,7 @@ trackTests {
             vertical = "core"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -854,6 +860,7 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -868,12 +875,14 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -888,6 +897,7 @@ trackTests {
             catalog_product_id="MLA123456"
             vip_version = "new"
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {

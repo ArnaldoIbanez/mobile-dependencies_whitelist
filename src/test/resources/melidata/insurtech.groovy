@@ -238,6 +238,102 @@ trackTests {
         }
     }
 
+    defaultBusiness = "mercadolibre"
+
+    test('Insurtech - test qpage_on tacking on checkout') {
+
+        //Mobile
+        "/insurtech/qpage_on/skeleton"(platform:"/mobile", type: TrackType.View) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+        }
+        "/insurtech/qpage_on/skeleton/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+        }
+
+        "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+        "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            period = 12
+            cost = 270
+            original_cost = 300
+            discount_rate = 10
+            revenue_share_fee = 30
+            revenue = 78
+            currency_id = "BR"
+        }
+
+        "/insurtech/qpage_on/faq"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+        "/insurtech/qpage_on/selected"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            period = 12
+            cost = 270
+            original_cost = 300
+            discount_rate = 10
+            revenue_share_fee = 30
+            revenue = 78
+            currency_id = "BR"
+        }
+
+        "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+        "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            period = 12
+            cost = 270
+            original_cost = 300
+            discount_rate = 10
+            revenue_share_fee = 30
+            revenue = 78
+            currency_id = "BR"
+        }
+
+        "/insurtech/qpage_on/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            quote_id = "343cae11-d2ef-4115-b284-96c7e69fb1d8"
+        }
+
+        "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+
+        "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            error_type = "timeout"
+        }
+
+        "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            quote_id = "343cae11-d2ef-4115-b284-96c7e69fb1d8"
+            cost = 270
+            currency_id = "BR"
+        }
+    }
+
+
+
     defaultBusiness = "mercadopago"
 
     test('Insurtech - test roda tacking') {
@@ -265,6 +361,7 @@ trackTests {
                         "7899403636915",
                         "7893299910425"
                     ],
+                    discount_rate: 10,
                 ],
                 [
                     coverage: "theft_break",
@@ -274,6 +371,7 @@ trackTests {
                         "7899403636915",
                         "7893299910425"
                     ],
+                    discount_rate: 0,
                 ]
             ]
             entity_type = "order"
@@ -304,13 +402,15 @@ trackTests {
                     gtin:[
                         "7899403636915",
                         "7893299910425"
-                    ]
+                    ],
+                    discount_rate: 0,
                 ],
             ]
             entity_type = "order"
             entity_id = "MLB789078907890"
             item_id = "MLB123124"
             buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
         }
 
         "/insurtech/roda/qpage/error"(platform:"/mobile", type: TrackType.View) {
@@ -435,6 +535,47 @@ trackTests {
             entity_id = "MLB789078907890"
             item_id = "MLB123124"
             buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
+        }
+         "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+            ]
+            entity_type = "order"
+            entity_id = "MLB789078907890"
+            item_id = "MLB123124"
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
+            ]
+            entity_type = "order"
+            entity_id = "789078907890"
+            item_id = "MLB123124"
+            faq = "protection-cancel"
+            buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
         }
 
         "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
@@ -485,12 +626,14 @@ trackTests {
                     "7899403636915",
                     "7893299910425"
                 ],
+                discount_rate: 30,
             ]
             entity_type = "order"
             entity_id = "789078907890"
             item_id = "MLB123124"
             hardware_check = false
             buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
         }
 
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
@@ -513,6 +656,7 @@ trackTests {
                     "7899403636915",
                     "7893299910425"
                 ],
+                discount_rate: 0,
             ]
             order_device = [
                 brand: "Sony",
@@ -555,11 +699,13 @@ trackTests {
                     "7899403636915",
                     "7893299910425"
                 ],
+                discount_rate: 20,
             ]
             entity_type = "order"
             entity_id = "789078907890"
             item_id = "MLB123124"
             buying_mode = 'subscription'
+            discount_code = 'CODE TEST'
         }
 
        "/insurtech/roda/qpage/quoting_fallback/default/quotable/select"(platform:"/", type: TrackType.Event) {
@@ -584,6 +730,27 @@ trackTests {
             buying_mode = 'buy_it_now'
         }
 
+       "/insurtech/roda/qpage/congrats_subscription"(platform:"/", type: TrackType.View) {
+            purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
+            preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
+            payment_id=10341173315
+            status='success'
+        }
+
+       "/insurtech/roda/qpage/congrats_subscription/go_to_protections"(platform:"/", type: TrackType.Event) {
+            purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
+            preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
+            payment_id=10341173315
+            status='success'
+        }
+
+       "/insurtech/roda/qpage/congrats_subscription/go_to_protection_detail"(platform:"/", type: TrackType.Event) {
+            purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
+            preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
+            payment_id=10341173315
+            status='success'
+        }
+
         //Mobile
 
         // INSURTECH RODA Hardware Check
@@ -594,6 +761,14 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/exit"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 234578
+        }
+
+        "/insurtech/hardware_check/onboarding/back"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 284578
         }
 
         "/insurtech/hardware_check/onboarding/start_tests"(platform:"/mobile", type: TrackType.Event) {
@@ -602,6 +777,8 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 24578
         }
 
         "/insurtech/hardware_check/onboarding/permission_deny"(platform:"/mobile", type: TrackType.Event) {
@@ -610,6 +787,8 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/permission_dont_ask_again"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 2345782
         }
 
         "/insurtech/hardware_check/onboarding/permission_application_information"(platform:"/mobile", type: TrackType.Event) {
@@ -624,12 +803,21 @@ trackTests {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
         }
 
+        "/insurtech/hardware_check/permission_denied/back"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 134578
+        }
+
         "/insurtech/hardware_check/permission_denied/accept"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 664578
         }
 
         "/insurtech/hardware_check/checkups"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
         }
 
         "/insurtech/hardware_check/checkups/exit"(platform:"/mobile", type: TrackType.Event) {
@@ -644,6 +832,8 @@ trackTests {
             check_id = "BACK_BUTTON"
             cycle = 1
             time_assigned = 60
+            session_id = "348536772342324"
+            view_time = 204578
         }
 
         "/insurtech/hardware_check/checkups/time_ended"(platform:"/mobile", type: TrackType.Event) {
@@ -657,6 +847,8 @@ trackTests {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             check_id = "BACK_BUTTON"
             cycle = 2
+            session_id = "348536772342324"
+            view_time = 14578
         }
 
         "/insurtech/hardware_check/checkups/skip_check"(platform:"/mobile", type: TrackType.Event) {
@@ -669,15 +861,20 @@ trackTests {
             check_id = "VOLUME_UP"
             cycle = 1
             time_success = 12
+            session_id = "348536772342324"
+            view_time = 1094578
         }
 
         "/insurtech/hardware_check/checkups/failed"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             check_id = "VOLUME_DOWN"
+            session_id = "348536772342324"
+            view_time = 604578
         }
 
         "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
         }
 
         "/insurtech/hardware_check/congrats_success/exit"(platform:"/mobile", type: TrackType.Event) {
@@ -687,11 +884,15 @@ trackTests {
         "/insurtech/hardware_check/congrats_success/main_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Continuar para o pagamento"
+            session_id = "348536772342324"
+            view_time = 64578
         }
 
         "/insurtech/hardware_check/congrats_success/secondary_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Continuar para o pagamento"
+            session_id = "348536772342324"
+            view_time = 214578
         }
 
         "/insurtech/hardware_check/congrats_failed"(platform:"/mobile", type: TrackType.View) {
@@ -700,6 +901,8 @@ trackTests {
 
         "/insurtech/hardware_check/congrats_failed/exit"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            session_id = "348536772342324"
+            view_time = 94578
         }
 
         "/insurtech/hardware_check/congrats_failed/main_action"(platform:"/mobile", type: TrackType.Event) {
@@ -710,12 +913,15 @@ trackTests {
         "/insurtech/hardware_check/congrats_failed/secondary_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Tentar novamente"
+            session_id = "348536772342324"
+            view_time =294578
         }
 
         "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
+            session_id = "348536772342324"
         }
 
         "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {
@@ -728,6 +934,8 @@ trackTests {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
+            session_id = "348536772342324"
+            view_time = 964578
         }
 
         // INSURTECH RODA Payments
@@ -763,14 +971,21 @@ trackTests {
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/payments/px_checkout/congrats_in_process"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            flow = "RODA"
+            preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
+            purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
+        }
+
+        "/insurtech/payments/px_checkout/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
@@ -778,7 +993,7 @@ trackTests {
             action_description = "Administrar mis seguros"
         }
 
-        "/insurtech/payments/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
@@ -786,14 +1001,14 @@ trackTests {
             action_description = "Ir al inicio"
         }
 
-        "/insurtech/payments/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/payments/px_checkout/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
@@ -801,14 +1016,14 @@ trackTests {
             action_description = "Ir al inicio"
         }
 
-        "/insurtech/payments/congrats_pending"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/payments/px_checkout/congrats_pending"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
@@ -1121,6 +1336,32 @@ trackTests {
             ]
         }
 
+         "/insurtech/protections/detail/roda/imei_help"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/imei_activation"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
         "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
@@ -1181,6 +1422,10 @@ trackTests {
             ]
         }∫
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
+
+        "/insurtech/protections/detail/roda/congrats/imei"(platform:"/web", type: TrackType.View) {
+            insurance_purchase: "roda-ABC125"
+        }
     }
 
     ["mercadolibre", "mercadopago"].each { business ->

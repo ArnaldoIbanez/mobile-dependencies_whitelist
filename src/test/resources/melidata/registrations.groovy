@@ -21,11 +21,6 @@ trackTests {
             user_birthday = true
             user_likes = true
         }
-
-        "/register/user_delete"(platform: "/"){
-            application_source = "registration"
-            reason = "register_not_validated"
-        }
     }
 
     test("Progressive registration") {
@@ -59,12 +54,24 @@ trackTests {
             registration_version = "regi_v0_web"
         }
 
+        "/register/form"(platform: "/web/desktop") {
+            app = "registration-mt"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+        }
+        "/register/form"(platform: "/web/desktop") {
+            app = "registration-question-mt"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+            item_id = 'MLM845376235'
+        }
         "/register/form/error"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -85,7 +92,6 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 1
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -101,7 +107,6 @@ trackTests {
             ]
             errors_validation = 'front'
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -138,7 +143,6 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -155,38 +159,6 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             geo_location_code = 1
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect"(platform:"/web/mobile") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/desktop") {
-            app = "registration"
-            source = "facebook"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/email-register-selected"(platform:"/web/mobile") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/login-selected"(platform:"/web/desktop") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
 
@@ -281,13 +253,19 @@ trackTests {
             prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
+        "/register/form/email-suggest"(platform: "/web/mobile") {
+            app = "registration-question-mt"
+            captcha_showed = false
+            item_id = "MLM797223740"
+            source = "email"
+            prog_reg_version = 0
+        }
 
         "/register/congrats"(platform:"/web/desktop") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-            register_type = "person"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            captcha_showed = false
+            source = "email"
+            prog_reg_version = 0
         }
 
     }
@@ -295,20 +273,14 @@ trackTests {
     test("Registration App"){
         // app module
         "/register/hub"(platform: "/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+           app = "normal"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
-        "/register/hub/register-with-email"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-
-        }
-        "/register/hub/register-with-facebook"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+        "/register/hub/register-with-email"(platform: "/mobile") {
+           app = "normal"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
         "/register/form"(platform:"/mobile") {
             app = "favorite"
@@ -324,11 +296,32 @@ trackTests {
             prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
+        "/register/form/validate"(platform:"/mobile/ios") {
+            app = "registration"
+            step_valid = "true"
+            checkbox_valid = "true"
+            components_valid = "true"
+        }
+        "/register/form/validate"(platform:"/mobile/android") {
+            app = "onboarding"
+            step_valid = false
+            checkbox_valid = true
+            components_valid = true
+        }
+        "/register/form/continue"(platform:"/mobile") {
+            app = "normal"
+            registration_version = "regi_v0_mobile_normal_with_login_tyc"
+            origin = "home"
+        }
         "/register/form/email-suggest"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
             register_type = "person"
             registration_version = "regi_v0_web"
+        }
+        "/register/form/email-suggest"(platform:"/mobile") {
+            app = "alice"
+            registration_version = "alice"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
@@ -421,7 +414,6 @@ trackTests {
                     ]
             ]
             register_type = "person"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -433,7 +425,6 @@ trackTests {
                     ]
             ]
             register_type = "company"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {
@@ -525,16 +516,6 @@ trackTests {
             item_id = "MLM23143"
         }
 
-        "/register/form/company-link"(platform: "/mobile"){
-            app = "normal"
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/person-link"(platform: "/mobile"){
-            app = "normal"
-            registration_version = "regi_v0_web"
-        }
-
         "/register/congrats/complete-fiscal-data"(platform: "/mobile"){
             app = "normal"
             register_type = "company"
@@ -548,17 +529,22 @@ trackTests {
         }
 
         "/register/form/google_hint/show"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            step = "registration"
+            field = "email"
+            origin = "home"
         }
 
         "/register/form/google_hint/select"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-            registration_version = "regi_v0_web"
+            app = "normal"
+            step = "registration"
+            field = "email"
+            origin = "home"
+        }
+        "/register/upgrade_version"(platform: "/mobile") {
+          app = "normal"
+          registration_version = "unsuported_version"
+          origin = "my_account"
         }
     }
 
@@ -581,104 +567,6 @@ trackTests {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
-        }
-    }
-
-    test("Phone registration") {
-        "/register/phone_registration/get_phone"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/get_phone/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'identification_phone'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/additional_data"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/additional_data/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'first_name'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/get_email"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/get_email/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'email'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/verification"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-        }
-
-        "/register/phone_registration/verification/error"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'verification_code'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/phone_already_registered"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/send_code"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/resend_code"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/email_link"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/verification/autodetect_code"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-        }
-
-        "/register/phone_registration/sign_in"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/create_account"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/success"(platform:"/mobile") {
-            app = "mp"
-            source = "phone"
         }
     }
 

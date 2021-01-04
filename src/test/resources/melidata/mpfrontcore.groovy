@@ -17,6 +17,10 @@ trackTests {
         "/mp_home" (platform: "/", type: TrackType.View) {}
     }
 
+    test("Mercadopago Home regret HUB") {
+        "/mp_home/regret" (platform: "/", type: TrackType.View) {}
+    }
+
     test("Mercadopago 404") {
         "/not-found" (platform: "/", type: TrackType.View) {}
     }
