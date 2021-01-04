@@ -14,6 +14,9 @@ tracks {
         category (required: false, type: PropertyType.String, description: "The category of the current event") // for backwards compatibility with old tracks
     }
 
+    //Invest Section
+    "/asset_management/invest_section"(platform: "/", isAbstract: true) {}
+
     // First time
     "/asset_management/first_time"(platform: "/mobile", type: TrackType.View) {}
 
