@@ -40,6 +40,8 @@ tracks {
         amount (required:true, description: "Continue amount entered")
     }
 
+    "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {}
+    
     //Checkout PX
     "/money_in/px"(platform: "/", isAbstract: true) {}
 
@@ -174,6 +176,21 @@ tracks {
         type (required:true, description: "Back ticket selected", values: ["paycash", "oxxo"])
     }
 
+    //Ticket Cashin MLB - Congrats
+    "/money_in/cash/congrats"(platform: "/", type: TrackType.View) {
+        type (required:false, description: "congrats type", values: ["success", "error"])
+        payment_method (required:true, description: "Payment method selected in congrats")
+    }
+    "/money_in/cash/copy_code"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on copy code")
+    }
+    "/money_in/cash/view_ticket"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on view ticket")
+    }
+    "/money_in/cash/go_home"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on go to tome")
+    }
+    
     // Oxxo Tickets - Disuassive Modal 
     "/money_in/cash/location"(platform:"/", isAbstract:true){}
     "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
@@ -184,7 +201,18 @@ tracks {
     "/money_in/cash/ifpe_cap_exceeded"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
     "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
-
+    
+    // Ticket Cashin MLB - review and confirm
+    "/money_in/cash/review_and_confirm"(platform: "/", type: TrackType.View) {
+        payment_method (required:true, description: "Payment method selected on ryc")
+    }
+    "/money_in/cash/review_and_confirm/create"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on ryc creation")
+    }
+    "/money_in/cash/review_and_confirm/edit_amount"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on ryc edition")
+    }
+    
     //PIX keys - Congrats
     "/money_in/pix_keys"(platform:"/", isAbstract:true){}
     "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
@@ -231,6 +259,18 @@ tracks {
         claim_role (required:false, description: "claim role", values: ["claimer", "donor"])
         claim_type (required:false, description: "Request type", values: ["ownership", "portability"])
         claim_status (required:false, description: "Claim status", values: ["Completed", "Canceled", "waiting_resolution"])
+    }
+    "/money_in/pix_keys/delete_confirm/continue"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/delete_confirm"(platform: "/", type: TrackType.View) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/delete_confirm/cancel"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/cpf_confirm"(platform: "/", type: TrackType.View) {
+        key_value_from_profile (required:false, description: "Indicate if the key is loaded from vault")
     }
 
 

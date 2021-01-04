@@ -50,6 +50,12 @@ trackTests {
         meli_choice : [
                 [item_id: "MLB510446223", position: 1, origin:"killer_matched"],
                 [item_id: "MLB510446224", position: 4, product_id:"MLB1333", origin:"killer_matched"]
+        ],
+        highlights :[
+                [item_id: "MLB510446223", position: 1, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 2, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722"]
         ]
     ]
 
@@ -178,7 +184,16 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false
+                    is_default             : false,
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -316,7 +331,16 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false
+                    is_default             : false,
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -432,7 +456,6 @@ trackTests {
         }
 
         "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event) {
-            defaultWebTrack()
             url = "https://www.mercadolibre.com.ar/tienda/nike"
         }
 
@@ -504,6 +527,9 @@ trackTests {
         "/search/alert_intention"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/map_link"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }
@@ -513,12 +539,10 @@ trackTests {
             to_position = 2
         }
         "/search/official_store_logo/click"(platform: "/mobile") {
-            defaultSearchInformation()
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }
         "/search/official_store_logo/click"(platform: "/web") {
-            defaultWebTrack()
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }
@@ -620,7 +644,16 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false
+                    is_default             : false,
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                query_and_category_strategy : true,
+                                exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",

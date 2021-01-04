@@ -120,19 +120,6 @@ metrics {
 		}
 	}
 
-	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
-		startWith {
-			experiment("/search/test")
-		}
-		
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				sameDeal("event_data.items.item.deal_ids", true)
-			}
-		}
-	}
-
 	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true) {
 		countsOn {
 			condition {

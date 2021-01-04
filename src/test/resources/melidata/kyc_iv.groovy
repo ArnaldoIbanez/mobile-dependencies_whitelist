@@ -165,6 +165,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/android") {}
     }
 
     test("KYC IV mobile ios") {
@@ -296,6 +297,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/ios") {}
     }
 
     test("KYC IV web") {
@@ -507,6 +509,13 @@ trackTests {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            handoff_type = "user_swap"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -666,6 +675,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/android") {}
     }
 
     test("KYC IV mobile ios") {
@@ -797,6 +807,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/ios") {}
     }
 
     test("KYC web") {
@@ -998,6 +1009,13 @@ trackTests {
             custom_cam_offered = true
             transaction_user_id = 109479272
             reason = "thereason"
+        }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            handoff_type = "no_camera"
         }
     }
 }

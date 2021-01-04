@@ -101,6 +101,7 @@ tracks {
         type(required: true, description: "User discount", values: ["content", "primary", "secondary", "tyc"], type: PropertyType.String)
         name(required: false, description: "Action pressed name", type: PropertyType.String)
         position(required: false, description: "Action position in carousel", type: PropertyType.Numeric)
+        subscription_type(required: false, description: "Selected subscription pack Type", type: PropertyType.String)
     }
 
     "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View) {}
@@ -108,6 +109,8 @@ tracks {
     "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event) {
         type(required: true, description: "User discount", values: ["primary", "secondary", "tyc"], type: PropertyType.String)
     }
+
+    "/loyalty/partners/teaser"(platform: "/", type: TrackType.View) {}
 
     // Loyalty Subscription Congrats
     "/loyalty/partners/checkout"(platform: "/", isAbstract: true) {}
@@ -117,12 +120,14 @@ tracks {
         payment_status_detail(required: false, description: "Payment detail", type: PropertyType.String)
         payment_id(required: true, description: "Payment id", type: PropertyType.String)
         is_free_trial(required: false, description: "If checkout is for activate a free trial", type: PropertyType.String)
+        subscription_type(required: false, description: "Subscription pack type", type: PropertyType.String)
     }
 
     "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event) {
         type(required: true, description: "Action type", values: ["close", "back", "action", "tyc"], type: PropertyType.String)
         label(required: false, description: "Action pressed label", type: PropertyType.String)
         deeplink(required: false, description: "Action link to go", type: PropertyType.String)
+        subscription_type(required: false, description: "Subscription pack type", type: PropertyType.String)
     }
 
     "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event) {

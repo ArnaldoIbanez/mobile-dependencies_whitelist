@@ -86,8 +86,10 @@ catalog {
         include business, "card_form.groovy"
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
+        include business, "cookie_disclaimer.groovy"
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
+        include business, "addresses.groovy"
     }
 
     mercadolibre.each { business ->
@@ -134,6 +136,7 @@ catalog {
         include business, "advertising.groovy"
         include business, "classifieds_landings.groovy"
         include business, "instore.groovy"
+        include business, "discount_center_touchpoints.groovy"
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
@@ -170,6 +173,7 @@ catalog {
         include business, "whatsapp.groovy"
         include business, "global_selling.groovy"
         include business, "categories.groovy"
+        include business, "category_landing.groovy"
     }
 
     mercadopago.each { business ->
@@ -212,6 +216,7 @@ catalog {
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
+        include business, "discount_center_touchpoints.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
@@ -228,8 +233,10 @@ catalog {
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
+        include business, "black_friday.groovy"
     }
 
     mercadoshops.each { business ->
@@ -242,6 +249,8 @@ catalog {
         include business, "full.groovy"
         include business, "wms.groovy"
         include business, "logistics.groovy"
+        include business, "drivers_app.groovy"
+        include business, "crowd.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
     }

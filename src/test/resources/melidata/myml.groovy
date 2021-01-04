@@ -149,7 +149,13 @@ trackTests {
             seller_type = "PF"
         }
         "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
-            seller_type = "PJ"
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
         }
         "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
             seller_type = "PF"
@@ -176,20 +182,71 @@ trackTests {
             seller_type = "PJ"
         }
 
-        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
             reason = "NOT_OWNER"
         }
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NOT_OWNER"
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NOT_OWNER"
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
             reason = "NO_DOCUMENT_REGISTERED"
         }
-        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NO_DOCUMENT_REGISTERED"
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NO_DOCUMENT_REGISTERED"
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
         "/myml/invoices/optin/validation"(platform: "/") {}
-        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
 
         "/myml/invoices/not-found"(platform: "/") {}
         "/myml/invoices/landing"(platform: "/") {}

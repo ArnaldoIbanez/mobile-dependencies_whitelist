@@ -25,7 +25,14 @@ tracks {
     "/cards/engagement"(platform: "/", isAbstract: true) { }
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
-
+    "/cards/nfc"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/configuration"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/core"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
 
 
     // SHIPPING
@@ -241,12 +248,25 @@ tracks {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
 
-    // Dashboard Error
+    // Engagement Error
     // --------
     "/cards/engagement/error"(platform: "/", type: TrackType.View) {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
-    
+    "/cards/engagement/decrypting"(platform: "/", isAbstract: true) {}
+    "/cards/engagement/decrypting/error"(platform: "/", type: TrackType.Event) {
+        error(
+            required: true,
+            type: PropertyType.String,
+            description: "User sensitive data decryption errors"
+            )
+        from(
+            required: true,
+            type: PropertyType.String,
+            description: "Component where the error occurred"
+            )
+    }
+
     // DASHBOARD
     // --------
      "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
@@ -434,9 +454,16 @@ tracks {
             inheritable:false
         )
         has_money (
-            required: true,
+            required: false,
             type: PropertyType.Boolean,
             description: "Indicate whether the user has money",
+            inheritable:false
+        )
+        product_type (
+			required: false,
+            type: PropertyType.String,
+            values: ["prepaid","hybrid","credit"],
+            description: "Indicate card type",
             inheritable:false
         )
         experimental_version (
@@ -453,6 +480,17 @@ tracks {
             type: PropertyType.String,
             values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "additional_message_freeze"],
             description: "The action type tapped"
+        )
+    }
+
+    //Highlighted row
+    "/cards/hybrid/setup/virtual/highlighted_row"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Highlighted Row button tapped"
         )
     }
 
@@ -802,9 +840,15 @@ tracks {
     // Hybrid Detail
     "/cards/mp-card/hybrid/detail" (platform: "/web", type: TrackType.View) {} 
     // Hybrid downloadApp Event
-    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web", type: TrackType.Event) {}
+    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web", type: TrackType.Event) {
+    	osName (
+    		required: false,
+            type: PropertyType.String,
+            description: "Device OS"
+    		)
+    }
     // Hybrid sendSMS Event
-    "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
+    "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web", type: TrackType.Event) {
         status (
             required: true,
             type: PropertyType.String,
@@ -854,25 +898,110 @@ tracks {
     
     // OPTIONS
     // --------
+
+
+    propertyDefinitions {
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'virtual_debit',
+                'virtual_prepaid',
+                'virtual_credit',
+                'virtual_hybrid',
+                'virtual_debit_nfc',
+                'chip_debit',
+                'chip_prepaid',
+                'chip_credit',
+                'chip_hybrid',
+                'chip_debit_nfc',
+                'contactless_debit',
+                'contactless_prepaid',
+                'contactless_credit',
+                'contactless_hybrid',
+                'contactless_debit_nfc',
+                'wallet_debit',
+                'wallet_prepaid',
+                'wallet_credit',
+                'wallet_hybrid',
+                'wallet_debit_nfc',
+            ]
+        )
+        status(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'active',
+                'blocked',
+                'delivered',
+                'deprecated',
+                'depurated',
+                'freeze',
+                'inactive',
+                'pin_blocked'
+            ]
+        )
+        action(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'freeze',
+                'unfreeze',
+                'reissue',
+                'change_limits',
+                'change_pin',
+                'disable_credit_card'
+            ]
+        )
+    }
+
+    propertyGroups {
+        card_group(product_type, status)
+    }
+
+    propertyGroups {
+        card_action_group(product_type, action)
+    }
+
+    def card_map = objectSchemaDefinitions {
+        card_group
+    }
+
      "/cards/hybrid/setup/options"(platform: "/", type: TrackType.View) {
-         virtual_status (required:false, type: PropertyType.String, description: "Virtual status", inheritable:false)
-         debit_status (required:false, type: PropertyType.String, description: "Debit status", inheritable:false)
-         hybrid_status (required:false, type: PropertyType.String, description: "Hybrid status", inheritable:false)
-         empty_state (required:false, type: PropertyType.String, description: "Empty state status", inheritable:false)
+         cards(
+             required: true,
+             type: PropertyType.ArrayList(PropertyType.Map(card_map)),
+             inheritable: false
+         )
      }
 
-    "/cards/hybrid/setup/options/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/options/empty_state"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/setup/options/empty_state/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["block_card", "change_limits", "change_pin", "virtual_debit_unfreeze", "virtual_debit_freeze", "physical_unfreeze", "physical_freeze", "primary_button_empty_state"],
-            description: "Row tapped"
+            values: ["button_primary"],
+            inheritable: false
         )
+    }
+
+
+    "/cards/hybrid/setup/options/tap"(platform:"/", type: TrackType.Event) {
+        card_action_group
+    }
+
+    "/cards/hybrid/setup/options/tap/success"(platform:"/", type: TrackType.Event) {
+        card_action_group
+    }
+
+    "/cards/hybrid/setup/options/tap/failure"(platform:"/", type: TrackType.Event) {
+        card_action_group
     }
     
     // Options message
     "/cards/hybrid/setup/options/message"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/options/message/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/options/message/lock"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -891,4 +1020,384 @@ tracks {
             description: "Feedback button tapped"
         )
     }
+    
+    // ENROLLMENT-HUB-NFC
+    //-------------------
+    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back","continue_later"],
+            description: "Action Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["step_tap_and_pay","step_pin","step_nfc"],
+            description: "Step Button Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_redirect"],
+            description: "Redirection Done"
+        )
+    }
+    
+        // CONFFIGURATION-HUB-NFC
+    //-------------------
+    "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back","continue_later"],
+            description: "Action Tapped"
+        )
+    }
+    "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["step_tap_and_pay","step_pin","step_nfc","step_nfc_freeze"],
+            description: "Step Button Tapped"
+        )
+    }
+    "/cards/nfc/configuration/hub/redirect"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_redirect"],
+            description: "Redirection Done"
+        )
+    }
+
+    // ONBOARDING-NFC
+    //-------------------
+    "/cards/nfc/enrollment/hub/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["main"],
+            description: "Main Button Tapped"
+        )
+    }
+
+    // ENROLLMENT-NFC-TOKENIZATION
+    // -------------------
+    "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_enrollment","error_enrollment","success_callback"],
+            description: "Tokenization status for nfc enrollment"
+        )
+        result (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "missing enrollment push notification",
+                "cardInfo error",
+                "checkCardEligibility error",
+                "partial enrollment CardDeleteResult UNKNOWN_DIGITAL_CARD_ID",
+                "partial enrollment CardDeleteResult error",
+                "partial enrollment deleteCard DELETE_RETRIES exceeded",
+                "partial enrollment deleteCard error",
+                "digitize error",
+                "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error",
+                "fetchTokenizationDataWorker error",
+                "checkCardEligibility success",
+                "checkCardEligibility partial enrollment",
+                "partial enrollment CardDeleteResult success",
+                "digitize success",
+                "fetchTokenizationDataWorker success",
+                "tokenization completed event"
+            ],
+            description: "Tokenization callback for nfc enrollment"
+        )
+    }
+    "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_enrollment","success_async_callback","success_push_received"],
+            description: "Type of NFC tokenization time"
+        )
+        result (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Time in milliseconds for NFC tokenization completed"
+        )
+    }
+    "/cards/nfc/enrollment/tokenization/attempts"(platform:"/", type: TrackType.Event) {
+        result (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Number Of Attempts To Tokenize NFC Successfully"
+        )
+    }
+    // PAYMENTS-NFC
+    // -------------------
+    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+        result (
+            required: true,
+            type: PropertyType.String,
+            values: ["error_payment"],
+            description: "Tap payment error transaction"
+        )
+        reasons (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "payment is not allowed as SDK initialization is ongoing",
+                "payment is not allowed as SDK is not initialized"
+            ],
+            description: "Reasons that one tap payment failed with closed application"
+        )
+    }
+    "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["faq"],
+            description: "Help button tapped"
+        )
+    }
+    "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Add money tapped"
+        )
+    }
+    "/cards/nfc/payment/without_money"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["success", "unknown"],
+            description: "Type of congrats",
+            inheritable: false
+        )
+    }
+    "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["finish"],
+            description: "Finish button tapped"
+        )
+    }
+    
+    // CORE-NFC
+
+    "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+        error_code (
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'wse_internal_error',
+                'common_no_internet',
+                'common_comm_error',
+                'common_server_error',
+                're_enrollment_required',
+                'wse_storage_access_error',
+                'json_parsing_error',
+                'wse_request_error',
+                'wse_download_error',
+            ]
+        )
+    }
+
+    "/cards/nfc/core/error/enroll_device"(platform: "/", type: TrackType.Event) {
+        error_code (
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'common_no_internet',
+                'common_comm_error',
+                'common_server_error',
+                'enrollment_wrong_credentials',
+                'enrollment_credential_expired',
+                'enrollment_try_limit_exceeded',
+                'card_activation_activation_code_entry_canceled',
+                'card_activation_mobile_pin_invalid_length',
+                'card_activation_mobile_pin_mismatch',
+                'change_pin_reentry_mismatch',
+                'change_pin_card_not_active',
+                'change_pin_card_not_exist',
+                're_enrollment_required',
+                'card_not_enrolled',
+                'card_state_unknown',
+                'replenishment_not_allowed',
+                'sdk_internal_component_error',
+                'enrollment_wrong_activation_code',
+                'enrollment_blocked_secure_wallet_enrollment_required',
+                'replenishment_blocked_secure_wallet_enrollment_required',
+                'invalid_replenish_missing_payment',
+                'asm_error',
+                'invalid_digitalcardid',
+            ]
+        )
+    }
+    
+    "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+        error_code (
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'common_no_internet',
+                'common_comm_error',
+                'common_server_error',
+                'enrollment_wrong_credentials',
+                'enrollment_credential_expired',
+                'enrollment_try_limit_exceeded',
+                'card_activation_activation_code_entry_canceled',
+                'card_activation_mobile_pin_invalid_length',
+                'card_activation_mobile_pin_mismatch',
+                'change_pin_reentry_mismatch',
+                'change_pin_card_not_active',
+                'change_pin_card_not_exist',
+                're_enrollment_required',
+                'card_not_enrolled',
+                'card_state_unknown',
+                'replenishment_not_allowed',
+                'sdk_internal_component_error',
+                'enrollment_wrong_activation_code',
+                'enrollment_blocked_secure_wallet_enrollment_required',
+                'replenishment_blocked_secure_wallet_enrollment_required',
+                'invalid_replenish_missing_payment',
+                'asm_error',
+                'invalid_digitalcardid',
+            ]
+        )
+    }
+
+    "/cards/nfc/core/error/check_card_eligibility"(platform: "/", type: TrackType.Event) {
+        error_code (
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'no_internet',
+                'connection_timeout',
+                'communication_error',
+                'server_error',
+                'internal_error',
+                'fpan_not_eligible',
+                'unknown_bin',
+                'unknown_card_product',
+                'card_product_not_supported',
+                'incorrect_cvv',
+                'card_already_provisioned_in_wallet',
+                'device_not_eligible',
+                'resource_not_found',
+                'incorrect_authentication_token',
+                'card_provisioning_count_exceeded',
+                'unkonown_idv_method',
+                'provisioning_not_allowed',
+                'incorrect_otp',
+                'incorrect_otp_max_try_exceeded',
+                'otp_expired',
+                'idv_method_not_available',
+                'unexpected_internal_error',
+                'external_system_unavailable',
+                'unknown_wallet_provider_id',
+                'unknown_wallet_id',
+                'unknown_digital_card_id',
+                'unknown_correlation_id',
+                'card_state_does_not_allow_requested_operation',
+                'operation_already_ongoing',
+                'operation_failed',
+                'unknown_device_id',
+                'missing_required_parameter',
+                'unknown_issuer_id',
+                'unknown_card_id',
+                'no_tnc_resource_id',
+                'invalid_tnc_data_type',
+                'securestorage_write_config_data_error',
+                'securestorage_wipe_all_error',
+                'context_missing_error',
+                'web_3ds_authentication_failed',
+                'web_3ds_data_error',
+                'invalid_card_data',
+                'no_card_meta_data',
+                'card_meta_data_json_error',
+                'no_card_data',
+                'invalid_asset_type',
+                'invalid_asset_version',
+                'asset_not_available',
+                'blocked_secure_wallet_enrollment_required',
+            ]
+        )
+    }
+
+    "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+        error_code (
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'no_internet',
+                'connection_timeout',
+                'communication_error',
+                'server_error',
+                'internal_error',
+                'fpan_not_eligible',
+                'unknown_bin',
+                'unknown_card_product',
+                'card_product_not_supported',
+                'incorrect_cvv',
+                'card_already_provisioned_in_wallet',
+                'device_not_eligible',
+                'resource_not_found',
+                'incorrect_authentication_token',
+                'card_provisioning_count_exceeded',
+                'unkonown_idv_method',
+                'provisioning_not_allowed',
+                'incorrect_otp',
+                'incorrect_otp_max_try_exceeded',
+                'otp_expired',
+                'idv_method_not_available',
+                'unexpected_internal_error',
+                'external_system_unavailable',
+                'unknown_wallet_provider_id',
+                'unknown_wallet_id',
+                'unknown_digital_card_id',
+                'unknown_correlation_id',
+                'card_state_does_not_allow_requested_operation',
+                'operation_already_ongoing',
+                'operation_failed',
+                'unknown_device_id',
+                'missing_required_parameter',
+                'unknown_issuer_id',
+                'unknown_card_id',
+                'no_tnc_resource_id',
+                'invalid_tnc_data_type',
+                'securestorage_write_config_data_error',
+                'securestorage_wipe_all_error',
+                'context_missing_error',
+                'web_3ds_authentication_failed',
+                'web_3ds_data_error',
+                'invalid_card_data',
+                'no_card_meta_data',
+                'card_meta_data_json_error',
+                'no_card_data',
+                'invalid_asset_type',
+                'invalid_asset_version',
+                'asset_not_available',
+                'blocked_secure_wallet_enrollment_required',
+            ]
+        )
+    }
+
 }

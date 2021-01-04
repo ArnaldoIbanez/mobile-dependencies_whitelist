@@ -16,6 +16,7 @@ trackTests {
         "/asset_management/know_more"(platform: "/mobile") {}
         "/asset_management/optin"(platform: "/mobile") {}
         "/asset_management/optin"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/pre_boarding"(platform: "/", type: TrackType.View) {}
 
         // First time
         "/asset_management/first_time"(platform: "/mobile") {}
@@ -237,7 +238,7 @@ trackTests {
         "/asset_management/next_year"(platform: "/mobile", type: TrackType.Event) {}
         "/asset_management/previous_month"(platform: "/mobile", type: TrackType.Event) {}
         "/asset_management/next_month"(platform: "/mobile", type: TrackType.Event) {}
-        
+      
         //Clarifications events
         "/asset_management/show_clarifications"(platform: "/mobile", type: TrackType.Event) {}
         "/asset_management/show_clarifications"(platform: "/web", type: TrackType.Event) {}
@@ -450,6 +451,7 @@ trackTests {
         "/asset_management/kyc_blocker"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/legacy/error"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legacy/error"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/pre_boarding"(platform: "/", business: "mercadolibre") {}
 
         "/asset_management/tab_year"(platform: "/", business: "mercadolibre") {}
         "/asset_management/tab_month"(platform: "/", business: "mercadolibre") {}
@@ -485,5 +487,6 @@ trackTests {
         "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_edit_amount"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
+      
     }
 }

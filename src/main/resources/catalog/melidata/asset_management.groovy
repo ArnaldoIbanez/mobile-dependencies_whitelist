@@ -26,6 +26,7 @@ tracks {
     "/asset_management/legal_entity_block"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/optin"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/pre_boarding"(platform: "/", type: TrackType.View) {}
 
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
@@ -221,5 +222,5 @@ tracks {
     "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_edit_amount"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", type: TrackType.Event) {}
-
+  
 }

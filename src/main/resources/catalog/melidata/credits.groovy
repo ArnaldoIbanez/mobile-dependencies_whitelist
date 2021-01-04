@@ -103,6 +103,7 @@ tracks {
     "/credits/consumer/opensea/start"(platform: "/mobile", type: TrackType.View) {}
     "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View){
         result(description: "Current status of the IV/KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        offer_type(description: "Offer Type on Approved Credits Lines", type: PropertyType.String, required: false, values: ["special_full_offer", "full_offer", "early_offer"])
     }
 
     /* Remedy MLM */
@@ -113,6 +114,10 @@ tracks {
     "/credits/consumer/opensea/remedy/authorization/modal"(platform: "/mobile", type: TrackType.View) {}
     "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event) {}
+    /* Remedy MLM WebView */
+    "/credits/consumer/opensea/remedy/opt_in_authorization"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/opt_in_authorization/give_consent"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/opensea/remedy/opt_in_authorization/deny_consent"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *   End: Consumers Opensea Flow
