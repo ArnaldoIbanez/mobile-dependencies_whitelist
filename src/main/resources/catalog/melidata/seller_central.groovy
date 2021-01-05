@@ -1077,7 +1077,7 @@ tracks {
     "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, type: PropertyType.String, description: "Action executed")
         type(required: true, type: PropertyType.String, description: "Type action executed")
-        dateCreated(required: false, type: PropertyType.String, description: "Created date")
+        date_created(required: false, type: PropertyType.String, description: "Created date")
         dateFinished(required: false, type: PropertyType.String, description: "Finished date")
         dateExecuted(required: false, type: PropertyType.String, description: "Executed date")
     }
