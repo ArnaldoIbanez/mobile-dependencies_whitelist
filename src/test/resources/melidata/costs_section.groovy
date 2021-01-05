@@ -8,7 +8,7 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Costs section finish loading successful") {
-        "/pricing_section/success" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/success" (platform: "/", type: TrackType.View) {}
     }
 
     test("Costs section finish loading with an error") {
