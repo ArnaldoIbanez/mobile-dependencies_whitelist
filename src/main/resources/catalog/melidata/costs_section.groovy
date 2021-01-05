@@ -5,7 +5,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = ""
+    initiative = "1148"
 
     propertyDefinitions {
         section_id(
@@ -150,12 +150,6 @@ tracks {
     "/pricing_section/section/card/row/message/action/secondary" (platform: "/", type: TrackType.Event) { 
         message_id, 
         url, 
-        section_id, 
-        card_id, 
-        row_id
-    }
-    "/pricing_section/section/card/row/message/dismiss" (platform: "/", type: TrackType.Event) { 
-        message_id, 
         section_id, 
         card_id, 
         row_id
