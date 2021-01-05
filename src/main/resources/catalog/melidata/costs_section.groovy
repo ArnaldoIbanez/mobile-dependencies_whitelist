@@ -1,4 +1,7 @@
+package catalog.melidata
+
 import com.ml.melidata.TrackType
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
@@ -40,7 +43,7 @@ tracks {
 
         url(
             required: true,
-            type: PropertyType.String
+            type: PropertyType.String,
             description: "Represents an URL to open"
         )
 
