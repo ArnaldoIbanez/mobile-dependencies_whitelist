@@ -14,42 +14,50 @@ tracks {
             type: PropertyType.String,
             description: "Indicates an ID of a section"
         )
-
         card_id(
             required: true,
             type: PropertyType.String,
             description: "Indicates an ID of a card"
         )
-
         component_id(
             required: true,
             type: PropertyType.String,
             description: "Indicates an ID of an external component"
         )
-
         row_id(
             required: true,
             type: PropertyType.String,
             description: "Indicates an ID of a row"
         )
-
         message_id(
             required: true,
             type: PropertyType.String,
             description: "Indicates an ID of a message"
         )
-
         url(
             required: true,
             type: PropertyType.String,
             description: "Represents an URL to open"
         )
-
         tooltip_id(
             required: true,
             type: PropertyType.String,
             description: "Indicates an ID of a tooltip"
         )
+    }
+
+    propertyGroups {
+        top_message_action_group(message_id, url)
+        top_message_dismiss_group(message_id)
+        section_message_action_group(message_id, url, section_id)
+        section_message_dismiss_group(message_id, section_id)
+        component_event_group(section_id, component_id)
+        card_message_action_group(message_id, url, section_id, card_id)
+        card_message_dismiss_group(message_id, section_id, card_id)
+        row_message_action_group(message_id, url, section_id, card_id, row_id)
+        row_message_dismiss_group(message_id, section_id, card_id, row_id)
+        row_action_group(section_id, card_id, row_id, url)
+        tooltip_event_group(section_id, card_id, row_id, tooltip_id)
     }
 
     // Abstract paths
@@ -86,92 +94,55 @@ tracks {
     }
     "/pricing_section/close" (platform: "/mobile", type: TrackType.Event) { }
     "/pricing_section/message/dismiss" (platform: "/", type: TrackType.Event) { 
-        message_id
+        top_message_dismiss_group
     }
     "/pricing_section/message/action/primary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url
+        top_message_action_group
     }
     "/pricing_section/message/action/secondary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url
+        top_message_action_group
     }
     "/pricing_section/section/message/dismiss" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        section_id
+        section_message_dismiss_group
     }
     "/pricing_section/section/message/action/primary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url, 
-        section_id
+        section_message_action_group
     }
     "/pricing_section/section/message/action/secondary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url, 
-        section_id
+        section_message_action_group
     }
     "/pricing_section/section/component/success" (platform: "/", type: TrackType.Event) { 
-        section_id, 
-        component_id
+        component_event_group
     }
     "/pricing_section/section/component/error" (platform: "/", type: TrackType.Event) {
-        section_id, 
-        component_id
+        component_event_group
     }
     "/pricing_section/section/card/message/dismiss" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        section_id, 
-        card_id
+        card_message_dismiss_group
     }
     "/pricing_section/section/card/message/action/primary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url, 
-        section_id, 
-        card_id
+        card_message_action_group
     }
     "/pricing_section/section/card/message/action/secondary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url, 
-        section_id, 
-        card_id
+        card_message_action_group
     }
     "/pricing_section/section/card/row/message/dismiss" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        section_id, 
-        card_id, 
-        row_id
+        row_message_dismiss_group
     }
     "/pricing_section/section/card/row/message/action/primary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url, 
-        section_id, 
-        card_id, 
-        row_id
+        row_message_action_group
     }
     "/pricing_section/section/card/row/message/action/secondary" (platform: "/", type: TrackType.Event) { 
-        message_id, 
-        url, 
-        section_id, 
-        card_id, 
-        row_id
+        row_message_action_group
     }
     "/pricing_section/section/card/row/action" (platform: "/", type: TrackType.Event) { 
-        section_id, 
-        card_id, 
-        row_id,
-        url
+        row_action_group
     }
     "/pricing_section/section/card/row/tooltip/show" (platform: "/", type: TrackType.Event) { 
-        section_id, 
-        card_id, 
-        row_id,
-        tooltip_id
+        tooltip_event_group
     }
     "/pricing_section/section/card/row/tooltip/hide" (platform: "/", type: TrackType.Event) { 
-        section_id, 
-        card_id, 
-        row_id,
-        tooltip_id
+        tooltip_event_group
     }
 
 }
