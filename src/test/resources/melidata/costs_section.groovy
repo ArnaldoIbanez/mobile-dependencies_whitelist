@@ -150,5 +150,23 @@ trackTests {
             url = ""
         }
     }
+
+    test("A tooltip (triggered by a click in a row) was opened") {
+        "/pricing_section/section/card/row/tooltip/show" (platform: "/", type: TrackType.Event) { 
+            section_id = "financing_section"
+            card_id = "financing_a12"
+            row_id = "a12"
+            tooltip_id = "a12_tooltip"
+        }
+    }
+
+    test("A tooltip (triggered by a click in a row) was closed") {
+        "/pricing_section/section/card/row/tooltip/hide" (platform: "/", type: TrackType.Event) { 
+            section_id = "financing_section"
+            card_id = "financing_a12"
+            row_id = "a12"
+            tooltip_id = "a12_tooltip"
+        }
+    }
     
 }
