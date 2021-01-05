@@ -40,7 +40,7 @@ tracks {
 
         url(
             required: true,
-            type: PropertyType.String
+            type: PropertyType.String,
             description: "Represents an URL to open"
         )
 
@@ -71,7 +71,7 @@ tracks {
     // Tracks
 
     "/pricing_section/success" (platform: "/", type: TrackType.View) { }
-    "/pricing_section/error" (platform: "/", type: TrackType.Event) { 
+    "/pricing_section/error" (platform: "/", type: TrackType.View) { 
         status(
             required: true,
             type: PropertyType.String,

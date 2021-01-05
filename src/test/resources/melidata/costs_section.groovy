@@ -19,7 +19,7 @@ trackTests {
     }
 
     test("User close Costs section (with back button)") {
-        "/pricing_section/close" (platform: "/mobile", type: TrackType.View) { }
+        "/pricing_section/close" (platform: "/mobile", type: TrackType.Event) { }
     }
 
     test("A message at the most top level is dismissed") {
@@ -150,5 +150,5 @@ trackTests {
             url = ""
         }
     }
-
+    
 }
