@@ -107,4 +107,32 @@ trackTests {
             reason = "reason_description"
         }
     }
+
+    test("MercadoEnvios - Crowd App - Testing login tracks") {
+
+        def defaultLocation =
+                {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
+
+        "/crowd/login/result"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            type = "pending/disabled/unknown status driver"
+        }
+
+        "/crowd/login/success"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            type = "active/inactive status driver"
+        }
+
+        "/crowd/login/result/join"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
+        "/crowd/login/result/already_registered"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation
+        }
+
+    }
 }
