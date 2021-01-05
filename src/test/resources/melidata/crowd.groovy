@@ -131,7 +131,7 @@ trackTests {
         }
 
         "/crowd/login/result/already_registered"(platform: "/mobile", type: TrackType.Event) {
-            defaultLocation
+            defaultLocation()
         }
 
     }
