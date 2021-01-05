@@ -93,23 +93,23 @@ tracks
                 reason(required: true, type: PropertyType.String, description: "Specifies the cancellation reason")
             }
 
-        //Tracks for login flow in crowd app
+            //Tracks for login flow in crowd app
 
             "/crowd/login/result"(platform: "/mobile", type: TrackType.View) {
                 location
-                type(required: true, type: PropertyType.String, description: "Specifies type driver status pending/disabled/unknown")
+                type(required: true, type: PropertyType.String, description: "Specifies driver status pending/disabled/unknown")
             }
 
             "/crowd/login/success"(platform: "/mobile", type: TrackType.Event) {
                 location
-                type(required: true, type: PropertyType.String, description: "Specifies type driver status active/inactive")
+                type(required: true, type: PropertyType.String, description: "Specifies driver status active/inactive")
             }
 
-            "/crowd/login/result/join"(platform: "/mobile", type: TrackType.Event) {
+            "/crowd/login/join"(platform: "/mobile", type: TrackType.Event) {
                 location
             }
 
-            "/crowd/login/result/already_registered"(platform: "/mobile", type: TrackType.Event) {
+            "/crowd/login/already_registered"(platform: "/mobile", type: TrackType.Event) {
                 location
             }
 

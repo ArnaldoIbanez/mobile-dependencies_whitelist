@@ -126,11 +126,11 @@ trackTests {
             type = "active/inactive status driver"
         }
 
-        "/crowd/login/result/join"(platform: "/mobile", type: TrackType.Event) {
+        "/crowd/login/join"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
         }
 
-        "/crowd/login/result/already_registered"(platform: "/mobile", type: TrackType.Event) {
+        "/crowd/login/already_registered"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
         }
 
