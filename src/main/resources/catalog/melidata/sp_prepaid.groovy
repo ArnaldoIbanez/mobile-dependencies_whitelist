@@ -13,7 +13,8 @@ tracks {
         type(required: true, PropertyType.String, description: "Type of item")
         content(required: true, PropertyType.ArrayList, description: "Content of the item")
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
-        available_items(required: true, type: PropertyType.ArrayList, description: "Available items to select")
+        available_items(required: false, type: PropertyType.ArrayList, description: "Available items to select")
+        parent_key(required: false, PropertyType.String, description: "Information about the product/category the user is looking at")
         //item_id
         //type
         //content
@@ -36,7 +37,7 @@ tracks {
 
     propertyGroups { 
         mandatory(flow, session_id)
-        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge)
+        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key)
         item_structure(item_id, type, content)
         view_time(view_time)
         available_items(available_items)
@@ -239,7 +240,7 @@ tracks {
 
     // One device
     "/single_player/prepaid/one_device"(platform: "/mobile", type: TrackType.View) {
-        button_card(required: true, PropertyType.Map(button_card_structure), description: "Information about the button card")
+        button_card(required: false, PropertyType.Map(button_card_structure), description: "Information about the button card")
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
