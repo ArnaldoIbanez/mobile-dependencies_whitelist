@@ -209,12 +209,6 @@ trackTests {
             portal_source_id = 999
             portal_has_channels_configured = true
         }
-        "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
-            portal_content_id = 123
-            portal_content_type = 'FOLDER_DYNAMIC'
-            portal_source_id = 999
-            portal_has_channels_configured = true
-        }
     }
 
     test("Support Cases") {
