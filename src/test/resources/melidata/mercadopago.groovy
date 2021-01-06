@@ -1227,10 +1227,10 @@ trackTests {
     }
 
     test("QR Payers Marketing landings") {
-        "/qr_payers/mkt_landing"(platform: "/web"){
+        "/qr_payers/mkt_landing"(platform: "/"){
             campaign = "generic"
         }
-        "/qr_payers/mkt_landing"(platform: "/web"){
+        "/qr_payers/mkt_landing"(platform: "/"){
             campaign = "personal"
         }
         "/qr_payers/mkt_landing/sms"(platform: "/web"){
@@ -1244,15 +1244,15 @@ trackTests {
             campaign = "generic"
             position = "steps"
         } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
+        "/qr_payers/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "hero"
         } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
+        "/qr_payers/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "fixed"
         } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
+        "/qr_payers/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "footer"
         } 
