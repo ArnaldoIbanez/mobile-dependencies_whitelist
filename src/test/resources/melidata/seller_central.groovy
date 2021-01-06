@@ -1179,6 +1179,42 @@ trackTests {
     }
   }
 
+  test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_3x_campaign"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
+    }
+  }
+
+   test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_ahora12"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
+    }
+  }
+
   test("seller central listing type value updated"){
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
       item_type = "product"
