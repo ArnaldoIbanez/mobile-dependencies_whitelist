@@ -67,7 +67,7 @@ tracks {
         type (required: true, type: PropertyType.String, description: "Indicador de tipo de movimiento")
     }
     "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) {
-        type (required: true, type: PropertyType.String, description: "Indicador de tipo de período")
+        type (required: true, type: PropertyType.String, values: ["default", "range"], description: "Indicador de tipo de período")
         option (required: false, type: PropertyType.String, description: "En caso de tipo predeterminado, opción seleccionada.")
         begin_date (required: true, type: PropertyType.String, description: "Fecha de inicio del período seleccionado.")
         end_date (required: true, type: PropertyType.String, description: "Fecha de finalización del período seleccionado.")
