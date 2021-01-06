@@ -1195,10 +1195,10 @@ trackTests {
     }
 
     test("Services Marketing landings") {
-        "/services/mkt_landing"(platform: "/web"){
+        "/services/mkt_landing"(platform: "/"){
             campaign = "generic"
         }
-        "/services/mkt_landing"(platform: "/web"){
+        "/services/mkt_landing"(platform: "/"){
             campaign = "personal"
         }
         "/services/mkt_landing/sms"(platform: "/web"){
@@ -1212,15 +1212,15 @@ trackTests {
             campaign = "generic"
             position = "steps"
         } 
-        "/services/mkt_landing/button"(platform: "/web"){
+        "/services/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "hero"
         } 
-        "/services/mkt_landing/button"(platform: "/web"){
+        "/services/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "fixed"
         } 
-        "/services/mkt_landing/button"(platform: "/web"){
+        "/services/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "footer"
         } 

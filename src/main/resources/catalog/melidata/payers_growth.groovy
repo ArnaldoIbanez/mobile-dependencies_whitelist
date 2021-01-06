@@ -20,8 +20,8 @@ tracks {
     }
 
     // Covid19 Marketing Performance landing 
-    "/payers_growth/mkt_landing"(platform: "/web", isAbstract: true){}
-    "/payers_growth/mkt_landing/codoacodo"(platform: "/web", type: TrackType.View) {
+    "/payers_growth/mkt_landing"(platform: "/", isAbstract: true){}
+    "/payers_growth/mkt_landing/codoacodo"(platform: "/", type: TrackType.View) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/payers_growth/mkt_landing/codoacodo/sms"(platform: "/web", type: TrackType.Event) { 
@@ -31,7 +31,7 @@ tracks {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
     }
-    "/payers_growth/mkt_landing/codoacodo/button"(platform: "/web", type: TrackType.Event) {
+    "/payers_growth/mkt_landing/codoacodo/button"(platform: "/", type: TrackType.Event) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
