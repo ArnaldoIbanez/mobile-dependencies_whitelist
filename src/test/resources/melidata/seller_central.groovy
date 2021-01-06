@@ -1730,6 +1730,16 @@ trackTests {
     }
   }
 
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
+    }
+  }
+
   test("seller central sales web dashboard open") {
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
       substates = ["card_id_1", "card_id_2"]
@@ -1893,6 +1903,16 @@ trackTests {
     "/seller_central/sales/detail/modal_action/apply"(platform: "/web", type: TrackType.Event) {
       id = "action_modal_id"
       option = "option_id"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
     }
   }
 
