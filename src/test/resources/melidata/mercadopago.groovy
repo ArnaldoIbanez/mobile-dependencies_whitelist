@@ -1195,10 +1195,10 @@ trackTests {
     }
 
     test("Services Marketing landings") {
-        "/services/mkt_landing"(platform: "/web"){
+        "/services/mkt_landing"(platform: "/"){
             campaign = "generic"
         }
-        "/services/mkt_landing"(platform: "/web"){
+        "/services/mkt_landing"(platform: "/"){
             campaign = "personal"
         }
         "/services/mkt_landing/sms"(platform: "/web"){
@@ -1212,25 +1212,25 @@ trackTests {
             campaign = "generic"
             position = "steps"
         } 
-        "/services/mkt_landing/button"(platform: "/web"){
+        "/services/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "hero"
         } 
-        "/services/mkt_landing/button"(platform: "/web"){
+        "/services/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "fixed"
         } 
-        "/services/mkt_landing/button"(platform: "/web"){
+        "/services/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "footer"
         } 
     }
 
     test("QR Payers Marketing landings") {
-        "/qr_payers/mkt_landing"(platform: "/web"){
+        "/qr_payers/mkt_landing"(platform: "/"){
             campaign = "generic"
         }
-        "/qr_payers/mkt_landing"(platform: "/web"){
+        "/qr_payers/mkt_landing"(platform: "/"){
             campaign = "personal"
         }
         "/qr_payers/mkt_landing/sms"(platform: "/web"){
@@ -1244,15 +1244,15 @@ trackTests {
             campaign = "generic"
             position = "steps"
         } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
+        "/qr_payers/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "hero"
         } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
+        "/qr_payers/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "fixed"
         } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
+        "/qr_payers/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "footer"
         } 
