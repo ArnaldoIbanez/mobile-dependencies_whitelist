@@ -53,8 +53,37 @@ tracks {
     // Movements
     "/banking/movements"(platform: "/", type: TrackType.View) {}
 
-    // MP Balance - Merch Engine Events Credits
+    // Movements - List
+    "/banking/movements/list"(platform: "/", isAbstract: true) {}
+    "/banking/movements/list/detail"(platform: "/", type: TrackType.Event) {}
 
+    // Movements - Pagination
+    "/banking/movements/pagination"(platform: "/", isAbstract: true) {}
+    "/banking/movements/pagination/change"(platform: "/", type: TrackType.Event) {}
+
+    // Movements - Filters
+    "/banking/movements/filters"(platform: "/", isAbstract: true) {}
+    "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) {
+        type (required: true, type: PropertyType.String, description: "Indicador de tipo de movimiento")
+    }
+    "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) {
+        type (required: true, type: PropertyType.String, description: "Indicador de tipo de período")
+        option (required: false, type: PropertyType.String, description: "En caso de tipo predeterminado, opción seleccionada.")
+        begin_date (required: true, type: PropertyType.String, description: "Fecha de inicio del período seleccionado.")
+        end_date (required: true, type: PropertyType.String, description: "Fecha de finalización del período seleccionado.")
+    }
+    "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
+
+    // Movements - Reports
+    "/banking/movements/reports"(platform: "/", isAbstract: true) {}
+    "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
+        type (required: true, type: PropertyType.String, description: "Indicador de tipo de período")
+        begin_date (required: true, type: PropertyType.String, description: "Fecha de inicio del período seleccionado.")
+        end_date (required: true, type: PropertyType.String, description: "Fecha de finalización del período seleccionado.")
+    }
+    "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
+
+    // MP Balance - Merch Engine Events Credits
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
