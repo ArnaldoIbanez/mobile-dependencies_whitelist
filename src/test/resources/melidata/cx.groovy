@@ -203,6 +203,18 @@ trackTests {
             portal_content_id = 987
             portal_problem_id = 456
         }
+        "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'FOLDER_DYNAMIC'
+            portal_source_id = 999
+            portal_has_channels_configured = true
+        }
+        "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 123
+            portal_content_type = 'FOLDER_DYNAMIC'
+            portal_source_id = 999
+            portal_has_channels_configured = true
+        }
     }
 
     test("Support Cases") {
