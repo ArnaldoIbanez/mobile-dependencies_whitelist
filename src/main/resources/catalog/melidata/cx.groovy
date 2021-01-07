@@ -22,7 +22,8 @@ tracks {
                     "FOLDER", // Content that contains another contents
                     "RENDER", // Content that shows information, and maybe buttons to another contents or to talk with CX
                     "REDIRECT", // Content that allows to go outside the cx help
-                    "SHOW_CONTACT" // Content that only has buttons to talk with CX
+                    "SHOW_CONTACT", // Content that only has buttons to talk with CX
+                    "FOLDER_DYNAMIC"  // Content that contains other dynamic contents
                 ],
             description: "Indicates if it's a a simple content, a content with contact links to CX, etc. It's optional just because the migration to the new cx portal has several iterative steps, it's just starting. It we'll be mandatory in the future")
         portal_source_id(required: true, type: PropertyType.Numeric,
@@ -45,8 +46,12 @@ tracks {
             description: "Indicates the value of the effectivity survey given by a user to a certain faq")
         portal_search_criteria(required: false, type: PropertyType.String, 
             description: "Indicates the criteria used in the search in the help portal")
-         portal_custom_order_id(required: false, type: PropertyType.Numeric, 
-            description: "Indicates the order shown to the user according to the predicted problem")    
+        portal_custom_order_id(required: false, type: PropertyType.Numeric, 
+            description: "Indicates the order shown to the user according to the predicted problem")
+        portal_prediction_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the id of the prediction for the user problem")        
+        portal_content_destination_url(required: false, type: PropertyType.String, 
+            description: "Indicates the destination url in an event track")
     }
 
     propertyGroups {
@@ -64,6 +69,8 @@ tracks {
         portal_effectivity_survey_value(portal_effectivity_survey_value)
         portal_search_criteria(portal_search_criteria)
         portal_custom_order_id(portal_custom_order_id)
+        portal_prediction_id(portal_prediction_id)
+        portal_content_destination_url(portal_content_destination_url)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -84,12 +91,14 @@ tracks {
 
     "/portal/faq/click"(platform: "/", type: TrackType.View) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
+        portal_content_destination_url
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -141,6 +150,7 @@ tracks {
 
     "/portal/folder/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
@@ -174,6 +184,7 @@ tracks {
 
     "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/portal/home"(platform: "/", type: TrackType.View) {
@@ -197,6 +208,7 @@ tracks {
      "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
         portal_source_id
         portal_custom_order_id
+        portal_prediction_id
     }
 
     // Support Widget
@@ -215,6 +227,7 @@ tracks {
 
     "/support/widget/folder/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
@@ -225,6 +238,7 @@ tracks {
     }
     "/support/widget/folder_rules/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/support/widget/home"(platform: "/", type: TrackType.View) {
@@ -256,11 +270,13 @@ tracks {
 
     "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
     "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
+        portal_content_destination_url
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {

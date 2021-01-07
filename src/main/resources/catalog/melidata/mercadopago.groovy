@@ -167,6 +167,7 @@ tracks {
         amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
         is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
         e2e_test (required: true, type: PropertyType.Boolean, description: "e2e Test")
+        discount_code (required: true, type: PropertyType.String, description: "Discount code")
     }
 
     "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
@@ -176,20 +177,10 @@ tracks {
     "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {}
 
     //congrats OFF
-    "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
@@ -202,7 +193,7 @@ tracks {
 
     // Services landings
     "/services"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/services/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
+    "/services/mkt_landing"(platform: "/", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
@@ -212,14 +203,14 @@ tracks {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
     }
-    "/services/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+    "/services/mkt_landing/button"(platform: "/", type: TrackType.Event) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 
     // QR Payers Landings
     "/qr_payers"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
+    "/qr_payers/mkt_landing"(platform: "/", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
@@ -229,7 +220,7 @@ tracks {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
     }
-    "/qr_payers/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+    "/qr_payers/mkt_landing/button"(platform: "/", type: TrackType.Event) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }

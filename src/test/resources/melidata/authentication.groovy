@@ -489,7 +489,13 @@ trackTests {
         "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
-            status = "approve"
+            status = "approved"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "rejected"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "aborted"
         }
     }
 
@@ -503,7 +509,13 @@ trackTests {
         "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-          status = "approve"
+          status = "approved"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+          status = "aborted"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+          status = "rejected"
         }
 
         "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
@@ -541,6 +553,19 @@ trackTests {
             flow_type = "enrollment"
             flow_sub_type = "new_phone"
         }
+        "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {
+            status = "validated"
+            available_channels = ["whatsapp","sms","call"]
+            enrollment = false
+        }
+
+        "/authenticators/phone_validation/channel_selector"(platform: "/mobile/android", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["sms","call"]
+            enrollment = true
+            flow_sub_type ="SESSION_ACTIVITY_NOTIF"
+            phone_source = "input"
+        }
 
         "/authenticators/phone_validation/channel_selector/submit"(platform: "/", type: TrackType.Event) {
             status = "pending_validation"
@@ -570,6 +595,13 @@ trackTests {
             enrollment = true
             flow_type = "enrollment"
             flow_sub_type = "new_phone"
+        }
+
+        "/authenticators/phone_validation/enter_code"(platform: "/mobile/android", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["push","sms","call"]
+            selected_channel = "push"
+            enrollment = false
         }
 
         "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {

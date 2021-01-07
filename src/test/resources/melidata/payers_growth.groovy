@@ -49,7 +49,7 @@ trackTests {
 		}
 		
 		// Covid19 Marketing Performance landing
-		"/payers_growth/mkt_landing/codoacodo"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo"(platform: "/"){
 			campaign = 'generic'
 		}
 		"/payers_growth/mkt_landing/codoacodo/sms"(platform: "/web"){
@@ -63,15 +63,15 @@ trackTests {
 			campaign = 'generic'
 			position = "steps"
 		} 
-		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/"){
 			campaign = 'generic'
 			position = "hero"
 		} 
-		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/"){
 			campaign = 'generic'
 			position = "fixed"
 		} 
-		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/"){
 			campaign = 'generic'
 			position = "footer"
 		}

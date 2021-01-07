@@ -133,6 +133,7 @@ trackTests {
          "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
+            portal_prediction_id = 1234
         }
     }
 
@@ -201,6 +202,12 @@ trackTests {
             portal_source_id = 123
             portal_content_id = 987
             portal_problem_id = 456
+        }
+        "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'FOLDER_DYNAMIC'
+            portal_source_id = 999
+            portal_has_channels_configured = true
         }
     }
 
@@ -284,6 +291,7 @@ trackTests {
         "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
+            portal_prediction_id = 1234
         }
     }
 

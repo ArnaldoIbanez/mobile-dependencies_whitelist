@@ -92,5 +92,26 @@ tracks
                 orders_info(type: PropertyType.ArrayList(PropertyType.Map(orders_info_definition)), required: true)
                 reason(required: true, type: PropertyType.String, description: "Specifies the cancellation reason")
             }
+
+            //Tracks for login flow in crowd app
+
+            "/crowd/login/result"(platform: "/mobile", type: TrackType.View) {
+                location
+                type(required: true, type: PropertyType.String, description: "Specifies driver status pending/disabled/unknown")
+            }
+
+            "/crowd/login/success"(platform: "/mobile", type: TrackType.Event) {
+                location
+                type(required: true, type: PropertyType.String, description: "Specifies driver status active/inactive")
+            }
+
+            "/crowd/login/join"(platform: "/mobile", type: TrackType.Event) {
+                location
+            }
+
+            "/crowd/login/already_registered"(platform: "/mobile", type: TrackType.Event) {
+                location
+            }
+
         }
 

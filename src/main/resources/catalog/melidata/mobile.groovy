@@ -102,6 +102,12 @@ tracks {
         message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
     }
 
+    "/landing/load"(platform: "/mobile") {
+        status(required: true, type: PropertyType.String, values: ["success", "cancelled", "error"], description: "Loading finish status")
+        url(required: true, type: PropertyType.String, description: "The url to be loaded in the landing webview")
+        loading_time(required: true, type: PropertyType.Numeric, description: "Loading time in milliseconds")
+    }
+
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}

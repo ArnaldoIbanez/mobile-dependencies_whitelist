@@ -1,0 +1,148 @@
+package catalog.melidata
+
+import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+
+tracks {
+
+    initiative = "1148"
+
+    propertyDefinitions {
+        section_id(
+            required: true,
+            type: PropertyType.String,
+            description: "Indicates an ID of a section"
+        )
+        card_id(
+            required: true,
+            type: PropertyType.String,
+            description: "Indicates an ID of a card"
+        )
+        component_id(
+            required: true,
+            type: PropertyType.String,
+            description: "Indicates an ID of an external component"
+        )
+        row_id(
+            required: true,
+            type: PropertyType.String,
+            description: "Indicates an ID of a row"
+        )
+        message_id(
+            required: true,
+            type: PropertyType.String,
+            description: "Indicates an ID of a message"
+        )
+        url(
+            required: true,
+            type: PropertyType.String,
+            description: "Represents an URL to open"
+        )
+        tooltip_id(
+            required: true,
+            type: PropertyType.String,
+            description: "Indicates an ID of a tooltip"
+        )
+    }
+
+    propertyGroups {
+        top_message_action_group(message_id, url)
+        top_message_dismiss_group(message_id)
+        section_message_action_group(message_id, url, section_id)
+        section_message_dismiss_group(message_id, section_id)
+        component_event_group(section_id, component_id)
+        card_message_action_group(message_id, url, section_id, card_id)
+        card_message_dismiss_group(message_id, section_id, card_id)
+        row_message_action_group(message_id, url, section_id, card_id, row_id)
+        row_message_dismiss_group(message_id, section_id, card_id, row_id)
+        row_action_group(section_id, card_id, row_id, url)
+        tooltip_event_group(section_id, card_id, row_id, tooltip_id)
+    }
+
+    // Abstract paths
+
+    "/pricing_section" (platform: "/", isAbstract: true) { }
+    "/pricing_section/message" (platform: "/", isAbstract: true) { }
+    "/pricing_section/message/action" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/message" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/message/action" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/card" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/component" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/card/message" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/card/message/action" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/card/row" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/card/row/message" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/card/row/message/action" (platform: "/", isAbstract: true) { }
+    "/pricing_section/section/card/row/tooltip" (platform: "/", isAbstract: true) { }
+
+    // Tracks
+
+    "/pricing_section/success" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/error" (platform: "/", type: TrackType.View) { 
+        status(
+            required: true,
+            type: PropertyType.String,
+            description: "The status code of and error"
+        )
+        message(
+            required: true,
+            type: PropertyType.String,
+            description: "An error message"
+        )
+    }
+    "/pricing_section/close" (platform: "/mobile", type: TrackType.Event) { }
+    "/pricing_section/message/dismiss" (platform: "/", type: TrackType.Event) { 
+        top_message_dismiss_group
+    }
+    "/pricing_section/message/action/primary" (platform: "/", type: TrackType.Event) { 
+        top_message_action_group
+    }
+    "/pricing_section/message/action/secondary" (platform: "/", type: TrackType.Event) { 
+        top_message_action_group
+    }
+    "/pricing_section/section/message/dismiss" (platform: "/", type: TrackType.Event) { 
+        section_message_dismiss_group
+    }
+    "/pricing_section/section/message/action/primary" (platform: "/", type: TrackType.Event) { 
+        section_message_action_group
+    }
+    "/pricing_section/section/message/action/secondary" (platform: "/", type: TrackType.Event) { 
+        section_message_action_group
+    }
+    "/pricing_section/section/component/success" (platform: "/", type: TrackType.Event) { 
+        component_event_group
+    }
+    "/pricing_section/section/component/error" (platform: "/", type: TrackType.Event) {
+        component_event_group
+    }
+    "/pricing_section/section/card/message/dismiss" (platform: "/", type: TrackType.Event) { 
+        card_message_dismiss_group
+    }
+    "/pricing_section/section/card/message/action/primary" (platform: "/", type: TrackType.Event) { 
+        card_message_action_group
+    }
+    "/pricing_section/section/card/message/action/secondary" (platform: "/", type: TrackType.Event) { 
+        card_message_action_group
+    }
+    "/pricing_section/section/card/row/message/dismiss" (platform: "/", type: TrackType.Event) { 
+        row_message_dismiss_group
+    }
+    "/pricing_section/section/card/row/message/action/primary" (platform: "/", type: TrackType.Event) { 
+        row_message_action_group
+    }
+    "/pricing_section/section/card/row/message/action/secondary" (platform: "/", type: TrackType.Event) { 
+        row_message_action_group
+    }
+    "/pricing_section/section/card/row/action" (platform: "/", type: TrackType.Event) { 
+        row_action_group
+    }
+    "/pricing_section/section/card/row/tooltip/show" (platform: "/", type: TrackType.Event) { 
+        tooltip_event_group
+    }
+    "/pricing_section/section/card/row/tooltip/hide" (platform: "/", type: TrackType.Event) { 
+        tooltip_event_group
+    }
+
+}

@@ -49,7 +49,7 @@ trackTests {
 
     test("Home core tracking") {
         "/home"(platform: "/mobile") {
-            mp_installed = true 
+            mp_installed = true
         }
 
         "/home/navigation_history"(platform: "/") {
@@ -196,13 +196,57 @@ trackTests {
         "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
+    test("Home Discovery Mobile") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+            realestates = {
+                discovery = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = 2
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/mobile", dataSet)
+    }
+
+    test("Home Discovery Web") {
+        def dataSet = {
+            realestates = {
+                discovery = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = '2'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
 
     test("Home.com tracking") {
         "/home_com"(platform: "/", type: TrackType.View) {}
-        
+
         "/home_com/site_click"(platform: "/") {
             site_click = 'AR'
         }

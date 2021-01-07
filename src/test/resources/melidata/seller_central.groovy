@@ -1179,6 +1179,42 @@ trackTests {
     }
   }
 
+  test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_3x_campaign"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
+    }
+  }
+
+   test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_ahora12"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
+    }
+  }
+
   test("seller central listing type value updated"){
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
       item_type = "product"
@@ -1730,6 +1766,16 @@ trackTests {
     }
   }
 
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
+    }
+  }
+
   test("seller central sales web dashboard open") {
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
       substates = ["card_id_1", "card_id_2"]
@@ -1893,6 +1939,16 @@ trackTests {
     "/seller_central/sales/detail/modal_action/apply"(platform: "/web", type: TrackType.Event) {
       id = "action_modal_id"
       option = "option_id"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
     }
   }
 
