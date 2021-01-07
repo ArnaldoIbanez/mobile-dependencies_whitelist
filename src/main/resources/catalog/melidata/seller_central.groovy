@@ -779,6 +779,18 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_3x_campaign"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+    
+    "/seller_central/modify/update_ahora12"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
