@@ -249,6 +249,9 @@ tracks {
         mandatory
         step_information
         view_time
+        item_id(required: false, PropertyType.String, description: "Id of the item")
+        type(required: false, PropertyType.String, description: "Type of item")
+        content(required: false, PropertyType.ArrayList, description: "Content of the item")
     }
     "/single_player/prepaid/one_device/selected_product"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
@@ -276,6 +279,9 @@ tracks {
         mandatory
         step_information
         view_time
+        item_id(required: false, PropertyType.String, description: "Id of the item")
+        type(required: false, PropertyType.String, description: "Type of item")
+        content(required: false, PropertyType.ArrayList, description: "Content of the item")
     }
     "/single_player/prepaid/one_device/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory

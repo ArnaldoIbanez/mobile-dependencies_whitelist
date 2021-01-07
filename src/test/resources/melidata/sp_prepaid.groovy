@@ -329,6 +329,7 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -1002,6 +1003,7 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
