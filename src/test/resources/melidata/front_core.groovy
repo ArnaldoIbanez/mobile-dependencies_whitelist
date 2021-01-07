@@ -279,6 +279,8 @@ trackTests {
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
             header = [
+                    link: "mercadopago://link",
+                    button_link: "mercadopago://link",
                     loyalty: [
                             level: 5
                     ],
@@ -674,6 +676,21 @@ trackTests {
                 type: "newbie"
             ]
         }
+    }
+
+    // New Header
+    test("Profile header tap") {
+        "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://link"
+            button_link = "mercadopago://link"
+       	    metadata_user = [
+                type: "seller"
+            ]
+        }
+    }
+
+    test("Button header tap") {
+        "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     /*****************************
@@ -1154,6 +1171,8 @@ trackTests {
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
             header = [
+                    link: "mercadopago://link",
+                    button_link: "mercadopago://link",
                     loyalty: [
                             level: 5
                     ],
@@ -1544,6 +1563,21 @@ trackTests {
                 type: "seller"
             ]
         }
+    }
+
+    // New Header
+    test("Profile header tap") {
+        "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://link"
+            button_link = "mercadopago://link"
+       	    metadata_user = [
+                type: "seller"
+            ]
+        }
+    }
+
+    test("Button header tap") {
+        "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     /*****************************
