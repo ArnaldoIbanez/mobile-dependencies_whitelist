@@ -266,6 +266,7 @@ trackTests {
     }
 
     test("Home Motors Sell Action") {
+        "/home/motors"(platform: "/web/mobile", type: TrackType.Event) {}
         "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
     }
 }
