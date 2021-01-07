@@ -265,7 +265,7 @@ trackTests {
         "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
     }
 
-    test("Home Carrousel Motors Sell Action") {
-        "/home/carousel/motors/sell"(platform: "/", type: TrackType.Event) {}
+    test("Home Motors Sell Action") {
+        "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
     }
 }

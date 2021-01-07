@@ -252,6 +252,6 @@ tracks {
 
     "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
 
-    "/home/carousel/motors/sell"(platform: "/", type: TrackType.Event) {}
+    "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
 
 }
