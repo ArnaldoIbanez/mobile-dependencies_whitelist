@@ -27,6 +27,12 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "The flow related to the content")
         action_id(required: true, type: PropertyType.String, description: "The action executed")
         link(required: true, type: PropertyType.String, description: "Link to execute")
+
+        // Movements
+        type(required: true, type: PropertyType.String, description: "Indicador de tipo de período")
+        option(required: false, type: PropertyType.String, description: "En caso de tipo predeterminado, opción seleccionada.")
+        begin_date(required: true, type: PropertyType.String, description: "Fecha de inicio del período seleccionado.")
+        end_date(required: true, type: PropertyType.String, description: "Fecha de finalización del período seleccionado.")
     }
 
     propertyGroups {
@@ -35,6 +41,12 @@ tracks {
         )
         actionEventDataTrack (
                 section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow, action_id, link
+        )
+        movementsFiltersPeriod (
+                type, option, begin_date, end_date
+        )
+        movementsReportsCreate (
+                type, begin_date, end_date
         )
     }
 
@@ -64,23 +76,14 @@ tracks {
     // Movements - Filters
     "/banking/movements/filters"(platform: "/", isAbstract: true) {}
     "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) {
-        type (required: true, type: PropertyType.String, description: "Indicador de tipo de movimiento")
+        type(required: true, type: PropertyType.String, description: "Indicador de tipo de movimiento")
     }
-    "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) {
-        type (required: true, type: PropertyType.String, values: ["default", "range"], description: "Indicador de tipo de período")
-        option (required: false, type: PropertyType.String, description: "En caso de tipo predeterminado, opción seleccionada.")
-        begin_date (required: true, type: PropertyType.String, description: "Fecha de inicio del período seleccionado.")
-        end_date (required: true, type: PropertyType.String, description: "Fecha de finalización del período seleccionado.")
-    }
+    "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) { movementsFiltersPeriod }
     "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
 
     // Movements - Reports
     "/banking/movements/reports"(platform: "/", isAbstract: true) {}
-    "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
-        type (required: true, type: PropertyType.String, description: "Indicador de tipo de período")
-        begin_date (required: true, type: PropertyType.String, description: "Fecha de inicio del período seleccionado.")
-        end_date (required: true, type: PropertyType.String, description: "Fecha de finalización del período seleccionado.")
-    }
+    "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) { movementsReportsCreate }
     "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
 
     // MP Balance - Merch Engine Events Credits
