@@ -211,6 +211,12 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
+        }
 
 
         // Recommended products
@@ -882,6 +888,12 @@ trackTests {
         "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
         }
 
 

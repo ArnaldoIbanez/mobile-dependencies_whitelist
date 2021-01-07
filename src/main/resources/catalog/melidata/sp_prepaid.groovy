@@ -159,6 +159,15 @@ tracks {
         step_information
         view_time
     }
+    "/single_player/prepaid/product_list/link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+        item_id(required: false, PropertyType.String, description: "Id of the item")
+        type(required: false, PropertyType.String, description: "Type of item")
+        content(required: false, PropertyType.ArrayList, description: "Content of the item")
+    }
+
 
 
     // Recommended products
