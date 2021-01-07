@@ -12,9 +12,7 @@ tracks {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-
     //Definitions
-
     propertyDefinitions {
         section_id(required: true, type: PropertyType.String, description: "Identifier for the realestate to consume")
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
@@ -29,10 +27,11 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Link to execute")
 
         // Movements
-        type(required: true, type: PropertyType.String, description: "Indicador de tipo de período")
-        option(required: false, type: PropertyType.String, description: "En caso de tipo predeterminado, opción seleccionada.")
-        begin_date(required: true, type: PropertyType.String, description: "Fecha de inicio del período seleccionado.")
-        end_date(required: true, type: PropertyType.String, description: "Fecha de finalización del período seleccionado.")
+        action_type(required: true, type: PropertyType.String, description: "Movement type indicator")
+        period_type(required: true, type: PropertyType.String, values: ["default", "range"], description: "Period type indicator")
+        period_option(required: false, type: PropertyType.String, description: "In case of default period type, option selected")
+        begin_date(required: true, type: PropertyType.String, description: "Start date of the selected period")
+        end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
     }
 
     propertyGroups {
@@ -42,11 +41,14 @@ tracks {
         actionEventDataTrack (
                 section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow, action_id, link
         )
+        movementsFiltersAction (
+                action_type
+        )
         movementsFiltersPeriod (
-                type, option, begin_date, end_date
+                period_type, period_option, begin_date, end_date
         )
         movementsReportsCreate (
-                type, begin_date, end_date
+                action_type, begin_date, end_date
         )
     }
 
@@ -75,9 +77,7 @@ tracks {
 
     // Movements - Filters
     "/banking/movements/filters"(platform: "/", isAbstract: true) {}
-    "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Indicador de tipo de movimiento")
-    }
+    "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) { movementsFiltersAction }
     "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) { movementsFiltersPeriod }
     "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
 
@@ -90,4 +90,5 @@ tracks {
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+
 }

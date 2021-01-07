@@ -35,16 +35,16 @@ trackTests {
         "/banking/movements/pagination/change"(platform: "/", type: TrackType.Event) {}
 
         "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) {
-            type = 'income'
+            action_type = 'income'
         }
         "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) {
-            type = 'default'
-            option = '30'
+            period_type = 'default'
+            period_option = '30'
             begin_date = '2020-12-22T00:00:00.000Z'
             end_date = '2021-01-06T23:59:59.999Z'
         }
         "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) {
-            type = 'range'
+            period_type = 'range'
             begin_date = '2020-12-22T00:00:00.000Z'
             end_date = '2021-01-06T23:59:59.999Z'
         }
@@ -52,12 +52,12 @@ trackTests {
 
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
-            type = 'income'
+            action_type = 'income'
             begin_date = '2020-12-22T00:00:00.000Z'
             end_date = '2021-01-06T23:59:59.999Z'
         }
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
-            type = ''
+            action_type = ''
             begin_date = '2020-12-22T00:00:00.000Z'
             end_date = '2021-01-06T23:59:59.999Z'
         }
