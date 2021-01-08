@@ -2943,8 +2943,9 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/scan/info_messag"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            label = "lable warning"
         }
 
         "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
