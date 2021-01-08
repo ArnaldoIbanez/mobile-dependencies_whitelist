@@ -2943,6 +2943,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
