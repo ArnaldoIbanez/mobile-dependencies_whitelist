@@ -2642,7 +2642,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/home/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/home/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2681,7 +2681,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/invoices/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/invoices/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2744,7 +2744,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/input_data/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/input_data/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2832,7 +2832,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/barcode_manual_input/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/barcode_manual_input/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
         "/bill_payments/barcode_manual_input/open_scanner"(platform: "/mobile", type: TrackType.Event) {
