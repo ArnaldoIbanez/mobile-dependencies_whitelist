@@ -1198,7 +1198,7 @@ trackTests {
   }
 
    test("seller central x3_capmaing value updated"){
-    "/seller_central/modify/update_ahora12"(platform: "/", type: TrackType.Event){
+    "/seller_central/modify/update_ahora_12"(platform: "/", type: TrackType.Event){
       seller_reputation = "5_green"
       competition_status = "LOSING_BY_UNTRUSTED_SELLER"
       category_domain = "MLA-CELLPHONES"
