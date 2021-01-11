@@ -223,6 +223,7 @@ catalog {
         include business, "sp_prepaid.groovy"
         include business, "tools_for_sellers.groovy"
         include business, "mp_growth.groovy"
+        include business, "pog_comm.groovy"
         include business, "point_payment.groovy"
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
