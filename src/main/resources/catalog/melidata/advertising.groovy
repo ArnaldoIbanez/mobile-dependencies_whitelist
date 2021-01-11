@@ -864,8 +864,8 @@ tracks {
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
     }
 
-    "/advertising/pads2/manager/update/budget/go"(platform: "/web", type: TrackType.Event) {
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
+    "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
+        multi(required: false, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
         budget_previous(required: false, description: "Previous budget related to the campaign")
         budget_new(required: true, description: "New budget related to the campaign.")
@@ -878,8 +878,8 @@ tracks {
 
     }
 
-    "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
+    "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
+        multi(required: false, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, description: "Budget related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
@@ -1331,7 +1331,7 @@ tracks {
     "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {}
-    "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/update/budget/go"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
@@ -1341,7 +1341,7 @@ tracks {
         budget_pct_old(required: true, description: " budget pct old Modal campaign")
 
     }
-    "/advertising/pads2/hub/update/budget/close"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/update/budget/close"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
