@@ -520,7 +520,7 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
         imeiValid(required: true, type: PropertyType.Boolean, description: "Imei valid or invalid ")
         protection_status(required: true, type: PropertyType.String, values: ['active_on_route', 'pending_activation'], description: "Status of protection when is going to be activated")
-    }
+   }
 
     "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")

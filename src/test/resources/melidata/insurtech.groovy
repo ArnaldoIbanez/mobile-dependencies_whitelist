@@ -1364,6 +1364,7 @@ trackTests {
             protection_status = 'pending_activation'
         }
 
+
         "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
