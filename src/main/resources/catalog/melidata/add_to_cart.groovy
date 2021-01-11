@@ -36,6 +36,9 @@ tracks {
         //quantity
         //unit_price
         add_cart_info
+        carousel_type(required: false, type: PropertyType.String, values: ["normal", "home"], description: "Indicates the type of variation of the carousel, in case it comes from a carousel")
+        carousel_label(required: false, type: PropertyType.String, description: "Carousel label, in case it comes from a carousel")
+        component(required: false, type: PropertyType.Numeric, description: "Component number on the page")
     }
 
     // Optional indicating you may want to try to add things to a carrito
