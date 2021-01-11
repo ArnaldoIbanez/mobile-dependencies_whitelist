@@ -286,7 +286,7 @@ tracks {
 
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
-        quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        quantity(required: false, PropertyType.Numeric, description: "Quantity of items")
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
@@ -897,7 +897,7 @@ tracks {
 
     // Multiple devices
     "/single_player/paygo/multiple_devices"(platform: "/mobile", type: TrackType.View) {
-        quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        quantity(required: false, PropertyType.Numeric, description: "Quantity of items")
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
