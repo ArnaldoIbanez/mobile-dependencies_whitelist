@@ -190,41 +190,7 @@ tracks {
     "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {
         quantity (required:true, type: PropertyType.Numeric, description: "bundle quantity")
     }
-
-    // Services landings
-    "/services"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/services/mkt_landing"(platform: "/", type: TrackType.View, initiative: "1176") {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/services/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
-    }
-    "/services/mkt_landing/button"(platform: "/", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
-    }
-
-    // QR Payers Landings
-    "/qr_payers"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/qr_payers/mkt_landing"(platform: "/", type: TrackType.View, initiative: "1176") {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
-    }
-    "/qr_payers/mkt_landing/button"(platform: "/", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
-    }
-
+    
     "/pos_mobile"(platform: "/mobile", type: TrackType.Event, initiative: "1175") {}
     "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
         flow_id(required: false, type: PropertyType.String, description: "Flow id.")
