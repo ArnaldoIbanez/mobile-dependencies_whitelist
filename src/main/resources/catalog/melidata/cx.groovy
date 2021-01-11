@@ -52,6 +52,8 @@ tracks {
             description: "Indicates the id of the prediction for the user problem")        
         portal_content_destination_url(required: false, type: PropertyType.String, 
             description: "Indicates the destination url in an event track")
+        portal_show_cancel_card(required: false, type: PropertyType.Boolean, 
+            description: "Indicates if the cancelCard should be shown")
     }
 
     propertyGroups {
@@ -71,6 +73,7 @@ tracks {
         portal_custom_order_id(portal_custom_order_id)
         portal_prediction_id(portal_prediction_id)
         portal_content_destination_url(portal_content_destination_url)
+        portal_show_cancel_card(portal_show_cancel_card)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -193,6 +196,8 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+        portal_show_cancel_card
+        portal_prediction_id
     }
 
     "/portal/zrp"(platform: "/", type: TrackType.View) {

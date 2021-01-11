@@ -785,7 +785,7 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
     
-    "/seller_central/modify/update_ahora12"(platform: "/", type: TrackType.Event) {
+    "/seller_central/modify/update_ahora_12"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
         sellerCentralModifyGroupTableForPdp
