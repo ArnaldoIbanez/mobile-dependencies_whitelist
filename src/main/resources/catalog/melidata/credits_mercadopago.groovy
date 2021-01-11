@@ -390,10 +390,10 @@ tracks {
     }
 
     "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-        flow(
+        user_status(
             type: PropertyType.String,
             required: true,
-            description: "Flow which the user is being redirected",
+            description: "User status at the moment it was redirected",
             values: [
                 'fixed_term_loan_collect', 
                 'sales_percentage_loan_collect', 
@@ -420,6 +420,7 @@ tracks {
                 'personal_loan_finished', 
                 'consumer_loan_finished', 
                 'consumer_loan_adoption',
+                'unknown',
             ]
         )
     }

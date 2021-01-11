@@ -1086,7 +1086,7 @@ trackTests {
         }
 
         "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-            flow = "fixed_term_loan_collect"
+            user_status = "fixed_term_loan_collect"
         }
 
         "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
