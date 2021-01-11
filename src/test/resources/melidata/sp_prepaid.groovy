@@ -211,6 +211,12 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
+        }
 
 
         // Recommended products
@@ -329,6 +335,7 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -882,6 +889,12 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
+        }
 
 
         // Recommended products
@@ -1002,6 +1015,7 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
