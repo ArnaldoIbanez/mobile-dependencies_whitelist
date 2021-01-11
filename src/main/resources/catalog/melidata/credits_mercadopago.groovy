@@ -87,6 +87,15 @@ tracks {
             required: false,
             inheritable: true
         )
+        accesses(
+                description: "Type of accesses shown to users",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'open_market'
+                ],
+                inheritable: false
+        )
     }
 
     propertyGroups {
@@ -230,6 +239,11 @@ tracks {
             type: PropertyType.Boolean,
             required: false,
             inheritable: false
+        )
+        accesses(
+            description: "List of accesses shown to the user",
+            type: PropertyType.ArrayList(accesses),
+            required: false
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
