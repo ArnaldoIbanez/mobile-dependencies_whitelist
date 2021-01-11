@@ -264,4 +264,9 @@ trackTests {
         "/home/advertising"(platform: "/", type: TrackType.Event) {}
         "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
     }
+
+    test("Home Motors Sell Action") {
+        "/home/motors"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
+    }
 }

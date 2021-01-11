@@ -252,4 +252,8 @@ tracks {
 
     "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
 
+    "/home/motors"(platform: "/web/mobile", type: TrackType.Event, isAbstract : true) {}
+
+    "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
+
 }
