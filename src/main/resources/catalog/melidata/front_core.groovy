@@ -465,7 +465,7 @@ tracks {
     "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
         prepaid(required: true, type: PropertyType.Boolean, description: "If user has a prepaid card")
         debit(required: true, type: PropertyType.Boolean, description: "If user has a debit card")
-        quantity(required: true, type: PropertyType.Numeric, description: "If user has a debit card")
+        quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
     }
 
     "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {}
