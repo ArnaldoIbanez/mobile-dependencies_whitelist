@@ -634,7 +634,9 @@ tracks {
 
     "/pdp/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
-    }
+        is_component_tracker(required: false, type: PropertyType.String, description: "Indica si el componente es el backup track")
+        item_id(required: false, type: PropertyType.String, description: "Indica el identificador del item")
+   }
 
     "/pdp/technical_specs"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
