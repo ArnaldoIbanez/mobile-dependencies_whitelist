@@ -1166,6 +1166,31 @@ trackTests {
             product = "bbpos"
         }
 
+        // Multiproduct
+        "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {
+            product = "multiproduct mla"
+        }
+
+        "/point/landings/multiproduct/buy"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        // Landing Compare
+        "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.View) {
+            product = "compare"
+        }
+
+        // Landing navigation
+        "/point/landings/navigation"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+            coupon_code = "Y96XA"
+            coupon_type = "default"
+        }
+
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"

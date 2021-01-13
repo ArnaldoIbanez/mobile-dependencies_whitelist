@@ -143,8 +143,18 @@ tracks {
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
+    // [Merchants Growth] Multiproduct
+    "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {}
+
     // [Merchants Growth] Landing Multiproduct > Events
-    "/point/landings/compare"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/multiproduct/buy"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landings Navigation > Events
+    "/point/landings/navigation"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landing compare
+    "/point/landings/compare"(platform:"/", type: TrackType.View) {}
 
     // Merchant Acquisition Point Landings: MGM > Events
     "/point/landings/mgm"(platform: "/", isAbstract: true) {}
