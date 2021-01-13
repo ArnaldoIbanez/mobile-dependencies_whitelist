@@ -275,6 +275,9 @@ tracks {
         sellerCentralOptinatorNewListingsGroup(flow, domain_id, item_mk_id, item_mk_status, item_mk_sub_status, item_mk_tags, processing_data, variations)
     }
 
+    // Central of News
+    "/seller_central/news"(platform: "/", type: TrackType.View) {}
+
     // Summary
     "/seller_central/summary"(platform: "/", type: TrackType.View) {}
 
@@ -784,7 +787,7 @@ tracks {
         sellerCentralModifyCardsGroupValue
         sellerCentralModifyGroupTableForPdp
     }
-    
+
     "/seller_central/modify/update_ahora_12"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
