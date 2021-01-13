@@ -180,7 +180,7 @@ tracks {
     }
 
     "/mgm/v3/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        program_id(required: true, type: PropertyType.String, description: "Indicates the id of the member get member program.")
+        mgmGuestMinimumFields
         reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_guest", "kyc_booster", "kyc_fraud", "discount_used", "scarcity_overcome", "wrong_site", "cap_reached"])
     }
 
