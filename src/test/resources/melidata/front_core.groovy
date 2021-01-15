@@ -746,6 +746,17 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - Banking V2") {
+        "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="banking_v2/cards"
+            component_id="cards"
+            prepaid = false
+            debit = false
+            quantity = 1 
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Main Actions") {
         "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1680,6 +1691,17 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="banking"
             component_id="user_banking"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Banking V2") {
+        "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="banking_v2/cards"
+            component_id="cards"
+            prepaid = false
+            debit = false
+            quantity = 1 
         }
     }
 
