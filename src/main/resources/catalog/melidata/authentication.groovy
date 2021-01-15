@@ -194,24 +194,35 @@ tracks {
     }
 
     //Account Recovery
-    "/auth/account_recovery"(platform: "/", isAbstract: true) {
+    "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
-    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
-
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
-
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
-    "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
+    "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {}
+
+    "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
-    "/auth/account_recovery/landing/action"(platform: "/", type: TrackType.View) {
+    "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
+        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
+        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    }
+
+    "/auth/account_recovery/confirm/action"(platform: "/", type: TrackType.View) {
+        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
+        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    }
+
+    "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
@@ -341,12 +352,10 @@ tracks {
     "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the access?")
+        status(type: PropertyType.String, required: true, values: ["approved", "aborted", "rejected"], description: "Did the user approve the access?")
     }
 
-    "/authenticators/device_authorization/enrollment"(platform: "/", isAbstract: true) {
-        section(type: PropertyType.String, required: true, description: "How did the user land at the enrollment flow?")
-    }
+    "/authenticators/device_authorization/enrollment"(platform: "/", isAbstract: true) {}
 
     "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
 
@@ -357,7 +366,7 @@ tracks {
     "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values: ["approve", "decline", "reject"], description: "Did the user approve the simulated access?")
+        status(type: PropertyType.String, required: true, values: ["approved", "aborted", "rejected"], description: "Did the user approve the simulated access?")
     }
 
     "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
@@ -381,8 +390,9 @@ tracks {
     }
 
     "/authenticators/phone_validation/channel_selector"(platform: "/", isAbstract: true) {
-        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
+        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation", "validated" ], description: "challenge status by response")
         available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
+        phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
     }
 
     "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {}
@@ -392,16 +402,13 @@ tracks {
     }
 
     "/authenticators/phone_validation/enter_code"(platform: "/", isAbstract: true) {
-        status(PropertyType.String, required: false, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
+        status(PropertyType.String, required: false, values: ["success", "failure", "pending_validation", "validated" ], description: "challenge status by response")
         available_channels(PropertyType.ArrayList, required: false, description: "channels available to select")
         selected_channel(PropertyType.String, required: true, values: ["push", "sms", "call", "whatsapp" ], description: "channel selected by user")
+        phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
     }
 
     "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {}
-
-    "/authenticators/phone_validation/enter_code"(platform: "/mobile", isAbstract: true) {
-        selected_channel(PropertyType.String, required: true, values: ["sms", "whatsapp" ], description: "channel selected by user")
-    }
 
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
         phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
@@ -422,7 +429,7 @@ tracks {
     // Email Validation Authenticator
 
     "/authenticators/email_validation"(platform: "/", isAbstract: true) {
-        flow(PropertyType.String, required: false, values: ["login", "registration", "forgot_password", "reauthentication" ], description: "Flow using authenticator")
+        flow(PropertyType.String, required: false, values: ["login", "registration", "registration_v3", "forgot_password", "reauthentication", "pix" ], description: "Flow using authenticator")
         client_type(PropertyType.String, required: false, values: ["web", "mobile"], description: "Client using flow")
     }
 
@@ -431,7 +438,7 @@ tracks {
     "/authenticators/email_validation/enter_email"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/email_validation/enter_email/submit"(platform: "/", type: TrackType.Event) {
-        validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address"], description: "Email submition status by response")
+        validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address", "invalidEmail"], description: "Email submition status by response")
     }
 
     "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
@@ -505,12 +512,10 @@ tracks {
     "/screenlock/biometrics/fallback"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {}
 
     // Security Blocker
-
-    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+    "/screenlock/security_blocker"(platform: "/mobile", type: TrackType.View) {
+        from(type: PropertyType.String, required: false, values: ["login", "registration", "sso", "campaign"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-        scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "awareness", "insistence", "reminder1", "reminder2"])
+        scenario(type: PropertyType.String, required: true, values: ["no_security", "activate_security_success", "help", "test", "auto_enroll", "awareness", "insistence", "reminder1", "reminder2", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
     }
 
     "/screenlock/multiple_sessions_shield"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {

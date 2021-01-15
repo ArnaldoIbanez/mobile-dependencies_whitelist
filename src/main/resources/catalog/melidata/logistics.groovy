@@ -355,6 +355,10 @@ tracks {
     "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
+    "/logistics/last_mile/package/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
 
     //Control Tower LM
     "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
@@ -450,4 +454,9 @@ tracks {
     "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
     }
+    "/logistics/last_mile/poll"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: true)
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: true)
+    }
+    "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View) {}
 }

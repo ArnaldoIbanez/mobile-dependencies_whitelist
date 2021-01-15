@@ -150,6 +150,9 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "ID of the catalog product related to the optined item/variation")
         match_type(required: true, values: ["CATALOG", "AUTO", "SELLER", "none"], type: PropertyType.String, description: "Match type of the association related to the item/variation")
         safe_match(required: true, type: PropertyType.Boolean, description: "Property that describes whether the association match is safe or not for the item/variation")
+        is_eligible(required: true, type: PropertyType.Boolean, description: "Property that describes whether the item/variation is eligible or not")
+        eligibility_status(required: true, type: PropertyType.String, description: "Eligibility status related to the item/variation")
+        eligibility_reason(required: true, type: PropertyType.String, description: "Eligibility reason related to the item/variation")
         status(required: true, values: ["success", "enqueue", "not_enqueue", "syi_client"], type: PropertyType.String, description: "Property that describes the final state of the processing for the item/variation")
         is_already_optined(required: true, type: PropertyType.Boolean, description: "Property that describes whether the item/variation is already optined or not")
     }
@@ -272,11 +275,14 @@ tracks {
         sellerCentralOptinatorNewListingsGroup(flow, domain_id, item_mk_id, item_mk_status, item_mk_sub_status, item_mk_tags, processing_data, variations)
     }
 
+    // Central of News
+    "/seller_central/news"(platform: "/", type: TrackType.View) {}
+
     // Summary
-    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/summary"(platform: "/", type: TrackType.View) {}
 
     // La idea es saber como fue la ejecución de cada módulo
-    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/modules_render"(platform: "/", type: TrackType.Event) {
         modules(required: true, type: PropertyType.ArrayList(PropertyType.Map(summaryModule)), description: "Array of modules")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
@@ -300,7 +306,7 @@ tracks {
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
 
-    "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/task"(platform: "/", type: TrackType.Event) {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
@@ -776,6 +782,18 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_3x_campaign"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
+    "/seller_central/modify/update_ahora_12"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
@@ -1071,6 +1089,25 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
+    "/seller_central/sales/list/widget"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/seller_central/sales/list/widget/header"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "Collapsed state")
+    }
+    "/seller_central/sales/list/widget/dismiss"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        batch_id(required: true, type: PropertyType.String, description: "Batch id")
+    }
+    "/seller_central/sales/list/widget/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        processing(required: true, type: PropertyType.Boolean, description: "Processing state")
+        batch_ids(required: true, type: PropertyType.ArrayList, description: "List of batch ids")
+    }
+    "/seller_central/sales/list/widget/action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, type: PropertyType.String, description: "Action executed")
+        type(required: true, type: PropertyType.String, description: "Type action executed")
+        date_created(required: false, type: PropertyType.String, description: "Created date")
+        date_finished(required: false, type: PropertyType.String, description: "Finished date")
+        date_executed(required: false, type: PropertyType.String, description: "Executed date")
+    }
+    
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
         substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
@@ -1162,6 +1199,25 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
+    "/seller_central/sales/detail/widget"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/seller_central/sales/detail/widget/header"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "Collapsed state")
+    }
+    "/seller_central/sales/detail/widget/dismiss"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        batch_id(required: true, type: PropertyType.String, description: "Batch id")
+    }
+    "/seller_central/sales/detail/widget/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        processing(required: true, type: PropertyType.Boolean, description: "Processing state")
+        batch_ids(required: true, type: PropertyType.ArrayList, description: "List of batch ids")
+    }
+    "/seller_central/sales/detail/widget/action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, type: PropertyType.String, description: "Action executed")
+        type(required: true, type: PropertyType.String, description: "Type action executed")
+        date_created(required: false, type: PropertyType.String, description: "Created date")
+        date_finished(required: false, type: PropertyType.String, description: "Finished date")
+        date_executed(required: false, type: PropertyType.String, description: "Executed date")
+    }
+
     "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "ID of main action")
     }
@@ -1212,6 +1268,10 @@ tracks {
     }
 
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+        fragment_from_webview(required: false, type: PropertyType.String, description: "The webview where is opened the fragment")
+    }
 
     "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales
@@ -1512,6 +1572,7 @@ tracks {
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
+        slide(required: false, type: PropertyType.Numeric, description: "Slide where the card is shown. Only tracked when there are multiple slides.")
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}

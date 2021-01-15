@@ -470,7 +470,9 @@ tracks {
 
     "/mercado_shops/marketing/google_shopping_smart/campaign"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
     "/mercado_shops/marketing/google_shopping_smart/campaign/context_help"(platform: "/", type: TrackType.Event){}
 

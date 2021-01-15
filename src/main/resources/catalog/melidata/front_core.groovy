@@ -200,7 +200,9 @@ tracks {
     }
 
     def header_definition = objectSchemaDefinitions {
-        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+        link(required: false, type: PropertyType.String, description: "If header is tapeable")
+        button_link(required: false, type: PropertyType.String, description: "If button is present")
+        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info") // TODO: Will be deprecated for newer versions
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
@@ -368,7 +370,7 @@ tracks {
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
         header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        content_type(required: true, type: PropertyType.String, values: ['partial','default','complete'])
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -392,7 +394,7 @@ tracks {
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
         header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
+        content_type(required: true, type: PropertyType.String, values: ['partial','default','complete'])
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -412,6 +414,12 @@ tracks {
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
+    }
+
+    //Control Group - Merch Engine
+    "/wallet_home/merch" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home/merch/control_group" (platform: "/mobile", type: TrackType.Event) {
+        walletHomeMerchEngineFields
     }
 
     //Notification Center
@@ -443,10 +451,23 @@ tracks {
     //Loyalty
     "/wallet_home/loyalty" (platform: "/mobile", isAbstract: true) {}
 
-    "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) { // TODO: Will be deprecated
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
+
+    // New header
+    "/wallet_home/header_profile" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/header_data_button" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "If header is tapeable")
+        button_link(required: false, type: PropertyType.String, description: "If button is present")
+       	metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+    }
+
+    "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
 
     /**********************************/
     //    NEW TRACKS HOME TAP v3      //

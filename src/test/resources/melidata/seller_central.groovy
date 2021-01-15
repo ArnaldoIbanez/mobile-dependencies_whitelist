@@ -243,11 +243,23 @@ trackTests {
     }
   }
 
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Central of News
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Seller central Central of News view") {
+    "/seller_central/news"(platform: "/web", type: TrackType.View) {}
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Summary
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Seller central summary view") {
     "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Seller central summary view_mobile") {
+    "/seller_central/summary"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("Seller central summary module") {
@@ -262,6 +274,21 @@ trackTests {
               ]
       ]
       seller_experience = "ADVANCED"
+    }
+  }
+
+  test("Seller central summary module_mobile") {
+    "/seller_central/summary/modules_render"(platform: "/mobile", type: TrackType.Event) {
+      modules = [
+              [
+                module_id: "publicityCard",
+                kind: "normal"
+              ], [
+                module_id: "coronaNoticeCard",
+                kind: "normal"
+              ]
+      ]
+      seller_experience = "NEWBIE"
     }
   }
 
@@ -294,6 +321,14 @@ trackTests {
     "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
       module_id = "listing"
       task_id = "BEST_PRICE_ELIGIBLE"
+      seller_experience = "ADVANCED"
+    }
+   }
+
+  test("Seller central summary task click") {
+    "/seller_central/summary/task"(platform: "/mobile", type: TrackType.Event) {
+      module_id = "publicationsTasksCard"
+      task_id = "CATALOG_PRIORITY"
       seller_experience = "ADVANCED"
     }
   }
@@ -1152,6 +1187,42 @@ trackTests {
     }
   }
 
+  test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_3x_campaign"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
+    }
+  }
+
+   test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_ahora_12"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
+    }
+  }
+
   test("seller central listing type value updated"){
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event){
       item_type = "product"
@@ -1703,6 +1774,35 @@ trackTests {
     }
   }
 
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/header"(platform: "/web", type: TrackType.Event) {
+      collapsed = true
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/dismiss"(platform: "/web", type: TrackType.Event) {
+      batch_id = "128390"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/close"(platform: "/web", type: TrackType.Event) {
+      processing = true
+      batch_ids = ["128390", "128390"]
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
+    }
+  }
+
   test("seller central sales web dashboard open") {
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
       substates = ["card_id_1", "card_id_2"]
@@ -1869,6 +1969,35 @@ trackTests {
     }
   }
 
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/header"(platform: "/web", type: TrackType.Event) {
+      collapsed = true
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/dismiss"(platform: "/web", type: TrackType.Event) {
+      batch_id = "128390"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/close"(platform: "/web", type: TrackType.Event) {
+      processing = true
+      batch_ids = ["128390", "128390"]
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
+    }
+  }
+
   test("seller central sales detail main action") {
     "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
       id = "PRODUCT_DELIVERED"
@@ -1964,8 +2093,14 @@ trackTests {
     }
   }
 
-  test("metrics section view for mobile") {
+  test("metrics section view for web mobile") {
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics section view for mobile") {
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+      fragment_from_webview = "summary"
+    }
   }
 
   test("metrics section view for web") {
@@ -2878,6 +3013,13 @@ trackTests {
     }
   }
 
+  test("seller central listing promos card filter action with slide") {
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+      type = "lightning"
+      slide = 2
+    }
+  }
+
   test("seller central listing promos render with onboarding") {
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
   }
@@ -3415,6 +3557,9 @@ trackTests {
               catalog_product_id: "MLA15149561",
               match_type: "SELLER",
               safe_match: true,
+              is_eligible: false,
+              eligibility_status: "NOT_ELIGIBLE",
+              eligibility_reason: "cellphone_not_unlocked",
               status: "success",
               is_already_optined: false
       ]
@@ -3426,6 +3571,9 @@ trackTests {
                               catalog_product_id: "MLA10205674",
                               match_type: "SELLER",
                               safe_match: true,
+                              is_eligible: false,
+                              eligibility_status: "NOT_ELIGIBLE",
+                              eligibility_reason: "cellphone_not_unlocked",
                               status: "success",
                               is_already_optined: false
                       ]

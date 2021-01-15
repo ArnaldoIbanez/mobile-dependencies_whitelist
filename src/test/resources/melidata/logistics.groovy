@@ -459,6 +459,10 @@ trackTests {
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
             shipment_id = "222"
         }
+        "/logistics/last_mile/package/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+            driver_id = 124
+        }
         "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
@@ -587,6 +591,14 @@ trackTests {
         }
         "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
             driver_id = 400
+        }
+        "/logistics/last_mile/poll"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
+        }
+        "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
         }
     }
 

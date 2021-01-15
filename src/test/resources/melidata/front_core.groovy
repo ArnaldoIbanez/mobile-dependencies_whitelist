@@ -288,6 +288,8 @@ trackTests {
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
             header = [
+                    link: "mercadopago://link",
+                    button_link: "mercadopago://link",
                     loyalty: [
                             level: 5
                     ],
@@ -701,6 +703,21 @@ trackTests {
                 type: "newbie"
             ]
         }
+    }
+
+    // New Header
+    test("Profile header tap") {
+        "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://link"
+            button_link = "mercadopago://link"
+       	    metadata_user = [
+                type: "seller"
+            ]
+        }
+    }
+
+    test("Button header tap") {
+        "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     /*****************************
@@ -1237,6 +1254,8 @@ trackTests {
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
             header = [
+                    link: "mercadopago://link",
+                    button_link: "mercadopago://link",
                     loyalty: [
                             level: 5
                     ],
@@ -1629,6 +1648,21 @@ trackTests {
         }
     }
 
+    // New Header
+    test("Profile header tap") {
+        "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://link"
+            button_link = "mercadopago://link"
+       	    metadata_user = [
+                type: "seller"
+            ]
+        }
+    }
+
+    test("Button header tap") {
+        "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
     /*****************************
      * WALLET HOME TEST TRACKS V3 *
      *****************************/
@@ -1778,7 +1812,7 @@ trackTests {
         }
     }
 
-    test("Mercadopago shortcut favorite edition") { 
+    test("Mercadopago shortcut favorite edition") {
         "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
 
         "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
@@ -1920,5 +1954,22 @@ trackTests {
             }
         }
 
-    }    
+    }
+
+    ["mercadolibre", "mercadopago"].each { business ->
+        defaultBusiness = business
+
+        test("Merch Control Group [${business}]") {
+            "/wallet_home/merch/control_group"(platform: "/mobile", type: TrackType.Event) {
+                component_id =  "modal_home_mp_v2"
+                content_id = "modal_test_proof_2"
+                audience = "all"
+                position = 0
+                logic = "campaigns"
+                bu = "4"
+                bu_line = "10"
+                flow = "-1"
+            }
+        }
+    }
 }

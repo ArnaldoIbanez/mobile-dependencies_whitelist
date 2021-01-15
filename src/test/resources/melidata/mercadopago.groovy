@@ -97,7 +97,6 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -106,7 +105,6 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -170,6 +168,13 @@ trackTests {
             prog_reg_version = 1
         }
 
+        "/register/success"(platform: "/web/desktop") {
+            app = "registration-buy"
+            captcha_showed = false
+            prog_reg_version = 0
+            source = "email"
+        }
+
         "/register/success"(platform: "/web/mobile") {
             app = "registration"
             source = "email"
@@ -222,20 +227,14 @@ trackTests {
     test("Registration App"){
         // app module
         "/register/hub"(platform: "/mobile") {
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+           app = "mp"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
         "/register/hub/register-with-email"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
-
-        }
-        "/register/hub/register-with-facebook"(platform: "/mobile"){
-            app = "favorite"
-            origin = "email"
-            item_id = "MLA21233"
+           app = "mp"
+           registration_version = "regi_v0_mobile_normal_with_login_tyc"
+           origin = "home"
         }
         "/register/form"(platform:"/mobile") {
             app = "favorite"
@@ -256,6 +255,23 @@ trackTests {
             app = "normal"
             register_type = "company"
             registration_version = "regi_v0_web"
+        }
+        "/register/form/validate"(platform:"/mobile/ios") {
+            app = "mp"
+            step_valid = "true"
+            checkbox_valid = "true"
+            components_valid = "true"
+        }
+        "/register/form/validate"(platform:"/mobile/android") {
+            app = "mp"
+            step_valid = true
+            checkbox_valid = true
+            components_valid = true
+        }
+        "/register/form/continue"(platform:"/mobile") {
+            app = "mp"
+            registration_version = "regi_v0_mobile_normal_with_login_tyc"
+            origin = "home"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
@@ -342,7 +358,6 @@ trackTests {
                     ]
             ]
             register_type = "person"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -354,7 +369,6 @@ trackTests {
                     ]
             ]
             register_type = "company"
-            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {
@@ -368,11 +382,18 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
         }
+        "/register/account-recovery-hub"(platform: "/mobile"){
+            app = "mp"
+            registration_version = "regi_v0_mobile_mp_tyc"
+        }
         "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
-
+        }
+        "/register/account-recovery-hub/account-recovery"(platform: "/mobile"){
+            app = "mp"
+            registration_version = "regi_v0_mobile_mp_tyc"
         }
         "/register/account-recovery-hub/use-another-email"(platform: "/mobile"){
             app = "favorite"
@@ -460,6 +481,11 @@ trackTests {
             step = "phoneRegistration"
             field = "phone"
             registration_version = "regi_v0_web"
+        }
+        "/register/upgrade_version"(platform: "/mobile") {
+          app = "mp"
+          registration_version = "unsuported_version"
+          origin = "my_account"
         }
     }
 
@@ -554,7 +580,7 @@ trackTests {
           price = 299
           is_guest = true
           has_coupon = true
-          coupon_code = "GHZM"
+          discount_code = "GHZM"
           user_id = 5010815
           e2e_test = false
         }
@@ -564,6 +590,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -574,6 +601,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -584,6 +612,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -594,6 +623,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -604,6 +634,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -614,6 +645,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -624,6 +656,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -634,6 +667,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -644,6 +678,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -657,6 +692,7 @@ trackTests {
           is_guest = true
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
+          discount_code = "GHZM"
           installments = 6
           user_id = 5010815
           e2e_test = false
@@ -670,6 +706,7 @@ trackTests {
           is_guest = true
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
+          discount_code = "GHZM"
           installments = 6
           user_id = 5010815
           e2e_test = false
@@ -681,6 +718,7 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
+          discount_code = "GHZM"
           error_code = 6
           user_id = 5010815
           e2e_test = false
@@ -691,6 +729,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -701,6 +740,7 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
@@ -711,10 +751,13 @@ trackTests {
           product = "11"
           currency = "ARS"
           price = 299
+          discount_code = "GHZM"
           is_guest = true
           user_id = 5010815
           e2e_test = false
         }
+
+        "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
     }
 
     test("MP-MA Landing QR") {
@@ -930,6 +973,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
     }
 
@@ -941,6 +985,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
     }
 
@@ -953,6 +998,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -961,6 +1007,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -969,30 +1016,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
-        }
-        "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1001,22 +1025,7 @@ trackTests {
             amount = 118.11
             is_guest = false
             e2e_test = false
-        }
-        "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+            discount_code = "GHZM"
         }
     }
 
@@ -1029,6 +1038,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1037,6 +1047,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1045,30 +1056,7 @@ trackTests {
           amount = 118.11
           is_guest = false
           e2e_test = false
-        }
-        "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+          discount_code = "GHZM"
         }
         "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1077,22 +1065,7 @@ trackTests {
             amount = 118.11
             is_guest = false
             e2e_test = false
-        }
-        "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-        }
-        "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
+            discount_code = "GHZM"
         }
     }
     
@@ -1193,6 +1166,43 @@ trackTests {
             product = "bbpos"
         }
 
+        // Multiproduct
+        "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {
+            product = "multiproduct mla"
+        }
+
+        "/point/landings/multiproduct/buy"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        "/point/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        // Landing Compare
+        "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.View) {
+            product = "compare"
+        }
+
+        "/point/landings/compare/buy"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        "/point/landings/compare/go"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        // Landing navigation
+        "/point/landings/navigation"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+            coupon_code = "Y96XA"
+            coupon_type = "default"
+        }
+
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
@@ -1219,70 +1229,6 @@ trackTests {
         "/payers_growth/landings" (platform: "/") {
             product = "mkt-mostaza"
         }
-    }
-
-    test("Services Marketing landings") {
-        "/services/mkt_landing"(platform: "/web"){
-            campaign = "generic"
-        }
-        "/services/mkt_landing"(platform: "/web"){
-            campaign = "personal"
-        }
-        "/services/mkt_landing/sms"(platform: "/web"){
-            campaign = "generic"
-        } 
-        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
-            campaign = "generic"
-            position = "coupon"
-        } 
-        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
-            campaign = "generic"
-            position = "steps"
-        } 
-        "/services/mkt_landing/button"(platform: "/web"){
-            campaign = "generic"
-            position = "hero"
-        } 
-        "/services/mkt_landing/button"(platform: "/web"){
-            campaign = "generic"
-            position = "fixed"
-        } 
-        "/services/mkt_landing/button"(platform: "/web"){
-            campaign = "generic"
-            position = "footer"
-        } 
-    }
-
-    test("QR Payers Marketing landings") {
-        "/qr_payers/mkt_landing"(platform: "/web"){
-            campaign = "generic"
-        }
-        "/qr_payers/mkt_landing"(platform: "/web"){
-            campaign = "personal"
-        }
-        "/qr_payers/mkt_landing/sms"(platform: "/web"){
-            campaign = "generic"
-        } 
-        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
-            campaign = "generic"
-            position = "coupon"
-        } 
-        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
-            campaign = "generic"
-            position = "steps"
-        } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
-            campaign = "generic"
-            position = "hero"
-        } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
-            campaign = "generic"
-            position = "fixed"
-        } 
-        "/qr_payers/mkt_landing/button"(platform: "/web"){
-            campaign = "generic"
-            position = "footer"
-        } 
     }
 
     test("MP MLA/MLB/MLM Landing Bundles Point") {
@@ -2498,7 +2444,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/home/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/home/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2537,7 +2483,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/invoices/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/invoices/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2600,7 +2546,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/input_data/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/input_data/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2688,7 +2634,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/barcode_manual_input/info_hour"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/barcode_manual_input/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
         "/bill_payments/barcode_manual_input/open_scanner"(platform: "/mobile", type: TrackType.Event) {
@@ -2797,6 +2743,11 @@ trackTests {
 
         "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+        }
+
+        "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "lable warning"
         }
 
         "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
@@ -3473,10 +3424,6 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-            is_webview = true
-        }
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
@@ -3485,10 +3432,12 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
+        "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
             is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
@@ -3498,6 +3447,30 @@ trackTests {
             is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "confirm_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "cancel_button"
+            is_webview = true
+        }
+        "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
@@ -3633,35 +3606,36 @@ trackTests {
         "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
-            status = "approve"
+            status = "approved"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "aborted"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "rejected"
         }
     }
 
     test("Device Authorization - Enrollment") {
-        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-            section = "security_settings"
-            status = "approve"
+            status = "approved"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "aborted"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "rejected"
         }
 
-        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     }
 
     test("Phone Validation - Authentication") {
@@ -3881,6 +3855,57 @@ trackTests {
             scenario = "never_auto_enrolled"
         }
 
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+            from = "registration"
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "activate_security_success"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "both_enrolled"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+            from = "login"
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "auto_enroll"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+            from = "campaign"
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "activate_security_success"
+        }
+        
         "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
         }
 
@@ -4598,6 +4623,7 @@ trackTests {
             user_id = "1321312"
             lang = "es"
             site = "mla"
+            uri = "/guides"
             like = "yes"
         }
     }

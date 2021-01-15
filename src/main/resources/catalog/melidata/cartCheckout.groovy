@@ -407,25 +407,30 @@ tracks {
 
     "/cart/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         written(required: true, type: PropertyType.String, description: "The written text before selecting a street suggestion")
-        finalText(required: true, type: PropertyType.String, description: "The final text after selecting a street suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a street suggestion")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         written(required: true, type: PropertyType.String, description: "The written text before selecting a phone suggestion")
-        finalText(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     
     "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that are shown after opening the replace zip codes modal")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     
     "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that were shown on the replace zip codes modal")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         suggested(required: true, type: PropertyType.Map(coordinatesStructure), description: "The suggested coordinates where we positioned the user on the map")
-        finalCoordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
+        final_coordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
