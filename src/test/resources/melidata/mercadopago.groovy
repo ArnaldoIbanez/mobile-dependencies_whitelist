@@ -1179,9 +1179,21 @@ trackTests {
             product = "Point Plus"
         }
 
+        "/point/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
         // Landing Compare
         "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.View) {
             product = "compare"
+        }
+
+        "/point/landings/compare/buy"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        "/point/landings/compare/go"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
         }
 
         // Landing navigation
