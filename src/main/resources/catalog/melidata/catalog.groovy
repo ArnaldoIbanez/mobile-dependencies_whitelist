@@ -239,6 +239,7 @@ catalog {
         include business, "cashout.groovy"
         include business, "pix.groovy"
         include business, "black_friday.groovy"
+        include business, "business_config.groovy"
     }
 
     mercadoshops.each { business ->
