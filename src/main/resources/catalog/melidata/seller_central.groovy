@@ -1089,14 +1089,25 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
-    "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/seller_central/sales/list/widget"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/seller_central/sales/list/widget/header"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "Collapsed state")
+    }
+    "/seller_central/sales/list/widget/dismiss"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        batch_id(required: true, type: PropertyType.String, description: "Batch id")
+    }
+    "/seller_central/sales/list/widget/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        processing(required: true, type: PropertyType.Boolean, description: "Processing state")
+        batch_ids(required: true, type: PropertyType.ArrayList, description: "List of batch ids")
+    }
+    "/seller_central/sales/list/widget/action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, type: PropertyType.String, description: "Action executed")
         type(required: true, type: PropertyType.String, description: "Type action executed")
         date_created(required: false, type: PropertyType.String, description: "Created date")
         date_finished(required: false, type: PropertyType.String, description: "Finished date")
         date_executed(required: false, type: PropertyType.String, description: "Executed date")
     }
-
+    
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
         substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
@@ -1188,7 +1199,18 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
-    "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/seller_central/sales/detail/widget"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/seller_central/sales/detail/widget/header"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "Collapsed state")
+    }
+    "/seller_central/sales/detail/widget/dismiss"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        batch_id(required: true, type: PropertyType.String, description: "Batch id")
+    }
+    "/seller_central/sales/detail/widget/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        processing(required: true, type: PropertyType.Boolean, description: "Processing state")
+        batch_ids(required: true, type: PropertyType.ArrayList, description: "List of batch ids")
+    }
+    "/seller_central/sales/detail/widget/action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, type: PropertyType.String, description: "Action executed")
         type(required: true, type: PropertyType.String, description: "Type action executed")
         date_created(required: false, type: PropertyType.String, description: "Created date")

@@ -1775,7 +1775,26 @@ trackTests {
   }
 
   test("seller central sales widget action") {
-    "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/sales/list/widget/header"(platform: "/web", type: TrackType.Event) {
+      collapsed = true
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/dismiss"(platform: "/web", type: TrackType.Event) {
+      batch_id = "128390"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/close"(platform: "/web", type: TrackType.Event) {
+      processing = true
+      batch_ids = ["128390", "128390"]
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/action"(platform: "/web", type: TrackType.Event) {
       action = "dynamic_action"
       type = "download"
       date_created = "01/01/2021"
@@ -1951,7 +1970,26 @@ trackTests {
   }
 
   test("seller central sales widget action") {
-    "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/sales/detail/widget/header"(platform: "/web", type: TrackType.Event) {
+      collapsed = true
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/dismiss"(platform: "/web", type: TrackType.Event) {
+      batch_id = "128390"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/close"(platform: "/web", type: TrackType.Event) {
+      processing = true
+      batch_ids = ["128390", "128390"]
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/action"(platform: "/web", type: TrackType.Event) {
       action = "dynamic_action"
       type = "download"
       date_created = "01/01/2021"
