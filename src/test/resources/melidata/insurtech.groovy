@@ -1349,7 +1349,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/detail/roda/imei_activation"(platform:"/web", type: TrackType.Event) {
+        "/insurtech/protections/detail/roda/imei_activation"(platform:"/mobile", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
                 amount_total: 100.72,
@@ -1360,8 +1360,11 @@ trackTests {
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
-            imeiValid = true
+            is_imei_valid = true
             protection_status = 'pending_activation'
+            days_after_pending = 5
+            number_retry = 4
+            modal = 2
         }
 
 
