@@ -23,6 +23,7 @@ trackTests {
             provider_id = "antenna_mla_directv_prepago"
             flavor = "sube_nfc"
             last_recharge = "1459"
+            parent_key = "cellphone_mlm_telcel__100_mb"
         }
 
         def view_time = {
@@ -86,6 +87,7 @@ trackTests {
             type = "item8"
             content = ["Movistar"]
         }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -209,6 +211,12 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
+        }
 
 
         // Recommended products
@@ -327,6 +335,7 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -880,6 +889,12 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
+        }
 
 
         // Recommended products
@@ -978,7 +993,8 @@ trackTests {
             step_information()
             button_card()
             notification_panel()
-            available_items() 
+            available_items()
+            parent_key
         }
 
         "/single_player/prepaid/one_device/edit_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -999,6 +1015,7 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()

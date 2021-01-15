@@ -1485,5 +1485,7 @@ tracks {
 
     "/vip/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
+        item_id(required: false, type: PropertyType.String, description: "Indica el identificador del item")
+        is_component_tracker(required: false, type: PropertyType.String, description: "Indica si el componente es el backup track")
     }
 }

@@ -1360,7 +1360,10 @@ trackTests {
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
+            imeiValid = true
+            protection_status = 'pending_activation'
         }
+
 
         "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
             protection = [
@@ -1423,9 +1426,6 @@ trackTests {
         }∫
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
 
-        "/insurtech/protections/detail/roda/congrats/imei"(platform:"/web", type: TrackType.View) {
-            insurance_purchase: "roda-ABC125"
-        }
     }
 
     ["mercadolibre", "mercadopago"].each { business ->

@@ -116,15 +116,19 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
+        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
         "/addresses/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
             written = "sug"
-            finalText = "suggested street"
+            final_text = "suggested street"
             context = "MY_ML"
             editing_address = 12312312312
         }
         "/addresses/input_address/select_phone"(platform: "/", type: TrackType.Event) {
             written = "123"
-            finalText = "12345678"
+            final_text = "12345678"
             context = "MY_ML"
             editing_address = 12312312312
         }        
@@ -143,7 +147,7 @@ trackTests {
                 "latitude": 12.12,
                 "longitude": 42.42
             ]
-            finalCoordinates = [
+            final_coordinates = [
                 "latitude": 12.13,
                 "longitude": 42.40
             ]
@@ -262,15 +266,19 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
+        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
         "/addresses/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
             written = "sug"
-            finalText = "suggested street"
+            final_text = "suggested street"
             context = "MY_ML"
             editing_address = 12312312312
         }
         "/addresses/input_address/select_phone"(platform: "/", type: TrackType.Event) {
             written = "123"
-            finalText = "12345678"
+            final_text = "12345678"
             context = "MY_ML"
             editing_address = 12312312312
         }        
@@ -289,7 +297,7 @@ trackTests {
                 "latitude": 12.12,
                 "longitude": 42.42
             ]
-            finalCoordinates = [
+            final_coordinates = [
                 "latitude": 12.13,
                 "longitude": 42.40
             ]

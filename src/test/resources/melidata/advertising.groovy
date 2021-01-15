@@ -486,10 +486,6 @@ trackTests {
             budget = 3990
             campaign_id = 235666
             budget_type = "D"
-            budget_new = 2500
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
 
     }
@@ -1059,8 +1055,8 @@ trackTests {
             budget = "4000"
         }
 
-        "/advertising/pads2/manager/update/budget/go"(platform: "/web", type: TrackType.Event) {
-            multi = true
+        "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
+            multi = false
             campaign_id = "2222222"
             budget_previous = 4000
             budget = "4000"
@@ -1071,15 +1067,11 @@ trackTests {
             budget_pct_old = "17.0"
         }
 
-        "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
-            multi = true
+        "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
+            multi = false
             campaign_id = "2222222"
             budget = "4000"
             budget_type = "D"
-            budget_new = 2500
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
@@ -1655,7 +1647,7 @@ trackTests {
 
         "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {}
 
-        "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/hub/update/budget/go"(platform: "/", type: TrackType.Event) {
             campaign_id = "2222222"
             budget = "4000"
             budget_new = 5600
@@ -1664,23 +1656,15 @@ trackTests {
             budget_type_new = "D"
             budget_pct_old = "17.0"
         }
-        "/advertising/pads2/hub/update/budget/close"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/hub/update/budget/close"(platform: "/", type: TrackType.Event) {
             campaign_id = "2222222"
             budget = "4000"
-            budget_new = 5600
             budget_type = "D"
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
         "/advertising/pads2/hub/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             budget = "4000"
-            budget_new = 5600
             budget_type = "D"
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1

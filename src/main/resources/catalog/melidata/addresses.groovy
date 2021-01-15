@@ -13,7 +13,7 @@ tracks {
 
     // VIEWS
     "/addresses"(platform: "/", isAbstract: true) {
-        context(required: true, description: "The client which is using the addresses flow", values: ["MY_ML"], type: PropertyType.String)
+        context(required: false, description: "The client which is using the addresses flow", values: ["MY_ML"], type: PropertyType.String)
     }
     
     "/addresses/input_address"(platform: "/", type: TrackType.View) {
@@ -64,14 +64,16 @@ tracks {
 
     "/addresses/input_address/dont_know_my_zip_code/submit"(platform:"/", type: TrackType.Event) {}
 
+    "/addresses/input_address/dont_know_my_zip_code/back"(platform:"/", type: TrackType.Event) {}
+
     "/addresses/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
         written(required: true, type: PropertyType.String, description: "The written text before selecting a street suggestion")
-        finalText(required: true, type: PropertyType.String, description: "The final text after selecting a street suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a street suggestion")
     }
 
     "/addresses/input_address/select_phone"(platform: "/", type: TrackType.Event) {
         written(required: true, type: PropertyType.String, description: "The written text before selecting a phone suggestion")
-        finalText(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
     }
     
     "/addresses/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
@@ -84,6 +86,6 @@ tracks {
 
     "/addresses/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
         suggested(required: true, type: PropertyType.Map(coordinatesStructure), description: "The suggested coordinates where we positioned the user on the map")
-        finalCoordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
+        final_coordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
     }
 }

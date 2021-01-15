@@ -208,6 +208,11 @@ tracks {
     //Events
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
         installments_group
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/choose_installments"(platform: "/", type: TrackType.Event) {}
@@ -230,6 +235,11 @@ tracks {
     //Mobile Events
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
@@ -318,6 +328,11 @@ tracks {
                 required: true,
                 values: ['cho', 'ticket']
         )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/", type: TrackType.Event) {
         installment_status(
@@ -340,6 +355,11 @@ tracks {
                 description: "Current selected 'path' to payment",
                 required: true,
                 values: ['cho', 'ticket']
+        )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
         )
     }
 
@@ -884,8 +904,19 @@ tracks {
                 )
             }
 
-        "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
-            }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+               error_type(
+                       required: true,
+                       description: "Error type message",
+                       type: PropertyType.String,
+                       values: [
+                           "no_offer",
+                           "not_found",
+                           "invalid_offer",
+                           "unknown",
+                       ]
+                   )
+               }
      /******************************************
      *    End: Self service
      ******************************************/

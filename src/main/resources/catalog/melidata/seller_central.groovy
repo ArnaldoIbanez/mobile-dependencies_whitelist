@@ -275,11 +275,14 @@ tracks {
         sellerCentralOptinatorNewListingsGroup(flow, domain_id, item_mk_id, item_mk_status, item_mk_sub_status, item_mk_tags, processing_data, variations)
     }
 
+    // Central of News
+    "/seller_central/news"(platform: "/", type: TrackType.View) {}
+
     // Summary
-    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/summary"(platform: "/", type: TrackType.View) {}
 
     // La idea es saber como fue la ejecución de cada módulo
-    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/modules_render"(platform: "/", type: TrackType.Event) {
         modules(required: true, type: PropertyType.ArrayList(PropertyType.Map(summaryModule)), description: "Array of modules")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
@@ -303,7 +306,7 @@ tracks {
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
 
-    "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/task"(platform: "/", type: TrackType.Event) {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
@@ -779,6 +782,18 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_3x_campaign"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
+    "/seller_central/modify/update_ahora_12"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
@@ -1074,6 +1089,14 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
+    "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, type: PropertyType.String, description: "Action executed")
+        type(required: true, type: PropertyType.String, description: "Type action executed")
+        date_created(required: false, type: PropertyType.String, description: "Created date")
+        date_finished(required: false, type: PropertyType.String, description: "Finished date")
+        date_executed(required: false, type: PropertyType.String, description: "Executed date")
+    }
+
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
         substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
@@ -1165,6 +1188,14 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
+    "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, type: PropertyType.String, description: "Action executed")
+        type(required: true, type: PropertyType.String, description: "Type action executed")
+        date_created(required: false, type: PropertyType.String, description: "Created date")
+        date_finished(required: false, type: PropertyType.String, description: "Finished date")
+        date_executed(required: false, type: PropertyType.String, description: "Executed date")
+    }
+
     "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "ID of main action")
     }
@@ -1215,6 +1246,10 @@ tracks {
     }
 
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+        fragment_from_webview(required: false, type: PropertyType.String, description: "The webview where is opened the fragment")
+    }
 
     "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales

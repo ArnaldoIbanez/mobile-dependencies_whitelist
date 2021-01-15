@@ -489,35 +489,36 @@ trackTests {
         "/authenticators/device_authorization/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
-            status = "approve"
+            status = "approved"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "rejected"
+        }
+        "/authenticators/device_authorization/access_answer/send"(platform: "/", type: TrackType.Event) {
+            status = "aborted"
         }
     }
 
     test("Device Authorization - Enrollment") {
-        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/greeting"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_request/fallback"(platform: "/", type: TrackType.View) {}
 
-        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/access_answer"(platform: "/", type: TrackType.View) {}
 
         "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
-            section = "security_settings"
-            status = "approve"
+          status = "approved"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+          status = "aborted"
+        }
+        "/authenticators/device_authorization/enrollment/access_answer/send"(platform: "/", type: TrackType.Event) {
+          status = "rejected"
         }
 
-        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
-            section = "security_settings"
-        }
+        "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     }
 
     test("Phone Validation - Authentication") {
@@ -552,6 +553,19 @@ trackTests {
             flow_type = "enrollment"
             flow_sub_type = "new_phone"
         }
+        "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {
+            status = "validated"
+            available_channels = ["whatsapp","sms","call"]
+            enrollment = false
+        }
+
+        "/authenticators/phone_validation/channel_selector"(platform: "/mobile/android", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["sms","call"]
+            enrollment = true
+            flow_sub_type ="SESSION_ACTIVITY_NOTIF"
+            phone_source = "input"
+        }
 
         "/authenticators/phone_validation/channel_selector/submit"(platform: "/", type: TrackType.Event) {
             status = "pending_validation"
@@ -581,6 +595,13 @@ trackTests {
             enrollment = true
             flow_type = "enrollment"
             flow_sub_type = "new_phone"
+        }
+
+        "/authenticators/phone_validation/enter_code"(platform: "/mobile/android", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["push","sms","call"]
+            selected_channel = "push"
+            enrollment = false
         }
 
         "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
@@ -730,6 +751,16 @@ trackTests {
                 client_type = "mobile"
             }
 
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "pix"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+            }
+
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
                 flow = "registration"
                 client_type = "mobile"
@@ -845,6 +876,19 @@ trackTests {
                 scenario = "single_enrolled"
             }
 
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+                from = "registration"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "activate_security_success"
+            }
+
             "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
@@ -855,6 +899,32 @@ trackTests {
                         "opening_custom": "0"
                 ]
                 scenario = "both_enrolled"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+                from = "login"
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+                from = "campaign"
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "activate_security_success"
             }
 
             "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {

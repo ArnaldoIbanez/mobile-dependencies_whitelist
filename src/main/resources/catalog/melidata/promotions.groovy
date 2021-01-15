@@ -85,6 +85,7 @@ tracks {
       sold_quantity(required: false, type: PropertyType.Numeric)
       available_quantity(required: false, type: PropertyType.Numeric)
       tags(required: false, type: PropertyType.ArrayList(PropertyType.String))
+      deal_ids(required: true, type: PropertyType.ArrayList(PropertyType.String))
       warranty(required: false, type: PropertyType.String)
       accepts_mercadopago(required: false, type: PropertyType.Boolean)
       health(required: false, type: PropertyType.Numeric, 

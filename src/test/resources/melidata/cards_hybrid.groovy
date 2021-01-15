@@ -1068,7 +1068,7 @@ trackTests {
         }
     }
 
-    //NFC HUB
+    //NFC ENROLLMENT HUB
     test("cards hybrid nfc enrollment hub") {
         "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
@@ -1090,6 +1090,33 @@ trackTests {
             action = "success_redirect"
         }
     }
+    
+    //NFC CONFIGURATION HUB
+    test("cards hybrid nfc configuration hub") {
+        "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "continue_later"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_tap_and_pay"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_pin"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc"
+        }     
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc_freeze"
+        }     
+        "/cards/nfc/configuration/hub/redirect"(platform:"/", type: TrackType.Event) {
+            action = "success_redirect"
+        }
+    }
+    
     test("cards hybrid nfc onboarding") {
         "/cards/nfc/enrollment/hub/onboarding"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
