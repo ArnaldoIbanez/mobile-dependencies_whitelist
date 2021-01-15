@@ -322,7 +322,9 @@ tracks {
      * WALLET HOME TRACKS v2  *
      *************************/
 
-    "/wallet_home" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home" (platform: "/mobile") {
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+    }
     "/wallet_home/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet_home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
     "/wallet_home/banking" (platform: "/mobile", isAbstract: true) {}
