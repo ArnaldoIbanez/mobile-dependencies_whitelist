@@ -124,6 +124,11 @@ tracks {
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
     }
 
+    def repentance_button_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
+    }
+
     def qr_map_definition = objectSchemaDefinitions {
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
@@ -195,7 +200,9 @@ tracks {
     }
 
     def header_definition = objectSchemaDefinitions {
-        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+        link(required: false, type: PropertyType.String, description: "If header is tapeable")
+        button_link(required: false, type: PropertyType.String, description: "If button is present")
+        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info") // TODO: Will be deprecated for newer versions
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
@@ -315,7 +322,9 @@ tracks {
      * WALLET HOME TRACKS v2  *
      *************************/
 
-    "/wallet_home" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home" (platform: "/mobile") {
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+    }
     "/wallet_home/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet_home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
     "/wallet_home/banking" (platform: "/mobile", isAbstract: true) {}
@@ -361,7 +370,7 @@ tracks {
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
         header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        content_type(required: true, type: PropertyType.String, values: ['partial','default','complete'])
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -377,6 +386,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
@@ -384,7 +394,7 @@ tracks {
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
         header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
+        content_type(required: true, type: PropertyType.String, values: ['partial','default','complete'])
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -400,9 +410,16 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
+    }
+
+    //Control Group - Merch Engine
+    "/wallet_home/merch" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home/merch/control_group" (platform: "/mobile", type: TrackType.Event) {
+        walletHomeMerchEngineFields
     }
 
     //Notification Center
@@ -434,10 +451,23 @@ tracks {
     //Loyalty
     "/wallet_home/loyalty" (platform: "/mobile", isAbstract: true) {}
 
-    "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) { // TODO: Will be deprecated
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
+
+    // New header
+    "/wallet_home/header_profile" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/header_data_button" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "If header is tapeable")
+        button_link(required: false, type: PropertyType.String, description: "If button is present")
+       	metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+    }
+
+    "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
 
     /**********************************/
     //    NEW TRACKS HOME TAP v3      //
@@ -452,6 +482,14 @@ tracks {
     }
 
     "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/banking_v2" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
+        prepaid(required: true, type: PropertyType.Boolean, description: "If user has a prepaid card")
+        debit(required: true, type: PropertyType.Boolean, description: "If user has a debit card")
+        quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
+    }
 
     "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {}
 
@@ -494,6 +532,8 @@ tracks {
     }
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields

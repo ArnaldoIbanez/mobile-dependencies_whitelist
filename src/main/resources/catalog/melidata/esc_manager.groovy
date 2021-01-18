@@ -61,4 +61,11 @@ tracks {
     "/esc_manager/invalid/key"(platform: "/mobile", type: TrackType.Event) {
         externalData
     }
+
+    // Sync ESC event
+    "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
+        externalData
+        type(required: true, type: PropertyType.String , description: "Type of synchronization", values: ["SINGLE_ESC_SYNC_REQUEST", "SINGLE_ESC_SYNC_DONE", "ALL_ESC_SYNC_REQUEST", "ALL_ESC_SYNC_DONE"])
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of esc synchonized")
+    }
 }

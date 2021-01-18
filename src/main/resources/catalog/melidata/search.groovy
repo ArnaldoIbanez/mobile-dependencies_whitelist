@@ -25,11 +25,19 @@ tracks {
         position(type: PropertyType.Numeric, required: true)
     }
 
+    def seo_allowlist_item_definition = objectSchemaDefinitions {
+        seo_is_allowlisted(type: PropertyType.Boolean, required: true)
+        seo_apply_no_index(type: PropertyType.Boolean, required: true)
+        search_no_index_applied(type: PropertyType.Boolean, required: true)
+        results_by_strategy(type: PropertyType.Map, required: true)
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
         check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
         value(type: PropertyType.Numeric, required: true)
         is_default(type: PropertyType.Boolean, required: true)
+        allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -77,6 +85,7 @@ tracks {
         item_id(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
+        type(type: PropertyType.String, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
@@ -84,6 +93,7 @@ tracks {
         shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        highlights(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -250,6 +260,7 @@ tracks {
     }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
+    "/search/breadcrumb"(platform: "/web", isAbstract: true) {}
     
     "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
@@ -262,6 +273,10 @@ tracks {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
         total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
+    }
+
+    "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        url(required: true, description: "Url of the link associated to the breadcrumb")
     }
 
     "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
@@ -304,6 +319,13 @@ tracks {
     "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
         to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
         to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
+    }
+
+    "/search/official_store_logo"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store_logo/click"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        store(required: true, description: "Official store name of the shown logo")
+        url(required: true, description: "Url of landing associated with the logo click event")
     }
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
@@ -349,6 +371,9 @@ tracks {
     }
 
     "/search/alert_intention"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

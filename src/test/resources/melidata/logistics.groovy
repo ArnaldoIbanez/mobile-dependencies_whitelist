@@ -260,6 +260,7 @@ trackTests {
         "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
             packs_info = "pack"
             route_id = "123"
+            driver_id = "1234"
             latitude = "1234"
             longitude = "1234"
         }
@@ -310,8 +311,8 @@ trackTests {
             context = "mock"
             driver_id = "1234"
             shipment_id = "1234"
-            receiver_latitude = "1234"
-            receiver_longitude = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
@@ -319,8 +320,8 @@ trackTests {
             context = "mock"
             driver_id = "1234"
             shipment_id = "1234"
-            receiver_latitude = "1234"
-            receiver_longitude = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
@@ -333,6 +334,7 @@ trackTests {
             distance = "500"
             context = "could_not_deliver"
             is_blocking = false
+            shipment_id = "222"
         }
 
         "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -457,6 +459,10 @@ trackTests {
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
             shipment_id = "222"
         }
+        "/logistics/last_mile/package/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+            driver_id = 124
+        }
         "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
@@ -527,6 +533,21 @@ trackTests {
             picked_count = 10
             estimated_count = 12
         }
+        "/logistics/first_mile/pickup/partial"(platform: "/mobile", type: TrackType.View) {
+            route_id = "125"
+            driver_id = 123
+            pickup_point_id = "123"
+        }
+        "/logistics/first_mile/pickup/partial/full_vehicle"(platform: "/mobile", type: TrackType.Event) {
+            route_id = "125"
+            driver_id = 123
+            pickup_point_id = "123"
+        }
+        "/logistics/first_mile/pickup/partial/all_picked"(platform: "/mobile", type: TrackType.Event) {
+            route_id = "125"
+            driver_id = 123
+            pickup_point_id = "123"
+        }
         "/logistics/first_mile/pickup/seller_document_form"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             first_mile_logistic_type = "FF"
@@ -570,6 +591,14 @@ trackTests {
         }
         "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
             driver_id = 400
+        }
+        "/logistics/last_mile/poll"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
+        }
+        "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
         }
     }
 

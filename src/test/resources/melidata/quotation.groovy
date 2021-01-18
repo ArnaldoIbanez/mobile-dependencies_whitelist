@@ -245,4 +245,12 @@ trackTests {
             unit_id = 54321
         }
     }
+
+    test("Quotation :: Click Credits Link") {
+        "/quotation/credits_intention/card"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLC12345"
+            source = "congrats_link"
+            unit_id = 98123
+        }
+    }
 }

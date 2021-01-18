@@ -204,6 +204,20 @@ trackTests {
         }
     }
 
+    test("Mobile Landing loading time") {
+        "/landing/load"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com"
+            status = "success"
+            loading_time = 500
+        }
+
+        "/landing/load"(platform: "/mobile", business: "mercadopago") {
+            url = "https://www.mercadopago.com"
+            status = "error"
+            loading_time = 200
+        }
+    }
+
     test("Oficial stores landings") {
 
         "/landing/brands/abort"(platform: "/mobile") {

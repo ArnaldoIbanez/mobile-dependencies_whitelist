@@ -16,7 +16,7 @@ metrics {
     }
   }
 
-  "payment"(description: "Counts when a user pays in any flow in any business", categorization:"important") {
+  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, categorization:"important") {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -28,7 +28,7 @@ metrics {
       }
     }
 
-  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business") {
+  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business", compute_payment: true) {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -41,7 +41,7 @@ metrics {
       }
     }
 
-  "payment.ml"(description: "Counts when a user pays in any flow in mercadolibre business") {
+  "payment.ml"(description: "Counts when a user pays in any flow in mercadolibre business", compute_payment: true) {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -54,7 +54,7 @@ metrics {
       }
     }
 
-  "payment.instore"(description: "Counts when a user pays in In Store in any business", categorization:"important") {
+  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -67,7 +67,7 @@ metrics {
     }
   }
 
-  "payment.instore.mp"(description: "Counts when a user pays in In Store in mercadopago business") {
+  "payment.instore.mp"(description: "Counts when a user pays in In Store in mercadopago business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -83,7 +83,7 @@ metrics {
     }
   }
 
-  "payment.instore.ml"(description: "Counts when a user pays in In Store in mercadolibre business") {
+  "payment.instore.ml"(description: "Counts when a user pays in In Store in mercadolibre business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -99,7 +99,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge in any business") {
+  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge in any business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -112,7 +112,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.mp"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business") {
+  "payment.cellphone_recharge.mp"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -128,7 +128,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.ml"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business") {
+  "payment.cellphone_recharge.ml"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -144,7 +144,7 @@ metrics {
     }
   }
 
-  "payment.transport"(description: "Counts when a user pays in Transport in any business") {
+  "payment.transport"(description: "Counts when a user pays in Transport in any business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -157,7 +157,7 @@ metrics {
     }
   }
 
-  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business") {
+  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -174,7 +174,7 @@ metrics {
     }
   }
 
-  "payment.money_transfer"(description: "Counts when a user sends Money in any business") {
+  "payment.money_transfer"(description: "Counts when a user sends Money in any business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -190,7 +190,7 @@ metrics {
     }
   }
 
-  "payment.services"(description: "Counts when a user pays a Service in any business") {
+  "payment.services"(description: "Counts when a user pays a Service in any business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -203,7 +203,7 @@ metrics {
     }
   }
 
-  "payment.pay_preference"(description: "Counts when a user pays a Preference in any business") {
+  "payment.pay_preference"(description: "Counts when a user pays a Preference in any business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -216,7 +216,7 @@ metrics {
     }
   }
 
-  "payment.starbucks"(description: "Counts when a user recharges Starbucks card in any business") {
+  "payment.starbucks"(description: "Counts when a user recharges Starbucks card in any business", compute_payment: true) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -430,6 +430,32 @@ metrics {
     countsOn {
       condition {
         path("/point_payment/cash/congrats")
+      }
+    }
+  }
+
+  "payment.installments"(description: "Counts when a user pay with installments > 1", compute_payment: true, deprecation_date:"2021/01/31") {
+    startWith {
+      experiment("px_nativo/highlight_installments")
+    }
+
+    countsOn {
+      condition {
+        path("/px_checkout/result/success")
+        notEquals("event_data.extra_info.selected_installment.quantity", "1")
+      }
+    }
+  }
+
+  "payment_intent.installments"(description: "Counts when a user confirm pay with installments > 1", compute_payment: true, deprecation_date:"2021/01/31") {
+    startWith {
+      experiment("px_nativo/highlight_installments")
+    }
+
+    countsOn {
+      condition {
+        path("/px_checkout/review/confirm")
+        notEquals("event_data.extra_info.selected_installment.quantity", "1")
       }
     }
   }

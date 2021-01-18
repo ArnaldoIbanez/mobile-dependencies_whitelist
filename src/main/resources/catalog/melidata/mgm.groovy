@@ -180,8 +180,8 @@ tracks {
     }
 
     "/mgm/v3/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        program_id(required: true, type: PropertyType.String, description: "Indicates the id of the member get member program.")
-        reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_invitado", "kyc_invitador", "kyc_invitado_fraudulento", "network"])
+        mgmGuestMinimumFields
+        reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_guest", "kyc_booster", "kyc_fraud", "discount_used", "scarcity_overcome", "wrong_site", "cap_reached"])
     }
 
     "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {}

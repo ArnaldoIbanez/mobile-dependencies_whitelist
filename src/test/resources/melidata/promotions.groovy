@@ -46,6 +46,11 @@ trackTests {
                           "immediate_payment",
                           "cart_eligible"
                         ],
+                        deal_ids: [
+                          "MLA1234",
+                          "MLA1235",
+                          "MLA1236"
+                        ],
                         warranty: "",
                         accepts_mercadopago: true,
                         boosted: true,
@@ -96,6 +101,11 @@ trackTests {
                           "immediate_payment",
                           "cart_eligible"
                         ],
+                        deal_ids: [
+                          "MLA2234",
+                          "MLA2235",
+                          "MLA2236"
+                        ],
                         accepts_mercadopago: true,
                         rebate: 1,
                         one_p: 0,
@@ -138,6 +148,11 @@ trackTests {
                           "loyalty_discount_eligible",
                           "immediate_payment",
                           "cart_eligible"
+                        ],
+                        deal_ids: [
+                          "MLA3234",
+                          "MLA3235",
+                          "MLA3236"
                         ],
                         warranty: "",
                         accepts_mercadopago: true,
@@ -183,6 +198,11 @@ trackTests {
                   image_src: "https://http2.mlstatic.com/D_683598-MLA42907993112_072020-T.jpg",
                   free_shipping: true,
                   fulfillment: false,
+                  deal_ids: [
+                          "MLA1234",
+                          "MLA1235",
+                          "MLA1236"
+                  ],
                   link: [
                     url: "https://articulo.mercadolibre.com.ar/MLA-689581949-notebook-hp-intel-core-i3-4gb-1tb-pantalla"
                   ],

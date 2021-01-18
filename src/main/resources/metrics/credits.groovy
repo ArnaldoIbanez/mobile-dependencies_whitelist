@@ -140,7 +140,7 @@ metrics {
 
     "credits_consumer.personal_loan_conversion"(description: "Credits conversion under adoption personal loans flow") {
         startWith {
-            experiment("credits/credits_short_onboarding", "credits/credits_default_selected_loans")
+            experiment("credits/credits_short_onboarding", "credits/credits_default_selected_loans", "wallet/merch_cross_sell_sort_hide_strategies")
         }
         countsOn {
             condition {

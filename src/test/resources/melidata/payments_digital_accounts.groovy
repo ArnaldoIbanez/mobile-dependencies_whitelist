@@ -1,6 +1,9 @@
 package src.test.resources.melidata
+
+import com.ml.melidata.catalog.PropertyType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
+import com.ml.melidata.TrackType
 
 trackTests {
     defaultBusiness = "mercadopago"
@@ -21,11 +24,73 @@ trackTests {
         "/banking/activities"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Balance Cerc") {
+        "/banking/cerc"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Movements") {
         "/banking/movements"(platform: "/", type: TrackType.View) {}
+
+        "/banking/movements/list/detail"(platform: "/", type: TrackType.Event) {}
+        "/banking/movements/pagination/change"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) {
+            action_type = 'income'
+        }
+        "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) {
+            period_type = 'default'
+            period_option = '30'
+            begin_date = '2020-12-22T00:00:00.000Z'
+            end_date = '2021-01-06T23:59:59.999Z'
+        }
+        "/banking/movements/filters/period"(platform: "/", type: TrackType.Event) {
+            period_type = 'range'
+            begin_date = '2020-12-22T00:00:00.000Z'
+            end_date = '2021-01-06T23:59:59.999Z'
+        }
+        "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
+        "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
+            action_type = 'income'
+            begin_date = '2020-12-22T00:00:00.000Z'
+            end_date = '2021-01-06T23:59:59.999Z'
+        }
+        "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
+            action_type = ''
+            begin_date = '2020-12-22T00:00:00.000Z'
+            end_date = '2021-01-06T23:59:59.999Z'
+        }
     }
 
     test("PNF") {
         "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking Balance Merch Engine Events") {
+        "/banking/balance/credits/print" (platform: "/", type: TrackType.Event) {
+            section_id = 'cards'
+            component_id = 'component_12'
+            content_id = 'banking_merch_engine'
+            audience = 'credits'
+            position = 1
+            logic = 'campaigns'
+            bu = 'mp'
+            bu_line = 'banking'
+            flow = '1'
+        }
+        "/banking/balance/credits/tap" (platform: "/", type: TrackType.Event) {
+            section_id = 'cards'
+            component_id = 'component_12'
+            content_id = 'banking_merch_engine'
+            audience = 'credits'
+            position = 1
+            logic = 'campaigns'
+            bu = 'mp'
+            bu_line = 'banking'
+            flow = '1'
+            action_id = 'banking'
+            link = '/banking'
+        }
     }
 }

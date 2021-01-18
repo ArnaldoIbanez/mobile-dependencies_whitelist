@@ -434,6 +434,14 @@ trackTests {
             dns_list = ["dnsps1.mercadolibre.com", "dnsps2.mercadolibre.com"]
             ref = ""
         }
+        "/mercado_shops/domains/migration_delegation_instructions"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            delegation_status = "REGISTERED"
+            dns_list = ["dnsps1.mercadolibre.com", "dnsps2.mercadolibre.com"]
+            ref = ""
+        }
         "/mercado_shops/domains/congrats"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -470,6 +478,14 @@ trackTests {
             success = true
         }
         "/mercado_shops/domains/delegation_cancel"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            delegation_status = "ACTIVE"
+            ref = ""
+            success = true
+        }
+        "/mercado_shops/domains/partial_migration_start"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -562,6 +578,22 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/facebook/store/meta_tag_configuration"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/facebook/store/domain_verification"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/facebook/store/domain_verification/save"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
         }
         "/mercado_shops/marketing/google"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
@@ -932,6 +964,16 @@ trackTests {
             status = 'ACTIVE'
             percentage = 5
         }
+        "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -963,6 +1005,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            success = true
         }
         "/mercado_shops/marketing/google_shopping_smart/campaign/context_help"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
@@ -988,6 +1031,12 @@ trackTests {
             success = true
         }
         "/mercado_shops/marketing/google_shopping_smart/dashboard/set_budget"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+        }
+        "/mercado_shops/marketing/google_shopping_smart/campaign/set_budget"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
