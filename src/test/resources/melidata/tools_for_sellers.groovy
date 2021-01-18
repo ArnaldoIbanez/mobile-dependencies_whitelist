@@ -39,4 +39,25 @@ trackTests {
       channel = "point"
     }
   }
+
+  // Contact Email Section
+  test("Contact email home") {
+    "/contact-email"(platform: "/", type:TrackType.View) {
+    }
+  }
+
+  test("Contact email home") {
+    "/contact-email"(platform: "/web", type:TrackType.View) {
+    }
+  }
+
+  test("Contact email error") {
+    "/contact-email/error"(platform: "/", type:TrackType.View) {
+    }
+  }
+
+  test("Contact email congrats") {
+    "/contact-email/congrats"(platform: "/", type:TrackType.View) {
+    }
+  }
 }

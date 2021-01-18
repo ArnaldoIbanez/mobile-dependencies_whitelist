@@ -332,4 +332,9 @@ tracks {
     "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel asked to render")
     }
+
+    // Contact Email Section
+    "/contact-email"(platform: "/", type: TrackType.View){}
+    "/contact-email/error"(platform: "/", type: TrackType.View){}
+    "/contact-email/congrats"(platform: "/", type: TrackType.View){}
 }
