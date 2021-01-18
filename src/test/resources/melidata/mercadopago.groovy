@@ -616,6 +616,7 @@ trackTests {
           is_guest = true
           user_id = 5010815
           e2e_test = false
+          has_account_money = true
         }
         
         "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
