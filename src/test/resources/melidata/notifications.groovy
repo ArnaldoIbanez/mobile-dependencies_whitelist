@@ -1521,6 +1521,16 @@ trackTests {
             latest_news_id= "single_player_payment_reminder_new_solo_debt-143816022-MLB1013046714"
             debt_id=123
         }
+        "/notification_center/single_player_new_debt_utility_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_new_debt_utility_mp"
+            latest_news_id= "single_player_new_debt_utility_mp-143816022-MLB1013046714"
+            debt_id=123
+        }
+        "/notification_center/single_player_expired_debt_utility_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_expired_debt_utility_mp"
+            latest_news_id= "single_player_expired_debt_utility_mp-143816022-MLB1013046714"
+            debt_id=123
+        }
         "/notification_center/single_player_payg_unlock_device_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_payg_unlock_device_mp"
             latest_news_id= "single_player_payg_unlock_device_mp-143816022-MLB1013046714"
@@ -4576,6 +4586,16 @@ trackTests {
             event_type = "open"
             debt_id=123
         }
+        "/notification/single_player_new_debt_utility_mp"(platform: "/mobile") {
+            news_id = "single_player_new_debt_utility_mp"
+            event_type = "open"
+            debt_id=123
+        }
+        "/notification/single_player_expired_debt_utility_mp"(platform: "/mobile") {
+            news_id = "single_player_expired_debt_utility_mp"
+            event_type = "open"
+            debt_id=123
+        }
         "/notification/single_player_payg_unlock_device_mp"(platform: "/mobile") {
             news_id = "single_player_payg_unlock_device_mp_123"
             event_type = "open"
@@ -6034,6 +6054,16 @@ trackTests {
             latest_news_id= "single_player_payment_reminder_new_solo_debt-143816022-MLB1013046714"
             debt_id=123
         }
+        "/notification_center/single_player_new_debt_utility_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_new_debt_utility_mp"
+            latest_news_id= "single_player_new_debt_utility_mp-143816022-MLB1013046714"
+            debt_id=123
+        }
+        "/notification_center/single_player_expired_debt_utility_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_expired_debt_utility_mp"
+            latest_news_id= "single_player_expired_debt_utility_mp-143816022-MLB1013046714"
+            debt_id=123
+        }
         "/notification_center/single_player_payg_unlock_device_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_payg_unlock_device_mp"
             latest_news_id= "single_player_payg_unlock_device_mp-143816022-MLB1013046714"
@@ -7181,6 +7211,16 @@ trackTests {
         }
         "/notification/single_player_payment_reminder_new_solo_debt"(platform: "/mobile") {
             news_id = "single_player_payment_reminder_new_solo_debt"
+            event_type = "open"
+            debt_id=123
+        }
+        "/notification/single_player_new_debt_utility_mp"(platform: "/mobile") {
+            news_id = "single_player_new_debt_utility_mp"
+            event_type = "open"
+            debt_id=123
+        }
+        "/notification/single_player_expired_debt_utility_mp"(platform: "/mobile") {
+            news_id = "single_player_expired_debt_utility_mp"
             event_type = "open"
             debt_id=123
         }
