@@ -25,7 +25,7 @@ trackTests {
         "/business_config/landing/card/row/action"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_2'
-            rowActionType = 'navigate'
+            action = 'navigate'
             value = 'mercadopago://deeplink'
         }
     }
@@ -34,6 +34,7 @@ trackTests {
         "/business_config/landing/card/row/disable/tooltip/show"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
         }
     }
 
@@ -41,6 +42,7 @@ trackTests {
         "/business_config/landing/card/row/disable/tooltip/hide"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
         }
     }
 
@@ -48,6 +50,7 @@ trackTests {
         "/business_config/landing/card/row/disable/tooltip/primary"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
             url = 'http://url'
         }
     }
@@ -56,21 +59,24 @@ trackTests {
         "/business_config/landing/card/row/disable/tooltip/secondary"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
             url = 'http://url'
         }
     }
 
     test("User opens the tooltip from an active row") {
-        "/business_config/landing/card/row/tooltip/show"(platform: "/web", type: TrackType.Event) {
+        "/business_config/landing/card/row/tooltip/show"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
         }
     }
 
     test("User closes the tooltip from an active row") {
-        "/business_config/landing/card/row/tooltip/hide"(platform: "/web", type: TrackType.Event) {
+        "/business_config/landing/card/row/tooltip/hide"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
         }
     }
 
@@ -78,6 +84,7 @@ trackTests {
         "/business_config/landing/card/row/tooltip/primary"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
             url = 'http://url'
         }
     }
@@ -86,6 +93,7 @@ trackTests {
         "/business_config/landing/card/row/tooltip/secondary"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
             url = 'http://url'
         }
     }
@@ -201,6 +209,7 @@ trackTests {
         "/business_config/landing/form/input/tooltip/primary"(platform: "/web", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
             url = 'http://url'
         }
     }
@@ -209,6 +218,7 @@ trackTests {
         "/business_config/landing/form/input/tooltip/secondary"(platform: "/web", type: TrackType.Event) {
             card = 'card_1'
             row = 'row_1'
+            tooltip = 'tooltip_1'
             url = 'http://url'
         }
     }
