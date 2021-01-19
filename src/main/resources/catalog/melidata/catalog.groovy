@@ -240,7 +240,7 @@ catalog {
         include business, "pix.groovy"
         include business, "black_friday.groovy"
         include business, "business_config.groovy",
-		include business, "mp_wrap_up.groovy"
+		include business, "mp_wrap_up.groovy",
     }
 
     mercadoshops.each { business ->
