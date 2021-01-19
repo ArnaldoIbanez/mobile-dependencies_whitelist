@@ -200,21 +200,21 @@ tracks {
         purchase_id(required: true, type: PropertyType.String, description: "Insurance purchase key id")
         preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
         payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
-        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+        status(required: true, type: PropertyType.String, values: ['approved', 'pending'], description:"Subscription payment status")
     }
 
      "/insurtech/roda/qpage/congrats_subscription/go_to_protections"(platform:"/", type: TrackType.Event) {
         purchase_id(required: true, type: PropertyType.String, description: "Insurance purchase key id")
         preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
         payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
-        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+        status(required: true, type: PropertyType.String, values: ['approved', 'pending'], description:"Subscription payment status")
     }
 
      "/insurtech/roda/qpage/congrats_subscription/go_to_protection_detail"(platform:"/", type: TrackType.Event) {
         purchase_id(required: true, type: PropertyType.String, description: "Insurance purchase key id")
         preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
         payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
-        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+        status(required: true, type: PropertyType.String, values: ['approved', 'pending'], description:"Subscription payment status")
     }
 
     // INSURTECH RODA Hardware Check
