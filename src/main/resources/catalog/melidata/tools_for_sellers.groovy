@@ -334,7 +334,8 @@ tracks {
     }
 
     // Contact Email Section
-    "/contact-email"(platform: "/", type: TrackType.View){}
-    "/contact-email/error"(platform: "/", type: TrackType.View){}
-    "/contact-email/congrats"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email"(platform: "/", isAbstract: true) {}
+    "/tfs_contact_email/home"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/error"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/congrats"(platform: "/", type: TrackType.View){}
 }
