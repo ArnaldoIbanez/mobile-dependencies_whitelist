@@ -927,6 +927,10 @@ trackTests {
         "/merchant_acquisition/flows/wrap-up/home"(platform: "/", type: TrackType.View) {}
     }
 
+	test("Wrap Up") {
+        "/merchant_acquisition/flows/wrap-up/home/x-sell"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Wrap Up X-Sell click see more") {
         "/merchant_acquisition/flows/wrap-up/home/x-sell/click-see-more" (platform: "/", type: TrackType.Event) {
             productSellName = 'Créditos a tu medida'
