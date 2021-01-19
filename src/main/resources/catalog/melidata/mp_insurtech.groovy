@@ -516,7 +516,7 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
     }
 
-    "/insurtech/protections/detail/roda/imei_activation"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited:false) {
+    "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
         is_imei_valid(required: true, type: PropertyType.Boolean, description: "Imei valid or invalid ")
         protection_status(required: true, type: PropertyType.String, values: ['active_on_route', 'pending_activation'], description: "Status of protection when is going to be activated")

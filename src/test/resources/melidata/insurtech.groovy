@@ -1349,7 +1349,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/detail/roda/imei_activation"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
                 amount_total: 100.72,
