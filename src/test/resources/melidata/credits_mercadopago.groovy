@@ -538,6 +538,10 @@ trackTests {
             from = 'hub'
             additional_info = 'clicked_on_access_row'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            promise = 'none'
+            accesses = 'open_market'
+        }
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 
