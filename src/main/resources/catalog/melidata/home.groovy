@@ -127,6 +127,8 @@ tracks {
 
     "/home/navigation"(platform: "/", type: TrackType.View) {}
 
+    "/home/navigation/admin"(platform: "/", type: TrackType.View) {}
+
      // RealEstate Portal Inmobiliario Sections
     "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
 
