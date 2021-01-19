@@ -15,6 +15,7 @@ trackTests {
 
      test("Home Navigation") {
         "/home/navigation"(platform: "/", type: TrackType.View) {}
+        "/home/navigation/admin"(platform: "/", type: TrackType.View) {}
     }
 
     test("Home Portal Inmobiliario") {
