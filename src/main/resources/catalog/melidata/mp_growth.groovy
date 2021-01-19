@@ -108,8 +108,8 @@ tracks {
 	// wrap up
 	"/merchant_acquisition/flows/wrap_up"(platform: "/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/home"(platform:"/", type: TrackType.View) {}
-	"/merchant_acquisition/flows/wrap_up/home/x-sell"(platform:"/", type: TrackType.View) {}
-	"/merchant_acquisition/flows/wrap_up/home/x-sell/click-see-more"(platform:"/", type: TrackType.Event) {
+	"/merchant_acquisition/flows/wrap_up/home/x_sell"(platform:"/", type: TrackType.View) {}
+	"/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more"(platform:"/", type: TrackType.Event) {
         productSellName(required: true, type: PropertyType.String, description: "The product sell name")
         link(required: true, type: PropertyType.String, description: "Link to execute")
     }
