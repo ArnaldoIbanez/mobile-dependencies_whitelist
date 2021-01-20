@@ -58,7 +58,7 @@ trackTests {
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
         "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {}
-        "/portal/home"(platform: "/", type: TrackType.View) {}
+        "/portal/home"(platform: "/", type: TrackType.View) { portal_has_one_click = false }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
 
         "/portal/search"(platform: "/", type: TrackType.View) {}
@@ -283,7 +283,7 @@ trackTests {
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
         "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {}
-        "/portal/home"(platform: "/", type: TrackType.View) {}
+        "/portal/home"(platform: "/", type: TrackType.View) { portal_has_one_click = false }
         "/portal/home"(platform: "/", type: TrackType.View) {
             portal_source_id = 1627
             portal_show_cancel_card = true
