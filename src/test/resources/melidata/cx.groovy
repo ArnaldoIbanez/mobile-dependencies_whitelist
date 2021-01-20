@@ -108,6 +108,9 @@ trackTests {
             portal_source_id = 123
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_contact_predicted_team = 'Cuentas Digitales'
+            portal_contact_prediction_score = 0.79
+            portal_contact_predicted_problem_id = 123
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
@@ -188,6 +191,9 @@ trackTests {
             portal_source_id = 123
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_contact_predicted_team = 'Cuentas Digitales'
+            portal_contact_prediction_score = 0.79
+            portal_contact_predicted_problem_id = 123
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
@@ -282,6 +288,7 @@ trackTests {
             portal_source_id = 1627
             portal_show_cancel_card = true
             portal_prediction_id = 1234
+            portal_has_one_click = false
         }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
         "/portal/search"(platform: "/", type: TrackType.View) {}
