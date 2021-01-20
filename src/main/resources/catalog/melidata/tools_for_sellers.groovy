@@ -188,4 +188,10 @@ tracks {
     "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel asked to render")
     }
+
+    // Contact Email Section
+    "/tfs_contact_email"(platform: "/", isAbstract: true) {}
+    "/tfs_contact_email/home"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/error"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/congrats"(platform: "/", type: TrackType.View){}
 }
