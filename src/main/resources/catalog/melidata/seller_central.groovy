@@ -256,6 +256,8 @@ tracks {
         sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, rejected_products, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
+        sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type, category_id)
+
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
         sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment, user_type)
@@ -1460,6 +1462,20 @@ tracks {
         product_problem_reason(required: true, type: PropertyType.String, description: "Reason of other problem with the product")
         sellerCentralCatalogOptinGroup
     }
+
+    // + Paths for seller-centrall product suggestion
+
+    "/seller_central/catalog/suggestion"(platform: "/web", isAbstract: true) {
+        sellerCentralCatalogSuggestionGroup
+    }
+
+    "/seller_central/catalog/suggestion/suggest"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/catalog/suggestion/suggest/sent_suggestion"(platform: "/web", type: TrackType.Event) {}
+    
+    "/seller_central/catalog/suggestion/congrats"(platform: "/web", type: TrackType.View) {}
+
+    // - Paths for seller-centrall product suggestion
 
     "/seller_central/promotions"(platform: "/web", type: TrackType.View) {
         original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")

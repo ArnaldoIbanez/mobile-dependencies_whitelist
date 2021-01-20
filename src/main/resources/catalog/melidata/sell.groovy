@@ -819,6 +819,17 @@ tracks {
         confirm_category_detail(required: false, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/category/leave_suggestion_link"(isAbstract: true) {}
+    "/sell/item_data/category/leave_suggestion_link/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+
+    "/sell/item_data/category/default_product_link"(isAbstract: true) {} 
+    "/sell/item_data/category/default_product_link/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+    
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
@@ -918,6 +929,15 @@ tracks {
         flow_decision(required: true, type: PropertyType.Boolean, description: "Flow decision - true if is catalog")
         catalog_forced(required: true, type: PropertyType.Boolean, description: "Indicates if the flow decision card is forcing catalog")
     }
+    
+    "/sell/item_data/catalog_optional"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/catalog_optional/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+    "/sell/item_data/catalog_optional/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+
     "/sell/item_data/catalog_forced"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/catalog_forced/show"(platform: "/web", type: TrackType.Event) {
         sellGroup
@@ -1113,6 +1133,7 @@ tracks {
         health_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for Health card")
         kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
+        decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {

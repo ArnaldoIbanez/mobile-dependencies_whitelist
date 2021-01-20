@@ -2823,9 +2823,55 @@ trackTests {
     }
   }
 
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // + Test for seller-central prodcut suggestion
+  
+  test("seller-central catalog suggestion suggest view") {
+    "/seller_central/catalog/suggestion/suggest"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      category_id = "MLA1055"
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      seller_profile = "INTERMEDIATE"
+      category_domain = "MLA-CELLPHONES"
+      catalog_product_id = "MLA15149561"
+    }
+  }
+  
+  test("seller-central catalog suggestion sent suggestion event") {
+    "/seller_central/catalog/suggestion/suggest/sent_suggestion"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      category_id = "MLA1055"
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      seller_profile = "INTERMEDIATE"
+      category_domain = "MLA-CELLPHONES"
+      catalog_product_id = "MLA15149561"
+    }
+  }
+
+  test("seller-central catalog suggestion congrats view") {
+    "/seller_central/catalog/suggestion/congrats"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      category_id = "MLA1055"
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      seller_profile = "INTERMEDIATE"
+      category_domain = "MLA-CELLPHONES"
+      catalog_product_id = "MLA15149561"
+    }
+  }  
+
+  // - Test for seller-central prodcut suggestion
+
+  // --------------------------------------------------------------------------------
   // TRACKS Seller central - Promotions
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
 
   test("Seller Central Promotions - View event sending original promotion data"){
     "/seller_central/promotions"(platform: "/web", type: TrackType.View){
