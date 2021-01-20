@@ -238,4 +238,50 @@ tracks {
     "/bill_payments/contingency_screen/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
+    // schedule payment
+    "/bill_payments/schedule_payment"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/dialog"(platform: "/mobile", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "the title of dialog")
+    }
+    "/bill_payments/schedule_payment/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/confirm"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule success
+    "/bill_payments/schedule_success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_success/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_success/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedules
+    "/bill_payments/schedules"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedules/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedules/dialog"(platform: "/mobile", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "the title of dialog")
+    }
+    "/bill_payments/schedules/item"(platform: "/mobile", type: TrackType.Event) {
+        item (required:false, type: PropertyType.String, description: "The chosen schedule id")
+        entity (required:false, type: PropertyType.String, description: "The chosen schedule entity")
+    }
+
+    // schedule detail
+    "/bill_payments/schedule_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_detail/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_detail/dialog"(platform: "/mobile", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "the title of dialog")
+    }
+    "/bill_payments/schedule_detail/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_detail/pay"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule cancel
+    "/bill_payments/schedule_cancel"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule retry
+    "/bill_payments/schedule_retry"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_retry/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_retry/pay"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
 }

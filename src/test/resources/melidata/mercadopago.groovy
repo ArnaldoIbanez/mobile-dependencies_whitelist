@@ -2926,6 +2926,118 @@ trackTests {
         "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+
+        // schedule payment
+        "/bill_payments/schedule_payment"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "title"
+        }
+
+        "/bill_payments/schedule_payment/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedule success
+        "/bill_payments/schedule_success"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_success/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_success/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedules
+        "/bill_payments/schedules"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedules/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedules/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "title"
+        }
+
+        "/bill_payments/schedules/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            item = "1"
+            entity = "CCB Brasil"
+        }
+
+        // schedule detail
+        "/bill_payments/schedule_detail"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_detail/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_detail/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "title"
+        }
+
+        "/bill_payments/schedule_detail/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_detail/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedule cancel
+        "/bill_payments/schedule_cancel"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedule retry
+        "/bill_payments/schedule_retry"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_retry/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_retry/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
     }
 
     test("Fund account") {
