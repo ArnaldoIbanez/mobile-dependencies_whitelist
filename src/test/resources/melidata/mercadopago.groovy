@@ -933,7 +933,7 @@ trackTests {
 
     test("Wrap Up X-Sell click see more") {
         "/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more" (platform: "/", type: TrackType.Event) {
-            productSellName = 'Créditos a tu medida'
+            product_sell_name = 'Créditos a tu medida'
             link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
         }
     }
