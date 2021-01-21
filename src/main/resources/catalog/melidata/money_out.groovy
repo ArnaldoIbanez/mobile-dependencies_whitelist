@@ -219,7 +219,7 @@ tracks {
 
     //New TED scheduling modal
     "/money_out/transfers/review_and_confirm/new_scheduled_modal"(platform:"/", type: TrackType.View){}
-    "/money_out/transfers/review_and_confirm/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 }
