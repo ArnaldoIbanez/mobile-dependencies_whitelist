@@ -482,9 +482,29 @@ tracks {
      *       Start: Merchants Open Market
      *******************************************/
 
-    "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was statemens upload accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
 
-    "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was statemens upload accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
 
     "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
         reason(
@@ -496,43 +516,85 @@ tracks {
                 'generic',
             ]
         )
-    }
-
-    "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
-
-    "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
-
-    "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
-        bank(
+        flow(
             type: PropertyType.String,
             required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
+            description: "From which flow was statemens upload accessed",
             values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
+                'upsell_offer',
+                'request_offer',
             ]
         )
     }
 
-    "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was no-upsell section accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was how-to-download section accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was landing accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
 
     "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was congrats accessed",
+            description: "From which sub-flow was congrats accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
             ]
         )
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was congrats accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
     }
 
-    "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was financial-scraping section accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
 
     "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
         reason(
@@ -542,6 +604,15 @@ tracks {
             values: [
                 'integration_error',
                 'generic',
+            ]
+        )
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was financial-scraping section accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
             ]
         )
     }
@@ -557,38 +628,50 @@ tracks {
                 'not_available',
             ]
         )
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was financial-scraping section accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
     }
 
     "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was stop page accessed",
+            description: "From which sub-flow was stop page accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
                 'finished_flow',
             ]
         )
-    }
-
-    "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
-        bank(
+        flow(
             type: PropertyType.String,
             required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
+            description: "From which flow was stop page accessed",
             values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
+                'upsell_offer',
+                'request_offer',
             ]
         )
     }
 
-    "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was loans-faqs section accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
 
     /******************************************
      *       End: Merchants Open Market
