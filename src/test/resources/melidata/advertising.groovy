@@ -1858,4 +1858,13 @@ trackTests {
         }
 
     }
+
+    test("Advertising Adserver"){
+        "/advertising/adserver/ads/view"(platform: "/", type: TrackType.View) {
+            c_id = "home/top_home_banner"
+            c_category = "nike_2"
+            c_event = "view"
+            c_original_target = "meli://test"
+        }
+    }
 }

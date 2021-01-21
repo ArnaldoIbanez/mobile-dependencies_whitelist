@@ -1530,4 +1530,27 @@ tracks {
         trtarget_new(required: true, type: PropertyType.Numeric, description: "New selected Take Rate")
     }
 
+    // Ads from adserver
+
+    def merchdata = objectSchemaDefinitions {
+        content_id(type: PropertyType.String, required: true,  description: "content id")
+        component_id(type: PropertyType.String, required: true,  description: "realestate id")
+        audience(type: PropertyType.String, required: true, description: "audience for the content")
+        bu(type: PropertyType.String, required: true, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
+        flow(type: PropertyType.String, required: true, description: "flow for the content")
+        logic(type: PropertyType.String, required: true, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    "/advertising/adserver"(platform: "/", isAbstract: true) {}
+    "/advertising/adserver/ads"(platform: "/", isAbstract: true) {}
+    "/advertising/adserver/ads/view"(platform: "/", type: TrackType.View) {
+        c_id (required: true, description: "component id")
+        c_event (required: true, description: "trigger event")
+        c_category (required: true, description: "category for the content")
+        c_original_target (required: false, description: "target url or deeplink for the component")
+        merch_data (required:false, type: PropertyType.Map(merchdata), description: "data from merch engine")
+    }
+
 }
