@@ -116,8 +116,10 @@ tracks {
     "/pricing_section/section/card/row/message" (platform: "/", isAbstract: true) { }
     "/pricing_section/section/card/row/message/action" (platform: "/", isAbstract: true) { }
     "/pricing_section/section/card/row/tooltip" (platform: "/", isAbstract: true) { }
-    "/pricing-section/a12" (platform: "/", isAbstract: true) { }
-    "/pricing-section/psj" (platform: "/", isAbstract: true) { }
+    "/pricing_section/a12" (platform: "/", isAbstract: true) { }
+    "/pricing_section/a12/save" (platform: "/", isAbstract: true) { }
+    "/pricing_section/psj" (platform: "/", isAbstract: true) { }
+    "/pricing_section/psj/save" (platform: "/", isAbstract: true) { }
 
     // Tracks
 
@@ -179,41 +181,41 @@ tracks {
     }
 
     // Tracks Ahora 12
-    "/pricing-section/a12/error" (platform: "/", type: TrackType.View) { }
-    "/pricing-section/a12/success" (platform: "/", type: TrackType.View) { }
-    "/pricing-section/a12/optin" (platform: "/", type: TrackType.View) { }
-    "/pricing-section/a12/shield" (platform: "/", type: TrackType.View) {
+    "/pricing_section/a12/error" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/a12/success" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/a12/optin" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/a12/shield" (platform: "/", type: TrackType.View) {
         optin_shield_group
     }
-    "/pricing-section/a12/cuit-verification" (platform: "/", type: TrackType.View) { }
-    "/pricing-section/a12/back" (platform: "/", type: TrackType.Event) { }
-    "/pricing-section/a12/navigate" (platform: "/", type: TrackType.Event) {
+    "/pricing_section/a12/cuit-verification" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/a12/back" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/a12/navigate" (platform: "/", type: TrackType.Event) {
         optin_link_group
     }
-    "/pricing-section/a12/save/success" (platform: "/", type: TrackType.Event) {
+    "/pricing_section/a12/save/success" (platform: "/", type: TrackType.Event) {
         optin_a12_save_group
     }
-    "/pricing-section/a12/save/error" (platform: "/", type: TrackType.Event) {
+    "/pricing_section/a12/save/error" (platform: "/", type: TrackType.Event) {
         result_request_group
     }
-    "/pricing-section/a12/cuit-verification/accept" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/a12/cuit-verification/accept" (platform: "/", type: TrackType.Event) { }
 
     // Tracks PSJ
-    "/pricing-section/psj/error" (platform: "/", type: TrackType.View) { }
-    "/pricing-section/psj/success" (platform: "/", type: TrackType.View) { }
-    "/pricing-section/psj/optin" (platform: "/", type: TrackType.View) { }
-    "/pricing-section/psj/shield" (platform: "/", type: TrackType.View) {
+    "/pricing_section/psj/error" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/psj/success" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/psj/optin" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/psj/shield" (platform: "/", type: TrackType.View) {
         optin_shield_group
     }
-    "/pricing-section/psj/back" (platform: "/", type: TrackType.Event) { }
-    "/pricing-section/psj/navigate" (platform: "/", type: TrackType.Event) {
+    "/pricing_section/psj/back" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/psj/navigate" (platform: "/", type: TrackType.Event) {
         optin_link_group
     }
-    "/pricing-section/psj/help" (platform: "/", type: TrackType.Event) { }
-    "/pricing-section/psj/save/success" (platform: "/", type: TrackType.Event) {
+    "/pricing_section/psj/help" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/psj/save/success" (platform: "/", type: TrackType.Event) {
         optin_psj_save_group
     }
-    "/pricing-section/psj/save/error" (platform: "/", type: TrackType.Event) {
+    "/pricing_section/psj/save/error" (platform: "/", type: TrackType.Event) {
         result_request_group
     }
 }

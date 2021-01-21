@@ -14,6 +14,12 @@ trackTests {
     test("Costs section finish loading with an error") {
         "/pricing_section/error" (platform: "/", type: TrackType.View) {
             status = "400"
+        }
+    }
+
+    test("Costs section finish loading with an error") {
+        "/pricing_section/error" (platform: "/", type: TrackType.View) {
+            status = "400"
             message = "server not found"
         }
     }
@@ -171,32 +177,32 @@ trackTests {
 
     // OptIn Ahora 12
     test("Error trying to render Ahora 12 page") {
-        "/pricing-section/a12/error" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/a12/error" (platform: "/", type: TrackType.View) { }
     }
     test("Renders Ahora 12 page") {
-        "/pricing-section/a12/success" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/a12/success" (platform: "/", type: TrackType.View) { }
     }
     test("Renders Ahora 12 OptIn component") {
-        "/pricing-section/a12/optin" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/a12/optin" (platform: "/", type: TrackType.View) { }
     }
     test("Renders Ahora 12 Shield component") {
-        "/pricing-section/a12/shield" (platform: "/", type: TrackType.View) {
+        "/pricing_section/a12/shield" (platform: "/", type: TrackType.View) {
             shield_id = "shield_id"
         }
     }
     test("Renders Ahora 12 Cuit-Verification component") {
-        "/pricing-section/a12/cuit-verification" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/a12/cuit-verification" (platform: "/", type: TrackType.View) { }
     }
-    test("Go back was clicked") {
-        "/pricing-section/a12/back" (platform: "/", type: TrackType.Event) { }
+    test("Go back was clicked - A12") {
+        "/pricing_section/a12/back" (platform: "/", type: TrackType.Event) { }
     }
-    test("A link was clicked") {
-        "/pricing-section/a12/navigate" (platform: "/", type: TrackType.Event) {
+    test("A link was clicked - A12") {
+        "/pricing_section/a12/navigate" (platform: "/", type: TrackType.Event) {
             link_id = "link_id"
         }
     }
-    test("The save button was clicked with a satisfactory result") {
-        "/pricing-section/a12/save/success" (platform: "/", type: TrackType.Event) {
+    test("The save button was clicked with a satisfactory result - A12") {
+        "/pricing_section/a12/save/success" (platform: "/", type: TrackType.Event) {
             channels = [
                     [
                         id : "point",
@@ -217,59 +223,59 @@ trackTests {
             schema = "AHORAADMIN_12"
         }
     }
-    test("The save button was clicked with a error result") {
-        "/pricing-section/a12/save/error" (platform: "/", type: TrackType.Event) {
+    test("The save button was clicked with a error result 1 - A12") {
+        "/pricing_section/a12/save/error" (platform: "/", type: TrackType.Event) {
             status = "500"
         }
     }
-    test("The save button was clicked with a error result") {
-        "/pricing-section/a12/save/error" (platform: "/", type: TrackType.Event) {
+    test("The save button was clicked with a error result 2 - A12") {
+        "/pricing_section/a12/save/error" (platform: "/", type: TrackType.Event) {
             status = "500"
             message = "Error"
         }
     }
     test("The accept button was clicked in cuit-verification component") {
-        "/pricing-section/a12/cuit-verification/accept" (platform: "/", type: TrackType.Event) { }
+        "/pricing_section/a12/cuit-verification/accept" (platform: "/", type: TrackType.Event) { }
     }
 
     // OptIn PSJ
     test("Error trying to render PSJ page") {
-        "/pricing-section/psj/error" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/psj/error" (platform: "/", type: TrackType.View) { }
     }
     test("Renders PSJ page") {
-        "/pricing-section/psj/success" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/psj/success" (platform: "/", type: TrackType.View) { }
     }
     test("Renders PSJ OptIn component") {
-        "/pricing-section/psj/optin" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/psj/optin" (platform: "/", type: TrackType.View) { }
     }
     test("Renders PSJ Shield component") {
-        "/pricing-section/psj/shield" (platform: "/", type: TrackType.View) {
+        "/pricing_section/psj/shield" (platform: "/", type: TrackType.View) {
             shield_id = "shield_id"
         }
     }
-    test("Go back was clicked") {
-        "/pricing-section/psj/back" (platform: "/", type: TrackType.Event) { }
+    test("Go back was clicked - PSJ") {
+        "/pricing_section/psj/back" (platform: "/", type: TrackType.Event) { }
     }
-    test("A link was clicked") {
-        "/pricing-section/psj/navigate" (platform: "/", type: TrackType.Event) {
+    test("A link was clicked - PSJ") {
+        "/pricing_section/psj/navigate" (platform: "/", type: TrackType.Event) {
             link_id = "link_id"
         }
     }
     test("A help was open") {
-        "/pricing-section/psj/help" (platform: "/", type: TrackType.Event) { }
+        "/pricing_section/psj/help" (platform: "/", type: TrackType.Event) { }
     }
-    test("The save button was clicked with a satisfactory result") {
-        "/pricing-section/psj/save/success" (platform: "/", type: TrackType.Event) {
+    test("The save button was clicked with a satisfactory result - PSJ") {
+        "/pricing_section/psj/save/success" (platform: "/", type: TrackType.Event) {
             installments = 12
         }
     }
-    test("The save button was clicked with a error result") {
-        "/pricing-section/psj/save/error" (platform: "/", type: TrackType.Event) {
+    test("The save button was clicked with a error result 1 - PSJ") {
+        "/pricing_section/psj/save/error" (platform: "/", type: TrackType.Event) {
             status = "500"
         }
     }
-    test("The save button was clicked with a error result") {
-        "/pricing-section/psj/save/error" (platform: "/", type: TrackType.Event) {
+    test("The save button was clicked with a error result 2 - PSJ") {
+        "/pricing_section/psj/save/error" (platform: "/", type: TrackType.Event) {
             status = "500"
             message = "Error"
         }
