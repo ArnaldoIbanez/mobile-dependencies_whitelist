@@ -399,7 +399,7 @@ trackTests {
                 option_data: [
                     manufacturer_warranty: 12
                 ],
-           ]      
+           ]
          }
 
         "/insurtech/protections/marketplace/selectProtection"(platform:"/", type: TrackType.View) {
@@ -421,7 +421,7 @@ trackTests {
                 option_data: [
                     manufacturer_warranty: 12
                 ],
-           ]    
+           ]
          }
         "/insurtech/protections/marketplace/cancelProtection"(platform:"/", type: TrackType.View) {
             item_info = [
@@ -1565,9 +1565,6 @@ trackTests {
             ]
             is_imei_valid = true
             protection_status = 'pending_activation'
-            days_after_pending = 5
-            number_retry = 4
-            modal = 2
         }
 
 
