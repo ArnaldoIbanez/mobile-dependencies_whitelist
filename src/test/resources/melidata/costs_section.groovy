@@ -191,7 +191,7 @@ trackTests {
         }
     }
     test("Renders Ahora 12 Cuit-Verification component") {
-        "/pricing_section/a12/cuit-verification" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/a12/cuit_verification" (platform: "/", type: TrackType.View) { }
     }
     test("Go back was clicked - A12") {
         "/pricing_section/a12/back" (platform: "/", type: TrackType.Event) { }
@@ -235,7 +235,7 @@ trackTests {
         }
     }
     test("The accept button was clicked in cuit-verification component") {
-        "/pricing_section/a12/cuit-verification/accept" (platform: "/", type: TrackType.Event) { }
+        "/pricing_section/a12/cuit_verification/accept" (platform: "/", type: TrackType.Event) { }
     }
 
     // OptIn PSJ

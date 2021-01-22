@@ -187,7 +187,7 @@ tracks {
     "/pricing_section/a12/shield" (platform: "/", type: TrackType.View) {
         optin_shield_group
     }
-    "/pricing_section/a12/cuit-verification" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/a12/cuit_verification" (platform: "/", type: TrackType.View) { }
     "/pricing_section/a12/back" (platform: "/", type: TrackType.Event) { }
     "/pricing_section/a12/navigate" (platform: "/", type: TrackType.Event) {
         optin_link_group
@@ -198,7 +198,7 @@ tracks {
     "/pricing_section/a12/save/error" (platform: "/", type: TrackType.Event) {
         result_request_group
     }
-    "/pricing_section/a12/cuit-verification/accept" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/a12/cuit_verification/accept" (platform: "/", type: TrackType.Event) { }
 
     // Tracks PSJ
     "/pricing_section/psj/error" (platform: "/", type: TrackType.View) { }
