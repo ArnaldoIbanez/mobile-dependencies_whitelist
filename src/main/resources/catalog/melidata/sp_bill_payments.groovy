@@ -239,38 +239,38 @@ tracks {
     "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule payment
-    "/bill_payments/schedule_payment"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/schedule_payment/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_payment/dialog"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_payment/continue"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_payment/confirm"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/create/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/confirm"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule success
-    "/bill_payments/schedule_success"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/schedule_success/receipt"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_success/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/create/success/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/success/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedules
-    "/bill_payments/schedules"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/schedules/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedules/dialog"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedules/item"(platform: "/mobile", type: TrackType.Event) {
+    "/bill_payments/schedule_payment/list"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/list/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item"(platform: "/mobile", type: TrackType.Event) {
         item (required:false, type: PropertyType.String, description: "The chosen schedule id")
         entity (required:false, type: PropertyType.String, description: "The chosen schedule entity")
     }
 
     // schedule detail
-    "/bill_payments/schedule_detail"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/schedule_detail/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_detail/dialog"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_detail/receipt"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_detail/pay"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item/details"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/pay"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule cancel
-    "/bill_payments/schedule_cancel"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/schedule_cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/cancel"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule retry
     "/bill_payments/schedule_retry"(platform: "/mobile", type: TrackType.View) {}
