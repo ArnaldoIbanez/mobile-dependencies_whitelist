@@ -2938,7 +2938,6 @@ trackTests {
 
         "/bill_payments/schedule_payment/dialog"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
-            label = "title"
         }
 
         "/bill_payments/schedule_payment/continue"(platform: "/mobile", type: TrackType.Event) {
@@ -2977,7 +2976,6 @@ trackTests {
 
         "/bill_payments/schedules/dialog"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
-            label = "title"
         }
 
         "/bill_payments/schedules/item"(platform: "/mobile", type: TrackType.Event) {
@@ -2997,7 +2995,6 @@ trackTests {
 
         "/bill_payments/schedule_detail/dialog"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
-            label = "title"
         }
 
         "/bill_payments/schedule_detail/receipt"(platform: "/mobile", type: TrackType.Event) {

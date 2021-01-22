@@ -241,9 +241,7 @@ tracks {
     // schedule payment
     "/bill_payments/schedule_payment"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/schedule_payment/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_payment/dialog"(platform: "/mobile", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "the title of dialog")
-    }
+    "/bill_payments/schedule_payment/dialog"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/confirm"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -256,9 +254,7 @@ tracks {
     // schedules
     "/bill_payments/schedules"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/schedules/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedules/dialog"(platform: "/mobile", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "the title of dialog")
-    }
+    "/bill_payments/schedules/dialog"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedules/item"(platform: "/mobile", type: TrackType.Event) {
         item (required:false, type: PropertyType.String, description: "The chosen schedule id")
         entity (required:false, type: PropertyType.String, description: "The chosen schedule entity")
@@ -267,9 +263,7 @@ tracks {
     // schedule detail
     "/bill_payments/schedule_detail"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/schedule_detail/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_detail/dialog"(platform: "/mobile", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "the title of dialog")
-    }
+    "/bill_payments/schedule_detail/dialog"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_detail/receipt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_detail/pay"(platform: "/mobile", type: TrackType.Event) {}
 
