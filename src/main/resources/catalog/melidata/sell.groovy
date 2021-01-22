@@ -740,6 +740,13 @@ tracks {
     "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
 
+    "/sell/sip_upgrade"(platform: "/mobile", type: TrackType.Event){
+        source(required: true, values: ["section"], description: "Upgrade intention source's", type: PropertyType.String)
+        vertical(required: true, values: ["core", "motors", "realEstate", "services"], description: "Item Vertical: core/service/motor/realEstate/etc...")
+        seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
+        seller_profile(required: false, description: "Type of seller", type: PropertyType.String)
+    }
+
     // Relist flow
     "/sell/relist"(platform: "/", isAbstract: true) {
         item_id (required: true, type: PropertyType.String)
