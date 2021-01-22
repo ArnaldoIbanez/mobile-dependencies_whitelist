@@ -3019,19 +3019,19 @@ trackTests {
         }
 
         // schedule retry
-        "/bill_payments/schedule_retry"(platform: "/mobile") {
+        "/bill_payments/schedule_payment/retry"(platform: "/mobile") {
             mandatory()
         }
 
-        "/bill_payments/schedule_retry/back"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/schedule_payment/retry/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/schedule_retry/pay"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/schedule_payment/retry/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/schedule_retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 

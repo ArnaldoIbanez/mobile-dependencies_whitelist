@@ -273,9 +273,9 @@ tracks {
     "/bill_payments/schedule_payment/cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule retry
-    "/bill_payments/schedule_retry"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/schedule_retry/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_retry/pay"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/schedule_retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/retry"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/retry/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/retry/pay"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
 }
