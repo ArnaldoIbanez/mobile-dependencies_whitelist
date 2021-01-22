@@ -1657,4 +1657,22 @@ tracks {
     "/seller_central/optinator/new_listing/end"(platform: "/web", type: TrackType.Event) {
         sellerCentralOptinatorNewListingsGroup
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central - SYI ME1 Config
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/me1_config"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/me1_config/hub"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/me1_config/upload"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/me1_config/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/me1_config/upload_files"(platform: "/web", type: TrackType.Event) {
+        number_of_files(required: true, type: PropertyType.Numeric, description: "Number of files uploaded by the user")
+    }
+
+    "/seller_central/me1_config/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
 }
