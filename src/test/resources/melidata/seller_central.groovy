@@ -3646,12 +3646,12 @@ trackTests {
   }
 
   test("SYI ME1 Config - User uploads files") {
-    "/seller_central/me1_config/upload_files"(platform: "/web", type: TrackType.Event){
+    "/seller_central/me1_config/upload/upload_files"(platform: "/web", type: TrackType.Event){
       number_of_files = 2
     }
   }
   
   test("SYI ME1 Config - User exceed characters limit in comment") {
-    "/seller_central/me1_config/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
+    "/seller_central/me1_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
   }
 }
