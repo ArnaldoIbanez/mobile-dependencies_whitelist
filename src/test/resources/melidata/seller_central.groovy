@@ -3634,24 +3634,24 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("SYI ME1 Config - Hub page view") {
-    "/seller_central/me1_config/hub"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/me1_transport_config/hub"(platform: "/web", type: TrackType.View) {}
   }
 
   test("SYI ME1 Config - Upload page view") {
-    "/seller_central/me1_config/upload"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/me1_transport_config/upload"(platform: "/web", type: TrackType.View) {}
   }
 
   test("SYI ME1 Config - Congrats page view") {
-    "/seller_central/me1_config/congrats"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/me1_transport_config/congrats"(platform: "/web", type: TrackType.View) {}
   }
 
   test("SYI ME1 Config - User uploads files") {
-    "/seller_central/me1_config/upload/upload_files"(platform: "/web", type: TrackType.Event){
+    "/seller_central/me1_transport_config/upload/upload_files"(platform: "/web", type: TrackType.Event){
       number_of_files = 2
     }
   }
   
   test("SYI ME1 Config - User exceed characters limit in comment when uploading files") {
-    "/seller_central/me1_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
+    "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
   }
 }

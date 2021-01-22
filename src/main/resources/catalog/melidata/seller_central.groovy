@@ -1662,17 +1662,17 @@ tracks {
     // TRACKS Seller Central - SYI ME1 Config
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/seller_central/me1_config"(platform: "/web", isAbstract: true) {}
+    "/seller_central/me1_transport_config"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/me1_config/hub"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/me1_transport_config/hub"(platform: "/web", type: TrackType.View) {}
 
-    "/seller_central/me1_config/upload"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/me1_transport_config/upload"(platform: "/web", type: TrackType.View) {}
 
-    "/seller_central/me1_config/congrats"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/me1_transport_config/congrats"(platform: "/web", type: TrackType.View) {}
 
-    "/seller_central/me1_config/upload/upload_files"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/me1_transport_config/upload/upload_files"(platform: "/web", type: TrackType.Event) {
         number_of_files(required: true, type: PropertyType.Numeric, description: "Number of files uploaded by the user")
     }
 
-    "/seller_central/me1_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
 }
