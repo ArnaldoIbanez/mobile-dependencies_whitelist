@@ -491,6 +491,22 @@ tracks {
         quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
     }
 
+    "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+        content_id(type: PropertyType.String, required: true, description: "The asset content id")
+        investment_counter(type: PropertyType.Numeric, required: true, description: "the investment counter")
+        optin_process(type: PropertyType.String, required: true, description: "the opt in process identifier")
+    }
+
+    "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+        content_id(type: PropertyType.String, required: true, description: "The id of the item")
+        position(type: PropertyType.Numeric, required: true, description: "The position in the section")
+        enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
+    }
+
+    "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {}
+
     "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/activities" (platform: "/mobile", type: TrackType.Event) {}

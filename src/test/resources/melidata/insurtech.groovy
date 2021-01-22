@@ -1540,9 +1540,6 @@ trackTests {
             ]
             is_imei_valid = true
             protection_status = 'pending_activation'
-            days_after_pending = 5
-            number_retry = 4
-            modal = 2
         }
 
 

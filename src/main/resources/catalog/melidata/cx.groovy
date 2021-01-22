@@ -54,6 +54,14 @@ tracks {
             description: "Indicates the destination url in an event track")
         portal_show_cancel_card(required: false, type: PropertyType.Boolean, 
             description: "Indicates if the cancelCard should be shown")
+        portal_has_one_click(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the user has oneclick enabled")
+        portal_contact_predicted_team(required: false, type: PropertyType.String,
+            description: "Indicates the team with which the user should contact")
+        portal_contact_prediction_score(required: false, type: PropertyType.Numeric,
+            description: "Indicates the score of the prediction for the contact")
+        portal_contact_predicted_problem_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the problem with which the user should contact")
     }
 
     propertyGroups {
@@ -74,6 +82,10 @@ tracks {
         portal_prediction_id(portal_prediction_id)
         portal_content_destination_url(portal_content_destination_url)
         portal_show_cancel_card(portal_show_cancel_card)
+        portal_has_one_click(portal_has_one_click)
+        portal_contact_predicted_team(portal_contact_predicted_team)
+        portal_contact_prediction_score(portal_contact_prediction_score)
+        portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -198,6 +210,7 @@ tracks {
         portal_broken_link_destination_url
         portal_show_cancel_card
         portal_prediction_id
+        portal_has_one_click
     }
 
     "/portal/zrp"(platform: "/", type: TrackType.View) {
@@ -295,6 +308,9 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+        portal_contact_predicted_team
+        portal_contact_prediction_score
+        portal_contact_predicted_problem_id
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
