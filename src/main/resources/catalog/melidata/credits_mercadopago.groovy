@@ -181,6 +181,17 @@ tracks {
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open-market"(platform: "/", isAbstract: true) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was landing accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
     "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
@@ -516,29 +527,11 @@ tracks {
 
     "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
-        bank(
-            type: PropertyType.String,
-            required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
-            values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
-            ]
-        )
-    }
-
-    "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
-
     "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was congrats accessed",
+            description: "From which sub-flow was congrats accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
@@ -577,7 +570,7 @@ tracks {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was stop page accessed",
+            description: "From which sub-flow was stop page accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
@@ -586,23 +579,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
-        bank(
-            type: PropertyType.String,
-            required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
-            values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
-            ]
-        )
-    }
-
-    "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Merchants Open Market
