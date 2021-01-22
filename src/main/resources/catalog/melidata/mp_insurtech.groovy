@@ -520,6 +520,9 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
         is_imei_valid(required: true, type: PropertyType.Boolean, description: "Imei valid or invalid ")
         protection_status(required: true, type: PropertyType.String, values: ['active_on_route', 'pending_activation'], description: "Status of protection when is going to be activated")
+        days_taken_for_imei_activation(required: true, type: PropertyType.Numeric, description: "Days passed after protection was in pending_activation status")
+        retries_number(required: true, type: PropertyType.Numeric, description: "Number of attempts before to activate with success")
+        modal_imei_retries(required: true, type: PropertyType.Numeric, description: "Number of times that modal showed up")
    }
 
     "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {

@@ -392,7 +392,7 @@ trackTests {
                 ],
            ]
            has_roda = true
-           has_garex = false   
+           has_garex = false
          }
 
         "/insurtech/protections/marketplace/select_protection"(platform:"/", type: TrackType.Event) {
@@ -1540,6 +1540,9 @@ trackTests {
             ]
             is_imei_valid = true
             protection_status = 'pending_activation'
+            days_taken_for_imei_activation = 5
+            retries_number = 4
+            modal_imei_retries = 2
         }
 
 
