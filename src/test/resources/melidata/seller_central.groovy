@@ -3651,7 +3651,7 @@ trackTests {
     }
   }
   
-  test("SYI ME1 Config - User exceed characters limit in comment") {
+  test("SYI ME1 Config - User exceed characters limit in comment when uploading files") {
     "/seller_central/me1_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
   }
 }
