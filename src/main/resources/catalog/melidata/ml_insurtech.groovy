@@ -32,19 +32,14 @@ tracks {
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the item. For ex: ['MLA1051', 'MLA1055']")
     }
 
-     def gdr_option_price = objectSchemaDefinitions {
-        final_amount(required: false, type: PropertyType.Numeric, description: "final amount")
-        original_amount(required: false, type: PropertyType.Numeric, description: "amount original")
+    def grd_price = objectSchemaDefinitions {
+        final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
         discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
-        currency_id(required: false, type: PropertyType.String, description: "currency id")
-        monthly(required: false, type: PropertyType.Numeric, description: "Monthly amount")
     }
 
     def grd_option = objectSchemaDefinitions {
         brand(required: false, type: PropertyType.String, description: "model")
         coverage(required: false, type: PropertyType.String, description: "coverage")
-        check(required: false, type: PropertyType.String, description: "check")
-        deductible_rate(required: false, type: PropertyType.Numeric, description: "deductible rate")
         deductible_amount(required: false, type: PropertyType.Numeric, description: "deductible amount")
         model(required: false, type: PropertyType.String, description: "model")
         size(required: false, type: PropertyType.String, description: "size")
@@ -53,7 +48,7 @@ tracks {
 
     def grd_protection_option = objectSchemaDefinitions {
         product_id(required: true, type: PropertyType.String, description: "id of the warranty option")
-        price(required: true, type: PropertyType.Map(gdr_option_price), description: "price of the warranty option")
+        price(required: true, type: PropertyType.Map(grd_price), description: "price of the warranty option")
         period(required: true, type: PropertyType.Numeric, description: "period of the warranty option")
         option_data(required: false, type: PropertyType.Map(grd_option), description: "extra information of the warranty option")
     }
@@ -237,29 +232,39 @@ tracks {
 
     //INSURTECH Hub-ON
     "/insurtech/protections/marketplace"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        item_info(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
-        options_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
     }
     
     "/insurtech/protections/marketplace/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-         item_info(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
          option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
     }
 
-    "/insurtech/protections/marketplace/selectProtection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-         item_info(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+    "/insurtech/protections/marketplace/select_protection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
          option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
     }
 
-    "/insurtech/protections/marketplace/cancelProtection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        item_info(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
-        options_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+    "/insurtech/protections/marketplace/cancel_protection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
     }
 
-    "/insurtech/protections/marketplace/confirmProtection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        item_info(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
-        options_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+    "/insurtech/protections/marketplace/confirm_protection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
     }
 
     "/insurtech/protections/marketplace/faq"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
