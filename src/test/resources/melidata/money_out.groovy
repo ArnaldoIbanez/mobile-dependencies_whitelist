@@ -245,11 +245,17 @@ trackTests {
       "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
       "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
 
-      //New TED scheduling modal
-      "/money_out/transfers/review_and_confirm/new_scheduled_modal"(platform:"/", type: TrackType.View){}
-      "/money_out/transfers/review_and_confirm/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
-      "/money_out/transfers/review_and_confirm/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
-      "/money_out/transfers/review_and_confirm/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+      //New TED scheduling modal comming from HUB
+      "/money_out/transfers/home/new_scheduled_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+      //New TED scheduling modal comming from recent and favs
+      "/money_out/transfers/recents/new_scheduled_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/recents/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 
     }
 }
