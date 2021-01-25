@@ -11,7 +11,7 @@ trackTests {
     }
 
     test("Landing view is loaded with errors") {
-        "/business_config/landing/error"(platform: "/", type: TrackType.Event) {
+        "/business_config/landing/error"(platform: "/", type: TrackType.View) {
             status = '123'
             message = 'error message'
         }
@@ -171,6 +171,21 @@ trackTests {
         "/business_config/landing/card/help"(platform: "/", type: TrackType.Event) {
             card = 'card_1'
             url = 'http://url'
+        }
+    }
+
+    test("User clicks the tooltip/help of a card and the webview loads successfully") {
+        "/business_config/landing/card/help/success"(platform: "/", type: TrackType.Event) {
+            card = 'card_1'
+            url = 'http://url'
+        }
+    }
+
+    test("User clicks the tooltip/help of a card and the webview throws an error") {
+        "/business_config/landing/card/help/error"(platform: "/", type: TrackType.Event) {
+            card = 'card_1'
+            url = 'http://url'
+            error = "error message"
         }
     }
 
