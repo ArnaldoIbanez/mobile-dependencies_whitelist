@@ -2927,7 +2927,7 @@ trackTests {
             mandatory()
         }
 
-        // schedule payment
+        //schedule payment create
         "/bill_payments/schedule_payment/create"(platform: "/mobile") {
             mandatory()
         }
@@ -2948,7 +2948,7 @@ trackTests {
             mandatory()
         }
 
-        // schedule success
+        // schedule payment success
         "/bill_payments/schedule_payment/create/success"(platform: "/mobile") {
             mandatory()
         }
@@ -2965,7 +2965,7 @@ trackTests {
             mandatory()
         }
 
-        // schedules
+        // schedule payment list
         "/bill_payments/schedule_payment/list"(platform: "/mobile") {
             mandatory()
         }
@@ -2984,7 +2984,7 @@ trackTests {
             entity = "CCB Brasil"
         }
 
-        // schedule detail
+        // schedule payment details
         "/bill_payments/schedule_payment/list/selected_item/details"(platform: "/mobile") {
             mandatory()
         }
@@ -3005,7 +3005,7 @@ trackTests {
             mandatory()
         }
 
-        // schedule cancel
+        // schedule payment cancel
         "/bill_payments/schedule_payment/cancel"(platform: "/mobile") {
             mandatory()
         }
@@ -3018,7 +3018,7 @@ trackTests {
             mandatory()
         }
 
-        // schedule retry
+        // schedule payment retry
         "/bill_payments/schedule_payment/retry"(platform: "/mobile") {
             mandatory()
         }

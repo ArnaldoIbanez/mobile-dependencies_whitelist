@@ -239,6 +239,9 @@ tracks {
     "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
     // schedule payment
+    "/bill_payments/schedule_payment"(platform: "/mobile", isAbstract: true) {
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
+    }
     "/bill_payments/schedule_payment/create"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/schedule_payment/create/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/create/dialog"(platform: "/mobile", type: TrackType.Event) {}
