@@ -63,6 +63,8 @@ tracks {
         privacy_config_state(required: false, type: PropertyType.Boolean)
     }
 
+    "/home/navigation_history/admin"(platform: "/", type: TrackType.View) {}
+
     "/home/navigation_history/privacy_config_on"(platform: "/", type: TrackType.Event) {
     }
 

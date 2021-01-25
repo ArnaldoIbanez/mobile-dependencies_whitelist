@@ -322,7 +322,9 @@ tracks {
      * WALLET HOME TRACKS v2  *
      *************************/
 
-    "/wallet_home" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home" (platform: "/mobile") {
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+    }
     "/wallet_home/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet_home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
     "/wallet_home/banking" (platform: "/mobile", isAbstract: true) {}
@@ -480,6 +482,30 @@ tracks {
     }
 
     "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/banking_v2" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
+        prepaid(required: true, type: PropertyType.Boolean, description: "If user has a prepaid card")
+        debit(required: true, type: PropertyType.Boolean, description: "If user has a debit card")
+        quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
+    }
+
+    "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+        content_id(type: PropertyType.String, required: true, description: "The asset content id")
+        investment_counter(type: PropertyType.Numeric, required: true, description: "the investment counter")
+        optin_process(type: PropertyType.String, required: true, description: "the opt in process identifier")
+    }
+
+    "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+        content_id(type: PropertyType.String, required: true, description: "The id of the item")
+        position(type: PropertyType.Numeric, required: true, description: "The position in the section")
+        enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
+    }
+
+    "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {}
 

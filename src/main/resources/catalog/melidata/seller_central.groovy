@@ -256,6 +256,8 @@ tracks {
         sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, rejected_products, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
+        sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type, category_id)
+
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
         sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment, user_type)
@@ -1089,14 +1091,25 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
-    "/seller_central/sales/list/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/seller_central/sales/list/widget"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/seller_central/sales/list/widget/header"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "Collapsed state")
+    }
+    "/seller_central/sales/list/widget/dismiss"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        batch_id(required: true, type: PropertyType.String, description: "Batch id")
+    }
+    "/seller_central/sales/list/widget/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        processing(required: true, type: PropertyType.Boolean, description: "Processing state")
+        batch_ids(required: true, type: PropertyType.ArrayList, description: "List of batch ids")
+    }
+    "/seller_central/sales/list/widget/action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, type: PropertyType.String, description: "Action executed")
         type(required: true, type: PropertyType.String, description: "Type action executed")
         date_created(required: false, type: PropertyType.String, description: "Created date")
         date_finished(required: false, type: PropertyType.String, description: "Finished date")
         date_executed(required: false, type: PropertyType.String, description: "Executed date")
     }
-
+    
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
         substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
@@ -1188,7 +1201,18 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
-    "/seller_central/sales/detail/widget_action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/seller_central/sales/detail/widget"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/seller_central/sales/detail/widget/header"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "Collapsed state")
+    }
+    "/seller_central/sales/detail/widget/dismiss"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        batch_id(required: true, type: PropertyType.String, description: "Batch id")
+    }
+    "/seller_central/sales/detail/widget/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        processing(required: true, type: PropertyType.Boolean, description: "Processing state")
+        batch_ids(required: true, type: PropertyType.ArrayList, description: "List of batch ids")
+    }
+    "/seller_central/sales/detail/widget/action"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         action(required: true, type: PropertyType.String, description: "Action executed")
         type(required: true, type: PropertyType.String, description: "Type action executed")
         date_created(required: false, type: PropertyType.String, description: "Created date")
@@ -1439,6 +1463,20 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
+    // + Paths for seller-centrall product suggestion
+
+    "/seller_central/catalog/suggestion"(platform: "/web", isAbstract: true) {
+        sellerCentralCatalogSuggestionGroup
+    }
+
+    "/seller_central/catalog/suggestion/suggest"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/catalog/suggestion/suggest/sent_suggestion"(platform: "/web", type: TrackType.Event) {}
+    
+    "/seller_central/catalog/suggestion/congrats"(platform: "/web", type: TrackType.View) {}
+
+    // - Paths for seller-centrall product suggestion
+
     "/seller_central/promotions"(platform: "/web", type: TrackType.View) {
         original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
     }
@@ -1619,4 +1657,22 @@ tracks {
     "/seller_central/optinator/new_listing/end"(platform: "/web", type: TrackType.Event) {
         sellerCentralOptinatorNewListingsGroup
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central - SYI ME1 Config
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/me1_transport_config"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/me1_transport_config/hub"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/me1_transport_config/upload"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/me1_transport_config/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/me1_transport_config/upload/upload_files"(platform: "/web", type: TrackType.Event) {
+        number_of_files(required: true, type: PropertyType.Numeric, description: "Number of files uploaded by the user")
+    }
+
+    "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
 }

@@ -70,6 +70,7 @@ tracks {
 
     "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
+        has_account_money (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has enough money in account")
     }
 
     "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -149,12 +150,17 @@ tracks {
     // [Merchants Growth] Landing Multiproduct > Events
     "/point/landings/multiproduct/buy"(platform:"/", type: TrackType.Event) {}
     "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {}
 
     // [Merchants Growth] Landings Navigation > Events
     "/point/landings/navigation"(platform:"/", type: TrackType.Event) {}
 
     // [Merchants Growth] Landing compare
     "/point/landings/compare"(platform:"/", type: TrackType.View) {}
+
+    // [Merchants Growth] Landing compare > Events
+    "/point/landings/compare/buy"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/compare/go"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings: MGM > Events
     "/point/landings/mgm"(platform: "/", isAbstract: true) {}

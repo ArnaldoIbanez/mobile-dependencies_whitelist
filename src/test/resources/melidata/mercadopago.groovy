@@ -616,6 +616,7 @@ trackTests {
           is_guest = true
           user_id = 5010815
           e2e_test = false
+          has_account_money = true
         }
         
         "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -921,6 +922,22 @@ trackTests {
     "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     }
 
+	// wrap up
+	test("Wrap Up") {
+        "/merchant_acquisition/flows/wrap_up/home"(platform: "/", type: TrackType.View) {}
+    }
+
+	test("Wrap Up") {
+        "/merchant_acquisition/flows/wrap_up/home/x_sell"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Wrap Up X-Sell click see more") {
+        "/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more" (platform: "/", type: TrackType.Event) {
+            product_sell_name = 'Créditos a tu medida'
+            link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
+        }
+    }
+
     test("// Associar Point - Micrositio - reseller") {
         "/merchant_acquisition/flows/resellers/point_register"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/resellers/point_register/associate"(platform: "/", type: TrackType.View) {}
@@ -1179,9 +1196,21 @@ trackTests {
             product = "Point Plus"
         }
 
+        "/point/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
         // Landing Compare
         "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.View) {
             product = "compare"
+        }
+
+        "/point/landings/compare/buy"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
+        }
+
+        "/point/landings/compare/go"(platform:"/", type: TrackType.Event) {
+            product = "Point Plus"
         }
 
         // Landing navigation

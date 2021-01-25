@@ -592,6 +592,14 @@ trackTests {
         "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
             driver_id = 400
         }
+        "/logistics/last_mile/poll"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
+        }
+        "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
+        }
     }
 
 }

@@ -240,6 +240,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+
     test('Insurtech - test qpage_on tacking on checkout') {
 
         //Mobile
@@ -333,6 +334,183 @@ trackTests {
     }
 
 
+    defaultBusiness = "mercadolibre"
+
+    test('Insurtech - test hub-on tacking on checkout'){
+        "/insurtech/protections/marketplace"(platform:"/", type: TrackType.View) {
+            item = [
+               id: "MLB1539246793",
+               domain_id: "MLB-FREEZERS",
+               price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ]
+           ]
+           has_roda = false
+           has_garex = true
+         }
+        "/insurtech/protections/marketplace/help"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+           ]
+           has_roda = true
+           has_garex = false   
+         }
+
+        "/insurtech/protections/marketplace/select_protection"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+           ]
+           has_roda = true
+           has_garex = true
+         }
+        "/insurtech/protections/marketplace/cancel_protection"(platform:"/", type: TrackType.Event) {
+           item = [
+               id: "MLB1539246793",
+               domain_id: "MLB-FREEZERS",
+               price: 2300.0,
+           ]
+           options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ]
+           ]
+           has_roda = true
+           has_garex = true
+         }
+        "/insurtech/protections/marketplace/confirm_protection"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+         }
+        "/insurtech/protections/marketplace/faq"(platform:"/", type: TrackType.View) {
+            product_id = "RODA"
+            coverage = "screen"
+            manufacturer_warranty = null
+            period = null
+         }
+    }
 
     defaultBusiness = "mercadopago"
 
@@ -734,21 +912,21 @@ trackTests {
             purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
             preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
             payment_id=10341173315
-            status='success'
+            status='approved'
         }
 
        "/insurtech/roda/qpage/congrats_subscription/go_to_protections"(platform:"/", type: TrackType.Event) {
             purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
             preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
             payment_id=10341173315
-            status='success'
+            status='approved'
         }
 
        "/insurtech/roda/qpage/congrats_subscription/go_to_protection_detail"(platform:"/", type: TrackType.Event) {
             purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
             preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
             payment_id=10341173315
-            status='success'
+            status='pending'
         }
 
         //Mobile
@@ -1349,7 +1527,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/detail/roda/imei_activation"(platform:"/web", type: TrackType.Event) {
+        "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
                 amount_total: 100.72,
@@ -1360,7 +1538,7 @@ trackTests {
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
-            imeiValid = true
+            is_imei_valid = true
             protection_status = 'pending_activation'
         }
 
