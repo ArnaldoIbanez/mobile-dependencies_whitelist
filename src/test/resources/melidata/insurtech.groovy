@@ -338,20 +338,17 @@ trackTests {
 
     test('Insurtech - test hub-on tacking on checkout'){
         "/insurtech/protections/marketplace"(platform:"/", type: TrackType.View) {
-            item_info = [
+            item = [
                id: "MLB1539246793",
                domain_id: "MLB-FREEZERS",
                price: 2300.0,
-           ]
-           options_info = [
+            ]
+            options = [
             [
                 product_id: "GAREX",
                 price: [
                     final_amount: 242.73,
-                    original_amount: null,
                     discount_rate: null,
-                    currency_id: "BRL",
-                    monthly: 20.23
                 ],
                 period: 12,
                 option_data: [
@@ -361,83 +358,75 @@ trackTests {
             [
                 product_id: "RODA",
                 price: [
-                final_amount: 321.89,
-                original_amount: 321.89,
-                discount_rate: null,
-                currency_id: "BRL",
-                monthly: 26.82
+                    final_amount: 242.73,
+                    discount_rate: null,
                 ],
                 period: 12,
                 option_data: [
                     brand: "Samsung",
                     coverage: "screen",
-                    check: "screen",
-                    deductible_rate: 10.0,
                     deductible_amount: 279.9,
                     model: "Galaxy A70",
                     size: "128GB"
                 ],
             ]
            ]
+           has_roda = false
+           has_garex = true
          }
-        "/insurtech/protections/marketplace/help"(platform:"/", type: TrackType.View) {
-            item_info = [
+        "/insurtech/protections/marketplace/help"(platform:"/", type: TrackType.Event) {
+            item = [
                 id: "MLB1539246793",
                 domain_id: "MLB-FREEZERS",
                 price: 2300.0,
             ]
-           option_selected = [
+            option_selected = [
                 product_id: "GAREX",
                 price: [
                     final_amount: 242.73,
-                    original_amount: null,
                     discount_rate: null,
-                    currency_id: "BRL",
-                    monthly: 20.23
                 ],
                 period: 12,
                 option_data: [
                     manufacturer_warranty: 12
                 ],
-           ]      
+           ]
+           has_roda = true
+           has_garex = false   
          }
 
-        "/insurtech/protections/marketplace/selectProtection"(platform:"/", type: TrackType.View) {
-            item_info = [
+        "/insurtech/protections/marketplace/select_protection"(platform:"/", type: TrackType.Event) {
+            item = [
                 id: "MLB1539246793",
                 domain_id: "MLB-FREEZERS",
                 price: 2300.0,
             ]
-           option_selected = [
+            option_selected = [
                 product_id: "GAREX",
                 price: [
                     final_amount: 242.73,
-                    original_amount: null,
                     discount_rate: null,
-                    currency_id: "BRL",
-                    monthly: 20.23
                 ],
                 period: 12,
                 option_data: [
                     manufacturer_warranty: 12
                 ],
-           ]    
+           ]
+           has_roda = true
+           has_garex = true
          }
-        "/insurtech/protections/marketplace/cancelProtection"(platform:"/", type: TrackType.View) {
-            item_info = [
+        "/insurtech/protections/marketplace/cancel_protection"(platform:"/", type: TrackType.Event) {
+           item = [
                id: "MLB1539246793",
                domain_id: "MLB-FREEZERS",
                price: 2300.0,
            ]
-           options_info = [
+           options = [
             [
                 product_id: "GAREX",
                 price: [
                     final_amount: 242.73,
-                    original_amount: null,
                     discount_rate: null,
-                    currency_id: "BRL",
-                    monthly: 20.23
                 ],
                 period: 12,
                 option_data: [
@@ -447,40 +436,34 @@ trackTests {
             [
                 product_id: "RODA",
                 price: [
-                final_amount: 321.89,
-                original_amount: 321.89,
-                discount_rate: null,
-                currency_id: "BRL",
-                monthly: 26.82
+                    final_amount: 242.73,
+                    discount_rate: null,
                 ],
                 period: 12,
                 option_data: [
                     brand: "Samsung",
                     coverage: "screen",
-                    check: "screen",
-                    deductible_rate: 10.0,
                     deductible_amount: 279.9,
                     model: "Galaxy A70",
                     size: "128GB"
                 ],
             ]
            ]
+           has_roda = true
+           has_garex = true
          }
-        "/insurtech/protections/marketplace/confirmProtection"(platform:"/", type: TrackType.View) {
-            item_info = [
+        "/insurtech/protections/marketplace/confirm_protection"(platform:"/", type: TrackType.Event) {
+            item = [
                 id: "MLB1539246793",
                 domain_id: "MLB-FREEZERS",
                 price: 2300.0,
             ]
-            options_info = [
+            options = [
             [
                 product_id: "GAREX",
                 price: [
                     final_amount: 242.73,
-                    original_amount: null,
                     discount_rate: null,
-                    currency_id: "BRL",
-                    monthly: 20.23
                 ],
                 period: 12,
                 option_data: [
@@ -490,44 +473,36 @@ trackTests {
             [
                 product_id: "RODA",
                 price: [
-                final_amount: 321.89,
-                original_amount: 321.89,
-                discount_rate: null,
-                currency_id: "BRL",
-                monthly: 26.82
+                    final_amount: 242.73,
+                    discount_rate: null,
                 ],
                 period: 12,
                 option_data: [
                     brand: "Samsung",
                     coverage: "screen",
-                    check: "screen",
-                    deductible_rate: 10.0,
                     deductible_amount: 279.9,
                     model: "Galaxy A70",
                     size: "128GB"
                 ],
             ],
             ]
-           option_selected = [
+            option_selected = [
                 product_id: "RODA",
                 price: [
-                final_amount: 321.89,
-                original_amount: 321.89,
-                discount_rate: null,
-                currency_id: "BRL",
-                monthly: 26.82
+                    final_amount: 242.73,
+                    discount_rate: null,
                 ],
                 period: 12,
                 option_data: [
                     brand: "Samsung",
                     coverage: "screen",
-                    check: "screen",
-                    deductible_rate: 10.0,
                     deductible_amount: 279.9,
                     model: "Galaxy A70",
                     size: "128GB"
                 ]
             ]
+            has_roda = true
+            has_garex = true
          }
         "/insurtech/protections/marketplace/faq"(platform:"/", type: TrackType.View) {
             product_id = "RODA"
@@ -1565,9 +1540,6 @@ trackTests {
             ]
             is_imei_valid = true
             protection_status = 'pending_activation'
-            days_after_pending = 5
-            number_retry = 4
-            modal = 2
         }
 
 

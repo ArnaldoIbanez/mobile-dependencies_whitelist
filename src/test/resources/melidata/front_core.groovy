@@ -757,6 +757,44 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - BANKING v2 Assets") {
+        "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="assets"
+            component_id="assets"
+            content_id="assets"
+            investment_counter=5
+            optin_process="kyc"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Actions") {
+        "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="Actions"
+            component_id="Actions"
+            content_id="Actions"
+            position=3
+            enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - QR FAB") {
+        "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="qr_fab"
+            component_id="qr"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - CREDITS") {
+        "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="credits"
+            component_id="credits"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Main Actions") {
         "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1702,6 +1740,44 @@ trackTests {
             prepaid = false
             debit = false
             quantity = 1 
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Assets") {
+        "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="assets"
+            component_id="assets"
+            content_id="assets"
+            investment_counter=5
+            optin_process="kyc"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Actions") {
+        "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="Actions"
+            component_id="Actions"
+            content_id="Actions"
+            position=3
+            enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - QR FAB") {
+        "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="qr_fab"
+            component_id="qr"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - CREDITS") {
+        "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="credits"
+            component_id="credits"
         }
     }
 
