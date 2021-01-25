@@ -202,6 +202,39 @@ trackTests {
         "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
     }
 
+    // New Banking
+
+    test("Mercadopago MPcard") {
+        "/wallet_home/section/tap/banking_v2" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            pill = "NOVO"
+            has_card = true
+            component_id = "card"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            has_nfc_card = true
+            component_id = "nfc"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+        
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            card_status = "active"
+            component_id = "pay_online"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+    }
+
+
     test("Mercadopago Home Secondary actions toggle") {
         "/wallet/home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event) {
             id= "payer"
@@ -1220,6 +1253,39 @@ trackTests {
 
     test("Mercadopago Home activity shown") {
         "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    // New Banking
+
+    test("Mercadopago MPcard") {
+
+        "/wallet_home/section/tap/banking_v2" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            pill = "NOVO"
+            has_card = true
+            component_id = "card"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            has_nfc_card = true
+            component_id = "nfc"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+        
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            card_status = "active"
+            component_id = "pay_online"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
     }
 
     test("Mercadopago Home Secondary actions toggle") {

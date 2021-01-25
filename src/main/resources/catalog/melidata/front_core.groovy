@@ -483,12 +483,20 @@ tracks {
 
     "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {}
 
-    "/wallet_home/section/tap/banking_v2" (platform: "/mobile", isAbstract: true) {}
+    "/wallet_home/section/tap/banking_v2" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
         prepaid(required: true, type: PropertyType.Boolean, description: "If user has a prepaid card")
         debit(required: true, type: PropertyType.Boolean, description: "If user has a debit card")
         quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
+    }
+
+    "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+        pill(required: false, type: PropertyType.String, description: "Pill text in card")
+        has_card(required: false, type: PropertyType.Boolean, description: "If user has a active card")
+        card_status(required: false, type: PropertyType.String, description: "Card status")
+        has_nfc_card(required: false, type: PropertyType.Boolean, description: "If user has a NFC card")
+        nfc_status(required: false, type: PropertyType.Map, description: "NFC status")
     }
 
     "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
