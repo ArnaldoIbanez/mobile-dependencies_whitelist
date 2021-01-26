@@ -1674,7 +1674,13 @@ trackTests {
 
         "/advertising/pads2/hub/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
 
-        "/advertising/pads2/hub/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {}
+        "/advertising/pads2/hub/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
 
         "/advertising/pads2/hub/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
             campaign_id = 1
@@ -1799,7 +1805,13 @@ trackTests {
         }
 
         "/advertising/pads2/manager/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
-        "/advertising/pads2/manager/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {}
+        "/advertising/pads2/manager/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
 
         "/advertising/pads2/manager/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
             campaign_id = 1
