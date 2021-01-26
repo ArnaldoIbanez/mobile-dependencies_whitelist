@@ -1359,6 +1359,36 @@ tracks {
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
 
+    "/advertising/pads2/hub/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {}
+
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
+    }
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime/stay"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
+    }
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime/change"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
+    }
+
     //Bidding Dashboard
 
     "/advertising/pads2/manager/bidding"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
@@ -1450,6 +1480,35 @@ tracks {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         strategy(required: true, type: PropertyType.String, description: "Strategy selected")
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
+
+    "/advertising/pads2/manager/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {}
+
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
+    }
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime/stay"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
+    }
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime/change"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
     }
 
     // Bidding - Opportunities (HUB)
