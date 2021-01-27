@@ -169,6 +169,21 @@ tracks {
         banner_name (type: PropertyType.String, required: true, description: "Name of banner (ex: Kit promotional)")
     }
 
+	// Share MGM Webview > Pageviews
+    "/merchant_acquisition/flows/share_mgm/webview"(platform: "/", type: TrackType.View) {}
+
+	// Share MGM Webview > Events
+	"/merchant_acquisition/flows/share_mgm/webview/scroll_entre_cards"(platform: "/", type: TrackType.Event) {
+        card_name (type: PropertyType.String, required: true, description: "Name of card (ex: ¡Recomendá Point Plus)")
+    }
+	"/merchant_acquisition/flows/share_mgm/webview/click_button_social_network"(platform: "/", type: TrackType.Event) {
+        button_name (type: PropertyType.String, required: true, description: "Name of social network (ex: WhatsApp)")
+        link_cta (type: PropertyType.String, required: true, description: "Share link of social network (ex: whatsapp://send?text=message)")
+    }
+	"/merchant_acquisition/flows/share_mgm/webview/click_dashboard_awards"(platform: "/", type: TrackType.Event) {}
+	"/merchant_acquisition/flows/share_mgm/webview/click_terms_of_use"(platform: "/", type: TrackType.Event) {}
+	"/merchant_acquisition/flows/share_mgm/webview/click_mgm_wallet"(platform: "/", type: TrackType.Event) {}
+
     // Associar Point - Micrositio - reseller
     "/merchant_acquisition/flows/resellers/point_register"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/point_register/associate"(platform:"/", type: TrackType.View) {}

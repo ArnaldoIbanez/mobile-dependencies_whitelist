@@ -816,6 +816,25 @@ trackTests {
         }
     }
 
+	test("Share MGM Webview") {
+        "/merchant_acquisition/flows/share_mgm/webview"(platform:"/", type: TrackType.View) {}
+
+        "/merchant_acquisition/flows/share_mgm/webview/scroll_entre_cards"(platform:"/", type: TrackType.Event) {
+          card_name = "¡Recomendá Point Plus"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/webview/click_button_social_network"(platform:"/", type: TrackType.Event) {
+		  button_name = "WhatsApp" 
+		  link_cta = "whatsapp://send?text=Recibiste 1800 de descuento para que compres tu lector y empieces a vender, ¿qué estás esperando? Cobrá con Point Plus y aceptá todas las tarjetas de débito y crédito dónde y cuándo quieras. Con Point, ¡crecer está en tus manos! http://mpago.li/2yxSNit"
+        }
+
+		"/merchant_acquisition/flows/share_mgm/webview/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
+
+		"/merchant_acquisition/flows/share_mgm/webview/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
+		
+		"/merchant_acquisition/flows/share_mgm/webview/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
+    }
+
     test("Paper Rolls (Bobinas)") {
         "/merchant_acquisition/flows/paper_rolls"(platform:"/", type: TrackType.View) {
           view = "order"
