@@ -212,6 +212,120 @@ trackTests {
         }
     }
 
+    test("Save Session") {
+        "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = true
+            api_value = true
+        }
+
+        "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = true
+            api_value = true
+        }
+
+        "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = false
+            api_value = false
+        }
+
+        "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = false
+            api_value = false
+        }
+
+        "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = true
+            api_value = false
+        }
+
+        "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = false
+            api_value = true
+        }
+    }
+
+    test("Get Session") {
+        "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = true
+            api_value = true
+        }
+
+        "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = true
+            api_value = true
+        }
+
+        "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = false
+            api_value = false
+        }
+
+        "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = false
+            api_value = false
+        }
+
+        "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = true
+            api_value = false
+        }
+
+        "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = false
+            api_value = true
+        }
+    }
+
+    test("Remove Session") {
+        "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = true
+            api_value = true
+        }
+
+        "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = true
+            api_value = true
+        }
+
+        "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = false
+            api_value = false
+        }
+
+        "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = false
+            api_value = false
+        }
+
+        "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "sharedPreferences"
+            keepnite = true
+            api_value = false
+        }
+
+        "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+            strategy_saved = "localStorage"
+            keepnite = false
+            api_value = true
+        }
+    }
+
     test("Security feedback flow") {
         "/login/auth/feedback"(platform: "/web", type: TrackType.Event) {
             view = "answer"

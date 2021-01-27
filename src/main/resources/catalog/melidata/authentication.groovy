@@ -49,6 +49,24 @@ tracks {
 
     "/login/auth"(platform: "/", isAbstract: true){}
 
+    "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+        strategy_saved(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is saved")
+        keepnite(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
+        api_value(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
+    }
+
+    "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+        strategy_saved(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is retrieved")
+        keepnite(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
+        api_value(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
+    }
+
+    "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+        strategy_saved(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is deleted")
+        keepnite(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
+        api_value(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
+    }
+
     "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
 
     "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}
