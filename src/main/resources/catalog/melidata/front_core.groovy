@@ -514,6 +514,12 @@ tracks {
         position(type: PropertyType.Numeric, required: true, description: "The position in the section")
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
+    
+    "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+        hidden(required: true, type: PropertyType.Boolean, description: "hidden status")
+        pending_balance(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
+        balance_histogram(required: true, type: PropertyType.Numeric, description: "Balance segmentation")
+    }
 
     //hidden state
     "/wallet_home/banking_v2/hidden_state" (platform: "/mobile", type: TrackType.View) {
@@ -523,7 +529,7 @@ tracks {
     "/wallet_home/banking_v2/tap/hidden_state" (platform: "/mobile", type: TrackType.Event) {
         hidden(type: PropertyType.Boolean, required: true, description: "Shows the hidden state status")
     }
-    
+
     "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {}
