@@ -214,115 +214,115 @@ trackTests {
 
     test("Save Session") {
         "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = true
-            api_value = true
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = true
+            api_version = true
         }
 
         "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = true
-            api_value = true
+            strategy_used = "localStorage"
+            keepnite_is_on = true
+            api_version = true
         }
 
         "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = false
-            api_value = false
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = false
+            api_version = false
         }
 
         "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = false
-            api_value = false
+            strategy_used = "localStorage"
+            keepnite_is_on = false
+            api_version = false
         }
 
         "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = true
-            api_value = false
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = true
+            api_version = false
         }
 
         "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = false
-            api_value = true
+            strategy_used = "localStorage"
+            keepnite_is_on = false
+            api_version = true
         }
     }
 
     test("Get Session") {
         "login/get_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = true
-            api_value = true
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = true
+            api_version = true
         }
 
         "login/get_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = true
-            api_value = true
+            strategy_used = "localStorage"
+            keepnite_is_on = true
+            api_version = true
         }
 
         "login/get_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = false
-            api_value = false
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = false
+            api_version = false
         }
 
         "login/get_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = false
-            api_value = false
+            strategy_used = "localStorage"
+            keepnite_is_on = false
+            api_version = false
         }
 
         "login/get_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = true
-            api_value = false
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = true
+            api_version = false
         }
 
         "login/get_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = false
-            api_value = true
+            strategy_used = "localStorage"
+            keepnite_is_on = false
+            api_version = true
         }
     }
 
     test("Remove Session") {
         "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = true
-            api_value = true
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = true
+            api_version = true
         }
 
         "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = true
-            api_value = true
+            strategy_used = "localStorage"
+            keepnite_is_on = true
+            api_version = true
         }
 
         "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = false
-            api_value = false
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = false
+            api_version = false
         }
 
         "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = false
-            api_value = false
+            strategy_used = "localStorage"
+            keepnite_is_on = false
+            api_version = false
         }
 
         "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "sharedPreferences"
-            keepnite = true
-            api_value = false
+            strategy_used = "sharedPreferences"
+            keepnite_is_on = true
+            api_version = false
         }
 
         "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-            strategy_saved = "localStorage"
-            keepnite = false
-            api_value = true
+            strategy_used = "localStorage"
+            keepnite_is_on = false
+            api_version = true
         }
     }
 
