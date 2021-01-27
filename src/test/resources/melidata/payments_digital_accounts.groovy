@@ -28,6 +28,10 @@ trackTests {
         "/banking/cerc"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Balance Debts") {
+        "/banking/debts"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Movements") {
         "/banking/movements"(platform: "/", type: TrackType.View) {}
 

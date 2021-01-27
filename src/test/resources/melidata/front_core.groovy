@@ -202,6 +202,39 @@ trackTests {
         "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
     }
 
+    // New Banking
+
+    test("Mercadopago MPcard") {
+        "/wallet_home/section/tap/banking_v2" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            pill = "NOVO"
+            has_card = true
+            component_id = "card"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            has_nfc_card = true
+            component_id = "nfc"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+        
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            card_status = "active"
+            component_id = "pay_online"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+    }
+
+
     test("Mercadopago Home Secondary actions toggle") {
         "/wallet/home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event) {
             id= "payer"
@@ -757,6 +790,55 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - BANKING v2 Assets") {
+        "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="assets"
+            component_id="assets"
+            content_id="assets"
+            investment_counter=5
+            optin_process="kyc"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Actions") {
+        "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="Actions"
+            component_id="Actions"
+            content_id="Actions"
+            position=3
+            enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 balance") {
+        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://balance"
+            section_id="Balance"
+            component_id="Balance"
+            hidden=true
+            pending_balance=true
+            balance_histogram=3
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - QR FAB") {
+        "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="qr_fab"
+            component_id="qr"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - CREDITS") {
+        "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="credits"
+            component_id="credits"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Main Actions") {
         "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1182,6 +1264,39 @@ trackTests {
 
     test("Mercadopago Home activity shown") {
         "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    // New Banking
+
+    test("Mercadopago MPcard") {
+
+        "/wallet_home/section/tap/banking_v2" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            pill = "NOVO"
+            has_card = true
+            component_id = "card"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+
+
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            has_nfc_card = true
+            component_id = "nfc"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
+        
+        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+            card_status = "active"
+            component_id = "pay_online"
+            link = "mercadopago"
+            section_id = "banking_v2"
+        }
     }
 
     test("Mercadopago Home Secondary actions toggle") {
@@ -1702,6 +1817,55 @@ trackTests {
             prepaid = false
             debit = false
             quantity = 1 
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Assets") {
+        "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="assets"
+            component_id="assets"
+            content_id="assets"
+            investment_counter=5
+            optin_process="kyc"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Actions") {
+        "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="Actions"
+            component_id="Actions"
+            content_id="Actions"
+            position=3
+            enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 balance") {
+        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://balance"
+            section_id="Balance"
+            component_id="Balance"
+            hidden=true
+            pending_balance=true
+            balance_histogram=3
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - QR FAB") {
+        "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="qr_fab"
+            component_id="qr"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - CREDITS") {
+        "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="credits"
+            component_id="credits"
         }
     }
 

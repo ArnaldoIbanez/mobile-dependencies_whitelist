@@ -1125,75 +1125,94 @@ trackTests {
     }
 
     test("Merchant Open Market") {
-        "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+        "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "wrong_extension"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
-            bank = "caixa"
+        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
+        "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+        "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
             reason = "integration_error"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
             reason = "finished_flow"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
             reason = "finished_session"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
             reason = "not_available"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "finished_flow"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
-            bank = "caixa"
-        }
 
-        "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+        "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
     }
 
     test("Merchant Public Landing") {
