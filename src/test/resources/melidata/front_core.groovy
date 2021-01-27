@@ -812,6 +812,17 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - BANKING v2 balance") {
+        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://balance"
+            section_id="Balance"
+            component_id="Balance"
+            hidden=true
+            pending_balance=true
+            balance_histogram=3
+        }
+    }
+
     test("Mercadopago Home Tap v3 - QR FAB") {
         "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1828,6 +1839,17 @@ trackTests {
             content_id="Actions"
             position=3
             enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 balance") {
+        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://balance"
+            section_id="Balance"
+            component_id="Balance"
+            hidden=true
+            pending_balance=true
+            balance_histogram=3
         }
     }
 
