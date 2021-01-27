@@ -4770,13 +4770,13 @@ trackTests {
 
     //MP personalFrontend
     test("Listado de Herramientas Creadas"){
-        "/tools/list"(platform: "/web", type: TrackType.View){}
-        "/tools/list/button_create"(platform: "/web"){}
+        "/tools/list"(platform: "/", type: TrackType.View){}
+        "/tools/list/button_create"(platform: "/"){}
     }
 
     test("Crear Herramienta de cobro"){
-        "/tools/create"(platform: "/web", type: TrackType.View){}
-        "/tools/confirm_create_edit"(platform: "/web"){}
+        "/tools/create"(platform: "/", type: TrackType.View){}
+        "/tools/confirm_create_edit"(platform: "/"){}
     }
 
     test("Configuraciones de Negocio"){
