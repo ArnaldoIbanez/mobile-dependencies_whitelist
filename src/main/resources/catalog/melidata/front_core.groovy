@@ -475,6 +475,10 @@ tracks {
 
     "/wallet_home/section" (platform: "/mobile", isAbstract: true) {}
 
+    "/wallet_home/banking_v2" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/banking_v2/tap" (platform: "/mobile", isAbstract: true) {}
+
     "/wallet_home/section/tap" (platform: "/mobile", isAbstract: true) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
         section_id(required: true, type: PropertyType.String, description: "Section where the deeplink was launched")
@@ -511,6 +515,15 @@ tracks {
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
 
+    //hidden state
+    "/wallet_home/banking_v2/hidden_state" (platform: "/mobile", type: TrackType.View) {
+        hidden(type: PropertyType.Boolean, required: true, description: "Shows the hidden state status")
+    }
+
+    "/wallet_home/banking_v2/tap/hidden_state" (platform: "/mobile", type: TrackType.Event) {
+        hidden(type: PropertyType.Boolean, required: true, description: "Shows the hidden state status")
+    }
+    
     "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {}
