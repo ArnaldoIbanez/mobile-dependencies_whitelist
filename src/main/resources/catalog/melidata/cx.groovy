@@ -62,6 +62,8 @@ tracks {
             description: "Indicates the score of the prediction for the contact")
         portal_contact_predicted_problem_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the problem with which the user should contact")
+        portal_predicted_features(required: false, type: PropertyType.Map,
+            description: "Indicates the features used in the prediction")
     }
 
     propertyGroups {
@@ -86,6 +88,7 @@ tracks {
         portal_contact_predicted_team(portal_contact_predicted_team)
         portal_contact_prediction_score(portal_contact_prediction_score)
         portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
+        portal_predicted_features(portal_predicted_features)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -311,6 +314,7 @@ tracks {
         portal_contact_predicted_team
         portal_contact_prediction_score
         portal_contact_predicted_problem_id
+        portal_predicted_features
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {

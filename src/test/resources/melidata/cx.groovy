@@ -350,6 +350,7 @@ trackTests {
             portal_source_id = 123
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_predicted_features = [tpv: 1234]
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
