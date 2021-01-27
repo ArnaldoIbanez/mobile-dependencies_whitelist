@@ -290,6 +290,13 @@ trackTests {
             portal_prediction_id = 1234
             portal_has_one_click = false
         }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_show_cancel_card = false
+            portal_prediction_id = 1234
+            portal_has_one_click = false
+            portal_predicted_contents = [123, 456]
+        }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
         "/portal/search"(platform: "/", type: TrackType.View) {}
         "/portal/problem"(platform: "/", type: TrackType.View) {
