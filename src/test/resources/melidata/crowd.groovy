@@ -145,19 +145,19 @@ trackTests {
         "/crowd/next_trip"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             defaultOrdersInfo()
-            vehicle: "123456"
+            vehicle_id: "123456"
         }
 
         "/crowd/next_trip/checkin_in"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultOrdersInfo()
-            vehicle: "123456"
+            vehicle_id: "123456"
         }
 
         "/crowd/next_trip/map"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultOrdersInfo()
-            vehicle: "123456"
+            vehicle_id: "123456"
         }
 
     }
