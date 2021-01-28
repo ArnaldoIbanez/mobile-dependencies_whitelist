@@ -174,11 +174,11 @@ tracks {
 
 	// Share MGM Invite and Win > Events
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/scrolling_between_device_cards"(platform: "/", type: TrackType.Event) {
-        product (type: PropertyType.String, required: true, description: "Name of device (ex: Point Plus)")
+        product (type: PropertyType.String, required: true, description: "Product which user scrolled (ex: Point Plus)")
     }
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform: "/", type: TrackType.Event) {
         media (type: PropertyType.String, required: true, description: "Name of social network (ex: WhatsApp)")
-        product (type: PropertyType.String, required: true, description: "Name of device (ex: Point Plus)")
+        product (type: PropertyType.String, required: true, description: "Name of product (ex: Point Plus)")
     }
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards"(platform: "/", type: TrackType.Event) {}
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use"(platform: "/", type: TrackType.Event) {}
