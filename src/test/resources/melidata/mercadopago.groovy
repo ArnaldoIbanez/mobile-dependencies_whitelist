@@ -816,23 +816,25 @@ trackTests {
         }
     }
 
-	test("Share MGM Webview") {
-        "/merchant_acquisition/flows/share_mgm/webview"(platform:"/", type: TrackType.View) {}
+	
 
-        "/merchant_acquisition/flows/share_mgm/webview/scroll_entre_device_cards"(platform:"/", type: TrackType.Event) {
-          device_name = "¡Recomendá Point Plus"
+	test("Share MGM Invite and Win") {
+        "/merchant_acquisition/flows/share_mgm/invite_and_win"(platform:"/", type: TrackType.View) {}
+
+        "/merchant_acquisition/flows/share_mgm/invite_and_win/scrolling_between_device_cards"(platform:"/", type: TrackType.Event) {
+          product = "Point Plus"
         }
 
-        "/merchant_acquisition/flows/share_mgm/webview/click_button_social_network"(platform:"/", type: TrackType.Event) {
-		  button_name = "WhatsApp" 
-		  device_name = "¡Recomendá Point Plus"
+        "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
+		  social_network = "WhatsApp" 
+		  product = "Point Plus"
         }
 
-		"/merchant_acquisition/flows/share_mgm/webview/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
 
-		"/merchant_acquisition/flows/share_mgm/webview/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
 		
-		"/merchant_acquisition/flows/share_mgm/webview/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
     }
 
     test("Paper Rolls (Bobinas)") {
