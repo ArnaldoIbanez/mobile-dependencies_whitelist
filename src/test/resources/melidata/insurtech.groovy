@@ -510,6 +510,41 @@ trackTests {
             manufacturer_warranty = null
             period = null
          }
+        "/insurtech/marketplace/checkout/garex-flow"(platform: "/web/desktop") {
+            item = [
+                    id: "MLB1539246793",
+                    domain_id: "MLB-FREEZERS",
+                    price: 2300.0,
+            ]
+            options = [
+                    [
+                            product_id: "GAREX",
+                            price: [
+                                    final_amount: 242.73,
+                                    discount_rate: null,
+                            ],
+                            period: 12,
+                            option_data: [
+                                    manufacturer_warranty: 12
+                            ],
+                    ],
+                    [
+                            product_id: "RODA",
+                            price: [
+                                    final_amount: 242.73,
+                                    discount_rate: null,
+                            ],
+                            period: 24,
+                            option_data: [
+                                    brand: "Samsung",
+                                    coverage: "screen",
+                                    deductible_amount: 279.9,
+                                    model: "Galaxy A70",
+                                    size: "128GB"
+                            ],
+                    ]
+            ]
+        }
     }
 
     defaultBusiness = "mercadopago"
