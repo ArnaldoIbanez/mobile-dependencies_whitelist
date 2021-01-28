@@ -816,6 +816,27 @@ trackTests {
         }
     }
 
+	
+
+	test("Share MGM Invite and Win") {
+        "/merchant_acquisition/flows/share_mgm/invite_and_win"(platform:"/", type: TrackType.View) {}
+
+        "/merchant_acquisition/flows/share_mgm/invite_and_win/scrolling_between_device_cards"(platform:"/", type: TrackType.Event) {
+          product = "Point Plus"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
+		  media = "WhatsApp" 
+		  product = "Point Plus"
+        }
+
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
+
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
+		
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
+    }
+
     test("Paper Rolls (Bobinas)") {
         "/merchant_acquisition/flows/paper_rolls"(platform:"/", type: TrackType.View) {
           view = "order"
