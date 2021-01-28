@@ -510,7 +510,7 @@ trackTests {
             manufacturer_warranty = null
             period = null
          }
-        "/insurtech/marketplace/checkout/garex-flow"(platform: "/web/desktop") {
+        "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
             item = [
                     id: "MLB1539246793",
                     domain_id: "MLB-FREEZERS",
@@ -534,7 +534,7 @@ trackTests {
                                     final_amount: 242.73,
                                     discount_rate: null,
                             ],
-                            period: 24,
+                            period: 12,
                             option_data: [
                                     brand: "Samsung",
                                     coverage: "screen",
