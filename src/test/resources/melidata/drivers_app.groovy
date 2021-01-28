@@ -415,12 +415,6 @@ trackTests {
 
     test("MercadoEnvíos - Driver Apps - Testing My account Flow") {
 
-        def defaultDriverData =
-                {
-                    defaultLocation()
-                    vehicle_id = "23232424"
-                }
-
         def defaultLocation = {
             latitude = "-36.34443"
             longitude = "-35.34332"
@@ -435,7 +429,8 @@ trackTests {
         }
 
         "/driver/my_account/qr"(platform: "/mobile", type: TrackType.View) {
-            defaultDriverData()
+            defaultLocation()
+            vehicle_id = "23232424"
         }
 
         "/driver/my_account/logout"(platform: "/mobile", type: TrackType.View) {
