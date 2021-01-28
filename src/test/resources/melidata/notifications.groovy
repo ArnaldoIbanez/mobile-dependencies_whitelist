@@ -9726,6 +9726,17 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
+        "/notification/me_crowd_multiple_offers_available"(platform: "/mobile"){
+            news_id = "me_crowd-multiple_offers_available-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
+            news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+
     }
 
 }

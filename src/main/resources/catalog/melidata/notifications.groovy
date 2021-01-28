@@ -2496,4 +2496,15 @@ tracks {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
+
+    // Crowdsourcing driver
+    "/notification/me_crowd_multiple_offers_available"(platform: "/mobile", type: TrackType.Event) {
+        latitude(required: false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required: false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile", type: TrackType.Event) {
+        latitude(required: false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required: false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
 }

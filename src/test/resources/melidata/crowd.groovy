@@ -134,5 +134,31 @@ trackTests {
             defaultLocation()
         }
 
+        "/crowd/login/faq"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
+        "/crowd/login/requirements"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
+        "/crowd/next_trip"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultOrdersInfo()
+            vehicle: "123456"
+        }
+
+        "/crowd/next_trip/checkin_in"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultOrdersInfo()
+            vehicle: "123456"
+        }
+
+        "/crowd/next_trip/map"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultOrdersInfo()
+            vehicle: "123456"
+        }
+
     }
 }

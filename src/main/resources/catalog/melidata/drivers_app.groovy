@@ -125,6 +125,40 @@ tracks
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
     }
 
+    "/sorting/add_package"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+    }
+
+    "/sorting/add_package/qr_detected"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.Event) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+        qr_data(required: true, type: PropertyType.String, description: "Specifies the qr data scanned by driver")
+    }
+
+    "/sorting/stops/add_package/manual_modal"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+    }
+
+    "/sorting/add_package/manual_modal/qr_detected"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.Event) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+        qr_data(required: true, type: PropertyType.String, description: "Specifies the qr data scanned by driver")
+    }
+
+    "/sorting/scanner/package_fail"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.Event) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the shipment id scanned by driver")
+    }
+
+
 //Tracks for List & Detail Flow in every driver App
 
     "/driver/stops"(platform: "/mobile", isAbstract: true) {
@@ -273,6 +307,31 @@ tracks
     "/driver/delivery/undelivery_ok"(platform: "/mobile", type: TrackType.View) {
         selected_reason(required: true, type: PropertyType.String,
                 description: "Describes why the driver couldn't deliver the packages")
+    }
+
+    /// MY ACCOUNT FLOW TRACKS
+    "/driver/my_account/menu"(platform: "/mobile", type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    "/driver/my_account/profile"(platform: "/mobile", type: TrackType.View) {
+        latitude(required: false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required: false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    "/driver/my_account/qr"(platform: "/mobile", type: TrackType.View) {
+        driver_info
+    }
+
+    "/driver/my_account/logout"(platform: "/mobile", type: TrackType.View) {
+        latitude(required: false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required: false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    "/driver/my_account/logout"(platform: "/mobile", type: TrackType.Event) {
+        latitude(required: false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required: false, type: PropertyType.String, description: "The longitude of driver at that point")
     }
 }
 
