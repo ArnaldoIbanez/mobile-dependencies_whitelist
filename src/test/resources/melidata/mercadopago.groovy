@@ -826,7 +826,7 @@ trackTests {
         }
 
         "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
-		  social_network = "WhatsApp" 
+		  media = "WhatsApp" 
 		  product = "Point Plus"
         }
 
