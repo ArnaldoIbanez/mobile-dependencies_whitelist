@@ -2046,6 +2046,16 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/me_crowd_multiple_offers_available"(platform: "/mobile"){
+            news_id = "me_crowd-multiple_offers_available-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
+            news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+
         "/notification/moderations_item_to_patch"(platform: "/mobile"){
             news_id = "moderations-item_to_patch-MLB1029865869-104215143"
             event_type = "discarded"
@@ -9725,16 +9735,6 @@ trackTests {
             news_id = "card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance-186785675"
             event_type = "open"
             notification_type= "deep_linking"
-        }
-
-        "/notification/me_crowd_multiple_offers_available"(platform: "/mobile"){
-            news_id = "me_crowd-multiple_offers_available-699997492-1611784275"
-            event_type = "sent"
-        }
-
-        "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
-            news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
-            event_type = "sent"
         }
 
     }
