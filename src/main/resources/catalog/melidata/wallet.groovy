@@ -80,4 +80,30 @@ tracks {
 
     // Back button
     "/wallet/cards/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+
+    /**
+     * Wallet Connect tracks
+     */
+
+    "/wallet/connect" (platform: "/web", isAbstract: true) {}
+
+    "/wallet/connect/home" (platform: "/web", type: TrackType.View) {}
+
+    "/wallet/connect/close_tokenizer" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/open_tokenizer" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/deny_button" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/confirm_payment" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/empty_card" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/tokenizer_express" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/on_retry" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/skip_card_payment" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/on_change_card" (platform: "/web", type: TrackType.Event) {}
 }
