@@ -103,4 +103,40 @@ tracks {
 
     "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Fiscal Documents Template Mappings
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/fiscal_documents"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/fiscal_documents/template_mappings"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/fiscal_documents/template_mappings/delete"(platform: "/web", type: TrackType.Event) {
+        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
+        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
+        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
+        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/get"(platform: "/web", type: TrackType.Event) {
+        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
+        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
+        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
+        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/modify"(platform: "/web", type: TrackType.Event) {
+        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
+        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
+        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
+        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/save"(platform: "/web", type: TrackType.Event) {
+        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
+        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
+        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
+        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+    }
+
 }

@@ -136,5 +136,43 @@ trackTests {
     "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
   }
 
-}
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+// TRACKS Vendor Central Fiscal Documents Template Mappings
+//------------------------------------------------------------------------------------------------------------------------------------------------------
 
+  test("Vendor Central Fiscal Documents Template Mapping delete event") {
+    "/vendor_central/fiscal_documents/template_mappings/delete"(platform: "/web", type: TrackType.Event) {
+      template_id = "template_1"
+      user_id = 109479273
+      entity = "credit_note"
+      site_id = "MLA"
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping get event") {
+    "/vendor_central/fiscal_documents/template_mappings/get"(platform: "/web", type: TrackType.Event) {
+      template_id = "template_1"
+      user_id = 109479273
+      entity = "credit_note"
+      site_id = "MLA"
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping modify event") {
+    "/vendor_central/fiscal_documents/template_mappings/modify"(platform: "/web", type: TrackType.Event) {
+      template_id = "template_1"
+      user_id = 109479273
+      entity = "credit_note"
+      site_id = "MLA"
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping save event") {
+    "/vendor_central/fiscal_documents/template_mappings/save"(platform: "/web", type: TrackType.Event) {
+      template_id = "template_1"
+      user_id = 109479273
+      entity = "credit_note"
+      site_id = "MLA"
+    }
+  }
+}
