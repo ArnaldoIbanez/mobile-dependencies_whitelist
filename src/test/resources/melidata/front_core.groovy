@@ -812,6 +812,30 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - BANKING v2 balance") {
+        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://balance"
+            section_id="Balance"
+            component_id="Balance"
+            hidden=true
+            pending_balance=true
+            balance_histogram=3
+        }
+    }
+
+    //hidden state
+    test("Mercadopago Home Show - Hidden state") {
+        "/wallet_home/banking_v2/hidden_state" (platform: "/mobile", type: TrackType.View) {
+            hidden=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Hidden state") {
+        "/wallet_home/banking_v2/tap/hidden_state" (platform: "/mobile", type: TrackType.Event) {
+            hidden=true
+        }
+    }
+
     test("Mercadopago Home Tap v3 - QR FAB") {
         "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1828,6 +1852,30 @@ trackTests {
             content_id="Actions"
             position=3
             enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 balance") {
+        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://balance"
+            section_id="Balance"
+            component_id="Balance"
+            hidden=true
+            pending_balance=true
+            balance_histogram=3
+        }
+    }
+
+    //hidden state
+    test("Mercadopago Home Show - Hidden state") {
+        "/wallet_home/banking_v2/hidden_state" (platform: "/mobile", type: TrackType.View) {
+            hidden=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Hidden state") {
+        "/wallet_home/banking_v2/tap/hidden_state" (platform: "/mobile", type: TrackType.Event) {
+            hidden=true
         }
     }
 

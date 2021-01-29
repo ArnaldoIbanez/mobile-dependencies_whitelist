@@ -62,6 +62,10 @@ tracks {
             description: "Indicates the score of the prediction for the contact")
         portal_contact_predicted_problem_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the problem with which the user should contact")
+        portal_predicted_features(required: false, type: PropertyType.Map,
+            description: "Indicates the features used in the prediction")
+        portal_predicted_contents(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the ids of the contents predicted to a user")
     }
 
     propertyGroups {
@@ -86,6 +90,8 @@ tracks {
         portal_contact_predicted_team(portal_contact_predicted_team)
         portal_contact_prediction_score(portal_contact_prediction_score)
         portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
+        portal_predicted_features(portal_predicted_features)
+        portal_predicted_contents(portal_predicted_contents)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -211,6 +217,7 @@ tracks {
         portal_show_cancel_card
         portal_prediction_id
         portal_has_one_click
+        portal_predicted_contents
     }
 
     "/portal/zrp"(platform: "/", type: TrackType.View) {
@@ -311,6 +318,7 @@ tracks {
         portal_contact_predicted_team
         portal_contact_prediction_score
         portal_contact_predicted_problem_id
+        portal_predicted_features
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {

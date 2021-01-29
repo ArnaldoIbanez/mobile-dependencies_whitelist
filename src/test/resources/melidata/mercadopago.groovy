@@ -816,6 +816,27 @@ trackTests {
         }
     }
 
+	
+
+	test("Share MGM Invite and Win") {
+        "/merchant_acquisition/flows/share_mgm/invite_and_win"(platform:"/", type: TrackType.View) {}
+
+        "/merchant_acquisition/flows/share_mgm/invite_and_win/scrolling_between_device_cards"(platform:"/", type: TrackType.Event) {
+          product = "Point Plus"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
+		  media = "WhatsApp" 
+		  product = "Point Plus"
+        }
+
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
+
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
+		
+		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
+    }
+
     test("Paper Rolls (Bobinas)") {
         "/merchant_acquisition/flows/paper_rolls"(platform:"/", type: TrackType.View) {
           view = "order"
@@ -3922,6 +3943,103 @@ trackTests {
             ]
             scenario = "activate_security_success"
         }
+
+        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+            from = "campaign"
+            enrollment_status = "enabled"
+            dismissible = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "activate_security_success"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "disabled"
+            os_status = "basic_screenlock"
+            dismissible = "disabled"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "never_auto_enrolled"
+        }
+
+        "/screenlock/security_blocker/ok"(platform: "/mobile/android", type: TrackType.Event) {
+            from = "campaign"
+            enrollment_status = "enabled"
+            dismissible = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "auto_enroll"
+        }
+
+        "/screenlock/security_blocker/ok"(platform: "/mobile/ios", type: TrackType.Event) {
+            from = "campaign"
+            enrollment_status = "enabled"
+            dismissible = "disabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "auto_enroll"
+        }
+
+        "/screenlock/security_blocker/configure"(platform: "/mobile/android", type: TrackType.Event) {
+            from = "login"
+            enrollment_status = "enabled"
+            dismissible = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "auto_enroll"
+        }
+
+        "/screenlock/security_blocker/dismiss"(platform: "/mobile/android", type: TrackType.Event) {
+            from = "campaign"
+            enrollment_status = "enabled"
+            dismissible = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "auto_enroll"
+        }
+
+        "/screenlock/security_blocker/dismiss"(platform: "/mobile/ios", type: TrackType.Event) {
+            from = "campaign"
+            enrollment_status = "enabled"
+            dismissible = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            scenario = "auto_enroll"
+        }
         
         "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
         }
@@ -4585,13 +4703,13 @@ trackTests {
 
     //MP personalFrontend
     test("Listado de Herramientas Creadas"){
-        "/tools/list"(platform: "/web", type: TrackType.View){}
-        "/tools/list/button_create"(platform: "/web"){}
+        "/tools/list"(platform: "/", type: TrackType.View){}
+        "/tools/list/button_create"(platform: "/"){}
     }
 
     test("Crear Herramienta de cobro"){
-        "/tools/create"(platform: "/web", type: TrackType.View){}
-        "/tools/confirm_create_edit"(platform: "/web"){}
+        "/tools/create"(platform: "/", type: TrackType.View){}
+        "/tools/confirm_create_edit"(platform: "/"){}
     }
 
     test("Configuraciones de Negocio"){

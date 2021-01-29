@@ -207,6 +207,11 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/more_products"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_1()
+        }
         "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -467,6 +472,10 @@ trackTests {
             payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            payment_id = "252"
+        }
+        "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             payment_id = "252"
         }
@@ -767,6 +776,22 @@ trackTests {
         }
 
 
+        // Show Action
+        "/single_player/prepaid/show_action"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/show_action/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/show_action/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -884,6 +909,11 @@ trackTests {
         "/single_player/prepaid/product_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+        "/single_player/prepaid/product_list/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_1()
         }
         "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -1146,6 +1176,10 @@ trackTests {
             payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            payment_id = "232"
+        }
+        "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             payment_id = "232"
         }
@@ -1442,6 +1476,22 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/receipt/share"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Show Action
+        "/single_player/prepaid/show_action"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/show_action/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/show_action/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }

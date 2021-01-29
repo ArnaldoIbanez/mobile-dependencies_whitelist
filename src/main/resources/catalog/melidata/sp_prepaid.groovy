@@ -159,6 +159,12 @@ tracks {
         step_information
         view_time
     }
+    "/single_player/prepaid/product_list/more_products"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        step_information
+        view_time
+        item_structure
+    }
     "/single_player/prepaid/product_list/link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
@@ -386,6 +392,7 @@ tracks {
     "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Congrats rejected
@@ -581,6 +588,17 @@ tracks {
         view_time
     }
     "/single_player/prepaid/receipt/download"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Show Action
+    "/single_player/prepaid/show_action"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/show_action/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/show_action/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 

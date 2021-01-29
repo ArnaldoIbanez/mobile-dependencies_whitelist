@@ -273,4 +273,12 @@ tracks {
         manufacturer_warranty(required: false, type: PropertyType.Numeric, description: "factory warranty time")
         period(required: false, type: PropertyType.Numeric, description: "duration of warranty")
     }
+
+    // Hub-ON garex flow experiment
+    "/insurtech/marketplace"(platform: "/", isAbstract: true) {}
+    "/insurtech/marketplace/checkout"(platform:"/", isAbstract: true) {}
+    "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
+        item(required: true, type:PropertyType.Map(grd_protection_item), description: "Basic data of the item to which garex is offered")
+        options(required: false, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "garex options offered for item" )
+    }
 }
