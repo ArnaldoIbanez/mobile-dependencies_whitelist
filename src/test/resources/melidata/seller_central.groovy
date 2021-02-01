@@ -2571,6 +2571,178 @@ trackTests {
     }
   }
 
+ test("seller central show leave suggesiton task "){
+    "/seller_central/catalog/optin/leave_suggestion/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+ test("seller central confirm leave suggestion task") {
+    "/seller_central/catalog/optin/leave_suggestion/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      value = "MLA123"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central show catalog decision task ") {
+    "/seller_central/catalog/optin/catalog_decision/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+   test("seller central confirm catalog decision task ") {
+    "/seller_central/catalog/optin/catalog_decision/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+      value = "option_a"
+    }
+  }
+
+test("seller central show leave suggestion task - optin moderated") {
+    "/seller_central/catalog/optin/optin_moderated/leave_suggestion/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+test("seller central confirm leave suggestion task - optin moderated") {
+    "/seller_central/catalog/optin/optin_moderated/leave_suggestion/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      value = "MLA123"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central show catalog decision task - optin moderated ") {
+    "/seller_central/catalog/optin/optin_moderated/catalog_decision/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central confirm catalog decision task - optin moderated") {
+    "/seller_central/catalog/optin/optin_moderated/catalog_decision/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      value = "MLA123"
+      list_mode = "OPTIN"
+    }
+  }
+
   test("seller central catalog optin_moderated congrats page view") {
     "/seller_central/catalog/optin/optin_moderated/congrats"(platform: "/web", type: TrackType.View) {
       item_id = "MLA123"

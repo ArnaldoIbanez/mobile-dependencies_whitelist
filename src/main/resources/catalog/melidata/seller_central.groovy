@@ -1358,6 +1358,39 @@ tracks {
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
     }
+    // Suggestion v2 tracks
+    "/seller_central/catalog/optin/leave_suggestion"(platform: "/web", isAbstract: true) {
+        sellerCentralCatalogOptinGroup
+    }
+    "/seller_central/catalog/optin/leave_suggestion/confirm"(platform: "/web", type: TrackType.Event) {
+        value(required: true, type: PropertyType.String, description: "Selecetd value")
+    }
+    "/seller_central/catalog/optin/leave_suggestion/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/seller_central/catalog/optin/catalog_decision"(platform: "/web", isAbstract: true) {
+        sellerCentralCatalogOptinGroup
+    }
+    "/seller_central/catalog/optin/catalog_decision/confirm"(platform: "/web", type: TrackType.Event) {
+        value(required: true, type: PropertyType.String, description: "Selecetd value")
+    }
+    "/seller_central/catalog/optin/catalog_decision/show"(platform: "/web", type: TrackType.Event) {}
+
+    // optin moderated suggestion v2 tracks
+    "/seller_central/catalog/optin/optin_moderated/leave_suggestion"(platform: "/web", isAbstract: true) {
+        sellerCentralCatalogOptinGroup
+    }
+    "/seller_central/catalog/optin/optin_moderated/leave_suggestion/confirm"(platform: "/web", type: TrackType.Event) {
+        value(required: true, type: PropertyType.String, description: "Selecetd value")
+    }
+    "/seller_central/catalog/optin/optin_moderated/leave_suggestion/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/seller_central/catalog/optin/optin_moderated/catalog_decision"(platform: "/web", isAbstract: true) {
+        sellerCentralCatalogOptinGroup
+    }
+    "/seller_central/catalog/optin/optin_moderated/catalog_decision/confirm"(platform: "/web", type: TrackType.Event) {
+        value(required: true, type: PropertyType.String, description: "Selecetd value")
+    }
+    "/seller_central/catalog/optin/optin_moderated/catalog_decision/show"(platform: "/web", type: TrackType.Event) {}
 
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroup
