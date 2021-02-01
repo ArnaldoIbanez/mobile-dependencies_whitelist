@@ -4499,10 +4499,6 @@ trackTests {
         }
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
-
-        "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
-            status = "opted_in"
-        }
     }
 
     test("Devices Admin") {
