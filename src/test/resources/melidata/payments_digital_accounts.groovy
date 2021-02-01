@@ -32,6 +32,33 @@ trackTests {
         "/banking/debts"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Balance Events") {
+        "/banking/balance/action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/row"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/calendar_anual"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/calendar"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/error"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/debts"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+    }
+
     test("Movements") {
         "/banking/movements"(platform: "/", type: TrackType.View) {}
 

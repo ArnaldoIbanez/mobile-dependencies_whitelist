@@ -50,17 +50,30 @@ tracks {
         movementsReportsCreate (
                 action_type, begin_date, end_date
         )
+        balanceEventClick (
+                action_id
+        )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
-    // Balance
+    // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
     "/banking/debts"(platform: "/", type: TrackType.View) {}
+
+    // Balance Events
+    "/banking/balance/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/error"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
@@ -91,5 +104,4 @@ tracks {
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
-
 }
