@@ -1,41 +1,28 @@
 package src.test.resources.melidata
 
+import com.ml.melidata.TrackType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "mercadolibre"
-
-    //Card Listing Flow
-    test("Cards Wallet tracking ML") {
-
-        "/wallet/cards/listing"(platform:"/mobile", {})
-
-        "/wallet/cards/detail"(platform:"/mobile", {})
-
-        "/wallet/cards/add_card"(platform:"/mobile", {})
-        "/wallet/cards/add_card/success"(platform:"/mobile", {})
-        "/wallet/cards/add_card/failed"(platform:"/mobile", {})
-
-        "/wallet/cards/detail/delete_card"(platform:"/mobile", {})
-        "/wallet/cards/detail/delete_card/success"(platform:"/mobile", {})
-        "/wallet/cards/detail/delete_card/failed"(platform:"/mobile", {})
-
-        "/wallet/cards/back"(platform:"/mobile", {})
-
-        "/wallet/cards/add_card_header"(platform: "/mobile", {})
-    }
-
     defaultBusiness = "mercadopago"
 
     //Card Listing Flow
-    test("Cards Wallet tracking ML") {
+    test("Cards Wallet tracking MP") {
 
-        "/wallet/cards/listing"(platform:"/mobile", {})
+        "/wallet/cards/listing"(platform:"/mobile", {
+            version = "2.0"
+        })
 
-        "/wallet/cards/detail"(platform:"/mobile", {})
+        "/wallet/cards/detail"(platform:"/mobile", {
+            version = "2.0"
+        })
 
-        "/wallet/cards/add_card"(platform:"/mobile", {})
+        "/wallet/cards/add_card"(platform:"/mobile", {
+            id_banner = "cards_list_prepaid_banner_acquisition"
+            other_cards = true
+        })
         "/wallet/cards/add_card/success"(platform:"/mobile", {})
         "/wallet/cards/add_card/failed"(platform:"/mobile", {})
 
@@ -46,5 +33,57 @@ trackTests {
         "/wallet/cards/back"(platform:"/mobile", {})
 
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
+
+        "/wallet/cards/banner_print"(platform: "/mobile", {
+            id = "cards_list_prepaid_banner_acquisition"
+            type = "primary"
+            title = "Pedí tu tarjeta"
+            description = "Podés usarla donde quieras"
+            image = "cards_list_prepaid_banner"
+            secondary_image = "cards_list_prepaid_banner_2"
+            background = "#FFFFFF"
+            chevron_color = "#000000" 
+            action = [link: "mercadopago://meli-cards/prepaid/acquisition/init-point"]
+        })
+        "/wallet/cards/banner_tap"(platform: "/mobile", {
+            id = "cards_list_prepaid_banner_acquisition"
+            type = "primary"
+            title = "Pedí tu tarjeta"
+            description = "Podés usarla donde quieras"
+            image = "cards_list_prepaid_banner"
+            secondary_image = "cards_list_prepaid_banner_2"
+            background = "#FFFFFF"
+            chevron_color = "#000000"            
+            action = [link: "mercadopago://meli-cards/prepaid/acquisition/init-point"]
+        })
+    }
+
+    //Card Listing Error
+    test("Card listing show error MP") {
+        "/wallet/cards/listing/error"(platform: "/mobile") {
+            screen = "cards_listing"
+        }
+    }
+
+    test("Wallet Connect tracks MP") {
+        "/wallet/connect/home"(platform: "/web", type: TrackType.View) {}
+
+        "/wallet/connect/close_tokenizer"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/open_tokenizer"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/deny_button"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/confirm_payment"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/empty_card"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/tokenizer_express"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/on_retry"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/skip_card_payment"(platform: "/web", type: TrackType.Event) {}
+
+        "/wallet/connect/on_change_card"(platform: "/web", type: TrackType.Event) {}
     }
 }

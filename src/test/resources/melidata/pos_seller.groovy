@@ -401,6 +401,11 @@
                             payment_method_type= "credit_card"
                             installments= 3
                         }
+
+                        //Vouchers
+                        "/pos_seller/vouchers/sodexo"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/vouchers/access-denied"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/vouchers/error"(platform: "/web", type: TrackType.View) {}
                          
                         /**
                         *MISC
