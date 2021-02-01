@@ -4499,6 +4499,11 @@ trackTests {
         }
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
+
+        "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
+            event_type = "click"
+            action = "add"
+        }
     }
 
     test("Devices Admin") {
