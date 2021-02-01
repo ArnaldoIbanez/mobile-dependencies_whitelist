@@ -1133,7 +1133,7 @@ tracks {
         health_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for Health card")
         kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
-        decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
+        decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
