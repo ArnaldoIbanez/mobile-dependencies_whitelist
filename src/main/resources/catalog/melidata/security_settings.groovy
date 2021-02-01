@@ -25,8 +25,9 @@ tracks {
 
     "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 
-    "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values: ["opted_in", "opted_out"], description: "The user interacted with the two-factor authentication switch")
+    "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
+        event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in Two Factor Authentication page")
+        action(type: PropertyType.String, required: true, values: ["add", "delete", "modify"], description: "Actions that can be clicked on each 2fa" )
     }
 
     // Devices Admin
