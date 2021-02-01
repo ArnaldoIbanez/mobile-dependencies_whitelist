@@ -132,15 +132,10 @@ tracks
 
             "/crowd/next_trip/checkin_in"(platform: "/mobile", type: TrackType.Event) {
                 vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
-                location
-                orders_info(type: PropertyType.ArrayList(PropertyType.Map(orders_info_definition)), required: false)
-
             }
 
             "/crowd/next_trip/map"(platform: "/mobile", type: TrackType.Event) {
                 vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
-                location
-                orders_info(type: PropertyType.ArrayList(PropertyType.Map(orders_info_definition)), required: false)
             }
 
         }

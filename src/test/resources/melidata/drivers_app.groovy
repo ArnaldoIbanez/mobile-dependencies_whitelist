@@ -437,7 +437,7 @@ trackTests {
             defaultLocation()
         }
 
-        "/driver/my_account/logout"(platform: "/mobile", type: TrackType.Event) {
+        "/driver/my_account/logout/confirm"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
         }
 
