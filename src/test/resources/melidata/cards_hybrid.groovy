@@ -1070,6 +1070,7 @@ trackTests {
     
     // OPTIONS Semaphore
     test("card options semaphore states for nfc") {
+        "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}
         "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
             action = "configured"
         }
@@ -1271,7 +1272,7 @@ trackTests {
     
     // NFC Core
     test("nfc sdk initialize"){
-        "cards/nfc/core/sdk_initialize"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/sdk_initialize"(platform: "/", type: TrackType.Event) {
             action = "home_with_nfc"
         }
     }

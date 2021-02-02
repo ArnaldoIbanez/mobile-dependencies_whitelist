@@ -33,7 +33,6 @@ tracks {
     "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/core/sdk_initialize"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -1023,6 +1022,7 @@ tracks {
     
     // Semaphore
     //-------------------
+    "/cards/hybrid/setup/options/semaphore"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup/options/semaphore/render"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
