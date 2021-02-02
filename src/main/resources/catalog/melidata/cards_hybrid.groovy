@@ -34,7 +34,6 @@ tracks {
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/sdk_initialize"(platform: "/", isAbstract: true) { }
-    
 
     // SHIPPING
     // --------
@@ -1038,7 +1037,6 @@ tracks {
             description: "Semaphore State"
         )
     }
-    
     
     // ENROLLMENT-HUB-NFC
     //-------------------
