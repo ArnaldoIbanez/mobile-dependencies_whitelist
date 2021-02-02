@@ -71,6 +71,9 @@ trackTests {
             ]
             has_seller_level_kyc = true
             seller_type = 'normal'
+            apparel = [
+                    "has_size_chart": true
+            ]
         }
 
         Object items_attributes = {
