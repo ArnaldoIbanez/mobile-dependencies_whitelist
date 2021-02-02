@@ -583,6 +583,10 @@ trackTests {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message_freeze"
         }
+         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "close_modal"
+        }
+        
     }
 
     //Highlighted Row
