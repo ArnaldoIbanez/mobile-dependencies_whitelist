@@ -106,4 +106,6 @@ tracks {
     "/wallet/connect/skip_card_payment" (platform: "/web", type: TrackType.Event) {}
 
     "/wallet/connect/on_change_card" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/confirm_success" (platform: "/web", type: TrackType.Event) {}
 }
