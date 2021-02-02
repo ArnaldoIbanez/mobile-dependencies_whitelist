@@ -211,6 +211,8 @@ tracks {
     "/portal/home"(platform: "/", type: TrackType.View) {
         portal_source_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_predicted_label(required: false, type: PropertyType.String,
+                description: "Field that sometimes is required in catalog, but not always. Indicates the predicted label of the user")
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
