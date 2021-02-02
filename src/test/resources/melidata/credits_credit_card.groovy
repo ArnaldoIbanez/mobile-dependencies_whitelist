@@ -134,6 +134,12 @@ trackTests {
             page = 1
         }
 
+        "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
+            proposal = account_rating_b
+            is_card_active = true
+            page = 2
+        }
+
         // Payment due date selection
         "/credits/credit_card/upgrade/payment_due_date_selection"(platform: "/", type: TrackType.View) {
             proposal = account_rating_b
