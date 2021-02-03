@@ -91,6 +91,8 @@ tracks {
 
     "/wallet/connect/return_tokenizer" (platform: "/web", type: TrackType.View) {}
      
+    "/wallet/connect/error" (platform: "/web", isAbstract: true) {}
+
     "/wallet/connect/error/reject_card" (platform: "/web", type: TrackType.View) {}
     
     "/wallet/connect/error/default" (platform: "/web", type: TrackType.View) {}
