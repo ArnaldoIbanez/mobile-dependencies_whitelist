@@ -20,7 +20,7 @@ tracks {
     "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
 
     "/seller_central/bulk/publish/categories/tab_selection"(platform: "/web", type: TrackType.Event) {
-        tab(required: true, type: PropertyType.String, description: "name of tab selected by user")
+        tab(required: true, type: PropertyType.String, description: "Name of tab selected by user")
     }
 
     "/seller_central/bulk/publish/download"(platform: "/web", isAbstract: true) {}
