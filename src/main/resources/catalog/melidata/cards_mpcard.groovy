@@ -384,7 +384,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message"],
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal"],
             description: "Virtual card buttons tapped"
         )
     }
