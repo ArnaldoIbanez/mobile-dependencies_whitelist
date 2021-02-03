@@ -49,19 +49,19 @@ tracks {
 
     "/login/auth"(platform: "/", isAbstract: true){}
 
-    "login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+    "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
         strategy_used(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is saved")
         keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
     }
 
-    "login/get_session"(platform: "/mobile", type: TrackType.Event) {
+    "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
         strategy_used(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is retrieved")
         keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
     }
 
-    "login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+    "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
         strategy_used(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is deleted")
         keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
