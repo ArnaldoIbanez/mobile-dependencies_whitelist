@@ -34,7 +34,6 @@ tracks {
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
 
-
     // SHIPPING
     // --------
     "/cards/hybrid/shipping"(platform: "/", isAbstract: true) { }
@@ -1021,6 +1020,24 @@ tracks {
         )
     }
     
+    // Semaphore
+    //-------------------
+    "/cards/hybrid/setup/options/semaphore"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/semaphore/render"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "configured", 
+                "not_configured", 
+                "not_tokenized", 
+                "tokenized_in_progress", 
+                "privder_suspended"
+            ],
+            description: "Semaphore State"
+        )
+    }
+    
     // ENROLLMENT-HUB-NFC
     //-------------------
     "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
@@ -1201,6 +1218,15 @@ tracks {
     }
     
     // CORE-NFC
+    
+    "/cards/nfc/core/sdk_initialize"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["home_with_nfc"],
+            description: "User can see Home with NFC"
+        )
+    }
 
     "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
         error_code (

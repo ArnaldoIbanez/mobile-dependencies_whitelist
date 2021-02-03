@@ -1067,6 +1067,26 @@ trackTests {
             action = "research_form"
         }
     }
+    
+    // OPTIONS Semaphore
+    test("card options semaphore states for nfc") {
+        "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_tokenized"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "tokenized_in_progress"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "privder_suspended"
+        }
+    }
 
     //NFC ENROLLMENT HUB
     test("cards hybrid nfc enrollment hub") {
@@ -1251,6 +1271,12 @@ trackTests {
     }
     
     // NFC Core
+    test("nfc sdk initialize"){
+        "/cards/nfc/core/sdk_initialize"(platform: "/", type: TrackType.Event) {
+            action = "home_with_nfc"
+        }
+    }
+    
     test("cards hybrid nfc core"){
 
         "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
