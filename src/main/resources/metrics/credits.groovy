@@ -160,13 +160,13 @@ metrics {
         }
     }
 
-    "credits_selfservice.payment_promise_grace_period"(description: "New track to show the users the widget within all the payment promise information", deprecation_date:"2021/5/3") {
+    "credits_selfservice.payment_promise_with_intermediate_step"(description: "New track to show the users the widget within all the payment promise information", deprecation_date:"2021/4/30") {
         startWith {
-            experiment("credits/credits_selfservice_payment_promise_grace_period")
+            experiment("credits/payment_promise_with_intermediate_step")
         }
         countsOn {
             condition {
-                path("/credits/credits_selfservice_payment_promise_grace_period")
+                path("/credits/self_service/promises/congrats")
             }
         }
     }
