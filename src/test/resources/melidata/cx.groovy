@@ -231,6 +231,26 @@ trackTests {
         }
     }
 
+    test("Daisy") {
+        "/support/helpcard"(platform: "/", type: TrackType.View) {}
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [
+                [
+                    title: "Ayuda con tus compras",
+                    redirect_url: "https://myaccount.mercadolibre.com.ar/listings",
+                    directAccess: []
+                ]
+            ]
+        }
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [:]
+        }
+    }
+
     defaultBusiness = "mercadopago"
 
     test("Portal") {
@@ -387,6 +407,26 @@ trackTests {
         "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
             case_id = 12345555
             type = "greetings"
+        }
+    }
+
+    test("Daisy") {
+        "/support/helpcard"(platform: "/", type: TrackType.View) {}
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [
+                [
+                    title: "Ayuda con tus compras",
+                    redirect_url: "https://myaccount.mercadolibre.com.ar/listings",
+                    directAccess: []
+                ]
+            ]
+        }
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [:]
         }
     }
 }
