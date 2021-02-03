@@ -9,6 +9,12 @@ tracks {
 
     initiative = "1155"
 
+    def helpCardContent = objectSchemaDefinitions {
+        title(required: false, type: PropertyType.String, description: "Title of the content")
+        redirect_url(required: false, type: PropertyType.String, description:  "Redirect url of the content")
+        directAccess(required: false, type: PropertyType.Map, description: "Configuration to open a direct access to support widget")
+    }
+
     propertyDefinitions {
         portal_contact(required: true, type: PropertyType.Map,
             description: "Indicates if the current hub has channels enabled and why it hasn't")
@@ -66,6 +72,10 @@ tracks {
             description: "Indicates the features used in the prediction")
         portal_predicted_contents(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
             description: "Indicates the ids of the contents predicted to a user")
+        helpcard_title(required: true, type: PropertyType.String,
+            description: "Indicates the title of the help card as viewed by the user")
+        helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
+            description: "Indicates the contents viewed by the user in the help card")
     }
 
     propertyGroups {
@@ -92,6 +102,7 @@ tracks {
         portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
         portal_predicted_features(portal_predicted_features)
         portal_predicted_contents(portal_predicted_contents)
+        helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -376,5 +387,12 @@ tracks {
         type(required: true, type: PropertyType.String, 
             values: ["new_information", "greetings", "recontact"],
             description: "Contact type")
+    }
+
+    // Daisy
+    "/support/helpcard"(platform: "/", type: TrackType.View) {} 
+
+    "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+        helpcard_data
     }
 }
