@@ -807,7 +807,7 @@ tracks {
     // --------
     "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
         context (
-            required: false,
+            required: true,
             type: PropertyType.String,
             values: ["no_kyc", "kyc", "onboarding_shown"],
             description: "type of onboarding",
