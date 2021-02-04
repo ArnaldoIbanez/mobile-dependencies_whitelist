@@ -1112,6 +1112,14 @@ tracks {
     "/seller_central/sales/list/row"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
 
+    "/seller_central/sales/list/row"(platform: "/mobile", isAbstract: true) {}
+    "/seller_central/sales/list/row/messages_action"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Type of message action", values: ["send_messages", "view_messages", "view_new_messages", "legacy"])
+    }
+    "/seller_central/sales/list/row/claims_action"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Type of claim action", values: ["view_claim", "answer_claim", "legacy"])
+    }
+
     "/seller_central/sales/list/action"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
@@ -1172,6 +1180,14 @@ tracks {
 
     "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "ID of main action")
+    }
+
+    "/seller_central/sales/detail/messages_action"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Type of message action", values: ["send_messages", "view_messages", "view_new_messages", "legacy"])
+    }
+
+    "/seller_central/sales/detail/claims_action"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Type of claim action", values: ["view_claim", "answer_claim", "legacy"])
     }
 
     "/seller_central/sales/detail/secondary_action"(platform: "/mobile", type: TrackType.Event) {
