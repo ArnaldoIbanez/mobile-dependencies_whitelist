@@ -805,7 +805,15 @@ tracks {
 
     // CARD REQUEST virtual on boarding
     // --------
-    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
+        context (
+            required: false,
+            type: PropertyType.String,
+            values: ["no_kyc", "kyc", "onboarding_shown"],
+            description: "type of onboarding",
+            inheritable:false
+        )
+    }
     "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,

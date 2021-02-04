@@ -909,6 +909,11 @@ trackTests {
     test("cards mpcard virtual onboarding"){
         "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
     }
+    test("cards mpcard virtual onboarding"){
+        "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {
+            context = "kyc"
+        }
+    }
      test("cards mpcard virtual onboarding tap") {
         "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
             action = "close"
