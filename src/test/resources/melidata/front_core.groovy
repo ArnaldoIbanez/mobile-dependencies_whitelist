@@ -234,6 +234,39 @@ trackTests {
         }
     }
 
+    test("Mercadopago Walkthrough") {
+
+        "/wallet_home/walkthrough/next" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/finish" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 5
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/walkthrough/close" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/view" (platform: "/mobile", type: TrackType.View) {
+            id = "banking_v2"
+            total_steps = 5
+            step_ids = ["banking", "qr", "cards", "data", "navigation"]
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
+
 
     test("Mercadopago Home Secondary actions toggle") {
         "/wallet/home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event) {
@@ -1313,6 +1346,39 @@ trackTests {
             component_id = "pay_online"
             link = "mercadopago"
             section_id = "banking_v2"
+        }
+    }
+
+    test("Mercadopago Walkthrough") {
+
+        "/wallet_home/walkthrough/next" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/finish" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 5
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/walkthrough/close" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/view" (platform: "/mobile", type: TrackType.View) {
+            id = "banking_v2"
+            total_steps = 5
+            step_ids = ["banking", "qr", "cards", "data", "navigation"]
+            metadata_user:[
+                type: "payer"
+            ]
         }
     }
 

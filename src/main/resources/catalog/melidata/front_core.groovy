@@ -538,6 +538,34 @@ tracks {
         hidden(type: PropertyType.Boolean, required: true, description: "Shows the hidden state status")
     }
 
+    // Walkthrough
+
+    "/wallet_home/walkthrough" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/walkthrough/next" (platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+        step_number(type: PropertyType.Numeric, required: true, description: "Walkthrough's step number")
+    }
+
+    "/wallet_home/walkthrough/finish" (platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+        step_number(type: PropertyType.Numeric, required: true, description: "Walkthrough's step number")
+    }
+
+    "/wallet_home/walkthrough/close" (platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+        step_number(type: PropertyType.Numeric, required: true, description: "Walkthrough's step number")
+    }
+
+    "/wallet_home/walkthrough/view" (platform: "/mobile", type: TrackType.View) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        total_steps(type: PropertyType.Numeric, required: true, description: "Walkthrough's number of steps")
+        step_ids(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "Walkthrough's steps ids")
+    }
+
     "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/credits" (platform: "/mobile", type: TrackType.Event) {}
