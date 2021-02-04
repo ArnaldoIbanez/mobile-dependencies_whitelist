@@ -14,7 +14,7 @@ tracks {
         last_modified(required: false, description: "Date of last modification")
     }
 
-    "/category_landing/tap"(platform: "/",  type: TrackType.Event) {
+    "/category_landing/tap"(platform: "/",  type: TrackType.Event, parentPropertiesInherited:false) {
         category(required: false, type: PropertyType.String, description: "Landing category", values: ["landings"])
         action(required: false, type: PropertyType.String, description: "Name of the campaign")
         label(required: false, type: PropertyType.String, description: "Component related info")
