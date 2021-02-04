@@ -236,6 +236,15 @@ tracks {
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
+    //Privacy
+    "/advertising/pads2/privacy"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/pads2/change_privacy"(platform: "/", type: TrackType.Event) {
+        state_switch(requerid: false, description: "Current state of switch")
+        previous_state_switch(requerid: true, description: "Show previous state switch privacy")
+    }
+
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
 
