@@ -36,10 +36,7 @@ tracks {
 
     propertyGroups {
         eventDataTrack (
-                section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow
-        )
-        actionEventDataTrack (
-                section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow, action_id, link
+                component_id, content_id, audience, position, logic, bu, bu_line, flow
         )
         movementsFiltersAction (
                 action_type
@@ -103,5 +100,5 @@ tracks {
     // MP Balance - Merch Engine Events Credits
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
-    "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+    "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { eventDataTrack }
 }
