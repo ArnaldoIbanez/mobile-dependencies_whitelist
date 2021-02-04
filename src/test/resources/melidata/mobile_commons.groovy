@@ -25,10 +25,6 @@ trackTests {
         }
     }
 
-    test("splash_activity") {
-        "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
-    }
-
     test("In-App Updates") {
     //showed
     "/in_app_updates/inactive/showed"(platform: "/mobile"){
@@ -394,5 +390,9 @@ trackTests {
             from = "drawer"
             id = "cross_link1"
         }
+    }
+
+    test("splash_activity") {
+        "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
     }
 }
