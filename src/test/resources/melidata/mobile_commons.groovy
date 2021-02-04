@@ -25,6 +25,10 @@ trackTests {
         }
     }
 
+    test("splash_activity") {
+        "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     test("In-App Updates") {
     //showed
     "/in_app_updates/inactive/showed"(platform: "/mobile"){
@@ -130,7 +134,7 @@ trackTests {
     // Update Unavailable
     "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
         cause = "Google not Recommended"
-    } 
+    }
     }
 
     test("Cross App Links") {

@@ -10,6 +10,9 @@ tracks {
     initiative = '1096'
 
 
+    // Splash
+    "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
+
     // Generic error
     "/friction"(platform: "/mobile", type: TrackType.Event) {
         path(required: true, type: PropertyType.String , description: "Error path")
