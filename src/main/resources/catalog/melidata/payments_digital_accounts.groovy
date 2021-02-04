@@ -14,6 +14,10 @@ tracks {
 
     //Definitions
     propertyDefinitions {
+        // Global variables
+        action_id(required: true, type: PropertyType.String, description: "The action executed")
+
+        // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
         content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
         audience(required: true, type: PropertyType.String, description: "The audience for which this content was prepared")
