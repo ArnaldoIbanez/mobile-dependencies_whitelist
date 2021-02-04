@@ -1037,6 +1037,17 @@ tracks {
             description: "Semaphore State"
         )
     }
+    "/cards/hybrid/setup/options/semaphore/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "configured", 
+                "not_configured"
+            ],
+            description: "Semaphore Tap"
+        )
+    }
     
     // ENROLLMENT-HUB-NFC
     //-------------------
