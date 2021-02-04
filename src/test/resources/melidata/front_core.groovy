@@ -476,6 +476,10 @@ trackTests {
                             ]
                     ]
             ]
+            credits=[]
+            banking_v2=[
+                hidden : true
+            ]
             survey= [
                     ordinal: 13,
                     content_type : 'complete'
@@ -1423,6 +1427,10 @@ trackTests {
                             pending_balance: false,
                             balance_histogram: 6
                     ]
+            ]
+            credits=[]
+            banking_v2=[
+                hidden : true
             ]
             main_actions = [
                     content_type : 'complete',
