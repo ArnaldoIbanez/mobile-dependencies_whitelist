@@ -88,6 +88,9 @@ trackTests {
             content = ["Movistar"]
         }
 
+        def segment = {
+            segment = "test_segment"
+        }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -192,16 +195,19 @@ trackTests {
             step_information()
             available_items()
             notification_panel()
+            segment()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
             item_1()
+            segment()
         }
         "/single_player/prepaid/product_list/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/product_list/more_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -321,6 +327,7 @@ trackTests {
             button_card()
             notification_panel()
             available_items()
+            segment()
         }
 
         "/single_player/prepaid/one_device/edit_alias"(platform: "/mobile", type: TrackType.Event) {
@@ -331,6 +338,7 @@ trackTests {
             mandatory()
             view_time()
             item_1()
+            segment()
         }
         "/single_player/prepaid/one_device/more_products"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -345,6 +353,7 @@ trackTests {
         "/single_player/prepaid/one_device/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/one_device/more_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -895,16 +904,19 @@ trackTests {
             step_information()
             available_items()
             notification_panel()
+            segment()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
             item_2()
+            segment()
         }
         "/single_player/prepaid/product_list/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/product_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -1025,6 +1037,7 @@ trackTests {
             notification_panel()
             available_items()
             parent_key
+            segment()
         }
 
         "/single_player/prepaid/one_device/edit_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -1036,6 +1049,7 @@ trackTests {
             mandatory()
             view_time()
             item_2()
+            segment()
         }
         "/single_player/prepaid/one_device/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -1050,6 +1064,7 @@ trackTests {
         "/single_player/prepaid/one_device/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/one_device/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -1552,6 +1567,11 @@ trackTests {
             content = ["Vehículos con ruedas dobles", "Altura mayor a 2,10m"]
         }
 
+        def segment = {
+            segment = "test_segment"
+        }
+
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -1881,6 +1901,7 @@ trackTests {
         "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
+            segment()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -1911,6 +1932,7 @@ trackTests {
         "/single_player/paygo/recurrence/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
 
 
@@ -2608,6 +2630,7 @@ trackTests {
         "/single_player/paygo/recurrence"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
+            segment()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -2638,6 +2661,7 @@ trackTests {
         "/single_player/paygo/recurrence/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
 
 
