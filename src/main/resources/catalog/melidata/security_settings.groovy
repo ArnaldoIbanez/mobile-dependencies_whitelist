@@ -27,7 +27,9 @@ tracks {
 
     "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in Two Factor Authentication page")
-        action(type: PropertyType.String, required: true, values: ["add", "delete", "modify"], description: "Actions that can be clicked on each 2fa" )
+        action(type: PropertyType.String, required: true, values: ["add", "delete", "modify"], description: "Actions that can be clicked on each 2fa")
+        method(type: PropertyType.String, required: true, values: ["authy", "totp", "phoneValidation", "deviceAuthorization"], description: "Methods accepted as 2fa")
+        registered_by_phone(type: PropertyType.Boolean, required: false, description: "Registered by phone user or legacy user")
     }
 
     // Devices Admin
