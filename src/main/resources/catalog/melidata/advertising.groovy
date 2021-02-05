@@ -241,8 +241,8 @@ tracks {
     }
 
     "/advertising/pads2/change_privacy"(platform: "/", type: TrackType.Event) {
-        state_switch(requerid: false, description: "Current state of switch")
-        previous_state_switch(requerid: true, description: "Show previous state switch privacy")
+        state_switch(required: true, description: "Current state of switch")
+        previous_state_switch(required: true, description: "Show previous state switch privacy")
     }
 
     //Lift
