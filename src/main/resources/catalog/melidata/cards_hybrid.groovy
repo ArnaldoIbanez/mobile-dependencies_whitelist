@@ -49,7 +49,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual"],
+            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual", "copy_shipping_code"],
             description: "Action tapped"
         )
     }
