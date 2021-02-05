@@ -1085,6 +1085,16 @@ trackTests {
             view_time = 604578
         }
 
+        "/insurtech/hardware_check/checkups/first_touch"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            time_elapsed = 4
+        }
+
+        "/insurtech/hardware_check/checkups/redirect"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            deep_link = "mercadopago://insurance/webview?url=https%3A%2F%2mercadopago.com.br%2F%26param%3Dvalue%"
+        }
+
         "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             session_id = "348536772342324"
@@ -1639,7 +1649,7 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
-        }∫
+        }
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
 
     }

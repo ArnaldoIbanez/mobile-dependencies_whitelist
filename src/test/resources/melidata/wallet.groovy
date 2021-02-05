@@ -68,6 +68,12 @@ trackTests {
     test("Wallet Connect tracks MP") {
         "/wallet/connect/home"(platform: "/web", type: TrackType.View) {}
 
+        "/wallet/connect/return_tokenizer"(platform: "/web", type: TrackType.View) {}
+
+        "/wallet/connect/error/reject_card"(platform: "/web", type: TrackType.View) {}
+
+        "/wallet/connect/error/default"(platform: "/web", type: TrackType.View) {}
+
         "/wallet/connect/close_tokenizer"(platform: "/web", type: TrackType.Event) {}
 
         "/wallet/connect/open_tokenizer"(platform: "/web", type: TrackType.Event) {}

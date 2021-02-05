@@ -61,6 +61,12 @@ tracks {
         money_in(required: false, type: PropertyType.Map(balance_definition), description: "The balance money in section information")
     }
 
+    def banking_v2_definition = objectSchemaDefinitions {
+        hidden(required: true, type: PropertyType.Boolean, description: "hidden status")
+    }
+
+    def credits_home_definition = objectSchemaDefinitions {}    
+
     def item_value_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "The id of the section")
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
@@ -373,6 +379,8 @@ tracks {
         content_type(required: true, type: PropertyType.String, values: ['partial','default','complete'])
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
+        banking_v2(required: false, type: PropertyType.Map(banking_v2_definition), description: "The banking v2 section information")
+        credits(required: false, type: PropertyType.Map(credits_home_definition), description: "The credits section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         shortcuts(required: false, type: PropertyType.Map(shortcuts_section_definition), description: "The shortcuts section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -528,6 +536,34 @@ tracks {
 
     "/wallet_home/banking_v2/tap/hidden_state" (platform: "/mobile", type: TrackType.Event) {
         hidden(type: PropertyType.Boolean, required: true, description: "Shows the hidden state status")
+    }
+
+    // Walkthrough
+
+    "/wallet_home/walkthrough" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/walkthrough/next" (platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+        step_number(type: PropertyType.Numeric, required: true, description: "Walkthrough's step number")
+    }
+
+    "/wallet_home/walkthrough/finish" (platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+        step_number(type: PropertyType.Numeric, required: true, description: "Walkthrough's step number")
+    }
+
+    "/wallet_home/walkthrough/close" (platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        step_id(type: PropertyType.String, required: true, description: "Walkthrough's step id")
+        step_number(type: PropertyType.Numeric, required: true, description: "Walkthrough's step number")
+    }
+
+    "/wallet_home/walkthrough/view" (platform: "/mobile", type: TrackType.View) {
+        id(type: PropertyType.String, required: true, description: "Walkthrough id")
+        total_steps(type: PropertyType.Numeric, required: true, description: "Walkthrough's number of steps")
+        step_ids(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "Walkthrough's steps ids")
     }
 
     "/wallet_home/section/tap/qr_fab" (platform: "/mobile", type: TrackType.Event) {}

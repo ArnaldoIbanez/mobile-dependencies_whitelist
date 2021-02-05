@@ -1090,6 +1090,12 @@ trackTests {
         "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
             action = "privder_suspended"
         }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
     }
 
     //NFC ENROLLMENT HUB
