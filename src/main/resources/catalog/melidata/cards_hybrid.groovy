@@ -33,6 +33,7 @@ tracks {
     "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -1228,16 +1229,11 @@ tracks {
         )
     }
     
-    // CORE-NFC
+    // NFC - Feature
     
-    "/cards/nfc/core/sdk_initialize"(platform: "/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["home_with_nfc"],
-            description: "User can see Home with NFC"
-        )
-    }
+    "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
+    
+    // CORE-NFC
 
     "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
         error_code (
