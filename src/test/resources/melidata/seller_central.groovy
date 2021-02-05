@@ -1825,6 +1825,18 @@ trackTests {
     "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
   }
 
+  test("seller central sales messages actions") {
+    "/seller_central/sales/list/row/messages_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "view_new_messages"
+    }
+  }
+
+  test("seller central sales claims actions") {
+    "/seller_central/sales/list/row/claims_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "answer_claim"
+    }
+  }
+
   test("seller central sales list primary action show") {
     "/seller_central/sales/list/action/primary/show"(platform: "/web", type: TrackType.Event) {
       id = "action_id"
@@ -1929,6 +1941,18 @@ trackTests {
   test("seller central sales detail main action") {
     "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
       id = "PRODUCT_DELIVERED"
+    }
+  }
+
+  test("seller central sales detail messages action") {
+    "/seller_central/sales/detail/messages_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "view_new_messages"
+    }
+  }
+
+  test("seller central sales detail claim action") {
+    "/seller_central/sales/detail/claims_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "answer_claim"
     }
   }
 

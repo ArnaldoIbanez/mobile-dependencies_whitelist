@@ -4612,6 +4612,8 @@ trackTests {
         "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
             event_type = "click"
             action = "add"
+            method = "totp"
+            registered_by_phone = false
         }
     }
 

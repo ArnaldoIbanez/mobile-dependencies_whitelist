@@ -907,7 +907,9 @@ trackTests {
     // CARD REQUEST virtual on boarding
     // --------
     test("cards mpcard virtual onboarding"){
-        "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {
+            context = "kyc"
+        }
     }
      test("cards mpcard virtual onboarding tap") {
         "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {

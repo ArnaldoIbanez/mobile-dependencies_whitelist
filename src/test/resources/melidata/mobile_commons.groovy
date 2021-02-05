@@ -8,6 +8,10 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    test("splash_activity") {
+        "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     test("Generic error") {
 
         "/friction"(platform: "/mobile", type: TrackType.Event) {
@@ -130,7 +134,7 @@ trackTests {
     // Update Unavailable
     "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
         cause = "Google not Recommended"
-    } 
+    }
     }
 
     test("Cross App Links") {
@@ -192,6 +196,10 @@ trackTests {
     }
 
     defaultBusiness = "mercadopago"
+
+    test("splash_activity") {
+        "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
+    }
 
     test("Generic error") {
 
