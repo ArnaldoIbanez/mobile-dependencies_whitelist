@@ -497,13 +497,13 @@ tracks {
 
     "/wallet_home/section/tap/banking_v2" (platform: "/mobile", type: TrackType.Event) {}
 
-    "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/banking_v2-cards" (platform: "/mobile", type: TrackType.Event) {
         prepaid(required: true, type: PropertyType.Boolean, description: "If user has a prepaid card")
         debit(required: true, type: PropertyType.Boolean, description: "If user has a debit card")
         quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
     }
 
-    "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/banking_v2-mpcards" (platform: "/mobile", type: TrackType.Event) {
         pill(required: false, type: PropertyType.String, description: "Pill text in card")
         has_card(required: false, type: PropertyType.Boolean, description: "If user has a active card")
         card_status(required: false, type: PropertyType.String, description: "Card status")
@@ -511,19 +511,19 @@ tracks {
         nfc_status(required: false, type: PropertyType.Map, description: "NFC status")
     }
 
-    "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/banking_v2-assets" (platform: "/mobile", type: TrackType.Event) {
         content_id(type: PropertyType.String, required: true, description: "The asset content id")
         investment_counter(type: PropertyType.Numeric, required: true, description: "the investment counter")
         optin_process(type: PropertyType.String, required: true, description: "the opt in process identifier")
     }
 
-    "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/banking_v2-actions" (platform: "/mobile", type: TrackType.Event) {
         content_id(type: PropertyType.String, required: true, description: "The id of the item")
         position(type: PropertyType.Numeric, required: true, description: "The position in the section")
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
     
-    "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
         hidden(required: true, type: PropertyType.Boolean, description: "hidden status")
         pending_balance(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
         balance_histogram(required: true, type: PropertyType.Numeric, description: "Balance segmentation")
