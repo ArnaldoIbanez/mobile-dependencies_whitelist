@@ -1280,13 +1280,12 @@ trackTests {
         }
     }
     
-    // NFC Core
-    test("nfc sdk initialize"){
-        "/cards/nfc/core/sdk_initialize"(platform: "/", type: TrackType.Event) {
-            action = "home_with_nfc"
-        }
+    // NFC Feature
+    test("nfc feature is available"){
+        "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
     }
     
+    // NFC Core
     test("cards hybrid nfc core"){
 
         "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
