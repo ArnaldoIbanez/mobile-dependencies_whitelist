@@ -516,15 +516,24 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    //BULK SECTION
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
+
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/changes"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/shipping"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["start", "close", "rollback", "dismiss"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
         viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
-
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
@@ -539,12 +548,9 @@ tracks {
 
     "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
 
-
     "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event) {
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
     }
-
-    "/seller_central/bulk/changes"(platform: "/", isAbstract: true) {}
 
     "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
         oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
@@ -552,17 +558,28 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
-    "/seller_central/bulk/shipping"(platform: "/", isAbstract: true) {}
-
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Offline
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
 
     "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
 
+    "/seller_central/bulk/offline/hub"(platform: "/", isAbstract: true) {}
+
     "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download/confirm"(platform: "/", type: TrackType.Event) {
+        selected_columns(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Excel columns selected for the seller")
+        type(required: true, type: PropertyType.String, description: "Flux type selected for the seller")
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Categories selected for download")
+        filters(required: true, type: PropertyType.String, description: "Filters selected for the seller")
+    }
 
     "/seller_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {}
 
@@ -579,40 +596,12 @@ tracks {
 
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event) {}
 
-    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
-
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS Seller Central BULK Offline Cbt
+    // TRACKS Seller Central BULK Discounts
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    "/seller_central/bulk/offline/cbt"(platform: "/", isAbstract: true) {}
-
-    "/seller_central/bulk/offline/cbt/hub"(platform: "/", type: TrackType.View) {}
-
-    "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
-
-    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
-
-
-    "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
-        items(required: true, type: PropertyType.Numeric, description: "Amount of downloaded items")
-        filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
-        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied categories")
-    }
-
-    "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values: ["success", "failed", "partial", "no changes", "mail"])
-    }
-
-
-    "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values: ["success", "failed", "partial", "no changes", "mail"])
-    }
-
-
-    //BULK SECTION - DISCOUNTS VERSION
 
     "/seller_central/bulk/discounts"(platform: "/", isAbstract: true) {}
+
     "/seller_central/bulk/discounts/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/discounts/onboarding"(platform: "/", type: TrackType.Event) {
@@ -627,7 +616,6 @@ tracks {
     "/seller_central/bulk/discounts/search"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/discounts/undo_changes"(platform: "/", type: TrackType.Event) {}
-
 
     "/seller_central/bulk/discounts/columns"(platform: "/", type: TrackType.Event) {
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
@@ -655,22 +643,6 @@ tracks {
     "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event) {}
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS Seller Central BULK Offline Cbt
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
-
-    "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
-
-    "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
-
-    "/seller_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {}
-
-    "/seller_central/bulk/offline/upload"(platform: "/", type: TrackType.View) {}
-
-    "/seller_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify

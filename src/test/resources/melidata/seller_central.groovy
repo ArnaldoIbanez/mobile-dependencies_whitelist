@@ -426,50 +426,18 @@ trackTests {
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
   }
 
-    test("seller central open tooltip view") {
+  test("seller central open tooltip view") {
     "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
   }
 
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-  // TRACKS Seller central Bulk Offline Cbt
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-  test("seller central offline bulk hub") {
-    "/seller_central/bulk/offline/cbt/hub"(platform: "/", type: TrackType.View) {}
-  }
-
-  test("seller central offline bulk download") {
-    "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
-  }
-
-  test("seller central offline bulk upload") {
-    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
-  }
-
-
-
-  test("seller central offline bulk download confirm") {
-    "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
-      categories = ["Mochilas", "Banquetas", "Bicicletas"]
-      filters = ["active", "status"]
-      items = 3
+  test("seller central offline confirm download with filters") {
+    "/seller_central/bulk/offline/download/confirm"(platform: "/", type: TrackType.Event) {
+      selected_columns = ["TITLE", "QUANTITY", "PRICE"]
+      type = "MARKETPLACE"
+      categories = ["MLA-CELLPHONES", "MLA-MICROWAVES"]
+      filters = "ACTIVE"
     }
   }
-
-  test("seller central offline bulk download congrats") {
-    "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
-    type = "success"
-    }
-  }
-
-  test("seller central offline bulk upload congrats") {
-    "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
-      type = "failed"
-    }
-  }
-
-
-
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk - DISCOUNTS version
