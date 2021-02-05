@@ -161,6 +161,16 @@ trackTests {
 
     }
 
+    test("Advertising privacy") {
+        "/advertising/pads2/privacy"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/pads2/change_privacy"(platform: "/", type: TrackType.Event) {
+            state_switch = "enabled"
+            previous_state_switch = "disabled"
+        }
+    }
+
     test("Advertising upselling") {
         "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
