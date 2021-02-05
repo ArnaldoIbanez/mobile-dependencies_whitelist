@@ -91,6 +91,7 @@ catalog {
         include business, "insurtech.groovy"
         include business, "addresses.groovy"
         include business, "bulk_publish.groovy"
+        include business, "bulk_edit.groovy"
     }
 
     mercadolibre.each { business ->
