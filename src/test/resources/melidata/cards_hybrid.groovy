@@ -1282,7 +1282,6 @@ trackTests {
     
     // NFC Feature
     test("nfc feature is available"){
-        "/cards/nfc/feature/"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
     }
     
