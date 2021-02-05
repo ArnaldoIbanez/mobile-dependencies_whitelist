@@ -138,4 +138,9 @@ tracks
                 vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
+            //Tracks lib flux
+            "flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
+                user_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
+            }
+
         }

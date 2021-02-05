@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -170,6 +171,11 @@ trackTests {
             defaultLocation()
             defaultOrdersInfo()
             vehicle_id = "123456"
+        }
+
+        //Tracks lib flux
+        "flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
+            user_id = "1234"
         }
 
     }
