@@ -2295,6 +2295,7 @@ tracks {
     //Hybrid
     "/notification/card_request_challenge_pending"(platform: "/mobile") {}
     "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_nfc_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_unlock"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_virtual"(platform: "/mobile") {}
