@@ -334,68 +334,6 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-  // TRACKS Seller central Bulk
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-  test("seller central bulk view") {
-    "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
-  }
-
-  test("seller central bulk onboarding") {
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "close"
-    }
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "start"
-      viewId = "fulfillment"
-    }
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "dismiss"
-      page = 2
-    }
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "rollback"
-    }
-  }
-
-  test("seller central bulk view") {
-    "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
-      id = "technical_specification"
-    }
-  }
-
-  test("seller central bulk filters and search") {
-    "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
-      filters = ["active", "inactive"]
-    }
-  }
-
-  test("seller central bulk filters and search") {
-    "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
-  }
-
-
-  test("seller central bulk columns") {
-    "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event) {
-      columns = ["price", "quantity"]
-    }
-  }
-
-  test("seller central bulk changes price") {
-    "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
-      oldValue = "20"
-      newValue = "25"
-      item_id = "MLB341920"
-    }
-  }
-
-  test("seller central bulk shipping tooltip") {
-    "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-      item_id = "MLB341920"
-    }
-  }
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Offline
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -426,50 +364,14 @@ trackTests {
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
   }
 
-    test("seller central open tooltip view") {
-    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
-  }
-
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-  // TRACKS Seller central Bulk Offline Cbt
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-  test("seller central offline bulk hub") {
-    "/seller_central/bulk/offline/cbt/hub"(platform: "/", type: TrackType.View) {}
-  }
-
-  test("seller central offline bulk download") {
-    "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
-  }
-
-  test("seller central offline bulk upload") {
-    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
-  }
-
-
-
-  test("seller central offline bulk download confirm") {
-    "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
-      categories = ["Mochilas", "Banquetas", "Bicicletas"]
-      filters = ["active", "status"]
-      items = 3
+  test("seller central offline confirm download with filters") {
+    "/seller_central/bulk/offline/download/confirm"(platform: "/", type: TrackType.Event) {
+      selected_columns = ["TITLE", "QUANTITY", "PRICE"]
+      type = "MARKETPLACE"
+      categories = ["MLA-CELLPHONES", "MLA-MICROWAVES"]
+      filters = "ACTIVE"
     }
   }
-
-  test("seller central offline bulk download congrats") {
-    "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
-    type = "success"
-    }
-  }
-
-  test("seller central offline bulk upload congrats") {
-    "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
-      type = "failed"
-    }
-  }
-
-
-
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk - DISCOUNTS version
