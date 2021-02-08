@@ -253,7 +253,6 @@ trackTests {
 
         "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
         "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
@@ -289,7 +288,6 @@ trackTests {
 
         "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
         "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
@@ -300,7 +298,6 @@ trackTests {
             cost = 270
             original_cost = 300
             discount_rate = 10
-            revenue_share_fee = 30
             revenue = 78
             currency_id = "BR"
         }
@@ -313,14 +310,16 @@ trackTests {
 
         "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
 
         "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
             error_type = "timeout"
+        }
+
+        "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAdaA4124a"
         }
 
         "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
