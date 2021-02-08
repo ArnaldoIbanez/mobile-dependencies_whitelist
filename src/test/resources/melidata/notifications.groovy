@@ -3107,6 +3107,23 @@ trackTests {
             event_type = "auto_dismiss"
             portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
+
+        // KYC
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "open"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "dismiss"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "auto_dismiss"
+        }
+
         /* ------------------------------------------------------------ */
 
         "/notification/messages_new"(platform: "/mobile") {
@@ -7917,6 +7934,23 @@ trackTests {
             event_type = "auto_dismiss"
             portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
+
+        // KYC
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "open"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "dismiss"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "auto_dismiss"
+        }
+
         /* ------------------------------------------------------------ */
 
         "/notification/messages_new"(platform: "/mobile") {

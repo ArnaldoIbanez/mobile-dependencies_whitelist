@@ -1835,6 +1835,8 @@ tracks {
       "/notification/payroll_portability_ted_rejected"(platform: "/") {
           portability_id(required: true, type: PropertyType.String)
       }
+
+      "/notification/payroll_kyc_accepted"(platform: "/") {}
       /* ------------------------------------------------------------ */
 
       //Puis
