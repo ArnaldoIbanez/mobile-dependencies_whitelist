@@ -62,7 +62,7 @@ metrics {
 		}
 	}
 
-	"idfaMP.deny"(description: "IDFA alert shown", deprecation_date:"2021/03/31") {
+	"idfa.mp.deny"(description: "IDFA alert shown", deprecation_date:"2021/03/31") {
 		startWith {
 			experiment("mobile/IDFA_Banner_MP")
 		}
@@ -74,7 +74,7 @@ metrics {
 		}
 	}
 
-	"idfaMP.accept"(description: "IDFA permission accepted", deprecation_date:"2021/03/31") {
+	"idfa.mp.accept"(description: "IDFA permission accepted", deprecation_date:"2021/03/31") {
 		startWith {
 			experiment("mobile/IDFA_Banner_MP")
 		}
