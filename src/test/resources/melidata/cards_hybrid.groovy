@@ -1102,7 +1102,10 @@ trackTests {
     test("cards hybrid nfc enrollment hub") {
         "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
-            action = "continue_later"
+            action = "primary_button"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
@@ -1125,7 +1128,10 @@ trackTests {
     test("cards hybrid nfc configuration hub") {
         "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
-            action = "continue_later"
+            action = "primary_button"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
