@@ -199,6 +199,10 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical="core"
         }
+        "/sell/sip_upgrade"(platform: "/mobile"){
+            source = "section"
+            vertical = "motors"
+        }
     }
 
     test("Native Sell List flow steps"){
