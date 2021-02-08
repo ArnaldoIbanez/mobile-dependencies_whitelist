@@ -418,7 +418,12 @@ tracks {
     }
 
     // KYC File Upload
-    "/kyc/upload_file"(platform: "/", isAbstract: true) {}
+    "/kyc/upload_file"(platform: "/", isAbstract: true) {
+        id (required: false, type: PropertyType.String, description: "The challenge name")
+        initiative (required: false, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: false, type: PropertyType.String, description: "The kyc flow identifier")
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+    }
 
     "/kyc/upload_file/open_files"(platform: "/", type: TrackType.Event) { }
 
