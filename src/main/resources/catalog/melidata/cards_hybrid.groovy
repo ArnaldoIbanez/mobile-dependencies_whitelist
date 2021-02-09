@@ -1057,7 +1057,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back","continue_later"],
+            values: ["back","primary_button","secondary_button"],
             description: "Action Tapped"
         )
     }
@@ -1085,7 +1085,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back","continue_later"],
+            values: ["back","primary_button","secondary_button"],
             description: "Action Tapped"
         )
     }
