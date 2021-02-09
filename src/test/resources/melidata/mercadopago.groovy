@@ -859,6 +859,16 @@ trackTests {
           user_id = 5010815
           e2e_test = false
         }
+
+        "/point/buyingflow/complete_card_data"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          user_id = 5010815
+          e2e_test = false
+        }
     }
 
     test("MP-MA Landing QR") {

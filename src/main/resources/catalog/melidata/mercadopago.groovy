@@ -127,6 +127,10 @@ tracks {
         groupCheckoutProperties
     }
 
+     "/point/buyingflow/complete_card_data"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
