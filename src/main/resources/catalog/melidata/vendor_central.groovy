@@ -107,5 +107,9 @@ tracks {
     // TRACKS Vendor Central Invoices
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/vendor_central/invoices"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/invoices"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
+
+
 }

@@ -143,7 +143,7 @@ trackTests {
   // TRACKS Vendor Central Invoices
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Vendor Central Invoices view") {
-    "/vendor_central/invoices"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
   }
 }
 
