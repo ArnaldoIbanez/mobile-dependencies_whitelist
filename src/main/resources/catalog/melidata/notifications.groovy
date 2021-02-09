@@ -1865,6 +1865,10 @@ tracks {
     "/notification/messages_flex"(platform: "/") {}
     "/notification/messages_quotes"(platform: "/") {}
 
+    // Crowdsourcing driver
+    "/notification/me_crowd_multiple_offers_available"(platform: "/") {}
+    "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/") {}
+
     //Money
     "/notification/money_advance_congrats"(platform: "/") {}
     "/notification/money_advance_fail"(platform: "/") {}
@@ -2496,4 +2500,5 @@ tracks {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
+
 }

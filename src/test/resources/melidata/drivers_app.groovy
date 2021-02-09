@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -21,6 +22,16 @@ trackTests {
                     defaultLocation()
                     vehicle_id = "23232424"
                 }
+
+        def defaultRouteData = {
+            route_info = [
+                    route_id    : "323232",
+                    route_status: "active",
+                    facility_id : "SMX1",
+                    route_type  : "LM",
+                    vehicle_id  : "dyuwduw"
+            ]
+        }
 
         //Full error view page success
         "/sorting/qr_checkin"(platform: "/mobile", type: TrackType.View) {
@@ -130,6 +141,29 @@ trackTests {
         "/sorting/qr_checkout"(platform: "/mobile", type: TrackType.View) {
             defaultDriverData()
             route_id = "1333"
+        }
+
+        "/sorting/add_package"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+        }
+
+        "/sorting/add_package/qr_detected"(platform: "/mobile", type: TrackType.Event) {
+            defaultRouteData()
+            qr_data = "un qr de paquete"
+        }
+
+        "/sorting/stops/add_package/manual_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultRouteData()
+        }
+
+        "/sorting/add_package/manual_modal/qr_detected"(platform: "/mobile", type: TrackType.Event) {
+            defaultRouteData()
+            qr_data = "un qr de paquete"
+        }
+
+        "/sorting/scanner/package_fail"(platform: "/mobile", type: TrackType.Event) {
+            defaultRouteData()
+            shipment_id = "123456"
         }
     }
 
@@ -377,5 +411,35 @@ trackTests {
             defaultStopOrder
             selected_reason = "nobody_address"
         }
+    }
+
+    test("MercadoEnvíos - Driver Apps - Testing My account Flow") {
+
+        def defaultLocation = {
+            latitude = "-36.34443"
+            longitude = "-35.34332"
+        }
+
+        "/driver/my_account/menu"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/driver/my_account/profile"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/driver/my_account/qr"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            vehicle_id = "23232424"
+        }
+
+        "/driver/my_account/logout"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/driver/my_account/logout/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
     }
 }
