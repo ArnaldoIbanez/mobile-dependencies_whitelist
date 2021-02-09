@@ -115,6 +115,9 @@ trackTests {
     "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
   }
 
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Contra Cogs
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Vendor Central Contra COGS list search event") {
 
     "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
@@ -136,5 +139,11 @@ trackTests {
     "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
   }
 
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Invoices
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Vendor Central Invoices view") {
+    "/vendor_central/invoices"(platform: "/web", type: TrackType.View) {}
+  }
 }
 
