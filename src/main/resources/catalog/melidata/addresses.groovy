@@ -7,8 +7,8 @@ import com.ml.melidata.TrackType
 tracks {
 
     def coordinatesStructure = objectSchemaDefinitions {
-      latitude(required: true, type: PropertyType.Numeric)
-      longitude(required: true, type: PropertyType.Numeric)
+      latitude(required: true, type: PropertyType.String)
+      longitude(required: true, type: PropertyType.String)
     }
 
     // VIEWS

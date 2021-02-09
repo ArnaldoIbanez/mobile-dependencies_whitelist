@@ -144,12 +144,12 @@ trackTests {
         }
         "/addresses/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
             suggested = [
-                "latitude": 12.12,
-                "longitude": 42.42
+                "latitude": "12.12",
+                "longitude": "42.42"
             ]
             final_coordinates = [
-                "latitude": 12.13,
-                "longitude": 42.40
+                "latitude": "12.13",
+                "longitude": "42.40"
             ]
             context = "MY_ML"
             editing_address = 12312312312
@@ -294,12 +294,12 @@ trackTests {
         }
         "/addresses/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
             suggested = [
-                "latitude": 12.12,
-                "longitude": 42.42
+                "latitude": "12.12",
+                "longitude": "42.42"
             ]
             final_coordinates = [
-                "latitude": 12.13,
-                "longitude": 42.40
+                "latitude": "12.13",
+                "longitude": "42.40"
             ]
             context = "MY_ML"
             editing_address = 12312312312
