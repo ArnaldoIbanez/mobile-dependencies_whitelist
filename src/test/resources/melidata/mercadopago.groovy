@@ -764,9 +764,11 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
+          discount_code = "GHZM"
           user_id = 5010815
           e2e_test = false
         }
+        
         "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
     }
 
