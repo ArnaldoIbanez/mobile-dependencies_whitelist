@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = '1127'
+    initiative = '1172'
 
     "/kyc"(platform: "/", isAbstract: true) {}
 
@@ -17,6 +17,7 @@ tracks {
         configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
         callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
         kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+        transaction_id (required: false, type: PropertyType.String, description: "The transaction id from session less registration flow")
     }
 
     // challenge life cyclev v2
@@ -257,6 +258,8 @@ tracks {
 
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
+    "/kyc/iv/activity/liveness"(platform: "/mobile", type: TrackType.View) {}
+    
     // Mobile tracks
     "/kyc/iv/center/row"(platform: "/mobile", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
@@ -408,4 +411,34 @@ tracks {
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
 
+    "/kyc/iv/handoff"(platform: "/web", type: TrackType.Event) {
+        url(required: true, type: PropertyType.String, description: "The url to redirect")
+        challenge(required: true, type: PropertyType.String, description: "The current challenge the user is doing")
+        handoff_type(required: true, type: PropertyType.String, values: ["user_swap", "no_camera"], description: "Type of handoff the user will do")
+    }
+
+    // KYC File Upload
+    "/kyc/upload_file"(platform: "/", isAbstract: true) {}
+
+    "/kyc/upload_file/open_files"(platform: "/", type: TrackType.Event) { }
+
+    "/kyc/upload_file/upload_start"(platform: "/", type: TrackType.Event) {
+        amount (required: true, type: PropertyType.String, description: "The amount of files")
+    }
+
+    "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) { }
+
+    "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) { }
+
+    // KYC Landing Congrats
+
+    "/kyc/landing"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
+
+    "/kyc/congrats"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
 }

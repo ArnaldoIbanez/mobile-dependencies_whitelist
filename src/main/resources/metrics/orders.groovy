@@ -48,6 +48,9 @@ metrics {
 				)
 			}
 		}
+		divisionBy {
+			divisionMetric("bids")
+		}
 	}
 	
 	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
@@ -113,19 +116,6 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				empty("event_data.items.item.official_store_id", false)
-			}
-		}
-	}
-
-	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
-		startWith {
-			experiment("/search/test")
-		}
-		
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				sameDeal("event_data.items.item.deal_ids", true)
 			}
 		}
 	}

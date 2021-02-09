@@ -1,1 +1,0 @@
-SELECT application.business, application.site_id AS site, device.platform, COUNT(1) AS total, substr(ds,1,10) AS ds FROM tracks WHERE ds >= '@param01' AND   ds < '@param02' GROUP BY substr(ds,1,10), application.business, application.site_id, device.platform

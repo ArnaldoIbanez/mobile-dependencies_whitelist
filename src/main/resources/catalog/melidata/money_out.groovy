@@ -106,6 +106,7 @@ tracks {
     "/money_out/transfers/home"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/transfer_pix"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
@@ -205,4 +206,27 @@ tracks {
     //Transfer Hub - Coelsa Error
     "/money_out/transfers/home/coelsa_error"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/home/coelsa_error/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Pix
+    "/money_out/transfers/pix_dashboard"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type(required_:false, description: "Indicates the type selected ")
+    }
+
+    //Cashout - modals
+    "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
+
+    //New TED scheduling modal from HUB
+    "/money_out/transfers/home/new_scheduled_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+    //New TED scheduling modal from recent and favs
+    "/money_out/transfers/recents"(platform: "/", isAbstract: true) {}
+    "/money_out/transfers/recents/new_scheduled_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 }

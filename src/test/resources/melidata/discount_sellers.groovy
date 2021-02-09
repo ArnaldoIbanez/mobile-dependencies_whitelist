@@ -313,4 +313,63 @@ trackTests {
             session_id = "1"
         }
     }
+    
+    // **********************************************************
+    // ******************** Events - FTU ************************
+    // **********************************************************
+    
+    test("Mercadopago discount sellers FTU view with URL") {
+        "/discount_sellers/ftu" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            url = "some url"
+        }
+    }
+    
+    test("Mercadopago discount sellers FTU view without URL") {
+        "/discount_sellers/ftu" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+        }
+    }
+    
+    test("Mercadopago discount sellers ftu tap") {
+        "/discount_sellers/ftu/tap" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            title = "Title"
+        }
+    }
+    
+    test("Mercadopago discount sellers ftu back") {
+        "/discount_sellers/ftu/back" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+        }
+    }
+    
+    test("Mercadopago discount sellers ftu error") {
+        "/discount_sellers/ftu/error" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            description = "error description"
+        }
+    }
+
+    // Prefecture
+    test('Prefecture stores click'){
+        "/instore/prefecture/tap"(platform: "/", type: TrackType.Event) {
+            link = "stores"
+        }
+    }
+
+    test('Prefecture go home error click'){
+        "/instore/prefecture/error/tap"(platform: "/", type: TrackType.Event) {
+            link = "go_home"
+        }
+    }    
+
+    test("Prefecture") {
+        "/instore/prefecture"(platform: "/", type: TrackType.View) {}
+
+    }
+
+    test('Prefecture error view'){
+        "/instore/prefecture/error"(platform: "/", type: TrackType.View) {}
+    }
 }

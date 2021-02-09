@@ -425,6 +425,15 @@ trackTests {
         "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/invalid_user_seller_uif"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Amount
         "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
@@ -1460,6 +1469,31 @@ trackTests {
             payment_id = "567"
         }
 
+        //UIComponents Modal
+    	"/instore/filter_modal/show"(platform: "/mobile",type: TrackType.View) {
+        	filters = [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+
+    	"/instore/filter_modal/close"(platform: "/mobile",type: TrackType.Event) {
+          	
+    	}
+
+    	"/instore/filter_modal/save_filter"(platform: "/mobile",type: TrackType.Event) {
+    	    filters= [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+
+    	"/instore/filter_modal/clear_filter"(platform: "/mobile",type: TrackType.Event) {
+       	 	filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
+    	}
+
+     	"/instore/filter_modal/categories/show"(platform: "/mobile",type:TrackType.View) {}
+
+    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",type: TrackType.Event) {
+    		category_selected = "markets"
+    	}
+
+    	"/instore/filter_modal/categories/close"(platform: "/mobile",type: TrackType.Event) {}
+
         // Buyer QR
 
         "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
@@ -2142,6 +2176,15 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -3347,7 +3390,34 @@ trackTests {
             type = "store"
             payment_id = "567"
         }
+
+        //UIComponents Modal
+    	"/instore/filter_modal/show"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        	filters = [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+ 
+    	"/instore/filter_modal/close"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+          	
+    	}
+ 
+    	"/instore/filter_modal/save_filter"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
+    	    filters= [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+
+    	"/instore/filter_modal/clear_filter"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
+       	 	filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
+    	}
+
+     	"/instore/filter_modal/categories/show"(platform: "/mobile",, business: "mercadopago", type: TrackType.View) {}
+
+    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",, business: "mercadopago", type: TrackType.Event) {
+    		category_selected = "markets"
+    	}
+
+    	"/instore/filter_modal/categories/close"(platform: "/mobile",, business: "mercadopago", type: TrackType.Event) {}
     }
+
+    
 
     test("Instore - QR Assignment") {
         "/instore/scale_feature/qr-assignment/start_process"(platform:"/web", type: TrackType.View) {
@@ -3468,7 +3538,7 @@ trackTests {
             focus_mode = "autoFocus"
             torch_enabled = true
             spinner_enabled = true
-            redesign_enabled = true
+            smart_context_enabled = true
             auto_start = true
             auto_stop = true
             auto_resolve = true
@@ -3482,7 +3552,7 @@ trackTests {
             focus_mode = "autoFocus"
             torch_enabled = true
             spinner_enabled = true
-            redesign_enabled = true
+            smart_context_enabled = true
             auto_start = true
             auto_stop = true
             auto_resolve = true

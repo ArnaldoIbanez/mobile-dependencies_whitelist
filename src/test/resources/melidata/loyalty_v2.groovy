@@ -210,6 +210,7 @@ trackTests {
             discount_percent = 30
             subscription_status = "freetrial"
             origin = "home"
+            plan_id = 123123
         }
 
         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -224,6 +225,7 @@ trackTests {
             content = "Game of thrones"
             type = "content"
             name = "Game of thrones"
+            subscription_type = "pack-6-months"
         }
 
         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business: "mercadolibre") {
@@ -293,6 +295,7 @@ trackTests {
             payment_status_detail = "activated"
             is_free_trial = "true"
             discount_percent = 40
+            plan_id = 123123
         }
 
         "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -303,9 +306,10 @@ trackTests {
             payment_status_detail = "freetrial-activated"
             is_free_trial = "true"
             discount_percent = 40
+            subscription_type = "pack-6-months"
         }
 
-        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             loyalty_level = 1
             subscription_partner = "Paramount"
             payment_id = "42323"
@@ -314,9 +318,10 @@ trackTests {
             is_free_trial = "false"
             discount_percent = 0
             type = "tyc"
+            subscription_type = "pack-6-months"
         }
 
-        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             loyalty_level = 1
             subscription_partner = "Paramount"
             payment_id = "42323"
@@ -327,6 +332,19 @@ trackTests {
             type = "action"
             label = "Ir a HBO"
             deeplink = "meli://loyalty"
+        }
+
+        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            type = "email"
+            payment_id = "42323"
+            payment_status = "success"
+            plan_id = 123123
+        }
+
+        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            type = "site"
+            payment_id = "42323"
+            payment_status = "success"
         }
 
     }
@@ -349,7 +367,6 @@ trackTests {
         "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
         }
-
 
         "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
@@ -442,6 +459,16 @@ trackTests {
         }
 
         "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        }
+
+        "/loyalty/partners/teaser"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            subscription_partner = "Disney"
+            origin = "home"
+        }
+
+        "/loyalty/partners/teaser"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "HBO Go"
+            discount_percent = 30
         }
     }
 }

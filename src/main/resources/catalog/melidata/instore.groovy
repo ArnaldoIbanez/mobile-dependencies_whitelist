@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = '1139'
+    initiative = '1218'
 
     def propertyCampaignDetail  = objectSchemaDefinitions {
         source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")
@@ -20,6 +20,11 @@ tracks {
 
     def propertyLocationExtraInfo  = objectSchemaDefinitions {
         flow(required: true, type: PropertyType.String, description: "payment flow")
+    }
+
+    def propertyFiltersModal = objectSchemaDefinitions {
+    	tag(required: false, type: PropertyType.String, description:  "tag of filter")
+        value(required: false, type: PropertyType.String, description:  "value of filter")
     }
 
     /**
@@ -173,6 +178,10 @@ tracks {
     "/instore/error/invalid_user_point_uif"(platform: "/mobile", type: TrackType.View) {}
     "/instore/error/invalid_user_point_uif/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/invalid_user_seller_uif"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
 
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
@@ -443,7 +452,36 @@ tracks {
     }
 
 
-    // Discovery
+    //UIComponents Modal
+
+    "/instore/filter_modal"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/instore/filter_modal/show"(platform: "/mobile", type:TrackType.View) {
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required: true, description: "Filters selected in filter bar")
+    }
+
+    "/instore/filter_modal/close"(platform: "/mobile", type:TrackType.Event) {}
+
+    "/instore/filter_modal/save_filter"(platform: "/mobile",type: TrackType.Event) { 
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required: true, description: "Filters selected in modal view")
+    }
+
+    "/instore/filter_modal/clear_filter"(platform: "/mobile",type: TrackType.Event) {
+    	filters(type: PropertyType.ArrayList(PropertyType.Map(propertyFiltersModal)), required: true,  description: "Filters cleaned in modal view")
+    }
+
+    "/instore/filter_modal/categories"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/instore/filter_modal/categories/show"(platform: "/mobile", type:TrackType.View) {}
+
+    "/instore/filter_modal/categories/save_category"(platform: "/mobile", type:TrackType.Event) {
+    	category_selected(type: PropertyType.String, required: true, description: "Category selected in category view")
+    }
+
+    "/instore/filter_modal/categories/close"(platform: "/mobile",type:TrackType.Event) {}
+
+
+	// Discovery
     "/instore/map"(platform: "/mobile", type: TrackType.View) {
         location(required: false, inheritable: false, PropertyType.String, description: "a location coming from the deeplink")
         radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
@@ -838,7 +876,7 @@ tracks {
         focus_mode(required: false, PropertyType.String, description: "how the focus will work - iOS only")
         torch_enabled(required: true, PropertyType.Boolean)
         spinner_enabled(required: true, PropertyType.Boolean)
-        redesign_enabled(required: true, PropertyType.Boolean)
+        smart_context_enabled(required: true, PropertyType.Boolean, description: "scanner built with smart context enabled")
         auto_start(required: true, PropertyType.Boolean, description: "automatically start after inizialitation")
         auto_stop(required: true, PropertyType.Boolean, description: "automatically stop after resolve or scan")
         auto_resolve(required: true, PropertyType.Boolean, description: "automatically resolve code after scan")

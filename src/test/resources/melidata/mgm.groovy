@@ -90,85 +90,99 @@ trackTests {
             *************************/
 
             "/mgm/v3/promoter"(platform: "/mobile", type: TrackType.View) {
-                program_id = "program_id"
+                program_id = "mla_payers"
                 is_recurrent = true
-                floating_banner_id = "floating_banner_id"
+                floating_banner_id = "message_1"
                 sections = [
                     [ 
                         order: 0,
-                        section_id: "section_id" 
+                        section_id: "share_section"
                     ],
                     [
                         order: 1,
-                        section_id: "section_id" 
+                        section_id: "banner_section"
                     ]
                 ]
                 from = "modals_engine"
             }
 
             "/mgm/v3/promoter/share/tap"(platform: "/mobile", type: TrackType.Event) {
-                    program_id = "program_id"
+                    program_id = "mla_payers"
                     is_recurrent = true
-                    action_id = "action_id"
-                    shared_app_id = "shared_app_id"
+                    action_id = "generic"
+                    shared_app_id = "slack"
                     from = "modals_engine"
             }
 
+            "/mgm/v3/promoter/share/terms/tap"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "mla_payers"
+                is_recurrent = true
+                from = "modals_engine"
+            }
+
             "/mgm/v3/promoter/banner/tap"(platform: "/mobile", type: TrackType.Event) {
-                    program_id = "program_id"
+                    program_id = "mla_payers"
                     is_recurrent = true
                     target_program = "mgm_point"
                     from = "modals_engine"
             }    
 
             "/mgm/v3/promoter/floating_banner/dismiss"(platform: "/mobile", type: TrackType.Event) {
-                    program_id = "program_id"
+                    program_id = "mla_payers"
                     is_recurrent = true
-                    banner_id = "banner_id"
+                    banner_id = "message_1"
                     from = "modals_engine"
             }
 
             "/mgm/v3/guest"(platform: "/mobile", type: TrackType.View) {
-                    program_id = "program_id"
+                    program_id = "mla_payers"
                     sections = [
                         [ 
                             order: 0,
-                            section_id: "section_id" 
+                            section_id: "main_actions_section"
                         ],
                         [
                             order: 1,
-                            section_id: "section_id" 
+                            section_id: "cross_selling_section"
                         ]
                     ]
                     from = "modals_engine"
             }
 
             "/mgm/v3/guest/cross_selling/tap"(platform: "/mobile", type: TrackType.Event) {
-                    program_id = "program_id"
+                    program_id = "mla_payers"
                     action_id = "action_id"
                     from = "modals_engine"
             }
 
             "/mgm/v3/guest/main_action/tap"(platform: "/mobile", type: TrackType.Event) {
-                    program_id = "program_id"
-                    action_id = "action_id"
+                    program_id = "mla_payers"
+                    action_id = "more_info"
                     from = "modals_engine"
             }
 
+            "/mgm/v3/guest/floating_banner/terms/tap"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "mla_payers"
+                from = "modals_engine"
+            }
+
             "/mgm/v3/error"(platform: "/mobile", type: TrackType.View) {
-                    program_id = "program_id"
-                    reason = "kyc_invitado"
+                    program_id = "mla_payers"
+                    reason = "kyc_guest"
+                    from = "modals_engine"
             }
 
             "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {
-                    program_id = "program_id"
-                    reason = "kyc_invitado"
+                    program_id = "mla_payers"
+                    reason = "kyc_guest"
+                    from = "modals_engine"
             }
 
             "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
-                    program_id = "program_id"
-                    link = "meli://coupon"
-                    reason = "kyc_invitado"
+                    program_id = "mla_payers"
+                    reason = "kyc_guest"
+                    link = "meli://coupon/input"
+                    from = "modals_engine"
             }
         }
     }

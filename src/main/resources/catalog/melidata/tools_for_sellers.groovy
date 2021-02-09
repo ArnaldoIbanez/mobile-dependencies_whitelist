@@ -16,6 +16,7 @@ tracks {
     propertyDefinitions {
         tab_context(required: true, type: PropertyType.String, description: "the tab where the actions are clicked", values: ["/stores/details_pos", "/stores/details_devices"])
         types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
+        rowActionType(required: true, type: PropertyType.String, description: "the action type from the row selected by the user", values: ['navigate', 'picker', 'switch'])
     }
 
     //Account mydata
@@ -94,7 +95,9 @@ tracks {
 
     //Tu negocio
     "/your_business"(platform: "/web", isAbstract: true) {}
-    "/your_business/home"(platform: "/web", type: TrackType.View) {}
+    "/your_business/home"(platform: "/web", type: TrackType.View) {
+        show_tax_warning(required: false, description: "the name of the tax card", type: PropertyType.String)
+    }
     "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
     "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
     "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
@@ -108,7 +111,6 @@ tracks {
     "/your_business/ahora12/action"(platform:"/", type: TrackType.Event) {
         action(required: true, values: ["activate", "deactivate"], description: "value to describe wheter the user activated or deactivated ahora12 feature", type: PropertyType.String)
     }
-
 
     // Traks for dashboard section
     "/tfs_dashboard"(platform: "/", isAbstract: true) {}
@@ -186,4 +188,10 @@ tracks {
     "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel asked to render")
     }
+
+    // Contact Email Section
+    "/tfs_contact_email"(platform: "/", isAbstract: true) {}
+    "/tfs_contact_email/home"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/error"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/congrats"(platform: "/", type: TrackType.View){}
 }
