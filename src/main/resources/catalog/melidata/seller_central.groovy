@@ -1236,6 +1236,8 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
+
+    "/seller_central/catalog/optin/invoice"(platform: "/web", isAbstract: true) {}
     "/seller_central/catalog/optin/invoice/confirm"(platform: "/web", type: TrackType.View) {
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
