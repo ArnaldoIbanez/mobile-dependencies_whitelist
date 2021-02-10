@@ -277,6 +277,10 @@ tracks {
         products_with_status
     }
 
+    "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
     "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
@@ -352,6 +356,9 @@ tracks {
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
+    "/credits/merchant/proactive_payment/form"(platform: "/", type: TrackType.View) {
+        products_group
+    }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
@@ -420,30 +427,30 @@ tracks {
             required: true,
             description: "User status at the moment it was redirected",
             values: [
-                'fixed_term_loan_collect', 
-                'sales_percentage_loan_collect', 
-                'express_money_collect', 
-                'personal_loan_collect', 
-                'consumer_loan_collect', 
-                'fixed_term_loan_prior_to_collect', 
-                'sales_percentage_loan_prior_to_collect', 
-                'express_money_prior_to_collect', 
-                'personal_loan_prior_to_collect', 
-                'consumer_loan_prior_to_collect', 
-                'fixed_term_loan_adoption', 
-                'sales_percentage_loan_adoption', 
-                'express_money_adoption', 
-                'personal_loan_adoption', 
-                'express_money_on_time', 
-                'fixed_term_loan_on_time', 
-                'sales_percentage_loan_on_time', 
-                'personal_loan_on_time', 
-                'consumer_loan_on_time', 
-                'sales_percentage_loan_finished', 
-                'fixed_term_loan_finished', 
-                'express_money_finished', 
-                'personal_loan_finished', 
-                'consumer_loan_finished', 
+                'fixed_term_loan_collect',
+                'sales_percentage_loan_collect',
+                'express_money_collect',
+                'personal_loan_collect',
+                'consumer_loan_collect',
+                'fixed_term_loan_prior_to_collect',
+                'sales_percentage_loan_prior_to_collect',
+                'express_money_prior_to_collect',
+                'personal_loan_prior_to_collect',
+                'consumer_loan_prior_to_collect',
+                'fixed_term_loan_adoption',
+                'sales_percentage_loan_adoption',
+                'express_money_adoption',
+                'personal_loan_adoption',
+                'express_money_on_time',
+                'fixed_term_loan_on_time',
+                'sales_percentage_loan_on_time',
+                'personal_loan_on_time',
+                'consumer_loan_on_time',
+                'sales_percentage_loan_finished',
+                'fixed_term_loan_finished',
+                'express_money_finished',
+                'personal_loan_finished',
+                'consumer_loan_finished',
                 'consumer_loan_adoption',
                 'unknown',
             ]
