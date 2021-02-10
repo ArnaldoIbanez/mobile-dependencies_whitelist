@@ -33,10 +33,10 @@ tracks {
     }
 
     def seo_item_definition = objectSchemaDefinitions {
-        is_whitelisted(type: PropertyType.Boolean, required: true)
-        check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
-        value(type: PropertyType.Numeric, required: true)
-        is_default(type: PropertyType.Boolean, required: true)
+        is_whitelisted(type: PropertyType.Boolean, required: false)
+        check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: false)
+        value(type: PropertyType.Numeric, required: false)
+        is_default(type: PropertyType.Boolean, required: false)
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
     }
 
