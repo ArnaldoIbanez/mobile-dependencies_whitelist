@@ -159,4 +159,15 @@ metrics {
             }
         }
     }
+
+    "credits_selfservice.payment_promise_with_intermediate_step"(description: "New track to show the users the widget within all the payment promise information", deprecation_date:"2021/4/30") {
+        startWith {
+            experiment("credits/payment_promise_with_intermediate_step")
+        }
+        countsOn {
+            condition {
+                path("/credits/self_service/promises/congrats")
+            }
+        }
+    }
 }

@@ -161,6 +161,16 @@ trackTests {
 
     }
 
+    test("Advertising privacy") {
+        "/advertising/pads2/privacy"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/pads2/change_privacy"(platform: "/", type: TrackType.Event) {
+            state_switch = "enabled"
+            previous_state_switch = "disabled"
+        }
+    }
+
     test("Advertising upselling") {
         "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
@@ -486,10 +496,6 @@ trackTests {
             budget = 3990
             campaign_id = 235666
             budget_type = "D"
-            budget_new = 2500
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
 
     }
@@ -1059,8 +1065,8 @@ trackTests {
             budget = "4000"
         }
 
-        "/advertising/pads2/manager/update/budget/go"(platform: "/web", type: TrackType.Event) {
-            multi = true
+        "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
+            multi = false
             campaign_id = "2222222"
             budget_previous = 4000
             budget = "4000"
@@ -1071,15 +1077,11 @@ trackTests {
             budget_pct_old = "17.0"
         }
 
-        "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
-            multi = true
+        "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
+            multi = false
             campaign_id = "2222222"
             budget = "4000"
             budget_type = "D"
-            budget_new = 2500
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
@@ -1655,7 +1657,7 @@ trackTests {
 
         "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {}
 
-        "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/hub/update/budget/go"(platform: "/", type: TrackType.Event) {
             campaign_id = "2222222"
             budget = "4000"
             budget_new = 5600
@@ -1664,28 +1666,54 @@ trackTests {
             budget_type_new = "D"
             budget_pct_old = "17.0"
         }
-        "/advertising/pads2/hub/update/budget/close"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/hub/update/budget/close"(platform: "/", type: TrackType.Event) {
             campaign_id = "2222222"
             budget = "4000"
-            budget_new = 5600
             budget_type = "D"
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
         "/advertising/pads2/hub/update/budget/tooltip"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             budget = "4000"
-            budget_new = 5600
             budget_type = "D"
-            budget_pct_new = "18.8"
-            budget_type_new = "D"
-            budget_pct_old = "17.0"
         }
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
+        }
+
+        "/advertising/pads2/hub/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
+
+        "/advertising/pads2/hub/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
+
+        "/advertising/pads2/hub/modal/bidding/warning/changetime/stay"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
+
+        "/advertising/pads2/hub/modal/bidding/warning/changetime/change"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
         }
     }
 
@@ -1785,6 +1813,37 @@ trackTests {
             strategy = "LAUNCHING"
             trtarget = 3
         }
+
+        "/advertising/pads2/manager/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
+        "/advertising/pads2/manager/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
+
+        "/advertising/pads2/manager/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
+        "/advertising/pads2/manager/modal/bidding/warning/changetime/stay"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
+        "/advertising/pads2/manager/modal/bidding/warning/changetime/change"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = 5
+            multi = true
+            days_since_modif = 2
+        }
     }
 
     test("Opportunities Bidding (Hub)") {
@@ -1873,5 +1932,14 @@ trackTests {
             trtarget_new = 45
         }
 
+    }
+
+    test("Advertising Adserver"){
+        "/advertising/adserver/ads/view"(platform: "/", type: TrackType.View) {
+            c_id = "home/top_home_banner"
+            c_category = "nike_2"
+            c_event = "view"
+            c_original_target = "meli://test"
+        }
     }
 }

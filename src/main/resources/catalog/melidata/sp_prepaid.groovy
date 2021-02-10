@@ -13,7 +13,8 @@ tracks {
         type(required: true, PropertyType.String, description: "Type of item")
         content(required: true, PropertyType.ArrayList, description: "Content of the item")
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
-        available_items(required: true, type: PropertyType.ArrayList, description: "Available items to select")
+        available_items(required: false, type: PropertyType.ArrayList, description: "Available items to select")
+        parent_key(required: false, PropertyType.String, description: "Information about the product/category the user is looking at")
         //item_id
         //type
         //content
@@ -32,15 +33,17 @@ tracks {
         provider_id(required: false, type: PropertyType.String, description: "Provider of the operation")
         flavor(required:false, type: PropertyType.String, description: "Name of the current flavor")
         last_recharge(required:false, type: PropertyType.String, description: "Device id of the last recharge")
+        segment(required: false, type: PropertyType.String, description: "Segment to which the user belongs")
     }
 
     propertyGroups { 
         mandatory(flow, session_id)
-        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge)
+        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key)
         item_structure(item_id, type, content)
         view_time(view_time)
         available_items(available_items)
         point_structure(latitude, longitude, description, address_line_1, address_line_2, type, schedule, icon)
+        segment(segment)
     }
 
     def notification_panel_structure = objectSchemaDefinitions {
@@ -135,6 +138,7 @@ tracks {
     "/single_player/prepaid/product_list"(platform: "/mobile", type: TrackType.View) {
         available_items
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
+        segment
     }
 
     "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -142,11 +146,13 @@ tracks {
         step_information
         view_time
         item_structure
+        segment
     }
     "/single_player/prepaid/product_list/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
         step_information
         view_time
+        segment
     }
     "/single_player/prepaid/product_list/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
@@ -158,6 +164,21 @@ tracks {
         step_information
         view_time
     }
+    "/single_player/prepaid/product_list/more_products"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        step_information
+        view_time
+        item_structure
+    }
+    "/single_player/prepaid/product_list/link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+        item_id(required: false, PropertyType.String, description: "Id of the item")
+        type(required: false, PropertyType.String, description: "Type of item")
+        content(required: false, PropertyType.ArrayList, description: "Content of the item")
+    }
+
 
 
     // Recommended products
@@ -239,21 +260,26 @@ tracks {
 
     // One device
     "/single_player/prepaid/one_device"(platform: "/mobile", type: TrackType.View) {
-        button_card(required: true, PropertyType.Map(button_card_structure), description: "Information about the button card")
+        button_card(required: false, PropertyType.Map(button_card_structure), description: "Information about the button card")
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
+        segment
     }
 
     "/single_player/prepaid/one_device/edit_alias"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
         view_time
+        item_id(required: false, PropertyType.String, description: "Id of the item")
+        type(required: false, PropertyType.String, description: "Type of item")
+        content(required: false, PropertyType.ArrayList, description: "Content of the item")
     }
     "/single_player/prepaid/one_device/selected_product"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
         view_time
         item_structure
+        segment
     }
     "/single_player/prepaid/one_device/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
@@ -275,17 +301,21 @@ tracks {
         mandatory
         step_information
         view_time
+        item_id(required: false, PropertyType.String, description: "Id of the item")
+        type(required: false, PropertyType.String, description: "Type of item")
+        content(required: false, PropertyType.ArrayList, description: "Content of the item")
     }
     "/single_player/prepaid/one_device/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
         view_time
+        segment
     }
 
 
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
-        quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        quantity(required: false, PropertyType.Numeric, description: "Quantity of items")
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
@@ -370,6 +400,7 @@ tracks {
     "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Congrats rejected
@@ -565,6 +596,17 @@ tracks {
         view_time
     }
     "/single_player/prepaid/receipt/download"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Show Action
+    "/single_player/prepaid/show_action"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/show_action/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/show_action/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -810,7 +852,9 @@ tracks {
 
 
     // Recurrence
-    "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {
+        segment
+    }
 
     "/single_player/paygo/recurrence/add_money"(platform: "/mobile", type: TrackType.Event) {
         view_time
@@ -896,7 +940,7 @@ tracks {
 
     // Multiple devices
     "/single_player/paygo/multiple_devices"(platform: "/mobile", type: TrackType.View) {
-        quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        quantity(required: false, PropertyType.Numeric, description: "Quantity of items")
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }

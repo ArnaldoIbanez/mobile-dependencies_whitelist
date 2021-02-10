@@ -9,6 +9,12 @@ tracks {
 
     initiative = "1155"
 
+    def helpCardContent = objectSchemaDefinitions {
+        title(required: false, type: PropertyType.String, description: "Title of the content")
+        redirect_url(required: false, type: PropertyType.String, description:  "Redirect url of the content")
+        directAccess(required: false, type: PropertyType.Map, description: "Configuration to open a direct access to support widget")
+    }
+
     propertyDefinitions {
         portal_contact(required: true, type: PropertyType.Map,
             description: "Indicates if the current hub has channels enabled and why it hasn't")
@@ -22,7 +28,8 @@ tracks {
                     "FOLDER", // Content that contains another contents
                     "RENDER", // Content that shows information, and maybe buttons to another contents or to talk with CX
                     "REDIRECT", // Content that allows to go outside the cx help
-                    "SHOW_CONTACT" // Content that only has buttons to talk with CX
+                    "SHOW_CONTACT", // Content that only has buttons to talk with CX
+                    "FOLDER_DYNAMIC"  // Content that contains other dynamic contents
                 ],
             description: "Indicates if it's a a simple content, a content with contact links to CX, etc. It's optional just because the migration to the new cx portal has several iterative steps, it's just starting. It we'll be mandatory in the future")
         portal_source_id(required: true, type: PropertyType.Numeric,
@@ -45,8 +52,30 @@ tracks {
             description: "Indicates the value of the effectivity survey given by a user to a certain faq")
         portal_search_criteria(required: false, type: PropertyType.String, 
             description: "Indicates the criteria used in the search in the help portal")
-         portal_custom_order_id(required: false, type: PropertyType.Numeric, 
-            description: "Indicates the order shown to the user according to the predicted problem")    
+        portal_custom_order_id(required: false, type: PropertyType.Numeric, 
+            description: "Indicates the order shown to the user according to the predicted problem")
+        portal_prediction_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the id of the prediction for the user problem")        
+        portal_content_destination_url(required: false, type: PropertyType.String, 
+            description: "Indicates the destination url in an event track")
+        portal_show_cancel_card(required: false, type: PropertyType.Boolean, 
+            description: "Indicates if the cancelCard should be shown")
+        portal_has_one_click(required: true, type: PropertyType.Boolean,
+            description: "Indicates if the user has oneclick enabled")
+        portal_contact_predicted_team(required: false, type: PropertyType.String,
+            description: "Indicates the team with which the user should contact")
+        portal_contact_prediction_score(required: false, type: PropertyType.Numeric,
+            description: "Indicates the score of the prediction for the contact")
+        portal_contact_predicted_problem_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the problem with which the user should contact")
+        portal_predicted_features(required: false, type: PropertyType.Map,
+            description: "Indicates the features used in the prediction")
+        portal_predicted_contents(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the ids of the contents predicted to a user")
+        helpcard_title(required: true, type: PropertyType.String,
+            description: "Indicates the title of the help card as viewed by the user")
+        helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
+            description: "Indicates the contents viewed by the user in the help card")
     }
 
     propertyGroups {
@@ -64,6 +93,16 @@ tracks {
         portal_effectivity_survey_value(portal_effectivity_survey_value)
         portal_search_criteria(portal_search_criteria)
         portal_custom_order_id(portal_custom_order_id)
+        portal_prediction_id(portal_prediction_id)
+        portal_content_destination_url(portal_content_destination_url)
+        portal_show_cancel_card(portal_show_cancel_card)
+        portal_has_one_click(portal_has_one_click)
+        portal_contact_predicted_team(portal_contact_predicted_team)
+        portal_contact_prediction_score(portal_contact_prediction_score)
+        portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
+        portal_predicted_features(portal_predicted_features)
+        portal_predicted_contents(portal_predicted_contents)
+        helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -82,9 +121,16 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/faq/click"(platform: "/", type: TrackType.View) {
+        portal_content_transactional_data
+        portal_content_destination_url
+    }
+
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
         portal_effectivity_survey_value
+        portal_content_destination_url
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -134,6 +180,11 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/folder/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
+        portal_content_destination_url
+    }
+
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
         portal_form_id
         portal_content_id(required: false, type: PropertyType.Numeric,
@@ -163,12 +214,23 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
+        portal_content_destination_url
+    }
+
     "/portal/home"(platform: "/", type: TrackType.View) {
         portal_source_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_predicted_label(required: false, type: PropertyType.String,
+                description: "Field that sometimes is required in catalog, but not always. Indicates the predicted label of the user")
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+        portal_show_cancel_card
+        portal_prediction_id
+        portal_has_one_click
+        portal_predicted_contents
     }
 
     "/portal/zrp"(platform: "/", type: TrackType.View) {
@@ -184,6 +246,7 @@ tracks {
      "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
         portal_source_id
         portal_custom_order_id
+        portal_prediction_id
     }
 
     // Support Widget
@@ -202,6 +265,7 @@ tracks {
 
     "/support/widget/folder/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
@@ -212,6 +276,7 @@ tracks {
     }
     "/support/widget/folder_rules/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
 
     "/support/widget/home"(platform: "/", type: TrackType.View) {
@@ -243,10 +308,13 @@ tracks {
 
     "/support/widget/faq/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
     }
     "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
     "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        portal_content_transactional_data
         portal_effectivity_survey_value
+        portal_content_destination_url
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
@@ -260,6 +328,10 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+        portal_contact_predicted_team
+        portal_contact_prediction_score
+        portal_contact_predicted_problem_id
+        portal_predicted_features
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
@@ -315,5 +387,12 @@ tracks {
         type(required: true, type: PropertyType.String, 
             values: ["new_information", "greetings", "recontact"],
             description: "Contact type")
+    }
+
+    // Daisy
+    "/support/helpcard"(platform: "/", type: TrackType.View) {} 
+
+    "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+        helpcard_data
     }
 }

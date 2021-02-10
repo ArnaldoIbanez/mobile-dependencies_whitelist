@@ -29,9 +29,11 @@ tracks {
     "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/configuration"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
-
+    "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -48,7 +50,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual"],
+            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual", "copy_shipping_code"],
             description: "Action tapped"
         )
     }
@@ -476,7 +478,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "additional_message_freeze"],
+            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "additional_message_freeze", "close_modal"],
             description: "The action type tapped"
         )
     }
@@ -1019,6 +1021,35 @@ tracks {
         )
     }
     
+    // Semaphore
+    //-------------------
+    "/cards/hybrid/setup/options/semaphore"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/semaphore/render"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "configured", 
+                "not_configured", 
+                "not_tokenized", 
+                "tokenized_in_progress", 
+                "privder_suspended"
+            ],
+            description: "Semaphore State"
+        )
+    }
+    "/cards/hybrid/setup/options/semaphore/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "configured", 
+                "not_configured"
+            ],
+            description: "Semaphore Tap"
+        )
+    }
+    
     // ENROLLMENT-HUB-NFC
     //-------------------
     "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
@@ -1026,7 +1057,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back","continue_later"],
+            values: ["back","primary_button","secondary_button"],
             description: "Action Tapped"
         )
     }
@@ -1039,6 +1070,34 @@ tracks {
         )
     }
     "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_redirect"],
+            description: "Redirection Done"
+        )
+    }
+    
+        // CONFFIGURATION-HUB-NFC
+    //-------------------
+    "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back","primary_button","secondary_button"],
+            description: "Action Tapped"
+        )
+    }
+    "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["step_tap_and_pay","step_pin","step_nfc","step_nfc_freeze"],
+            description: "Step Button Tapped"
+        )
+    }
+    "/cards/nfc/configuration/hub/redirect"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -1169,6 +1228,10 @@ tracks {
             description: "Finish button tapped"
         )
     }
+    
+    // NFC - Feature
+    
+    "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
     
     // CORE-NFC
 

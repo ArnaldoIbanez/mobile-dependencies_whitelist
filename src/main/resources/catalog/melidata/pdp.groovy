@@ -634,7 +634,9 @@ tracks {
 
     "/pdp/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
-    }
+        is_component_tracker(required: false, type: PropertyType.String, description: "Indica si el componente es el backup track")
+        item_id(required: false, type: PropertyType.String, description: "Indica el identificador del item")
+   }
 
     "/pdp/technical_specs"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
@@ -664,4 +666,15 @@ tracks {
 
     "/pdp/technical_specs_features/view_more"(platform: "/", parentPropertiesInherited: true) {
     }
+
+    "/pdp/html_description"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/html_description/show"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/html_description/view_all_action"(platform: "/", parentPropertiesInherited: true) {
+    }
+
 }

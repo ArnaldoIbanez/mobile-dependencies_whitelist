@@ -459,6 +459,10 @@ trackTests {
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
             shipment_id = "222"
         }
+        "/logistics/last_mile/package/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+            driver_id = 124
+        }
         "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
@@ -469,6 +473,27 @@ trackTests {
             route_id = "123"
             driver_id = "123"
             case_type_id = "6"
+        }
+        "/logistics/last_mile/places/disclaimer_handshake"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/last_mile/places/disclaimer_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+            packages_to_scan = ["123", "123"]
+        }
+        "/logistics/last_mile/places/modal_handshake"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/last_mile/places/modal_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
         }
         "/logistics/end_route/authentication_qr"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -587,6 +612,14 @@ trackTests {
         }
         "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
             driver_id = 400
+        }
+        "/logistics/last_mile/poll"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
+        }
+        "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
         }
     }
 

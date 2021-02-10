@@ -583,6 +583,10 @@ trackTests {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message_freeze"
         }
+         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "close_modal"
+        }
+        
     }
 
     //Highlighted Row
@@ -1067,12 +1071,41 @@ trackTests {
             action = "research_form"
         }
     }
+    
+    // OPTIONS Semaphore
+    test("card options semaphore states for nfc") {
+        "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_tokenized"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "tokenized_in_progress"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "privder_suspended"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+    }
 
-    //NFC HUB
+    //NFC ENROLLMENT HUB
     test("cards hybrid nfc enrollment hub") {
         "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
-            action = "continue_later"
+            action = "primary_button"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
@@ -1090,6 +1123,36 @@ trackTests {
             action = "success_redirect"
         }
     }
+    
+    //NFC CONFIGURATION HUB
+    test("cards hybrid nfc configuration hub") {
+        "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_tap_and_pay"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_pin"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc"
+        }     
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc_freeze"
+        }     
+        "/cards/nfc/configuration/hub/redirect"(platform:"/", type: TrackType.Event) {
+            action = "success_redirect"
+        }
+    }
+    
     test("cards hybrid nfc onboarding") {
         "/cards/nfc/enrollment/hub/onboarding"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
@@ -1221,6 +1284,11 @@ trackTests {
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
         }
+    }
+    
+    // NFC Feature
+    test("nfc feature is available"){
+        "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
     }
     
     // NFC Core

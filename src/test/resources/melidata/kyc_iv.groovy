@@ -514,6 +514,7 @@ trackTests {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
             url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
             handoff_type = "user_swap"
         }
     }
@@ -1015,6 +1016,7 @@ trackTests {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
             url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
             handoff_type = "no_camera"
         }
     }

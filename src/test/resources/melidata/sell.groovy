@@ -199,6 +199,10 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical="core"
         }
+        "/sell/sip_upgrade"(platform: "/mobile"){
+            source = "section"
+            vertical = "motors"
+        }
     }
 
     test("Native Sell List flow steps"){
@@ -4016,6 +4020,33 @@ trackTests {
             products_selected_index = -1
         }
     }
+
+    test("SYI v4 flow catalog optional card showed"){
+        "/sell/item_data/catalog_optional/show"(platform: "/web", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 flow catalog optional card confirmed"){
+        "/sell/item_data/catalog_optional/confirm"(platform: "/web", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+    
     test("List Equals V3 Modifications"){
         def originalItemData = [
                 has_variations: false,
@@ -4906,6 +4937,54 @@ trackTests {
             listing_type_id = "silver"
         }
     }
+
+    test("SYI v4 publicar - congrats view catalog_and_marketplace listing") {
+        "/sell/congrats"(platform: "/web", type: TrackType.View) {
+            seller_reputation = "NO_REPUTATION"
+            categorization_flow_successful = true
+            category_id = "MLC183186"
+            item_type = "default"
+            item_id = "MLC531828782"
+            seller_profile = "NEWBIE"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_segment = ""
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "real_estate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+            listing_type_id = "silver"
+            decision_flow_label = "BY_CATALOG"
+        }
+    }
+
+     test("SYI v4 publicar - leave suggestion show link") {
+        "/sell/item_data/category/leave_suggestion_link/show"(platform: "/web", type: TrackType.View) {
+            session_id = "571359341-listres-718003de5fdc"
+            category_id = "MLC183186"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            seller_segment = ""
+            seller_reputation = "NO_REPUTATION"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 publicar - leave product show link") {
+        "/sell/item_data/category/default_product_link/show"(platform: "/web", type: TrackType.View) {
+            session_id = "571359341-listres-718003de5fdc"
+            category_id = "MLC183186"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            seller_segment = ""
+            seller_reputation = "NO_REPUTATION"
+            list_mode = "LIST"
+        }
+    }
+
+
     test("SYI v4 publicar - wrong category") {
         "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {
             seller_reputation = "NO_REPUTATION"

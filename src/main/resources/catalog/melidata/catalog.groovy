@@ -90,6 +90,8 @@ catalog {
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
         include business, "addresses.groovy"
+        include business, "bulk_publish.groovy"
+        include business, "bulk_edit.groovy"
     }
 
     mercadolibre.each { business ->
@@ -223,6 +225,7 @@ catalog {
         include business, "sp_prepaid.groovy"
         include business, "tools_for_sellers.groovy"
         include business, "mp_growth.groovy"
+        include business, "pog_comm.groovy"
         include business, "point_payment.groovy"
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
@@ -232,11 +235,13 @@ catalog {
         include business, "mp_insurtech.groovy"
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
+        include business, "costs_section.groovy"
         include business, "mp_growth_onlinepayments.groovy"
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
         include business, "black_friday.groovy"
+        include business, "business_config.groovy"
     }
 
     mercadoshops.each { business ->

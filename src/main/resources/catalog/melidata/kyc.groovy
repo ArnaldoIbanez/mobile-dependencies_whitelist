@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = '1127'
+    initiative = '1172'
 
     "/kyc"(platform: "/", isAbstract: true) {}
 
@@ -413,6 +413,7 @@ tracks {
 
     "/kyc/iv/handoff"(platform: "/web", type: TrackType.Event) {
         url(required: true, type: PropertyType.String, description: "The url to redirect")
+        challenge(required: true, type: PropertyType.String, description: "The current challenge the user is doing")
         handoff_type(required: true, type: PropertyType.String, values: ["user_swap", "no_camera"], description: "Type of handoff the user will do")
     }
 

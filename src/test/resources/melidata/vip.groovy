@@ -71,6 +71,9 @@ trackTests {
             ]
             has_seller_level_kyc = true
             seller_type = 'normal'
+            apparel = [
+                    "has_size_chart": true
+            ]
         }
 
         Object items_attributes = {
@@ -708,6 +711,7 @@ trackTests {
 
         "/vip/sizechart"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
+            referer = "vip"
         }
 
         "/vip/sizechart/tutorial"(platform: "/mobile", type: TrackType.View) {

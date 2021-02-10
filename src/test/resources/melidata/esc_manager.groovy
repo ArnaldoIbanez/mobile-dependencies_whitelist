@@ -68,7 +68,7 @@ trackTests {
         "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
             flow = "flow"
-            type = "single_esc_sync_request"
+            type = "SINGLE_ESC_SYNC_REQUEST"
             quantity = 1
         }
     }
@@ -137,7 +137,7 @@ trackTests {
         "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
             flow = "flow"
-            type = "single_esc_sync_request"
+            type = "SINGLE_ESC_SYNC_REQUEST"
             quantity = 1
         }
     }

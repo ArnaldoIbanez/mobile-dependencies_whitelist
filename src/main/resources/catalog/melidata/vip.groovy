@@ -88,6 +88,11 @@ tracks {
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
         melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
     }
+
+    def apparel_definition = objectSchemaDefinitions {
+        has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -239,7 +244,8 @@ tracks {
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
 
-
+        // Apparel
+        apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
     }
 
     "/vip"(platform: "/web") {
@@ -424,6 +430,7 @@ tracks {
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
+         referer(required: true, type: PropertyType.String, description: "Size chart referer")
     }
 
     "/vip/sizechart/tutorial"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
@@ -1485,5 +1492,7 @@ tracks {
 
     "/vip/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
+        item_id(required: false, type: PropertyType.String, description: "Indica el identificador del item")
+        is_component_tracker(required: false, type: PropertyType.String, description: "Indica si el componente es el backup track")
     }
 }

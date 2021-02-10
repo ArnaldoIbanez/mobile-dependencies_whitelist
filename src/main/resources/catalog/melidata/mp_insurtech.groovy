@@ -200,21 +200,21 @@ tracks {
         purchase_id(required: true, type: PropertyType.String, description: "Insurance purchase key id")
         preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
         payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
-        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+        status(required: true, type: PropertyType.String, values: ['approved', 'pending'], description:"Subscription payment status")
     }
 
      "/insurtech/roda/qpage/congrats_subscription/go_to_protections"(platform:"/", type: TrackType.Event) {
         purchase_id(required: true, type: PropertyType.String, description: "Insurance purchase key id")
         preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
         payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
-        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+        status(required: true, type: PropertyType.String, values: ['approved', 'pending'], description:"Subscription payment status")
     }
 
      "/insurtech/roda/qpage/congrats_subscription/go_to_protection_detail"(platform:"/", type: TrackType.Event) {
         purchase_id(required: true, type: PropertyType.String, description: "Insurance purchase key id")
         preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
         payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
-        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+        status(required: true, type: PropertyType.String, values: ['approved', 'pending'], description:"Subscription payment status")
     }
 
     // INSURTECH RODA Hardware Check
@@ -320,6 +320,14 @@ tracks {
     "/insurtech/hardware_check/checkups/failed"(platform:"/mobile", type: TrackType.Event) {
         check_id(required: true, type: PropertyType.String, description: "check ID.")
         view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
+    }
+
+    "/insurtech/hardware_check/checkups/first_touch"(platform:"/mobile", type: TrackType.Event) {
+        time_elapsed(required: true, type: PropertyType.Numeric, description: "Time before first user touch")
+    }
+
+    "/insurtech/hardware_check/checkups/redirect"(platform:"/mobile", type: TrackType.Event) {
+        deep_link(required: true, type: PropertyType.String, description: "Redirect flow to the next step")
     }
 
     "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
@@ -518,7 +526,12 @@ tracks {
 
     "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
-    }
+        is_imei_valid(required: true, type: PropertyType.Boolean, description: "Imei valid or invalid ")
+        protection_status(required: true, type: PropertyType.String, values: ['active_on_route', 'pending_activation'], description: "Status of protection when is going to be activated")
+        days_taken_for_imei_activation(required: true, type: PropertyType.Numeric, description: "Days passed after protection was in pending_activation status")
+        retries_number(required: true, type: PropertyType.Numeric, description: "Number of attempts before to activate with success")
+        modal_imei_retries(required: true, type: PropertyType.Numeric, description: "Number of times that modal showed up")
+   }
 
     "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
@@ -537,11 +550,5 @@ tracks {
     "/insurtech/protections/detail/roda/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
-
-    "/insurtech/protections/detail/roda/congrats"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
-
-    "/insurtech/protections/detail/roda/congrats/imei"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        insurance_purchase(required: false, type: PropertyType.String, description: "Insurance purchase key associated to the protection.")
-     }
 
 }
