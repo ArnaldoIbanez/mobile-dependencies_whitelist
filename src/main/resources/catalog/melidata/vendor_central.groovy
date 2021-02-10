@@ -103,4 +103,13 @@ tracks {
 
     "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Invoices
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/invoices"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
+
+
 }
