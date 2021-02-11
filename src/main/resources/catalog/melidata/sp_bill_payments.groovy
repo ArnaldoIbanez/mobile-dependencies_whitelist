@@ -53,10 +53,10 @@ tracks {
     }
 
     // Invoice menu
-    "/bill_payments/invoices/menu"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/invoices/menu/faq"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/invoices/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/invoices/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
 
     // Input amount
     "/bill_payments/input_amount"(platform: "/mobile", type: TrackType.View) {}

@@ -2548,15 +2548,15 @@ trackTests {
         }
 
         // Invoice menu
-        "/bill_payments/invoices/menu/faq"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/invoices/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/invoices/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
