@@ -2548,7 +2548,7 @@ trackTests {
         }
 
         // Invoice menu
-        "//bill_payments/menu"(platform: "/mobile") {
+        "/bill_payments/menu"(platform: "/mobile") {
             mandatory()
         }
 
