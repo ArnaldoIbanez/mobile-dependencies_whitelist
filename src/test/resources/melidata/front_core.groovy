@@ -698,6 +698,9 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            banking_v2=[
+                    hidden : true
+            ]
             bcra_regulation= [
                     ordinal: 14,
                     content_type : 'complete'
@@ -1800,6 +1803,9 @@ trackTests {
             survey= [
                     ordinal: 13,
                     content_type : 'complete'
+            ]
+            banking_v2=[
+                    hidden : true
             ]
             subscription= [
                     content_type : 'partial',
