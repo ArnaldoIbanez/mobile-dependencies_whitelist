@@ -504,7 +504,7 @@ tracks {
         quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
     }
 
-    "/wallet_home/section/tap/banking_v2-mpcards" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
         pill(required: false, type: PropertyType.String, description: "Pill text in card")
         has_card(required: false, type: PropertyType.Boolean, description: "If user has a active card")
         card_status(required: false, type: PropertyType.String, description: "Card status")
