@@ -783,9 +783,6 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
-       	    metadata_user = [
-                type: "seller"
-            ]
         }
     }
 
@@ -1872,9 +1869,6 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
-       	    metadata_user = [
-                type: "seller"
-            ]
         }
     }
 

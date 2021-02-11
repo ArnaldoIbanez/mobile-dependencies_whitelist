@@ -473,7 +473,6 @@ tracks {
     "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "If header is tapeable")
         button_link(required: false, type: PropertyType.String, description: "If button is present")
-       	metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
