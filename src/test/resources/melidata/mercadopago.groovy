@@ -2548,6 +2548,10 @@ trackTests {
         }
 
         // Invoice menu
+        "//bill_payments/menu"(platform: "/mobile") {
+            mandatory()
+        }
+
         "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
