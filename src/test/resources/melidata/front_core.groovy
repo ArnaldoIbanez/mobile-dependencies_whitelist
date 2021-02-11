@@ -1325,7 +1325,7 @@ trackTests {
             section_id = "banking_v2"
         }
 
-        "/wallet_home/section/tap/banking_v2-mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             pill = "NOVO"
             has_card = true
             component_id = "card"
@@ -1334,14 +1334,14 @@ trackTests {
         }
 
 
-        "/wallet_home/section/tap/banking_v2-mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             has_nfc_card = true
             component_id = "nfc"
             link = "mercadopago"
             section_id = "banking_v2"
         }
         
-        "/wallet_home/section/tap/banking_v2-mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             card_status = "active"
             component_id = "pay_online"
             link = "mercadopago"
