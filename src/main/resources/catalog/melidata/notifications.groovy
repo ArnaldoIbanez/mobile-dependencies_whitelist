@@ -2504,4 +2504,7 @@ tracks {
         advertising_id(required: true, type: PropertyType.String)
     }
 
+    //Contactless card
+    "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
+
 }
