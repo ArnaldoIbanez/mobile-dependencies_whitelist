@@ -162,12 +162,24 @@ trackTests {
     }
 
     test("Advertising privacy") {
-        "/advertising/pads2/privacy"(platform: "/", type: TrackType.View) {
+        "/advertising/privacy"(platform: "/", type: TrackType.View) {
         }
 
-        "/advertising/pads2/change_privacy"(platform: "/", type: TrackType.Event) {
-            state_switch = "enabled"
-            previous_state_switch = "disabled"
+        "/advertising/privacy/modal"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/modal/show"(platform: "/", type: TrackType.Event) {
+            switch_status = "enabled"
+        }
+
+        "/advertising/privacy/modal/deactivate_ads"(platform: "/", type: TrackType.Event) {            
+        }
+
+        "/advertising/privacy/modal/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "deactivate"
         }
     }
 

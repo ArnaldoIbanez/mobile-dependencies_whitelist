@@ -237,12 +237,24 @@ tracks {
     }
 
     //Privacy
-    "/advertising/pads2/privacy"(platform: "/", type: TrackType.View) {
+    "/advertising/privacy"(platform: "/", type: TrackType.View) {
     }
 
-    "/advertising/pads2/change_privacy"(platform: "/", type: TrackType.Event) {
-        state_switch(required: true, description: "Current state of switch")
-        previous_state_switch(required: true, description: "Show previous state switch privacy")
+    "/advertising/privacy/modal"(platform: "/", type: TrackType.Event){
+    }
+
+    "/advertising/privacy/modal/show"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
+    }
+
+    "/advertising/privacy/modal/deactivate_ads"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/modal/keep_ads_active"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
     }
 
     //Lift
