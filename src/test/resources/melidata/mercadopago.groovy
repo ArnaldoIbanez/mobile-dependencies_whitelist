@@ -2558,6 +2558,23 @@ trackTests {
             product_id = "10"
         }
 
+        // Invoice menu
+        "/bill_payments/menu"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Product picker
         "/bill_payments/product_picker"(platform: "/mobile") {
             mandatory()
