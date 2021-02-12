@@ -817,6 +817,14 @@ tracks {
     // --------
     "/cards/hybrid/request/init_point"(platform: "/", type: TrackType.View) {}
 
+     // CARD REQUEST physical init point
+    // --------
+    "/cards/hybrid/request/physical/init_point"(platform: "/", type: TrackType.View) {}
+
+     // CARD REQUEST virtual init point
+    // --------
+    "/cards/hybrid/request/virtual/init_point"(platform: "/", type: TrackType.View) {}
+
     // CARD REQUEST virtual on boarding
     // --------
     "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
