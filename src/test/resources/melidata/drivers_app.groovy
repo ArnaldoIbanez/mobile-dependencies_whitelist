@@ -1,4 +1,4 @@
-package src.test.resources.melidata
+package melidata
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
@@ -171,26 +171,26 @@ trackTests {
 
         def defaultDeliveryData = {
             route_info = [
-                    route_id : "323232",
-                    route_status : "active",
+                    route_id    : "323232",
+                    route_status: "active",
                     facility_id : "SMX1",
-                    route_type : "LM",
-                    vehicle_id : "dyuwduw"
+                    route_type  : "LM",
+                    vehicle_id  : "dyuwduw"
             ]
         }
 
         def defaultPackInfo = {
             packs_info = [
                     [
-                            sender_id: "12345",
-                            shipment_id: "1234456",
+                            sender_id         : "12345",
+                            shipment_id       : "1234456",
                             shipment_substatus: "test",
-                            receiver_info: [
-                                    id: "123",
-                                    geo_type: "ROOFTOP",
+                            receiver_info     : [
+                                    id                 : "123",
+                                    geo_type           : "ROOFTOP",
                                     delivery_preference: "residential",
-                                    latitude: "-36.34443",
-                                    longitude: "-35.34332"
+                                    latitude           : "-36.34443",
+                                    longitude          : "-35.34332"
                             ]
                     ]
             ]
@@ -334,35 +334,35 @@ trackTests {
     test("MercadoEnvíos - Driver Apps - Testing Delivery Flow") {
         def defaultDeliveryData = {
             route_info = [
-                    route_id : "323232",
-                    route_status : "active",
+                    route_id    : "323232",
+                    route_status: "active",
                     facility_id : "SMX1",
-                    route_type : "LM",
-                    vehicle_id : "dyuwduw"
+                    route_type  : "LM",
+                    vehicle_id  : "dyuwduw"
             ]
         }
 
         def defaultPackInfo = {
             packs_info = [
                     [
-                            sender_id: "12345",
-                            shipment_id: "1234456",
+                            sender_id         : "12345",
+                            shipment_id       : "1234456",
                             shipment_substatus: "test",
-                            receiver_info: [
-                                    id: "123",
-                                    geo_type: "ROOFTOP",
+                            receiver_info     : [
+                                    id                 : "123",
+                                    geo_type           : "ROOFTOP",
                                     delivery_preference: "residential",
-                                    latitude: "-36.34443",
-                                    longitude: "-35.34332"
+                                    latitude           : "-36.34443",
+                                    longitude          : "-35.34332"
                             ]
                     ]
             ]
         }
 
         def defaultLocation = {
-                    latitude = "-36.34443"
-                    longitude = "-35.34332"
-                }
+            latitude = "-36.34443"
+            longitude = "-35.34332"
+        }
         def defaultStopOrder = 3
 
         "/driver/delivery/receipt"(platform: "/mobile", type: TrackType.View) {
@@ -411,6 +411,34 @@ trackTests {
             defaultStopOrder
             selected_reason = "nobody_address"
         }
+
+        "/driver/delivery/security_keyword"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+        }
+
+        "/driver/delivery/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+        }
+
+        "/driver/delivery/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+        }
+
+        "/driver/delivery/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+            defaultStopOrder
+        }
     }
 
     test("MercadoEnvíos - Driver Apps - Testing My account Flow") {
@@ -441,5 +469,52 @@ trackTests {
             defaultLocation()
         }
 
+    }
+
+    test("MercadoEnvíos - Driver Apps - Testing Return to Station Flow") {
+
+        def defaultDriverAndRouteIds = {
+            driver_id = "12345678"
+            route_id = "87654321"
+        }
+
+        def defaultPackagesToReturn = {
+            packages_to_return = ["87263362", "21716253", "92837621"]
+        }
+
+        "/driver/return_to_station/return_to_station_disclaimer"(platform: "/mobile", type: TrackType.View) {
+            defaultDriverAndRouteIds()
+        }
+
+        "/driver/return_to_station/facility_map"(platform: "/mobile", type: TrackType.Event) {
+            defaultDriverAndRouteIds()
+        }
+
+        "/driver/return_to_station/enter_facility_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultDriverAndRouteIds()
+        }
+
+        "/driver/return_to_station/remaining_packages_disclaimer"(platform: "/mobile", type: TrackType.Event) {
+            defaultDriverAndRouteIds()
+            defaultPackagesToReturn()
+        }
+
+        "/driver/return_to_station/remaining_packages_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultDriverAndRouteIds()
+            defaultPackagesToReturn()
+        }
+
+        "/driver/return_to_station/route_still_open"(platform: "/mobile", type: TrackType.Event) {
+            defaultDriverAndRouteIds()
+            defaultPackagesToReturn()
+        }
+
+        "/driver/return_to_station/exit_facility_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultDriverAndRouteIds()
+        }
+
+        "/driver/return_to_station/success"(platform: "/mobile", type: TrackType.Event) {
+            defaultDriverAndRouteIds()
+        }
     }
 }
