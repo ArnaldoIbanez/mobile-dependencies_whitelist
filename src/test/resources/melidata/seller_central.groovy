@@ -2147,8 +2147,6 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      attribute_id = "COLOR"
-      task_id = "product_comparator"
     }
   }
 
@@ -2172,6 +2170,116 @@ trackTests {
       list_mode = "OPTIN"
       attribute_id = "COLOR"
       task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product problem show") {
+    "/seller_central/catalog/optin/product_problem/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
+    "/seller_central/catalog/optin/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
     }
   }
 
@@ -2193,8 +2301,9 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      attribute_id = "COLOR"
       task_id = "invoice"
+      to = "https://www.mercadolibre.com.ar"
+      from = "congrats_page"
     }
   }
 
@@ -2375,6 +2484,184 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
       list_mode = "OPTIN"
+    }
+  }
+
+    test("seller central catalog optin product comparator view") {
+    "/seller_central/catalog/optin/optin_moderated/product_comparator/show"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin product comparator confirm") {
+    "/seller_central/catalog/optin/optin_moderated/product_comparator/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product problem show") {
+    "/seller_central/catalog/optin/optin_moderated/product_problem/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/optin_moderated/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin invoice confirm") {
+    "/seller_central/catalog/optin/optin_moderated/invoice/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      task_id = "invoice"
+      to = "https://www.mercadolibre.com.ar"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card return") {
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
     }
   }
 
@@ -2689,7 +2976,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
-
   test("seller central catalog optin item_plus page view") {
     "/seller_central/catalog/optin/item_plus"(platform: "/web", type: TrackType.View) {
       item_id = "MLA123"
@@ -2708,6 +2994,184 @@ test("seller central confirm leave suggestion task - optin moderated") {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
       list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin product comparator view") {
+    "/seller_central/catalog/optin/item_plus/product_comparator/show"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin product comparator confirm") {
+    "/seller_central/catalog/optin/item_plus/product_comparator/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product problem show") {
+    "/seller_central/catalog/optin/item_plus/product_problem/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/item_plus/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
+    "/seller_central/catalog/optin/item_plus/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin invoice confirm") {
+    "/seller_central/catalog/optin/item_plus/invoice/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      task_id = "invoice"
+      to = "https://www.mercadolibre.com.ar"
+      from = "congrats_page"
     }
   }
 
@@ -2854,47 +3318,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       task_id = "link"
       to = "https://www.mercadolibre.com.ar/publicaciones/listado?filters=BUYBOX_STATUS"
       from = "congrats_page"
-    }
-  }
-
-  test("seller central catalog optin product problem show") {
-    "/seller_central/catalog/optin/product_problem/show"(platform: "/web", type: TrackType.Event) {
-      reputation_level = "5_green"
-      moderated = false
-      rejected_products = []
-      has_variations = true
-      original_catalog_product_id = "MLA7979515"
-      selected_catalog_product_id = null
-      item_id = "MLA835425554"
-      session_id = "474103756-product_optin-104b09b1a800"
-      has_variations_already_opt_in = false
-      opt_in_item_id = null
-      domain_id = "MLA-CELLPHONES"
-      category_id = "MLA1055"
-      variation_id = 49478478975
-      seller_profile = "INTERMEDIATE"
-      invalid_product_cause = null
-    }
-  }
-
-  test("seller central catalog optin product problem confirm") {
-    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
-      reputation_level = "5_green"
-      moderated = false
-      rejected_products = []
-      has_variations = true
-      original_catalog_product_id = "MLA7979515"
-      selected_catalog_product_id = null
-      item_id = "MLA835425554"
-      session_id = "474103756-product_optin-104b09b1a800"
-      has_variations_already_opt_in = false
-      opt_in_item_id = null
-      domain_id = "MLA-CELLPHONES"
-      category_id = "MLA1055"
-      variation_id = 49478478975
-      seller_profile = "INTERMEDIATE"
-      invalid_product_cause = null
-      reason = "OTHER"
     }
   }
 
