@@ -34,4 +34,7 @@ tracks {
      "/myaccount/billing/reports"(platform: "/") {
         type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
     }
+    "/myaccount/billing/legal_documents"(platform: "/") {
+        type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
+    }
 }
