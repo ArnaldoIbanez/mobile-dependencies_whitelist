@@ -4692,6 +4692,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {
+            news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
+        }
+
     }
 
     defaultBusiness = "mercadopago"
@@ -9240,6 +9246,12 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             shipment_id = 123
+        }
+
+        "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {
+            news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
         }
     }
 
