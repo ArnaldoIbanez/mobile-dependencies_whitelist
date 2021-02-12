@@ -1,4 +1,4 @@
-package src.test.resources.melidata
+package melidata
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
@@ -479,7 +479,7 @@ trackTests {
         }
 
         def defaultPackagesToReturn = {
-            packagesToReturn = ["87263362", "21716253", "92837621"]
+            packages_to_return = ["87263362", "21716253", "92837621"]
         }
 
         "/driver/return_to_station/return_to_station_disclaimer"(platform: "/mobile", type: TrackType.View) {
