@@ -549,6 +549,12 @@ trackTests {
             sales_percentage_map()
         }
 
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
 
 
@@ -714,6 +720,14 @@ trackTests {
             fixed_term()
         }
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            express_money()
+        }
+
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
             express_money()
         }
 
@@ -1084,7 +1098,7 @@ trackTests {
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {
             user_type = "mixed"
         }
-        
+
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {
             user_type = "no_credit_line"
         }
