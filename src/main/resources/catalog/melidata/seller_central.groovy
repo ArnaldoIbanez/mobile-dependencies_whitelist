@@ -1260,6 +1260,10 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
+    "/seller_central/catalog/optin/item_plus_card/return"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        sellerCentralCatalogOptinGroup
+    }
+
     "/seller_central/catalog/optin/item_plus_card/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         reason(required: true, type: PropertyType.String, description: "Reason of problem with the product", values: ["PRODUCT_ERRORS", "KIT", "OTHER"])
         sellerCentralCatalogOptinGroup
@@ -1407,6 +1411,10 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/return"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        sellerCentralCatalogOptinGroup
+    }
+
     "/seller_central/catalog/optin/optin_moderated/item_plus_card/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         reason(required: true, type: PropertyType.String, description: "Reason of problem with the product", values: ["PRODUCT_ERRORS", "KIT", "OTHER"])
         sellerCentralCatalogOptinGroup
@@ -1494,6 +1502,10 @@ tracks {
     "/seller_central/catalog/optin/item_plus/item_plus_card"(platform: "/web", isAbstract: true) {}
 
     "/seller_central/catalog/optin/item_plus/item_plus_card/show"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        sellerCentralCatalogOptinGroup
+    }
+    
+    "/seller_central/catalog/optin/item_plus/item_plus_card/return"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         sellerCentralCatalogOptinGroup
     }
 

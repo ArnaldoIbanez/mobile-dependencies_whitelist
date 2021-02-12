@@ -2222,7 +2222,7 @@ trackTests {
     }
   }
 
-  test("seller central catalog optin product problem show") {
+  test("seller central catalog optin item plus card show") {
     "/seller_central/catalog/optin/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
@@ -2242,7 +2242,27 @@ trackTests {
     }
   }
 
-  test("seller central catalog optin product problem confirm") {
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
     "/seller_central/catalog/optin/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
@@ -2584,7 +2604,7 @@ trackTests {
     }
   }
 
-  test("seller central catalog optin product problem show") {
+  test("seller central catalog optin item plus card show") {
     "/seller_central/catalog/optin/optin_moderated/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
@@ -2604,7 +2624,27 @@ trackTests {
     }
   }
 
-  test("seller central catalog optin product problem confirm") {
+  test("seller central catalog optin item plus card return") {
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
     "/seller_central/catalog/optin/optin_moderated/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
@@ -3050,7 +3090,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
-  test("seller central catalog optin product problem show") {
+  test("seller central catalog optin item plus card show") {
     "/seller_central/catalog/optin/item_plus/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
@@ -3070,7 +3110,27 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
-  test("seller central catalog optin product problem confirm") {
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
     "/seller_central/catalog/optin/item_plus/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
