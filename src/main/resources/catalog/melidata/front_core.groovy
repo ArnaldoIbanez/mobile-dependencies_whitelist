@@ -405,6 +405,7 @@ tracks {
         content_type(required: true, type: PropertyType.String, values: ['partial','default','complete'])
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
+        banking_v2(required: false, type: PropertyType.Map(banking_v2_definition), description: "The banking v2 section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         shortcuts(required: false, type: PropertyType.Map(shortcuts_section_definition), description: "The shortcuts section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -472,7 +473,6 @@ tracks {
     "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "If header is tapeable")
         button_link(required: false, type: PropertyType.String, description: "If button is present")
-       	metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
@@ -503,7 +503,7 @@ tracks {
         quantity(required: true, type: PropertyType.Numeric, description: "User's cards quantity")
     }
 
-    "/wallet_home/section/tap/banking_v2-mpcards" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
         pill(required: false, type: PropertyType.String, description: "Pill text in card")
         has_card(required: false, type: PropertyType.Boolean, description: "If user has a active card")
         card_status(required: false, type: PropertyType.String, description: "Card status")
@@ -513,8 +513,8 @@ tracks {
 
     "/wallet_home/section/tap/banking_v2-assets" (platform: "/mobile", type: TrackType.Event) {
         content_id(type: PropertyType.String, required: true, description: "The asset content id")
-        investment_counter(type: PropertyType.Numeric, required: true, description: "the investment counter")
-        optin_process(type: PropertyType.String, required: true, description: "the opt in process identifier")
+        investment_counter(type: PropertyType.Numeric, required: false, description: "the investment counter")
+        optin_process(type: PropertyType.String, required: false, description: "the opt in process identifier")
     }
 
     "/wallet_home/section/tap/banking_v2-actions" (platform: "/mobile", type: TrackType.Event) {
