@@ -412,14 +412,14 @@ trackTests {
             selected_reason = "nobody_address"
         }
 
-        "/driver/delivery/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
+        "/driver/delivery/security_keyword"(platform: "/mobile", type: TrackType.View) {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
             defaultStopOrder
         }
 
-        "/driver/delivery/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
+        "/driver/delivery/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
