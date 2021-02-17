@@ -14,7 +14,10 @@ tracks {
 
     //Definitions
     propertyDefinitions {
-        section_id(required: true, type: PropertyType.String, description: "Identifier for the realestate to consume")
+        // Global variables
+        action_id(required: true, type: PropertyType.String, description: "The action executed")
+
+        // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
         content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
         audience(required: true, type: PropertyType.String, description: "The audience for which this content was prepared")
@@ -23,8 +26,6 @@ tracks {
         bu(required: true, type: PropertyType.String, description: "The business unit")
         bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content")
         flow(required: true, type: PropertyType.String, description: "The flow related to the content")
-        action_id(required: true, type: PropertyType.String, description: "The action executed")
-        link(required: true, type: PropertyType.String, description: "Link to execute")
 
         // Movements
         action_type(required: true, type: PropertyType.String, description: "Movement type indicator")
@@ -36,10 +37,7 @@ tracks {
 
     propertyGroups {
         eventDataTrack (
-                section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow
-        )
-        actionEventDataTrack (
-                section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow, action_id, link
+                component_id, content_id, audience, position, logic, bu, bu_line, flow
         )
         movementsFiltersAction (
                 action_type
@@ -50,17 +48,30 @@ tracks {
         movementsReportsCreate (
                 action_type, begin_date, end_date
         )
+        balanceEventClick (
+                action_id
+        )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
-    // Balance
+    // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
     "/banking/debts"(platform: "/", type: TrackType.View) {}
+
+    // Balance Events
+    "/banking/balance/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/error"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
@@ -90,6 +101,5 @@ tracks {
     // MP Balance - Merch Engine Events Credits
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
-    "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
-
+    "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { eventDataTrack }
 }

@@ -90,6 +90,8 @@ catalog {
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
         include business, "addresses.groovy"
+        include business, "bulk_publish.groovy"
+        include business, "bulk_edit.groovy"
     }
 
     mercadolibre.each { business ->
@@ -101,6 +103,7 @@ catalog {
         include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "compatibilities.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"

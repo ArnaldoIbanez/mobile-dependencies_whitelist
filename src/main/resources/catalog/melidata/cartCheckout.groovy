@@ -16,8 +16,8 @@ tracks {
     initiative = "1104"
 
     def coordinatesStructure = objectSchemaDefinitions {
-      latitude(required: true, type: PropertyType.Numeric)
-      longitude(required: true, type: PropertyType.Numeric)
+      latitude(required: true, type: PropertyType.String)
+      longitude(required: true, type: PropertyType.String)
     }
 
     "/cart"(platform: "/", isAbstract: true) {}

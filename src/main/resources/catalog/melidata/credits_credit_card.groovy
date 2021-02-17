@@ -219,6 +219,11 @@ tracks {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
     }
 
+    "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
+        upgrade_info
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
+    }
+
     // Payment due date selection
     "/credits/credit_card/upgrade/payment_due_date_selection"(platform: "/", type: TrackType.View) {
         upgrade_info

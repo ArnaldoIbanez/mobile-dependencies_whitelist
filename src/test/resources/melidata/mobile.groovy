@@ -188,8 +188,8 @@ trackTests {
     }
 
     test("IDFA Permission dialog denied") {
-        "/permissions/idfa/deny"(platform: "/mobile") {}
-        "/permissions/idfa/deny"(platform: "/mobile", business: "mercadopago") {}
+        "/permissions/idfa/denied"(platform: "/mobile") {}
+        "/permissions/idfa/denied"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("Devices Metadata") {

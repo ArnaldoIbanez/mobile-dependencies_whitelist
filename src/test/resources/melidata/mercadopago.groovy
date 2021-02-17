@@ -758,6 +758,17 @@ trackTests {
           e2e_test = false
         }
 
+        "/point/buyingflow/complete_card_data"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
+          user_id = 5010815
+          e2e_test = false
+        }
+        
         "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
     }
 
@@ -2547,6 +2558,23 @@ trackTests {
             product_id = "10"
         }
 
+        // Invoice menu
+        "/bill_payments/menu"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Product picker
         "/bill_payments/product_picker"(platform: "/mobile") {
             mandatory()
@@ -2947,6 +2975,115 @@ trackTests {
         "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+
+        //schedule payment create
+        "/bill_payments/schedule_payment/create"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedule payment success
+        "/bill_payments/schedule_payment/create/success"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/success/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/success/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedule payment list
+        "/bill_payments/schedule_payment/list"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/list/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/list/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/list/selected_item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            item = "1"
+            entity = "CCB Brasil"
+        }
+
+        // schedule payment details
+        "/bill_payments/schedule_payment/list/selected_item/details"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/list/selected_item/details/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/list/selected_item/details/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/list/selected_item/details/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/list/selected_item/details/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedule payment cancel
+        "/bill_payments/schedule_payment/cancel"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // schedule payment retry
+        "/bill_payments/schedule_payment/retry"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/retry/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/retry/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
     }
 
     test("Fund account") {
@@ -4500,8 +4637,11 @@ trackTests {
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 
-        "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
-            status = "opted_in"
+        "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
+            event_type = "click"
+            action = "add"
+            method = "totp"
+            registered_by_phone = false
         }
     }
 

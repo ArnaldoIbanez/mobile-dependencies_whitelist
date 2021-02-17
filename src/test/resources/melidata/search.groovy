@@ -181,10 +181,6 @@ trackTests {
             ]
             carousel_filters = []
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false,
                     allowlist: [
                             seo_is_allowlisted          : false,
                             seo_apply_no_index          : true,
@@ -328,10 +324,6 @@ trackTests {
             ]
             carousel_filters = ["BRAND", "official_store", "STYLE"]
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false,
                     allowlist: [
                             seo_is_allowlisted          : false,
                             seo_apply_no_index          : true,
@@ -641,10 +633,6 @@ trackTests {
             pdp_rows = []
             carousel_filters = []
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false,
                     allowlist: [
                             seo_is_allowlisted          : false,
                             seo_apply_no_index          : true,

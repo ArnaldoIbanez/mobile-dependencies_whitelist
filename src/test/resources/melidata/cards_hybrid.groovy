@@ -583,6 +583,10 @@ trackTests {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message_freeze"
         }
+         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "close_modal"
+        }
+        
     }
 
     //Highlighted Row
@@ -922,6 +926,23 @@ trackTests {
             from = "home"
         }
     }
+
+    // CARD REQUEST virtual init point
+    // --------
+    test("cards hybrid request virtual init point") {
+        "/cards/hybrid/request/virtual/init_point"(platform: "/", type: TrackType.View) {
+            from = "home"
+        }
+    }
+
+    // CARD REQUEST physical init point
+    // --------
+    test("cards hybrid request physical init point") {
+        "/cards/hybrid/request/physical/init_point"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
+        }
+    }
+
     // CARD REQUEST virtual on boarding
     // --------
     test("cards hybrid virtual onboarding"){
@@ -1067,12 +1088,41 @@ trackTests {
             action = "research_form"
         }
     }
+    
+    // OPTIONS Semaphore
+    test("card options semaphore states for nfc") {
+        "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_tokenized"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "tokenized_in_progress"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "privder_suspended"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+    }
 
     //NFC ENROLLMENT HUB
     test("cards hybrid nfc enrollment hub") {
         "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
-            action = "continue_later"
+            action = "primary_button"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
@@ -1095,7 +1145,10 @@ trackTests {
     test("cards hybrid nfc configuration hub") {
         "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
-            action = "continue_later"
+            action = "primary_button"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
@@ -1248,6 +1301,11 @@ trackTests {
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
         }
+    }
+    
+    // NFC Feature
+    test("nfc feature is available"){
+        "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
     }
     
     // NFC Core

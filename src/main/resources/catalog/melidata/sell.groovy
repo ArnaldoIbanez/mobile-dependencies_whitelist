@@ -740,6 +740,13 @@ tracks {
     "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
 
+    "/sell/sip_upgrade"(platform: "/mobile", type: TrackType.Event){
+        source(required: true, values: ["section"], description: "Upgrade intention source's", type: PropertyType.String)
+        vertical(required: true, values: ["core", "motors", "realEstate", "services"], description: "Item Vertical: core/service/motor/realEstate/etc...")
+        seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
+        seller_profile(required: false, description: "Type of seller", type: PropertyType.String)
+    }
+
     // Relist flow
     "/sell/relist"(platform: "/", isAbstract: true) {
         item_id (required: true, type: PropertyType.String)
@@ -1133,7 +1140,7 @@ tracks {
         health_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for Health card")
         kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
-        decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
+        decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {

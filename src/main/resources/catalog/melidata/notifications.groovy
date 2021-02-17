@@ -1835,6 +1835,8 @@ tracks {
       "/notification/payroll_portability_ted_rejected"(platform: "/") {
           portability_id(required: true, type: PropertyType.String)
       }
+
+      "/notification/payroll_kyc_accepted"(platform: "/") {}
       /* ------------------------------------------------------------ */
 
       //Puis
@@ -1864,6 +1866,10 @@ tracks {
     "/notification/messages_driver_flex"(platform: "/") {}
     "/notification/messages_flex"(platform: "/") {}
     "/notification/messages_quotes"(platform: "/") {}
+
+    // Crowdsourcing driver
+    "/notification/me_crowd_multiple_offers_available"(platform: "/") {}
+    "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/") {}
 
     //Money
     "/notification/money_advance_congrats"(platform: "/") {}
@@ -2295,6 +2301,7 @@ tracks {
     //Hybrid
     "/notification/card_request_challenge_pending"(platform: "/mobile") {}
     "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_nfc_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_unlock"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_virtual"(platform: "/mobile") {}
@@ -2496,4 +2503,8 @@ tracks {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
+
+    //Contactless card
+    "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
+
 }

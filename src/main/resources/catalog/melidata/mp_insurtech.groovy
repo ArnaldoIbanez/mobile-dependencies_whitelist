@@ -322,6 +322,14 @@ tracks {
         view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
 
+    "/insurtech/hardware_check/checkups/first_touch"(platform:"/mobile", type: TrackType.Event) {
+        time_elapsed(required: true, type: PropertyType.Numeric, description: "Time before first user touch")
+    }
+
+    "/insurtech/hardware_check/checkups/redirect"(platform:"/mobile", type: TrackType.Event) {
+        deep_link(required: true, type: PropertyType.String, description: "Redirect flow to the next step")
+    }
+
     "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         session_id(required: false, type: PropertyType.String, description: "Session id of the user")

@@ -89,6 +89,14 @@ tracks {
 
     "/wallet/connect/home" (platform: "/web", type: TrackType.View) {}
 
+    "/wallet/connect/return_tokenizer" (platform: "/web", type: TrackType.View) {}
+     
+    "/wallet/connect/error" (platform: "/web", isAbstract: true) {}
+
+    "/wallet/connect/error/reject_card" (platform: "/web", type: TrackType.View) {}
+    
+    "/wallet/connect/error/default" (platform: "/web", type: TrackType.View) {}
+
     "/wallet/connect/close_tokenizer" (platform: "/web", type: TrackType.Event) {}
 
     "/wallet/connect/open_tokenizer" (platform: "/web", type: TrackType.Event) {}
@@ -106,4 +114,6 @@ tracks {
     "/wallet/connect/skip_card_payment" (platform: "/web", type: TrackType.Event) {}
 
     "/wallet/connect/on_change_card" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/confirm_success" (platform: "/web", type: TrackType.Event) {}
 }

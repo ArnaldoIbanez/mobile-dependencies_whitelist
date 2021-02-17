@@ -161,6 +161,28 @@ trackTests {
 
     }
 
+    test("Advertising privacy") {
+        "/advertising/privacy"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/privacy/modal"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/modal/show"(platform: "/", type: TrackType.Event) {
+            switch_status = "enabled"
+        }
+
+        "/advertising/privacy/modal/deactivate_ads"(platform: "/", type: TrackType.Event) {            
+        }
+
+        "/advertising/privacy/modal/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "deactivate"
+        }
+    }
+
     test("Advertising upselling") {
         "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"

@@ -4,6 +4,7 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+
 tracks
         {
             initiative = "1179"
@@ -33,7 +34,7 @@ tracks
                 order_id(required: true, type: PropertyType.String, description: "Specifies the offer id")
             }
 
-        //Tracks for Offers Flow in Crowd App
+            //Tracks for Offers Flow in Crowd App
 
             "/crowd/offers"(platform: "/mobile", type: TrackType.View) {
                 location
@@ -55,7 +56,7 @@ tracks
                 offers_info(type: PropertyType.ArrayList(PropertyType.Map(offers_info_definition)), required: true)
             }
 
-        //Tracks for Offers Flow in Crowd App
+            //Tracks for Offers Flow in Crowd App
 
             "/crowd/confirmations"(platform: "/mobile", type: TrackType.View) {
                 location
@@ -113,5 +114,33 @@ tracks
                 location
             }
 
-        }
+            "/crowd/login/faq"(platform: "/mobile", type: TrackType.Event) {
+                location
+            }
 
+            "/crowd/login/requirements"(platform: "/mobile", type: TrackType.Event) {
+                location
+            }
+
+            //Tracks for next_trip flow in crowd app
+
+            "/crowd/next_trip"(platform: "/mobile", type: TrackType.View) {
+                vehicle_id(required: false, type: PropertyType.String, description: "Specifies the current vehicle id")
+                location
+                orders_info(type: PropertyType.ArrayList(PropertyType.Map(orders_info_definition)), required: false)
+            }
+
+            "/crowd/next_trip/checkin_in"(platform: "/mobile", type: TrackType.Event) {
+                vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
+            }
+
+            "/crowd/next_trip/map"(platform: "/mobile", type: TrackType.Event) {
+                vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
+            }
+
+            //Tracks lib flux
+            "flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
+                user_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
+            }
+
+        }

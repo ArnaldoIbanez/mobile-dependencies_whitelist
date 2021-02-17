@@ -370,6 +370,18 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         case_type_id(required: true, type: PropertyType.String, description: "Specifies the current incident case type id", inheritable: false)
     }
+    "/logistics/last_mile/places/disclaimer_handshake"(platform: "/mobile", type: TrackType.Event) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+    }
+    "/logistics/last_mile/places/disclaimer_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+        packages_to_scan(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id to scan", inheritable: false)
+    }
+    "/logistics/last_mile/places/modal_handshake"(platform: "/mobile", type: TrackType.Event) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+    }
+    "/logistics/last_mile/places/modal_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {}
 
     // First Mile
     "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {

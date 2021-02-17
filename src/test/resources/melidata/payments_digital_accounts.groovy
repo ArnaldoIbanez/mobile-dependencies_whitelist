@@ -32,6 +32,33 @@ trackTests {
         "/banking/debts"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Balance Events") {
+        "/banking/balance/action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/row"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/calendar_anual"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/calendar"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/error"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/debts"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+    }
+
     test("Movements") {
         "/banking/movements"(platform: "/", type: TrackType.View) {}
 
@@ -73,7 +100,6 @@ trackTests {
 
     test("Banking Balance Merch Engine Events") {
         "/banking/balance/credits/print" (platform: "/", type: TrackType.Event) {
-            section_id = 'cards'
             component_id = 'component_12'
             content_id = 'banking_merch_engine'
             audience = 'credits'
@@ -84,7 +110,6 @@ trackTests {
             flow = '1'
         }
         "/banking/balance/credits/tap" (platform: "/", type: TrackType.Event) {
-            section_id = 'cards'
             component_id = 'component_12'
             content_id = 'banking_merch_engine'
             audience = 'credits'
@@ -93,8 +118,6 @@ trackTests {
             bu = 'mp'
             bu_line = 'banking'
             flow = '1'
-            action_id = 'banking'
-            link = '/banking'
         }
     }
 }

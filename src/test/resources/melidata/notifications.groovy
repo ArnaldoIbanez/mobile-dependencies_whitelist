@@ -2011,6 +2011,16 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/me_crowd_multiple_offers_available"(platform: "/mobile"){
+            news_id = "me_crowd-multiple_offers_available-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
+            news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+
         "/notification/messages_driver_logistics"(platform: "/mobile"){
             news_id = "messages-driver_logistics-321953606"
             event_type = "sent"
@@ -3107,6 +3117,23 @@ trackTests {
             event_type = "auto_dismiss"
             portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
+
+        // KYC
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "open"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "dismiss"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "auto_dismiss"
+        }
+
         /* ------------------------------------------------------------ */
 
         "/notification/messages_new"(platform: "/mobile") {
@@ -3137,6 +3164,16 @@ trackTests {
         "/notification/messages_flex"(platform: "/mobile/android") {
             news_id = "123"
             event_type = "open"
+        }
+
+        "/notification/me_crowd_multiple_offers_available"(platform: "/mobile/android"){
+            news_id = "me_crowd-multiple_offers_available-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile/android"){
+            news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
         }
 
         "/notification/moderations_item_warning"(platform: "/mobile") {
@@ -4228,6 +4265,11 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
+        "/notification/card_kyc_data_completed_nfc_acquisition"(platform: "/mobile") {
+            news_id = "card_kyc_data_completed_nfc_acquisition-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
         "/notification/card_kyc_data_completed_virtual"(platform: "/mobile") {
             news_id = "card_kyc_data_completed_virtual-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -4648,6 +4690,12 @@ trackTests {
             news_id = "cards_send_card-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+
+        "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {
+            news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
         }
 
     }
@@ -6638,6 +6686,16 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/me_crowd_multiple_offers_available"(platform: "/mobile"){
+            news_id = "me_crowd-multiple_offers_available-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
+            news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+
         "/notification/messages_driver_logistics"(platform: "/mobile"){
             news_id = "messages-driver_logistics-321953606"
             event_type = "sent"
@@ -7917,6 +7975,23 @@ trackTests {
             event_type = "auto_dismiss"
             portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
+
+        // KYC
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "open"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "dismiss"
+        }
+
+        "/notification/payroll_kyc_accepted"(platform: "/mobile") {
+            news_id = "payroll-kyc_accepted-1234"
+            event_type = "auto_dismiss"
+        }
+
         /* ------------------------------------------------------------ */
 
         "/notification/messages_new"(platform: "/mobile") {
@@ -8925,6 +9000,11 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
+        "/notification/card_kyc_data_completed_nfc_acquisition"(platform: "/mobile"){
+            news_id= "card_kyc_data_completed_nfc_acquisition-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
         "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile"){
             news_id= "card_kyc_data_completed_physical_acquisition-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -9166,6 +9246,12 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             shipment_id = 123
+        }
+
+        "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {
+            news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
         }
     }
 
@@ -9726,6 +9812,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
     }
 
 }
