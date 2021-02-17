@@ -136,7 +136,7 @@ tracks {
         category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
         sort_id(required: true, description: "relevance, price_asc, price_desc, publication_begins_desc, publication_begins_asc, manually_selected", values: ["relevance", "price_asc", "price_desc", "publication_begins_desc", "manually_selected", "publication_begins_asc"])
         filters(required: true, description: "filters applied")
-        displayed_filters(required: true, description: "Information about displayed filters that can be applied by the user", PropertyType.ArrayList(displayed_filter_object))
+        displayed_filters(required: false, descrition: "Information about displayed filters that can be applied by the user", PropertyType.ArrayList(PropertyType.Map(displayed_filter_object)))
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
