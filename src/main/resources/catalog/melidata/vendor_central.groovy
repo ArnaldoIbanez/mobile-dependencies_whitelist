@@ -38,6 +38,7 @@ tracks {
         categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied categories")
         type(required: true, type: PropertyType.String, description: "Selected type of excel editing process")
         selected_columns(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of selected sheet columns to edit")
+        branches(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied branches")
     }
 
     "/vendor_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {

@@ -46,6 +46,7 @@ trackTests {
       items = 3
       type="EDITABLE_INFORMATION"
       selected_columns=["STATUS", "SKU"]
+      branches=["Moda", "Alimentos", "Bebidas"]
     }
   }
 
@@ -56,6 +57,7 @@ trackTests {
       items = 3
       type="OFFERING"
       selected_columns=[]
+      branches=[]
     }
   }
 
