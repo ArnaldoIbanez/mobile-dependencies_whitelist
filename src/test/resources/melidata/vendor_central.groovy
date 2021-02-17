@@ -145,7 +145,6 @@ trackTests {
   test("Vendor Central Invoices view") {
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
   }
-}
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS Vendor Central Fiscal Documents Template Mappings
@@ -183,4 +182,5 @@ trackTests {
       is_valid_template = true
     }
   }
+
 }
