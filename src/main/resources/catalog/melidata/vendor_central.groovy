@@ -112,31 +112,27 @@ tracks {
     "/vendor_central/fiscal_documents/template_mappings"(platform: "/", isAbstract: true) {}
 
     "/vendor_central/fiscal_documents/template_mappings/delete"(platform: "/web", type: TrackType.Event) {
-        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
-        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
-        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
-        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
     }
 
     "/vendor_central/fiscal_documents/template_mappings/get"(platform: "/web", type: TrackType.Event) {
-        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
-        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
-        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
-        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
     }
 
     "/vendor_central/fiscal_documents/template_mappings/modify"(platform: "/web", type: TrackType.Event) {
-        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
-        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
-        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
-        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+        template_id(required: false, type: PropertyType.String, description: "this property indicates the template id")
+        is_valid_template(required: false, type: PropertyType.Boolean, description: "this property indicates if the template is valid")
     }
 
     "/vendor_central/fiscal_documents/template_mappings/save"(platform: "/web", type: TrackType.Event) {
-        template_id(required: false, type: PropertyType.String, description: "this property this property indicates the template id")
-        user_id(required: false, type: PropertyType.Numeric, description: "this property indicates the user")
-        entity(required: false, type: PropertyType.String, description: "this property this property indicates the entity")
-        site_id(required: false, type: PropertyType.String, description: "this property this property indicates the site id")
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+        template_id(required: false, type: PropertyType.String, description: "this property indicates the template id")
+        is_valid_template(required: false, type: PropertyType.Boolean, description: "this property indicates if the template is valid")
     }
 
 }
