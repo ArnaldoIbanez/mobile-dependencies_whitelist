@@ -1,7 +1,8 @@
 package src.test.resources.melidata
 
-import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
+
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
@@ -26,6 +27,9 @@ trackTests {
         }
         "/cards/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
             component_id = "banner_unlock"
+        }
+        "/cards/hybrid/shipping/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
         }
 
     }
@@ -123,7 +127,7 @@ trackTests {
         "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
             action = "confirm"
         }
-        "/cards/hybrid/unlock/set-pin/invalide_pin"(platform: "/", type: TrackType.Event) {}
+        "/cards/hybrid/unlock/set-pin/invalid_pin"(platform: "/", type: TrackType.Event) {}
     }
 
     // Unlock: Update App
@@ -147,6 +151,7 @@ trackTests {
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
@@ -154,6 +159,7 @@ trackTests {
         }
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             activities_status = "activities"
@@ -207,6 +213,80 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tracking_shipped"
         }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "options"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_data"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_compliance"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_not_compliance"
+        }
+    }
+    
+     //Physical acquisition stop: Tracking
+    test("cards hybrid dashboard physical acquistion stop tracking") {
+        "/cards/hybrid/dashboard/physical_acquisition_stop/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/hybrid/dashboard/physical_acquisition_stop/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
+        }
+    }
+    
+    //Banner: Tracking
+    test("cards hybrid dashboard banner tracking") {
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "render"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_ready_to_ship"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_soon_deliver"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_delayed"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_waiting_for_withdrawal"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_delivered"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_not_delivered"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_pending_manual_review"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_not_compliance"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_compliance"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "hybrid_active"
+        }
     }
     
     //Flap card: Tracking
@@ -245,6 +325,9 @@ trackTests {
         }
         "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
             action = "block"
+        }
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "contact"
         }
     }
     
@@ -330,9 +413,7 @@ trackTests {
     
     //Map Info: Tracking
     test("cards hybrid dasboard map info") {
-        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
-            action = "map_info"
-        }
+        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
     // Generic Webview
@@ -378,6 +459,10 @@ trackTests {
     test("cards engagement error") {
         "/cards/engagement/error"(platform: "/", type: TrackType.View) {
             screen = "dashboard"
+        }
+        "/cards/engagement/decrypting/error" (platform: "/", type: TrackType.Event) {
+            error = "keyGenerationError"
+            from = "CEEncryptTextBrickPresenter"
         }
     }
 
@@ -431,6 +516,38 @@ trackTests {
             initial_status = "inactive"
             has_money = false
         }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_b"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "credit"
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "prepaid"
+            has_money = true
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "hybrid"
+            has_money = true
+            experimental_version = "experimental_a"
+        }
     }
     test("cards hybrid setup virtual card taps tracking") {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -459,6 +576,45 @@ trackTests {
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "card_sec_code_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message_freeze"
+        }
+         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "close_modal"
+        }
+        
+    }
+
+    //Highlighted Row
+    test("cards hybrid setup virtual Highlighted Row") {
+        "/cards/hybrid/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+    }
+    
+    //Account options
+    test("cards hybrid setup virtual card message") {
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_b"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_b"
         }
     }
     
@@ -514,8 +670,9 @@ trackTests {
             card_id = "1234abcd"
             action = "secondary_button"
         }
-
-        "/cards/hybrid/block_card/virtual/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/block_card/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+         }
     }
 
     // REISSUE PHYSICAL
@@ -533,7 +690,9 @@ trackTests {
             card_id = "1234abcd"
             action = "secondary_button"
         }
-        "/cards/hybrid/block_card/physical/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/block_card/physical/success"(platform:"/", type: TrackType.Event) { 
+            reasons = ["debit_available_push_strategy_second", "reissue"]
+        }
     }
 
     // SETUP FÍSICA
@@ -579,6 +738,12 @@ trackTests {
     test("cards hybrid setup physical feedback") {
         "/cards/hybrid/setup/physical/feedback/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
+        }
+    }
+
+    test("cards hybrid physical unlock") {
+        "/cards/hybrid/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
         }
     }
     
@@ -635,9 +800,7 @@ trackTests {
 
     //Map Info: Tracking
     test("cards hybrid limits map info") {
-        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
-            action = "map_info"
-        }
+        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
     // Request
@@ -645,7 +808,7 @@ trackTests {
     // Request: Onboarding
     test("cards hybrid request physical onboarding") {
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            context = "no_kyc_no_challlenge"
+            context = "no_kyc_no_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
             context = "kyc_challenge"
@@ -667,6 +830,11 @@ trackTests {
     }
 
     // Request: Challenge
+    test("cards hybrid request physical challenge success") {
+        "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
+    }
     test("cards hybrid request physical challenge") {
         "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     }
@@ -740,7 +908,9 @@ trackTests {
 
     // Request: Success Physical
     test("cards hybrid physical success event"){
-        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["card_whitelist_physical_first", "reissue"]
+        }
     }
 
     // CARD IDENTIFICATION
@@ -756,12 +926,34 @@ trackTests {
             from = "home"
         }
     }
+
+    // CARD REQUEST virtual init point
+    // --------
+    test("cards hybrid request virtual init point") {
+        "/cards/hybrid/request/virtual/init_point"(platform: "/", type: TrackType.View) {
+            from = "home"
+        }
+    }
+
+    // CARD REQUEST physical init point
+    // --------
+    test("cards hybrid request physical init point") {
+        "/cards/hybrid/request/physical/init_point"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
+        }
+    }
+
     // CARD REQUEST virtual on boarding
     // --------
     test("cards hybrid virtual onboarding"){
         "/cards/hybrid/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
     }
-     test("cards hybrid virtual onboarding tap") {
+    test("cards hybrid virtual onboarding"){
+        "/cards/hybrid/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {
+            context = "kyc"
+        }
+    }
+    test("cards hybrid virtual onboarding tap") {
         "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
             action = "close"
         }
@@ -772,12 +964,18 @@ trackTests {
 
     // Request: Success Virtual
     test("cards hybrid virtual success event"){
-        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["virtual_debit_available_push_strategy_first", "reissue"]
+        }
     }
 
     test ("Hybrid Setup") {
         "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {}
+        "/cards/mp-card/hybrid/detail" (platform: "/web/mobile", type: TrackType.View) {}
         "/cards/mp-card/hybrid/detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/hybrid/detail/download-app" (platform: "/web/mobile", type: TrackType.Event) {
+            osName = "android"
+        }
         "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
             status = "OK"
         }
@@ -787,11 +985,6 @@ trackTests {
         "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
              deviceType = "desktop"
         }
-    }
-    
-    // Request: Success Virtual
-    test("cards hybrid virtual success event"){
-        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
     }
 
     //COACHMARK
@@ -811,6 +1004,550 @@ trackTests {
             action = "previous"
             step = 2
             id = "dashboard_physical"
+        }
+    }
+    
+    //OPTIONS
+    test("cards hybrid options tracking") {
+        "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
+            cards = [
+                [
+                    "product_type": "virtual_debit",
+                    "status": "active",
+                ],
+                [
+                    "product_type": "virtual_credit",
+                    "status": "active",
+                ],
+                [
+                    "product_type": "chip_prepaid",
+                    "status": "active",
+                ]
+            ]
+        }
+        "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
+            cards = []
+        }
+        "/cards/hybrid/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "button_primary"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "reissue"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "change_limits"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "change_pin"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "virtual_debit"
+            action = "freeze"
+
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "virtual_debit"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "unfreeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_hybrid"
+            action = "disable_credit_card"
+        }
+    }
+
+    //OPTIONS Message
+    test("cards hybrid options message tracking") {
+        "/cards/hybrid/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
+            action = "blocked_pin"
+        }
+    }
+
+    //OPTIONS Feedback
+    test("cards hybrid options feedback button event") {
+        "/cards/hybrid/setup/options/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+    
+    // OPTIONS Semaphore
+    test("card options semaphore states for nfc") {
+        "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_tokenized"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "tokenized_in_progress"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "privder_suspended"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+    }
+
+    //NFC ENROLLMENT HUB
+    test("cards hybrid nfc enrollment hub") {
+        "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_tap_and_pay"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_pin"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc"
+        }     
+        "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+            action = "success_redirect"
+        }
+    }
+    
+    //NFC CONFIGURATION HUB
+    test("cards hybrid nfc configuration hub") {
+        "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_tap_and_pay"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_pin"
+        }
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc"
+        }     
+        "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc_freeze"
+        }     
+        "/cards/nfc/configuration/hub/redirect"(platform:"/", type: TrackType.Event) {
+            action = "success_redirect"
+        }
+    }
+    
+    test("cards hybrid nfc onboarding") {
+        "/cards/nfc/enrollment/hub/onboarding"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "main"
+        }
+    }
+
+    // NFC Tokenization Status
+    test("cards hybrid nfc enrollment tokenization") {
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_enrollment"
+            result = "tokenization completed event"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "missing enrollment push notification"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "cardInfo error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "checkCardEligibility error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment CardDeleteResult UNKNOWN_DIGITAL_CARD_ID"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment CardDeleteResult error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment deleteCard DELETE_RETRIES exceeded"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "partial enrollment deleteCard error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "digitize error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "error_enrollment"
+            result = "fetchTokenizationDataWorker error"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "checkCardEligibility success"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "checkCardEligibility partial enrollment"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "partial enrollment CardDeleteResult success"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "digitize success"
+        }
+        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+            action = "success_callback"
+            result = "fetchTokenizationDataWorker success"
+        }
+    }
+
+    // NFC Tokenization Time
+    test("cards hybrid nfc enrollment tokenization time") {
+        "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+            action = "success_enrollment"
+            result = 16511
+        }
+        "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+            action = "success_async_callback"
+            result = 12151
+        }
+        "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+            action = "success_push_received"
+            result = 4360
+        }
+    }
+
+    // NFC Tokenization Time
+    test("cards hybrid nfc enrollment tokenization attempts") {
+        "/cards/nfc/enrollment/tokenization/attempts"(platform:"/", type: TrackType.Event) {
+            result = 1
+        }
+    }
+
+    // NFC Payment
+    test("cards hybrid nfc payment") {
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+            result = "error_payment"
+            reasons = "payment is not allowed as SDK initialization is ongoing"
+        }
+        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+            result = "error_payment"
+            reasons = "payment is not allowed as SDK is not initialized"
+        }
+        "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+            action = "faq"
+        }
+        "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
+            action = "money_in"
+        }
+        "/cards/nfc/payment/without_money"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "success"
+        }
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "unknown"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "finish"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "finish"
+        }
+    }
+    
+    // NFC Feature
+    test("nfc feature is available"){
+        "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
+    }
+    
+    // NFC Core
+    test("cards hybrid nfc core"){
+
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "wse_internal_error"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "common_no_internet"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "common_comm_error"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "common_server_error"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "re_enrollment_required"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "wse_storage_access_error"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "json_parsing_error"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "wse_request_error"
+        }
+        "/cards/nfc/core/error/start_secure_enrollment"(platform: "/", type: TrackType.Event) {
+            error_code = "wse_download_error"
+        }
+        
+        "/cards/nfc/core/error/enroll_device"(platform: "/", type: TrackType.Event) {
+            error_code = "common_no_internet"
+        }
+        
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "common_comm_error"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "common_server_error"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "enrollment_wrong_credentials"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "enrollment_credential_expired"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "enrollment_try_limit_exceeded"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "card_activation_mobile_pin_invalid_length"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "card_activation_mobile_pin_mismatch"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "change_pin_reentry_mismatch"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "common_comm_error"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "change_pin_card_not_active"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "change_pin_card_not_exist"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "card_not_enrolled"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "card_state_unknown"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "replenishment_not_allowed"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "sdk_internal_component_error"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "enrollment_wrong_activation_code"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "enrollment_blocked_secure_wallet_enrollment_required"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "replenishment_blocked_secure_wallet_enrollment_required"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "invalid_replenish_missing_payment"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "asm_error"
+        }
+        "/cards/nfc/core/error/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
+            error_code = "invalid_digitalcardid"
+        }
+        
+        "/cards/nfc/core/error/check_card_eligibility"(platform: "/", type: TrackType.Event) {
+            error_code = "no_internet"
+        }
+        
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "connection_timeout"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "communication_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "server_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "internal_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_bin"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_card_product"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "card_product_not_supported"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "incorrect_cvv"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "card_already_provisioned_in_wallet"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "device_not_eligible"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "incorrect_authentication_token"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "card_provisioning_count_exceeded"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unkonown_idv_method"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "provisioning_not_allowed"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "incorrect_otp"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "incorrect_otp_max_try_exceeded"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "otp_expired"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "idv_method_not_available"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unexpected_internal_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "external_system_unavailable"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_wallet_provider_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_wallet_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_digital_card_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_correlation_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "card_state_does_not_allow_requested_operation"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "operation_already_ongoing"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "operation_failed"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_device_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "missing_required_parameter"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_issuer_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "unknown_card_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "no_tnc_resource_id"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "invalid_tnc_data_type"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "securestorage_write_config_data_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "securestorage_wipe_all_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "context_missing_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "web_3ds_authentication_failed"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "web_3ds_data_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "invalid_card_data"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "no_card_meta_data"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "card_meta_data_json_error"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "no_card_data"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "invalid_asset_type"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "invalid_asset_version"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "asset_not_available"
+        }
+        "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
+            error_code = "blocked_secure_wallet_enrollment_required"
         }
     }
 }

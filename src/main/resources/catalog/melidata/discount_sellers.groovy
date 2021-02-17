@@ -97,6 +97,7 @@ tracks {
 
     "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {
         campaigns(required: false, type: PropertyType.String, description: "Campaign list")
+	moderation(required: false, type: PropertyType.String, description: "Moderation Banner")    
     }
 
     "/discount_sellers/history/redirect" (platform: "/mobile", type: TrackType.Event) {
@@ -176,4 +177,53 @@ tracks {
     }
 
     "/discount_sellers/landing/back" (platform: "/mobile", type: TrackType.Event) {}
+	
+	
+    // **********************************************************
+    // ******************** Events - Congrats *******************
+    // **********************************************************
+
+    "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+        status(required: true, inheritable: false, type: PropertyType.String, values: ["success", "pending", "rejected"], description: "Congrats Status")
+    }
+
+    "/discount_sellers/congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+        title(required: false, type: PropertyType.String, description: "Action title")
+    }
+
+    "/discount_sellers/congrats/close" (platform: "/mobile", type: TrackType.Event) {}
+	
+    // **********************************************************
+    // ******************** Events - FTU ************************
+    // **********************************************************
+
+    "/discount_sellers/ftu" (platform: "/mobile", type: TrackType.View) {
+        url(required: false, inheritable: false, type: PropertyType.String, description: "URL loaded in the FTU's web view")
+    }
+
+    "/discount_sellers/ftu/tap" (platform: "/mobile", type: TrackType.Event) {
+        title(required: false, type: PropertyType.String, description: "Action title")
+    }
+
+    "/discount_sellers/ftu/back" (platform: "/mobile", type: TrackType.Event) {}
+	
+    "/discount_sellers/ftu/error" (platform: "/mobile", type: TrackType.Event) {
+	description(required: false, type: PropertyType.String, description: "Error description")
+    }
+    
+    // Instore (ISDT) - Webview - Prefecture Home > Pageview
+    "/instore/prefecture"(platform: "/", type: TrackType.View) {}
+
+    // Instore (ISDT) - Webview - Prefecture Error > Pageview
+    "/instore/prefecture/error"(platform: "/", type: TrackType.View) {}
+
+    // Instore (ISDT) - Webview - Prefecture Home > Events
+    "/instore/prefecture/tap"(platform: "/", type: TrackType.Event) {
+        link (type: PropertyType.String, required: true, values: ["stores","faqs","close"], description: "Name of tap, example: stores")
+    }
+
+    // Instore (ISDT) - Webview - Prefecture Error > Events
+    "/instore/prefecture/error/tap"(platform: "/", type: TrackType.Event) {
+        link (type: PropertyType.String, required: true, values: ["go_home"], description: "Name of tap, example: go_home")
+    }
 }

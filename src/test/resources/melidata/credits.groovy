@@ -7,6 +7,33 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
 
     test("consumer credits ml y mp") {
+
+        /******************************************
+        *       Start: Flujo Upsell Consumer
+        ******************************************/
+        "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            remedy_name = 'declarative_info'
+        }
+        "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            remedy_name = 'declarative_info'
+        }
+        "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            variant = 'success'
+        }
+        "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            remedy_name = 'declarative_info'
+        }
+        "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            remedy_name = 'declarative_info'
+        }
+        "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            variant = 'retry'
+        }
+        /******************************************
+        *       End: Flujo Upsell Consumer
+        ******************************************/
+
+
         /***********************************************
          *       Start: Consumers Integrated Flow
          ***********************************************/
@@ -126,7 +153,13 @@ trackTests {
         "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View, business:"mercadopago") {}
         "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
         "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
-
+        /* Remedy MLM WebView */
+        "/credits/consumer/opensea/remedy/opt_in_authorization"(platform: "/mobile", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/give_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/give_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/deny_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/deny_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {}
         /******************************************
          *   End: Consumers Opensea Flow
          ******************************************/
@@ -148,5 +181,45 @@ trackTests {
         "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
             user_profile = 'no_offer'
         }
+    }
+
+    // Credits Marketing Performance landing
+    test("Credits Marketing landings") {
+        // MercadoPago Business
+        "/credits/mkt_landing"(platform: "/web", type: TrackType.View, business:"mercadopago"){
+            campaign = "generic"
+        }
+        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+        } 
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+
+        // MercadoLibre business
+        "/credits/mkt_landing"(platform: "/web", type: TrackType.View, business:"mercadolibre"){
+            campaign = "proof-landing"
+        }
+        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
+            campaign = "generic"
+        } 
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
+            campaign = "generic"
+            position = "footer"
+        } 
+
     }
 }

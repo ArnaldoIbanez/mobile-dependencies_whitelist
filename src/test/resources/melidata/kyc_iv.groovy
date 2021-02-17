@@ -13,6 +13,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -160,6 +165,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/android") {}
     }
 
     test("KYC IV mobile ios") {
@@ -167,6 +173,11 @@ trackTests {
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
             extra_params = "meli://identity_validation/?flow=uniqueness"
+        }
+
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
         }
 
         "/kyc/iv/executed_action"(platform: "/mobile") {
@@ -286,6 +297,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/ios") {}
     }
 
     test("KYC IV web") {
@@ -293,6 +305,12 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/challenge_time"(platform: "/web") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
@@ -491,6 +509,14 @@ trackTests {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
+            handoff_type = "user_swap"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -500,6 +526,11 @@ trackTests {
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
             extra_params = "meli://identity_validation/?flow=uniqueness"
+        }
+
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
         }
 
         "/kyc/iv/executed_action"(platform: "/mobile") {
@@ -645,6 +676,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/android") {}
     }
 
     test("KYC IV mobile ios") {
@@ -652,6 +684,11 @@ trackTests {
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
             extra_params = "meli://identity_validation/?flow=uniqueness"
+        }
+
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
         }
 
         "/kyc/iv/executed_action"(platform: "/mobile") {
@@ -771,6 +808,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/ios") {}
     }
 
     test("KYC web") {
@@ -778,6 +816,12 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/challenge_time"(platform: "/web") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
@@ -966,6 +1010,14 @@ trackTests {
             custom_cam_offered = true
             transaction_user_id = 109479272
             reason = "thereason"
+        }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
+            handoff_type = "no_camera"
         }
     }
 }

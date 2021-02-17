@@ -9,7 +9,6 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("consumer credits") {
-
         /******************************************
          *       Start: Consumers Public Landings
          ******************************************/
@@ -18,6 +17,7 @@ trackTests {
         //Page views
         "/credits/consumer/public_landing"(platform: "/web/desktop") {
             user_profile = 'no_offer'
+            sk = 'landing'
         }
         "/credits/consumer/public_landing/application_result"(platform: "/web/desktop") {
             result = 'manual_review'
@@ -65,6 +65,12 @@ trackTests {
         //Events
         "/credits/consumer/opensea/intermediate_landing/more_info"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/opensea/intermediate_landing/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+        //Remedy
+        "/credits/consumer/opensea/add_receipt"(platform: "/web", type: TrackType.Event) {}
+        "/credits/consumer/opensea/summary"(platform: "/web", type: TrackType.View) {
+            process = 'receipt'
+        }
 
         /*********************************************
          *       End: Consumers Intermediate Landing
@@ -152,6 +158,10 @@ trackTests {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
         }
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = 'overdue'
+            offer = ['payment_not_credited', 'create_promise']
+        }
         "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
             user_status = 'manually_paused'
         }
@@ -160,6 +170,7 @@ trackTests {
         //Events
         "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/web/desktop", type: TrackType.Event) {
             installments_qty = 3
+            advance_installment = false
         }
         "/credits/consumer/administrator_v2/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/choose_installments"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -172,6 +183,11 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
 
+        "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
+
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
@@ -179,6 +195,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
             installments_qty = 3
+            advance_installment = false
         }
         "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
@@ -190,6 +207,9 @@ trackTests {
             dashboard_status = 'empty_state'
         }
         "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/web/desktop", type: TrackType.Event) {
             dashboard_status = 'overdue'
         }
         "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {
@@ -254,10 +274,12 @@ trackTests {
         "/credits/consumer/administrator/detail/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
             installment_status = 'on_time'
             payment_intention = 'cho'
+            advance_installment = false
         }
         "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/web/desktop", type: TrackType.Event) {
             installment_status = 'on_time'
             payment_intention = 'cho'
+            advance_installment = false
         }
 
         /******************************************
@@ -527,11 +549,14 @@ trackTests {
 
         "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
             prepaid = true
+            virtual_card = true
+            physical_card = false
         }
 
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
             page = 1
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
@@ -545,6 +570,7 @@ trackTests {
 
         "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {
@@ -643,12 +669,12 @@ trackTests {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
@@ -668,6 +694,66 @@ trackTests {
 
         /******************************************
         *    End: Consumers Change Due Date FLow
+        ******************************************/
+
+        /******************************************
+        *    Start: Self Service
+        ******************************************/
+        "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+            is_partial_amount = true
+            bulk_amount = 7000
+            promise_amount = 5000
+            payment_method = "CASH"
+            promise_due_days = 4
+        }
+
+        "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+            bulk_amount = 7000
+            total_amount = 14000
+            min_amount = true
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+            bulk_amount = 7000
+            total_amount = 14000
+            installments_id = [ 1002, 1003, 1004]
+            user_type = "consumer"
+            debt_relief_amount = 6000
+        }
+
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "no_offer"
+        }
+
+        /******************************************
+        *    End: Self Service
         ******************************************/
     }
 }

@@ -172,11 +172,33 @@ trackTests {
         }
     }
 
+    test("IDFA Permission dialog") {
+        "/permissions/idfa"(platform: "/mobile") {}
+        "/permissions/idfa"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog shown") {
+        "/permissions/idfa/shown"(platform: "/mobile") {}
+        "/permissions/idfa/shown"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog accepted") {
+        "/permissions/idfa/accept"(platform: "/mobile") {}
+        "/permissions/idfa/accept"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog denied") {
+        "/permissions/idfa/denied"(platform: "/mobile") {}
+        "/permissions/idfa/denied"(platform: "/mobile", business: "mercadopago") {}
+    }
+
     test("Devices Metadata") {
         "/devices/metadata"(platform:"/mobile") {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            app_cache = 76800
+            app_data = 230400
             dark_mode_status = "enabled"
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
@@ -184,12 +206,15 @@ trackTests {
             carrier_code = "722341"
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
+            nfc_enabled = false
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            app_cache = 76800
+            app_data = 230400
             dark_mode_status = "enabled"
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
@@ -197,6 +222,7 @@ trackTests {
             carrier_code = "722341"
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
+            nfc_enabled = true
         }
     }
 

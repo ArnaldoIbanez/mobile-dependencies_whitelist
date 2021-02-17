@@ -140,6 +140,10 @@ trackTests {
         }
         "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/money_in/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+            slide = 1
+            cause = "close"
+        }
         "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
     }
 
@@ -313,5 +317,28 @@ trackTests {
         "/prepaid/acquisition/adapt_kyc/congrats"(platform: "/", type: TrackType.View) {}
         "/prepaid/acquisition/adapt_kyc/congrats/tap"(platform: "/", type: TrackType.Event) { deeplink = "deeplink" }
         "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test ("Prepaid Detail") {
+        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) { }
+        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/mobile", type: TrackType.Event) {
+             osName = "android"
+        }
+    }
+
+    test ("Prepaid Detail Regret") {
+        "/prepaid/regret" (platform: "/", type: TrackType.View) { }
+        "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+             action = "cancel_card"
+             cardStatus = "blocked"
+             cardStatusDetail = "user requested"
+             blockStatus = "apiError"
+        }
+        "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+             action = "back"
+             cardStatus = "blocked"
+             cardStatusDetail = "user requested"
+             blockStatus = "localError"
+        }
     }
 }

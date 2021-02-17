@@ -77,6 +77,11 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
+    
+    "/permissions/idfa"(platform: "/mobile", isAbstract: true){}
+    "/permissions/idfa/accept"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/denied"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/shown"(platform: "/mobile", type: TrackType.Event){}
 
     "/settings"(platform: "/mobile", isAbstract: true){}
     "/settings/about"(platform: "/mobile", type: TrackType.View){}
@@ -97,6 +102,12 @@ tracks {
         message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
     }
 
+    "/landing/load"(platform: "/mobile") {
+        status(required: true, type: PropertyType.String, values: ["success", "cancelled", "error"], description: "Loading finish status")
+        url(required: true, type: PropertyType.String, description: "The url to be loaded in the landing webview")
+        loading_time(required: true, type: PropertyType.Numeric, description: "Loading time in milliseconds")
+    }
+
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
@@ -114,6 +125,8 @@ tracks {
         total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
+        app_cache(required: false, type: PropertyType.Numeric, description: "Application cache occupied storage in bytes")
+        app_data(required: false, type: PropertyType.Numeric, description: "Application data occupied storage in bytes")
         dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
          description: "Dark Mode status")
         battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
@@ -122,6 +135,7 @@ tracks {
         carrier_code(required: false, type: PropertyType.String, description: "Carrier code of the network provider (MCC+MNC)")
         carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
         nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
+        nfc_enabled(required: false, type: PropertyType.Boolean, description: "Nfc is enabled or not")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}

@@ -92,7 +92,7 @@ trackTests {
             label = "date_validation_invalid"
         }
 
-        "/kyc/odr_error"(platform: "/", business: "mercadopago") {
+        "/kyc/odr_error"(platform: "/") {
             image = "rmdy_ic_error_dni_ml"
             verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
         }
@@ -132,9 +132,49 @@ trackTests {
             kyc_flow_id = "SessionID560232788"
         }
 
+        "/kyc/challenge/start"(platform: "/mobile") {
+            id = "user_identification"
+            initiative = "registration-fintech"
+            callback = "mercadopago://home"
+            kyc_flow_id = "069d529b-3d4c-47df-b0b3-4c82a0bfe952"
+            transaction_id = "aBi2WUK4ay56MgJWVJagYFAmXeRfWt99"
+        }
+
+        "/kyc/challenge/send"(platform: "/mobile") {
+            id = "user_identification"
+            initiative = "registration-fintech"
+            callback = "mercadopago://home"
+            kyc_flow_id = "069d529b-3d4c-47df-b0b3-4c82a0bfe952"
+            transaction_id = "aBi2WUK4ay56MgJWVJagYFAmXeRfWt99"
+        }
+
+        "/kyc/challenge/success"(platform: "/mobile") {
+            id = "user_identification"
+            initiative = "registration-fintech"
+            callback = "mercadopago://home"
+            kyc_flow_id = "069d529b-3d4c-47df-b0b3-4c82a0bfe952"
+            transaction_id = "aBi2WUK4ay56MgJWVJagYFAmXeRfWt99"
+        }
+
+        "/kyc/challenge/fail"(platform: "/mobile") {
+            id = "user_identification"
+            initiative = "registration-fintech"
+            callback = "mercadopago://home"
+            kyc_flow_id = "069d529b-3d4c-47df-b0b3-4c82a0bfe952"
+            transaction_id = "aBi2WUK4ay56MgJWVJagYFAmXeRfWt99"
+        }
+
+        "/kyc/challenge/retry"(platform: "/mobile") {
+            id = "user_identification"
+            initiative = "registration-fintech"
+            callback = "mercadopago://home"
+            kyc_flow_id = "069d529b-3d4c-47df-b0b3-4c82a0bfe952"
+            transaction_id = "aBi2WUK4ay56MgJWVJagYFAmXeRfWt99"
+        }
+
         "/kyc/profile"(platform: "/mobile") {}
 
-        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+        "/kyc/challenge"(platform: "/mobile") {
             id = "user_identification"
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
@@ -142,7 +182,7 @@ trackTests {
             kyc_flow_id = "SessionID560232788"
         }
 
-        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+        "/kyc/challenge"(platform: "/mobile") {
             id = "user_identification"
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
@@ -150,24 +190,40 @@ trackTests {
             kyc_flow_id = "SessionID560232788"
         }
 
-        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+        "/kyc/challenge"(platform: "/mobile") {
             id = "user_identification"
             initiative = "credits"
             callback = "meli://home"
             kyc_flow_id = "SessionID560232788"
         }
 
-        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+        "/kyc/challenge"(platform: "/mobile") {
             id = "user_identification"
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
             kyc_flow_id = "SessionID560232788"
         }
 
-        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+        "/kyc/challenge"(platform: "/mobile") {
             id = "user_identification"
             initiative = "credits"
             kyc_flow_id = "SessionID560232788"
+        }
+
+        "/kyc/challenge"(platform: "/mobile") {
+            id = "user_identification"
+            initiative = "registration-fintech"
+            callback = "mercadopago://home"
+            kyc_flow_id = "069d529b-3d4c-47df-b0b3-4c82a0bfe952"
+            transaction_id = "aBi2WUK4ay56MgJWVJagYFAmXeRfWt99"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_identification"
+            initiative = "registration-fintech"
+            callback = "mercadopago://home"
+            kyc_flow_id = "069d529b-3d4c-47df-b0b3-4c82a0bfe952"
+            transaction_id = "aBi2WUK4ay56MgJWVJagYFAmXeRfWt99"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
@@ -337,5 +393,48 @@ trackTests {
         }
 
         "/kyc/profile"(platform: "/mobile", business: "mercadolibre") {}
+
+        // KYC File Upload
+        "/kyc/upload_file/open_files"(platform: "/", business: "mercadolibre") {}
+
+        "/kyc/upload_file/upload_start"(platform: "/", business: "mercadolibre") {
+            amount = "5"
+        }
+
+        "/kyc/upload_file/upload_success"(platform: "/", business: "mercadolibre") {}
+
+        "/kyc/upload_file/upload_fail"(platform: "/", business: "mercadolibre") {}
+
+        "/kyc/upload_file/open_files"(platform: "/", business: "mercadopago") {}
+
+        "/kyc/upload_file/upload_start"(platform: "/", business: "mercadopago") {
+            amount = "2"
+        }
+
+        "/kyc/upload_file/upload_success"(platform: "/", business: "mercadopago") {}
+
+        "/kyc/upload_file/upload_fail"(platform: "/", business: "mercadopago") {}
+
+        // KYC Landing Congrats
+
+        "/kyc/landing"(platform: "/", business: "mercadopago") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/congrats"(platform: "/", business: "mercadopago") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/landing"(platform: "/", business: "mercadolibre") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/congrats"(platform: "/", business: "mercadolibre") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
     }
 }
