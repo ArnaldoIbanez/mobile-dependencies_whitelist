@@ -103,6 +103,7 @@ catalog {
         include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "compatibilities.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
