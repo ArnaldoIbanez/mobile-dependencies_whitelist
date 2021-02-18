@@ -116,17 +116,27 @@ tracks {
         nextday(type: PropertyType.ArrayList(PropertyType.String), required: false)
     }
 
+    def displayed_filter_object = objectSchemaDefinitions{
+        id(type: PropertyType.String, required: true)
+        name(type: PropertyType.String, required: true)
+        type(type: PropertyType.String, required: true)
+        position(type: PropertyType.Numeric, required: true)
+        values_quantity(type: PropertyType.Numeric, required: true)
+    }
+
     //SEARCH FLOW
-    
+
     "/search"(platform: "/") {
         query(required: false, description: "the words used to make a search", type: PropertyType.String)
         limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
         total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
         category_id(required: false, regex: categoryRegex)
+        domain(required: false, description: "The domain where the search is happening", type: PropertyType.String)
         category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
         sort_id(required: true, description: "relevance, price_asc, price_desc, publication_begins_desc, publication_begins_asc, manually_selected", values: ["relevance", "price_asc", "price_desc", "publication_begins_desc", "manually_selected", "publication_begins_asc"])
         filters(required: true, description: "filters applied")
+        displayed_filters(required: false, descrition: "Information about displayed filters that can be applied by the user", PropertyType.ArrayList(PropertyType.Map(displayed_filter_object)))
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
@@ -258,16 +268,16 @@ tracks {
         multiple_values_qty(required: false, description: 'qty of multiple values selected before the request is made', PropertyType.Numeric)
         action(required: false, description: 'the action made, if any', PropertyType.Map(action_definition))
     }
-    
+
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
     "/search/breadcrumb"(platform: "/web", isAbstract: true) {}
-    
+
     "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
         total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
     }
-    
+
     "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event) {
         filter_id()
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
@@ -287,7 +297,7 @@ tracks {
     }
 
     "/search/color_picker"(platform: "/web") {
-        
+
         item_id(required: true, description: "the item id shown for the product", type: PropertyType.String)
         previous_product_id(required: true, "the product shown before using the picker", type: PropertyType.String)
         product_id(required: true, description: "the product shown after using the picker", type: PropertyType.String)
@@ -309,7 +319,7 @@ tracks {
     }
 
     "/search/change_view"(platform: "/",  isAbstract: true) {}
-    
+
     "/search/change_view/apply"(platform: "/", type: TrackType.Event) {
         list_mode()
     }
