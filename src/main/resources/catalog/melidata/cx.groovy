@@ -104,6 +104,7 @@ tracks {
         portal_predicted_features(portal_predicted_features)
         portal_predicted_contents(portal_predicted_contents)
         helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
+        portal_contents_result(portal_contents_result)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
