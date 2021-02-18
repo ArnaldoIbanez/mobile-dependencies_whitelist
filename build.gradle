@@ -3,7 +3,7 @@ buildscript {
 		springBootVersion = '1.5.8.RELEASE'
 	}
 	repositories {
-		mavenCentral()
+		maven { url "http://maven.artifacts.furycloud.io/repository/all" }
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -30,12 +30,8 @@ group = 'com.mercadolibre.melidata.catalog'
 version = '2.2.1'
 
 repositories {
-	mavenCentral()
-	jcenter()
-	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
-	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
-}
+		maven { url "http://maven.artifacts.furycloud.io/repository/all" }
+	}
 
 configurations {
 	providedRuntime
