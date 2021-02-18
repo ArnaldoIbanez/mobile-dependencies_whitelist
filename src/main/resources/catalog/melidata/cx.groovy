@@ -76,6 +76,7 @@ tracks {
             description: "Indicates the title of the help card as viewed by the user")
         helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
             description: "Indicates the contents viewed by the user in the help card")
+        portal_contents_result(required: true, description: "Content ids result from search page", type: PropertyType.ArrayList)
     }
 
     propertyGroups {
@@ -185,8 +186,9 @@ tracks {
         portal_content_destination_url
     }
 
-     "/portal/search/click"(platform: "/", type: TrackType.Event) {
+    "/portal/search/click"(platform: "/", type: TrackType.Event) {
         portal_content_id
+        portal_source_id
     }
 
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
@@ -208,7 +210,7 @@ tracks {
         portal_broken_link_source_url
         portal_broken_link_destination_url
         portal_search_criteria
-        portal_contents_result(required: true, description: "Content ids result", type: PropertyType.ArrayList)
+        portal_contents_result
     }
 
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {

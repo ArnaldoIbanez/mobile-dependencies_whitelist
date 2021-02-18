@@ -318,7 +318,13 @@ trackTests {
             portal_predicted_contents = [123, 456]
         }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
-        "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/search"(platform: "/", type: TrackType.View) {
+            portal_contents_result = [1234, 4321, 6543]
+        }
+        "/portal/search/click"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_content_id = 637
+        }
         "/portal/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
