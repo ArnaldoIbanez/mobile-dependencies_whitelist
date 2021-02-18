@@ -185,6 +185,10 @@ tracks {
         portal_content_destination_url
     }
 
+     "/portal/search/click"(platform: "/", type: TrackType.Event) {
+        portal_content_id
+    }
+
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
         portal_form_id
         portal_content_id(required: false, type: PropertyType.Numeric,
@@ -204,6 +208,7 @@ tracks {
         portal_broken_link_source_url
         portal_broken_link_destination_url
         portal_search_criteria
+        portal_contents_result(required: true, description: "Content ids result", type: PropertyType.ArrayList)
     }
 
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {
