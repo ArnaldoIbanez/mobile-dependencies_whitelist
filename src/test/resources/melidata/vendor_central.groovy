@@ -147,5 +147,42 @@ trackTests {
   test("Vendor Central Invoices view") {
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
   }
-}
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+// TRACKS Vendor Central Fiscal Documents Template Mappings
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Vendor Central Fiscal Documents Template Mapping delete event") {
+    "/vendor_central/fiscal_documents/template_mappings/delete"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping get event") {
+    "/vendor_central/fiscal_documents/template_mappings/get"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping modify event") {
+    "/vendor_central/fiscal_documents/template_mappings/modify"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+      template_id = "template_1"
+      is_valid_template = true
+
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping save event") {
+    "/vendor_central/fiscal_documents/template_mappings/save"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+      template_id = "template_1"
+      is_valid_template = true
+    }
+  }
+
+}

@@ -112,5 +112,36 @@ tracks {
 
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Fiscal Documents Template Mappings
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/fiscal_documents"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/fiscal_documents/template_mappings"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/fiscal_documents/template_mappings/delete"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/get"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/modify"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+        template_id(required: false, type: PropertyType.String, description: "this property indicates the template id")
+        is_valid_template(required: false, type: PropertyType.Boolean, description: "this property indicates if the template is valid")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/save"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+        template_id(required: false, type: PropertyType.String, description: "this property indicates the template id")
+        is_valid_template(required: false, type: PropertyType.Boolean, description: "this property indicates if the template is valid")
+    }
 
 }
