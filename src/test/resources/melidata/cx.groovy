@@ -61,9 +61,14 @@ trackTests {
         "/portal/home"(platform: "/", type: TrackType.View) { portal_has_one_click = false }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
 
-        "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/search"(platform: "/", type: TrackType.View) {
+            portal_contents_result = []
+        }
         "/portal/validate_user"(platform: "/", type: TrackType.View) {}
-
+        "/portal/search/click"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1627
+            portal_content_id = 1
+        }
     }
 
     test("Support Widget") {
