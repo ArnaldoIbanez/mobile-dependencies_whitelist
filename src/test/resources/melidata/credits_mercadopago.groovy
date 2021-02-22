@@ -408,6 +408,23 @@ trackTests {
             has_prepaid = false
             through_kyc = true
         }
+
+        //Access
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'hero_card'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'simulator'
+        }
+
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
     }
 
     test("Merchant Credits Administrator") {

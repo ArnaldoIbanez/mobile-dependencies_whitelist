@@ -979,6 +979,33 @@ tracks {
         products_group
     }
 
+    //Access
+    "/credits/merchant/enrollment/capped_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the capped form",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'hero_card',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
+    }
+
+    "/credits/merchant/enrollment/open_market_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the open market landing",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'simulator',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
+    }
+
     /******************************************
      *       End: Merchants Enrollment
      ******************************************/
