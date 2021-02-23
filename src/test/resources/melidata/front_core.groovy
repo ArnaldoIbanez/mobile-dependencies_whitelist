@@ -529,6 +529,10 @@ trackTests {
                     ordinal: 16,
                     content_type : 'complete'
             ]
+            complaints_book= [
+                    ordinal: 17,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -711,6 +715,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 16,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 17,
                     content_type : 'complete'
             ]
             metadata = [
@@ -979,6 +987,14 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="repentance_button"
             component_id="repentance_button"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Complaints Book") {
+        "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="complaints_book"
+            component_id="complaints_book"
         }
     }
 
@@ -1636,6 +1652,10 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            complaints_book= [
+                    ordinal: 16,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -1812,6 +1832,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 15,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 16,
                     content_type : 'complete'
             ]
             metadata = [
@@ -2035,11 +2059,19 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Survey") {
+    test("Mercadopago Home Tap v3 - Repentance Button") {
         "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="repentance_button"
             component_id="repentance_button"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Complaints Book") {
+        "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="complaints_book"
+            component_id="complaints_book"
         }
     }
 

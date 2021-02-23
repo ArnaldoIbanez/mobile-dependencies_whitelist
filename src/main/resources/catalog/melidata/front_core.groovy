@@ -154,6 +154,11 @@ tracks {
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
     }
 
+    def complaints_book_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
+    }
+
     def discount_center_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
         blocked(type: PropertyType.Boolean, required: false, description: "If the discount is blocked or not")
@@ -397,6 +402,7 @@ tracks {
         repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        complaints_book(required: false, type: PropertyType.Map(complaints_book_definition), description: "The complaints book section information")
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
     }
 
@@ -422,6 +428,7 @@ tracks {
         repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        complaints_book(required: false, type: PropertyType.Map(complaints_book_definition), description: "The complaints book section information")
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
     }
 
@@ -613,6 +620,8 @@ tracks {
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
