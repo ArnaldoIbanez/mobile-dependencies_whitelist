@@ -813,7 +813,11 @@ tracks {
 
     // CARD REQUEST PJ virtual lock
     // --------
-    "/cards/mpcard/request/virtual/lock"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/virtual/onboarding/lock"(platform: "/", type: TrackType.View) {}
+    
+    // CARD REQUEST PJ virtual lock
+    // --------
+    "/cards/mpcard/request/physical/onboarding/lock"(platform: "/", type: TrackType.View) {}
     
     // CARD REQUEST virtual on boarding
     // --------

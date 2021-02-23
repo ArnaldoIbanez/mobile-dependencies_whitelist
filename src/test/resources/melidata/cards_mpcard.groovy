@@ -921,11 +921,19 @@ trackTests {
         }
     }
 
-    // CARD REQUEST pvirtual pj lock
+    // CARD REQUEST virtual pj lock
     // --------
     test("cards mpcard request virtual pj lock") {
-        "/cards/mpcard/request/virtual/lock"(platform: "/", type: TrackType.View) {
+        "/cards/mpcard/request/virtual/onboarding/lock"(platform: "/", type: TrackType.View) {
             from = "unknown"
+        }
+    }
+
+     // CARD REQUEST physical pj lock
+    // --------
+    test("cards mpcard request physical pj lock") {
+        "/cards/mpcard/request/physical/onboarding/lock"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
         }
     }
 
