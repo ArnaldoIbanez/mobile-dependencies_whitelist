@@ -34,6 +34,8 @@ tracks {
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/error"(platform: "/", isAbstract: true) { }
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -1125,6 +1127,40 @@ tracks {
             description: "Main Button Tapped"
         )
     }
+    
+    // Block-Page-NFC
+    "/cards/nfc/block_page/not_nfc_device"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/block_page/acquisition_rollout"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/block_page/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["secondary","primary"],
+            description: "Block Page for non NFC Users"
+        )
+        type (
+            required: true,
+            type: PropertyType.String,
+            values: ["not_nfc_device","acquisition_rollout"],
+            description: "Type of Block Page"
+        )
+    }
+    "/cards/nfc/block_page/not_nfc_device/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close"],
+            description: "Close Button Tapped"
+        )
+    }
+    "/cards/nfc/block_page/acquisition_rollout/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close"],
+            description: "Close Button Tapped"
+        )
+    }
 
     // ENROLLMENT-NFC-TOKENIZATION
     // -------------------
@@ -1219,6 +1255,9 @@ tracks {
         )
     }
     "/cards/nfc/payment/without_money"(platform: "/", type: TrackType.View) {}
+    
+    // NFC Payments Congrats
+    
     "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
         status (
             required: true,
@@ -1232,10 +1271,30 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["finish"],
+            values: ["finish", "primary", "secondary"],
             description: "Finish button tapped"
         )
+        type (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "insufficient_money",
+                "blocked_pin",
+                "connection_error",
+                "invalid_pin",
+                "generic_tap_pos_error",
+                "generic_error"
+            ],
+            description: "Type Finish button tapped"
+        )
     }
+    "/cards/nfc/congrats/insufficient_money"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/congrats/blocked_pin"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/congrats/connection_error"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/congrats/invalid_pin"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/congrats/generic_tap_pos_error"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/congrats/generic_error"(platform: "/", type: TrackType.View) {}
+    
     
     // NFC - Feature
     

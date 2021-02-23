@@ -1176,7 +1176,27 @@ trackTests {
             action = "main"
         }
     }
-
+    
+    // Block Page NFC
+    test("cards hybrid nfc block page") {
+        "/cards/nfc/block_page/not_nfc_device"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/block_page/acquisition_rollout"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/block_page/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary"
+            type = "not_nfc_device"
+        }
+        "/cards/nfc/block_page/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary"
+            type = "acquisition_rollout"
+        }
+        "/cards/nfc/block_page/not_nfc_device/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/nfc/block_page/acquisition_rollout/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+    }
+    
     // NFC Tokenization Status
     test("cards hybrid nfc enrollment tokenization") {
         "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
@@ -1295,11 +1315,35 @@ trackTests {
         "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
             status = "unknown"
         }
+        "/cards/nfc/congrats/insufficient_money"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/blocked_pin"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/connection_error"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/invalid_pin"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/generic_tap_pos_error"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/generic_error"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
+            type = "insufficient_money"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "primary"
+            type = "blocked_pin"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "secondary"
+            type = "connection_error"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "secondary"
+            type = "invalid_pin"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "primary"
+            type = "generic_tap_pos_error"
         }
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
+            type = "generic_error"
         }
     }
     
