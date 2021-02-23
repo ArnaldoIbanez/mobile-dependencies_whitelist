@@ -99,8 +99,12 @@ trackTests {
 
 
 
-  test("seller central listing onboarding view") {
+  test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central listing onboarding view desktop") {
+    "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
   }
 
   test("seller central listing onboarding actions") {

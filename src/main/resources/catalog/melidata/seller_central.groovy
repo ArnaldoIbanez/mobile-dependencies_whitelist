@@ -370,7 +370,9 @@ tracks {
     }
     // End SLL SC
 
-    "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
+   
+    
+    "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
