@@ -425,6 +425,26 @@ tracks {
     "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/", type: TrackType.Event) {
     }
 
+    //Credits
+    "/advertising/pads2/manager/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        mode(required: false, description: "diference about custom or automatic mode")
+        campaign_id(required: true, description: "Id related to the campaign")
+        status(required: true, description: "campaign status (active, paused)")
+        available_credit(required: true, description: "Amount of credit available to spend")
+    }
+    "/advertising/pads2/manager/credits/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/manager/credits/details"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        used_credit(required: true, description:"Amount that has already been consumed")
+    }
+    "/advertising/pads2/hub/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false){
+        mode(required: false, description: "diference about custom or automatic mode")
+        available_credit(required: true, description: "Amount of credit available to spend")
+    }
+    "/advertising/pads2/hub/credits/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false){}
+    "/advertising/pads2/hub/credits/details"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false){
+        used_credit(required: false, description: "Amount that has already been consumed")
+    }
+
     //Sorting
     "/advertising/pads2/manager/sort"(
         platform: "/",
