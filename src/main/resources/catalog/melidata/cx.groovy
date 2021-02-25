@@ -60,6 +60,8 @@ tracks {
             description: "Indicates the destination url in an event track")
         portal_show_cancel_card(required: false, type: PropertyType.Boolean, 
             description: "Indicates if the cancelCard should be shown")
+        portal_show_delay_cards(required: false, type: PropertyType.Boolean, 
+            description: "Indicates if the delayCard should be shown")
         portal_has_one_click(required: true, type: PropertyType.Boolean,
             description: "Indicates if the user has oneclick enabled")
         portal_contact_predicted_team(required: false, type: PropertyType.String,
@@ -77,6 +79,10 @@ tracks {
         helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
             description: "Indicates the contents viewed by the user in the help card")
         portal_contents_result(required: true, description: "Content ids result from search page", type: PropertyType.ArrayList)
+        portal_delayed_pack_id(required: true, type: PropertyType.Numeric,
+            description: "Indicates the single pack id of the card clicked by the user")
+        portal_delayed_packs_ids(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the delayed packs shown to the user")
     }
 
     propertyGroups {
@@ -97,6 +103,7 @@ tracks {
         portal_prediction_id(portal_prediction_id)
         portal_content_destination_url(portal_content_destination_url)
         portal_show_cancel_card(portal_show_cancel_card)
+        portal_show_delay_cards(portal_show_delay_cards)
         portal_has_one_click(portal_has_one_click)
         portal_contact_predicted_team(portal_contact_predicted_team)
         portal_contact_prediction_score(portal_contact_prediction_score)
@@ -105,6 +112,8 @@ tracks {
         portal_predicted_contents(portal_predicted_contents)
         helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
         portal_contents_result(portal_contents_result)
+        portal_delayed_pack_id(portal_delayed_pack_id)
+        portal_delayed_packs_ids(portal_delayed_packs_ids)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -237,6 +246,8 @@ tracks {
         portal_broken_link_source_url
         portal_broken_link_destination_url
         portal_show_cancel_card
+        portal_show_delay_cards
+        portal_delayed_packs_ids
         portal_prediction_id
         portal_has_one_click
         portal_predicted_contents
@@ -252,10 +263,15 @@ tracks {
 
     "/portal/validate_user"(platform: "/", type: TrackType.View) {}
 
-     "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
+    "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
         portal_source_id
         portal_custom_order_id
         portal_prediction_id
+    }
+
+    "/portal/delay_card"(platform: "/", type: TrackType.Event) {
+        portal_source_id
+        portal_delayed_pack_id
     }
 
     // Support Widget
