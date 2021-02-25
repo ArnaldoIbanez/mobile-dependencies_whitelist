@@ -123,6 +123,20 @@ tracks {
     "/bill_payments/receipt"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/receipt/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/receipt/show"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/receipt/retry"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/receipt/error"(platform: "/mobile", type: TrackType.Event) {
+        description(required: false, type: PropertyType.String, description: "description about scenario")
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
+    "/bill_payments/receipt/error/render"(platform: "/mobile", type: TrackType.Event) {
+        description(required: false, type: PropertyType.String, description: "description about scenario")
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
+    "/bill_payments/receipt/error/download_share"(platform: "/mobile", type: TrackType.Event) {
+        description(required: false, type: PropertyType.String, description: "description about scenario")
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
 
     // Scanner
     "/bill_payments/scan"(platform: "/mobile", type: TrackType.View) {}
