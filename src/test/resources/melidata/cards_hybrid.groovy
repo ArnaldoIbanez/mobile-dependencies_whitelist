@@ -675,6 +675,24 @@ trackTests {
          }
     }
 
+    // REISSUE VIRTUAL CREDIT
+    // --------
+
+    test("cards hybrid reissue virtual credit card ") {
+        "/cards/hybrid/block_card/virtual/credit"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+        }
+        "/cards/hybrid/block_card/virtual/credit/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "primary_button"
+        }
+        "/cards/hybrid/block_card/virtual/credit/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "secondary_button"
+        }
+    }
+
+
     // REISSUE PHYSICAL
     // --------
 
