@@ -238,6 +238,10 @@ tracks {
         view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
 
+    "/insurtech/hardware_check/onboarding/device_info_error"(platform:"/mobile", type: TrackType.Event) {
+        error_description(required: true, type: PropertyType.String, description: "Error detail on getDeviceInfo() internal method.")
+    }
+
     "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {
         view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
