@@ -1547,5 +1547,16 @@ tracks {
             ]
         )
     }
-
+    
+    
+    // NFC-INFORMATIVE-SCREEN
+    // ----------------------
+    
+    "/cards/nfc/enrollment/instructions"(platform: "/", type: TrackType.View) {
+        has_money (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "If user has money"
+        )
+    }
 }

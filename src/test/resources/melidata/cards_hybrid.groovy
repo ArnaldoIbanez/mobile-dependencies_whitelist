@@ -1626,4 +1626,17 @@ trackTests {
             error_code = "blocked_secure_wallet_enrollment_required"
         }
     }
+    
+    // NFC-INFORMATIVE-SCREEN
+    test("cards hybrid nfc informative screen") {
+        "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
+            has_money = true
+        }
+    }
+    
+    test("cards hybrid nfc informative screen") {
+        "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
+            has_money = false
+        }
+    }
 }
