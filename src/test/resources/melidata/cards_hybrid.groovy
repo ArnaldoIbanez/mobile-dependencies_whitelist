@@ -384,8 +384,15 @@ trackTests {
     }
     
     //Feedback: Tracking
-    test("cards hybrid dasboard feedback") {
+    test("cards hybrid dashboard feedback") {
         "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+
+    //Feedback for virtual credit card
+    test("cards hybrid dashboard feedback for virtual credit card") {
+        "/cards/hybrid/dashboard/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
         }
     }
@@ -1106,7 +1113,14 @@ trackTests {
             action = "research_form"
         }
     }
-    
+
+    //OPTIONS Feedback for virtual credit card
+    test("cards hybrid options feedback button event for virtual credit card") {
+        "/cards/hybrid/setup/options/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+
     // OPTIONS Semaphore
     test("card options semaphore states for nfc") {
         "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}

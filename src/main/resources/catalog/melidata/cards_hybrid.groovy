@@ -417,6 +417,17 @@ tracks {
           )
     }
 
+    //Feedback for virtual credit card
+    "/cards/hybrid/dashboard/feedback/credit"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["research_form"],
+                description: "Feedback action tapped from dashboard for virtual credit card"
+        )
+    }
+
     //Coachmark banner
     "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
         action (
@@ -1056,7 +1067,18 @@ tracks {
             description: "Feedback button tapped"
         )
     }
-    
+
+    //Feedback for virtual credit card
+    "/cards/hybrid/setup/options/feedback/credit"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["research_form"],
+                description: "Feedback button tapped"
+        )
+    }
+
     // Semaphore
     //-------------------
     "/cards/hybrid/setup/options/semaphore"(platform: "/", isAbstract: true) {}
