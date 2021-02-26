@@ -2478,6 +2478,12 @@ trackTests {
             ]
             session_id = "1234567"
         }
+        "/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
+            start_loading = "2021-02-24 12:12:12"
+         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
