@@ -240,7 +240,7 @@ tracks {
     "/advertising/privacy"(platform: "/", type: TrackType.View) {
     }
 
-    "/advertising/privacy/modal"(platform: "/", type: TrackType.Event){
+    "/advertising/privacy/modal"(platform: "/", type: TrackType.Event, isAbstract: true){
     }
 
     "/advertising/privacy/modal/show"(platform: "/", type: TrackType.Event) {
@@ -254,6 +254,13 @@ tracks {
     }
 
     "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
+    }
+
+    "/advertising/privacy/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
         switch_status(required: true, description: "Current state of switch")
     }
 

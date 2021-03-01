@@ -181,6 +181,13 @@ trackTests {
         "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
             switch_status = "deactivate"
         }
+
+        "/advertising/privacy/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
+            switch_status = "activated"
+        }
     }
 
     test("Advertising upselling") {
