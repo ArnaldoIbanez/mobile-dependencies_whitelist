@@ -52,6 +52,11 @@ tracks {
         product_id(required: false, type: PropertyType.String, description: "the product id used to pay")
     }
 
+    // Invoice delete
+    "/bill_payments/invoices/delete"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/invoices/delete/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/invoices/delete/back"(platform: "/mobile", type: TrackType.Event) {}
+
     // Invoice menu
     "/bill_payments/menu"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {}

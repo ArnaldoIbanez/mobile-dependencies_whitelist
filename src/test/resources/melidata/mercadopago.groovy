@@ -2574,6 +2574,19 @@ trackTests {
             product_id = "10"
         }
 
+        // Invoice delete
+        "/bill_payments/invoices/delete"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Invoice menu
         "/bill_payments/menu"(platform: "/mobile") {
             mandatory()
