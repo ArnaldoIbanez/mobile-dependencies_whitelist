@@ -2495,6 +2495,11 @@ trackTests {
             label = "SADM"
         }
 
+        def receiptProperties = {
+            description = "description alternative scenario"
+            collector_id = "123456"
+        }
+
         // Home
          "/bill_payments/home"(platform: "/mobile") {
             mandatory()
@@ -2733,6 +2738,29 @@ trackTests {
 
         "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+        }
+
+        "/bill_payments/receipt/show"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/receipt/retry"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/receipt/error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            receiptProperties()
+        }
+
+        "/bill_payments/receipt/error/download_share"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            receiptProperties()
+        }
+
+        "/bill_payments/receipt/error/render"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            receiptProperties()
         }
 
         // Entities and categories

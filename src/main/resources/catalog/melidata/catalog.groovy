@@ -243,6 +243,7 @@ catalog {
         include business, "pix.groovy"
         include business, "black_friday.groovy"
         include business, "business_config.groovy"
+        include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
     }
 

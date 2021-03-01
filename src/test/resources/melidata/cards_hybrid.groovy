@@ -384,8 +384,15 @@ trackTests {
     }
     
     //Feedback: Tracking
-    test("cards hybrid dasboard feedback") {
+    test("cards hybrid dashboard feedback") {
         "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+
+    //Feedback for virtual credit card
+    test("cards hybrid dashboard feedback for virtual credit card") {
+        "/cards/hybrid/dashboard/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
         }
     }
@@ -674,6 +681,24 @@ trackTests {
             reasons = ["debit_available_push_strategy_none", "reissue"]
          }
     }
+
+    // REISSUE VIRTUAL CREDIT
+    // --------
+
+    test("cards hybrid reissue virtual credit card ") {
+        "/cards/hybrid/block_card/virtual/credit"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+        }
+        "/cards/hybrid/block_card/virtual/credit/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "primary_button"
+        }
+        "/cards/hybrid/block_card/virtual/credit/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "secondary_button"
+        }
+    }
+
 
     // REISSUE PHYSICAL
     // --------
@@ -1088,7 +1113,14 @@ trackTests {
             action = "research_form"
         }
     }
-    
+
+    //OPTIONS Feedback for virtual credit card
+    test("cards hybrid options feedback button event for virtual credit card") {
+        "/cards/hybrid/setup/options/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+
     // OPTIONS Semaphore
     test("card options semaphore states for nfc") {
         "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}
@@ -1592,6 +1624,19 @@ trackTests {
         }
         "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
             error_code = "blocked_secure_wallet_enrollment_required"
+        }
+    }
+    
+    // NFC-INFORMATIVE-SCREEN
+    test("cards hybrid nfc informative screen") {
+        "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
+            has_money = true
+        }
+    }
+    
+    test("cards hybrid nfc informative screen") {
+        "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
+            has_money = false
         }
     }
 }

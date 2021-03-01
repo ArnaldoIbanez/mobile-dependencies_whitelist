@@ -162,6 +162,24 @@ tracks {
         processing_data(required: true, type: PropertyType.Map(optinatorNewListingProcessingDataStructure), description: "Relevant processing data")
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    //  LANDING PRODUCTS STRUCTURE
+    // --------------------------------------------------------------------------------------------------------------
+
+    def productsLandingPaginStructure = objectSchemaDefinitions { 
+        limit(required: true, type: PropertyType.Numeric, description: "This property describes limit of pagination")
+        offset(required: true, type: PropertyType.Numeric, description: "This property describes offset of pagination")
+        total(required: true, type: PropertyType.Numeric, description: "This property describes total result of pagination")
+    }
+
+    def productsLandingSelectedFiltersStructure = objectSchemaDefinitions { 
+        id(required: true, type: PropertyType.String, description: "This property describes id of attribute")
+        value_id(required: true, type: PropertyType.String, description: "This property describes value id of attribute")
+        value_name(required: true, type: PropertyType.String, description: "This property describes value name of attribute")
+    }
+
+    //  FINAL LANDING PRODUCTS STRUCTURE
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -242,6 +260,17 @@ tracks {
         item_mk_tags(required: true, type: PropertyType.ArrayList, description: "Processed item tags")
         processing_data(required: true, type: PropertyType.Map(optinatorNewListingProcessingDataStructure), description: "Relevant processing data")
         variations(required: true, type: PropertyType.ArrayList(PropertyType.Map(optinatorVariationNewListingProcessingDataStructure)), description: "Processed item variations")
+
+        //Products landing 
+        query(required: true, type: PropertyType.String, description: "This property describes value of search query")
+        query_type(required: true, type: PropertyType.String, values: ["PRODUCT_NAME", "GTIN", "PRODUCT_ID"], description: "This property describes search type")
+        result_type(required: true, type: PropertyType.String, values: ["SUGGESTED_PRODUCTS", "SUGGESTED_DOMAINS", "PRODUCT_ONE_SHOT"], description: "This property describes result type")
+        results(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "This property describe IDs of results")
+        paging(required: true, type: PropertyType.Map(productsLandingPaginStructure), description: "This property describe the pagination")
+        selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
+        selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
+        row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
+   
     }
 
     propertyGroups {
@@ -275,7 +304,13 @@ tracks {
 
         // Seller Central Optinator New Listings
         sellerCentralOptinatorNewListingsGroup(flow, domain_id, item_mk_id, item_mk_status, item_mk_sub_status, item_mk_tags, processing_data, variations)
+
+        //Products Landing
+        productsLandingDataGroup(query, query_type,result_type, results, paging, selected_filters, selected_filters_quantity)
+        productsLandingRowGroup(catalog_product_id, row_index)
     }
+
+
 
     // Central of News
     "/seller_central/news"(platform: "/", type: TrackType.View) {}
@@ -1758,4 +1793,38 @@ tracks {
     }
 
     "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
+
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // PRODUCTS LANDING PATHS
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    "/seller_central/products_landing"(platform: "/web", isAbstract: true) {}
+    
+    "/seller_central/products_landing/home"(platform: "/web", isAbstract: true) {}
+    "/seller_central/products_landing/home/code_help"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/products_landing/home/show"(platform: "/web", type: TrackType.View) {}
+    
+    "/seller_central/products_landing/search"(platform: "/web", isAbstract: true) {}
+    "/seller_central/products_landing/search/code_help"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        productsLandingDataGroup
+    }
+  
+    "/seller_central/products_landing/search/publish"(platform: "/web", type: TrackType.Event) {
+        productsLandingDataGroup
+        productsLandingRowGroup
+    }
+
+    "/seller_central/products_landing/search/copied_code"(platform: "/web", type: TrackType.Event) {
+        productsLandingDataGroup
+        productsLandingRowGroup
+    }
+
+    "/seller_central/products_landing/search/tech_spec_show"(platform: "/web", type: TrackType.View) {
+        productsLandingDataGroup
+        productsLandingRowGroup
+    }
+
+    // FINAL PRODUCTS LANDING PATHS
 }

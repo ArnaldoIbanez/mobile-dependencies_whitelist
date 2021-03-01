@@ -505,7 +505,7 @@ tracks {
 
     "/insurtech/protections/detail/roda/pay"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
-        type(required: true, type: PropertyType.String, values: ['pending_payment', 'pending_payment_ticket', 'pending_franchise_payment'], description: "Type of payment or payment method change to be executed on protection.")
+        type(required: true, type: PropertyType.String, values: ['pending_payment', 'pending_payment_ticket', 'pending_franchise_payment', 'pending_recurring_payment'], description: "Type of payment or payment method change to be executed on protection.")
     }
 
     "/insurtech/protections/detail/roda/recommendations"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {

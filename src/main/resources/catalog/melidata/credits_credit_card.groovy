@@ -179,7 +179,7 @@ tracks {
         payment_group
     }
 
-    "/credits/credit_card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/payment/hub/total_payment_action"(platform: "/", type: TrackType.Event) {
         amount(
             description: "Statement amount",
             type: PropertyType.Numeric,
@@ -188,7 +188,7 @@ tracks {
     }
 
     //Payment plan
-    "/credits/credit_card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/payment/hub/payment_plan_selection"(platform: "/", type: TrackType.View) {
         payment_group
     }
 
@@ -202,7 +202,7 @@ tracks {
         full_payment_group
     }
 
-    "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
         full_payment_group
     }
     /******************************************

@@ -4208,4 +4208,254 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("SYI ME1 Config - User exceed characters limit in comment when uploading files") {
     "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
   }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Products Landing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Products Landing - Home code help") {
+      "/seller_central/products_landing/home/code_help"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("Products Landing - Home show") {
+      "/seller_central/products_landing/home/show"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Products Landing - Results code help") {
+      "/seller_central/products_landing/search/code_help"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("Products Landing - Results show with PRODUCT_NAME SUGGESTED_PRODUCTS") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+      }
+  }
+
+  test("Products Landing - Results show with PRODUCT_NAME SUGGESTED_DOMAINS") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_DOMAINS"
+        results = [
+            "MLA-CELLPONES",
+            "MLA-TELEPHONES",
+        ]
+        paging = [
+            total: 2,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+      }
+  }
+
+
+  test("Products Landing - Results show GTIN") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "9912342124"
+        query_type = "GTIN"
+        result_type = "PRODUCT_ONE_SHOT"
+        results = [
+            "MLA10335295"
+        ]
+        paging = [
+            total: 1,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+      }
+  }
+
+  test("Products Landing - Results show with PRODUCT_ID") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "MLA10335295"
+        query_type = "PRODUCT_ID"
+        result_type = "PRODUCT_ONE_SHOT"
+        results = [
+            "MLA10335295"
+        ]
+        paging = [
+            total: 100,
+            limit: 1,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+      }
+  }
+
+  test("Products Landing - Publish poroduct row") {
+      "/seller_central/products_landing/search/publish"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+        row_index = 1
+        catalog_product_id = "MLA10335296"
+      }
+  }
+
+  test("Products Landing - Copied code poroduct row") {
+      "/seller_central/products_landing/search/copied_code"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+        row_index = 0
+        catalog_product_id = "MLA10335295"
+      }
+  }
+
+  test("Products Landing - Tech spec show poroduct row") {
+      "/seller_central/products_landing/search/tech_spec_show"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+        row_index = 0
+        catalog_product_id = "MLA10335295"
+      }
+  }
+
+  test("Products Landing - Publish product resume") {
+      "/seller_central/products_landing/search/publish"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung Galaxy s s10 negro prisma"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295"
+        ]
+        paging = [
+            total: 1,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+        row_index = null
+        catalog_product_id = "MLA10335295"
+      }
+  }
 }

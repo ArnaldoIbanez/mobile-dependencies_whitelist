@@ -417,6 +417,17 @@ tracks {
           )
     }
 
+    //Feedback for virtual credit card
+    "/cards/hybrid/dashboard/feedback/credit"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["research_form"],
+                description: "Feedback action tapped from dashboard for virtual credit card"
+        )
+    }
+
     //Coachmark banner
     "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
         action (
@@ -585,6 +596,32 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+    }
+
+    // REISSUE VIRTUAL CREDIT
+    // --------
+
+    "/cards/hybrid/block_card/virtual/credit"(platform: "/", type: TrackType.View) {
+        card_id (
+                required: true,
+                type: PropertyType.String,
+                description: "Card id",
+                inheritable: false
+        )
+    }
+    "/cards/hybrid/block_card/virtual/credit/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["primary_button", "secondary_button"],
+                description: "The action type tapped"
+        )
+        card_id (
+                required: true,
+                type: PropertyType.String,
+                description: "Card id",
+                inheritable: false
         )
     }
 
@@ -1030,7 +1067,18 @@ tracks {
             description: "Feedback button tapped"
         )
     }
-    
+
+    //Feedback for virtual credit card
+    "/cards/hybrid/setup/options/feedback/credit"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["research_form"],
+                description: "Feedback button tapped"
+        )
+    }
+
     // Semaphore
     //-------------------
     "/cards/hybrid/setup/options/semaphore"(platform: "/", isAbstract: true) {}
@@ -1499,5 +1547,16 @@ tracks {
             ]
         )
     }
-
+    
+    
+    // NFC-INFORMATIVE-SCREEN
+    // ----------------------
+    
+    "/cards/nfc/enrollment/instructions"(platform: "/", type: TrackType.View) {
+        has_money (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "If user has money"
+        )
+    }
 }
