@@ -1893,6 +1893,7 @@ tracks {
     // Crowdsourcing driver
     "/notification/me_crowd_multiple_offers_available"(platform: "/") {}
     "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/") {}
+    "/notification/me_crowd_canceled_order_warning"(platform: "/") {}
 
     //Money
     "/notification/money_advance_congrats"(platform: "/") {}

@@ -2045,6 +2045,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/me_crowd_canceled_order_warning"(platform: "/mobile"){
+            news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
+            event_type = "sent"
+        }
+
         "/notification/messages_driver_logistics"(platform: "/mobile"){
             news_id = "messages-driver_logistics-321953606"
             event_type = "sent"
@@ -3197,6 +3202,10 @@ trackTests {
 
         "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile/android"){
             news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_canceled_order_warning"(platform: "/mobile/android"){
+            news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
 
@@ -6756,6 +6765,11 @@ trackTests {
 
         "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
             news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_canceled_order_warning"(platform: "/mobile"){
+            news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
 
