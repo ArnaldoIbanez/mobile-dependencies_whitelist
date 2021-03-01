@@ -234,4 +234,10 @@ tracks {
     "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/recents/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Withdraw Pix
+    "/money_out/transfers/home/modal_withdraw"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_withdraw/continue_button_with_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_withdraw/continue_button_with_legacy"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_withdraw/dismiss"(platform: "/", type: TrackType.Event) {}
 }
