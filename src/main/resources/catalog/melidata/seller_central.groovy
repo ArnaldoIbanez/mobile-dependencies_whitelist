@@ -166,13 +166,13 @@ tracks {
     //  LANDING PRODUCTS STRUCTURE
     // --------------------------------------------------------------------------------------------------------------
 
-    def productsLandingPaginStructure = objectSchemaDefinitions { 
+    def productsLandingPaginStructure = objectSchemaDefinitions {
         limit(required: true, type: PropertyType.Numeric, description: "This property describes limit of pagination")
         offset(required: true, type: PropertyType.Numeric, description: "This property describes offset of pagination")
         total(required: true, type: PropertyType.Numeric, description: "This property describes total result of pagination")
     }
 
-    def productsLandingSelectedFiltersStructure = objectSchemaDefinitions { 
+    def productsLandingSelectedFiltersStructure = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "This property describes id of attribute")
         value_id(required: true, type: PropertyType.String, description: "This property describes value id of attribute")
         value_name(required: true, type: PropertyType.String, description: "This property describes value name of attribute")
@@ -261,7 +261,7 @@ tracks {
         processing_data(required: true, type: PropertyType.Map(optinatorNewListingProcessingDataStructure), description: "Relevant processing data")
         variations(required: true, type: PropertyType.ArrayList(PropertyType.Map(optinatorVariationNewListingProcessingDataStructure)), description: "Processed item variations")
 
-        //Products landing 
+        //Products landing
         query(required: true, type: PropertyType.String, description: "This property describes value of search query")
         query_type(required: true, type: PropertyType.String, values: ["PRODUCT_NAME", "GTIN", "PRODUCT_ID"], description: "This property describes search type")
         result_type(required: true, type: PropertyType.String, values: ["SUGGESTED_PRODUCTS", "SUGGESTED_DOMAINS", "PRODUCT_ONE_SHOT"], description: "This property describes result type")
@@ -270,7 +270,7 @@ tracks {
         selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
         selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
         row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
-   
+
     }
 
     propertyGroups {
@@ -314,6 +314,22 @@ tracks {
 
     // Central of News
     "/seller_central/news"(platform: "/", type: TrackType.View) {}
+    "/seller_central/news/filter"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/news/tag"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, description: "The id of selected notice")
+    }
+    "/seller_central/news/expand"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, description: "The id of selected notice")
+    }
+    "/seller_central/news/primary"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, description: "The id of selected notice")
+    }
+    "/seller_central/news/secondary"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, description: "The id of selected notice")
+    }
+    "/seller_central/news/keep"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, description: "The id of selected notice")
+    }
 
     // Summary
     "/seller_central/summary"(platform: "/", type: TrackType.View) {}
@@ -405,8 +421,8 @@ tracks {
     }
     // End SLL SC
 
-   
-    
+
+
     "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
@@ -1024,7 +1040,7 @@ tracks {
         date_finished(required: false, type: PropertyType.String, description: "Finished date")
         date_executed(required: false, type: PropertyType.String, description: "Executed date")
     }
-    
+
     "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
         substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
@@ -1256,7 +1272,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/product_comparator/show"(platform: "/web", type: TrackType.View) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1407,7 +1423,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/optin_moderated/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/optin_moderated/product_comparator/show"(platform: "/web", type: TrackType.View) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1501,7 +1517,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/item_plus/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/item_plus/product_comparator/show"(platform: "/web", type: TrackType.View) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1541,7 +1557,7 @@ tracks {
     "/seller_central/catalog/optin/item_plus/item_plus_card/show"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         sellerCentralCatalogOptinGroup
     }
-    
+
     "/seller_central/catalog/optin/item_plus/item_plus_card/return"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         sellerCentralCatalogOptinGroup
     }
@@ -1798,19 +1814,19 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // PRODUCTS LANDING PATHS
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    
+
     "/seller_central/products_landing"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/products_landing/home"(platform: "/web", isAbstract: true) {}
     "/seller_central/products_landing/home/code_help"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/products_landing/home/show"(platform: "/web", type: TrackType.View) {}
-    
+
     "/seller_central/products_landing/search"(platform: "/web", isAbstract: true) {}
     "/seller_central/products_landing/search/code_help"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
         productsLandingDataGroup
     }
-  
+
     "/seller_central/products_landing/search/publish"(platform: "/web", type: TrackType.Event) {
         productsLandingDataGroup
         productsLandingRowGroup
