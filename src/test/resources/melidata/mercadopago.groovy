@@ -2587,6 +2587,15 @@ trackTests {
             mandatory()
         }
 
+        // Invoice delete success
+        "/bill_payments/invoices/delete/success"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Invoice menu
         "/bill_payments/menu"(platform: "/mobile") {
             mandatory()

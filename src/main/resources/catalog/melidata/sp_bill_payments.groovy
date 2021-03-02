@@ -57,6 +57,10 @@ tracks {
     "/bill_payments/invoices/delete/dialog"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/invoices/delete/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Invoice delete success
+    "/bill_payments/invoices/delete/success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
     // Invoice menu
     "/bill_payments/menu"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {}
