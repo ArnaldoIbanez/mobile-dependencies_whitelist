@@ -254,6 +254,24 @@ trackTests {
   test("Seller central Central of News view") {
     "/seller_central/news"(platform: "/web", type: TrackType.View) {}
   }
+  test("Seller central Central of News events") {
+    "/seller_central/news/filter"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/news/tag"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+    }
+    "/seller_central/news/expand"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+    }
+    "/seller_central/news/primary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+    }
+    "/seller_central/news/secondary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+    }
+    "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+    }
+  }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Summary
@@ -3368,7 +3386,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   // + Test for seller-central prodcut suggestion
-  
+
   test("seller-central catalog suggestion suggest view") {
     "/seller_central/catalog/suggestion/suggest"(platform: "/web", type: TrackType.View) {
       reputation_level = "5_green"
@@ -3381,7 +3399,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
       catalog_product_id = "MLA15149561"
     }
   }
-  
+
   test("seller-central catalog suggestion sent suggestion event") {
     "/seller_central/catalog/suggestion/suggest/sent_suggestion"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
@@ -3406,7 +3424,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
       category_domain = "MLA-CELLPHONES"
       catalog_product_id = "MLA15149561"
     }
-  }  
+  }
 
   test("seller-central catalog suggestion congrats view") {
     "/seller_central/catalog/suggestion/congrats"(platform: "/web", type: TrackType.View) {
@@ -4204,7 +4222,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
       number_of_files = 2
     }
   }
-  
+
   test("SYI ME1 Config - User exceed characters limit in comment when uploading files") {
     "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
   }
@@ -4250,11 +4268,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]
@@ -4344,11 +4364,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]
@@ -4384,11 +4406,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]
@@ -4424,11 +4448,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]
