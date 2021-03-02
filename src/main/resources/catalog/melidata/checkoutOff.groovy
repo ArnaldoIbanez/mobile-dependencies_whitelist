@@ -33,6 +33,7 @@ tracks {
         discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
+        items_quantity(required: true, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
     }
 
     // EVENTS
@@ -123,6 +124,7 @@ tracks {
         discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
+        items_quantity(required: false, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
     }
 
     // For this path, none is required
@@ -134,6 +136,7 @@ tracks {
         is_split(required: false, description: "True if the flow was split", type: PropertyType.Boolean)
         total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
+        items_quantity(required: false, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
     }
 
     //Final Views
