@@ -27,7 +27,7 @@ trackTests {
                                     values: [
                                         [
                                             installment: "test_installment",
-                                            fee: 3.5
+                                            fee: "3.5"
                                         ]
                                     ]
                                 ]
@@ -140,7 +140,7 @@ trackTests {
                                 values: [
                                     [
                                         installment: "test_installment",
-                                        fee: 3.5
+                                        fee: "3.5"
                                     ]
                                 ]
                             ]
@@ -172,7 +172,7 @@ trackTests {
                                 values: [
                                     [
                                         installment: "test_installment",
-                                        fee: 3.5
+                                        fee: "3.5"
                                     ]
                                 ]
                             ]

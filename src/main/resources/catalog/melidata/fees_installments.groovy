@@ -28,7 +28,7 @@ tracks {
         )
         fee(
             required: true,
-            type: PropertyType.Numeric,
+            type: PropertyType.String,
             description: "Indicates the value of the installment"
         )
         tooltip_id(
@@ -62,7 +62,6 @@ tracks {
         product_id_group(product_id)
         payment_method_id_group(payment_method_id)
         release_option_id_group(release_option_id)
-        reelase_option_value_group(installment, fee)
         error_group(status, message)
         error_group_release_options(product_id, status, message)
         release_option_value_group(installment, fee)
