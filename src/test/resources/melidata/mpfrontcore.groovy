@@ -45,11 +45,11 @@ trackTests {
 
     test("Mercadopago Home Shortcuts") {
         "/mp_home/sections/shortcuts"(platform: "/", type: TrackType.Event) {
-            shortcut_id = "money_send",
-            section_id = "shortcut",
-            bu_team = "mpfc",
-            action = "click",
-            destination = "www.test.com",
+            shortcut_id = "money_send"
+            section_id = "shortcut"
+            bu_team = "mpfc"
+            action = "click"
+            destination = "www.test.com"
         }
     }
 
