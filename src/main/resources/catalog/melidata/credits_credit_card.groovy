@@ -149,6 +149,25 @@ tracks {
                 type: PropertyType.Boolean,
                 required: true
         )
+        disable_option(
+            description: "The account cancellation type",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                "one_payment",
+                "monthly_payment"
+            ]
+        )
+        reasons(
+            description: "The chosen reasons list",
+            type: PropertyType.ArrayList,
+            required: true
+        )
+        other_reason(
+            description: "The user input reason",
+            type: PropertyType.String,
+            required: false
+        )
     }
 
     propertyGroups {
@@ -160,6 +179,8 @@ tracks {
         bucket_group(bucket)
         statement_status_group(statement_status)
         statement_period(month, year)
+        disable_group(account, disable_option)
+        disable_full_group(account, disable_option, reasons, other_reason)
     }
 
     /******************************************
@@ -170,6 +191,8 @@ tracks {
     "/credits/credit_card/payment"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/upgrade"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/statement"(platform: "/", isAbstract: true) {}
+    "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
+
 
     /******************************************
      *       Start: Credit Card Payment
@@ -375,5 +398,56 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Dashboard
+     *********************************************/
+
+     /***********************************************
+     *       Start: Credit Card Disable
+     ***********************************************/
+    // Disable
+
+    //Hub
+    "/credits/credit_card/disable/hub"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Summary
+    "/credits/credit_card/disable/summary"(platform: "/", type: TrackType.View) {
+        disable_group
+    }
+
+    //Separator
+    "/credits/credit_card/disable/separator"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Reason
+    "/credits/credit_card/disable/reasons"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Confirmation Modal
+    "/credits/credit_card/disable/modal"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Congrats
+    "/credits/credit_card/disable/congrats"(platform: "/", type: TrackType.View) {
+        disable_full_group
+    }
+
+    /*********************************************
+     *       End: Credit Card Disable
      *********************************************/
 }
