@@ -88,6 +88,6 @@ tracks {
         provider (required: true, type: PropertyType.String, description: "provider class name")
         from (required: false, type: PropertyType.String, description: "a descriptor that will allow to differentiate sources for the same dispatched deeplink")
         id (required: false, type: PropertyType.String, description: "a string to allow a unique identification of the links")
-        fetch_spent_time(required: true, type: PropertyType.String, description: "the time spent doing the request to obtain a deferred link from the provider")
+        spent_time(required: true, type: PropertyType.String, description: "the time spent doing the request to obtain a deferred link from the provider")
     }
 }
