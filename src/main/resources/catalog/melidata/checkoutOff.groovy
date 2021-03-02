@@ -136,7 +136,7 @@ tracks {
         is_split(required: false, description: "True if the flow was split", type: PropertyType.Boolean)
         total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
-        items_quantity(required: false, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
+        items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
     }
 
     //Final Views
