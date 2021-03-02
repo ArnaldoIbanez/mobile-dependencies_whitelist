@@ -4268,11 +4268,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]
@@ -4362,11 +4364,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]
@@ -4402,11 +4406,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]
@@ -4442,11 +4448,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
         selected_filters = [
             [
                 id: "LINE",
+                name: "Linea",
                 value_id: "249991",
                 value_name: "Galaxy S"
             ],
             [
                 id: "BRAND",
+                name: "Marca",
                 value_id: "206",
                 value_name: "Samsung"
             ]

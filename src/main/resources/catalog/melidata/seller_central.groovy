@@ -174,6 +174,7 @@ tracks {
 
     def productsLandingSelectedFiltersStructure = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "This property describes id of attribute")
+        name(required: true, type: PropertyType.String, description: "This property describes value name of attribute")
         value_id(required: true, type: PropertyType.String, description: "This property describes value id of attribute")
         value_name(required: true, type: PropertyType.String, description: "This property describes value name of attribute")
     }
