@@ -726,7 +726,7 @@ trackTests {
             }
 
             //Confirmation modal
-            "/credits/credit_card/disable/confirmation_modal"(platform: "/", type: TrackType.View) {
+            "/credits/credit_card/disable/modal"(platform: "/", type: TrackType.View) {
                 account = account_rating_a
             }
 

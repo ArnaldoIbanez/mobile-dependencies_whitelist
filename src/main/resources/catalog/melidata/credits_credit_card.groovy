@@ -435,7 +435,7 @@ tracks {
     }
 
     //Confirmation Modal
-    "/credits/credit_card/disable/confirmation_modal"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/disable/modal"(platform: "/", type: TrackType.View) {
         account(
                 type: PropertyType.Map(account_data),
                 required: true
