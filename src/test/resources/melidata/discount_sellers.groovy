@@ -397,7 +397,7 @@ trackTests {
             drawing_type = "list"
             segment_id = "your_campaigns"
             position = 0
-            data = [
+            segment_data = [
                 components= [
                     [
                         component_id = "100524",
@@ -427,7 +427,7 @@ trackTests {
             drawing_type = "list"
             segment_id = "template_campaigns"
             position = 1
-            data = [
+            segment_data = [
                 components= [
                     [
                         component_id = "100524"
@@ -451,7 +451,7 @@ trackTests {
             drawing_type = "modal"
             segment_id = "moderation"
             position = 0
-            data = [
+            segment_data = [
                 components  = [
                     [
                         data_id = "modify"

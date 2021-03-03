@@ -245,7 +245,7 @@ tracks {
     def campaign = objectSchemaDefinitions {
         component_id (type: PropertyType.String, description: "Id of campaign")
         status (type: PropertyType.String, values: ["ACTIVE","INACTIVE","PAUSED"], description: "status of campaign, example: ACTIVE")
-        total_charges (type: PropertyType.String, description: "pyments of campaign, example: 342")
+        total_charges (type: PropertyType.Numeric, description: "pyments of campaign, example: 342")
         budget_total (type: PropertyType.Numeric, description: "budget of campaign")
         budget_used (type: PropertyType.Numeric, description: "budget used of campaign")
     }
@@ -259,7 +259,7 @@ tracks {
         
     // Instore (ISDT) - Webview -  Home Sellers Home > segment 
     "/discount_sellers/v2/home/segment" (platform: "/", type: TrackType.Event) {
-        data (required: false, type: PropertyType.ArrayList, description: "infomation objects")
+        segment_data (required: false, type: PropertyType.ArrayList, description: "infomation objects")
         drawing_type (type: PropertyType.String, description:"shape of element on the screen")
         segment_id (type: PropertyType.String, description: "identifier of segment")
         position (type: PropertyType.Numeric, description: "positon of element on the secreen")
