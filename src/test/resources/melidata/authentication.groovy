@@ -412,7 +412,7 @@ trackTests {
         "/auth/totp-in-app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approve"
-            event_type = "query"
+            event_type = "polling"
         }
         "/auth/totp-in-app/validation/reject/action"(platform: "/", type: TrackType.Event) {
             id = "id"
