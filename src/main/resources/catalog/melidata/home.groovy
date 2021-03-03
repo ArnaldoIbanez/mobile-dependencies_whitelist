@@ -10,7 +10,7 @@ tracks {
 
     initiative = "1171"
 
-    def discoverys = objectSchemaDefinitions {
+    def realestatedata = objectSchemaDefinitions {
         audience(type: PropertyType.String, required: true, description: "audience for the content")
         bu(type: PropertyType.String, required: true, description: "business unit for the content")
         bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
@@ -22,7 +22,8 @@ tracks {
     }
 
     def realestate = objectSchemaDefinitions {
-        discovery(required: true, type: PropertyType.ArrayList(PropertyType.Map(discoverys)))
+        discovery(required: true, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
+        main_slider(required: true, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
     }
 
     "/home"(platform: "/mobile") {
