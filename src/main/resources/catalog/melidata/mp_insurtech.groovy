@@ -329,10 +329,12 @@ tracks {
 
     "/insurtech/hardware_check/checkups/first_touch"(platform:"/mobile", type: TrackType.Event) {
         time_elapsed(required: true, type: PropertyType.Numeric, description: "Time before first user touch")
+        view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
 
     "/insurtech/hardware_check/checkups/redirect"(platform:"/mobile", type: TrackType.Event) {
         deep_link(required: true, type: PropertyType.String, description: "Redirect flow to the next step")
+        view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
 
     "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
