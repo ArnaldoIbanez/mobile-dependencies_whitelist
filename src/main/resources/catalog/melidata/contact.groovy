@@ -32,9 +32,11 @@ tracks {
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
-    }
 
-    "/contact/congrats"(platform: "/web") {
+        //VIS FIELDS
+        has_good_price(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has tagged as good price according to price comparison")
+
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
 
         //classified's fields

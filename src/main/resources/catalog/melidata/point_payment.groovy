@@ -94,12 +94,28 @@ tracks {
     "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/pix"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/pix/create_key"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/pix/key_created"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/pix/key_creation_failed"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/pix/shield_continue"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        kyc_compliant(required: true, type: PropertyType.Boolean, description: 'User complaint status')
+    }
+    "/point_payment/new_payment/pix/shield_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/pix/show_tos"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
+
+    "/point_payment/link_share/button"(platform: "/mobile", type: TrackType.Event) {
+        flow_id (required: true, type: PropertyType.String, description: "Flow id.")
+        action (required: true, values: ["share_link", "copy_link", "copy_to_clipboard"], description: "Type of share button clicked")
+        label (required: false, values: ["whatsapp", "facebook", "twitter", "email", "instagram", "other"], description: "Type of share_link event")
+        pref_id (required: false, type: PropertyType.String, description: "Preference id")
+    }
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")

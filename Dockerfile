@@ -1,4 +1,4 @@
-FROM hub.furycloud.io/mercadolibre/java-gradle:jdk8
+FROM hub.furycloud.io/mercadolibre/java:1.8-mini
 
 # Default value in image is "build".
 # Override the following env variable to call another task for packaging your app
@@ -22,6 +22,9 @@ ENV CODECOV_TOKEN=""
 
 ADD ./commands/test_integration.sh /commands/test_integration.sh
 RUN chmod a+x /commands/test_integration.sh
+
+ADD ./commands/execute_after_test.sh /commands/execute_after_test.sh
+RUN chmod a+x /commands/execute_after_test.sh
 
 ADD ./commands/execute_before_package.sh /commands/execute_before_package.sh
 RUN chmod a+x /commands/execute_before_package.sh

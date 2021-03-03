@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
@@ -98,8 +99,12 @@ trackTests {
 
 
 
-  test("seller central listing onboarding view") {
+  test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central listing onboarding view desktop") {
+    "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
   }
 
   test("seller central listing onboarding actions") {
@@ -148,43 +153,13 @@ trackTests {
     }
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
       type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-      reputation_level="yellow"
+      id = "1"
+      action = "click"
     }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
+    "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
       type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
+      id = "1"
+      action = "click"
     }
   }
 
@@ -212,68 +187,174 @@ trackTests {
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {}
   }
 
+  test("Seller central banner go, hide, show") {
+    "/seller_central/listings/go"(platform: "/", type: TrackType.Event) {
+      placement = "publicidad_banner"
+    }
+    "/seller_central/listings/hide"(platform: "/", type: TrackType.Event) {
+      placement = "publicidad_banner"
+    }
+    "/seller_central/listings/show"(platform: "/", type: TrackType.View) {
+      placement = "publicidad_banner"
+    }
+  }
+
+  test("seller central advertising") {
+    "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
+      action = "show"
+      id = "PADS_SADS_RECO"
+      type = "task"
+    }
+  }
+
+  test("seller central advertising landing") {
+    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
+      sll_total = 12
+      campaign_id = "65555"
+    }
+  }
+
+  test("seller central advertising click") {
+    "/seller_central/listings/communication/advertising_click"(platform: "/", type: TrackType.Event) {
+      action = "show"
+      id = "PADS_SADS_RECO"
+      type = "task"
+    }
+  }
+
+  test("Advertising manager SLL") {
+    "/seller_central/listings/advertising_sll_landing/activated"(platform: "/", type: TrackType.View) {
+      campaign_id = "2222222"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/activated"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/breadcrum"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/tooltip"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+  }
+
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-  // TRACKS Seller central Bulk
+  // TRACKS Seller central Central of News
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-  test("seller central bulk view") {
-    "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
+  test("Seller central Central of News view") {
+    "/seller_central/news"(platform: "/web", type: TrackType.View) {}
   }
-
-  test("seller central bulk onboarding") {
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "close"
+  test("Seller central Central of News events") {
+    "/seller_central/news/filter"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/news/tag"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
     }
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "start"
-      viewId = "fulfillment"
+    "/seller_central/news/expand"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
     }
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "dismiss"
-      page = 2
+    "/seller_central/news/primary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
     }
-    "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
-      action = "rollback"
+    "/seller_central/news/secondary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
     }
-  }
-
-  test("seller central bulk view") {
-    "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
-      id = "technical_specification"
+    "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
     }
   }
 
-  test("seller central bulk filters and search") {
-    "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
-      filters = ["active", "inactive"]
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Summary
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Seller central summary view") {
+    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Seller central summary view_mobile") {
+    "/seller_central/summary"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("Seller central summary module") {
+    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
+      modules = [
+              [
+                module_id: "sellerStatus",
+                kind: "fallback"
+              ], [
+                module_id: "mercadoPago",
+                kind: "normal"
+              ]
+      ]
+      seller_experience = "ADVANCED"
     }
   }
 
-  test("seller central bulk filters and search") {
-    "/seller_central/bulk/undo_changes"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/bulk/search"(platform: "/", type: TrackType.Event) {}
-  }
-
-
-  test("seller central bulk columns") {
-    "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event) {
-      columns = ["price", "quantity"]
+  test("Seller central summary module_mobile") {
+    "/seller_central/summary/modules_render"(platform: "/mobile", type: TrackType.Event) {
+      modules = [
+              [
+                module_id: "publicityCard",
+                kind: "normal"
+              ], [
+                module_id: "coronaNoticeCard",
+                kind: "normal"
+              ]
+      ]
+      seller_experience = "NEWBIE"
     }
   }
 
-  test("seller central bulk changes price") {
-    "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
-      oldValue = "20"
-      newValue = "25"
-      item_id = "MLB341920"
+  test("Seller central summary pads show") {
+    "/seller_central/summary/show_advertising"(platform: "/web", type: TrackType.View) {
+      placement = "publicidad_banner"
+      adv_segmentation = "winback"
+      reputation_level="1_red"
+      seller_experience = "ADVANCED"
     }
   }
 
-  test("seller central bulk shipping tooltip") {
-    "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-      item_id = "MLB341920"
+  test("Seller central summary pads advertising click") {
+    "/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
+      placement = "publicidad_banner"
+      adv_segmentation = "winback"
+      reputation_level="1_red"
+      seller_experience = "ADVANCED"
     }
   }
+
+  test("Seller central summary notice click") {
+    "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
+      goal = "best_price"
+      seller_experience = "ADVANCED"
+    }
+  }
+
+  test("Seller central summary task click") {
+    "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
+      module_id = "listing"
+      task_id = "BEST_PRICE_ELIGIBLE"
+      seller_experience = "ADVANCED"
+    }
+   }
+
+  test("Seller central summary task click") {
+    "/seller_central/summary/task"(platform: "/mobile", type: TrackType.Event) {
+      module_id = "publicationsTasksCard"
+      task_id = "CATALOG_PRIORITY"
+      seller_experience = "ADVANCED"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Offline
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -305,47 +386,14 @@ trackTests {
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
   }
 
-
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-  // TRACKS Seller central Bulk Offline Cbt
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-  test("seller central offline bulk hub") {
-    "/seller_central/bulk/offline/cbt/hub"(platform: "/", type: TrackType.View) {}
-  }
-
-  test("seller central offline bulk download") {
-    "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
-  }
-
-  test("seller central offline bulk upload") {
-    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
-  }
-
-
-
-  test("seller central offline bulk download confirm") {
-    "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
-      categories = ["Mochilas", "Banquetas", "Bicicletas"]
-      filters = ["active", "status"]
-      items = 3
+  test("seller central offline confirm download with filters") {
+    "/seller_central/bulk/offline/download/confirm"(platform: "/", type: TrackType.Event) {
+      selected_columns = ["TITLE", "QUANTITY", "PRICE"]
+      type = "MARKETPLACE"
+      categories = ["MLA-CELLPHONES", "MLA-MICROWAVES"]
+      filters = "ACTIVE"
     }
   }
-
-  test("seller central offline bulk download congrats") {
-    "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
-    type = "success"
-    }
-  }
-
-  test("seller central offline bulk upload congrats") {
-    "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
-      type = "failed"
-    }
-  }
-
-
-
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk - DISCOUNTS version
@@ -425,78 +473,6 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-  // TRACKS Seller Central BULK Publish
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
-  test("seller central bulk publish hub view") {
-    "/seller_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
-  }
-
-  test("seller central bulk publish categories view") {
-    "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
-  }
-
-  test("seller central bulk publish upload view") {
-    "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
-  }
-
-  test("seller central bulk publish show email") {
-    "/seller_central/bulk/publish/upload/show_custom_mail_box"(platform: "/web", type: TrackType.Event) {
-      show_custom_mail_box = true
-    }
-  }
-
-  test("seller central bulk publish send custom email") {
-    "/seller_central/bulk/publish/upload/send_custom_mail_box"(platform: "/web", type: TrackType.Event) {
-      show_custom_mail_box = true
-      custom_mail = false
-      invalid_mail = false
-    }
-  }
-
-  test("seller central bulk publish download congrats view") {
-    "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
-  }
-
-  test("seller central bulk publish upload congrats view") {
-    "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
-  }
-
-  test("seller central bulk publish download categories event") {
-    "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
-      total = 10
-      last_published = 5
-      most_used = 1
-      search_list = 4
-      modal = 0
-    }
-  }
-
-  test("seller central bulk publish show adults modal") {
-    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", type: TrackType.View) {
-      adult = false
-    }
-  }
-
-  test("seller central bulk publish cancel adults modal") {
-    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
-      action = "cancel"
-      adult = false
-    }
-  }
-
-  test("seller central bulk publish confirm adults modal") {
-    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
-      action = "confirm"
-      adult = false
-    }
-  }
-
-  test("seller central bulk publish confirm adult task") {
-    "/seller_central/bulk/publish/categories/adult/confirm"(platform: "/web", type: TrackType.Event) {
-      adult = true
-    }
-  }
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central modify
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -546,6 +522,42 @@ trackTests {
     }
   }
 
+  test("seller central showing detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "show"
+    }
+  }
+
+  test("seller central confirm detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "confirm"
+    }
+  }
+
+  test("seller central cancel detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "cancel"
+    }
+  }
+
   test("seller central render detail quick_edit_standard for motors"){
     "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event){
       item_type = "default"
@@ -591,6 +603,25 @@ trackTests {
     }
   }
 
+  test("SYI V4 RE Modificar - seller central detail try technical_specifications intent"){
+    "/seller_central/modify/detail/technical_specifications/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "valid_intent"
+      field_intent_ids = ["TOTAL_AREA", "SURFACE_AREA", "BEDROOMS"]
+    }
+  }
+
   test("seller central render detail seller_contact for motors"){
     "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event){
       item_type = "default"
@@ -631,8 +662,25 @@ trackTests {
         [id: "BRAND", value_id: "206", value_name: "Samsung"]
       ]
       attributes_after_update = [
-        [id: "BRAND", value_id: "206", value_name: "Samsung"], 
+        [id: "BRAND", value_id: "206", value_name: "Samsung"],
         [id: "MODEL", value_id: "32902", value_name: "Galaxy"]
+      ]
+    }
+  }
+
+  test("seller central modify technical_specifications completed attributes without value_id and value_name"){
+    "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      domain_id = "MLM-CELLPHONES"
+      attributes_before_update = [
+        [id: "BRAND", value_id: null, value_name: "Samsung"]
+      ]
+      attributes_after_update = [
+        [id: "BRAND", value_id: null, value_name: null],
+        [id: "MODEL", value_id: "32902", value_name: "Galaxy"],
+        [id: "COLOR", value_id: "32902", value_name: "Galaxy", variation_id: 23437248239]
       ]
     }
   }
@@ -679,6 +727,58 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold"
       vertical = "motors"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central detail try location intent"){
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "valid_street_number"
+      intent_value= "Las Condes 4488, Santiago, Chile"
+    }
+
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "invalid_street_number"
+      intent_value= "Las Condes, Santiago, Chile"
+    }
+
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "drag"
     }
   }
 
@@ -862,6 +962,23 @@ trackTests {
     }
   }
 
+  test("seller central update salesChannel"){
+    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
+      item_type = "product"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      from = "true"
+      to = "false"
+      marketplace = true
+      mshops = false
+    }
+  }
+
   test("seller central price value updated"){
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
       item_type = "product"
@@ -919,6 +1036,42 @@ trackTests {
       to = "WARRANTY_TYPE 2230280"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+    }
+  }
+
+  test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_3x_campaign"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
+    }
+  }
+
+   test("seller central x3_capmaing value updated"){
+    "/seller_central/modify/update_ahora_12"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      competition_status = "LOSING_BY_UNTRUSTED_SELLER"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      catalog_product_id = "MLA123"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "false"
+      to = "true"
     }
   }
 
@@ -984,6 +1137,21 @@ trackTests {
 
   test("seller central item price push winner was updated"){
     "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
+      item_type = "product"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      from = "-1"
+      to = "6270"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
+  test("seller central rebate chosen"){
+    "/seller_central/modify/update_rebate"(platform: "/", type: TrackType.Event) {
       item_type = "product"
       category_id = "MLA390784"
       item_id = "MLA682118081"
@@ -1373,13 +1541,17 @@ trackTests {
   // TRACKS Seller central Sales
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  test("seller central sales list view") {
+  test("seller central sales list view for web") {
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
         seller_profile = "ADVANCED"
         seller_reputation = "5_green"
         seller_segment = "MEDIUM_SELLERS_III"
         mercado_lider = false
     }
+  }
+
+  test("seller central sales list view for mobile") {
+    "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales onboarding action") {
@@ -1451,6 +1623,35 @@ trackTests {
     "/seller_central/sales/list/modal_action/apply"(platform: "/web", type: TrackType.Event) {
       id = "action_modal_id"
       option = "option_id"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/header"(platform: "/web", type: TrackType.Event) {
+      collapsed = true
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/dismiss"(platform: "/web", type: TrackType.Event) {
+      batch_id = "128390"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/close"(platform: "/web", type: TrackType.Event) {
+      processing = true
+      batch_ids = ["128390", "128390"]
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/list/widget/action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
     }
   }
 
@@ -1548,6 +1749,18 @@ trackTests {
     "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
   }
 
+  test("seller central sales messages actions") {
+    "/seller_central/sales/list/row/messages_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "view_new_messages"
+    }
+  }
+
+  test("seller central sales claims actions") {
+    "/seller_central/sales/list/row/claims_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "answer_claim"
+    }
+  }
+
   test("seller central sales list primary action show") {
     "/seller_central/sales/list/action/primary/show"(platform: "/web", type: TrackType.Event) {
       id = "action_id"
@@ -1620,9 +1833,50 @@ trackTests {
     }
   }
 
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/header"(platform: "/web", type: TrackType.Event) {
+      collapsed = true
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/dismiss"(platform: "/web", type: TrackType.Event) {
+      batch_id = "128390"
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/close"(platform: "/web", type: TrackType.Event) {
+      processing = true
+      batch_ids = ["128390", "128390"]
+    }
+  }
+
+  test("seller central sales widget action") {
+    "/seller_central/sales/detail/widget/action"(platform: "/web", type: TrackType.Event) {
+      action = "dynamic_action"
+      type = "download"
+      date_created = "01/01/2021"
+      date_finished = "01/01/2021"
+      date_executed = "01/01/2021"
+    }
+  }
+
   test("seller central sales detail main action") {
     "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
       id = "PRODUCT_DELIVERED"
+    }
+  }
+
+  test("seller central sales detail messages action") {
+    "/seller_central/sales/detail/messages_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "view_new_messages"
+    }
+  }
+
+  test("seller central sales detail claim action") {
+    "/seller_central/sales/detail/claims_action"(platform: "/mobile", type: TrackType.Event) {
+      type = "answer_claim"
     }
   }
 
@@ -1677,6 +1931,178 @@ trackTests {
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("upload invoices view secondary actions") {
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {
+      id = "fiscal_document_go_back"
+    }
+  }
+
+  test("upload invoices view primary actions") {
+    "/seller_central/sales/fiscal_document/action/primary"(platform: "/web", type: TrackType.Event) {
+      id = "save_fiscal_document"
+    }
+  }
+
+  test("upload invoices view actions") {
+    "/seller_central/sales/fiscal_document/action"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("upload invoices view actions") {
+    "/seller_central/sales/fiscal_document"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("upload invoices view") {
+    "/seller_central/sales/fiscal-document"(platform: "/web", type: TrackType.View) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central METRICS SECTION
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("metrics section view for web") {
+    "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics section view for web mobile") {
+    "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics section view for mobile") {
+    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+      fragment_from_webview = "summary"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/clear_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/close_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/chart_render"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      metric = "GMV"
+      value = "2000"
+      badget_type = "up"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/date_picker_show"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      period_type = "primary"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/date_picker_apply"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      period_type = "primary"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1685,6 +2111,25 @@ trackTests {
     "/seller_central/catalog"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("seller central catalog optin variation selection page view") {
+    "/seller_central/catalog/optin/variation_selection"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+    }
+  }
 
   test("seller central catalog optin page view") {
     "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
@@ -1695,13 +2140,361 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin product comparator view") {
+    "/seller_central/catalog/optin/product_comparator/show"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
+
+  test("seller central catalog optin product comparator confirm") {
+    "/seller_central/catalog/optin/product_comparator/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin category confirm") {
+    "/seller_central/catalog/optin/category/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product problem show") {
+    "/seller_central/catalog/optin/product_problem/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem return") {
+    "/seller_central/catalog/optin/product_problem/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
+    "/seller_central/catalog/optin/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin invoice confirm") {
+    "/seller_central/catalog/optin/invoice/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "invoice"
+      to = "https://www.mercadolibre.com.ar"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product resume card showed"){
+    "/seller_central/catalog/optin/product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
+   test("seller central catalog optin product v0 resume card showed"){
+    "/seller_central/catalog/optin/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
     }
   }
 
@@ -1714,13 +2507,14 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -1733,13 +2527,901 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin_moderated page view") {
+    "/seller_central/catalog/optin/optin_moderated"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+    test("seller central catalog optin product comparator view") {
+    "/seller_central/catalog/optin/optin_moderated/product_comparator/show"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
+
+  test("seller central catalog optin product comparator confirm") {
+    "/seller_central/catalog/optin/optin_moderated/product_comparator/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin category confirm") {
+    "/seller_central/catalog/optin/optin_moderated/category/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product problem show") {
+    "/seller_central/catalog/optin/optin_moderated/product_problem/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem return") {
+    "/seller_central/catalog/optin/optin_moderated/product_problem/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/optin_moderated/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin invoice confirm") {
+    "/seller_central/catalog/optin/optin_moderated/invoice/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "invoice"
+      to = "https://www.mercadolibre.com.ar"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card return") {
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
+    "/seller_central/catalog/optin/optin_moderated/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin moderated product resume card showed"){
+    "/seller_central/catalog/optin/optin_moderated/product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
+  test("seller central catalog optin moderated product resume card showed"){
+    "/seller_central/catalog/optin/optin_moderated/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
+ test("seller central show leave suggesiton task "){
+    "/seller_central/catalog/optin/leave_suggestion/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+ test("seller central confirm leave suggestion task") {
+    "/seller_central/catalog/optin/leave_suggestion/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      value = "MLA123"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central show catalog decision task ") {
+    "/seller_central/catalog/optin/catalog_decision/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+   test("seller central confirm catalog decision task ") {
+    "/seller_central/catalog/optin/catalog_decision/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+      value = "option_a"
+    }
+  }
+
+test("seller central show leave suggestion task - optin moderated") {
+    "/seller_central/catalog/optin/optin_moderated/leave_suggestion/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+test("seller central confirm leave suggestion task - optin moderated") {
+    "/seller_central/catalog/optin/optin_moderated/leave_suggestion/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      value = "MLA123"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central show catalog decision task - optin moderated ") {
+    "/seller_central/catalog/optin/optin_moderated/catalog_decision/show"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central confirm catalog decision task - optin moderated") {
+    "/seller_central/catalog/optin/optin_moderated/catalog_decision/confirm"(platform: "/web", type: TrackType.View) {
+      reputation_level= "yellow"
+      moderated = "moderated"
+      has_variations = true
+      original_catalog_product_id = "MLA1055"
+      selected_catalog_product_id = "MLA1055"
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      has_variations_already_opt_in = true
+      opt_in_item_id = "MLA234567"
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = 1234567
+      rejected_products = ["MLA1055"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = "NONE"
+      value = "MLA123"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin_moderated congrats page view") {
+    "/seller_central/catalog/optin/optin_moderated/congrats"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      moderated = "moderated"
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin item_plus page view") {
+    "/seller_central/catalog/optin/item_plus"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      moderated = "moderated"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin product comparator view") {
+    "/seller_central/catalog/optin/item_plus/product_comparator/show"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
+
+  test("seller central catalog optin product comparator confirm") {
+    "/seller_central/catalog/optin/item_plus/product_comparator/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin category confirm") {
+    "/seller_central/catalog/optin/item_plus/category/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      task_id = "product_comparator"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product problem show") {
+    "/seller_central/catalog/optin/item_plus/product_problem/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem return") {
+    "/seller_central/catalog/optin/item_plus/product_problem/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/item_plus/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card show") {
+    "/seller_central/catalog/optin/item_plus/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin item plus card confirm") {
+    "/seller_central/catalog/optin/item_plus/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin invoice confirm") {
+    "/seller_central/catalog/optin/item_plus/invoice/confirm"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      categorization_flow_successful = true
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "invoice"
+      to = "https://www.mercadolibre.com.ar"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      moderated = "moderated"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      moderated = "moderated"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin item_plus congrats page view") {
+    "/seller_central/catalog/optin/item_plus/congrats"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      moderated = "moderated"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -1752,7 +3434,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1764,96 +3446,170 @@ trackTests {
     }
   }
 
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("seller central catalog optin Click on any primary action button") {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "button"
+      to = "https://www.mercadolibre.com.ar/publicaciones/MLA850809023/modificar/387581743-update-4339aff8b69c/product_detail"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin Click on any secondary action link") {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "link"
+      to = "https://www.mercadolibre.com.ar/publicaciones/listado?filters=BUYBOX_STATUS"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin other product problem page view") {
+    "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      moderated = "true"
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-39de2f6b6b49"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      list_mode = "OPTIN"
+    }
+  }
+
+  test("seller central catalog optin other product problem") {
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = true
+      rejected_products = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = false
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      product_problem_reason = "text"
+    }
+  }
+
+  // + Test for seller-central prodcut suggestion
+
+  test("seller-central catalog suggestion suggest view") {
+    "/seller_central/catalog/suggestion/suggest"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      seller_profile = "INTERMEDIATE"
+      category_domain = "MLA-CELLPHONES"
+      catalog_product_id = "MLA15149561"
+    }
+  }
+
+  test("seller-central catalog suggestion sent suggestion event") {
+    "/seller_central/catalog/suggestion/suggest/sent_suggestion"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      seller_profile = "INTERMEDIATE"
+      category_domain = "MLA-CELLPHONES"
+      catalog_product_id = "MLA15149561"
+    }
+  }
+
+  test("seller-central catalog sent invalid suggestion event") {
+    "/seller_central/catalog/suggestion/suggest/invalid_suggestion"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      seller_profile = "INTERMEDIATE"
+      category_domain = "MLA-CELLPHONES"
+      catalog_product_id = "MLA15149561"
+    }
+  }
+
+  test("seller-central catalog suggestion congrats view") {
+    "/seller_central/catalog/suggestion/congrats"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      seller_profile = "INTERMEDIATE"
+      category_domain = "MLA-CELLPHONES"
+      catalog_product_id = "MLA15149561"
+    }
+  }
+
+  // - Test for seller-central prodcut suggestion
+
+  // --------------------------------------------------------------------------------
   // TRACKS Seller central - Promotions
-  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------
 
   test("Seller Central Promotions - View event sending original promotion data"){
     "/seller_central/promotions"(platform: "/web", type: TrackType.View){
       original_promotion = [
-              id: "MLA808249210",
-              seller_id: 450981020,
-              buying_mode: "buy_it_now",
-              sale_terms: [
-                      [
-                              id: "LOYALTY_LEVEL_4",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_5",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_3",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_6",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ]
-              ],
-              campaigns: [],
-              best_offer: null,
-              price: 500,
-              original_price: 1000,
-              promotion: [
-                      status: "started",
-                      price: 500,
-                      start_date: "2019-09-18T03:00:00.000Z",
-                      finish_date: "2019-10-05T02:59:00.000Z",
-                      list_price: 1000,
-                      prime_price: 400
-              ],
-              visits: 27,
-              available_quantity: 97,
-              title: "Item De Testeo, Por Favor No Ofertar --kc:off",
-              sold_quantity: 3,
-              secure_thumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
-              currency: [
-                      id: "ARS",
-                      decimal_places: 2,
-                      symbol: "\$"
-              ],
-              tags: [
-                      "loyalty_discount_eligible",
-                      "test_item",
-                      "immediate_payment"
-              ],
-              validations: [],
-              campaign_offers: [
-                      [
-                              offer_mode: "LONG_TAIL",
-                              offer: null,
-                              campaign: [
-                                      name: "campanianueva",
-                                      identifier: "MLA626",
-                                      start_date: "2018-10-26T16:10:00.000Z",
-                                      finish_date: "2019-12-12T13:17:21.000Z",
-                                      dead_line: "2019-03-03T00:57:00.000Z",
-                                      type: "discounts",
-                                      status: "started",
-                                      is_active: false,
-                                      is_available: false,
-                                      applied_offer: false
-                              ]
-                      ]
-              ]
+              start_date: "2020-08-01T00:00:00",
+              finish_date: "2020-08-01T23:59:59.999999999",
+              seller_id: 472118157,
+              item_id: "MLA870917274",
+              price: 25500,
+              list_price: 30000,
+              prime_price: null,
+              status: "pending",
+              type: "price_discount",
+              initial_orders: null,
+              total_orders: 0,
+              last_updated: "2020-07-30T20:00:37.787Z",
+              created_date: "2020-07-30T20:00:37.787Z",
+              involved_stock: null,
+              discount_delta: null,
       ]
     }
 
@@ -1872,97 +3628,31 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
     }
 
     // TESTS FOR NEW PATHS
     "/seller_central/promotions/list"(platform: "/web", type: TrackType.View){
-      original_promotion = [
-              id: "MLA808249210",
-              seller_id: 450981020,
-              buying_mode: "buy_it_now",
-              sale_terms: [
-                      [
-                              id: "LOYALTY_LEVEL_4",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_5",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_3",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_6",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ]
-              ],
-              campaigns: [],
-              best_offer: null,
-              price: 500,
-              original_price: 1000,
-              promotion: [
-                      status: "started",
-                      price: 500,
-                      start_date: "2019-09-18T03:00:00.000Z",
-                      finish_date: "2019-10-05T02:59:00.000Z",
-                      list_price: 1000,
-                      prime_price: 400
-              ],
-              visits: 27,
-              available_quantity: 97,
-              title: "Item De Testeo, Por Favor No Ofertar --kc:off",
-              sold_quantity: 3,
-              secure_thumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
-              currency: [
-                      id: "ARS",
-                      decimal_places: 2,
-                      symbol: "\$"
-              ],
-              tags: [
-                      "loyalty_discount_eligible",
-                      "test_item",
-                      "immediate_payment"
-              ],
-              validations: [],
-              campaign_offers: [
-                      [
-                              offer_mode: "LONG_TAIL",
-                              offer: null,
-                              campaign: [
-                                      name: "campanianueva",
-                                      identifier: "MLA626",
-                                      start_date: "2018-10-26T16:10:00.000Z",
-                                      finish_date: "2019-12-12T13:17:21.000Z",
-                                      dead_line: "2019-03-03T00:57:00.000Z",
-                                      type: "discounts",
-                                      status: "started",
-                                      is_active: false,
-                                      is_available: false,
-                                      applied_offer: false
-                              ]
-                      ]
-              ]
+      original_promotion = []
+      original_lightning = []
+      original_dod = [
+              start_date: "2020-08-01T00:00:00",
+              finish_date: "2020-08-01T23:59:59.999999999",
+              seller_id: 472118157,
+              item_id: "MLA870917274",
+              price: 25500,
+              list_price: 30000,
+              prime_price: null,
+              status: "pending",
+              type: "deal_of_the_day",
+              initial_orders: null,
+              total_orders: 0,
+              last_updated: "2020-07-30T20:00:37.787Z",
+              created_date: "2020-07-30T20:00:37.787Z",
+              involved_stock: 20,
+              discount_delta: 0.05,
       ]
       context: "CREATE"
     }
@@ -1982,9 +3672,10 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event){
@@ -2002,9 +3693,31 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
+      origin = "listing"
+    }
+
+    "/seller_central/promotions/list/delete"(platform: "/web", type: TrackType.Event){
+      action = "DELETE"
+      promotion = [
+              site_time_offset: 0,
+              start_date: "2019-09-18T03:00:00.000Z",
+              finish_date: "2019-10-05T02:59:00.000Z",
+              state: "started",
+              is_highlight: false,
+              price: 500,
+              prime_price: 400,
+              list_price: 1000,
+              error_price: null,
+              error_prime: null,
+              input_price: "500",
+              input_prime_price: "400",
+              type: "price_discount",
+      ]
+      promotion_duration = 17
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event){
@@ -2022,10 +3735,11 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
       error = "net::ERR_ABORTED 404"
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event){
@@ -2042,6 +3756,45 @@ trackTests {
     "/seller_central/promotions/list"(platform: "/", type: TrackType.View) {}
   }
 
+  test("seller central listing promos render") {
+    "/seller_central/promotions/list/info"(platform: "/", type: TrackType.Event) {
+      candidates = ["CANDIDATE_DOD"]
+    }
+  }
+
+  test("seller central listing promos render with no candidates") {
+    "/seller_central/promotions/list/info"(platform: "/", type: TrackType.Event) {
+      candidates = []
+    }
+  }
+
+  test("seller central listing promos render with card filter") {
+    "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing promos card filter action") {
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+      type = "lightning"
+    }
+  }
+
+  test("seller central listing promos card filter action with slide") {
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+      type = "lightning"
+      slide = 2
+    }
+  }
+
+  test("seller central listing promos render with onboarding") {
+    "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing promos render with onboarding action") {
+    "/seller_central/promotions/onboarding/action"(platform: "/", type: TrackType.Event) {
+      action = "start"
+    }
+  }
+
   test("seller central listing action") {
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
@@ -2051,6 +3804,12 @@ trackTests {
   test("seller central listing action") {
     "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
+    }
+  }
+
+  test("seller central listing promos error action") {
+    "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
+      action_id = "CREATE"
     }
   }
 
@@ -2077,5 +3836,799 @@ trackTests {
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Questions
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Seller central render Questions") {
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("Seller central render Item Questions") {
+    "/seller_central/questions/item"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("Seller central response Questions") {
+    "/seller_central/questions/response"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central delete Questions") {
+    "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central denunciation Questions") {
+    "/seller_central/questions/denunciation"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central block buyer Questions") {
+    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central open modal advice Questions") {
+    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central open modal stock Questions") {
+    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_date_action = "2020-11-08T10:30:00"
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS SYI v4 - RealEstate - Modificar
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("SYI V4 RE Modificar - seller central render description card") {
+    "/seller_central/modify/detail/title_and_description/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm  description card") {
+    "/seller_central/modify/detail/title_and_description/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render detail technical_specifications card") {
+    "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm detail technical_specifications card") {
+    "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render seller_contact card") {
+    "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central-  render  change_category card") {
+    "/seller_central/modify/detail/change_category/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render detail instant_pay_listings card") {
+    "/seller_central/modify/detail/instant_pay_listings_info/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm instant_pay_listings_info card") {
+    "/seller_central/modify/detail/instant_pay_listings_info/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render listing_highlight_package_info card ") {
+    "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm listing_highlight_package_info card") {
+    "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm quick_edit_standard card ") {
+    "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event) {
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - try quick_edit_standard photos intent") {
+    "/seller_central/modify/detail/quick_edit_standard/intent"(platform: "/", type: TrackType.Event) {
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "pictures_upload"
+      pictures_info = [
+        [
+          "width": 100,
+          "height": 500,
+          "size": 2048,
+          "format": "image/jpeg",
+          "valid": true
+        ],
+        [
+          "width": 800,
+          "height": 600,
+          "size": 1024,
+          "format": "image/png",
+          "valid": false
+        ],
+        [
+          "width": 800,
+          "height": 600,
+          "valid": false
+        ],
+      ]
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render  video") {
+    "/seller_central/modify/detail/video/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm video") {
+    "/seller_central/modify/detail/video/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render location card") {
+    "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm  location card") {
+    "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render detail") {
+    "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm  seller_contact card") {
+    "/seller_central/modify/detail/seller_contact/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central- render instant_pay_listings card ") {
+    "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm instant_pay_listings card") {
+    "  /seller_central/modify/detail/instant_pay_listings/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Optinator New Listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Seller Central - Optinator - New Listing - Optined item") {
+    "/seller_central/optinator/new_listing/end"(platform: "/web", type: TrackType.Event) {
+      flow = "new_listing"
+      domain_id = "MLA-CELLPHONES"
+      item_mk_id = "MLA899085795"
+      item_mk_status = "active"
+      item_mk_sub_status = []
+      item_mk_tags = ["test_item", "immediate_payment", "cart_eligible"]
+      processing_data = [
+              item_cat_id: "MLA899086757",
+              catalog_product_id: "MLA15149561",
+              match_type: "SELLER",
+              safe_match: true,
+              is_eligible: false,
+              eligibility_status: "NOT_ELIGIBLE",
+              eligibility_reason: "cellphone_not_unlocked",
+              status: "success",
+              is_already_optined: false
+      ]
+      variations = [
+              [
+                      id: "67914990318",
+                      processing_data: [
+                              item_cat_id: "MLA896825803",
+                              catalog_product_id: "MLA10205674",
+                              match_type: "SELLER",
+                              safe_match: true,
+                              is_eligible: false,
+                              eligibility_status: "NOT_ELIGIBLE",
+                              eligibility_reason: "cellphone_not_unlocked",
+                              status: "success",
+                              is_already_optined: false
+                      ]
+              ]
+      ]
+    }
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central - SYI ME1 Config
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("SYI ME1 Config - Hub page view") {
+    "/seller_central/me1_transport_config/hub"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("SYI ME1 Config - Upload page view") {
+    "/seller_central/me1_transport_config/upload"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("SYI ME1 Config - Congrats page view") {
+    "/seller_central/me1_transport_config/congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("SYI ME1 Config - User uploads files") {
+    "/seller_central/me1_transport_config/upload/upload_files"(platform: "/web", type: TrackType.Event){
+      number_of_files = 2
+    }
+  }
+
+  test("SYI ME1 Config - User exceed characters limit in comment when uploading files") {
+    "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Products Landing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Products Landing - Home code help") {
+      "/seller_central/products_landing/home/code_help"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("Products Landing - Home show") {
+      "/seller_central/products_landing/home/show"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Products Landing - Results code help") {
+      "/seller_central/products_landing/search/code_help"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("Products Landing - Results show with PRODUCT_NAME SUGGESTED_PRODUCTS") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                name: "Linea",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                name: "Marca",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+      }
+  }
+
+  test("Products Landing - Results show with PRODUCT_NAME SUGGESTED_DOMAINS") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_DOMAINS"
+        results = [
+            "MLA-CELLPONES",
+            "MLA-TELEPHONES",
+        ]
+        paging = [
+            total: 2,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+      }
+  }
+
+
+  test("Products Landing - Results show GTIN") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "9912342124"
+        query_type = "GTIN"
+        result_type = "PRODUCT_ONE_SHOT"
+        results = [
+            "MLA10335295"
+        ]
+        paging = [
+            total: 1,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+      }
+  }
+
+  test("Products Landing - Results show with PRODUCT_ID") {
+      "/seller_central/products_landing/search/show"(platform: "/web", type: TrackType.View) {
+        query = "MLA10335295"
+        query_type = "PRODUCT_ID"
+        result_type = "PRODUCT_ONE_SHOT"
+        results = [
+            "MLA10335295"
+        ]
+        paging = [
+            total: 100,
+            limit: 1,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+      }
+  }
+
+  test("Products Landing - Publish poroduct row") {
+      "/seller_central/products_landing/search/publish"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                name: "Linea",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                name: "Marca",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+        row_index = 1
+        catalog_product_id = "MLA10335296"
+      }
+  }
+
+  test("Products Landing - Copied code poroduct row") {
+      "/seller_central/products_landing/search/copied_code"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                name: "Linea",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                name: "Marca",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+        row_index = 0
+        catalog_product_id = "MLA10335295"
+      }
+  }
+
+  test("Products Landing - Tech spec show poroduct row") {
+      "/seller_central/products_landing/search/tech_spec_show"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295",
+            "MLA10335296",
+            "MLA10335297",
+            "MLA10335298",
+            "MLA10663535",
+            "MLA10663536",
+            "MLA10663537",
+            "MLA10663538",
+            "MLA10663539",
+            "MLA10663540"
+        ]
+        paging = [
+            total: 100,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = [
+            [
+                id: "LINE",
+                name: "Linea",
+                value_id: "249991",
+                value_name: "Galaxy S"
+            ],
+            [
+                id: "BRAND",
+                name: "Marca",
+                value_id: "206",
+                value_name: "Samsung"
+            ]
+        ]
+        selected_filters_quantity = 2
+        row_index = 0
+        catalog_product_id = "MLA10335295"
+      }
+  }
+
+  test("Products Landing - Publish product resume") {
+      "/seller_central/products_landing/search/publish"(platform: "/web", type: TrackType.Event) {
+        query = "Samsung Galaxy s s10 negro prisma"
+        query_type = "PRODUCT_NAME"
+        result_type = "SUGGESTED_PRODUCTS"
+        results = [
+            "MLA10335295"
+        ]
+        paging = [
+            total: 1,
+            limit: 10,
+            offset: 0
+        ]
+        selected_filters = []
+        selected_filters_quantity = 0
+        row_index = null
+        catalog_product_id = "MLA10335295"
+      }
   }
 }

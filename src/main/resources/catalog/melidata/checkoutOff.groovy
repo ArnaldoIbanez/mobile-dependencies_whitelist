@@ -1,8 +1,9 @@
 package catalog.melidata
 
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
@@ -22,10 +23,17 @@ tracks {
         is_split(required: true, description: "True if the flow was split", type: PropertyType.Boolean)
         payment_quantity(required: true, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
         available_methods(required: false, description: "Available payment methods types, e.g: ['credit_card', 'account_money']", type: PropertyType.ArrayList(PropertyType.String))
-        payment_amount_local(required: true, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
+        total_amount(required: true, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
+        currency_id(required: true, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
         flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
-    } 
+        is_free_trial(required: false, description: "If the subscription is activated with a free trial, e.g: 'true|false'", type: PropertyType.Boolean)
+        subscription_partner(required: false, description: "If it´s a subscription set seller brand, e.g: 'HBO'", type: PropertyType.String)
+        loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
+        discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
+        discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
+        checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
+    }
 
     // EVENTS
     "/checkout_off/init"(platform: "/", type: TrackType.Event) {}
@@ -54,6 +62,18 @@ tracks {
 
     "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
 
+    // Paypal tracks
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login/no_display"(platform: "/", type: TrackType.View) {}
+
+    // OneClick track
+    "/checkout_off/payment/one_click_redirect"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_processing"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_return"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/review_express"(platform: "/", type: TrackType.View) {}
+
     // Split payments paths
     "/checkout_off/payment/card"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/card/split_first"(platform: "/", type: TrackType.View) {}
@@ -62,17 +82,19 @@ tracks {
     // Groups consumer credits data collection views
     "/checkout_off/payment/input_credits"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}    
+    "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
 
     // Tokenizer product final screen.
     "/checkout_off/payment/processing"(platform: "/", type: TrackType.View) {}
 
     // Groups billing info collection views.
     "/checkout_off/billing"(platform: "/", isAbstract: true) {}
-
     "/checkout_off/billing/input_info"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/shield_kyc"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/challenge_kyc"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/agencies"(platform: "/", type: TrackType.View) {}
 
@@ -90,18 +112,41 @@ tracks {
         available_methods(required: false, description: "Available payment methods types, e.g: ['credit_card', 'account_money']", type: PropertyType.ArrayList(PropertyType.String))
         payment_method_id(required: false, description: "Current selected payment method, e.g: 'visa'", type: PropertyType.String)
         payment_type_id(required: false, description: "Current selected payment type, e.g: 'credit_card'", type: PropertyType.String)
-        payment_amount_local(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
+        total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
+        currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
         payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
         flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
+        is_free_trial(required: false, description: "If the subscription is activated with a free trial, e.g: 'true|false'", type: PropertyType.Boolean)
+        subscription_partner(required: false, description: "If it´s a subscription set seller brand, e.g: 'HBO'", type: PropertyType.String)
+        loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
+        discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
+        discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
+        checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
+    }
+
+    // For this path, none is required
+    "/checkout_off/loading"(platform: "/", type: TrackType.View) {
+        checkout_flow_id(required: false, description: "Unique ID of the current flow, e.g: 'b24bcffe-4b26-46c9-8646-61891dbd978b'", type: PropertyType.String)
+        product_id(required: false, description: "Unique ID of the current flow, e.g: 'BC32A4JU643001OI3920'", type: PropertyType.String)
+        productive(required: false, description: "True if productive flow", type: PropertyType.Boolean)
+        payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
+        is_split(required: false, description: "True if the flow was split", type: PropertyType.Boolean)
+        total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
+        currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
     }
 
     //Final Views
     "/checkout_off/congrats"(platform: "/", type: TrackType.View) {
         payment_installments(required: false, description: "Installments selected")
-        payment_status_detail(required: true, description: "Reason for the payment status")
-        payment_status(required: true, description: "Reason for the payment status")
+        payment_status_detail(required: false, description: "Reason for the payment status")
+        payment_status(required: false, description: "Reason for the payment status")
         payment_id(required: false, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
+        total_amount_usd(required: true, serverSide:true, description: "payment amount in usd acording to currency conversion", type: PropertyType.Numeric)
+        congrats_status(required: true, description: "Reason for the congrats status")
+    }
+
+    "/checkout_off/congrats/no_display"(platform: "/", type: TrackType.View) {
     }
 
     "/checkout_off/congrats/call_for_auth"(platform: "/", isAbstract: true) {}
@@ -111,15 +156,34 @@ tracks {
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 
     //MP personalFrontend
-    "/tools"(platform: "/web", isAbstract: true){}
+    "/tools"(platform: "/", isAbstract: true) {}
 
-    "/tools/list"(platform: "/web", type: TrackType.View){}
-    "/tools/list/button_create"(platform: "/web"){}
+    "/tools/list"(platform: "/", type: TrackType.View) {}
+    "/tools/list/button_create"(platform: "/") {}
 
-    "/tools/create"(platform: "/web", type: TrackType.View){}
-    "/tools/confirm_create_edit"(platform: "/web"){}
+    "/tools/create"(platform: "/", type: TrackType.View) {}
+    "/tools/confirm_create_edit"(platform: "/") {}
 
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
+
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/one_click_redirect"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_processing"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_return"(platform: "/", type: TrackType.View) {}
+
+    // Shipping tracks
+    "/checkout_off/shipping"(platform: "/", isAbstract: true) {}
+    "/checkout_off/shipping/select_method"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_zip_code"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_user_type"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_option"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {}
+
     //END -- MP personalFrontend
 }
