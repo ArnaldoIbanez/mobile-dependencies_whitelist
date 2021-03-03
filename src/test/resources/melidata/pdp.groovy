@@ -736,4 +736,11 @@ trackTests {
             category_path = ["MLA1234", "MLA6789"]
         }
     }
+
+    test("Vertical Gallery Show") {
+        "/pdp/vertical_gallery/show"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+        }
+    }
 }
