@@ -3801,7 +3801,7 @@ trackTests {
         "/auth/totp-in-app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
         }
-        "/auth/totp-in-app/validation/reject"(platform: "/", type: TrackType.View) {
+        "/auth/totp-in-app/validation/rejected"(platform: "/", type: TrackType.View) {
             id = "id"
         }
         "/auth/totp-in-app/validation/max-attempts"(platform: "/", type: TrackType.View) {
@@ -3812,7 +3812,7 @@ trackTests {
             status = "approve"
             event_type = "polling"
         }
-        "/auth/totp-in-app/validation/reject/action"(platform: "/", type: TrackType.Event) {
+        "/auth/totp-in-app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "decline_challenge"
             event_type = "click"
