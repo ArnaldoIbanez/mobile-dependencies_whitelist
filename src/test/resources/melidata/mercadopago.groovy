@@ -3797,7 +3797,6 @@ trackTests {
         }
     }
 
-<<<<<<< HEAD
     test("TOTP-IN-APP flow") {
         "/auth/totp-in-app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
@@ -3883,8 +3882,6 @@ trackTests {
         }
     }
 
-=======
->>>>>>> upstream/master
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
             mode = "prefetch_only"
