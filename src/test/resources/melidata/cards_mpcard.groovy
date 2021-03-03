@@ -904,10 +904,45 @@ trackTests {
             from = "home"
         }
     }
+
+    // CARD REQUEST virtual init point
+    // --------
+    test("cards mpcard request virtual init point") {
+        "/cards/mpcard/request/virtual/init_point"(platform: "/", type: TrackType.View) {
+            from = "home"
+        }
+    }
+
+    // CARD REQUEST physical init point
+    // --------
+    test("cards mpcard request physical init point") {
+        "/cards/mpcard/request/physical/init_point"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
+        }
+    }
+
+    // CARD REQUEST virtual pj lock
+    // --------
+    test("cards mpcard request virtual pj lock") {
+        "/cards/mpcard/request/virtual/onboarding/lock"(platform: "/", type: TrackType.View) {
+            from = "unknown"
+        }
+    }
+
+     // CARD REQUEST physical pj lock
+    // --------
+    test("cards mpcard request physical pj lock") {
+        "/cards/mpcard/request/physical/onboarding/lock"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
+        }
+    }
+
     // CARD REQUEST virtual on boarding
     // --------
     test("cards mpcard virtual onboarding"){
-        "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {
+            context = "kyc"
+        }
     }
      test("cards mpcard virtual onboarding tap") {
         "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {

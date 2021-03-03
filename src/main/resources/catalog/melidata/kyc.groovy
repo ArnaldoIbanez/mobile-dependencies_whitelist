@@ -126,7 +126,7 @@ tracks {
 
     
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
-        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie"], type: PropertyType.String, description: "Challenge type")
+        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
         challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
     }
 
@@ -329,6 +329,10 @@ tracks {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
 
+    "/kyc/iv/vanilla"(platform: "/web", type: TrackType.View) {
+        vanilla_document_id(type: PropertyType.String, required: true, description: "Vanilla document id")
+    }
+
     "/kyc/iv/camera"(platform: "/web", isAbstract: true) {}
 
     "/kyc/iv/camera/open_camera"(platform: "/web", type: TrackType.Event) {
@@ -418,7 +422,11 @@ tracks {
     }
 
     // KYC File Upload
-    "/kyc/upload_file"(platform: "/", isAbstract: true) {}
+    "/kyc/upload_file"(platform: "/", isAbstract: true) {
+        id (required: false, type: PropertyType.String, description: "The challenge name")
+        initiative (required: false, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: false, type: PropertyType.String, description: "The kyc flow identifier")
+    }
 
     "/kyc/upload_file/open_files"(platform: "/", type: TrackType.Event) { }
 
@@ -428,7 +436,9 @@ tracks {
 
     "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) { }
 
-    "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) { }
+    "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) {
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+    }
 
     // KYC Landing Congrats
 

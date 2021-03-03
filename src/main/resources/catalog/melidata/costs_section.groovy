@@ -120,8 +120,14 @@ tracks {
     "/pricing_section/a12/save" (platform: "/", isAbstract: true) { }
     "/pricing_section/psj" (platform: "/", isAbstract: true) { }
     "/pricing_section/psj/save" (platform: "/", isAbstract: true) { }
+    "/pricing_section/coachmark" (platform: "/", isAbstract: true) { }
 
     // Tracks
+
+    // Coachmark
+    "/pricing_section/coachmark/start" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/coachmark/finish" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/coachmark/dismiss" (platform: "/", type: TrackType.Event) { }
 
     "/pricing_section/success" (platform: "/", type: TrackType.View) { }
     "/pricing_section/error" (platform: "/", type: TrackType.View) {

@@ -474,6 +474,27 @@ trackTests {
             driver_id = "123"
             case_type_id = "6"
         }
+        "/logistics/last_mile/places/disclaimer_handshake"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/last_mile/places/disclaimer_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+            packages_to_scan = ["123", "123"]
+        }
+        "/logistics/last_mile/places/modal_handshake"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/last_mile/places/modal_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
         "/logistics/end_route/authentication_qr"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"

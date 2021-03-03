@@ -384,6 +384,11 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/vanilla"(platform: "/web") {
+            vanilla_document_id = "passport"
+            transaction_user_id = 109479273
+        }
+
         "/kyc/iv/center/row"(platform: "/mobile") {
             status = "landing"
         }
@@ -895,6 +900,11 @@ trackTests {
         
         "/kyc/iv/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/vanilla"(platform: "/web") {
+            vanilla_document_id = "passport"
             transaction_user_id = 109479273
         }
 

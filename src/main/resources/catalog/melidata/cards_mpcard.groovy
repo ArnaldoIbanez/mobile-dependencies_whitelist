@@ -42,7 +42,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual"],
+            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual", "copy_shipping_code"],
             description: "Action tapped"
         )
     }
@@ -803,9 +803,33 @@ tracks {
     // --------
     "/cards/mpcard/request/init_point"(platform: "/", type: TrackType.View) {}
 
+    // CARD REQUEST physical init point
+    // --------
+    "/cards/mpcard/request/physical/init_point"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST virtual init point
+    // --------
+    "/cards/mpcard/request/virtual/init_point"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST PJ virtual lock
+    // --------
+    "/cards/mpcard/request/virtual/onboarding/lock"(platform: "/", type: TrackType.View) {}
+    
+    // CARD REQUEST PJ virtual lock
+    // --------
+    "/cards/mpcard/request/physical/onboarding/lock"(platform: "/", type: TrackType.View) {}
+    
     // CARD REQUEST virtual on boarding
     // --------
-    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["no_kyc", "kyc", "onboarding_shown"],
+            description: "type of onboarding",
+            inheritable:false
+        )
+    }
     "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,

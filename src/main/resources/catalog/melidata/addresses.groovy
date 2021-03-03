@@ -7,8 +7,8 @@ import com.ml.melidata.TrackType
 tracks {
 
     def coordinatesStructure = objectSchemaDefinitions {
-      latitude(required: true, type: PropertyType.Numeric)
-      longitude(required: true, type: PropertyType.Numeric)
+      latitude(required: true, type: PropertyType.String)
+      longitude(required: true, type: PropertyType.String)
     }
 
     // VIEWS
@@ -87,5 +87,15 @@ tracks {
     "/addresses/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
         suggested(required: true, type: PropertyType.Map(coordinatesStructure), description: "The suggested coordinates where we positioned the user on the map")
         final_coordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
+    }
+
+    "/addresses/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) {}
+
+    "/addresses/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) {}
+
+    "/addresses/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) {}
+
+    "/addresses/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
+        start_loading(required: true, type: PropertyType.String, description: "The datetime when the map started loading")
     }
 }

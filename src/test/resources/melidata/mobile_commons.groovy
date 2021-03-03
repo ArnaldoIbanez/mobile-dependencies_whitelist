@@ -8,6 +8,10 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    test("splash_activity") {
+        "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     test("Generic error") {
 
         "/friction"(platform: "/mobile", type: TrackType.Event) {
@@ -130,7 +134,7 @@ trackTests {
     // Update Unavailable
     "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
         cause = "Google not Recommended"
-    } 
+    }
     }
 
     test("Cross App Links") {
@@ -151,6 +155,11 @@ trackTests {
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
             provider = "ADJUST_PROVIDER"
+        }
+        "/cross_app_links/fetch_time"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            spent_time = "123"
         }
         "/cross_app_links/dispatch"(platform: "/mobile"){
             link = "meli://test"
@@ -183,15 +192,32 @@ trackTests {
             provider = "ADJUST_PROVIDER"
             from = "drawer"
         }
+        "/cross_app_links/fetch_time"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            from = "drawer"
+            spent_time = "123"
+        }
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
             provider = "KEYCHAIN"
             from = "drawer"
             id = "cross_link1"
         }
+        "/cross_app_links/fetch_time"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "KEYCHAIN"
+            from = "drawer"
+            id = "cross_link1"
+            spent_time = "123"
+        }
     }
 
     defaultBusiness = "mercadopago"
+
+    test("splash_activity") {
+        "/splash_activity"(platform: "/mobile", type: TrackType.View) {}
+    }
 
     test("Generic error") {
 
@@ -353,6 +379,11 @@ trackTests {
             link = "meli://test"
             provider = "ADJUST_PROVIDER"
         }
+        "/cross_app_links/fetch_time"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            spent_time = "123"
+        }
         "/cross_app_links/dispatch"(platform: "/mobile"){
             link = "meli://test"
             result = "LINK_SUCCESS"
@@ -384,11 +415,24 @@ trackTests {
             provider = "ADJUST_PROVIDER"
             from = "drawer"
         }
+        "/cross_app_links/fetch_time"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            from = "drawer"
+            spent_time = "123"
+        }
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
             provider = "KEYCHAIN"
             from = "drawer"
             id = "cross_link1"
+        }
+        "/cross_app_links/fetch_time"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "KEYCHAIN"
+            from = "drawer"
+            id = "cross_link1"
+            spent_time = "123"
         }
     }
 }

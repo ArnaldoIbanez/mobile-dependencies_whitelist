@@ -677,4 +677,12 @@ tracks {
     "/pdp/html_description/view_all_action"(platform: "/", parentPropertiesInherited: true) {
     }
 
+    "/pdp/vertical_gallery"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+    }
+
+    "/pdp/vertical_gallery/show"(platform: "/", parentPropertiesInherited: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+    }
+
 }

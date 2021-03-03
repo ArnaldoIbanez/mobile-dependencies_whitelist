@@ -210,4 +210,20 @@ tracks {
     "/discount_sellers/ftu/error" (platform: "/mobile", type: TrackType.Event) {
 	description(required: false, type: PropertyType.String, description: "Error description")
     }
+    
+    // Instore (ISDT) - Webview - Prefecture Home > Pageview
+    "/instore/prefecture"(platform: "/", type: TrackType.View) {}
+
+    // Instore (ISDT) - Webview - Prefecture Error > Pageview
+    "/instore/prefecture/error"(platform: "/", type: TrackType.View) {}
+
+    // Instore (ISDT) - Webview - Prefecture Home > Events
+    "/instore/prefecture/tap"(platform: "/", type: TrackType.Event) {
+        link (type: PropertyType.String, required: true, values: ["stores","faqs","close"], description: "Name of tap, example: stores")
+    }
+
+    // Instore (ISDT) - Webview - Prefecture Error > Events
+    "/instore/prefecture/error/tap"(platform: "/", type: TrackType.Event) {
+        link (type: PropertyType.String, required: true, values: ["go_home"], description: "Name of tap, example: go_home")
+    }
 }
