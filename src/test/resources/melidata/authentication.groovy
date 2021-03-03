@@ -432,9 +432,6 @@ trackTests {
             event = "confirm"
         }
     }
-=======
->>>>>>> upstream/master
-
 
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
