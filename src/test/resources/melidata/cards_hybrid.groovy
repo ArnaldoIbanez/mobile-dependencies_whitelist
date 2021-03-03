@@ -1098,6 +1098,30 @@ trackTests {
             product_type = "chip_hybrid"
             action = "disable_credit_card"
         }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_debit_contactless"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_credit_contactless"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_hybrid_contactless"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_debit_contactless"
+            action = "unfreeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_credit_contactless"
+            action = "unfreeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_hybrid_contactless"
+            action = "unfreeze"
+        }
     }
 
     //OPTIONS Message
