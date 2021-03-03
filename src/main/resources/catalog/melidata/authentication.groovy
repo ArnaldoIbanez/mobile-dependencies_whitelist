@@ -337,7 +337,7 @@ tracks {
 
     "/auth/totp-in-app/validation/max-attempts/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
-        target(type: PropertyType.String, required: true, values: ["go_home", "decline_challenge"] description: "Describes element related to user action")
+        target(type: PropertyType.String, required: true, values: ["go_home", "decline_challenge"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
