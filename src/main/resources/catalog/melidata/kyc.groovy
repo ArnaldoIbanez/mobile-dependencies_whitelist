@@ -126,7 +126,7 @@ tracks {
 
     
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
-        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie"], type: PropertyType.String, description: "Challenge type")
+        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
         challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
     }
 
@@ -327,6 +327,10 @@ tracks {
 
     "/kyc/iv/center/card"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
+    }
+
+    "/kyc/iv/vanilla"(platform: "/web", type: TrackType.View) {
+        vanilla_document_id(type: PropertyType.String, required: true, description: "Vanilla document id")
     }
 
     "/kyc/iv/camera"(platform: "/web", isAbstract: true) {}

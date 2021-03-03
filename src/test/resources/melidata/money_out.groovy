@@ -164,6 +164,11 @@ trackTests {
          advance = "yes"
       }
 
+      // Transfer Hub - Cap Modal 
+      "/money_out/transfers/amount/cap_limit_modal"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/amount/cap_limit_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/amount/cap_limit_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
       //Transfer Hub - Review And Confirm
       "/money_out/transfers/review_and_confirm"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/review_and_confirm/edit_amount_clicked"(platform: "/", type: TrackType.Event) {}
@@ -256,6 +261,13 @@ trackTests {
       "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/recents/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - Modal Withdraw Pix
+      "/money_out/transfers/home/modal_withdraw"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/modal_withdraw/continue_button_with_pix"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/modal_withdraw/continue_button_with_legacy"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/modal_withdraw/dismiss"(platform: "/", type: TrackType.Event) {}
+
 
     }
 }

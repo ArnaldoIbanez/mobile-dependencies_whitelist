@@ -433,6 +433,23 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
+    "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        start_loading(required: true, type: PropertyType.String, description: "The datetime when the map started loading")
+    }
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

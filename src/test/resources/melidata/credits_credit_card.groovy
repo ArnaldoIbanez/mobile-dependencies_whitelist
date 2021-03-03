@@ -56,6 +56,14 @@ trackTests {
             overdue_days: 15,
     ]
 
+    def reasons_data = ["A anuidade é muito alta", "O limite é muito baixo"]
+
+    def other_reason_data = "A anuidade é muito alta"
+
+    def disable_option_data_a = "one_payment"
+
+    def disable_option_data_b = "monthly_payment"
+
     test("Credits Credit Card - Payment tests") {
         /***********************************************
          *       Start: Credit Card Payment
@@ -66,12 +74,12 @@ trackTests {
             statement_status = "closed"
         }
 
-        "/credits/credit_card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/payment/hub/total_payment_action"(platform: "/", type: TrackType.Event) {
             amount = 100.5
         }
 
         //Payment plan
-        "/credits/credit_card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
+        "/credits/credit_card/payment/hub/payment_plan_selection"(platform: "/", type: TrackType.View) {
             account = account_rating_b
             statement_status = "open"
         }
@@ -97,14 +105,14 @@ trackTests {
             payment_plan = payment_plan_data
         }
 
-        "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
             account = account_rating_a
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
         }
 
-        "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
             account = account_rating_b
             statement_status = "closed"
             payment_option = "payment_plan"
@@ -692,9 +700,56 @@ trackTests {
             available_limit = 900
             total_limit = 1000
         }
-
+    }
         /*********************************************
          *       End: Credit Card Dashboard
          *********************************************/
-    }
+
+        test("Credits Credit Card - Disable tests") {
+            /***********************************************
+             *       Start: Credit Card Disable
+             ***********************************************/
+
+            //Separator
+            "/credits/credit_card/disable/separator"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Hub
+            "/credits/credit_card/disable/hub"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Reason Selection
+            "/credits/credit_card/disable/reasons"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Confirmation modal
+            "/credits/credit_card/disable/modal"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Summary
+            "/credits/credit_card/disable/summary"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+                disable_option = disable_option_data_a
+            }
+
+            "/credits/credit_card/disable/summary"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+                disable_option = disable_option_data_b
+            }
+
+            //Congrats
+            "/credits/credit_card/disable/congrats"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+                disable_option = disable_option_data_b
+                reasons = reasons_data
+                other_reason = other_reason_data
+            }
+            /***********************************************
+             *       End: Credit Card Disable
+             ***********************************************/
+        }
 }

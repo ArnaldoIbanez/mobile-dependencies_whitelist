@@ -1,3 +1,5 @@
+import com.ml.melidata.catalog.PropertyType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
 
@@ -1682,6 +1684,15 @@ trackTests {
         "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/pix"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/pix/create_key"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/pix/key_created"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/pix/key_creation_failed"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/pix/shield_continue"(platform: "/mobile", type: TrackType.Event) {
+            kyc_compliant = true
+        }
+        "/point_payment/new_payment/pix/shield_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/pix/show_tos"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
@@ -2484,6 +2495,11 @@ trackTests {
             label = "SADM"
         }
 
+        def receiptProperties = {
+            description = "description alternative scenario"
+            collector_id = "123456"
+        }
+
         // Home
          "/bill_payments/home"(platform: "/mobile") {
             mandatory()
@@ -2556,6 +2572,36 @@ trackTests {
         "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             product_id = "10"
+        }
+
+        // Invoice delete
+        "/bill_payments/invoices/delete"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/dialog"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Invoice menu
+        "/bill_payments/menu"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
         // Product picker
@@ -2705,6 +2751,29 @@ trackTests {
 
         "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+        }
+
+        "/bill_payments/receipt/show"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/receipt/retry"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/receipt/error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            receiptProperties()
+        }
+
+        "/bill_payments/receipt/error/download_share"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            receiptProperties()
+        }
+
+        "/bill_payments/receipt/error/render"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            receiptProperties()
         }
 
         // Entities and categories

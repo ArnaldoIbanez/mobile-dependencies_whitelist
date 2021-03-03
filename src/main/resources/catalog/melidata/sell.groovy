@@ -990,6 +990,9 @@ tracks {
     "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/license_plate/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
