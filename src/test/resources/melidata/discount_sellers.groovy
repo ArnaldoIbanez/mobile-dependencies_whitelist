@@ -489,9 +489,9 @@ trackTests {
             segment_id = "featured_campaign"
             position = 3
             platform = "web" 
-            component: [
-                component_id: "213219",
-                position: 1
+            component = [
+                component_id = "213219",
+                position = 1
             ]
         }
     }
