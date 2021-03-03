@@ -381,7 +381,6 @@ trackTests {
         }
     }
 
-<<<<<<< HEAD
     test("TOTP-IN-APP flow") {
         "/auth/totp-in-app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
