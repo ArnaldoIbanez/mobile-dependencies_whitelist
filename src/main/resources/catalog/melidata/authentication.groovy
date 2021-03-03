@@ -317,6 +317,8 @@ tracks {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
+    "/auth/totp-in-app/validation"(platform: "/", isAbstract: true,) {}
+
     "/auth/totp-in-app/validation/scan"(platform: "/", type: TrackType.View) {}
 
     "/auth/totp-in-app/validation/rejected"(platform: "/", type: TrackType.View) {}
