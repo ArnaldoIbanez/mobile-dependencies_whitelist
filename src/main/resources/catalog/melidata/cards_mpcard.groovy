@@ -17,6 +17,8 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
      }
     "/cards/mpcard"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/physical"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/nip"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/coachmark"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/request"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/request/virtual"(platform: "/", isAbstract: true) { }
@@ -24,8 +26,6 @@ tracks {
     "/cards/engagement"(platform: "/", isAbstract: true) { }
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/mpcard"(platform: "/", isAbstract: true) { }
-
-
 
     // SHIPPING
     // --------
@@ -42,7 +42,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual"],
+            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual", "copy_shipping_code"],
             description: "Action tapped"
         )
     }
@@ -177,6 +177,7 @@ tracks {
     // --------
      "/cards/mpcard/dashboard"(platform: "/", type: TrackType.View) {
          dashboard_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+         dashboard_banner_status (required: false, type: PropertyType.String, description: "Banner for card tracking status", inheritable: false)
          minicard_status (required:false, type: PropertyType.String, description: "Mini card status", inheritable:false)
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
@@ -208,7 +209,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["physical_delivered", "mpcard_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped"],
+            values: ["options","card_data","physical_delivered", "mpcard_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped"],
             description: "Mini card tapped"
           )
     }
@@ -221,6 +222,28 @@ tracks {
             type: PropertyType.String,
             values: ["more_than_one_virtual_active", "virtual_active", "virtual_inactive", "never_had_virtual_card"],
             description: "Flap tapped"
+          )
+    }
+
+    //Banner: Tracking
+    "/cards/mpcard/dashboard/banner"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active"],
+            description: "Banner tapped"
+          )
+    }
+
+    //Banner: Tracking
+    "/cards/mpcard/dashboard/physical_acquisition_stop"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/dashboard/physical_acquisition_stop/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["button"],
+            description: "Physical acquisition stop tapped"
           )
     }
     
@@ -361,8 +384,18 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message"],
-            description: "The action type tapped"
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal"],
+            description: "Virtual card buttons tapped"
+        )
+    }
+    //Highlighted row
+    "/cards/mpcard/setup/virtual/highlighted_row"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Highlighted Row button tapped"
         )
     }
 
@@ -423,6 +456,56 @@ tracks {
             description: "Static banner tapped"
           )
     }
+
+    // SETUP OPTIONS
+    // --------
+    //TODO View attributes
+    "/cards/mpcard/setup/options"(platform: "/", type: TrackType.View) {
+        virtual_status (
+            required: false,
+            type: PropertyType.String,
+            description: "Virtual card status"
+          )
+        debit_status (
+            required: false,
+            type: PropertyType.String,
+            description: "Debit_physical card status"
+          )
+        empty_state (
+            required: false,
+            type: PropertyType.String,
+            description: "User has no cards"
+          )
+    }
+    "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["freeze","unfreeze","physical_freeze","physical_unfreeze","change_limits","see_nip","block_card"],
+            description: "Cards options tapped"
+          )
+    }
+    "/cards/mpcard/setup/options/message"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/setup/options/message/lock"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["unlock","reissue"],
+            description: "Cards blocked Message tapped"
+          )
+    }
+    "/cards/mpcard/setup/options/physical"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/setup/options/physical/unlock"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success","error"],
+            description: "Physical card unlock status"
+          )
+    }
+    
+
     
     // REISSUE VIRTUAL
     // --------
@@ -503,6 +586,24 @@ tracks {
             description: "Feedback action tapped"
           )
     }
+
+    // Unlock FÍSICA
+    "/cards/mpcard/physical/unlock"(platform: "/", isAbstract: true) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false,
+        )
+    }
+    "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "unlock_card", "block_card"],
+            description: "Unlock Physical Button Tapped"
+          )
+    }
     
     // CHANGE-PIN
     // --------
@@ -529,6 +630,34 @@ tracks {
             values: ["header_help"],
             description: "Header action tapped"
           )
+    }
+
+    // NIP
+    // -------
+    "/cards/mpcard/nip/physical"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+    }
+    "/cards/mpcard/nip/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_help"],
+            description: "Help button tapped"
+        )
+    }
+    "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["blocked_pin"],
+            description: "It_was_not_me Link button message tapped"
+        )
     }
     
     //Number Selector
@@ -590,6 +719,15 @@ tracks {
 
     // Request: Challenge
     "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+
+    "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
+
     "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -605,8 +743,19 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "add_money", "info_payment"],
+            values: ["back", "add_money", "info_payment", "money_in"],
             description: "action tap by the user in the pending challenge view"
+        )
+    }
+
+    // Request: Expired Challenge
+    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+        action(
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "continue"],
+            description: "action tap by the user in the expired challenge view"
         )
     }
 
@@ -638,7 +787,13 @@ tracks {
         )
     }
     // Request: Success Physical
-    "/cards/mpcard/request/physical/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/mpcard/request/physical/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
     
     // CARD IDENTIFICATION
     // --------
@@ -648,9 +803,33 @@ tracks {
     // --------
     "/cards/mpcard/request/init_point"(platform: "/", type: TrackType.View) {}
 
+    // CARD REQUEST physical init point
+    // --------
+    "/cards/mpcard/request/physical/init_point"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST virtual init point
+    // --------
+    "/cards/mpcard/request/virtual/init_point"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST PJ virtual lock
+    // --------
+    "/cards/mpcard/request/virtual/onboarding/lock"(platform: "/", type: TrackType.View) {}
+    
+    // CARD REQUEST PJ virtual lock
+    // --------
+    "/cards/mpcard/request/physical/onboarding/lock"(platform: "/", type: TrackType.View) {}
+    
     // CARD REQUEST virtual on boarding
     // --------
-    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["no_kyc", "kyc", "onboarding_shown"],
+            description: "type of onboarding",
+            inheritable:false
+        )
+    }
     "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -684,7 +863,13 @@ tracks {
     } 
 
     // Request: Success Virtual
-    "/cards/mpcard/request/virtual/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/mpcard/request/virtual/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
 
     //COACHMARK
     // --------
@@ -705,6 +890,29 @@ tracks {
             type: PropertyType.String,
             description: "Coachmark identificator"
         )
+    }
+    
+    "/cards/mpcard/contingency"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/contingency/nip"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/contingency/nip/physical"(platform:"/mobile", type: TrackType.View) {}
+    "/cards/mpcard/contingency/nip/physical/tap"(platform:"/mobile", type: TrackType.Event) { 
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back_button"],
+            description: "Cards contingency nip tap"
+            )
+    }
+
+    "/cards/mpcard/tracking"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/tracking/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/tracking/feedback/tap" (platform:"/mobile", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Taps feedback in App"
+            )
     }
 
 }

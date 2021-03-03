@@ -140,11 +140,33 @@ metrics {
 
     "credits_consumer.personal_loan_conversion"(description: "Credits conversion under adoption personal loans flow") {
         startWith {
-            experiment("credits/credits_short_onboarding", "credits/credits_default_selected_loans")
+            experiment("credits/credits_short_onboarding", "credits/credits_default_selected_loans", "wallet/merch_cross_sell_sort_hide_strategies")
         }
         countsOn {
             condition {
                 path("/credits/consumer/personal/adoption/congrats")
+            }
+        }
+    }
+
+    "credits_consumer.personal_loan_access_order"(description: "Credits conversion under personal loans access order in admin flow", deprecation_date:"2020/12/31") {
+        startWith {
+            experiment("credits/credits_consumer_admin_pl_access_order")
+        }
+        countsOn {
+            condition {
+                path("/credits/consumer/personal/adoption/congrats")
+            }
+        }
+    }
+
+    "credits_selfservice.payment_promise_with_intermediate_step"(description: "New track to show the users the widget within all the payment promise information", deprecation_date:"2021/4/30") {
+        startWith {
+            experiment("credits/payment_promise_with_intermediate_step")
+        }
+        countsOn {
+            condition {
+                path("/credits/self_service/promises/congrats")
             }
         }
     }

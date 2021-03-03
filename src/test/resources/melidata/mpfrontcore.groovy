@@ -6,7 +6,7 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     /******************************************
-    *              MP FRONT CORE              *
+    *     Payments - All - Front End Core     *
     ******************************************/
 
     /**
@@ -15,6 +15,14 @@ trackTests {
 
     test("Mercadopago Home") {
         "/mp_home" (platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Home regret HUB") {
+        "/mp_home/regret" (platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago 404") {
+        "/not-found" (platform: "/", type: TrackType.View) {}
     }
 
     test("Mercadopago Home Merch Engine Events") {
@@ -35,6 +43,16 @@ trackTests {
         "/mp_home/sections/oneshotmodal/tap" (platform: "/", type: TrackType.Event) {}
     }
 
+    test("Mercadopago Home Shortcuts") {
+        "/mp_home/sections/shortcuts"(platform: "/", type: TrackType.Event) {
+            shortcut_id = "money_send"
+            section_id = "shortcut"
+            bu_team = "mpfc"
+            action = "click"
+            destination = "www.test.com"
+        }
+    }
+
     test("Mercadopago Profile") {
         "/profile" (platform: "/", type: TrackType.View) {}
     }
@@ -53,18 +71,6 @@ trackTests {
 
     test("Mercadopago Activities Detail Shipping") {
         "/activity/detail/shipping" (platform: "/web", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activities Balance") {
-        "/activities/balance" (platform: "/web", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activities PNF Adelantos") {
-        "/activities/balance/advances" (platform: "/web", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activities PNF Adelantos Congrats") {
-        "/activities/balance/advances/congrats" (platform: "/web", type: TrackType.View) {}
     }
 
     test("Mercadopago Activities Export") {
@@ -121,23 +127,9 @@ trackTests {
         "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Banking Balannce MP") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Banking Calendar MP") {
-        "/banking/calendar"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Banking PNF") {
-        "/banking/pnf"(platform: "/", type: TrackType.View) {}
-    }
-
-
     /**
      * Tracks Tests - Public Context
      */
-
     test("Digital Wallet") {
         "/digital_wallet"(platform: "/", type: TrackType.View) {}
         "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
@@ -146,6 +138,10 @@ trackTests {
         "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
             section_store = "hero_playstore"
         }
+    }
+
+    test("Mercadopago Landing Cuenta / Conta") {
+        "/landing/digital_account" (platform: "/") {}
     }
 
     test("Business Site") {
@@ -164,7 +160,7 @@ trackTests {
           section = "last"
         }
     }
-    
+
     test("Splinter MP Landings") {
       "/landing/marketing"(platform: "/", type: TrackType.View) {
         key = 'landing-de-prueba'

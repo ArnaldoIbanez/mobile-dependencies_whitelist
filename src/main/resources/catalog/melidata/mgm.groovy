@@ -15,9 +15,9 @@ tracks {
 
     initiative = '1176'
 
-    /**
-     * MGM Screen Tracks
-     */
+    /*************************
+     * MGM PAYER TRACKS v2  *
+     *************************/
 
     // General Path
     "/mgm"(platform: "/", isAbstract: true) {}
@@ -73,7 +73,10 @@ tracks {
     }
     "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
-    // MGM Seller Mobile
+    /*************************
+     * MGM SELLER TRACKS *
+     *************************/
+
     "/mgm_seller" (platform: "/mobile", isAbstract: true) {}
 
     // Views
@@ -87,5 +90,104 @@ tracks {
         link(required: false, type: PropertyType.String, description: "link to screen")
     }
     "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
+
+    /*************************
+     * MGM PAYER TRACKS v3  *
+     *************************/
+
+    propertyDefinitions {
+        program_id(required: true, type: PropertyType.String, description: "Indicates the id of the member get member program.")
+        is_recurrent(required: true, type: PropertyType.Boolean, description: "Indicates if the promoter invited more than one user.")
+        from(required: false, type: PropertyType.String, description: "Text to identify multiple sources to access the same program.")
+    }
+
+    propertyGroups {
+        mgmPromoterMinimumFields(
+            program_id, is_recurrent, from
+        )
+        mgmGuestMinimumFields(
+            program_id, from
+        )
+    }
+
+    def item_section_definition = objectSchemaDefinitions {
+        order(type: PropertyType.Numeric, required: true, description: "Indicates the order to display the section.")
+        section_id(type: PropertyType.String, required: true, description: "Indicates the id of the section.")
+    }
+
+    // General Path
+    "/mgm/v3"(platform: "/", isAbstract: true) {}
+
+    "/mgm/v3/promoter"(platform: "/mobile", type: TrackType.View) {
+        mgmPromoterMinimumFields
+        floating_banner_id(required: false, type: PropertyType.String, description: "Indicates the id of the floating banner.")
+        sections(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_section_definition)), description: "Indicates the sections of the view.")
+    }
+
+    "/mgm/v3/promoter/share"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/promoter/share/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmPromoterMinimumFields
+        action_id(required: true, type: PropertyType.String, description: "Indicates the id of the action (ex: whatsapp).")
+        shared_app_id(required: false, type: PropertyType.String, description: "Indicates in which channel did the user shared the coupon (ex: Slack).")
+    }
+
+    "/mgm/v3/promoter/share/terms"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/promoter/share/terms/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmPromoterMinimumFields
+    }
+
+    "/mgm/v3/promoter/banner"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/promoter/banner/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmPromoterMinimumFields
+        target_program(required: true, type: PropertyType.String, description: "Indicates the target of the program (ex: MGM Point).")
+    }
+
+    "/mgm/v3/promoter/floating_banner"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/promoter/floating_banner/dismiss"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmPromoterMinimumFields
+        banner_id(required: true, type: PropertyType.String, description: "Indicates the id of the banner.")
+    }
+
+    "/mgm/v3/guest"(platform: "/mobile", type: TrackType.View) {
+        mgmGuestMinimumFields
+        sections(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_section_definition)), description: "Indicates the sections of the view.")
+    }
+
+    "/mgm/v3/guest/cross_selling"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/guest/cross_selling/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmGuestMinimumFields
+        action_id(required: true, type: PropertyType.String, description: "Indicates the id of the action.")
+    }
+
+    "/mgm/v3/guest/main_action"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/guest/main_action/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmGuestMinimumFields
+        action_id(required: true, type: PropertyType.String, description: "Indicates the id of the action (ex: cellphone_recharge).")
+    }
+
+    "/mgm/v3/guest/floating_banner"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/guest/floating_banner/terms"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/guest/floating_banner/terms/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmGuestMinimumFields
+    }
+
+    "/mgm/v3/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        mgmGuestMinimumFields
+        reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_guest", "kyc_booster", "kyc_fraud", "discount_used", "scarcity_overcome", "wrong_site", "cap_reached"])
+    }
+
+    "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link to where the app was navigating to.")
+    }
 
 }

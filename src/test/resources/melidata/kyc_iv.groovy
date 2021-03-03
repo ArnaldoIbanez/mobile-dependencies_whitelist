@@ -165,6 +165,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/android") {}
     }
 
     test("KYC IV mobile ios") {
@@ -296,6 +297,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/ios") {}
     }
 
     test("KYC IV web") {
@@ -379,6 +381,11 @@ trackTests {
         }
         "/kyc/iv/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/vanilla"(platform: "/web") {
+            vanilla_document_id = "passport"
             transaction_user_id = 109479273
         }
 
@@ -506,6 +513,14 @@ trackTests {
         "/kyc/iv/error_page"(platform: "/web") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
+            handoff_type = "user_swap"
         }
     }
 
@@ -666,6 +681,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/android") {}
     }
 
     test("KYC IV mobile ios") {
@@ -797,6 +813,7 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/liveness"(platform: "/mobile/ios") {}
     }
 
     test("KYC web") {
@@ -883,6 +900,11 @@ trackTests {
         
         "/kyc/iv/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/vanilla"(platform: "/web") {
+            vanilla_document_id = "passport"
             transaction_user_id = 109479273
         }
 
@@ -998,6 +1020,14 @@ trackTests {
             custom_cam_offered = true
             transaction_user_id = 109479272
             reason = "thereason"
+        }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
+            handoff_type = "no_camera"
         }
     }
 }

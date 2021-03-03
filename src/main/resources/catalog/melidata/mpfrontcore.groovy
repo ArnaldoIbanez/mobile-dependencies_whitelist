@@ -10,7 +10,7 @@ tracks {
     initiative = "1130"
 
     /******************************************
-    *              MP FRONT CORE              *
+    *     Payments - All - Front End Core     *
     ******************************************/
 
     // Definitions
@@ -54,11 +54,19 @@ tracks {
     /******************************************
     *         Tracks - Loggued Context        *
     ******************************************/
-    
+
     // MP Home
     "/mp_home"(platform: "/", type: TrackType.View) {
         userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
     }
+
+    // MP Home regret
+    "/mp_home/regret"(platform: "/", type: TrackType.View) {
+        userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+    }
+
+    // MP Enigma
+    "/not-found"(platform: "/", type: TrackType.View) {}
 
     // MP Home - Merch Engine Events
     "/mp_home/sections"(platform: "/", , isAbstract: true) {}
@@ -83,6 +91,15 @@ tracks {
     "/mp_home/sections/oneshotmodal/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
 
+    //MP Home - Shortcuts
+    "/mp_home/sections/shortcuts"(platform:"/", type: TrackType.Event) {
+        shortcut_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        section_id (type: PropertyType.String, required: true, description: "ID from section")
+        bu_team (type: PropertyType.String, required: true, description: "The business unit team")
+        action (type: PropertyType.String, required: true, description: "The executed action")
+        destination (type: PropertyType.String, required: true, description: "Link to execute")
+    }
+
     // MP Profile
     "/profile"(platform: "/", type: TrackType.View) {}
 
@@ -98,9 +115,6 @@ tracks {
 
     // MP Activities - Balance/Advances
     "/activities"(platform: "/web", isAbstract: true) {}
-    "/activities/balance"(platform: "/web", type: TrackType.View) {}
-    "/activities/balance/advances"(platform: "/web", type: TrackType.View) {}
-    "/activities/balance/advances/congrats"(platform: "/web", type: TrackType.View) {}
 
     // MP Activities - Export
     "/activities/export"(platform: "/web", type: TrackType.View) {}
@@ -131,17 +145,6 @@ tracks {
 
     // MP Webview COVID - Custom Amount
     "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
-
-    // MP Banking
-    "/banking"(platform: "/", isAbstract: true) {}
-
-    // MP Banking - Balance
-    "/banking/balance"(platform: "/", type: TrackType.View) {}
-    "/banking/calendar"(platform: "/", type: TrackType.View) {}
-
-    // MP Banking - PNF
-    "/banking/pnf"(platform: "/", type: TrackType.View) {}
-
 
     /******************************************
     *         Tracks - Public Context         *
@@ -174,6 +177,9 @@ tracks {
     // MP Landing - Landing Home
     "/landing/home"(platform: "/web") {}
 
+    // MP Landing - Conta / Cuenta
+    "/landing/digital_account"(platform: "/") {}
+
     // MP Landing - Landing Sellers
     "/landing/sellers"(platform: "/") {}
 
@@ -203,9 +209,6 @@ tracks {
         initial_sale_value (type: PropertyType.String, required: false, description: "Initial sale value")
         final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
     }
-
-    // MP Landing - Landing Buyers
-    "/landing/buyers"(platform: "/web") {}
 
     // MP Landing - Landing Promotions
     "/landing/promotions"(platform: "/web") {}

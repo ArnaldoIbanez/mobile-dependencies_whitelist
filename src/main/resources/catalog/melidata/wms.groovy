@@ -199,10 +199,14 @@ tracks {
         putaway_id(required: false, type: PropertyType.Numeric, description: "Put away id")
         inventory_id(required: false, type: PropertyType.String, description: "inventory id")
     }
+
+    "/wms/sorter/scan_origin"(platform: "/mobile/android", type: TrackType.View) {}
+
     "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android", type: TrackType.Event) {
         receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
         volume_label(required: true, type: PropertyType.String, description: "Volume label to track")
     }
+
 
     /* Cycle count tracks */
     "/wms/cycle_count"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {

@@ -18,7 +18,7 @@ tracks {
     "/wallet/cards"(platform: "/mobile", isAbstract: true) {}
     
     "/wallet/cards/listing"(platform: "/mobile", type: TrackType.View) {
-        version (required:false, type: PropertyType.String, description: "Card listing version")
+        version (required:true, type: PropertyType.String, description: "Card listing version")
     }
 
     "/wallet/cards/listing/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
@@ -32,8 +32,8 @@ tracks {
     
     // Add card Events
     "/wallet/cards/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        id_banner (required:false, type: PropertyType.String, description: "Prepaid/Debit banner id")
-        other_cards (required:false, type: PropertyType.Boolean, description: "It's true when there are other bankings cards added")
+        id_banner (required:true, type: PropertyType.String, description: "Prepaid/Debit banner id")
+        other_cards (required:true, type: PropertyType.Boolean, description: "It's true when there are other bankings cards added")
     }
     "/wallet/cards/add_card/success"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
     "/wallet/cards/add_card/failed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
@@ -80,4 +80,40 @@ tracks {
 
     // Back button
     "/wallet/cards/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+
+    /**
+     * Wallet Connect tracks
+     */
+
+    "/wallet/connect" (platform: "/web", isAbstract: true) {}
+
+    "/wallet/connect/home" (platform: "/web", type: TrackType.View) {}
+
+    "/wallet/connect/return_tokenizer" (platform: "/web", type: TrackType.View) {}
+     
+    "/wallet/connect/error" (platform: "/web", isAbstract: true) {}
+
+    "/wallet/connect/error/reject_card" (platform: "/web", type: TrackType.View) {}
+    
+    "/wallet/connect/error/default" (platform: "/web", type: TrackType.View) {}
+
+    "/wallet/connect/close_tokenizer" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/open_tokenizer" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/deny_button" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/confirm_payment" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/empty_card" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/tokenizer_express" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/on_retry" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/skip_card_payment" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/on_change_card" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/confirm_success" (platform: "/web", type: TrackType.Event) {}
 }

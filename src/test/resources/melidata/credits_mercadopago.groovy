@@ -46,6 +46,11 @@ trackTests {
             product_types = ['fixed_term_loan']
             is_kyc_compliant = false
         }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            product_types = ['fixed_term_loan']
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
 
         //Kyc Onboarding
         "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
@@ -75,6 +80,12 @@ trackTests {
                     offer_type : 'online'
             ]
             product_types = ['fixed_term_loan']
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            product_types = ['fixed_term_loan']
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         //Hub
@@ -121,6 +132,11 @@ trackTests {
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
             is_kyc_compliant = true
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         //Simulator
@@ -229,7 +245,17 @@ trackTests {
 
         "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {}
 
+        "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
         "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/mobile", type: TrackType.Event) {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
     }
 
     test("Merchant Credits Enrollment") {
@@ -265,6 +291,23 @@ trackTests {
                 ]
             ]
         }
+        "/credits/merchant/enrollment"(platform: "/mobile/android") {
+            status = 'pending'
+            product_type = 'default'
+            is_capped_offer= true
+            is_kyc_compliance=true
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/enrollment"(platform: "/mobile/ios") {
+            status = 'pending'
+            product_type = 'default'
+            is_capped_offer= true
+            is_kyc_compliance=true
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
         "/credits/merchant/enrollment/without_proposal"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/confirmation"(platform: "/web/desktop") {
             amount = 200000
@@ -273,6 +316,22 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
             reason = 'loan_creation'
+        }
+        "/credits/merchant/enrollment/error"(platform: "mobile") {
+            reason = 'loan_creation'
+            from = "hub"
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+            from = "hub"
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'no_credit_lines_present'
         }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
             user_type = 'moral'
@@ -349,6 +408,23 @@ trackTests {
             has_prepaid = false
             through_kyc = true
         }
+
+        //Access
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'hero_card'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'simulator'
+        }
+
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
     }
 
     test("Merchant Credits Administrator") {
@@ -366,7 +442,7 @@ trackTests {
                 product_type: 'fixed_term',
                 segment: 'online',
                 category: 'regular',
-                offer_type: 'early_offer'
+                offer_type: 'early_offer',
             ]
         }
 
@@ -436,15 +512,28 @@ trackTests {
             status = 'on_time'
         }
 
-        "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
-            status = 'on_time'
+           promise = 'none'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+           status = 'on_time'
+           promise = 'none'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
+            promise = 'view_promise'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'overdue'
+            promise = 'view_debt_relief'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'overdue'
+            promise = 'create_debt_relief'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'empty'
+            promise = 'none'
         }
         "/credits/merchant/administrator"(platform: "/", {
             offers = [
@@ -453,8 +542,23 @@ trackTests {
             products = [
                 fixed_term_map()
             ]
+            promise = 'create_promise'
             show_cx_widget = true
         })
+        "/credits/merchant/administrator"(platform: "/") {
+            promise = 'none'
+            from = 'enrollment'
+            additional_info = 'credit_line_taken'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            promise = 'none'
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            promise = 'none'
+            accesses = 'open_market'
+        }
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 
@@ -462,7 +566,21 @@ trackTests {
             sales_percentage_map()
         }
 
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
+
+
+        "/credits/merchant/administrator/contextual_help_click"(platform: "/") {}
+
+        "/credits/merchant/administrator/error"(platform: "/mobile") {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
 
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
@@ -506,6 +624,11 @@ trackTests {
             ]
         }
 
+        "/credits/merchant/administrator/late_debt"(platform: "/mobile") {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
@@ -545,6 +668,40 @@ trackTests {
             sales_percentage_loan_on_time()
         }
 
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+
         "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/payment_history"(platform: "/web/desktop") {
@@ -580,6 +737,14 @@ trackTests {
             fixed_term()
         }
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            express_money()
+        }
+
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
             express_money()
         }
 
@@ -661,18 +826,32 @@ trackTests {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'none'
+            release_attemps_number = 4
         }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'delayed'
             user_status = 'overdue'
             offer = 'none'
+            release_attemps_number = 4
         }
           "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'express_money'
+              release_attemps_number = 4
         }
-        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
+            offer = 'none'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
+            offer = 'express_money'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            offer = 'none'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            offer = 'express_money'
+        }
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
             reason = 'bad_request'
@@ -686,25 +865,98 @@ trackTests {
     }
 
     test("Express money") {
-        "/credits/express_money/amount_input"(platform: "/web/desktop") {
+
+        "/credits/express_money/amount_input"(platform: "/web/desktop", type: TrackType.View) {
             show_onboarding = true
+        }
+
+        "/credits/express_money/amount_input"(platform: "/mobile/android", type: TrackType.View) {
+            show_onboarding = true
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
+        "/credits/express_money/amount_input"(platform: "/mobile/ios", type: TrackType.View) {
+            show_onboarding = false
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
+        "/credits/express_money/amount_input"(platform: "/web/desktop", type: TrackType.View) {
+            show_onboarding = true
+            default_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
         }
 
         "/credits/express_money/amount_input"(platform: "/mobile/android") {
             show_onboarding = true
+            default_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
-        "/credits/express_money/amount_input"(platform: "/web/desktop") {
+        "/credits/express_money/amount_input"(platform: "/mobile/ios") {
             show_onboarding = false
-        }
-
-        "/credits/express_money/amount_input"(platform: "/mobile/android") {
-            show_onboarding = false
+            default_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/amount_input"(platform: "/web/desktop") {}
 
         "/credits/express_money/amount_input"(platform: "/mobile/android") {}
+
+        "/credits/express_money/amount_input"(platform: "/mobile/ios") {}
+
+        "/credits/express_money/amount_input/simulation"(platform: "/web/desktop", type: TrackType.Event) {
+            requested_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+        }
+
+        "/credits/express_money/amount_input/simulation"(platform: "/mobile/android", type: TrackType.View) {
+            requested_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+        }
+
+        "/credits/express_money/amount_input/simulation"(platform: "/mobile/ios", type: TrackType.View) {
+            requested_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+        }
+
+        "/credits/express_money/amount_input/simulation"(platform: "/mobile/android", type: TrackType.Event) {
+            requested_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+        }
+
+        "/credits/express_money/amount_input/simulation"(platform: "/mobile/ios", type: TrackType.Event) {
+            requested_amount = 1000
+            max_amount = 1000
+            min_amount = 100
+            default_payment_term = "7"
+        }
+
+        "/credits/express_money/amount_input/term_option"(platform: "/web/desktop", type: TrackType.Event) {
+            selected_payment_term = "7"
+        }
 
         "/credits/express_money/summary"(platform: "/web/desktop") {
             requested_amount = 700
@@ -718,6 +970,24 @@ trackTests {
             min_amount = 500
         }
 
+        "/credits/express_money/summary"(platform: "/web/desktop", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+        }
+
+        "/credits/express_money/summary"(platform: "/mobile/android", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+        }
+
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
@@ -739,11 +1009,57 @@ trackTests {
             has_prepaid = false
         }
 
-        "/credits/express_money/congrats"(platform: "/mobile/android") {
+        "/credits/express_money/congrats"(platform: "/mobile/ios") {
             requested_amount = 700
             max_amount = 1000
             min_amount = 500
             has_prepaid = false
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = true
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/android", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = true
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = false
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = false
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            reason = "already_taken_credit_line"
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/error"(platform: "/web/desktop") {
@@ -784,37 +1100,47 @@ trackTests {
 
         "/credits/express_money/error"(platform: "/mobile/android") {
             reason = 'simulation'
+        }
+
+        "/credits/express_money/info"(platform: "/mobile/android") {
+            reason = 'no_credit_lines_present'
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 
     test("Credits Hub") {
-        "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
-
-        "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-            flow = "open_sea_mp"
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {
+            user_type = "mixed"
         }
 
-        "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {
+            user_type = "no_credit_line"
+        }
 
-        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
+            user_status = "fixed_term_loan_collect"
+        }
+
+        "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
             flow = "consumer"
         }
 
-        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
 
-        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+        "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
             flow = "merchant"
         }
-        
-        "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+
+        "/credits/mp-hub/stop/faqs_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
-        
-        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+
+        "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
             flow = "generic"
         }
 
@@ -830,49 +1156,94 @@ trackTests {
     }
 
     test("Merchant Open Market") {
-        "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+        "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "wrong_extension"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
-            bank = "caixa"
+        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
+        "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+            reason = "integration_error"
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+            reason = "generic"
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "finished_flow"
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "finished_session"
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "not_available"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
-            reason = "financial_files_uploaded"
+            reason = "financial_files"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
-            reason = "financial_scraping_done"
+            reason = "financial_scraping"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
-            bank = "caixa"
+        "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
+            reason = "finished_flow"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
     }
 
     test("Merchant Public Landing") {
@@ -962,11 +1333,14 @@ trackTests {
 
         "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
             prepaid = true
+            virtual_card = true
+            physical_card = false
         }
 
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
             page = 1
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
@@ -1084,12 +1458,17 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
         }
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
+            dashboard_status = 'overdue'
+            offer = ['payment_not_credited', 'create_promise']
+        }
 
         //Events
 
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
             installments_qty = 3
+            advance_installment = false
         }
         "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
@@ -1119,6 +1498,9 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
         }
+        "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
         "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {
             user_status = 'manually_paused'
         }
@@ -1126,6 +1508,12 @@ trackTests {
         "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
             summary_status = "on_time"
         }
+
+        "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
+
         /******************************************
             *       End: Consumers Admin Detail
         ******************************************/
@@ -1186,5 +1574,74 @@ trackTests {
         /******************************************
         *    End: Consumers Change Due Date FLow
         ******************************************/
+    }
+
+    test("Self service from MercadoPago") {
+        /******************************************
+        *    Start: Self Service
+        ******************************************/
+        "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+            is_partial_amount = true
+            bulk_amount = 7000
+            promise_amount = 5000
+            payment_method = "CASH"
+            promise_due_days = 4
+        }
+
+        "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+            bulk_amount = 7000
+            total_amount = 14000
+            min_amount = true
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+            bulk_amount = 7000
+            total_amount = 14000
+            installments_id = [ 1002, 1003, 1004]
+            user_type = "consumer"
+            debt_relief_amount = 6000
+        }
+
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "no_offer"
+        }
+
+        /******************************************
+        *    End: Self Service
+        ******************************************/
+    }
+
+    test("Credits Consumer from MercadoPago"){
+        "/credits/consumer/public_landing"(platform: "/") {
+            user_profile = 'no_offer'
+            sk = 'landing'
+        }
     }
 }

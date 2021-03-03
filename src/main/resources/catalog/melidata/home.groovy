@@ -10,6 +10,21 @@ tracks {
 
     initiative = "1171"
 
+    def discoverys = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: true, description: "audience for the content")
+        bu(type: PropertyType.String, required: true, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: true,  description: "realestate id")
+        content_id(type: PropertyType.String, required: true, description: "content id")
+        flow(type: PropertyType.String, required: true, description: "flow for the content")
+        logic(type: PropertyType.String, required: true, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        discovery(required: true, type: PropertyType.ArrayList(PropertyType.Map(discoverys)))
+    }
+
     "/home"(platform: "/mobile") {
         retry_after_error(required: false)
         component_count(required: false, type: PropertyType.Numeric)
@@ -44,8 +59,25 @@ tracks {
     "/home/back"(platform: "/mobile") {
     }
 
-    "/home/navigation_history"(platform: "/mobile"){
+    "/home/navigation_history"(platform: "/") {
+        privacy_config_state(required: false, type: PropertyType.Boolean)
+    }
 
+    "/home/navigation_history/admin"(platform: "/", type: TrackType.View) {}
+
+    "/home/navigation_history/privacy_config_on"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/privacy_config_off"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/remove_all"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/remove"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String)
+        product_id(required: false, type: PropertyType.String)
+        parent_product_id(required: false, type: PropertyType.String)
     }
 
     "/home/pulltorefresh"(platform: "/mobile", type: TrackType.Event) {
@@ -92,6 +124,7 @@ tracks {
     "/home/categories"(platform: "/", type: TrackType.View) {}
 
     "/home"(platform: "/", type: TrackType.View) {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
         from(required: false,  description: "Who is redirecting")
     }
 
@@ -209,7 +242,6 @@ tracks {
 
     "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
 
-
     "/home_com"(platform: "/", type: TrackType.View) {}
 
     "/home_com/site_click"(platform: "/", type: TrackType.Event) {
@@ -217,4 +249,13 @@ tracks {
     }
 
     "/home/category/real_estate/request_contract"(platform: "/", type: TrackType.View) {}
+
+    "/home/advertising"(platform: "/", type: TrackType.Event) {}
+
+    "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+
+    "/home/motors"(platform: "/web/mobile", type: TrackType.Event, isAbstract : true) {}
+
+    "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
+
 }
