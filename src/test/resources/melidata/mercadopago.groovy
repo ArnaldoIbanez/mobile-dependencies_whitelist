@@ -3271,6 +3271,33 @@ trackTests {
         }
     }
 
+    test("TOTP-IN-APP flow") {
+        "/auth/totp-in-app/validation/scan"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp-in-app/validation/reject"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp-in-app/validation/max-attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp-in-app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "approve"
+            event_type = "query"
+        }
+        "/auth/totp-in-app/validation/reject/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp-in-app/validation/max-attempts/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "go_home"
+            event_type = "click"
+        }
+    }
+
     test("Phone Enrollment flow") {
         "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
             redirect_url = 'www.mercadopago.com'
