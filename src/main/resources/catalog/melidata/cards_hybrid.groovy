@@ -1323,7 +1323,13 @@ tracks {
     }
     // PAYMENTS-NFC
     // -------------------
-    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {
+        from (
+            required: true,
+            type: PropertyType.String,
+            description: "Access location of NFCPayment call"
+        )
+    }
     "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
         result (
             required: true,
@@ -1615,6 +1621,26 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
             description: "If user has money"
+        )
+    }
+    
+    
+    // NFC-TOKENIZATION-USER-WAIT-TIME
+    // -------------------------------
+    
+    "/cards/nfc/enrollment/tokenization/waiting_time"(platform: "/", type: TrackType.Event) {
+        time_millis (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Waiting time in milliseconds"
+        ),
+        result (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                'enrollment_error',
+                'success'
+            ]
         )
     }
 }
