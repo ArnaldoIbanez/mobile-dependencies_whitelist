@@ -989,7 +989,6 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/device_info_error"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
-            session_id = "348536772342324"
             error_description = "illegal State Exception on get information()"
             view_time = 24578
         }
