@@ -374,7 +374,6 @@ tracks {
         reason(type: PropertyType.String, required: true, description: "Failure reason")
     }
 
-    
     // Device Authorization Authenticator
     "/authenticators"(platform: "/", isAbstract: true, ) {}
 
