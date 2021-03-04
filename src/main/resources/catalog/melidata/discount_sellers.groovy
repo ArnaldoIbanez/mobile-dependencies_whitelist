@@ -235,7 +235,6 @@ tracks {
     // Instore (ISDT) - Webview -  Home Sellers Error > Pageview
     "/discount_sellers/v2/error" (platform: "/",  type: TrackType.View) {
         session_id(type: PropertyType.String, description: "Session identifier")
-        platform (type: PropertyType.String, required: false, values: ["web"])
     }
     "/discount_sellers/v2/error/tap" (platform: "/", type: TrackType.Event) {
         link (type: PropertyType.String, required: false, description: "Name of button on the screen error")
