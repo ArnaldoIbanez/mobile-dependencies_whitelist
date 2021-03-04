@@ -424,6 +424,14 @@ tracks {
     "/logistics/last_mile/package/not_delivered_reason/save"(platform: "/mobile", type: TrackType.Event) {
         reason(required: true, type: PropertyType.String, description: "Specifies the current agency id")
     }
+    "/logistics/last_mile/handshake_missing_packages_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
+        missing_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of missing shipments id", inheritable: false)
+    }
+    "/logistics/last_mile/handshake_missing_packages_modal/understand"(platform: "/mobile", type: TrackType.Event) {}
 
     // First Mile
     "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {

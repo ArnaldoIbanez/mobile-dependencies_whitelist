@@ -650,6 +650,21 @@ trackTests {
             agency_id = 123
             reason = "broken"
         }
+        "/logistics/last_mile/handshake_missing_packages_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            missing_shipments = [123, 123]
+        }
+        "/logistics/last_mile/handshake_missing_packages_modal/understand"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
         "/logistics/end_route/authentication_qr"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
