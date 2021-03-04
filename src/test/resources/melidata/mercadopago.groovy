@@ -3824,64 +3824,6 @@ trackTests {
         }
     }
 
-    test("Phone Enrollment flow") {
-        "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
-            redirect_url = 'www.mercadopago.com'
-            flow_type = 'sms_enrollment'
-            flow_sub_type = 'ULTIMATUM'
-        }
-        "/auth/recovery/phone/save"(platform: "/web", type: TrackType.Event) {
-            redirect_url = "www.mercadopago.com"
-            selected_phone_source = "manual"
-            verified = false
-            flow_type = "sms_enrollment"
-            flow_sub_type = "LOGIN"
-            visual_validation_allowed = true
-        }
-        "/auth/recovery/phone/verified"(platform: "/web", type: TrackType.Event) {
-            redirect_url = "www.mercadopago.com"
-            selected_phone_source = "manual"
-            flow_type = "sms_enrollment"
-            flow_sub_type = "LOGIN_NOTIF"
-        }
-        "/auth/phone_confirmation"(platform: "/", type: TrackType.Event) {
-            event = "confirm"
-        }
-    }
-
-    test("Authenticators") {
-        "/auth/authentication_factors/sms"(platform: "/web", type: TrackType.Event) {
-            event = "method_selector"
-            flow_type = 'sms_enrollment'
-            reauthentication = true
-            risk_context = false
-            sms_option = true
-            call_option = true
-            push_option = false
-            option_selected = "sms"
-        }
-        "/auth/authentication_factors/primary_email"(platform: "/web", type: TrackType.Event) {
-            event = "start_validation"
-            flow_type = 'sms_enrollment'
-            reauthentication = false
-            risk_context = true
-            option_selected = "primary_email"
-            primary_email_option = true
-            domain = "gmail"
-        }
-        "/auth/authentication_factors/social_connect"(platform: "/web", type: TrackType.Event) {
-            event = "close_validation"
-            flow_type = 'sms_enrollment'
-            reauthentication = true
-            risk_context = true
-            option_selected = "microsoft_connect"
-            google_connect_option = true
-            domain = "gmail"
-            is_google_account_of_different_user = "false"
-            authenticator = "emailValidation"
-        }
-    }
-
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
             mode = "prefetch_only"
