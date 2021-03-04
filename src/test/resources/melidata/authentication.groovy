@@ -939,6 +939,103 @@ trackTests {
                 scenario = "never_auto_enrolled"
             }
 
+            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
+                from = "campaign"
+                enrollment_status = "enabled"
+                dismissible = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "activate_security_success"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "disabled"
+                os_status = "basic_screenlock"
+                dismissible = "disabled"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "disabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "never_auto_enrolled"
+            }
+
+            "/screenlock/security_blocker/ok"(platform: "/mobile/android", type: TrackType.Event) {
+                from = "login"
+                enrollment_status = "enabled"
+                dismissible = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
+            "/screenlock/security_blocker/ok"(platform: "/mobile/ios", type: TrackType.Event) {
+                from = "login"
+                enrollment_status = "enabled"
+                dismissible = "disabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
+            "/screenlock/security_blocker/configure"(platform: "/mobile/android", type: TrackType.Event) {
+                from = "login"
+                enrollment_status = "enabled"
+                dismissible = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
+            "/screenlock/security_blocker/dismiss"(platform: "/mobile/android", type: TrackType.Event) {
+                from = "campaign"
+                enrollment_status = "enabled"
+                dismissible = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
+            "/screenlock/security_blocker/dismiss"(platform: "/mobile/ios", type: TrackType.Event) {
+                from = "campaign"
+                enrollment_status = "enabled"
+                dismissible = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                scenario = "auto_enroll"
+            }
+
             "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
             }
 
@@ -1030,6 +1127,120 @@ trackTests {
         test("Reauth error retry") {
             "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {
                 retry_url_present = false
+            }
+        }
+
+        test("Save Session") {
+            "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "sharedPreferences"
+                keepnite_is_on = true
+                api_version = true
+            }
+
+            "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "localStorage"
+                keepnite_is_on = true
+                api_version = true
+            }
+
+            "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "sharedPreferences"
+                keepnite_is_on = false
+                api_version = false
+            }
+
+            "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "localStorage"
+                keepnite_is_on = false
+                api_version = false
+            }
+
+            "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "sharedPreferences"
+                keepnite_is_on = true
+                api_version = false
+            }
+
+            "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "localStorage"
+                keepnite_is_on = false
+                api_version = true
+            }
+        }
+
+        test("Get Session") {
+            "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "sharedPreferences"
+                keepnite_is_on = true
+                api_version = true
+            }
+
+            "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "localStorage"
+                keepnite_is_on = true
+                api_version = true
+            }
+
+            "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "sharedPreferences"
+                keepnite_is_on = false
+                api_version = false
+            }
+
+            "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "localStorage"
+                keepnite_is_on = false
+                api_version = false
+            }
+
+            "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "sharedPreferences"
+                keepnite_is_on = true
+                api_version = false
+            }
+
+            "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "localStorage"
+                keepnite_is_on = false
+                api_version = true
+            }
+        }
+
+        test("Remove Session") {
+            "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "both"
+                keepnite_is_on = true
+                api_version = true
+            }
+
+            "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "both"
+                keepnite_is_on = true
+                api_version = true
+            }
+
+            "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "both"
+                keepnite_is_on = false
+                api_version = false
+            }
+
+            "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "both"
+                keepnite_is_on = false
+                api_version = false
+            }
+
+            "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "both"
+                keepnite_is_on = true
+                api_version = false
+            }
+
+            "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+                strategy_used = "both"
+                keepnite_is_on = false
+                api_version = true
             }
         }
     }

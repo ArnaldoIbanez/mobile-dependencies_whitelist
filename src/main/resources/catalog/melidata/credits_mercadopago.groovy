@@ -87,6 +87,15 @@ tracks {
             required: false,
             inheritable: true
         )
+        accesses(
+                description: "Type of accesses shown to users",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'open_market'
+                ],
+                inheritable: false
+        )
     }
 
     propertyGroups {
@@ -172,6 +181,17 @@ tracks {
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open-market"(platform: "/", isAbstract: true) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was landing accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
     "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
@@ -233,6 +253,11 @@ tracks {
             required: false,
             inheritable: false
         )
+        accesses(
+            description: "List of accesses shown to the user",
+            type: PropertyType.ArrayList(accesses),
+            required: false
+        )
 
         // Included in products properties. Deprecate after new web admin, check native first
         status(
@@ -249,6 +274,10 @@ tracks {
     }
 
     "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
+    "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/", type: TrackType.Event) {
         products_with_status
     }
 
@@ -327,6 +356,9 @@ tracks {
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
+    "/credits/merchant/proactive_payment/form"(platform: "/", type: TrackType.View) {
+        products_group
+    }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
@@ -390,36 +422,37 @@ tracks {
     }
 
     "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-        flow(
+        user_status(
             type: PropertyType.String,
             required: true,
-            description: "Flow which the user is being redirected",
+            description: "User status at the moment it was redirected",
             values: [
-                'fixed_term_loan_collect', 
-                'sales_percentage_loan_collect', 
-                'express_money_collect', 
-                'personal_loan_collect', 
-                'consumer_loan_collect', 
-                'fixed_term_loan_prior_to_collect', 
-                'sales_percentage_loan_prior_to_collect', 
-                'express_money_prior_to_collect', 
-                'personal_loan_prior_to_collect', 
-                'consumer_loan_prior_to_collect', 
-                'fixed_term_loan_adoption', 
-                'sales_percentage_loan_adoption', 
-                'express_money_adoption', 
-                'personal_loan_adoption', 
-                'express_money_on_time', 
-                'fixed_term_loan_on_time', 
-                'sales_percentage_loan_on_time', 
-                'personal_loan_on_time', 
-                'consumer_loan_on_time', 
-                'sales_percentage_loan_finished', 
-                'fixed_term_loan_finished', 
-                'express_money_finished', 
-                'personal_loan_finished', 
-                'consumer_loan_finished', 
+                'fixed_term_loan_collect',
+                'sales_percentage_loan_collect',
+                'express_money_collect',
+                'personal_loan_collect',
+                'consumer_loan_collect',
+                'fixed_term_loan_prior_to_collect',
+                'sales_percentage_loan_prior_to_collect',
+                'express_money_prior_to_collect',
+                'personal_loan_prior_to_collect',
+                'consumer_loan_prior_to_collect',
+                'fixed_term_loan_adoption',
+                'sales_percentage_loan_adoption',
+                'express_money_adoption',
+                'personal_loan_adoption',
+                'express_money_on_time',
+                'fixed_term_loan_on_time',
+                'sales_percentage_loan_on_time',
+                'personal_loan_on_time',
+                'consumer_loan_on_time',
+                'sales_percentage_loan_finished',
+                'fixed_term_loan_finished',
+                'express_money_finished',
+                'personal_loan_finished',
+                'consumer_loan_finished',
                 'consumer_loan_adoption',
+                'unknown',
             ]
         )
     }
@@ -501,29 +534,11 @@ tracks {
 
     "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
-        bank(
-            type: PropertyType.String,
-            required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
-            values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
-            ]
-        )
-    }
-
-    "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
-
     "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was congrats accessed",
+            description: "From which sub-flow was congrats accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
@@ -562,7 +577,7 @@ tracks {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was stop page accessed",
+            description: "From which sub-flow was stop page accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
@@ -571,23 +586,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
-        bank(
-            type: PropertyType.String,
-            required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
-            values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
-            ]
-        )
-    }
-
-    "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Merchants Open Market
@@ -978,6 +977,33 @@ tracks {
     //Conditions
     "/credits/merchant/documents/simulation/conditions"(platform: "/", type: TrackType.View) {
         products_group
+    }
+
+    //Access
+    "/credits/merchant/enrollment/capped_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the capped form",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'hero_card',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
+    }
+
+    "/credits/merchant/enrollment/open_market_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the open market landing",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'simulator',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
     }
 
     /******************************************
@@ -1525,6 +1551,7 @@ tracks {
     }
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}

@@ -30,6 +30,7 @@ trackTests {
             loyalty_level = 1
             discount_type = "cosmetic"
             discount_percent = 10
+            checkout_open_mode = "v2_checkout_redirect"
         }
 
         def finishDefaultProperties = {
@@ -477,6 +478,7 @@ trackTests {
             loyalty_level = 1
             discount_type = "cosmetic"
             discount_percent = 10
+            checkout_open_mode = "v2_checkout_redirect"
         }
 
         def finishDefaultProperties = {

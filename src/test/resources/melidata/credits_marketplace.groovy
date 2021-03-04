@@ -228,6 +228,9 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
         }
+        "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
         "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {
             user_status = 'manually_paused'
         }

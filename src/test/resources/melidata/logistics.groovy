@@ -71,10 +71,13 @@ trackTests {
             vehicle_id = "123"
         }
 
+        "/logistics/login/license_plate_form"(platform: "/mobile", type: TrackType.View) {}
+
         //Login account disabled error
         "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
-            error_type = "generic"
+            driver_id = "123"
+            vehicle_id = "234"
         }
 
         //Login error generic
@@ -85,6 +88,7 @@ trackTests {
         //Login vehicle on route error
         "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "234"
             vehicle_id = "123"
         }
 
@@ -92,6 +96,7 @@ trackTests {
         "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             driver_id = "987"
+            vehicle_id = "786"
         }
 
         //Profile
@@ -157,6 +162,8 @@ trackTests {
     test("Testing Logistics Last Mile") {
         "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
             route_id = "123"
+            driver_id = "234"
+            vehicle_id = "345"
             defaultLocation()
         }
         "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
@@ -474,6 +481,27 @@ trackTests {
             driver_id = "123"
             case_type_id = "6"
         }
+        "/logistics/last_mile/places/disclaimer_handshake"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/last_mile/places/disclaimer_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+            packages_to_scan = ["123", "123"]
+        }
+        "/logistics/last_mile/places/modal_handshake"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/last_mile/places/modal_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
         "/logistics/end_route/authentication_qr"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
@@ -591,6 +619,14 @@ trackTests {
         }
         "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
             driver_id = 400
+        }
+        "/logistics/last_mile/poll"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
+        }
+        "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
+            route_id = "1234"
         }
     }
 

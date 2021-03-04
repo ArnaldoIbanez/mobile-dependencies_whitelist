@@ -408,6 +408,23 @@ trackTests {
             has_prepaid = false
             through_kyc = true
         }
+
+        //Access
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'hero_card'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'simulator'
+        }
+
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
     }
 
     test("Merchant Credits Administrator") {
@@ -538,10 +555,20 @@ trackTests {
             from = 'hub'
             additional_info = 'clicked_on_access_row'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            promise = 'none'
+            accesses = 'open_market'
+        }
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {
             sales_percentage_map()
         }
 
@@ -710,6 +737,14 @@ trackTests {
             fixed_term()
         }
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            express_money()
+        }
+
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
             express_money()
         }
 
@@ -1080,13 +1115,13 @@ trackTests {
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {
             user_type = "mixed"
         }
-        
+
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {
             user_type = "no_credit_line"
         }
 
         "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-            flow = "fixed_term_loan_collect"
+            user_status = "fixed_term_loan_collect"
         }
 
         "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
@@ -1121,75 +1156,94 @@ trackTests {
     }
 
     test("Merchant Open Market") {
-        "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+        "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "wrong_extension"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
-
-        "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
-            bank = "caixa"
+        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
+        "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
+
+        "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+        "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
 
         "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
             reason = "integration_error"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
             reason = "finished_flow"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
             reason = "finished_session"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
             reason = "not_available"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
+            flow="upsell_offer"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "finished_flow"
+            flow="upsell_offer"
         }
 
-        "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
-            bank = "caixa"
-        }
 
-        "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+        "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {
+            flow="upsell_offer"
+        }
     }
 
     test("Merchant Public Landing") {
@@ -1443,6 +1497,9 @@ trackTests {
         }
         "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {
             user_status = 'manually_paused'

@@ -58,12 +58,17 @@ trackTests {
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
         "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {}
-        "/portal/home"(platform: "/", type: TrackType.View) {}
+        "/portal/home"(platform: "/", type: TrackType.View) { portal_has_one_click = false }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
 
-        "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/search"(platform: "/", type: TrackType.View) {
+            portal_contents_result = []
+        }
         "/portal/validate_user"(platform: "/", type: TrackType.View) {}
-
+        "/portal/search/click"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1627
+            portal_content_id = 1
+        }
     }
 
     test("Support Widget") {
@@ -108,6 +113,9 @@ trackTests {
             portal_source_id = 123
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_contact_predicted_team = 'Cuentas Digitales'
+            portal_contact_prediction_score = 0.79
+            portal_contact_predicted_problem_id = 123
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
@@ -134,6 +142,10 @@ trackTests {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
             portal_prediction_id = 1234
+        }
+        "/portal/delay_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_delayed_pack_id = 12345678
         }
     }
 
@@ -188,6 +200,9 @@ trackTests {
             portal_source_id = 123
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_contact_predicted_team = 'Cuentas Digitales'
+            portal_contact_prediction_score = 0.79
+            portal_contact_predicted_problem_id = 123
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
@@ -203,6 +218,12 @@ trackTests {
             portal_content_id = 987
             portal_problem_id = 456
         }
+        "/support/widget/faq"(platform: "/", type: TrackType.View) {
+            portal_content_id = 123
+            portal_content_type = 'FOLDER_DYNAMIC'
+            portal_source_id = 999
+            portal_has_channels_configured = true
+        }
     }
 
     test("Support Cases") {
@@ -216,6 +237,26 @@ trackTests {
         "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
             case_id = 12345555
             type = "greetings"
+        }
+    }
+
+    test("Daisy") {
+        "/support/helpcard"(platform: "/", type: TrackType.View) {}
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [
+                [
+                    title: "Ayuda con tus compras",
+                    redirect_url: "https://myaccount.mercadolibre.com.ar/listings",
+                    directAccess: []
+                ]
+            ]
+        }
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [:]
         }
     }
 
@@ -271,9 +312,42 @@ trackTests {
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
         "/portal/folder_rules/click"(platform: "/", type: TrackType.Event) {}
-        "/portal/home"(platform: "/", type: TrackType.View) {}
+        "/portal/home"(platform: "/", type: TrackType.View) { portal_has_one_click = false }
+        "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_show_cancel_card = true
+            portal_prediction_id = 1234
+            portal_has_one_click = false
+        }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_show_cancel_card = false
+            portal_prediction_id = 1234
+            portal_has_one_click = false
+            portal_predicted_contents = [123, 456]
+        }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_show_delay_cards = true
+            portal_delayed_packs_ids = [123]
+            portal_prediction_id = 1234
+            portal_has_one_click = false
+        }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_show_delay_cards = false
+            portal_prediction_id = 1234
+            portal_has_one_click = false
+            portal_predicted_contents = [123, 456]
+        }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
-        "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/search"(platform: "/", type: TrackType.View) {
+            portal_contents_result = [1234, 4321, 6543]
+        }
+        "/portal/search/click"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_content_id = 637
+        }
         "/portal/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
@@ -286,6 +360,10 @@ trackTests {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
             portal_prediction_id = 1234
+        }
+        "/portal/delay_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_delayed_pack_id = 12345678
         }
     }
 
@@ -332,6 +410,7 @@ trackTests {
             portal_source_id = 123
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+            portal_predicted_features = [tpv: 1234]
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
             portal_form_id = 56
@@ -361,6 +440,26 @@ trackTests {
         "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
             case_id = 12345555
             type = "greetings"
+        }
+    }
+
+    test("Daisy") {
+        "/support/helpcard"(platform: "/", type: TrackType.View) {}
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [
+                [
+                    title: "Ayuda con tus compras",
+                    redirect_url: "https://myaccount.mercadolibre.com.ar/listings",
+                    directAccess: []
+                ]
+            ]
+        }
+        "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1628
+            helpcard_title = "Ayuda con tus compras"
+            helpcard_contents = [:]
         }
     }
 }

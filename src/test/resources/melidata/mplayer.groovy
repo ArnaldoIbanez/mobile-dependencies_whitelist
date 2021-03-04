@@ -29,6 +29,19 @@ trackTests {
             has_reason = true
         }
 
+        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {}
+
+        "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile") {
+            isAmbiguous = true
+        }
+
+        "/mplayer/send_money/manual_amount/modal"(platform: "/mobile") {}
+
+        "/mplayer/send_money/manual_amount/modal/exit"(platform: "/mobile") {
+            button = "close_button"
+        }
+
+
         "/mplayer/send_money/friend_invite/invite_pressed"(platform: "/mobile") {
             source = "phone"
             destination = "whatsapp"
@@ -103,6 +116,8 @@ trackTests {
             has_reason = true
         }
 
+        "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile") {}
+
         "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
 
@@ -147,6 +162,8 @@ trackTests {
             transaction_amount = 100
             has_reason = true
         }
+
+        "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile") {}
 
         "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}

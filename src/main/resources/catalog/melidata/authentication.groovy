@@ -49,6 +49,24 @@ tracks {
 
     "/login/auth"(platform: "/", isAbstract: true){}
 
+    "/login/save_login_session"(platform: "/mobile", type: TrackType.Event) {
+        strategy_used(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is saved")
+        keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
+        api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
+    }
+
+    "/login/get_session"(platform: "/mobile", type: TrackType.Event) {
+        strategy_used(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage"], description: "Name of the strategy with which the data is retrieved")
+        keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
+        api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
+    }
+
+    "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
+        strategy_used(type: PropertyType.String, required: true, values: ["sharedPreferences", "localStorage", "both"], description: "Name of the strategy with which the data is deleted")
+        keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
+        api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
+    }
+
     "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
 
     "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}
@@ -514,8 +532,18 @@ tracks {
     // Security Blocker
     "/screenlock/security_blocker"(platform: "/mobile", type: TrackType.View) {
         from(type: PropertyType.String, required: false, values: ["login", "registration", "sso", "campaign"])
+        dismissible(required: false, type: PropertyType.String, values: ["enabled", "disabled"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         scenario(type: PropertyType.String, required: true, values: ["no_security", "activate_security_success", "help", "test", "auto_enroll", "awareness", "insistence", "reminder1", "reminder2", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
+    }
+
+    "/screenlock/security_blocker/ok"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/screenlock/security_blocker/configure"(platform: "/mobile/android", type: TrackType.Event) {
+    }
+
+    "/screenlock/security_blocker/dismiss"(platform: "/mobile", type: TrackType.Event) {
     }
 
     "/screenlock/multiple_sessions_shield"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {

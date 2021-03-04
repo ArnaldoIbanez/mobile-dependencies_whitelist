@@ -16,8 +16,8 @@ tracks {
     initiative = "1104"
 
     def coordinatesStructure = objectSchemaDefinitions {
-      latitude(required: true, type: PropertyType.Numeric)
-      longitude(required: true, type: PropertyType.Numeric)
+      latitude(required: true, type: PropertyType.String)
+      longitude(required: true, type: PropertyType.String)
     }
 
     "/cart"(platform: "/", isAbstract: true) {}
@@ -431,6 +431,23 @@ tracks {
         suggested(required: true, type: PropertyType.Map(coordinatesStructure), description: "The suggested coordinates where we positioned the user on the map")
         final_coordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        start_loading(required: true, type: PropertyType.String, description: "The datetime when the map started loading")
     }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

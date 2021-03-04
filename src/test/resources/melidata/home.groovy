@@ -15,6 +15,7 @@ trackTests {
 
      test("Home Navigation") {
         "/home/navigation"(platform: "/", type: TrackType.View) {}
+        "/home/navigation_history/admin"(platform: "/", type: TrackType.View) {}
     }
 
     test("Home Portal Inmobiliario") {
@@ -240,6 +241,50 @@ trackTests {
         "/home"(platform: "/web", dataSet)
     }
 
+    test("Home Main Slider Mobile") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+            realestates = {
+                main_slider = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = 2
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/mobile", dataSet)
+    }
+
+    test("Home Main Slider Web") {
+        def dataSet = {
+            realestates = {
+                main_slider = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = '2'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
@@ -263,5 +308,10 @@ trackTests {
     test("Home Advertising banners") {
         "/home/advertising"(platform: "/", type: TrackType.Event) {}
         "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Home Motors Sell Action") {
+        "/home/motors"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
     }
 }

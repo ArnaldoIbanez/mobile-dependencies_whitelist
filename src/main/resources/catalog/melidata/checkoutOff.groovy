@@ -32,6 +32,7 @@ tracks {
         loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
         discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
+        checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
     }
 
     // EVENTS
@@ -121,6 +122,7 @@ tracks {
         loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
         discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
+        checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
     }
 
     // For this path, none is required

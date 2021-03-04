@@ -23,6 +23,7 @@ trackTests {
             provider_id = "antenna_mla_directv_prepago"
             flavor = "sube_nfc"
             last_recharge = "1459"
+            parent_key = "cellphone_mlm_telcel__100_mb"
         }
 
         def view_time = {
@@ -85,6 +86,10 @@ trackTests {
             item_id = 11
             type = "item8"
             content = ["Movistar"]
+        }
+
+        def segment = {
+            segment = "test_segment"
         }
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -190,24 +195,38 @@ trackTests {
             step_information()
             available_items()
             notification_panel()
+            segment()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
             item_1()
+            segment()
         }
         "/single_player/prepaid/product_list/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/product_list/more_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/more_products"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_1()
+        }
         "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
         }
 
 
@@ -308,6 +327,7 @@ trackTests {
             button_card()
             notification_panel()
             available_items()
+            segment()
         }
 
         "/single_player/prepaid/one_device/edit_alias"(platform: "/mobile", type: TrackType.Event) {
@@ -318,6 +338,7 @@ trackTests {
             mandatory()
             view_time()
             item_1()
+            segment()
         }
         "/single_player/prepaid/one_device/more_products"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -327,10 +348,12 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/one_device/more_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -458,6 +481,10 @@ trackTests {
             payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            payment_id = "252"
+        }
+        "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             payment_id = "252"
         }
@@ -758,6 +785,22 @@ trackTests {
         }
 
 
+        // Show Action
+        "/single_player/prepaid/show_action"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/show_action/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/show_action/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -861,24 +904,38 @@ trackTests {
             step_information()
             available_items()
             notification_panel()
+            segment()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
             item_2()
+            segment()
         }
         "/single_player/prepaid/product_list/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/product_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_1()
+        }
         "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+        "/single_player/prepaid/product_list/link"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+            item_1()
         }
 
 
@@ -978,7 +1035,9 @@ trackTests {
             step_information()
             button_card()
             notification_panel()
-            available_items() 
+            available_items()
+            parent_key
+            segment()
         }
 
         "/single_player/prepaid/one_device/edit_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -990,6 +1049,7 @@ trackTests {
             mandatory()
             view_time()
             item_2()
+            segment()
         }
         "/single_player/prepaid/one_device/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -999,10 +1059,12 @@ trackTests {
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            item_1()
         }
         "/single_player/prepaid/one_device/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
         "/single_player/prepaid/one_device/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -1129,6 +1191,10 @@ trackTests {
             payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            payment_id = "232"
+        }
+        "/single_player/prepaid/congrats_success/redirect_to_action"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             payment_id = "232"
         }
@@ -1428,6 +1494,22 @@ trackTests {
             mandatory()
             view_time()
         }
+
+
+        // Show Action
+        "/single_player/prepaid/show_action"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/show_action/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/show_action/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
     }
 
 
@@ -1484,6 +1566,11 @@ trackTests {
             type = "item2"
             content = ["Vehículos con ruedas dobles", "Altura mayor a 2,10m"]
         }
+
+        def segment = {
+            segment = "test_segment"
+        }
+
 
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1814,6 +1901,7 @@ trackTests {
         "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
+            segment()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -1844,6 +1932,7 @@ trackTests {
         "/single_player/paygo/recurrence/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
 
 
@@ -2541,6 +2630,7 @@ trackTests {
         "/single_player/paygo/recurrence"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
+            segment()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -2571,6 +2661,7 @@ trackTests {
         "/single_player/paygo/recurrence/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+            segment()
         }
 
 

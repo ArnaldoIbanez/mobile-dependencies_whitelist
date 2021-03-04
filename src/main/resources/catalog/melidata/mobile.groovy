@@ -80,7 +80,7 @@ tracks {
     
     "/permissions/idfa"(platform: "/mobile", isAbstract: true){}
     "/permissions/idfa/accept"(platform: "/mobile", type: TrackType.Event){}
-    "/permissions/idfa/deny"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/denied"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/idfa/shown"(platform: "/mobile", type: TrackType.Event){}
 
     "/settings"(platform: "/mobile", isAbstract: true){}
@@ -175,5 +175,13 @@ tracks {
     "/apprater/error_service_rules"(platform: "/mobile") {
     }
     "/apprater/popup"(platform: "/mobile") {
+    }
+    // Track is accepted, remind me leater or cancel(only mp) qualification in popup app rater.
+    "/apprater/accept"(platform: "/mobile") {
+    }
+    // Only track for MP.
+    "/apprater/cancel"(platform: "/mobile") {
+    }
+    "/apprater/remind_me_later"(platform: "/mobile") {
     }
 }

@@ -236,6 +236,34 @@ tracks {
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
+    //Privacy
+    "/advertising/privacy"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/privacy/modal"(platform: "/", type: TrackType.Event, isAbstract: true){
+    }
+
+    "/advertising/privacy/modal/show"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
+    }
+
+    "/advertising/privacy/modal/deactivate_ads"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/modal/keep_ads_active"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
+    }
+
+    "/advertising/privacy/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
+    }
+
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
 
@@ -402,6 +430,26 @@ tracks {
     }
 
     "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/", type: TrackType.Event) {
+    }
+
+    //Credits
+    "/advertising/pads2/manager/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, type: PropertyType.String, description: "Campaign status (active, paused)")
+        available_credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+    "/advertising/pads2/manager/credits/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {}
+    "/advertising/pads2/manager/credits/details"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true) {
+        used_credit(required: true, description:"Amount that has already been consumed")
+    }
+    "/advertising/pads2/hub/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false){
+        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono_campaign")
+        available_credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+    "/advertising/pads2/hub/credits/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true){}
+    "/advertising/pads2/hub/credits/details"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true){
+        used_credit(required: true, type: PropertyType.Numeric, description: "Amount that has already been consumed")
     }
 
     //Sorting
@@ -864,8 +912,8 @@ tracks {
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
     }
 
-    "/advertising/pads2/manager/update/budget/go"(platform: "/web", type: TrackType.Event) {
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
+    "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
+        multi(required: false, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
         budget_previous(required: false, description: "Previous budget related to the campaign")
         budget_new(required: true, description: "New budget related to the campaign.")
@@ -878,8 +926,8 @@ tracks {
 
     }
 
-    "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
+    "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
+        multi(required: false, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, description: "Budget related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
@@ -1331,7 +1379,7 @@ tracks {
     "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/hub/update/budget"(platform: "/", type: TrackType.Event) {}
-    "/advertising/pads2/hub/update/budget/go"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/update/budget/go"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
@@ -1341,7 +1389,7 @@ tracks {
         budget_pct_old(required: true, description: " budget pct old Modal campaign")
 
     }
-    "/advertising/pads2/hub/update/budget/close"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/update/budget/close"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
         budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
@@ -1357,6 +1405,26 @@ tracks {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         strategy(required: true, type: PropertyType.String, description: "Strategy selected")
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
+
+    "/advertising/pads2/hub/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
+    }
+
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime/stay"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/hub/modal/bidding/warning/changetime/change"(platform: "/", type: TrackType.Event) {
     }
 
     //Bidding Dashboard
@@ -1452,6 +1520,26 @@ tracks {
         trtarget(required: true, type: PropertyType.Numeric, description: "Take Rate selected")
     }
 
+    "/advertising/pads2/manager/modal/bidding/warning"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
+        trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
+    }
+
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime/show"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime/stay"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/manager/modal/bidding/warning/changetime/change"(platform: "/", type: TrackType.Event) {
+    }
+
     // Bidding - Opportunities (HUB)
 
     "/advertising/pads2/hub/bidding"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){}
@@ -1528,6 +1616,29 @@ tracks {
         strategy(required: true, type: PropertyType.String, description: "Strategy selected")
         trtarget_previous(required: true, type: PropertyType.Numeric, description: "Previous selected Take Rate")
         trtarget_new(required: true, type: PropertyType.Numeric, description: "New selected Take Rate")
+    }
+
+    // Ads from adserver
+
+    def merchdata = objectSchemaDefinitions {
+        content_id(type: PropertyType.String, required: true,  description: "content id")
+        component_id(type: PropertyType.String, required: true,  description: "realestate id")
+        audience(type: PropertyType.String, required: true, description: "audience for the content")
+        bu(type: PropertyType.String, required: true, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
+        flow(type: PropertyType.String, required: true, description: "flow for the content")
+        logic(type: PropertyType.String, required: true, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    "/advertising/adserver"(platform: "/", isAbstract: true) {}
+    "/advertising/adserver/ads"(platform: "/", isAbstract: true) {}
+    "/advertising/adserver/ads/view"(platform: "/", type: TrackType.View) {
+        c_id (required: true, description: "component id")
+        c_event (required: true, description: "trigger event")
+        c_category (required: true, description: "category for the content")
+        c_original_target (required: false, description: "target url or deeplink for the component")
+        merch_data (required:false, type: PropertyType.Map(merchdata), description: "data from merch engine")
     }
 
 }

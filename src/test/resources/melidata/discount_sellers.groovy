@@ -350,4 +350,26 @@ trackTests {
             description = "error description"
         }
     }
+
+    // Prefecture
+    test('Prefecture stores click'){
+        "/instore/prefecture/tap"(platform: "/", type: TrackType.Event) {
+            link = "stores"
+        }
+    }
+
+    test('Prefecture go home error click'){
+        "/instore/prefecture/error/tap"(platform: "/", type: TrackType.Event) {
+            link = "go_home"
+        }
+    }    
+
+    test("Prefecture") {
+        "/instore/prefecture"(platform: "/", type: TrackType.View) {}
+
+    }
+
+    test('Prefecture error view'){
+        "/instore/prefecture/error"(platform: "/", type: TrackType.View) {}
+    }
 }
