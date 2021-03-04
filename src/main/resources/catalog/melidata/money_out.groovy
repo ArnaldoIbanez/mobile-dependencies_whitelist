@@ -240,4 +240,10 @@ tracks {
     "/money_out/transfers/home/modal_withdraw/continue_button_with_pix"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/modal_withdraw/continue_button_with_legacy"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/modal_withdraw/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Avoid Legacy
+    "/money_out/transfers/home/modal_avoid_legacy"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_avoid_legacy/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_avoid_legacy/more_info"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_avoid_legacy/dismiss"(platform: "/", type: TrackType.Event) {}
 }
