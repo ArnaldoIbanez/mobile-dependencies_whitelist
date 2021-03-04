@@ -554,6 +554,7 @@ tracks {
         price(required: false, description: "Item price")
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
+    "/sell/list/license_plate"(platform: "/mobile", type: TrackType.View) {}
 
     //update flow
     "/sell/update" (platform: "/", isAbstract: true){
@@ -739,6 +740,13 @@ tracks {
     "/sell/upgrade/listing_types"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
+
+    "/sell/sip_upgrade"(platform: "/mobile", type: TrackType.Event){
+        source(required: true, values: ["section"], description: "Upgrade intention source's", type: PropertyType.String)
+        vertical(required: true, values: ["core", "motors", "realEstate", "services"], description: "Item Vertical: core/service/motor/realEstate/etc...")
+        seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
+        seller_profile(required: false, description: "Type of seller", type: PropertyType.String)
+    }
 
     // Relist flow
     "/sell/relist"(platform: "/", isAbstract: true) {
@@ -983,6 +991,9 @@ tracks {
     "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/license_plate/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}

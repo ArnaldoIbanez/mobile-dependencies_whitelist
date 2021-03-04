@@ -237,12 +237,31 @@ tracks {
     }
 
     //Privacy
-    "/advertising/pads2/privacy"(platform: "/", type: TrackType.View) {
+    "/advertising/privacy"(platform: "/", type: TrackType.View) {
     }
 
-    "/advertising/pads2/change_privacy"(platform: "/", type: TrackType.Event) {
-        state_switch(required: true, description: "Current state of switch")
-        previous_state_switch(required: true, description: "Show previous state switch privacy")
+    "/advertising/privacy/modal"(platform: "/", type: TrackType.Event, isAbstract: true){
+    }
+
+    "/advertising/privacy/modal/show"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
+    }
+
+    "/advertising/privacy/modal/deactivate_ads"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/modal/keep_ads_active"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
+    }
+
+    "/advertising/privacy/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch")
     }
 
     //Lift
@@ -411,6 +430,26 @@ tracks {
     }
 
     "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/", type: TrackType.Event) {
+    }
+
+    //Credits
+    "/advertising/pads2/manager/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, type: PropertyType.String, description: "Campaign status (active, paused)")
+        available_credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+    "/advertising/pads2/manager/credits/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {}
+    "/advertising/pads2/manager/credits/details"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true) {
+        used_credit(required: true, description:"Amount that has already been consumed")
+    }
+    "/advertising/pads2/hub/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false){
+        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono_campaign")
+        available_credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+    "/advertising/pads2/hub/credits/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true){}
+    "/advertising/pads2/hub/credits/details"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true){
+        used_credit(required: true, type: PropertyType.Numeric, description: "Amount that has already been consumed")
     }
 
     //Sorting

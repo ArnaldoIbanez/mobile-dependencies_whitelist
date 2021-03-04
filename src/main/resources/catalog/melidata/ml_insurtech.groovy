@@ -152,78 +152,74 @@ tracks {
 
     "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product_id of insurtech")
     }
 
     "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
         option_id(required: true, type: PropertyType.String, description: "Selected option id")
         period(required: true, type: PropertyType.Numeric, description: "Product period")
         cost(required: true, type: PropertyType.Numeric, description: "Product cost")
         original_cost(required: false, type: PropertyType.Numeric, description: "Product original cost")
         discount_rate(required: false, type: PropertyType.Numeric, description: "Product discount rate")
-        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
+        revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
 
     "/insurtech/qpage_on/faq"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
 
     "/insurtech/qpage_on/selected"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
         option_id(required: true, type: PropertyType.String, description: "Selected option id")
         period(required: true, type: PropertyType.Numeric, description: "Product period")
         cost(required: true, type: PropertyType.Numeric, description: "Product cost")
         original_cost(required: false, type: PropertyType.Numeric, description: "Product original cost")
         discount_rate(required: false, type: PropertyType.Numeric, description: "Product discount rate")
-        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
+        revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
 
     "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
 
     "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
         option_id(required: true, type: PropertyType.String, description: "Selected option id")
         period(required: true, type: PropertyType.Numeric, description: "Product period")
         cost(required: true, type: PropertyType.Numeric, description: "Product cost")
         original_cost(required: false, type: PropertyType.Numeric, description: "Product original cost")
         discount_rate(required: false, type: PropertyType.Numeric, description: "Product discount rate")
-        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
+        revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
 
     "/insurtech/qpage_on/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
         quote_id(required: false, type: PropertyType.String, description: "Quote id")
     }
 
     "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
     }
 
     "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
-        error_type(required: true, type: PropertyType.String, description: "Error type obtained")
+        error_type(required: false, type: PropertyType.String, description: "Error type obtained")
     }
 
     "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        flow_id(required: false, type: PropertyType.String, description: "Product id of insurtech")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
         quote_id(required: false, type: PropertyType.String, description: "Quote id")
         option_id(required: true, type: PropertyType.String, description: "Selected option id")
         cost(required: true, type: PropertyType.Numeric, description: "Product cost")

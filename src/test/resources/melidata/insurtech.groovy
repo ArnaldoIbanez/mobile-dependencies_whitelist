@@ -253,7 +253,6 @@ trackTests {
 
         "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
         "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
@@ -289,7 +288,6 @@ trackTests {
 
         "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
         "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
@@ -300,7 +298,6 @@ trackTests {
             cost = 270
             original_cost = 300
             discount_rate = 10
-            revenue_share_fee = 30
             revenue = 78
             currency_id = "BR"
         }
@@ -313,14 +310,16 @@ trackTests {
 
         "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
 
         "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
             error_type = "timeout"
+        }
+
+        "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAdaA4124a"
         }
 
         "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
@@ -988,6 +987,12 @@ trackTests {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
         }
 
+        "/insurtech/hardware_check/onboarding/device_info_error"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            error_description = "illegal State Exception on get information()"
+            view_time = 24578
+        }
+
         "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             session_id = "348536772342324"
@@ -1088,11 +1093,13 @@ trackTests {
         "/insurtech/hardware_check/checkups/first_touch"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             time_elapsed = 4
+            view_time = 604575
         }
 
         "/insurtech/hardware_check/checkups/redirect"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             deep_link = "mercadopago://insurance/webview?url=https%3A%2F%2mercadopago.com.br%2F%26param%3Dvalue%"
+            view_time = 604575
         }
 
         "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {

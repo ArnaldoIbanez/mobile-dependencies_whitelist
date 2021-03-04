@@ -128,6 +128,9 @@ tracks {
         groupCheckoutProperties
     }
 
+     "/point/buyingflow/complete_card_data"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
     "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
     // Merchant Acquisition Point Landings

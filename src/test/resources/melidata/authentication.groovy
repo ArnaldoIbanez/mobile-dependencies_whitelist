@@ -1208,37 +1208,37 @@ trackTests {
 
         test("Remove Session") {
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = true
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = true
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = true
             }

@@ -2,6 +2,7 @@ package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -75,6 +76,17 @@ tracks {
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    "/banking/pnf/confirm"(platform: "/", type: TrackType.Event) {}
+    "/banking/pnf/congrats"(platform: "/", type: TrackType.Event) {
+        status( required: true, type: PropertyType.String , description: "Pnf congrats whether the screen was successful or not" )
+    }
+    "/banking/pnf/back"(platform: "/", type: TrackType.Event) {
+        action( require: true, type: PropertyType.String, description: "Identifies back action component")
+    }
+    "/banking/pnf/inprogress"(platform: "/", type: TrackType.View) {}
+    "/banking/pnf/error"(platform: "/", type: TrackType.View) {
+        page( require: true, type: PropertyType.String, description: "Identifies from which screen ends in error view")
+    }
 
     // Movements
     "/banking/movements"(platform: "/", type: TrackType.View) {}

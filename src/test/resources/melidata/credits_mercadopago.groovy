@@ -408,6 +408,23 @@ trackTests {
             has_prepaid = false
             through_kyc = true
         }
+
+        //Access
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'hero_card'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'simulator'
+        }
+
+        "/credits/merchant/enrollment/capped_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
+
+        "/credits/merchant/enrollment/open_market_access"(platform: "/web/desktop") {
+            context = 'upsell_offer'
+        }
     }
 
     test("Merchant Credits Administrator") {
@@ -546,6 +563,12 @@ trackTests {
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/web/desktop") {
             sales_percentage_map()
         }
 
@@ -714,6 +737,14 @@ trackTests {
             fixed_term()
         }
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            express_money()
+        }
+
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
             express_money()
         }
 
@@ -1084,7 +1115,7 @@ trackTests {
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {
             user_type = "mixed"
         }
-        
+
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {
             user_type = "no_credit_line"
         }
@@ -1466,6 +1497,9 @@ trackTests {
         }
         "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {
             user_status = 'manually_paused'
