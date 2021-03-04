@@ -755,33 +755,55 @@ trackTests {
             reason = 'lender_cannot_collect_installments'
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'rejected:rejected_by_regulations'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'in_process:pending_review_manual'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'internal_error'
+            fixed_term()
+        }
+
+        "/credits/merchant/proactive_payment/info"(platform: "/web/desktop") {
             reason = 'installment_paid'
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'default'
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'insufficient_account_money'
             fixed_term()
         }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'lender_cannot_collect_installments'
+        "/credits/merchant/proactive_payment/info"(platform: "/web/desktop") {
+            reason = 'payment_pending'
             express_money()
         }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'default'
-            fixed_term()
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'insufficient_account_money'
-            fixed_term()
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'lender_cannot_collect_installments'
-            express_money()
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'default'
+        "/credits/merchant/proactive_payment/info"(platform: "/web/desktop") {
+            reason = 'payment_already_processed'
             fixed_term()
         }
 
