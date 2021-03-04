@@ -87,6 +87,7 @@ tracks {
         device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
     }
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/license_plate_form"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
         vehicle_id(required: false, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
@@ -100,15 +101,20 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["ok", "invalid_format"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
     }
     "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
-        error_type(required: true, type: PropertyType.String, values: ["generic" , "driver_on_route", "vehicle_on_route", "vehicle_driver_inactive", "driver_inactive" , "vehicle_inactive"],
-                description: "Specifies what kind of error happened.", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
     }
-    "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: false, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
+    }
     "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
         vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
     }
     "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
     }
     "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
@@ -138,6 +144,8 @@ tracks {
 
     // Last Mile
     "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
     "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View) {

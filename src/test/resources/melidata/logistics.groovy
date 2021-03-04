@@ -71,10 +71,13 @@ trackTests {
             vehicle_id = "123"
         }
 
+        "/logistics/login/license_plate_form"(platform: "/mobile", type: TrackType.View) {}
+
         //Login account disabled error
         "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
-            error_type = "generic"
+            driver_id = "123"
+            vehicle_id = "234"
         }
 
         //Login error generic
@@ -85,6 +88,7 @@ trackTests {
         //Login vehicle on route error
         "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "234"
             vehicle_id = "123"
         }
 
@@ -92,6 +96,7 @@ trackTests {
         "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             driver_id = "987"
+            vehicle_id = "786"
         }
 
         //Profile
@@ -157,6 +162,8 @@ trackTests {
     test("Testing Logistics Last Mile") {
         "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
             route_id = "123"
+            driver_id = "234"
+            vehicle_id = "345"
             defaultLocation()
         }
         "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
