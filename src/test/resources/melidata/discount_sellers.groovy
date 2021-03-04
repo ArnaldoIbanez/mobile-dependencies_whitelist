@@ -385,8 +385,7 @@ trackTests {
                 "template_campaigns",
                 "personalized_campaign",
                 "how_to",
-            ]
-            platform = "web"  
+            ] 
         }
     }
 
@@ -416,7 +415,6 @@ trackTests {
                 ]
             ]
             see_more = true
-            platform = "web"  
         }
     }
    
@@ -441,7 +439,6 @@ trackTests {
                 ]
             ]
             see_more = false
-            platform = "web"  
         }
     }
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
@@ -457,8 +454,7 @@ trackTests {
                         data_id = "modify"
                     ]
                 ]
-            ]
-            platform = "web"  
+            ] 
         }
     }
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
@@ -467,8 +463,7 @@ trackTests {
             session_id = "a1281264-9139-4316-abb6-749a7b30124b"
             drawing_type = "button"
             segment_id = "personalized_campaign"
-            position = 3
-            platform = "web"  
+            position = 3 
         }
     }
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
@@ -478,8 +473,6 @@ trackTests {
             drawing_type = "banner"
             segment_id = "featured_campaign"
             position = 3
-            platform = "web"  
-
         }
     }
     test("Home sellers -Home Tap") {
@@ -488,7 +481,6 @@ trackTests {
             drawing_type = "list"
             segment_id = "featured_campaign"
             position = 3
-            platform = "web" 
             component = [
                 component_id = "213219",
                 position = 1
@@ -506,7 +498,6 @@ trackTests {
             budget_total = "1500"
             payed_amount = "421"
             budget_used = "12"
-            platform = "web" 
             actions = ["pause","finish"]
         }
     }
@@ -520,7 +511,6 @@ trackTests {
             budget_total = "1500"
             payed_amount = "421"
             budget_used = "12"
-            platform = "web" 
             action = "repeat"
         }
     }
@@ -546,7 +536,6 @@ trackTests {
                     status = "INACTIVE"
                 ],
             ]
-            platform = "web"  
         }
     }   
     // Instore (ISDT) - Webview -  Home Sellers History > tap
@@ -560,22 +549,19 @@ trackTests {
             status = "ACTIVE"           
             payed_amount = 6235
             payments = 65
-            platform = "web"  
         }
     }
     // Instore (ISDT) - Webview -  Home Sellers History > tap
     test("Home sellers - error") {
         "/discount_sellers/v2/error" (platform: "/", type: TrackType.View) {
             session_id = "a1281264-9139-4316-abb6-749a7b30124b"
-            platform = "web"  
         }
     }
     // Instore (ISDT) - Webview -  Home Sellers History > tap
     test("Home sellers - error - tap") {
         "/discount_sellers/v2/error/tap" (platform: "/", type: TrackType.Event) {
             session_id = "a1281264-9139-4316-abb6-749a7b30124b"
-            link = "go_home"
-            platform = "web"  
+            link = "go_home"  
         }
     }
 }

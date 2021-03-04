@@ -254,7 +254,6 @@ tracks {
     "/discount_sellers/v2/home"(platform: "/", type: TrackType.View){
         session_id(required: true, type: PropertyType.String, description: "Session identifier")
         segments(PropertyType.ArrayList, required: false, description:"list of elements rendered in the home page")
-        platform (type: PropertyType.String, required: false, values: ["web"], description: "tracks from webview")
     }
         
     // Instore (ISDT) - Webview -  Home Sellers Home > segment 
@@ -294,7 +293,6 @@ tracks {
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
         budget_used (type: PropertyType.Numeric, required: false, description: "budget used of campaign")
         status (type: PropertyType.String, values: ["ACTIVE","INACTIVE","PAUSED"], description: "status of campaign, example: ACTIVE")
-        platform (type: PropertyType.String,  values: ["web"])
     }
 
     // Instore (ISDT) - Webview -  Home Sellers History > tap 
@@ -313,7 +311,6 @@ tracks {
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
         budget_used (type: PropertyType.Numeric, required: false, description: "budget used of campaign")
         actions (type: PropertyType.ArrayList,  required: false, description: "Name of buttons on the screen")
-        platform (type: PropertyType.String, values: ["web"])   
     }
 
     "/discount_sellers/v2/detail/tap" (platform: "/", type: TrackType.View) {
