@@ -1219,6 +1219,38 @@ trackTests {
         "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
             action = "success_redirect"
         }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin_tnp_nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "tnp_nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin_nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin_tnp"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "tnp"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 0
+            incomplete_steps = "all_complete"
+        }
     }
     
     //NFC CONFIGURATION HUB
@@ -1370,7 +1402,18 @@ trackTests {
 
     // NFC Payment
     test("cards hybrid nfc payment") {
-        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "home_mp"
+        }
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "setup_options"
+        }
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "closed_app"
+        }
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "tap_in_app"
+        }
         "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
             result = "error_payment"
             reasons = "payment is not allowed as SDK initialization is ongoing"
@@ -1685,6 +1728,18 @@ trackTests {
     test("cards hybrid nfc informative screen") {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
             has_money = false
+        }
+    }
+    
+    // NFC-TOKENIZATION-USER-WAIT-TIME
+    test("cards hybrid nfc tokenization user waiting time") {
+        "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.View) {
+            time_millis = 1
+            result= "enrollment_error"
+        }
+        "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.View) {
+            time_millis = 0
+            result= "success"
         }
     }
 }

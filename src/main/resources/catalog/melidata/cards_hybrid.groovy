@@ -1193,8 +1193,29 @@ tracks {
             description: "Redirection Done"
         )
     }
+    "/cards/nfc/enrollment/hub/incomplete_steps"(platform: "/", type: TrackType.Event) {
+        result (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Amount of incomplete steps"
+        )
+        incomplete_steps (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "pin_tnp_nfc",
+                "tnp_nfc",
+                "pin_nfc",
+                "pin_tnp",
+                "pin",
+                "tnp",
+                "nfc",
+                "all_complete"
+            ]
+        )
+    }
     
-        // CONFFIGURATION-HUB-NFC
+    // CONFFIGURATION-HUB-NFC
     //-------------------
     "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
@@ -1323,7 +1344,14 @@ tracks {
     }
     // PAYMENTS-NFC
     // -------------------
-    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {
+        from (
+            required: true,
+            type: PropertyType.String,
+            inheritable: false,
+            description: "Access location of NFCPayment call"
+        )
+    }
     "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
         result (
             required: true,
@@ -1617,4 +1645,25 @@ tracks {
             description: "If user has money"
         )
     }
+    
+    
+    // NFC-TOKENIZATION-USER-WAIT-TIME
+    // -------------------------------
+    
+    "/cards/nfc/enrollment/tokenization/waiting_time"(platform: "/", type: TrackType.Event) {
+        time_millis (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Waiting time in milliseconds"
+        )
+        result (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                'enrollment_error',
+                'success'
+            ]
+        )
+    }
+
 }
