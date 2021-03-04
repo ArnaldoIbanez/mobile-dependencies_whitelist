@@ -56,6 +56,11 @@ tracks {
     "/bill_payments/invoices/delete"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/invoices/delete/dialog"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/invoices/delete/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/invoices/delete/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+        item (required:false, type: PropertyType.String, description: "The chosen item id")
+        entity (required:false, type: PropertyType.String, description: "The chosen item entity")
+    }
 
     // Invoice menu
     "/bill_payments/menu"(platform: "/mobile", type: TrackType.View) {}
