@@ -373,8 +373,10 @@ tracks {
     "/auth/attestation/nonce/fail"(platform: "/mobile", type: TrackType.Event) {
         reason(type: PropertyType.String, required: true, description: "Failure reason")
     }
+
     
     // Device Authorization Authenticator
+    "/authenticators"(platform: "/", isAbstract: true, ) {}
 
     "/authenticators/device_authorization"(platform: "/", isAbstract: true, initiative: 1127) {}
 
