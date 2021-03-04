@@ -408,6 +408,31 @@ trackTests {
         }
     }
 
+    test("Phone Enrollment flow") {
+        "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
+            redirect_url = 'www.mercadolibre.com'
+            flow_type = 'sms_enrollment'
+            flow_sub_type = 'ULTIMATUM'
+        }
+        "/auth/recovery/phone/save"(platform: "/web", type: TrackType.Event) {
+            redirect_url = "www.mercadolibre.com"
+            selected_phone_source = "manual"
+            verified = false
+            flow_type = "sms_enrollment"
+            flow_sub_type = "LOGIN"
+            visual_validation_allowed = true
+        }
+        "/auth/recovery/phone/verified"(platform: "/web", type: TrackType.Event) {
+            redirect_url = "www.mercadolibre.com"
+            selected_phone_source = "manual"
+            flow_type = "sms_enrollment"
+            flow_sub_type = "LOGIN_NOTIF"
+        }
+        "/auth/phone_confirmation"(platform: "/", type: TrackType.Event) {
+            event = "confirm"
+        }
+    }
+
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
             challenge = "nickname_or_email"
