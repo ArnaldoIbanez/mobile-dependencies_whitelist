@@ -879,6 +879,11 @@ tracks {
     }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/legal_requirements"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/legal_requirements/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/legal_requirements/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
         category_domain(required: true, description: "Category Domain", type: PropertyType.String)
         attribute_id(required: true, type: PropertyType.String, description: "Id of the attribute")
