@@ -362,7 +362,7 @@ tracks {
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
@@ -378,7 +378,7 @@ tracks {
     "/credits/merchant/proactive_payment/info"(platform: "/", type: TrackType.View) {
         reason(
                 type: PropertyType.String,
-                required: false,
+                required: true,
                 values: [
                         "installment_paid",
                         "payment_pending",
