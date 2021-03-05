@@ -1300,26 +1300,21 @@ tracks {
         )
     }
 
-    "/credits/express_money/congrats"(platform: "/", type: TrackType.View) {
-        has_prepaid(
-            description: "Metric to track users who has accepted a loan and has prepaid card enabled",
-            type: PropertyType.Boolean,
-            required: false,
-        )
+    "/credits/express_money/summary"(platform: "/mobile", type: TrackType.View) {
         requested_amount(
-            description: "User requested amount",
-            type: PropertyType.Numeric,
-            required: false,
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
         max_amount(
-            description: "Credit line maximum allowed amount",
-            type: PropertyType.Numeric,
-            required: false,
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
         min_amount(
-            description: "Credit line minimum allowed amount",
-            type: PropertyType.Numeric,
-            required: false,
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
         default_payment_term(
                 description: "Default payment term selected",
@@ -1336,13 +1331,91 @@ tracks {
                 type: PropertyType.ArrayList,
                 required: false,
         )
-        reason(
-            description: "State reason",
-            type: PropertyType.String,
+        default_amount(
+                description: "Default requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+    }
+
+    "/credits/express_money/congrats"(platform: "/", type: TrackType.View) {
+        has_prepaid(
+            description: "Metric to track users who has accepted a loan and has prepaid card enabled",
+            type: PropertyType.Boolean,
             required: false,
-            values: [
-                'already_taken_credit_line',
-            ]
+        )
+        requested_amount(
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        max_amount(
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        min_amount(
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
+        )
+    }
+
+    "/credits/express_money/congrats"(platform: "/mobile", type: TrackType.View) {
+        has_prepaid(
+                description: "Metric to track users who has accepted a loan and has prepaid card enabled",
+                type: PropertyType.Boolean,
+                required: false,
+        )
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
+        )
+        default_amount(
+                description: "Default requested amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
     }
 
@@ -1357,6 +1430,21 @@ tracks {
                 'ccb_creation',
                 'simulation',
                 'default',
+                'create_express_money_validation',
+                'ext_bank_rejected',
+                'origination_error',
+                'bad_request',
+                'credit_option_not_found',
+                'repeated_request',
+                'gateway_timeout',
+                'date_validation',
+                'internal_error',
+                'concurrency_error',
+                'update_credit_line_error',
+                'invalid_first_due_date',
+                'insufficient_credit_balance',
+                'conflict',
+                'external_api_error'
             ]
         )
     }
@@ -1368,6 +1456,7 @@ tracks {
             required: true,
             values: [
                 'no_credit_lines_present',
+                'already_taken_credit_line'
             ]
         )
     }
