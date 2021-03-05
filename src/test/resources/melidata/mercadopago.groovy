@@ -5039,6 +5039,8 @@ trackTests {
     test("Stores frontend admin") {
         "/stores/create"(platform: "/web", type: TrackType.View) {}
         "/stores/create_poses"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_schedule/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_schedule/end"(platform: "/web", type: TrackType.Event) {}
         "/stores/create_delivery/start"(platform: "/web", type: TrackType.View) {}
         "/stores/create_delivery/end"(platform: "/web", type: TrackType.Event) {
         types = 'both'
@@ -5046,6 +5048,8 @@ trackTests {
         "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
         "/stores/list"(platform: "/web", type: TrackType.View) {}
         "/stores/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_schedule/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_schedule/end"(platform: "/web", type: TrackType.Event) {}
         "/stores/update_delivery/start"(platform: "/web", type: TrackType.View) {}
         "/stores/update_delivery/end"(platform: "/web", type: TrackType.Event) {
         types = 'both'
@@ -5087,6 +5091,8 @@ trackTests {
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/create_poses"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/create_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/create_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
         types = 'pickup'
@@ -5094,6 +5100,8 @@ trackTests {
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/update_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/update_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
         types = 'pickup'
