@@ -481,6 +481,17 @@ trackTests {
         }
     }
     
+    // Cards hub
+     test("cards mpcard card block hub") {
+            "/cards/mpcard/card_hub/block_card"(platform:"/", type: TrackType.View) {}
+            "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "virtual_debit_card"
+            }
+             "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "physical_card"
+            }
+        }
+    
     //Account options
     test("cards mpcard setup virtual card message") {
         "/cards/mpcard/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
