@@ -2587,6 +2587,24 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/invoices/delete/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            item = "7433006"
+        }
+
+        "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            entity = "PERNAMBUCANAS FINANCIADORA S/A - CFI"
+        }
+
         // Invoice menu
         "/bill_payments/menu"(platform: "/mobile") {
             mandatory()
