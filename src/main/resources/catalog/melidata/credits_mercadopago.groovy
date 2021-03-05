@@ -1267,7 +1267,7 @@ tracks {
         )
     }
 
-    "/credits/express_money/summary"(platform: "/", type: TrackType.View) {
+    "/credits/express_money/summary"(platform: "/web", type: TrackType.View) {
         requested_amount(
             description: "User requested amount",
             type: PropertyType.Numeric,
@@ -1338,7 +1338,7 @@ tracks {
         )
     }
 
-    "/credits/express_money/congrats"(platform: "/", type: TrackType.View) {
+    "/credits/express_money/congrats"(platform: "/web", type: TrackType.View) {
         has_prepaid(
             description: "Metric to track users who has accepted a loan and has prepaid card enabled",
             type: PropertyType.Boolean,
