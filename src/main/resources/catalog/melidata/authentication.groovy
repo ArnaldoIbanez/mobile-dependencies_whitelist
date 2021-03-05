@@ -313,31 +313,31 @@ tracks {
     }
 
     //TOTP-IN-APP
-    "/auth/totp-in-app"(platform: "/", isAbstract: true, initiative: 1127) {
+    "/auth/totp_in_app"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
-    "/auth/totp-in-app/validation"(platform: "/", isAbstract: true) {}
+    "/auth/totp_in_app/validation"(platform: "/", isAbstract: true) {}
 
-    "/auth/totp-in-app/validation/scan"(platform: "/", type: TrackType.View) {}
+    "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {}
 
-    "/auth/totp-in-app/validation/rejected"(platform: "/", type: TrackType.View) {}
+    "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {}
 
-    "/auth/totp-in-app/validation/max-attempts"(platform: "/", type: TrackType.View) {}
+    "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
-    "/auth/totp-in-app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+    "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         status(type: PropertyType.String, required: true, values: ["approve", "reject", "expire", "update_qr", "decline_challenge"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, values: ["polling", "click"], description: "Type of event")
     }
 
-    "/auth/totp-in-app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+    "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, values: ["try_again", "decline_challenge"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
-    "/auth/totp-in-app/validation/max-attempts/action"(platform: "/", type: TrackType.Event) {
+    "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, values: ["go_home", "decline_challenge"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, description: "Type of event")
@@ -439,7 +439,7 @@ tracks {
     }
 
     "/authenticators/phone_validation/channel_selector"(platform: "/", isAbstract: true) {
-        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation", "validated" ], description: "challenge status by response")
+        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation", "validated"], description: "challenge status by response")
         available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
         phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
     }

@@ -3797,27 +3797,27 @@ trackTests {
         }
     }
 
-    test("TOTP-IN-APP flow") {
-        "/auth/totp-in-app/validation/scan"(platform: "/", type: TrackType.View) {
+    test("totp_in_app flow") {
+        "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
         }
-        "/auth/totp-in-app/validation/rejected"(platform: "/", type: TrackType.View) {
+        "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
             id = "id"
         }
-        "/auth/totp-in-app/validation/max-attempts"(platform: "/", type: TrackType.View) {
+        "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
             id = "id"
         }
-        "/auth/totp-in-app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             status = "approve"
             event_type = "polling"
         }
-        "/auth/totp-in-app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+        "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "decline_challenge"
             event_type = "click"
         }
-        "/auth/totp-in-app/validation/max-attempts/action"(platform: "/", type: TrackType.Event) {
+        "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
             id = "id"
             target = "go_home"
             event_type = "click"
