@@ -3258,6 +3258,28 @@ trackTests {
             list_mode = "LIST"
         }
     }
+    test("SYI v4 legal requirements card showed"){
+        "/sell/item_data/legal_requirements/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+    test("SYI v4 legal requirements card confirmed"){
+        "/sell/item_data/legal_requirements/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
     test("SYI v4 set multivalue input"){
         "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
