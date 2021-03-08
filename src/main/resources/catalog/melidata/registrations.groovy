@@ -245,5 +245,8 @@ tracks {
     "/register/v3/hub/email_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/pix/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/regulations/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/tyc/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
 }
