@@ -257,5 +257,8 @@ trackTests {
       "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/recents/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+      "/money_out/transfers/home/withdraw_bank_campaign_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/withdraw_bank_campaign_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/withdraw_bank_campaign_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
     }
 }

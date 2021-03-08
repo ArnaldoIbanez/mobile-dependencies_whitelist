@@ -203,6 +203,11 @@ tracks {
     "/money_out/transfers/home/ted_campaign_modal/ted_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/ted_campaign_modal/withdraw_legacy_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+    //Transfer Hub - Withdraw Campaign Modal
+    "/money_out/transfers/home/withdraw_bank_campaign_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/withdraw_bank_campaign_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/withdraw_bank_campaign_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
     //Transfer Hub - Coelsa Error
     "/money_out/transfers/home/coelsa_error"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/home/coelsa_error/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
