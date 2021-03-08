@@ -10,19 +10,20 @@ tracks {
 
     initiative = "1171"
 
-    def discoverys = objectSchemaDefinitions {
-        audience(type: PropertyType.String, required: true, description: "audience for the content")
-        bu(type: PropertyType.String, required: true, description: "business unit for the content")
-        bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
-        component_id(type: PropertyType.String, required: true,  description: "realestate id")
-        content_id(type: PropertyType.String, required: true, description: "content id")
-        flow(type: PropertyType.String, required: true, description: "flow for the content")
-        logic(type: PropertyType.String, required: true, description: "logic of the content")
+    def realestatedata = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: false, description: "audience for the content")
+        bu(type: PropertyType.String, required: false, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: false, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: false,  description: "realestate id")
+        content_id(type: PropertyType.String, required: false, description: "content id")
+        flow(type: PropertyType.String, required: false, description: "flow for the content")
+        logic(type: PropertyType.String, required: false, description: "logic of the content")
         position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
     }
 
     def realestate = objectSchemaDefinitions {
-        discovery(required: true, type: PropertyType.ArrayList(PropertyType.Map(discoverys)))
+        discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
+        main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
     }
 
     "/home"(platform: "/mobile") {

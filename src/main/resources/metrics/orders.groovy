@@ -398,4 +398,25 @@ metrics {
 			}
 		}
 	}
+
+	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				like(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("internal_tags")
+						},
+						"meli_warranty"
+				)
+			}
+		}
+	}
 }

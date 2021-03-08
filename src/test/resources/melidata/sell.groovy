@@ -199,6 +199,10 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical="core"
         }
+        "/sell/sip_upgrade"(platform: "/mobile"){
+            source = "section"
+            vertical = "motors"
+        }
     }
 
     test("Native Sell List flow steps"){
@@ -1099,6 +1103,13 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+        }
+        "/sell/list/license_plate"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "motors"
         }
     }
 
@@ -3247,6 +3258,28 @@ trackTests {
             list_mode = "LIST"
         }
     }
+    test("SYI v4 legal requirements card showed"){
+        "/sell/item_data/legal_requirements/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+    test("SYI v4 legal requirements card confirmed"){
+        "/sell/item_data/legal_requirements/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
     test("SYI v4 set multivalue input"){
         "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -3282,7 +3315,7 @@ trackTests {
     }
 
     test("SYI v4 item kilometers card showed"){
-        "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event){
+        "/sell/item_data/kilometers"(platform: "/web", type: TrackType.View){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -3307,6 +3340,54 @@ trackTests {
 
     test("SYI v4 item kilometers card confirmed"){
         "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item License Plate card showed"){
+        "/sell/item_data/license_plate"(platform: "/web", type: TrackType.View){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item License Plate card showed"){
+        "/sell/item_data/license_plate/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item License Plate card confirmed"){
+        "/sell/item_data/license_plate/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item color card showed"){
+        "/sell/item_data/color"(platform: "/web", type: TrackType.View){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"

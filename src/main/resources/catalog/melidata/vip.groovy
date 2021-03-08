@@ -88,6 +88,11 @@ tracks {
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
         melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
     }
+
+    def apparel_definition = objectSchemaDefinitions {
+        has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -239,7 +244,8 @@ tracks {
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
 
-
+        // Apparel
+        apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
     }
 
     "/vip"(platform: "/web") {

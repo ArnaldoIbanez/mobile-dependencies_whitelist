@@ -9,18 +9,16 @@ tracks {
 
     initiative = "1014"
 
-    //Myaccount_Billing
-    "/myaccount"(type: TrackType.View, isAbstract: true) {}
-    "/myaccount/billing"(type: TrackType.View, isAbstract: true) {}
-    "/myaccount/billing/summary"(platform: "/") {
+    //Billing
+    "/billing"(type: TrackType.View, isAbstract: true) {}
+    "/billing/summary"(platform: "/") {
         bills_to_pay(type: PropertyType.Numeric, required: true)
         total_debt(type: PropertyType.Numeric, required: true)
         has_automatic_debit(type: PropertyType.Boolean, required: true)
         is_subscription_user(type: PropertyType.Boolean, required: true)
         type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
-
     }
-    "/myaccount/billing/detail"(platform: "/") {
+    "/billing/detail"(platform: "/") {
         bill_exp_date(type: PropertyType.Numeric, required: false, description: "Bill Expiration date in format YYYYMMDD")
         has_cancelled_payments(type: PropertyType.Boolean, required: true, description: "Indicates if bill has cancelled payments")
         has_debt(type: PropertyType.Boolean, required: true, description: "Indicates if the bill has an amount to pay")
@@ -31,7 +29,10 @@ tracks {
         user_can_pay(type: PropertyType.Boolean, required: true, description: "Indicates if the user can pay the bill")
         type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
     }
-     "/myaccount/billing/reports"(platform: "/") {
+     "/billing/reports"(platform: "/") {
+        type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
+    }
+    "/billing/legal_documents"(platform: "/") {
         type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
     }
 }

@@ -277,6 +277,10 @@ tracks {
         products_with_status
     }
 
+    "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
     "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
@@ -352,17 +356,35 @@ tracks {
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
+    "/credits/merchant/proactive_payment/form"(platform: "/", type: TrackType.View) {
+        products_group
+    }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
-                'installment_paid',
+                "rejected:rejected_by_regulations",
+                "in_process:pending_review_manual",
+                "internal_error",
                 'default'
             ],
             inheritable: false
+        )
+        products_group
+    }
+    "/credits/merchant/proactive_payment/info"(platform: "/", type: TrackType.View) {
+        reason(
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "installment_paid",
+                        "payment_pending",
+                        "payment_already_processed"
+                ],
+                inheritable: false
         )
         products_group
     }
@@ -420,30 +442,30 @@ tracks {
             required: true,
             description: "User status at the moment it was redirected",
             values: [
-                'fixed_term_loan_collect', 
-                'sales_percentage_loan_collect', 
-                'express_money_collect', 
-                'personal_loan_collect', 
-                'consumer_loan_collect', 
-                'fixed_term_loan_prior_to_collect', 
-                'sales_percentage_loan_prior_to_collect', 
-                'express_money_prior_to_collect', 
-                'personal_loan_prior_to_collect', 
-                'consumer_loan_prior_to_collect', 
-                'fixed_term_loan_adoption', 
-                'sales_percentage_loan_adoption', 
-                'express_money_adoption', 
-                'personal_loan_adoption', 
-                'express_money_on_time', 
-                'fixed_term_loan_on_time', 
-                'sales_percentage_loan_on_time', 
-                'personal_loan_on_time', 
-                'consumer_loan_on_time', 
-                'sales_percentage_loan_finished', 
-                'fixed_term_loan_finished', 
-                'express_money_finished', 
-                'personal_loan_finished', 
-                'consumer_loan_finished', 
+                'fixed_term_loan_collect',
+                'sales_percentage_loan_collect',
+                'express_money_collect',
+                'personal_loan_collect',
+                'consumer_loan_collect',
+                'fixed_term_loan_prior_to_collect',
+                'sales_percentage_loan_prior_to_collect',
+                'express_money_prior_to_collect',
+                'personal_loan_prior_to_collect',
+                'consumer_loan_prior_to_collect',
+                'fixed_term_loan_adoption',
+                'sales_percentage_loan_adoption',
+                'express_money_adoption',
+                'personal_loan_adoption',
+                'express_money_on_time',
+                'fixed_term_loan_on_time',
+                'sales_percentage_loan_on_time',
+                'personal_loan_on_time',
+                'consumer_loan_on_time',
+                'sales_percentage_loan_finished',
+                'fixed_term_loan_finished',
+                'express_money_finished',
+                'personal_loan_finished',
+                'consumer_loan_finished',
                 'consumer_loan_adoption',
                 'unknown',
             ]
@@ -970,6 +992,33 @@ tracks {
     //Conditions
     "/credits/merchant/documents/simulation/conditions"(platform: "/", type: TrackType.View) {
         products_group
+    }
+
+    //Access
+    "/credits/merchant/enrollment/capped_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the capped form",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'hero_card',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
+    }
+
+    "/credits/merchant/enrollment/open_market_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the open market landing",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'simulator',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
     }
 
     /******************************************
@@ -1517,6 +1566,7 @@ tracks {
     }
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}

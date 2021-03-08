@@ -148,6 +148,21 @@ trackTests {
 
     // DASHBOARD
     // --------
+    
+    // Credit Card
+
+    def credit_card_data = [
+        account: [
+            rating: "A",
+            status: "pending",
+            status_detail: "",
+            overdue_days: 0,
+        ],
+        statement_status: "open",
+        pending_payments: false
+    ]
+    
+
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
@@ -163,6 +178,15 @@ trackTests {
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             activities_status = "activities"
+        }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credits = credit_card_data
         }
         "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
@@ -384,8 +408,15 @@ trackTests {
     }
     
     //Feedback: Tracking
-    test("cards hybrid dasboard feedback") {
+    test("cards hybrid dashboard feedback") {
         "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+
+    //Feedback for virtual credit card
+    test("cards hybrid dashboard feedback for virtual credit card") {
+        "/cards/hybrid/dashboard/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
         }
     }
@@ -583,6 +614,10 @@ trackTests {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message_freeze"
         }
+         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "close_modal"
+        }
+        
     }
 
     //Highlighted Row
@@ -670,6 +705,24 @@ trackTests {
             reasons = ["debit_available_push_strategy_none", "reissue"]
          }
     }
+
+    // REISSUE VIRTUAL CREDIT
+    // --------
+
+    test("cards hybrid reissue virtual credit card ") {
+        "/cards/hybrid/block_card/virtual/credit"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+        }
+        "/cards/hybrid/block_card/virtual/credit/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "primary_button"
+        }
+        "/cards/hybrid/block_card/virtual/credit/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "secondary_button"
+        }
+    }
+
 
     // REISSUE PHYSICAL
     // --------
@@ -922,6 +975,23 @@ trackTests {
             from = "home"
         }
     }
+
+    // CARD REQUEST virtual init point
+    // --------
+    test("cards hybrid request virtual init point") {
+        "/cards/hybrid/request/virtual/init_point"(platform: "/", type: TrackType.View) {
+            from = "home"
+        }
+    }
+
+    // CARD REQUEST physical init point
+    // --------
+    test("cards hybrid request physical init point") {
+        "/cards/hybrid/request/physical/init_point"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
+        }
+    }
+
     // CARD REQUEST virtual on boarding
     // --------
     test("cards hybrid virtual onboarding"){
@@ -1052,6 +1122,30 @@ trackTests {
             product_type = "chip_hybrid"
             action = "disable_credit_card"
         }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_debit_contactless"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_credit_contactless"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_hybrid_contactless"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_debit_contactless"
+            action = "unfreeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_credit_contactless"
+            action = "unfreeze"
+        }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "contactless_hybrid_contactless"
+            action = "unfreeze"
+        }
     }
 
     //OPTIONS Message
@@ -1068,11 +1162,47 @@ trackTests {
         }
     }
 
+    //OPTIONS Feedback for virtual credit card
+    test("cards hybrid options feedback button event for virtual credit card") {
+        "/cards/hybrid/setup/options/feedback/credit/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+
+    // OPTIONS Semaphore
+    test("card options semaphore states for nfc") {
+        "/cards/hybrid/setup/options/semaphore"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "not_tokenized"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "tokenized_in_progress"
+        }
+        "/cards/hybrid/setup/options/semaphore/render"(platform:"/", type: TrackType.Event) {
+            action = "privder_suspended"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "configured"
+        }
+        "/cards/hybrid/setup/options/semaphore/tap"(platform:"/", type: TrackType.Event) {
+            action = "not_configured"
+        }
+    }
+
     //NFC ENROLLMENT HUB
     test("cards hybrid nfc enrollment hub") {
         "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
-            action = "continue_later"
+            action = "primary_button"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
@@ -1089,13 +1219,48 @@ trackTests {
         "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
             action = "success_redirect"
         }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin_tnp_nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "tnp_nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin_nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin_tnp"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "pin"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "tnp"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 1
+            incomplete_steps = "nfc"
+        }
+        "/cards/nfc/enrollment/hub/incomplete_steps"(platform:"/", type: TrackType.Event) {
+            result = 0
+            incomplete_steps = "all_complete"
+        }
     }
     
     //NFC CONFIGURATION HUB
     test("cards hybrid nfc configuration hub") {
         "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
-            action = "continue_later"
+            action = "primary_button"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
@@ -1123,7 +1288,27 @@ trackTests {
             action = "main"
         }
     }
-
+    
+    // Block Page NFC
+    test("cards hybrid nfc block page") {
+        "/cards/nfc/block_page/not_nfc_device"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/block_page/acquisition_rollout"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/block_page/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary"
+            type = "not_nfc_device"
+        }
+        "/cards/nfc/block_page/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary"
+            type = "acquisition_rollout"
+        }
+        "/cards/nfc/block_page/not_nfc_device/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/nfc/block_page/acquisition_rollout/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+    }
+    
     // NFC Tokenization Status
     test("cards hybrid nfc enrollment tokenization") {
         "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
@@ -1217,7 +1402,18 @@ trackTests {
 
     // NFC Payment
     test("cards hybrid nfc payment") {
-        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "home_mp"
+        }
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "setup_options"
+        }
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "closed_app"
+        }
+        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
+            from = "tap_in_app"
+        }
         "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
             result = "error_payment"
             reasons = "payment is not allowed as SDK initialization is ongoing"
@@ -1242,12 +1438,41 @@ trackTests {
         "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
             status = "unknown"
         }
+        "/cards/nfc/congrats/insufficient_money"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/blocked_pin"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/connection_error"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/invalid_pin"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/generic_tap_pos_error"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/congrats/generic_error"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
+            type = "insufficient_money"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "primary"
+            type = "blocked_pin"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "secondary"
+            type = "connection_error"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "secondary"
+            type = "invalid_pin"
+        }
+        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "primary"
+            type = "generic_tap_pos_error"
         }
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
+            type = "generic_error"
         }
+    }
+    
+    // NFC Feature
+    test("nfc feature is available"){
+        "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
     }
     
     // NFC Core
@@ -1490,6 +1715,31 @@ trackTests {
         }
         "/cards/nfc/core/error/digitize_card"(platform: "/", type: TrackType.Event) {
             error_code = "blocked_secure_wallet_enrollment_required"
+        }
+    }
+    
+    // NFC-INFORMATIVE-SCREEN
+    test("cards hybrid nfc informative screen") {
+        "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
+            has_money = true
+        }
+    }
+    
+    test("cards hybrid nfc informative screen") {
+        "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
+            has_money = false
+        }
+    }
+    
+    // NFC-TOKENIZATION-USER-WAIT-TIME
+    test("cards hybrid nfc tokenization user waiting time") {
+        "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.View) {
+            time_millis = 1
+            result= "enrollment_error"
+        }
+        "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.View) {
+            time_millis = 0
+            result= "success"
         }
     }
 }

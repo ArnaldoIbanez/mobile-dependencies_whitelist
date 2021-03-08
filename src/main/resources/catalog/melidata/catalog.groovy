@@ -46,6 +46,8 @@ catalog {
     def mercadoshops = ["mercadoshops"]
 
     def mercadoenvios = ["mercadoenvios"]
+    
+    def mercadoads = ["mercadoads"]
 
     def extra_marketplace = [
             "tucarro",
@@ -90,6 +92,8 @@ catalog {
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
         include business, "addresses.groovy"
+        include business, "bulk_publish.groovy"
+        include business, "bulk_edit.groovy"
     }
 
     mercadolibre.each { business ->
@@ -101,6 +105,7 @@ catalog {
         include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "compatibilities.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
@@ -148,7 +153,7 @@ catalog {
         include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
-        include business, "myaccount_billing.groovy"
+        include business, "billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
@@ -240,11 +245,17 @@ catalog {
         include business, "pix.groovy"
         include business, "black_friday.groovy"
         include business, "business_config.groovy"
+        include business, "qr_journey.groovy"
+        include business, "fees_installments.groovy"
     }
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
         include business, "notifications_mshops.groovy"
+    }
+    
+    mercadoads.each { business ->
+        include business, "advertising.groovy"
     }
 
     mercadoenvios.each { business ->
@@ -267,7 +278,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "myml.groovy"
-        include business, "myaccount_billing.groovy"
+        include business, "billing.groovy"
         include business, "download_app.groovy"
         include business, "official_stores.groovy"
         include business, "qadb.groovy"

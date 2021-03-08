@@ -210,7 +210,7 @@ trackTests {
             section_id = "banking_v2"
         }
 
-        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             pill = "NOVO"
             has_card = true
             component_id = "card"
@@ -219,18 +219,51 @@ trackTests {
         }
 
 
-        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             has_nfc_card = true
             component_id = "nfc"
             link = "mercadopago"
             section_id = "banking_v2"
         }
         
-        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             card_status = "active"
             component_id = "pay_online"
             link = "mercadopago"
             section_id = "banking_v2"
+        }
+    }
+
+    test("Mercadopago Walkthrough") {
+
+        "/wallet_home/walkthrough/next" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/finish" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 5
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/walkthrough/close" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/view" (platform: "/mobile", type: TrackType.View) {
+            id = "banking_v2"
+            total_steps = 5
+            step_ids = ["banking", "qr", "cards", "data", "navigation"]
+            metadata_user:[
+                type: "payer"
+            ]
         }
     }
 
@@ -476,6 +509,10 @@ trackTests {
                             ]
                     ]
             ]
+            credits=[]
+            banking_v2=[
+                hidden : true
+            ]
             survey= [
                     ordinal: 13,
                     content_type : 'complete'
@@ -490,6 +527,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 16,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 17,
                     content_type : 'complete'
             ]
             metadata = [
@@ -661,6 +702,9 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            banking_v2=[
+                    hidden : true
+            ]
             bcra_regulation= [
                     ordinal: 14,
                     content_type : 'complete'
@@ -671,6 +715,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 16,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 17,
                     content_type : 'complete'
             ]
             metadata = [
@@ -743,9 +791,6 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
-       	    metadata_user = [
-                type: "seller"
-            ]
         }
     }
 
@@ -780,9 +825,9 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - Banking V2") {
-        "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-cards" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="banking_v2/cards"
+            section_id="banking_v2-cards"
             component_id="cards"
             prepaid = false
             debit = false
@@ -791,7 +836,7 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - BANKING v2 Assets") {
-        "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-assets" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="assets"
             component_id="assets"
@@ -802,7 +847,7 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - BANKING v2 Actions") {
-        "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-actions" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="Actions"
             component_id="Actions"
@@ -813,7 +858,7 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - BANKING v2 balance") {
-        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://balance"
             section_id="Balance"
             component_id="Balance"
@@ -942,6 +987,14 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="repentance_button"
             component_id="repentance_button"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Complaints Book") {
+        "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="complaints_book"
+            component_id="complaints_book"
         }
     }
 
@@ -1288,7 +1341,7 @@ trackTests {
             section_id = "banking_v2"
         }
 
-        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             pill = "NOVO"
             has_card = true
             component_id = "card"
@@ -1297,18 +1350,51 @@ trackTests {
         }
 
 
-        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             has_nfc_card = true
             component_id = "nfc"
             link = "mercadopago"
             section_id = "banking_v2"
         }
         
-        "/wallet_home/section/tap/banking_v2/mpcards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-mpcard" (platform: "/mobile", type: TrackType.Event) {
             card_status = "active"
             component_id = "pay_online"
             link = "mercadopago"
             section_id = "banking_v2"
+        }
+    }
+
+    test("Mercadopago Walkthrough") {
+
+        "/wallet_home/walkthrough/next" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/finish" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 5
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/walkthrough/close" (platform: "/mobile", type: TrackType.Event) {
+            id = "banking_v2"
+            step_id = "qr"
+            step_number = 1
+        }
+
+        "/wallet_home/walkthrough/view" (platform: "/mobile", type: TrackType.View) {
+            id = "banking_v2"
+            total_steps = 5
+            step_ids = ["banking", "qr", "cards", "data", "navigation"]
+            metadata_user:[
+                type: "payer"
+            ]
         }
     }
 
@@ -1423,6 +1509,10 @@ trackTests {
                             pending_balance: false,
                             balance_histogram: 6
                     ]
+            ]
+            credits=[]
+            banking_v2=[
+                hidden : true
             ]
             main_actions = [
                     content_type : 'complete',
@@ -1560,6 +1650,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 15,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 16,
                     content_type : 'complete'
             ]
             metadata = [
@@ -1727,6 +1821,9 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            banking_v2=[
+                    hidden : true
+            ]
             subscription= [
                     content_type : 'partial',
                     ordinal: 14,
@@ -1735,6 +1832,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 15,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 16,
                     content_type : 'complete'
             ]
             metadata = [
@@ -1792,9 +1893,6 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
-       	    metadata_user = [
-                type: "seller"
-            ]
         }
     }
 
@@ -1823,9 +1921,9 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - Banking V2") {
-        "/wallet_home/section/tap/banking_v2/cards" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-cards" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="banking_v2/cards"
+            section_id="banking_v2-cards"
             component_id="cards"
             prepaid = false
             debit = false
@@ -1834,7 +1932,7 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - BANKING v2 Assets") {
-        "/wallet_home/section/tap/banking_v2/assets" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-assets" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="assets"
             component_id="assets"
@@ -1845,7 +1943,7 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - BANKING v2 Actions") {
-        "/wallet_home/section/tap/banking_v2/actions" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-actions" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="Actions"
             component_id="Actions"
@@ -1856,7 +1954,7 @@ trackTests {
     }
 
     test("Mercadopago Home Tap v3 - BANKING v2 balance") {
-        "/wallet_home/section/tap/banking_v2/balance" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://balance"
             section_id="Balance"
             component_id="Balance"
@@ -1961,11 +2059,19 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Survey") {
+    test("Mercadopago Home Tap v3 - Repentance Button") {
         "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="repentance_button"
             component_id="repentance_button"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Complaints Book") {
+        "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="complaints_book"
+            component_id="complaints_book"
         }
     }
 

@@ -2,6 +2,7 @@ package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -14,7 +15,10 @@ tracks {
 
     //Definitions
     propertyDefinitions {
-        section_id(required: true, type: PropertyType.String, description: "Identifier for the realestate to consume")
+        // Global variables
+        action_id(required: true, type: PropertyType.String, description: "The action executed")
+
+        // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
         content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
         audience(required: true, type: PropertyType.String, description: "The audience for which this content was prepared")
@@ -23,8 +27,6 @@ tracks {
         bu(required: true, type: PropertyType.String, description: "The business unit")
         bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content")
         flow(required: true, type: PropertyType.String, description: "The flow related to the content")
-        action_id(required: true, type: PropertyType.String, description: "The action executed")
-        link(required: true, type: PropertyType.String, description: "Link to execute")
 
         // Movements
         action_type(required: true, type: PropertyType.String, description: "Movement type indicator")
@@ -36,10 +38,7 @@ tracks {
 
     propertyGroups {
         eventDataTrack (
-                section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow
-        )
-        actionEventDataTrack (
-                section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow, action_id, link
+                component_id, content_id, audience, position, logic, bu, bu_line, flow
         )
         movementsFiltersAction (
                 action_type
@@ -77,6 +76,17 @@ tracks {
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    "/banking/pnf/confirm"(platform: "/", type: TrackType.Event) {}
+    "/banking/pnf/congrats"(platform: "/", type: TrackType.Event) {
+        status( required: true, type: PropertyType.String , description: "Pnf congrats whether the screen was successful or not" )
+    }
+    "/banking/pnf/back"(platform: "/", type: TrackType.Event) {
+        action( require: true, type: PropertyType.String, description: "Identifies back action component")
+    }
+    "/banking/pnf/inprogress"(platform: "/", type: TrackType.View) {}
+    "/banking/pnf/error"(platform: "/", type: TrackType.View) {
+        page( require: true, type: PropertyType.String, description: "Identifies from which screen ends in error view")
+    }
 
     // Movements
     "/banking/movements"(platform: "/", type: TrackType.View) {}
@@ -103,5 +113,5 @@ tracks {
     // MP Balance - Merch Engine Events Credits
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
-    "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+    "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { eventDataTrack }
 }

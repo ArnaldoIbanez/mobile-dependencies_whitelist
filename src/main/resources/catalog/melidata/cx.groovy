@@ -9,6 +9,12 @@ tracks {
 
     initiative = "1155"
 
+    def helpCardContent = objectSchemaDefinitions {
+        title(required: false, type: PropertyType.String, description: "Title of the content")
+        redirect_url(required: false, type: PropertyType.String, description:  "Redirect url of the content")
+        directAccess(required: false, type: PropertyType.Map, description: "Configuration to open a direct access to support widget")
+    }
+
     propertyDefinitions {
         portal_contact(required: true, type: PropertyType.Map,
             description: "Indicates if the current hub has channels enabled and why it hasn't")
@@ -54,6 +60,8 @@ tracks {
             description: "Indicates the destination url in an event track")
         portal_show_cancel_card(required: false, type: PropertyType.Boolean, 
             description: "Indicates if the cancelCard should be shown")
+        portal_show_delay_cards(required: false, type: PropertyType.Boolean, 
+            description: "Indicates if the delayCard should be shown")
         portal_has_one_click(required: true, type: PropertyType.Boolean,
             description: "Indicates if the user has oneclick enabled")
         portal_contact_predicted_team(required: false, type: PropertyType.String,
@@ -66,6 +74,15 @@ tracks {
             description: "Indicates the features used in the prediction")
         portal_predicted_contents(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
             description: "Indicates the ids of the contents predicted to a user")
+        helpcard_title(required: true, type: PropertyType.String,
+            description: "Indicates the title of the help card as viewed by the user")
+        helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
+            description: "Indicates the contents viewed by the user in the help card")
+        portal_contents_result(required: true, description: "Content ids result from search page", type: PropertyType.ArrayList)
+        portal_delayed_pack_id(required: true, type: PropertyType.Numeric,
+            description: "Indicates the single pack id of the card clicked by the user")
+        portal_delayed_packs_ids(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the delayed packs shown to the user")
     }
 
     propertyGroups {
@@ -86,12 +103,17 @@ tracks {
         portal_prediction_id(portal_prediction_id)
         portal_content_destination_url(portal_content_destination_url)
         portal_show_cancel_card(portal_show_cancel_card)
+        portal_show_delay_cards(portal_show_delay_cards)
         portal_has_one_click(portal_has_one_click)
         portal_contact_predicted_team(portal_contact_predicted_team)
         portal_contact_prediction_score(portal_contact_prediction_score)
         portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
         portal_predicted_features(portal_predicted_features)
         portal_predicted_contents(portal_predicted_contents)
+        helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
+        portal_contents_result(portal_contents_result)
+        portal_delayed_pack_id(portal_delayed_pack_id)
+        portal_delayed_packs_ids(portal_delayed_packs_ids)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -193,6 +215,13 @@ tracks {
         portal_broken_link_source_url
         portal_broken_link_destination_url
         portal_search_criteria
+        portal_contents_result
+    }
+
+    "/portal/search/click"(platform: "/", type: TrackType.Event) {
+        portal_contents_result(required: false, type: PropertyType.ArrayList, description: "Content ids result from search page")
+        portal_content_id
+        portal_source_id
     }
 
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {
@@ -211,10 +240,14 @@ tracks {
     "/portal/home"(platform: "/", type: TrackType.View) {
         portal_source_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_predicted_label(required: false, type: PropertyType.String,
+                description: "Field that sometimes is required in catalog, but not always. Indicates the predicted label of the user")
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
         portal_show_cancel_card
+        portal_show_delay_cards
+        portal_delayed_packs_ids
         portal_prediction_id
         portal_has_one_click
         portal_predicted_contents
@@ -230,10 +263,15 @@ tracks {
 
     "/portal/validate_user"(platform: "/", type: TrackType.View) {}
 
-     "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
+    "/portal/cancel_card"(platform: "/", type: TrackType.Event) {
         portal_source_id
         portal_custom_order_id
         portal_prediction_id
+    }
+
+    "/portal/delay_card"(platform: "/", type: TrackType.Event) {
+        portal_source_id
+        portal_delayed_pack_id
     }
 
     // Support Widget
@@ -374,5 +412,12 @@ tracks {
         type(required: true, type: PropertyType.String, 
             values: ["new_information", "greetings", "recontact"],
             description: "Contact type")
+    }
+
+    // Daisy
+    "/support/helpcard"(platform: "/", type: TrackType.View) {} 
+
+    "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
+        helpcard_data
     }
 }
