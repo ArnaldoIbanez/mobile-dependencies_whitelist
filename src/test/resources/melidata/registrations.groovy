@@ -618,6 +618,35 @@ trackTests {
                     id: "kyc",
                     status: "pending",
                 ],
+                [
+                    id: "pix",
+                    status: "pending",
+                ],
+                [
+                    id: "regulations",
+                    status: "pending",
+                ],
+            ]
+        }
+                "/register/v3/hub/main"(platform: "/mobile", business: "mercadopago"){
+            status = "in_progress"
+            steps = [
+                [
+                    id: "email_validation",
+                    status: "completed",
+                ],
+                [
+                    id: "phone_validation",
+                    status: "pending",
+                ],
+                [
+                    id: "kyc",
+                    status: "pending",
+                ],
+                [
+                    id: "tyc",
+                    status: "pending",
+                ],
             ]
         }
         "/register/v3/hub/email_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
