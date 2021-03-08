@@ -246,4 +246,11 @@ tracks {
     "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
+
+    "/register/v3/challenge"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc/wallet"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/wallet/submit"(platform: "/", type: TrackType.Event){}
+    "/register/v3/challenge/tyc/standard"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/standard/submit"(platform: "/", type: TrackType.Event){}
 }
