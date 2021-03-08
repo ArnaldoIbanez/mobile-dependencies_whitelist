@@ -46,6 +46,11 @@ tracks
                 offers_info(type: PropertyType.ArrayList(PropertyType.Map(offers_info_definition)), required: true)
             }
 
+             "/crowd/offers/not_available_detail"(platform: "/mobile", type: TrackType.View) {
+                location
+                offer_id(type: PropertyType.String, required: true)
+            }
+
             "/crowd/offers/detail/map"(platform: "/mobile", type: TrackType.Event) {
                 location
                 offers_info(type: PropertyType.ArrayList(PropertyType.Map(offers_info_definition)), required: true)
