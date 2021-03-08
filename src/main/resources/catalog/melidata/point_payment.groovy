@@ -103,6 +103,9 @@ tracks {
     }
     "/point_payment/new_payment/pix/shield_dismiss"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/new_payment/pix/show_tos"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/ota_update/shield_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/ota_update/shield_update"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/ota_update/shield_show"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
