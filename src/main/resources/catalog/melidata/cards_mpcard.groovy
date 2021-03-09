@@ -275,7 +275,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["blocked_pin"],
+            values: ["blocked_pin", "unlock_card", "unlock_physical_card"],
             description: "Message button tapped"
           )
     }
@@ -384,7 +384,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal"],
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help"],
             description: "Virtual card buttons tapped"
         )
     }
