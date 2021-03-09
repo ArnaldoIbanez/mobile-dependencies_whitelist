@@ -629,8 +629,6 @@ trackTests {
         "/register/v3/challenge/tyc/wallet/submit"(platform: "/mobile", business: "mercadopago"){}
         
         "/register/v3/challenge/tyc/standard"(platform: "/mobile", business: "mercadopago"){}
-        "/register/v3/challenge/tyc/standardlet/submit"(platform: "/mobile", business: "mercadopago"){}
-
-        
+        "/register/v3/challenge/tyc/standard/submit"(platform: "/mobile", business: "mercadopago"){}   
     }
 }
