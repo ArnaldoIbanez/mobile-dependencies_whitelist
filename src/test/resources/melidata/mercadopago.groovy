@@ -3797,7 +3797,7 @@ trackTests {
         }
     }
 
-    test("totp_in_app flow") {
+    test("TOTP_IN_APP flow") {
         "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
             id = "id"
         }
@@ -3809,7 +3809,7 @@ trackTests {
         }
         "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
             id = "id"
-            status = "approve"
+            status = "approved"
             event_type = "polling"
         }
         "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
