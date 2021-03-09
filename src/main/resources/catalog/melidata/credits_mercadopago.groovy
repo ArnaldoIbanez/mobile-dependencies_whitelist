@@ -92,7 +92,7 @@ tracks {
                 type: PropertyType.String,
                 required: false,
                 values: [
-                        'open_market'
+                    'open_market'
                 ],
                 inheritable: false
         )
