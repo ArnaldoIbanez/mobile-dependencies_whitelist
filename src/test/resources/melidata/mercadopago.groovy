@@ -3818,6 +3818,33 @@ trackTests {
         }
     }
 
+    test("TOTP_IN_APP flow") {
+        "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "approved"
+            event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "go_home"
+            event_type = "click"
+        }
+    }
+
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
             mode = "prefetch_only"
