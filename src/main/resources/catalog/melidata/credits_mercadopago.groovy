@@ -1342,7 +1342,7 @@ tracks {
         has_prepaid(
             description: "Metric to track users who has accepted a loan and has prepaid card enabled",
             type: PropertyType.Boolean,
-            required: false,
+            required: true,
         )
         requested_amount(
             description: "User requested amount",
@@ -1380,7 +1380,7 @@ tracks {
         has_prepaid(
                 description: "Metric to track users who has accepted a loan and has prepaid card enabled",
                 type: PropertyType.Boolean,
-                required: false,
+                required: true,
         )
         requested_amount(
                 description: "User requested amount",
