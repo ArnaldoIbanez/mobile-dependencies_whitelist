@@ -278,5 +278,13 @@ trackTests {
       "/money_out/transfers/home/withdraw_bank_campaign_modal"(platform:"/", type: TrackType.View){}
       "/money_out/transfers/home/withdraw_bank_campaign_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/withdraw_bank_campaign_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - Modal Xselling
+      "/money_out/transfers/home/modal_xselling"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/recents/modal_xselling"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/recents/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/recents/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
     }
 }
