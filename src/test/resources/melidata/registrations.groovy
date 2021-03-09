@@ -652,9 +652,9 @@ trackTests {
         "/register/v3/hub/email_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/phone_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/kyc/congrats"(platform: "/mobile", business: "mercadopago"){}
-        "/register/v3/hub/pix/congrats"(platform: "/mobile" business: "mercadopago"){}
-        "/register/v3/hub/regulations/congrats"(platform: "/mobile" business: "mercadopago"){}
-        "/register/v3/hub/tyc/congrats"(platform: "/mobile" business: "mercadopago"){}
+        "/register/v3/hub/pix/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/regulations/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/tyc/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/congrats"(platform: "/mobile", business: "mercadopago"){}
     }
 }
