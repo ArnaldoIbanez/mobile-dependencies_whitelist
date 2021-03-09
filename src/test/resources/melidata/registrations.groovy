@@ -625,11 +625,11 @@ trackTests {
 
     test("Registration v3 Challenges") {
       // MP
-        "/register/v3/challenge/tyc/wallet"(platform: "/mobile" business: "mercadopago"){}
-        "/register/v3/challenge/tyc/wallet/submit"(platform: "/mobile" business: "mercadopago"){}
+        "/register/v3/challenge/tyc/wallet"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/challenge/tyc/wallet/submit"(platform: "/mobile", business: "mercadopago"){}
         
-        "/register/v3/challenge/tyc/standard"(platform: "/mobile" business: "mercadopago"){}
-        "/register/v3/challenge/tyc/standardlet/submit"(platform: "/mobile" business: "mercadopago"){}
+        "/register/v3/challenge/tyc/standard"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/challenge/tyc/standardlet/submit"(platform: "/mobile", business: "mercadopago"){}
 
         
     }
