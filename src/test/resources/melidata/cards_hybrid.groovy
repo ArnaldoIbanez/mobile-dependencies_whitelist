@@ -1031,9 +1031,7 @@ trackTests {
         "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
             status = "ERROR"
         }
-        "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
-             deviceType = "desktop"
-        }
+        "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) { }
     }
 
     //COACHMARK

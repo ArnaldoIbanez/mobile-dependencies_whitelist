@@ -959,14 +959,7 @@ tracks {
         )
     } 
     // Hybrid clickSendMessage Event
-    "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
-        deviceType (
-            required: true,
-            type: PropertyType.String,
-            values: ["desktop"],
-            description: "Device type click send message"
-        )
-    } 
+    "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) { } 
 
     // Request: Success Virtual
     "/cards/hybrid/request/virtual/success"(platform: "/", type: TrackType.Event) {

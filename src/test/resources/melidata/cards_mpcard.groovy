@@ -319,6 +319,12 @@ trackTests {
         "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
         }
+        "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_card"
+        }
+        "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_physical_card"
+        }
     }
     
     //Account info: Tracking
@@ -469,8 +475,11 @@ trackTests {
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message"
         }
-         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "close_modal"
+        }
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
         }
     }
 
