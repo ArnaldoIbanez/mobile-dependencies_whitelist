@@ -412,6 +412,7 @@ tracks {
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         banking_v2(required: false, type: PropertyType.Map(banking_v2_definition), description: "The banking v2 section information")
+        credits(required: false, type: PropertyType.Map(credits_home_definition), description: "The credits section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         shortcuts(required: false, type: PropertyType.Map(shortcuts_section_definition), description: "The shortcuts section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -470,6 +471,8 @@ tracks {
     "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) { // TODO: Will be deprecated
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+        button_link(required: false, type: PropertyType.String, description: "The loyalty header button link.")
+        link(required: false, type: PropertyType.String, description: "The loyalty header button link.")
     }
 
     // New header
@@ -594,6 +597,7 @@ tracks {
 
     "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
         level(required: false, type: PropertyType.Numeric, description: "Loyalty level")
+        partner(required: false, type: PropertyType.String, description: "The partner description.")
     }
 
     "/wallet_home/section/tap/shortcuts"(platform: "/mobile", type: TrackType.Event) {
