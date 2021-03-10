@@ -251,4 +251,12 @@ tracks {
     "/money_out/transfers/home/modal_avoid_legacy/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/modal_avoid_legacy/more_info"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/modal_avoid_legacy/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Xselling
+    "/money_out/transfers/home/modal_xselling"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_xselling"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/recents/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
 }
