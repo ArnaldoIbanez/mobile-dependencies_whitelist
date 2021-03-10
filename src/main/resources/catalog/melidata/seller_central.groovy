@@ -271,7 +271,6 @@ tracks {
         selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
         selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
         row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
-
     }
 
     propertyGroups {
@@ -287,6 +286,8 @@ tracks {
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
         sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type)
+
+        sellerCentralCatalogProductizationGroup(item_id, session_id, category_id, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, rejected_products, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause, item_type)
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
@@ -1663,6 +1664,54 @@ tracks {
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
     }
+
+
+    // CATALOG PRODUCTIZATION SECTION
+
+    "/seller_central/catalog/productization"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogProductizationGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "PRODUCTIZATION"])
+    }
+
+    "/seller_central/catalog/productization/products_finder_bar"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/products_finder_bar/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
+        sellerCentralCatalogProductizationGroup
+    }
+
+    "/seller_central/catalog/productization/products_finder"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/products_finder/update"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+    }
+
+    "/seller_central/catalog/productization/products_finder/product_selection"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+    }
+
+    "/seller_central/catalog/productization/product_bullet_resume"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/product_bullet_resume/show"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "PRODUCTIZATION"])
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: false, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        product_title(required: true, description: "title of catalog product", type: PropertyType.String)
+    }
+
+    "/seller_central/catalog/productization/category"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/category/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "PRODUCTIZATION"])
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: false, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
+    }
+
 
     // ADD NEW PATHS FOR SELLER PROMOTIONS FORM
     // To be compatible with the actuals paths.
