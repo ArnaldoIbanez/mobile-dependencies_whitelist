@@ -83,6 +83,12 @@ tracks {
             description: "Indicates the single pack id of the card clicked by the user")
         portal_delayed_packs_ids(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
             description: "Indicates the delayed packs shown to the user")
+        portal_oneclick_cluster_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the cluster of the oneclick prediction for a user")
+        portal_oneclick_contents_predicted(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the contents of oneclick predicted for a user")
+        portal_oneclick_features(required: false, type: PropertyType.Map,
+            description: "Indicates the features used in the oneclick prediction")
     }
 
     propertyGroups {
@@ -114,6 +120,9 @@ tracks {
         portal_contents_result(portal_contents_result)
         portal_delayed_pack_id(portal_delayed_pack_id)
         portal_delayed_packs_ids(portal_delayed_packs_ids)
+        portal_oneclick_cluster_id(portal_oneclick_cluster_id)
+        portal_oneclick_contents_predicted(portal_oneclick_contents_predicted)
+        portal_oneclick_features(portal_oneclick_features)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -251,6 +260,9 @@ tracks {
         portal_prediction_id
         portal_has_one_click
         portal_predicted_contents
+        portal_oneclick_cluster_id
+        portal_oneclick_contents_predicted
+        portal_oneclick_features
     }
 
     "/portal/zrp"(platform: "/", type: TrackType.View) {

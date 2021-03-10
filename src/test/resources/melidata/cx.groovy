@@ -340,6 +340,13 @@ trackTests {
             portal_has_one_click = false
             portal_predicted_contents = [123, 456]
         }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_oneclick_cluster_id = 3
+            portal_oneclick_contents_predicted = [1234, 5678]
+            portal_oneclick_features = [ "TPV_USER" : 85443 ]
+            portal_has_one_click = true
+        }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
         "/portal/search"(platform: "/", type: TrackType.View) {
             portal_contents_result = [1234, 4321, 6543]
