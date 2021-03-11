@@ -270,7 +270,7 @@ task testMonitoringFraudTFPipelineCatalog (dependsOn: 'classes', type: JavaExec)
 	args = ["mlo-mon-fraud-fda-tf-pipeline"]
 }
 
-task testMonitoringFdaFraudMercadoenviosCatalog (dependsOn: 'classes', type: JavaExec) {
+task testMonitoringReplibTrainerCatalog (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-replib-trainer"]
@@ -466,7 +466,7 @@ task uploadMonitoringFraudTFPipelineCatalog(type:JavaExec) {
 	args = ["mlo-mon-fraud-fda-tf-pipeline"]
 }
 
-task uploadMonitoringFdaFraudMercadoenviosCatalog(type: JavaExec) {
+task uploadMonitoringReplibTrainerCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-replib-trainer"]
