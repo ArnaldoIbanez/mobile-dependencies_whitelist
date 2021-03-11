@@ -82,11 +82,17 @@ tracks {
     }
 
     def highlights_definition  = objectSchemaDefinitions {
+        id(required: false, type: PropertyType.String, description: "Id of the highlight")
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
         melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
         melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
     }
+
+    def apparel_definition = objectSchemaDefinitions {
+        has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -169,6 +175,8 @@ tracks {
                 description: "Indicates if the item has price comparison available")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
         catalog_market_price(required: false, type: PropertyType.Numeric,
                 description: "Price of item according the market, for example FIPE in MLB")
         price_comparison_position(required: false, type: PropertyType.Numeric,
@@ -236,7 +244,8 @@ tracks {
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
 
-
+        // Apparel
+        apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
     }
 
     "/vip"(platform: "/web") {
@@ -421,6 +430,7 @@ tracks {
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
+         referer(required: true, type: PropertyType.String, description: "Size chart referer")
     }
 
     "/vip/sizechart/tutorial"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
@@ -429,12 +439,18 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
-    "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+    "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
         catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. it will be true when comes from VPP")
         contract_available(required: false, type: PropertyType.Boolean)
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
         video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
+                description: "Video type of the item"
+            )
+    }
+
+    "/vip/video_focus"(platform: "/mobile", parentPropertiesInherited: false) {
+        video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO"],
                 description: "Video type of the item"
             )
     }
@@ -461,6 +477,8 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
         failed( required: false, type: PropertyType.Boolean, description: "whenever the post was successful or not")
     }
 
@@ -678,6 +696,8 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
     }
 
     "/vip/questions"(parentPropertiesInherited: false, isAbstract: true){
@@ -690,6 +710,8 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
     }
 
     "/vip/questions/quick_access"(platform: "/", parentPropertiesInherited: false) {
@@ -775,6 +797,7 @@ tracks {
     "/vip/points_of_interest/leisure"(platform: "/web", type: TrackType.Event) {}
     "/vip/points_of_interest/commerce"(platform: "/web", type: TrackType.Event) {}
     "/vip/points_of_interest/health"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/link_map"(platform: "/web", type: TrackType.Event) {}
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION
@@ -813,6 +836,8 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
     }
 
     "/vip/description/failure"(platform: "/mobile") {}
@@ -992,6 +1017,8 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
     }
 
     "/vip/technical_specs/see_more"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1013,6 +1040,8 @@ tracks {
         item_seller_type(required: false, values: ['car_dealer','normal'], description: "Seller type: normal, car_dealer, etc")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
     }
 
     "/vip/denounce_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1034,6 +1063,8 @@ tracks {
         item_seller_type(required: false, values: ['car_dealer'], description: "Seller type: normal, car_dealer, etc")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
     }
 
     "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1335,6 +1366,8 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
         financial_institution(required: false, type: PropertyType.String, description: "Name of the financial institution linked to card")
     }
 
@@ -1385,6 +1418,8 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has attributes highlighted sale specification")
     }
 
     "/vip/credits_tooltip" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
@@ -1457,5 +1492,7 @@ tracks {
 
     "/vip/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
+        item_id(required: false, type: PropertyType.String, description: "Indica el identificador del item")
+        is_component_tracker(required: false, type: PropertyType.String, description: "Indica si el componente es el backup track")
     }
 }

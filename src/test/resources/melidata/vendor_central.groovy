@@ -44,6 +44,20 @@ trackTests {
       categories = ["Mochilas", "Banquetas", "Bicicletas"]
       filters = ["active", "status"]
       items = 3
+      type="EDITABLE_INFORMATION"
+      selected_columns=["STATUS", "SKU"]
+      branches=["Moda", "Alimentos", "Bebidas"]
+    }
+  }
+
+    test("Vendor Central offline bulk download confirm with empty unrequired fields") {
+    "/vendor_central/bulk/offline/download/confirm"(platform: "/", type: TrackType.Event) {
+      categories = ["Mochilas", "Banquetas", "Bicicletas"]
+      filters = []
+      items = 3
+      type="OFFERING"
+      selected_columns=[]
+      branches=[]
     }
   }
 
@@ -103,6 +117,9 @@ trackTests {
     "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
   }
 
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Contra Cogs
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Vendor Central Contra COGS list search event") {
 
     "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
@@ -124,5 +141,48 @@ trackTests {
     "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
   }
 
-}
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Invoices
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Vendor Central Invoices view") {
+    "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
+  }
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+// TRACKS Vendor Central Fiscal Documents Template Mappings
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Vendor Central Fiscal Documents Template Mapping delete event") {
+    "/vendor_central/fiscal_documents/template_mappings/delete"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping get event") {
+    "/vendor_central/fiscal_documents/template_mappings/get"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping modify event") {
+    "/vendor_central/fiscal_documents/template_mappings/modify"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+      template_id = "template_1"
+      is_valid_template = true
+
+    }
+  }
+
+  test("Vendor Central Fiscal Documents Template Mapping save event") {
+    "/vendor_central/fiscal_documents/template_mappings/save"(platform: "/web", type: TrackType.Event) {
+      entity = "credit_note"
+      is_valid_entity = true
+      template_id = "template_1"
+      is_valid_template = true
+    }
+  }
+
+}

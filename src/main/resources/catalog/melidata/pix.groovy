@@ -10,6 +10,6 @@ tracks {
     "/pix_flows"(platform: "/", isAbstract: true) {}
     "/pix_flows/landing"(platform: "/", type: TrackType.View) {}
     "/pix_flows/landing/tap" (platform: "/", type: TrackType.Event) {
-        action (type: PropertyType.String, required: true, values: ["home", "faqs", "pix_key", "money_in", "money_out", "qr", "copy_key"], description: "Indicate type of action tapped in pix landing")
+        action (type: PropertyType.String, required: true, values: ["home", "faqs", "sell_cost", "pix_key", "money_in", "money_out", "qr", "copy_key"], description: "Indicate type of action tapped in pix landing")
     }
 }

@@ -20,6 +20,25 @@ trackTests {
             url              : "http://example.com"
     ]
 
+    def domainExample = "MLA-CELULARES"
+
+    def displayed_filters_mock = [
+            [
+                id: "official_store",
+                name: "Tiendas oficiales",
+                type: "text",
+                position: -1,
+                values_quantity: 8
+            ],
+            [
+                id: "discount",
+                name: "Descuentos",
+                type: "range",
+                position: -1,
+                values_quantity: 5
+            ]
+    ]
+
     def bestSellerInfo = [
             candidates   : 3,
             selected     : [ "MLB2" ],
@@ -50,6 +69,12 @@ trackTests {
         meli_choice : [
                 [item_id: "MLB510446223", position: 1, origin:"killer_matched"],
                 [item_id: "MLB510446224", position: 4, product_id:"MLB1333", origin:"killer_matched"]
+        ],
+        highlights :[
+                [item_id: "MLB510446223", position: 1, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 2, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722"]
         ]
     ]
 
@@ -66,6 +91,7 @@ trackTests {
             limit = 20
             query = "iphone"
             category_path = ["MLA1051", "MLA1055", "MLA32089"]
+            domain = domainExample
             category_id = "MLA32089"
             filters = []
             pads = []
@@ -80,6 +106,7 @@ trackTests {
             sort_id = "relevance"
             view_mode = "MOSAIC"
             results = ["232232000", "232232001", "232232002"]
+            displayed_filters = displayed_filters_mock
             backend_data = {
                 sm = "sm"
                 ab = "1"
@@ -175,10 +202,15 @@ trackTests {
             ]
             carousel_filters = []
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -313,10 +345,15 @@ trackTests {
             ]
             carousel_filters = ["BRAND", "official_store", "STYLE"]
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -617,10 +654,15 @@ trackTests {
             pdp_rows = []
             carousel_filters = []
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                query_and_category_strategy : true,
+                                exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",

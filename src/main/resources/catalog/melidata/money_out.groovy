@@ -152,6 +152,11 @@ tracks {
         advance (required:false, description: "Indicate if user click advance money")
     }
 
+    // Transfer Hub - Cap Limit Modal
+    "/money_out/transfers/amount/cap_limit_modal"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/amount/cap_limit_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/amount/cap_limit_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
     //Transfer Hub - Review And Confirm
     "/money_out/transfers/review_and_confirm"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/review_and_confirm/edit_amount_clicked"(platform: "/", type: TrackType.Event) {}
@@ -203,6 +208,11 @@ tracks {
     "/money_out/transfers/home/ted_campaign_modal/ted_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/ted_campaign_modal/withdraw_legacy_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+    //Transfer Hub - Withdraw Campaign Modal
+    "/money_out/transfers/home/withdraw_bank_campaign_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/withdraw_bank_campaign_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/withdraw_bank_campaign_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
     //Transfer Hub - Coelsa Error
     "/money_out/transfers/home/coelsa_error"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/home/coelsa_error/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
@@ -212,4 +222,41 @@ tracks {
     "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
         type(required_:false, description: "Indicates the type selected ")
     }
+
+    //Cashout - modals
+    "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
+
+    //New TED scheduling modal from HUB
+    "/money_out/transfers/home/new_scheduled_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+    //New TED scheduling modal from recent and favs
+    "/money_out/transfers/recents"(platform: "/", isAbstract: true) {}
+    "/money_out/transfers/recents/new_scheduled_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Withdraw Pix
+    "/money_out/transfers/home/modal_withdraw"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_withdraw/continue_button_with_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_withdraw/continue_button_with_legacy"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_withdraw/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Avoid Legacy
+    "/money_out/transfers/home/modal_avoid_legacy"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_avoid_legacy/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_avoid_legacy/more_info"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_avoid_legacy/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Xselling
+    "/money_out/transfers/home/modal_xselling"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_xselling"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/recents/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
 }

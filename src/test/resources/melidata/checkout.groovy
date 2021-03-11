@@ -2448,6 +2448,43 @@ trackTests {
             recovery_flow=true
         }
 
+        "/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
+            written = "sug"
+            final_text = "suggested street"
+        }
+
+        "/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
+            written = "123"
+            final_text = "12345678"
+        }
+        
+        "/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 10.0
+        }
+        
+        "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 2.0
+            session_id = "1234567"
+        }
+
+        "/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
+            suggested = [
+                "latitude": "12.12",
+                "longitude": "42.42"
+            ]
+            final_coordinates = [
+                "latitude": "12.13",
+                "longitude": "42.40"
+            ]
+            session_id = "1234567"
+        }
+        "/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
+            start_loading = "2021-02-24 12:12:12"
+         }
+
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
         "/checkout/shipping/select_address"(platform:"/web", dataSet)

@@ -1469,6 +1469,31 @@ trackTests {
             payment_id = "567"
         }
 
+        //UIComponents Modal
+    	"/instore/filter_modal/show"(platform: "/mobile",type: TrackType.View) {
+        	filters = [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+
+    	"/instore/filter_modal/close"(platform: "/mobile",type: TrackType.Event) {
+          	
+    	}
+
+    	"/instore/filter_modal/save_filter"(platform: "/mobile",type: TrackType.Event) {
+    	    filters= [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+
+    	"/instore/filter_modal/clear_filter"(platform: "/mobile",type: TrackType.Event) {
+       	 	filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
+    	}
+
+     	"/instore/filter_modal/categories/show"(platform: "/mobile",type:TrackType.View) {}
+
+    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",type: TrackType.Event) {
+    		category_selected = "markets"
+    	}
+
+    	"/instore/filter_modal/categories/close"(platform: "/mobile",type: TrackType.Event) {}
+
         // Buyer QR
 
         "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
@@ -3365,7 +3390,34 @@ trackTests {
             type = "store"
             payment_id = "567"
         }
+
+        //UIComponents Modal
+    	"/instore/filter_modal/show"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        	filters = [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+ 
+    	"/instore/filter_modal/close"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+          	
+    	}
+ 
+    	"/instore/filter_modal/save_filter"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
+    	    filters= [[tag:"categories",value:"markets"],[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+    	}
+
+    	"/instore/filter_modal/clear_filter"(platform: "/mobile", business: "mercadopago",type: TrackType.Event) {
+       	 	filters = [[tag:"categories",value:"none"],[tag:"ship",value:"false"],[tag:"pickup",value:"false"]]
+    	}
+
+     	"/instore/filter_modal/categories/show"(platform: "/mobile",, business: "mercadopago", type: TrackType.View) {}
+
+    	"/instore/filter_modal/categories/save_category"(platform: "/mobile",, business: "mercadopago", type: TrackType.Event) {
+    		category_selected = "markets"
+    	}
+
+    	"/instore/filter_modal/categories/close"(platform: "/mobile",, business: "mercadopago", type: TrackType.Event) {}
     }
+
+    
 
     test("Instore - QR Assignment") {
         "/instore/scale_feature/qr-assignment/start_process"(platform:"/web", type: TrackType.View) {

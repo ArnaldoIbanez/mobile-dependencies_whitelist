@@ -24,7 +24,7 @@ tracks {
         card_id(required: false, type: PropertyType.String, description: "Card id")
         issuer_id(required: false, type: PropertyType.String, description: "Issuer id")
         bin(required: false, type: PropertyType.String, description: "Bin")
-        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason"])
+        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason", "ESC_CAP", "SAVED_CARD", "CALL_FOR_AUTH", "DISABLED_CARD", "INVALID_ESC", "INVALID_FINGERPRINT", "UNEXPECTED_TOKENIZATION_ERROR", "ESC_DISABLED", "NO_REASON"])
     }
 
     propertyGroups {

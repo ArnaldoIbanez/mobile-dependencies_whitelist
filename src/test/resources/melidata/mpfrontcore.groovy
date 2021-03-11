@@ -17,6 +17,10 @@ trackTests {
         "/mp_home" (platform: "/", type: TrackType.View) {}
     }
 
+    test("Mercadopago Home regret HUB") {
+        "/mp_home/regret" (platform: "/", type: TrackType.View) {}
+    }
+
     test("Mercadopago 404") {
         "/not-found" (platform: "/", type: TrackType.View) {}
     }
@@ -37,6 +41,16 @@ trackTests {
         "/mp_home/sections/oneshotmodal/print" (platform: "/", type: TrackType.Event) {}
         "/mp_home/sections/oneshotmodal/view" (platform: "/", type: TrackType.Event) {}
         "/mp_home/sections/oneshotmodal/tap" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago Home Shortcuts") {
+        "/mp_home/sections/shortcuts"(platform: "/", type: TrackType.Event) {
+            shortcut_id = "money_send"
+            section_id = "shortcut"
+            bu_team = "mpfc"
+            action = "click"
+            destination = "www.test.com"
+        }
     }
 
     test("Mercadopago Profile") {

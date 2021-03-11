@@ -8,28 +8,35 @@ trackTests {
 
         "/security_settings"(platform: "/", type: TrackType.View) {
             registered_by_phone = true
+            two_factor_enabled = true
         }
 
         "/security_settings"(platform: "/", type: TrackType.View) {
             registered_by_phone = false
+            two_factor_enabled = false
         }
 
         "/security_settings/action"(platform: "/", type: TrackType.Event) {
             registered_by_phone = false
+            two_factor_enabled = true
             event_type = "click"
             target = "nickname"
         }
 
         "/security_settings/action"(platform: "/", type: TrackType.Event) {
             registered_by_phone = true
+            two_factor_enabled = false
             event_type = "click"
             target = "phone"
         }
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 
-        "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
-            status = "opted_in"
+        "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
+            event_type = "click"
+            action = "add"
+            method = "totp"
+            registered_by_phone = false
         }
     }
 

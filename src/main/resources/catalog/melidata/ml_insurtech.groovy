@@ -32,6 +32,33 @@ tracks {
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the item. For ex: ['MLA1051', 'MLA1055']")
     }
 
+    def grd_price = objectSchemaDefinitions {
+        final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
+    }
+
+    def grd_option = objectSchemaDefinitions {
+        brand(required: false, type: PropertyType.String, description: "model")
+        coverage(required: false, type: PropertyType.String, description: "coverage")
+        deductible_amount(required: false, type: PropertyType.Numeric, description: "deductible amount")
+        model(required: false, type: PropertyType.String, description: "model")
+        size(required: false, type: PropertyType.String, description: "size")
+        manufacturer_warranty(required: false, type: PropertyType.Numeric, description: "factory warranty time")
+    }
+
+    def grd_protection_option = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "id of the warranty option")
+        price(required: true, type: PropertyType.Map(grd_price), description: "price of the warranty option")
+        period(required: true, type: PropertyType.Numeric, description: "period of the warranty option")
+        option_data(required: false, type: PropertyType.Map(grd_option), description: "extra information of the warranty option")
+    }
+
+    def grd_protection_item = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "id of the item that is offered a protection")
+        domain_id(required: true, type: PropertyType.String, description: "domain of the item that is offered a protection")
+        price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
+    }
+
     // Web
     "/garex/checkout"(platform:"/web", type: TrackType.View) {
         item(required: true, type: PropertyType.Map(item_track_structure))
@@ -110,5 +137,144 @@ tracks {
         revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+
+
+    // QPAGE_ON - MOBILE
+
+    "/insurtech/qpage_on/skeleton"(platform:"/mobile", type: TrackType.View) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+    }
+
+    "/insurtech/qpage_on/skeleton/back"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+    }
+
+    "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+    }
+
+    "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        option_id(required: true, type: PropertyType.String, description: "Selected option id")
+        period(required: true, type: PropertyType.Numeric, description: "Product period")
+        cost(required: true, type: PropertyType.Numeric, description: "Product cost")
+        original_cost(required: false, type: PropertyType.Numeric, description: "Product original cost")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "Product discount rate")
+        revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+
+    "/insurtech/qpage_on/faq"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+
+    "/insurtech/qpage_on/selected"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        option_id(required: true, type: PropertyType.String, description: "Selected option id")
+        period(required: true, type: PropertyType.Numeric, description: "Product period")
+        cost(required: true, type: PropertyType.Numeric, description: "Product cost")
+        original_cost(required: false, type: PropertyType.Numeric, description: "Product original cost")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "Product discount rate")
+        revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+
+    "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+    }
+
+    "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        option_id(required: true, type: PropertyType.String, description: "Selected option id")
+        period(required: true, type: PropertyType.Numeric, description: "Product period")
+        cost(required: true, type: PropertyType.Numeric, description: "Product cost")
+        original_cost(required: false, type: PropertyType.Numeric, description: "Product original cost")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "Product discount rate")
+        revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+
+    "/insurtech/qpage_on/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        quote_id(required: false, type: PropertyType.String, description: "Quote id")
+    }
+
+    "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+    }
+
+    "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        error_type(required: false, type: PropertyType.String, description: "Error type obtained")
+    }
+
+    "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        quote_id(required: false, type: PropertyType.String, description: "Quote id")
+        option_id(required: true, type: PropertyType.String, description: "Selected option id")
+        cost(required: true, type: PropertyType.Numeric, description: "Product cost")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+
+    //INSURTECH Hub-ON
+    "/insurtech/protections/marketplace"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+    }
+    
+    "/insurtech/protections/marketplace/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+    }
+
+    "/insurtech/protections/marketplace/select_protection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+    }
+
+    "/insurtech/protections/marketplace/cancel_protection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+    }
+
+    "/insurtech/protections/marketplace/confirm_protection"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "information on the coverage options offered to the item")
+        option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+    }
+
+    "/insurtech/protections/marketplace/faq"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_id(required: true, type: PropertyType.String, description: "product type id")
+        coverage(required: false, type: PropertyType.String, description: "protection coverage")
+        manufacturer_warranty(required: false, type: PropertyType.Numeric, description: "factory warranty time")
+        period(required: false, type: PropertyType.Numeric, description: "duration of warranty")
+    }
+
+    // Hub-ON garex flow experiment
+    "/insurtech/marketplace"(platform: "/", isAbstract: true) {}
+    "/insurtech/marketplace/checkout"(platform:"/", isAbstract: true) {}
+    "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
+        item(required: true, type:PropertyType.Map(grd_protection_item), description: "Basic data of the item to which garex is offered")
+        options(required: false, type: PropertyType.ArrayList(PropertyType.Map(grd_protection_option)), description: "garex options offered for item" )
     }
 }

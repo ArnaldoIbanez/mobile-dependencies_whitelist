@@ -9,12 +9,13 @@ tracks {
 
     "/liveness"(platform: "/mobile", isAbstract: true) {
         transaction_id(type: PropertyType.String, required: false, description: "Transaction id for user identifier")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/liveness"(platform: "/web", isAbstract: true) {
         transaction_id(type: PropertyType.String, required: true, description: "Transaction id for user identifier")
+        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
     }
-
 
     "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")

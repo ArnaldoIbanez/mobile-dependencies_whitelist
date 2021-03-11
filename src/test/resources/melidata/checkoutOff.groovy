@@ -30,6 +30,8 @@ trackTests {
             loyalty_level = 1
             discount_type = "cosmetic"
             discount_percent = 10
+            checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
         }
 
         def finishDefaultProperties = {
@@ -40,6 +42,8 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
+            congrats_status = "success"
         }
 
         def onlyRequiredProperties = {
@@ -50,6 +54,7 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
         }
 
         def finishOnlyRequiredProperties = {
@@ -59,6 +64,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            congrats_status = "success"
         }
 
         // ALL PROPERTIES TESTS
@@ -173,6 +179,18 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -336,6 +354,18 @@ trackTests {
 
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
         }
 
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
@@ -408,16 +438,16 @@ trackTests {
         }
 
         // MP personalFrontend
-        "/tools/list"(platform: "/web"){
+        "/tools/list"(platform: "/"){
         }
 
-        "/tools/list/button_create"(platform: "/web"){
+        "/tools/list/button_create"(platform: "/"){
         }
 
-        "/tools/create"(platform: "/web"){
+        "/tools/create"(platform: "/"){
         }
 
-        "/tools/confirm_create_edit"(platform: "/web"){
+        "/tools/confirm_create_edit"(platform: "/"){
         }
 
         "/balance/reports"(platform: "/web"){
@@ -451,6 +481,8 @@ trackTests {
             loyalty_level = 1
             discount_type = "cosmetic"
             discount_percent = 10
+            checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
         }
 
         def finishDefaultProperties = {
@@ -458,10 +490,11 @@ trackTests {
             payment_status_detail = "accredited"
             payment_status = "approved"
             payment_id = "5408994392"
-            
+
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            congrats_status = "success"
         }
 
         def onlyRequiredProperties = {
@@ -472,6 +505,7 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
         }
 
         def finishOnlyRequiredProperties = {
@@ -481,6 +515,8 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
+            congrats_status = "success"
         }
 
         // ALL PROPERTIES TESTS
@@ -595,6 +631,18 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -758,6 +806,18 @@ trackTests {
 
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
         }
 
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {

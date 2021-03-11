@@ -16,6 +16,7 @@ tracks {
     propertyDefinitions {
         tab_context(required: true, type: PropertyType.String, description: "the tab where the actions are clicked", values: ["/stores/details_pos", "/stores/details_devices"])
         types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
+        rowActionType(required: true, type: PropertyType.String, description: "the action type from the row selected by the user", values: ['navigate', 'picker', 'switch'])
     }
 
     //Account mydata
@@ -50,6 +51,9 @@ tracks {
     "/stores"(platform: "/", isAbstract: true) {}
     "/stores/create"(platform: "/", type: TrackType.View) {}
     "/stores/create_poses"(platform: "/", type: TrackType.View) {}
+    "/stores/create_schedule"(platform: "/", isAbstract: true) {}
+    "/stores/create_schedule/start"(platform: "/", type: TrackType.View) {}
+    "/stores/create_schedule/end"(platform: "/", type: TrackType.Event) {}
     "/stores/create_delivery"(platform: "/", isAbstract: true) {}
     "/stores/create_delivery/start"(platform: "/", type: TrackType.View) {}
     "/stores/create_delivery/end"(platform: "/", type: TrackType.Event) {
@@ -58,6 +62,9 @@ tracks {
     "/stores/link_operators"(platform: "/", type: TrackType.View) {}
     "/stores/list"(platform: "/", type: TrackType.View) {}
     "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/update_schedule"(platform: "/", isAbstract: true) {}
+    "/stores/update_schedule/start"(platform: "/", type: TrackType.View) {}
+    "/stores/update_schedule/end"(platform: "/", type: TrackType.Event) {}
     "/stores/update_delivery"(platform: "/", isAbstract: true) {}
     "/stores/update_delivery/start"(platform: "/", type: TrackType.View) {}
     "/stores/update_delivery/end"(platform: "/", type: TrackType.Event) {
@@ -110,7 +117,6 @@ tracks {
     "/your_business/ahora12/action"(platform:"/", type: TrackType.Event) {
         action(required: true, values: ["activate", "deactivate"], description: "value to describe wheter the user activated or deactivated ahora12 feature", type: PropertyType.String)
     }
-
 
     // Traks for dashboard section
     "/tfs_dashboard"(platform: "/", isAbstract: true) {}
@@ -188,4 +194,10 @@ tracks {
     "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel asked to render")
     }
+
+    // Contact Email Section
+    "/tfs_contact_email"(platform: "/", isAbstract: true) {}
+    "/tfs_contact_email/home"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/error"(platform: "/", type: TrackType.View){}
+    "/tfs_contact_email/congrats"(platform: "/", type: TrackType.View){}
 }
