@@ -192,6 +192,7 @@ tracks {
     "/credits/credit_card/upgrade"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/statement"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
+    "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
 
 
     /******************************************
@@ -449,5 +450,17 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Disable
+     *********************************************/
+
+    /***********************************************
+     *       Start: Credit Card Landings
+     ***********************************************/
+    // Landings
+
+    // Generic Stop Page
+    "/credits/credit_card/landing/generic"(platform: "/web", type: TrackType.View) { }
+
+    /*********************************************
+     *       End: Credit Card Landings
      *********************************************/
 }
