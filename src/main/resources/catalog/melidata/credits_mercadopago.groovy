@@ -1642,7 +1642,7 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(
                 required: true,
-                description: "User wanted to pay in advance and was redirected to CX widget",
+                description: "Define if user allows or not whatsapp notifications",
                 type: PropertyType.Boolean,
         )
     }
