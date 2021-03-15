@@ -316,12 +316,14 @@ trackTests {
         "/portal/home"(platform: "/", type: TrackType.View) {
             portal_source_id = 1627
             portal_show_cancel_card = true
+            portal_custom_orders_ids = [12412]
             portal_prediction_id = 1234
             portal_has_one_click = false
         }
          "/portal/home"(platform: "/", type: TrackType.View) {
             portal_source_id = 1627
             portal_show_cancel_card = false
+            portal_custom_orders_ids = [12412]
             portal_prediction_id = 1234
             portal_has_one_click = false
             portal_predicted_contents = [123, 456]
