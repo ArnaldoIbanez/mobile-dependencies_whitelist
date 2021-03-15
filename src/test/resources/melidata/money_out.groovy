@@ -192,6 +192,8 @@ trackTests {
       "/money_out/transfers/result/view_receipt_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/result/go_to_home_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/result/complete_bacen_information_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/result/new_transfer"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/result/share_receipt"(platform: "/", type: TrackType.Event) {}
       
       //Transfer Hub - Receipt
       "/money_out/transfers/receipt"(platform: "/", type: TrackType.View) {
