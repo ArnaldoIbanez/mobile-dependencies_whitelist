@@ -72,6 +72,7 @@ trackTests {
 
  
         "/mplayer/send_money/contact_picker/search"(platform: "/mobile") {}
+        "/mplayer/send_money/contact_picker/search/not_found"(platform: "/mobile") {}
         "/mplayer/send_money/contact_picker/add_new_contact"(platform: "/mobile") {}
 
         "/mplayer/send_money/bottom_sheet"(platform: "/mobile") {}
@@ -142,6 +143,7 @@ trackTests {
         "/mplayer/closed_request/result/in_process"(platform: "/mobile") {}
 
         "/mplayer/closed_request/contact_picker/search"(platform: "/mobile") {}
+        "/mplayer/closed_request/contact_picker/search/not_found"(platform: "/mobile") {}
         "/mplayer/closed_request/contact_picker/add_new_contact"(platform: "/mobile") {}
 
         "/mplayer/closed_request/bottom_sheet"(platform: "/mobile") {}
@@ -240,6 +242,7 @@ trackTests {
         "/mplayer/money_split/result/in_process"(platform: "/mobile") {}
 
         "/mplayer/money_split/contact_picker/search"(platform: "/mobile") {}
+        "/mplayer/money_split/contact_picker/search/not_found"(platform: "/mobile") {}
         "/mplayer/money_split/contact_picker/add_new_contact"(platform: "/mobile") {}
 
         "/mplayer/money_split/bottom_sheet"(platform: "/mobile") {}
