@@ -1615,6 +1615,20 @@ tracks {
             description: "Self service option shown to the user",
             type: PropertyType.ArrayList(PropertyType.String)
         )
+        opt_in_separator(
+                required: false,
+                description: "It is only shown when user needs to allow notifications",
+                type: PropertyType.String,
+                values: [
+                        "visible",
+                        "not visible"
+                ]
+        )
+        from(
+                required: false,
+                description: "Track flow origin",
+                type: PropertyType.String
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -1630,6 +1644,8 @@ tracks {
     //Events
 
     //Mobile Events
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp/accept"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp/decline"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
         installments_qty(
