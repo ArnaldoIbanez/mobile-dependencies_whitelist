@@ -386,9 +386,6 @@ tracks {
     "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
 
-    "/search/access_map"(platform: "/", type: TrackType.Event) {
-    }
-
     "/search/search_map"(platform: "/", type: TrackType.Event) {
     }
 

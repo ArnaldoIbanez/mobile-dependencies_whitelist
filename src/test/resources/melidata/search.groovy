@@ -543,9 +543,6 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/access_map"(platform: "/") {
-            defaultSearchInformation()
-        }
         "/search/search_map"(platform: "/") {
             defaultSearchInformation()
         }
