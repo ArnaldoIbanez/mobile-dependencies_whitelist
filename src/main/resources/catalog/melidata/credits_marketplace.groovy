@@ -201,11 +201,6 @@ tracks {
                         "not visible"
                 ]
         )
-        from(
-                required: false,
-                description: "Track flow origin",
-                type: PropertyType.String
-        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(

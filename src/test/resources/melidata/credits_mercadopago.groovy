@@ -1506,6 +1506,7 @@ trackTests {
 
         "/credits/consumer/administrator/dashboard"(platform: "/mobile", type: TrackType.View) {
                 dashboard_status = 'empty_state'
+                opt_in_separator = 'visible'
         }
 
         "/credits/consumer/administrator/summary"(platform: "/mobile", type: TrackType.View) {
@@ -1599,6 +1600,8 @@ trackTests {
         "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
+        "credits/consumer/administrator_v2/dashboard/opt_in_wsp/accept"(platform: "/mobile", type: TrackType.Event) {}
+        "credits/consumer/administrator_v2/dashboard/opt_in_wsp/decline"(platform: "/mobile", type: TrackType.Event) {}
 
         /******************************************
             *       End: Consumers Admin Detail
