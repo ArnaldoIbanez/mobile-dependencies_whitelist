@@ -543,6 +543,15 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/access_map"(platform: "/") {
+            defaultSearchInformation()
+        }
+        "/search/search_map"(platform: "/") {
+            defaultSearchInformation()
+        }
+        "/search/back_listing"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }

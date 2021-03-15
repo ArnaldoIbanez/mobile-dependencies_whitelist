@@ -386,6 +386,15 @@ tracks {
     "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
 
+    "/search/access_map"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/search_map"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/back_listing"(platform: "/", type: TrackType.Event) {
+    }
+
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
         item_id(required: true, description: "the item for which the recommendations are shown", type: PropertyType.String)
         category_id(required: true, description: "the item category_id", type: PropertyType.String)
