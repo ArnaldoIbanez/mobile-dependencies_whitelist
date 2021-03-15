@@ -215,8 +215,13 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
-    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp/accept"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp/decline"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
+        status(
+                required: true,
+                description: "User wanted to pay in advance and was redirected to CX widget",
+                type: PropertyType.Boolean,
+        )
+    }
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
         installments_group
         advance_installment(
