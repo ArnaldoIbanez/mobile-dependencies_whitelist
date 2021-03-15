@@ -288,5 +288,32 @@ trackTests {
       "/money_out/transfers/recents/modal_xselling"(platform:"/", type: TrackType.View){}
       "/money_out/transfers/recents/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/recents/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
+
+      //Pix Limits MLB
+      "/pix"(platform: "/", type: TrackType.View) {}
+      "/pix/limits"(platform: "/", type: TrackType.View) {}
+
+      //Pix Limits MLB - Dashboard
+      "/pix/limits/dashboard"(platform: "/", type: TrackType.View) {}
+      "/pix/limits/dashboard/faq"(platform: "/", type: TrackType.Event) {}
+      "/pix/limits/dashboard/select_new_limit"(platform: "/", type: TrackType.Event) {}
+      "/pix/limits/dashboard/go_back"(platform: "/", type: TrackType.Event) {}
+
+      //Pix Limits MLB - Limit Selection
+      "/pix/limits/selection"(platform: "/", type: TrackType.View) {}
+      "/pix/limits/selection/faq"(platform: "/", type: TrackType.Event) {}
+      "/pix/limits/selection/limit_selected"(platform: "/", type: TrackType.Event) {}
+      "/pix/limits/selection/continue"(platform: "/", type: TrackType.Event) {}
+
+      //Pix Limits MLB - Review And Confirm
+      "/pix/limits/review_and_confirm"(platform: "/", type: TrackType.View) {}
+      "/pix/limits/review_and_confirm/faq"(platform: "/", type: TrackType.Event) {}
+      "/pix/limits/review_and_confirm/edit"(platform: "/", type: TrackType.Event) {}
+      "/pix/limits/review_and_confirm/continue"(platform: "/", type: TrackType.Event) {}
+
+      //Pix Limits MLB - Congrat
+      "/pix/limits/congrat"(platform: "/", type: TrackType.View) {}
+      "/pix/limits/congrat/primary_button_click"(platform: "/", type: TrackType.Event) {}
+      "/pix/limits/congrat/secondary_button_click"(platform: "/", type: TrackType.Event) {}
     }
 }
