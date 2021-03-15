@@ -574,6 +574,15 @@ trackTests {
                         "7893299910425"
                     ],
                     discount_rate: 10,
+                    insured_amount: 30000,
+                    item_cost: 15000,
+                    franchise_type: "PREV_OPEN_CLAIM",
+                    available_resolution_types:[
+                        "repair",
+                        "compensation"
+                    ],
+                    allowed_opening: 2,
+                    compensation_money_amount: 10000,
                 ],
                 [
                     coverage: "theft_break",
@@ -584,6 +593,15 @@ trackTests {
                         "7893299910425"
                     ],
                     discount_rate: 0,
+                    insured_amount: 30000,
+                    item_cost: 15000,
+                    franchise_type: "PREV_OPEN_CLAIM",
+                    available_resolution_types:[
+                        "repair",
+                        "compensation"
+                    ],
+                    allowed_opening: 2,
+                    compensation_money_amount: 10000,
                 ]
             ]
             entity_type = "order"
@@ -616,6 +634,15 @@ trackTests {
                         "7893299910425"
                     ],
                     discount_rate: 0,
+                    insured_amount: 30000,
+                    item_cost: 15000,
+                    franchise_type: "PREV_OPEN_CLAIM",
+                    available_resolution_types:[
+                        "repair",
+                        "compensation"
+                    ],
+                    allowed_opening: 2,
+                    compensation_money_amount: 10000,
                 ],
             ]
             entity_type = "order"
@@ -839,6 +866,15 @@ trackTests {
                     "7893299910425"
                 ],
                 discount_rate: 30,
+                insured_amount: 30000,
+                item_cost: 15000,
+                franchise_type: "PREV_OPEN_CLAIM",
+                available_resolution_types:[
+                    "repair",
+                    "compensation"
+                ],
+                allowed_opening: 2,
+                compensation_money_amount: 10000,
             ]
             entity_type = "order"
             entity_id = "789078907890"
@@ -912,6 +948,15 @@ trackTests {
                     "7893299910425"
                 ],
                 discount_rate: 20,
+                insured_amount: 30000,
+                item_cost: 15000,
+                franchise_type: "PREV_OPEN_CLAIM",
+                available_resolution_types:[
+                    "repair",
+                    "compensation"
+                ],
+                allowed_opening: 2,
+                compensation_money_amount: 10000,
             ]
             entity_type = "order"
             entity_id = "789078907890"
