@@ -157,6 +157,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
+            opt_in_separator = 'visible'
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = 'overdue'
@@ -191,6 +192,7 @@ trackTests {
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
+            opt_in_separator = 'visible'
         }
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
@@ -233,6 +235,10 @@ trackTests {
         }
         "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {
             user_status = 'manually_paused'
+        }
+        "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/mobile", type: TrackType.Event) {
+            status = true
+            dashboard_status = 'on_time'
         }
 
 
