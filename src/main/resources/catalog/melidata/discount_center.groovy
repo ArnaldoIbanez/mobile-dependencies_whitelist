@@ -27,7 +27,6 @@ tracks {
         review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
         discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
         delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
-        context_info(type: PropertyType.ArrayList(PropertyType.Map(context_info_definition)), required: false, description: "The context information")
     }
 
     propertyGroups {
@@ -68,7 +67,7 @@ tracks {
 
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
-        context_info
+        context_info(type: PropertyType.ArrayList(PropertyType.Map(context_info_definition)), required: false, description: "The context information")
     }
 
 
