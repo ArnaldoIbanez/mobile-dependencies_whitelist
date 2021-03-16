@@ -74,6 +74,7 @@ tracks {
     }
 
     "/mplayer/send_money/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/send_money/contact_picker/search/not_found"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/send_money/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/send_money/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
@@ -141,6 +142,7 @@ tracks {
     "/mplayer/closed_request/result/in_process"(platform: "/mobile", type: TrackType.View) {}
 
     "/mplayer/closed_request/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/contact_picker/search/not_found"(platform: "/mobile", type: TrackType.Event) {}    
     "/mplayer/closed_request/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/closed_request/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
@@ -241,6 +243,7 @@ tracks {
     "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}
 
     "/mplayer/money_split/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/contact_picker/search/not_found"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/money_split/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}

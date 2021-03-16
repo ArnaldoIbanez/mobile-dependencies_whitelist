@@ -87,6 +87,7 @@ tracks {
         device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
     }
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/license_plate_form"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
         vehicle_id(required: false, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
@@ -100,15 +101,20 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["ok", "invalid_format"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
     }
     "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
-        error_type(required: true, type: PropertyType.String, values: ["generic" , "driver_on_route", "vehicle_on_route", "vehicle_driver_inactive", "driver_inactive" , "vehicle_inactive"],
-                description: "Specifies what kind of error happened.", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
     }
-    "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: false, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
+    }
     "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
         vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
     }
     "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
     }
     "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
@@ -138,6 +144,8 @@ tracks {
 
     // Last Mile
     "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
     "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View) {
@@ -370,18 +378,68 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         case_type_id(required: true, type: PropertyType.String, description: "Specifies the current incident case type id", inheritable: false)
     }
-    "/logistics/last_mile/places/disclaimer_handshake"(platform: "/mobile", type: TrackType.Event) {
+
+    //Handshake
+    "/logistics/last_mile/handshake_disclaimer"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
-        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
     }
-    "/logistics/last_mile/places/disclaimer_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
-        packages_to_scan(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id to scan", inheritable: false)
+    "/logistics/last_mile/handshake_disclaimer/confirm"(platform: "/mobile", type: TrackType.Event) {
+        shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id to scan", inheritable: false)
     }
-    "/logistics/last_mile/places/modal_handshake"(platform: "/mobile", type: TrackType.Event) {
+    "/logistics/last_mile/handshake_disclaimer_modal"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
-        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
     }
-    "/logistics/last_mile/places/modal_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/handshake_disclaimer_modal/understand"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/handshake_warning"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
+        missing_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of missing shipments id")
+    }
+    "/logistics/last_mile/handshake_warning/delivery_done"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/handshake_warning/not_delivery"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/handshake_warning_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
+    }
+    "/logistics/last_mile/handshake_warning_modal/understand"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/deliver/receives_form"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
+        context(required: true, type: PropertyType.String, values: ["agency", "cart", "direct"] ,  description: "Specifies the type of deliver: agency, cart or direct")
+    }
+    "/logistics/last_mile/deliver/receives_form/save"(platform: "/mobile", type: TrackType.Event) {
+        shipments_delivered(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of delivered shipments id")
+        shipments_not_delivered(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of not delivered shipments id")
+    }
+    "/logistics/last_mile/package/not_delivered_reason"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
+    }
+    "/logistics/last_mile/package/not_delivered_reason/save"(platform: "/mobile", type: TrackType.Event) {
+        reason(required: true, type: PropertyType.String, description: "Specifies the current agency id")
+    }
+    "/logistics/last_mile/handshake_missing_packages_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        agency_id(required: true, type: PropertyType.Numeric, description: "Specifies the current agency id")
+        missing_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of missing shipments id", inheritable: false)
+    }
+    "/logistics/last_mile/handshake_missing_packages_modal/understand"(platform: "/mobile", type: TrackType.Event) {}
 
     // First Mile
     "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {

@@ -51,6 +51,9 @@ tracks {
     "/stores"(platform: "/", isAbstract: true) {}
     "/stores/create"(platform: "/", type: TrackType.View) {}
     "/stores/create_poses"(platform: "/", type: TrackType.View) {}
+    "/stores/create_schedule"(platform: "/", isAbstract: true) {}
+    "/stores/create_schedule/start"(platform: "/", type: TrackType.View) {}
+    "/stores/create_schedule/end"(platform: "/", type: TrackType.Event) {}
     "/stores/create_delivery"(platform: "/", isAbstract: true) {}
     "/stores/create_delivery/start"(platform: "/", type: TrackType.View) {}
     "/stores/create_delivery/end"(platform: "/", type: TrackType.Event) {
@@ -59,6 +62,9 @@ tracks {
     "/stores/link_operators"(platform: "/", type: TrackType.View) {}
     "/stores/list"(platform: "/", type: TrackType.View) {}
     "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/update_schedule"(platform: "/", isAbstract: true) {}
+    "/stores/update_schedule/start"(platform: "/", type: TrackType.View) {}
+    "/stores/update_schedule/end"(platform: "/", type: TrackType.Event) {}
     "/stores/update_delivery"(platform: "/", isAbstract: true) {}
     "/stores/update_delivery/start"(platform: "/", type: TrackType.View) {}
     "/stores/update_delivery/end"(platform: "/", type: TrackType.Event) {

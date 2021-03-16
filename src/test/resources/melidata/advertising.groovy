@@ -181,6 +181,13 @@ trackTests {
         "/advertising/privacy/modal/dismiss"(platform: "/", type: TrackType.Event) {
             switch_status = "deactivate"
         }
+
+        "/advertising/privacy/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
+            switch_status = "activated"
+        }
     }
 
     test("Advertising upselling") {
@@ -599,6 +606,41 @@ trackTests {
             status = "paused"
             budget = "400"
             new_budget = "600"
+        }
+    }
+
+    test("Advertising credits deals") {
+        "/advertising/pads2/manager/credits"(platform: "/web", type: TrackType.View) {
+            mode = "AUTOMATIC"
+            campaign_id = 290783009
+            status = "active"
+            available_credit = 600
+        }
+        "/advertising/pads2/manager/credits/go"(platform: "/web", type: TrackType.Event) {
+            mode = "AUTOMATIC"
+            campaign_id = 290783009
+            status = "active"
+            available_credit = 600
+        }
+        "/advertising/pads2/manager/credits/details"(platform: "/web", type: TrackType.View) {
+            mode = "AUTOMATIC"
+            campaign_id = 290783009
+            status = "active"
+            available_credit = 600
+            used_credit = 1000
+        }
+        "/advertising/pads2/hub/credits"(platform: "/web", type: TrackType.View){
+            mode = "custom"
+            available_credit = 600
+        }
+        "/advertising/pads2/hub/credits/go"(platform: "/web", type: TrackType.Event){
+            mode = "custom"
+            available_credit = 600
+        }
+        "/advertising/pads2/hub/credits/details"(platform: "/web", type: TrackType.View){
+            mode = "custom"
+            available_credit = 600
+            used_credit = 1000
         }
     }
 

@@ -8,7 +8,7 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Bill Detail") {
-        "/myaccount/billing/detail"(platform: "/", type: TrackType.View) {
+        "/billing/detail"(platform: "/", type: TrackType.View) {
             bill_exp_date = 20201026
             has_cancelled_payments = true
             has_debt = false
@@ -19,7 +19,7 @@ trackTests {
             user_can_pay = false
         }
 
-        "/myaccount/billing/detail"(platform: "/", type: TrackType.Event) {
+        "/billing/detail"(platform: "/", type: TrackType.Event) {
             bill_exp_date = 20201026
             has_cancelled_payments = true
             has_debt = false
@@ -33,14 +33,14 @@ trackTests {
     }
 
     test("Summary Info") {
-        "/myaccount/billing/summary"(platform: "/", type: TrackType.View) {
+        "/billing/summary"(platform: "/", type: TrackType.View) {
             bills_to_pay = 2
             total_debt = 2.56
             has_automatic_debit = true
             is_subscription_user =true
         }
 
-        "/myaccount/billing/summary"(platform: "/", type: TrackType.Event) {
+        "/billing/summary"(platform: "/", type: TrackType.Event) {
             bills_to_pay = 2
             total_debt = 2.56
             has_automatic_debit = true
@@ -50,19 +50,19 @@ trackTests {
     }
 
     test("Reporting Info") {
-        "/myaccount/billing/reports"(platform: "/", type: TrackType.View) {
+        "/billing/reports"(platform: "/", type: TrackType.View) {
         }
 
-        "/myaccount/billing/reports"(platform: "/", type: TrackType.Event) {
+        "/billing/reports"(platform: "/", type: TrackType.Event) {
             type = "REPORTING_DOWNLOAD_DETAIL"
         }
     }
 
     test("Legal Documents") {
-        "/myaccount/billing/legal_documents"(platform: "/", type: TrackType.View) {
+        "/billing/legal_documents"(platform: "/", type: TrackType.View) {
         }
 
-        "/myaccount/billing/legal_documents"(platform: "/", type: TrackType.Event) {
+        "/billing/legal_documents"(platform: "/", type: TrackType.Event) {
             type = "LEGAL_DOCUMENTS_DOWNLOAD_BUTTON_CLICK"
         }
     }

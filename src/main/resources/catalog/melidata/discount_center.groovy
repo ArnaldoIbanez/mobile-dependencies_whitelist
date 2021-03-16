@@ -27,10 +27,11 @@ tracks {
         review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
         discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
         delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
+        context_info(type: PropertyType.ArrayList(PropertyType.Map(context_info_definition)), required: false, description: "The context information")
     }
 
     propertyGroups {
-        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
+        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id, context_info)
     }
 
     def store_review_definition = objectSchemaDefinitions {
@@ -55,11 +56,20 @@ tracks {
         pickup(type: PropertyType.Boolean, required: true, description: "If the store has pickup")
     }
 
+    def context_info_definition = objectSchemaDefinitions {
+        has_cart(type: PropertyType.Boolean, required: true, description: "If the cart is available")
+        has_catalog(type: PropertyType.Boolean, required: false, description: "If the Catalog is available")
+        version_code(type: PropertyType.Numeric, required: false, description: "The version used")
+        version_name(type: PropertyType.String, required: false, description: "The version name used")
+    }
+
+
     // VSP
 
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
     }
+
 
     def vsp_components_definition = objectSchemaDefinitions {
         actionable_info(required: false, type: PropertyType.ArrayList(PropertyType.Map(vsp_actionable_info_definition)), description: "Actionable info components")

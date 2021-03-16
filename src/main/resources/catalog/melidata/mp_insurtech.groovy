@@ -29,6 +29,12 @@ tracks {
         check(required: true, type: PropertyType.String, description: "Check HW required. For ex: total.")
         gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "GLobal Trade Item Numer")
         discount_rate(required: true, type: PropertyType.Numeric, description: "Discount rate applied to the option. If 0 then, no discount.")
+        insured_amount(required: false, type: PropertyType.Numeric, description: "insured amount")
+        item_cost(required: false, type: PropertyType.Numeric, description: "item cost")
+        franchise_type(required: false, type: PropertyType.String, values: ["PREV_OPEN_CLAIM", "IN_COMPENSATION"], description: "franchise type")
+        available_resolution_types(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "available resolution types")
+        allowed_opening(required: false, type: PropertyType.Numeric, description: "allowed opening")
+        compensation_money_amount(required: false, type: PropertyType.Numeric, description: "compensation money amount")
     }
 
     def roda_option_short = objectSchemaDefinitions {
@@ -37,6 +43,12 @@ tracks {
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
         gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Global Trade Item Numer")
         discount_rate(required: true, type: PropertyType.Numeric, description: "Discount rate applied to the option. If 0 then, no discount.")
+        insured_amount(required: false, type: PropertyType.Numeric, description: "insured amount")
+        item_cost(required: false, type: PropertyType.Numeric, description: "item cost")
+        franchise_type(required: false, type: PropertyType.String, values: ["PREV_OPEN_CLAIM", "IN_COMPENSATION"], description: "franchise type")
+        available_resolution_types(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "available resolution types")
+        allowed_opening(required: false, type: PropertyType.Numeric, description: "allowed opening")
+        compensation_money_amount(required: false, type: PropertyType.Numeric, description: "compensation money amount")
     }
 
     def protection_short = objectSchemaDefinitions {
@@ -238,6 +250,11 @@ tracks {
         view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
 
+    "/insurtech/hardware_check/onboarding/device_info_error"(platform:"/mobile", type: TrackType.Event) {
+        view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
+        error_description(required: true, type: PropertyType.String, description: "Error detail on getDeviceInfo() internal method.")
+    }
+
     "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {
         view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
@@ -324,10 +341,12 @@ tracks {
 
     "/insurtech/hardware_check/checkups/first_touch"(platform:"/mobile", type: TrackType.Event) {
         time_elapsed(required: true, type: PropertyType.Numeric, description: "Time before first user touch")
+        view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
 
     "/insurtech/hardware_check/checkups/redirect"(platform:"/mobile", type: TrackType.Event) {
         deep_link(required: true, type: PropertyType.String, description: "Redirect flow to the next step")
+        view_time(required: false, type: PropertyType.Numeric, description: "Time since entering view.")
     }
 
     "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
@@ -505,7 +524,7 @@ tracks {
 
     "/insurtech/protections/detail/roda/pay"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
-        type(required: true, type: PropertyType.String, values: ['pending_payment', 'pending_payment_ticket', 'pending_franchise_payment'], description: "Type of payment or payment method change to be executed on protection.")
+        type(required: true, type: PropertyType.String, values: ['pending_payment', 'pending_payment_ticket', 'pending_franchise_payment', 'pending_recurring_payment'], description: "Type of payment or payment method change to be executed on protection.")
     }
 
     "/insurtech/protections/detail/roda/recommendations"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {

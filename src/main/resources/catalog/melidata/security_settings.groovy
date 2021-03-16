@@ -37,6 +37,7 @@ tracks {
 
     "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in the Devices Admin page")
+        unlink_type(type: PropertyType.String, required: true, values: ["single", "all"], description: "Whether the user is unlinking one or all devices")
         target(type: PropertyType.String, required: true, values: ["unlink_button", "confirm_unlink_button"], description: "Button clicked by the user in the Devices Admin page")
     }
 

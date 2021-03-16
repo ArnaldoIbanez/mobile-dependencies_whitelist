@@ -1751,6 +1751,25 @@ trackTests {
             send_health_check = true
         }
 
+        "/notification/campaigns_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+        "/notification/mpcampaigns_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -2042,6 +2061,11 @@ trackTests {
 
         "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
             news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_canceled_order_warning"(platform: "/mobile"){
+            news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
 
@@ -3197,6 +3221,10 @@ trackTests {
 
         "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile/android"){
             news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_canceled_order_warning"(platform: "/mobile/android"){
+            news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
 
@@ -6483,6 +6511,25 @@ trackTests {
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
+        "/notification/campaigns_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+        "/notification/mpcampaigns_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -6756,6 +6803,11 @@ trackTests {
 
         "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/mobile"){
             news_id = "me_crowd_upcoming_trip_forewarn-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_canceled_order_warning"(platform: "/mobile"){
+            news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
 

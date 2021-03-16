@@ -1642,6 +1642,26 @@ tracks {
           communication_id(required: false, type: PropertyType.String, description: "Hermes communication id.")
       }
 
+      "/notification/campaigns_sms"(platform: "/", type: TrackType.Event) {
+          segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+          experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+          communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+          communication_data(required: false, type: PropertyType.String, description: "Extra data")
+          campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+      }
+
+      "/notification/mpcampaigns_sms"(platform: "/", type: TrackType.Event) {
+          segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+          experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+          communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+          communication_data(required: false, type: PropertyType.String, description: "Extra data")
+          campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+      }
+
       //MKT Deals
       "/notification/campaigns_deals"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
@@ -1893,6 +1913,7 @@ tracks {
     // Crowdsourcing driver
     "/notification/me_crowd_multiple_offers_available"(platform: "/") {}
     "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/") {}
+    "/notification/me_crowd_canceled_order_warning"(platform: "/") {}
 
     //Money
     "/notification/money_advance_congrats"(platform: "/") {}

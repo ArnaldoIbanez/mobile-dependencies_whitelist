@@ -88,7 +88,7 @@ tracks {
     "/money_in/ted/account"(platform: "/", type: TrackType.View) {}
 
     "/money_in/ted/account/copy"(platform: "/", type: TrackType.Event) {
-        text (required:true, description: "Ted account coppied text", values: ["account", "name", "id_number"])
+        text (required:true, description: "Ted account coppied text", values: ["account", "name", "id_number", "bank_name", "agency_number"])
     }
 
     "/money_in/ted/account/share"(platform: "/", type: TrackType.Event) {}
@@ -178,7 +178,7 @@ tracks {
 
     //Ticket Cashin MLB - Congrats
     "/money_in/cash/congrats"(platform: "/", type: TrackType.View) {
-        type (required:false, description: "congrats type", values: ["success", "error"])
+        type (required:false, description: "congrats type")
         payment_method (required:true, description: "Payment method selected in congrats")
     }
     "/money_in/cash/copy_code"(platform: "/", type: TrackType.Event) {
@@ -299,6 +299,7 @@ tracks {
 
     //PIX QR
     "/money_in/pix/qr"(platform:"/", type: TrackType.View){}
+    "/money_in/pix/qr/share"(platform: "/", type: TrackType.Event){}
     "/money_in/pix/qr/setup"(platform: "/", type: TrackType.Event){}
 
     //PIX Setup QR

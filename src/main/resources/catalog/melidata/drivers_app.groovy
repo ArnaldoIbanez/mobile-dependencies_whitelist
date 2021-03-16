@@ -175,11 +175,11 @@ tracks
     }
 
     "/driver/stops/next_modal"(platform: "/mobile", type: TrackType.View) {
-        suggested_stop(required: true, type: PropertyType.Numeric, description: "Specifies the suggested stop number")
+        suggested_stop(required: true, type: PropertyType.String, description: "Specifies the suggested stop number")
     }
 
     "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
-        suggested_stop(required: true, type: PropertyType.Numeric, description: "Specifies the suggested stop number")
+        suggested_stop(required: true, type: PropertyType.String, description: "Specifies the suggested stop number")
     }
 
     "/driver/stops/end_trip"(platform: "/mobile", type: TrackType.Event) {
