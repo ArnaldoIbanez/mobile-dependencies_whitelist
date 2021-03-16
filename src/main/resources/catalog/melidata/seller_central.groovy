@@ -139,7 +139,7 @@ tracks {
 
     def sellerCoachCard = objectSchemaDefinitions {
         type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['recommendation', 'content'])
-        key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice", values: ['recommendation', 'content'])
+        key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
     }
 
     def picture_info_map = objectSchemaDefinitions {
