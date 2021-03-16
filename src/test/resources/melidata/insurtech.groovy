@@ -1651,6 +1651,30 @@ trackTests {
         }
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
 
+        "/insurtech/protections/landing_page"(platform:"/", type: TrackType.View) {
+           type = "desktop"
+           os_name = "ios"
+           os_version = "9"
+           discount_type = "fixed"
+           is_generic = false
+           site = "MLB"
+     }
+ "/insurtech/protections/landing_page/go_to_store"(platform:"/web", type: TrackType.Event) {
+            type = "desktop"
+           os_name = "ios"
+           os_version = "9"
+           discount_type = "fixed"
+           is_generic = false
+           site = "MLB"
+        }
+        "/insurtech/protections/landing_page/go_to_qpage"(platform:"/", type: TrackType.Event) {
+            type = "desktop"
+           os_name = "ios"
+           os_version = "9"
+           discount_type = "fixed"
+           is_generic = false
+           site = "MLB"
+        }
     }
 
     ["mercadolibre", "mercadopago"].each { business ->
