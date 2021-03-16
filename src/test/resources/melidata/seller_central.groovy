@@ -358,7 +358,7 @@ trackTests {
   // Seller coach
 
   test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "newbie"
       reputation = "4_light_green"
@@ -366,6 +366,40 @@ trackTests {
         type = "recommendation"
         key = "LIGHTNING_OFFER"
       }
+    }
+  }
+
+  test("Seller coach card dismiss") {
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "newbie"
+      reputation = "4_light_green"
+      card = {
+        type = "recommendation"
+        key = "LIGHTNING_OFFER"
+      }
+    }
+  }
+
+  test("Seller coach cards view") {
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "newbie"
+      reputation = "4_light_green"
+      card = [{
+        type = "recommendation"
+        key = "LIGHTNING_OFFER"
+      }]
+    }
+  }
+
+    test("Seller coach cards view") {
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "newbie"
+      reputation = "4_light_green"
+      page = 2
+      scroll_type = "next"
     }
   }
 
