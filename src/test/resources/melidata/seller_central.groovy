@@ -363,8 +363,8 @@ trackTests {
       power_seller_status = "newbie"
       reputation = "4_light_green"
       card = [
-        type : "recommendation"
-        key : "LIGHTNING_OFFER"
+        type: "recommendation"
+        key: "LIGHTNING_OFFER"
       ]
     }
   }
@@ -375,8 +375,8 @@ trackTests {
       power_seller_status = "newbie"
       reputation = "4_light_green"
       card = [
-        type : "recommendation"
-        key : "LIGHTNING_OFFER"
+        type: "recommendation"
+        key: "LIGHTNING_OFFER"
       ]
     }
   }
@@ -388,12 +388,12 @@ trackTests {
       reputation = "4_light_green"
       cards = [
         [
-          type : "recommendation"
-          key : "LIGHTNING_OFFER"
+          type: "recommendation"
+          key: "LIGHTNING_OFFER"
         ],
         [
-          type : "content"
-          key : "PB01"
+          type: "content"
+          key: "PB01"
         ]
       ]
     }
