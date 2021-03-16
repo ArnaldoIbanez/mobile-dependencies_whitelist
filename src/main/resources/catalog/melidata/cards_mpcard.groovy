@@ -390,6 +390,7 @@ tracks {
     }
     
     // Cards hub
+    "/cards/mpcard/card_hub"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/card_hub/block_card"(platform: "/", type: TrackType.View) {}
     "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
         action (
