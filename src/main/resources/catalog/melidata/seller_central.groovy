@@ -1874,6 +1874,29 @@ tracks {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central Buyer Questions
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/buyer_questions"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/buyer_questions/list_by_item"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/buyer_questions/make_question"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the question is sent")
+    }
+
+    "/seller_central/buyer_questions/delete_all_questions"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the questions are deleted")
+    }
+
+    "/seller_central/buyer_questions/denounce_answer"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the answer is denounced")
+        question_id(requested: true, type: PropertyType.Numeric, description: "Question id to which the answer is denounced")
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central Optinator New Listing
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
