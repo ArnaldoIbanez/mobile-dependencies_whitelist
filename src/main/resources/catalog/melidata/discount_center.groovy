@@ -73,7 +73,7 @@ tracks {
 
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
-        context_info(type: PropertyType.ArrayList(PropertyType.Map(context_info_definition)), required: false, description: "The context information")
+        context_info(type: PropertyType.Map(context_info_definition), required: false, description: "The context information")
     }
 
 
@@ -141,7 +141,7 @@ tracks {
 
     "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
         vipGroup
-        context_info(type: PropertyType.ArrayList(PropertyType.Map(context_info_definition)), required: true, description: "The context information")
+        context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
     }
 
 
