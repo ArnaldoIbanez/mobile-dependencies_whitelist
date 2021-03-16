@@ -1884,16 +1884,33 @@ tracks {
     "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/buyer_questions/make_question"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the question is sent")
+        question_id(requested: false, type: PropertyType.Numeric, description: "Question id created")
+        failed(required: true, type: PropertyType.Boolean, description: "To know if the question has been created")
+    }
+
+    "/seller_central/buyer_questions/make_question_intention"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item id to which the question is sent")
     }
 
     "/seller_central/buyer_questions/delete_all_questions"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id to which the questions are deleted")
+        item_id(required: false, type: PropertyType.String, description: "Item id needed to delete questions")
+        failed(required: true, type: PropertyType.Boolean, description: "To know if the question have been deleted")
+    }
+
+    "/seller_central/buyer_questions/delete_all_questions_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id from questions to delete")
     }
 
     "/seller_central/buyer_questions/denounce_answer"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id to which the answer is denounced")
-        question_id(requested: true, type: PropertyType.Numeric, description: "Question id to which the answer is denounced")
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the answer is denounced")
+        question_id(requested: false, type: PropertyType.Numeric, description: "Question id to which the answer is denounced")
+        failed(required: true, type: PropertyType.Boolean, description: "To know if the answer has been denounced")
+    }
+
+    "/seller_central/buyer_questions/denounce_answer_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id needed to denounce")
+        question_id(requested: true, type: PropertyType.Numeric, description: "Question id needed to denounce")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
