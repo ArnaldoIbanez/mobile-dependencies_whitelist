@@ -137,6 +137,11 @@ tracks {
         kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
     }
 
+    def sellerCoachCard = objectSchemaDefinitions {
+        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['recommendation', 'content'])
+        key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice", values: ['recommendation', 'content'])
+    }
+
     def picture_info_map = objectSchemaDefinitions {
         width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
         height(required: true, type: PropertyType.Numeric, description: "this property describes height of the image")
@@ -365,6 +370,33 @@ tracks {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
+    }
+
+    // Seller coach
+    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/card_view"(platform: "/web", type: TrackType.View) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.View) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
+        scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Target page scrolled")
     }
 
 

@@ -355,6 +355,20 @@ trackTests {
     }
   }
 
+  // Seller coach
+
+  test("Seller coach card click") {
+    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "newbie"
+      reputation = "4_light_green"
+      card = {
+        type = "recommendation"
+        key = "LIGHTNING_OFFER"
+      }
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Offline
   //------------------------------------------------------------------------------------------------------------------------------------------------------
