@@ -32,6 +32,7 @@ tracks {
 
     propertyGroups {
         storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id, context_info)
+        moreInfoGroup(store_id, collector_id, brand_id, session_id)
     }
 
     def store_review_definition = objectSchemaDefinitions {
@@ -116,6 +117,14 @@ tracks {
     }
 
     "/discount_center/payers/request_location/back" (platform: "/mobile", type: TrackType.Event) {}
+
+
+    // MORE INFO
+
+    "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+        moreInfoGroup
+    }
+
 
     // SESSION
 

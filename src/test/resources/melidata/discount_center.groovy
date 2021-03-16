@@ -8,6 +8,18 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    // MORE INFO
+
+    test("Mercado Pago discount center payers vsp") {
+        "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+            store_id = 30286315
+            collector_id = 20565408
+            brand_id = 20565408
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+
     // VSP
 
     test("Mercado Pago discount center payers vsp") {
