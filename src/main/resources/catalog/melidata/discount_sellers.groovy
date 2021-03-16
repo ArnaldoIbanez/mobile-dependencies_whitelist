@@ -285,7 +285,7 @@ tracks {
         budget_total (type: PropertyType.Numeric, required: false, description: "budget of campaign")
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
         budget_used (type: PropertyType.Numeric, required: false, description: "budget used of campaign")
-        status (type: PropertyType.String, description: "status of campaign, example: ACTIVE")
+        status (type: PropertyType.String, required: false, description: "status of campaign, example: ACTIVE")
         position (type: PropertyType.Numeric, required: false, description: "positon of element on the secreen")
     }
 
@@ -297,14 +297,14 @@ tracks {
         budget_total (type: PropertyType.Numeric, required: false, description: "budget of campaign")
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
         budget_used (type: PropertyType.Numeric, required: false, description: "budget used of campaign")
-        status (type: PropertyType.String, description: "status of campaign, example: ACTIVE")
+        status (type: PropertyType.String, required: false, description: "status of campaign, example: ACTIVE")
         position (type: PropertyType.Numeric, required: false, description: "positon of element on the secreen")
     }
 
     // Instore (ISDT) - Webview -  Home Sellers Detail "Active" > Pageview
     "/discount_sellers/v2/detail" (platform: "/", type: TrackType.View) {
-        campaign_id (type: PropertyType.String, description: "Id of campaign")
-        status (type: PropertyType.String, description: "status of campaign, example: ACTIVE")
+        campaign_id (type: PropertyType.String, required: false, description: "Id of campaign")
+        status (type: PropertyType.String, required: false, description: "status of campaign, example: ACTIVE")
         payments (type: PropertyType.Numeric, required: false, description: "pyments of campaign, example: 342")
         budget_total (type: PropertyType.Numeric, required: false, description: "budget of campaign")
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
@@ -313,7 +313,7 @@ tracks {
     }
 
     "/discount_sellers/v2/detail/tap" (platform: "/", type: TrackType.View) {
-        action (type: PropertyType.String,  description: "Name of button on the screen")
+        action (type: PropertyType.String, required: false,  description: "Name of button on the screen")
     }
 
     
