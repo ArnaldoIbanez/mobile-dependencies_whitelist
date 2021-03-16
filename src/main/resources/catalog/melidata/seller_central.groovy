@@ -402,6 +402,7 @@ tracks {
 
     //LISTING SECTION
     "/seller_central"(platform: "/", isAbstract: true) {}
+    "/seller_central/seller_coach"(platform: "/", isAbstract: true) {}
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/quantity"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
