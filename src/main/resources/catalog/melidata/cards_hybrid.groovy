@@ -619,6 +619,29 @@ tracks {
             description: "Static banner tapped"
           )
     }
+
+
+    // CARDS HUBS
+    "/cards/hybrid/card_hub"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/card_hub/setup_virtual"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/card_hub/setup_virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["credit_card", "debit_card"],
+            description: "Card tapped"
+        )
+    }
+
+    "/cards/hybrid/card_hub/block_card"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["physical_card", "virtual_credit_card", "virtual_debit_card"],
+            description: "Card tapped"
+        )
+    }
     
     // REISSUE VIRTUAL
     // --------
