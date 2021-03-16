@@ -30,7 +30,7 @@ tracks {
     }
 
     propertyGroups {
-        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id, context_info)
+        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
         moreInfoGroup(store_id, collector_id, brand_id, session_id)
     }
 
