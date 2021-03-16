@@ -569,7 +569,7 @@ tracks {
     "/insurtech/protections/detail/roda/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
-    "/insurtech/protections/landing_page"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+    "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
             type(required: true, type:PropertyType.String,values: ['mobile', 'desktop', 'tablet'], description: "Device type")
             os_name(required: true, type:PropertyType.String, description: "Operating system")
             os_version(required: true, type:PropertyType.String, description: "Operating system version")
@@ -577,7 +577,7 @@ tracks {
             is_generic(required: true, type:PropertyType.Boolean, description: "Landing from a campaign or not")
             site(required: true, type:PropertyType.String, description: "Operating system version")
     }
-    "/insurtech/protections/landing_page/go_to_store"(platform:"/web", type: TrackType.Event, parentPropertiesInherited:false) {
+    "/insurtech/protections/landings_fe/go_to_store"(platform:"/web", type: TrackType.Event, parentPropertiesInherited:false) {
       type(required: true, type:PropertyType.String,values: ['mobile', 'desktop', 'tablet'], description: "Device type")
       os_name(required: true, type:PropertyType.String, description: "Operating system")
       os_version(required: true, type:PropertyType.String, description: "Operating system version")
@@ -585,7 +585,7 @@ tracks {
       is_generic(required: true, type:PropertyType.Boolean, description: "Landing from a campaign or not")
       site(required: true, type:PropertyType.String, description: "Operating system version")
     }
-    "/insurtech/protections/landing_page/go_to_qpage"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+    "/insurtech/protections/landings_fe/go_to_qpage"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         type(required: true, type:PropertyType.String,values: ['mobile', 'desktop', 'tablet'], description: "Device type")
         os_name(required: true, type:PropertyType.String, description: "Operating system")
         os_version(required: true, type:PropertyType.String, description: "Operating system version")
