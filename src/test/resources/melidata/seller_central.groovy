@@ -362,10 +362,10 @@ trackTests {
       segment = "perfect_launch"
       power_seller_status = "newbie"
       reputation = "4_light_green"
-      card = {
-        type = "recommendation"
-        key = "LIGHTNING_OFFER"
-      }
+      card = [
+        type : "recommendation"
+        key : "LIGHTNING_OFFER"
+      ]
     }
   }
 
@@ -374,26 +374,32 @@ trackTests {
       segment = "perfect_launch"
       power_seller_status = "newbie"
       reputation = "4_light_green"
-      card = {
-        type = "recommendation"
-        key = "LIGHTNING_OFFER"
-      }
+      card = [
+        type : "recommendation"
+        key : "LIGHTNING_OFFER"
+      ]
     }
   }
 
   test("Seller coach cards view") {
-    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
       segment = "perfect_launch"
       power_seller_status = "newbie"
       reputation = "4_light_green"
-      card = [{
-        type = "recommendation"
-        key = "LIGHTNING_OFFER"
-      }]
+      cards = [
+        [
+          type : "recommendation"
+          key : "LIGHTNING_OFFER"
+        ],
+        [
+          type : "content"
+          key : "PB01"
+        ]
+      ]
     }
   }
 
-    test("Seller coach cards view") {
+    test("Seller coach carousel scroll") {
     "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "newbie"
