@@ -1883,12 +1883,6 @@ tracks {
 
     "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
 
-    "/seller_central/buyer_questions/make_question"(platform: "/", type: TrackType.Event) {
-        item_id(required: false, type: PropertyType.String, description: "Item id to which the question is sent")
-        question_id(requested: false, type: PropertyType.Numeric, description: "Question id created")
-        failed(required: true, type: PropertyType.Boolean, description: "To know if the question has been created")
-    }
-
     "/seller_central/buyer_questions/make_question_intention"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item id to which the question is sent")
     }

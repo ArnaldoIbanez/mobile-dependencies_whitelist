@@ -4095,14 +4095,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
   }
 
-  test("Seller central buyer question making a new question") {
-    "/seller_central/buyer_questions/make_question"(platform: "/", type: TrackType.Event) {
-      item_id = "MLA529811412"
-      question_id = 12345621
-      failed = false
-    }
-  }
-
   test("Seller central buyer question attempt to create a new question") {
     "/seller_central/buyer_questions/make_question_intention"(platform: "/", type: TrackType.Event) {
       item_id = "MLA529811412"
