@@ -24,6 +24,7 @@ tracks {
     def realestate = objectSchemaDefinitions {
         discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
         main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
+        collections(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
     }
 
     "/home"(platform: "/mobile") {
