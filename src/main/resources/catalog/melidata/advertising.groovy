@@ -417,10 +417,6 @@ tracks {
     }
 
     "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/", type: TrackType.Event) {
-        campaign_id(required: false, description: "Id related to the campaign")
-        budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
-        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
-        step(required: false, type: PropertyType.Numeric , description: "Current modal step")
     }
 
     "/advertising/pads2/manager/winbacks/confirmation"(platform: "/", type: TrackType.Event) {
