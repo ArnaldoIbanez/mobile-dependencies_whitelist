@@ -124,6 +124,13 @@ tracks {
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
+    "/advertising/pads2/landing/contract_confirmation/contractofficialstore"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "Budget related to the campaign")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
+        id(required: false, values: ["adq_pads"], description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: false, values: ["home_desktop"], description: "indicates the position of the main slide")
+    }
+
     "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
     }
 
