@@ -18,6 +18,10 @@ class InitiativeValidate {
             validPaths << path
             return true
         } else {
+            println "\n"+starBar()
+            println path
+            println initiativeId
+            println "\n"+starBar()
             return false
         }
     }
