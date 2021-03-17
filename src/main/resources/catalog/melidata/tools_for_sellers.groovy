@@ -125,6 +125,7 @@ tracks {
     "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/marketplace"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID of the detail")
         section (required: true, type: PropertyType.String, description: "The section owner of the chart")
