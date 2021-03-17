@@ -13,7 +13,7 @@ class InitiativeValidate {
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
 
-        if(initiativeId && (InitiativeAPI.getInstance().applications.any() { it['initiative_id'] == initiativeId }
+        if(initiativeId && (InitiativeAPI.getInstance().applications.values().any() { it == initiativeId }
             || InitiativeAPI.getInstance().initiatives.any() { Integer init -> init.toString() == initiativeId })) {
             validPaths << path
             return true
