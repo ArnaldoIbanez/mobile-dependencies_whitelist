@@ -4149,8 +4149,8 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
   }
 
-  test("Seller central buyer question making a new question") {
-    "/seller_central/buyer_questions/make_question"(platform: "/", type: TrackType.Event) {
+  test("Seller central buyer question attempt to create a new question") {
+    "/seller_central/buyer_questions/make_question_intention"(platform: "/", type: TrackType.Event) {
       item_id = "MLA529811412"
     }
   }
@@ -4158,11 +4158,26 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("Seller central buyer question deleting all questions from the item") {
     "/seller_central/buyer_questions/delete_all_questions"(platform: "/", type: TrackType.Event) {
       item_id = "MLA529811412"
+      failed = false
+    }
+  }
+
+  test("Seller central buyer question attempt to delete all questions from the item") {
+    "/seller_central/buyer_questions/delete_all_questions_intention"(platform: "/", type: TrackType.Event) {
+      item_id = "MLA529811412"
     }
   }
 
   test("Seller central buyer question submit a denouncement based on any answer") {
     "/seller_central/buyer_questions/denounce_answer"(platform: "/", type: TrackType.Event) {
+      item_id = "MLA529811412"
+      question_id = 12345621
+      failed = false
+    }
+  }
+
+  test("Seller central buyer question attempt to submit a denouncement based on any answer") {
+    "/seller_central/buyer_questions/denounce_answer_intention"(platform: "/", type: TrackType.Event) {
       item_id = "MLA529811412"
       question_id = 12345621
     }
