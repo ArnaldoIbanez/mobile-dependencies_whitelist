@@ -1113,7 +1113,7 @@ tracks {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
     }
 
-    "/advertising/pads2/hub/upselling/landing"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/hub/upselling/landing"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
     }
