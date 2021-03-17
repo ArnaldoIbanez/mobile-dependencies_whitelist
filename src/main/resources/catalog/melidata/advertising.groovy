@@ -985,7 +985,7 @@ tracks {
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
 
-    "/advertising/pads2/hub/card/sads_paused/go"(platform: "/web", type:TrackType.Event){
+    "/advertising/pads2/hub/card/sads_paused/go"(platform: "/", type:TrackType.Event){
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
     }
