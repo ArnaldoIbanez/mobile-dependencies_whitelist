@@ -577,9 +577,9 @@ tracks {
             is_generic(required: true, type:PropertyType.Boolean, description: "Landing from a campaign or not")
             site(required: true, type:PropertyType.String, description: "Operating system version")
     }
-    "/insurtech/protections/landings_fe/go_to_store"(platform:"/web", type: TrackType.Event, parentPropertiesInherited:true) {
+    "/insurtech/protections/landings_fe/go_to_store"(platform:"/web", type: TrackType.Event) {
     }
-    "/insurtech/protections/landings_fe/go_to_qpage"(platform:"/", type: TrackType.Event, parentPropertiesInherited:true) {
+    "/insurtech/protections/landings_fe/go_to_qpage"(platform:"/", type: TrackType.Event) {
     }
 
 
