@@ -19,8 +19,7 @@ class InitiativeValidate {
             return true
         } else {
             println "\n"+starBar()
-            println path
-            println initiativeId
+            println InitiativeAPI.getInstance().initiatives
             println "\n"+starBar()
             return false
         }
