@@ -127,4 +127,26 @@ metrics {
 		}
 	}
 
+	"vis_credits_intention"(description: "track credits intention as success for vis") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
+		countsOn {
+			condition {
+				path("/vip/credits_intention/main_action/down", "/vip/credits_intention/card")
+			}
+		}
+	}
+
+	"vis_credits_congrats"(description: "track credits congrats as success for vis") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
+		countsOn {
+			condition {
+				path("/classi_credits/evaluation/congrats")
+			}
+		}
+	}
+
 }
