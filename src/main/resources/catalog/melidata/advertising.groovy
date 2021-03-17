@@ -1391,6 +1391,7 @@ tracks {
         budget_pct_new(required: true, description: "budget pct new Modal campaign")
         budget_type_new(required: true, description: "budget type new  F  or  D Modal campaign",values: ['D', 'F'])
         budget_pct_old(required: true, description: " budget pct old Modal campaign")
+        multi(required: false, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
 
     }
     "/advertising/pads2/hub/update/budget/close"(platform: "/", type: TrackType.Event) {
