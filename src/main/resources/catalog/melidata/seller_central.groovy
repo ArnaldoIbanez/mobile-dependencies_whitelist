@@ -1853,6 +1853,10 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
+    "/seller_central/questions/response"(platform: "/web", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
     "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
