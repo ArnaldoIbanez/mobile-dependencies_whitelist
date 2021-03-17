@@ -980,7 +980,7 @@ tracks {
 
     // Multicampaña - Sads paused
 
-    "/advertising/pads2/hub/card/sads_paused"(platform: "/web", type:TrackType.View){
+    "/advertising/pads2/hub/card/sads_paused"(platform: "/", type:TrackType.View){
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
