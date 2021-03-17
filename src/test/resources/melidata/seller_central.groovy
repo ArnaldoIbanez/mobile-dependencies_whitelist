@@ -355,6 +355,60 @@ trackTests {
     }
   }
 
+  // Seller coach
+
+  test("Seller coach card click") {
+    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "recommendation",
+        key: "LIGHTNING_OFFER"
+      ]
+    }
+  }
+
+  test("Seller coach card dismiss") {
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "recommendation",
+        key: "LIGHTNING_OFFER"
+      ]
+    }
+  }
+
+  test("Seller coach cards view") {
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      cards = [
+        [
+          type: "recommendation",
+          key: "LIGHTNING_OFFER"
+        ],
+        [
+          type: "content",
+          key: "PB01"
+        ]
+      ]
+    }
+  }
+
+    test("Seller coach carousel scroll") {
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      page = 2
+      scroll_type = "next"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Offline
   //------------------------------------------------------------------------------------------------------------------------------------------------------
