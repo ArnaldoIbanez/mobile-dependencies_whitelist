@@ -106,6 +106,7 @@ tracks {
     }
 
     "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
