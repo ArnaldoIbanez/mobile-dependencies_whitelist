@@ -63,6 +63,7 @@ tracks {
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
     "/banking/debts"(platform: "/", type: TrackType.View) {}
+    "/banking/debts/detail"(platform: "/", type: TrackType.View) {}
 
     // Balance Events
     "/banking/balance/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
