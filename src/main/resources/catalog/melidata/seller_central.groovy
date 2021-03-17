@@ -137,6 +137,11 @@ tracks {
         kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
     }
 
+    def sellerCoachCard = objectSchemaDefinitions {
+        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['recommendation', 'content'])
+        key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
+    }
+
     def picture_info_map = objectSchemaDefinitions {
         width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
         height(required: true, type: PropertyType.Numeric, description: "this property describes height of the image")
@@ -365,6 +370,35 @@ tracks {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
+    }
+
+    // Seller coach
+    "/seller_central/seller_coach"(platform: "/web", isAbstract: true) {}
+    "/seller_central/seller_coach/summary"(platform: "/web", isAbstract: true) {}
+    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
+        scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Target page scrolled")
     }
 
 
@@ -1853,6 +1887,10 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
+    "/seller_central/questions/response"(platform: "/web", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
     "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
@@ -1883,17 +1921,28 @@ tracks {
 
     "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
 
-    "/seller_central/buyer_questions/make_question"(platform: "/", type: TrackType.Event) {
+    "/seller_central/buyer_questions/make_question_intention"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item id to which the question is sent")
     }
 
     "/seller_central/buyer_questions/delete_all_questions"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id to which the questions are deleted")
+        item_id(required: false, type: PropertyType.String, description: "Item id needed to delete questions")
+        failed(required: true, type: PropertyType.Boolean, description: "To know if the question have been deleted")
+    }
+
+    "/seller_central/buyer_questions/delete_all_questions_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id from questions to delete")
     }
 
     "/seller_central/buyer_questions/denounce_answer"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "Item id to which the answer is denounced")
-        question_id(requested: true, type: PropertyType.Numeric, description: "Question id to which the answer is denounced")
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the answer is denounced")
+        question_id(requested: false, type: PropertyType.Numeric, description: "Question id to which the answer is denounced")
+        failed(required: true, type: PropertyType.Boolean, description: "To know if the answer has been denounced")
+    }
+
+    "/seller_central/buyer_questions/denounce_answer_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id needed to denounce")
+        question_id(requested: true, type: PropertyType.Numeric, description: "Question id needed to denounce")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------

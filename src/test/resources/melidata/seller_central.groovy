@@ -355,6 +355,60 @@ trackTests {
     }
   }
 
+  // Seller coach
+
+  test("Seller coach card click") {
+    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "recommendation",
+        key: "LIGHTNING_OFFER"
+      ]
+    }
+  }
+
+  test("Seller coach card dismiss") {
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "recommendation",
+        key: "LIGHTNING_OFFER"
+      ]
+    }
+  }
+
+  test("Seller coach cards view") {
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      cards = [
+        [
+          type: "recommendation",
+          key: "LIGHTNING_OFFER"
+        ],
+        [
+          type: "content",
+          key: "PB01"
+        ]
+      ]
+    }
+  }
+
+    test("Seller coach carousel scroll") {
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      page = 2
+      scroll_type = "next"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Offline
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -4024,6 +4078,20 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
+
+  test("Seller central response Questions webmobile") {
+    "/seller_central/questions/response"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
   test("Seller central delete Questions") {
     "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
       seller_profile = "NEWBIE"
@@ -4095,8 +4163,8 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
   }
 
-  test("Seller central buyer question making a new question") {
-    "/seller_central/buyer_questions/make_question"(platform: "/", type: TrackType.Event) {
+  test("Seller central buyer question attempt to create a new question") {
+    "/seller_central/buyer_questions/make_question_intention"(platform: "/", type: TrackType.Event) {
       item_id = "MLA529811412"
     }
   }
@@ -4104,11 +4172,26 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("Seller central buyer question deleting all questions from the item") {
     "/seller_central/buyer_questions/delete_all_questions"(platform: "/", type: TrackType.Event) {
       item_id = "MLA529811412"
+      failed = false
+    }
+  }
+
+  test("Seller central buyer question attempt to delete all questions from the item") {
+    "/seller_central/buyer_questions/delete_all_questions_intention"(platform: "/", type: TrackType.Event) {
+      item_id = "MLA529811412"
     }
   }
 
   test("Seller central buyer question submit a denouncement based on any answer") {
     "/seller_central/buyer_questions/denounce_answer"(platform: "/", type: TrackType.Event) {
+      item_id = "MLA529811412"
+      question_id = 12345621
+      failed = false
+    }
+  }
+
+  test("Seller central buyer question attempt to submit a denouncement based on any answer") {
+    "/seller_central/buyer_questions/denounce_answer_intention"(platform: "/", type: TrackType.Event) {
       item_id = "MLA529811412"
       question_id = 12345621
     }
