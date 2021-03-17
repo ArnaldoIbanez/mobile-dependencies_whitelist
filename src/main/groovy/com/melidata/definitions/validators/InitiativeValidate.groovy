@@ -2,7 +2,6 @@ package com.melidata.definitions.validators
 
 import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
-import com.ml.melidata.catalog.model.ApplicationModel
 
 class InitiativeValidate {
 
@@ -14,7 +13,7 @@ class InitiativeValidate {
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
 
-        if(initiativeId && (InitiativeAPI.getInstance().applications.any() { ApplicationModel init -> init.getInitiativeId() == initiativeId }
+        if(initiativeId && (InitiativeAPI.getInstance().applications.any() { it['initiative_id'] == initiativeId }
             || InitiativeAPI.getInstance().initiatives.any() { Integer init -> init.toString() == initiativeId })) {
             validPaths << path
             return true
