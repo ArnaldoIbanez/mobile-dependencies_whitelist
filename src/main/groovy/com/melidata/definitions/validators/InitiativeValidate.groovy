@@ -18,9 +18,6 @@ class InitiativeValidate {
             validPaths << path
             return true
         } else {
-            println "\n"+starBar()
-            println InitiativeAPI.getInstance().initiatives
-            println "\n"+starBar()
             return false
         }
     }
