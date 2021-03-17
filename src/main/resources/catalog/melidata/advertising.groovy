@@ -423,7 +423,7 @@ tracks {
     "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/", type: TrackType.Event) {
     }
 
     "/advertising/pads2/manager/winbacks/confirmation"(platform: "/", type: TrackType.Event) {
@@ -987,12 +987,12 @@ tracks {
 
     // Multicampaña - Sads paused
 
-    "/advertising/pads2/hub/card/sads_paused"(platform: "/web", type:TrackType.View){
+    "/advertising/pads2/hub/card/sads_paused"(platform: "/", type:TrackType.View){
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
 
-    "/advertising/pads2/hub/card/sads_paused/go"(platform: "/web", type:TrackType.Event){
+    "/advertising/pads2/hub/card/sads_paused/go"(platform: "/", type:TrackType.Event){
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
     }
@@ -1104,11 +1104,11 @@ tracks {
 
     "/advertising/pads2/hub/box"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/hub/box/upselling"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/hub/box/upselling"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
     }
 
-    "/advertising/pads2/hub/box/upselling/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/hub/box/upselling/go"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
     }
 
@@ -1116,7 +1116,7 @@ tracks {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
     }
 
-    "/advertising/pads2/hub/upselling/landing"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/hub/upselling/landing"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
     }
@@ -1127,7 +1127,7 @@ tracks {
     }
 
 
-    "/advertising/pads2/hub/upselling/landing/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/hub/upselling/landing/go"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
     }
@@ -1394,6 +1394,7 @@ tracks {
         budget_pct_new(required: true, description: "budget pct new Modal campaign")
         budget_type_new(required: true, description: "budget type new  F  or  D Modal campaign",values: ['D', 'F'])
         budget_pct_old(required: true, description: " budget pct old Modal campaign")
+        multi(required: false, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
 
     }
     "/advertising/pads2/hub/update/budget/close"(platform: "/", type: TrackType.Event) {
