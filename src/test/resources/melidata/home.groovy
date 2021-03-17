@@ -285,6 +285,26 @@ trackTests {
         "/home"(platform: "/web", dataSet)
     }
 
+    test("Home Collections Web") {
+        def dataSet = {
+            realestates = {
+                collections = [
+                        {
+                            audience = '2'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '1'
+                            logic = '2'
+                            position = '4'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
