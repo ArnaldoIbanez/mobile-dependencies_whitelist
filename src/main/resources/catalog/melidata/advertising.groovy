@@ -1101,7 +1101,7 @@ tracks {
 
     "/advertising/pads2/hub/box"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/hub/box/upselling"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/hub/box/upselling"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
     }
 
