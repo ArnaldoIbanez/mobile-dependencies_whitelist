@@ -30,13 +30,12 @@ tracks {
         category_id(type: PropertyType.String, required: true, description: "The Category item id")
         item_id(type: PropertyType.String, required: true, description: "The item id")
         item_name(type: PropertyType.String, required: true, description: "The item title")
-        amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
     }
 
     propertyGroups {
         storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
         moreInfoGroup(store_id, collector_id, brand_id, session_id)
-        vipGroup(collector_id, category_id, item_id, item_name, amount, session_id)
+        vipGroup(collector_id, category_id, item_id, item_name, session_id)
     }
 
     def store_review_definition = objectSchemaDefinitions {
@@ -141,6 +140,7 @@ tracks {
 
     "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
         vipGroup
+        amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
         context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
     }
 
