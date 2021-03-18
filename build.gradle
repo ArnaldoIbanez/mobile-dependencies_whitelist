@@ -27,7 +27,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 group = 'com.mercadolibre.melidata.catalog'
-version = '2.2.4'
+version = '2.2.5'
 
 repositories {
 		maven { url "http://maven.artifacts.furycloud.io/repository/all" }
