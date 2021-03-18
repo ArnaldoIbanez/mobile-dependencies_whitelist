@@ -6,6 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1025"
+
     def coordinatesStructure = objectSchemaDefinitions {
       latitude(required: true, type: PropertyType.String)
       longitude(required: true, type: PropertyType.String)
