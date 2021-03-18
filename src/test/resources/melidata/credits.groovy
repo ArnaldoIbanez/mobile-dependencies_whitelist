@@ -168,19 +168,29 @@ trackTests {
     test('Merchant Public Landing') {
         // MercadoPago Business
         "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
-            user_profile = 'offer'
+            offers = ['fixed_term_loan', 'sales_percentage_loan', 'express_money']
         }
         "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
-            user_profile = 'no_offer'
+            offers = []
         }
+        "/credits/merchant/public_landing/ftl_offer"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/merchant/public_landing/spl_offer"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/merchant/public_landing/em_offer"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/merchant/public_landing/new_account"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/merchant/public_landing/credits_access"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
 
         // MercadoLibre business
         "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
-            user_profile = 'offer'
+            offers = ['fixed_term_loan', 'sales_percentage_loan', 'express_money']
         }
         "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
-            user_profile = 'no_offer'
+            offers = []
         }
+        "/credits/merchant/public_landing/ftl_offer"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/merchant/public_landing/spl_offer"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/merchant/public_landing/em_offer"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/merchant/public_landing/new_account"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/merchant/public_landing/credits_access"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
     }
 
     // Credits Marketing Performance landing

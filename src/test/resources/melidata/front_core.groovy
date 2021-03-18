@@ -702,6 +702,7 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            credits=[]
             banking_v2=[
                     hidden : true
             ]
@@ -783,6 +784,8 @@ trackTests {
             metadata_user = [
                 type: "newbie"
             ]
+            link = "mercadopago://link"
+            button_link = "mercadopago://link"
         }
     }
 
@@ -965,6 +968,7 @@ trackTests {
             section_id="subscription"
             component_id="cta"
             level=4
+            partner="multi-partner"
             metadata_user:[
                 type: "payer"
             ]

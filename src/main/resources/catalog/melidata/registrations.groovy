@@ -242,8 +242,21 @@ tracks {
     "/register/v3/hub/email_validation"(platform: "/", isAbstract: true){}
     "/register/v3/hub/phone_validation"(platform: "/", isAbstract: true){}
     "/register/v3/hub/kyc"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/pix"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/regulations"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/tyc"(platform: "/", isAbstract: true){}
     "/register/v3/hub/email_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/pix/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/regulations/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/tyc/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
+
+    "/register/v3/challenge"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc/wallet"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/wallet/submit"(platform: "/", type: TrackType.Event){}
+    "/register/v3/challenge/tyc/standard"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/standard/submit"(platform: "/", type: TrackType.Event){}
 }

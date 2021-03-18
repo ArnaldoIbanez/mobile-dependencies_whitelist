@@ -271,6 +271,60 @@ tracks {
 
     // DASHBOARD
     // --------
+
+    // Start // Credit Card definitions
+    def account_data = objectSchemaDefinitions {
+        rating(
+                description: "User reputation level",
+                type: PropertyType.String,
+                required: false
+        )
+        status(
+                description: "Status user's account",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        "pending",
+                        "active",
+                        "blocked",
+                        "cancelled"
+                ]
+        )
+        status_detail(
+                description: "Status detail of user's account",
+                type: PropertyType.String,
+                required: false
+        )
+        overdue_days(
+                description: "Overdue days of user's account",
+                type: PropertyType.Numeric,
+                required: false
+        )
+    }
+
+    def credits_data = objectSchemaDefinitions {
+         account(
+                type: PropertyType.Map(account_data),
+                required: false
+        )
+        statement_status(   
+            description: "Status from the user's statement",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                "closed",
+                "open"
+            ]
+        )
+        pending_payments(
+                description: "The pending payments",
+                type: PropertyType.Boolean,
+                required: false
+        )
+    }
+
+    // End // Credit Card definitions
+
      "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
          dashboard_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
          dashboard_banner_status (required: false, type: PropertyType.String, description: "Banner for card tracking status", inheritable: false)
@@ -278,6 +332,7 @@ tracks {
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
+         credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
      }
     
     "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
@@ -563,6 +618,29 @@ tracks {
             values: ["money_in"],
             description: "Static banner tapped"
           )
+    }
+
+
+    // CARDS HUBS
+    "/cards/hybrid/card_hub"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/card_hub/setup_virtual"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/card_hub/setup_virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["credit_card", "debit_card"],
+            description: "Card tapped"
+        )
+    }
+
+    "/cards/hybrid/card_hub/block_card"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["physical_card", "virtual_credit_card", "virtual_debit_card"],
+            description: "Card tapped"
+        )
     }
     
     // REISSUE VIRTUAL
@@ -904,14 +982,7 @@ tracks {
         )
     } 
     // Hybrid clickSendMessage Event
-    "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
-        deviceType (
-            required: true,
-            type: PropertyType.String,
-            values: ["desktop"],
-            description: "Device type click send message"
-        )
-    } 
+    "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) { } 
 
     // Request: Success Virtual
     "/cards/hybrid/request/virtual/success"(platform: "/", type: TrackType.Event) {
@@ -963,9 +1034,12 @@ tracks {
                 'chip_hybrid',
                 'chip_debit_nfc',
                 'contactless_debit',
+                'contactless_debit_contactless',
                 'contactless_prepaid',
                 'contactless_credit',
+                'contactless_credit_contactless',
                 'contactless_hybrid',
+                'contactless_hybrid_contactless',
                 'contactless_debit_nfc',
                 'wallet_debit',
                 'wallet_prepaid',
@@ -1135,8 +1209,29 @@ tracks {
             description: "Redirection Done"
         )
     }
+    "/cards/nfc/enrollment/hub/incomplete_steps"(platform: "/", type: TrackType.Event) {
+        result (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Amount of incomplete steps"
+        )
+        incomplete_steps (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "pin_tnp_nfc",
+                "tnp_nfc",
+                "pin_nfc",
+                "pin_tnp",
+                "pin",
+                "tnp",
+                "nfc",
+                "all_complete"
+            ]
+        )
+    }
     
-        // CONFFIGURATION-HUB-NFC
+    // CONFFIGURATION-HUB-NFC
     //-------------------
     "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
@@ -1265,7 +1360,14 @@ tracks {
     }
     // PAYMENTS-NFC
     // -------------------
-    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {
+        from (
+            required: true,
+            type: PropertyType.String,
+            inheritable: false,
+            description: "Access location of NFCPayment call"
+        )
+    }
     "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
         result (
             required: true,
@@ -1559,4 +1661,25 @@ tracks {
             description: "If user has money"
         )
     }
+    
+    
+    // NFC-TOKENIZATION-USER-WAIT-TIME
+    // -------------------------------
+    
+    "/cards/nfc/enrollment/tokenization/waiting_time"(platform: "/", type: TrackType.Event) {
+        time_millis (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Waiting time in milliseconds"
+        )
+        result (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                'enrollment_error',
+                'success'
+            ]
+        )
+    }
+
 }

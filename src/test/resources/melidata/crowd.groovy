@@ -40,6 +40,11 @@ trackTests {
             defaultOfferInfo()
         }
 
+        "/crowd/offers/not_available_detail"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            offer_id = "offer123"
+        }
+
         "/crowd/offers/detail/map"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             defaultOfferInfo()

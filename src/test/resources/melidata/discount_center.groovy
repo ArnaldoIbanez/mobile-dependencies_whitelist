@@ -35,6 +35,12 @@ trackTests {
                 delivery: true,
                 pickup: false
             ]
+            context_info = [
+                    has_cart: true,
+                    has_catalog: true,
+                    version_code: 2,
+                    version_name: "New VSP"
+            ]
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }

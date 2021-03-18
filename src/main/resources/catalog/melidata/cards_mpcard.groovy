@@ -275,7 +275,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["blocked_pin"],
+            values: ["blocked_pin", "unlock_card", "unlock_physical_card"],
             description: "Message button tapped"
           )
     }
@@ -384,10 +384,23 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal"],
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help"],
             description: "Virtual card buttons tapped"
         )
     }
+    
+    // Cards hub
+    "/cards/mpcard/card_hub"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/card_hub/block_card"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["physical_card", "virtual_debit_card"],
+            description: "Card tapped"
+        )
+    }
+
     //Highlighted row
     "/cards/mpcard/setup/virtual/highlighted_row"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
