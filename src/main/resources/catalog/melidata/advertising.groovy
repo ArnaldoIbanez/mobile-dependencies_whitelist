@@ -1037,7 +1037,7 @@ tracks {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
     }
 
-    "/advertising/pads2/sads_paused/landing/filters"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/sads_paused/landing/filters"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
