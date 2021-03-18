@@ -8,6 +8,39 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    // VIP
+
+    test("Mercado Pago discount center payers vip") {
+        "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
+            collector_id = 20565408
+            category_id = "MLA410861"
+            item_id = "MLA886428635"
+            item_name = "Duplao Burger"
+            context_info = [
+                    has_cart: true
+            ]
+            amount = [
+                    final_price: 40.2,
+                    currency: "ARS\$",
+                    discount: 31,
+                    original_price: 58
+            ]
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+    // MORE INFO
+
+    test("Mercado Pago discount center payers More info") {
+        "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+            store_id = 30286315
+            collector_id = 20565408
+            brand_id = 20565408
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+
     // VSP
 
     test("Mercado Pago discount center payers vsp") {

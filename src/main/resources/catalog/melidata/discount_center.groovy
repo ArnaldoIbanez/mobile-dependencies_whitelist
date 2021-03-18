@@ -27,11 +27,15 @@ tracks {
         review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
         discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
         delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
-        context_info(type: PropertyType.ArrayList(PropertyType.Map(context_info_definition)), required: false, description: "The context information")
+        category_id(type: PropertyType.String, required: true, description: "The Category item id")
+        item_id(type: PropertyType.String, required: true, description: "The item id")
+        item_name(type: PropertyType.String, required: true, description: "The item title")
     }
 
     propertyGroups {
-        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id, context_info)
+        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
+        moreInfoGroup(store_id, collector_id, brand_id, session_id)
+        vipGroup(collector_id, category_id, item_id, item_name, session_id)
     }
 
     def store_review_definition = objectSchemaDefinitions {
@@ -68,6 +72,7 @@ tracks {
 
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
+        context_info(type: PropertyType.Map(context_info_definition), required: false, description: "The context information")
     }
 
 
@@ -116,6 +121,29 @@ tracks {
     }
 
     "/discount_center/payers/request_location/back" (platform: "/mobile", type: TrackType.Event) {}
+
+
+    // MORE INFO
+
+    "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+        moreInfoGroup
+    }
+
+    def amount_definition = objectSchemaDefinitions {
+        final_price(type: PropertyType.Numeric, required: true, description: "The final price with discount if exits")
+        currency(type: PropertyType.String, required: true, description: "The currency")
+        discount(type: PropertyType.Numeric, required: false, description: "The discount in percent")
+        original_price(type: PropertyType.Numeric, required: false, description: "The price without discount")
+    }
+
+    // VIP
+
+    "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
+        vipGroup
+        amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
+        context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
+    }
+
 
     // SESSION
 
