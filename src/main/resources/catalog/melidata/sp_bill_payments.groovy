@@ -62,6 +62,10 @@ tracks {
         entity (required:false, type: PropertyType.String, description: "The chosen item entity")
     }
 
+    // Invoice delete success
+    "/bill_payments/invoices/delete/success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
     // Invoice menu
     "/bill_payments/menu"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {}
