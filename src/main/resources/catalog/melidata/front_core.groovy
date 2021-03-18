@@ -668,6 +668,7 @@ tracks {
 
     "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.Event) {
         favorite_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of favorite ids to save")
+        from(required: false, type: PropertyType.String, values: ["modal", "sheet"], description: "How did user saved his shortcuts")
     }
 
     /************************************/

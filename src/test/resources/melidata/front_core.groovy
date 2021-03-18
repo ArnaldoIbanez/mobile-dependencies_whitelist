@@ -1120,6 +1120,7 @@ trackTests {
 
         "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
             favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            from = "modal"
             metadata_user:[
                 type: "payer"
             ]
