@@ -5,8 +5,8 @@ import com.ml.melidata.catalog.initiatives.InitiativeAPI
 
 class InitiativeValidate {
 
-    private static Set validPaths = []
-    private static Set totalPaths = ["/"]
+    private static Set validPaths = ["/"]
+    private static Set totalPaths = []
     private static double baseCoverage = 100
     private static Set coveragebleCatalogs = ['melidata']
 
@@ -39,8 +39,8 @@ class InitiativeValidate {
             }
         }
 
-        validPaths = []
-        totalPaths = ["/"]
+        validPaths = ["/"]
+        totalPaths = []
 
         return isValidStatus
     }
