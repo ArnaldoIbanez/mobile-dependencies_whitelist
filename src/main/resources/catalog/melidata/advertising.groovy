@@ -999,12 +999,12 @@ tracks {
 
     "/advertising/pads2/hub/sads_paused"(platform: "/web", type:TrackType.View, parentPropertiesInherited: false){}
 
-    "/advertising/pads2/hub/sads_paused/landing"(platform: "/web", type:TrackType.View, parentPropertiesInherited: false){
+    "/advertising/pads2/hub/sads_paused/landing"(platform: "/", type:TrackType.View, parentPropertiesInherited: false){
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_paused)), description: "Array campaign")
     }
 
-    "/advertising/pads2/hub/sads_paused/landing/activated"(platform: "/web", type:TrackType.Event, parentPropertiesInherited: false){
+    "/advertising/pads2/hub/sads_paused/landing/activated"(platform: "/", type:TrackType.Event, parentPropertiesInherited: false){
         sads_activated(required: true, type: PropertyType.Numeric, description: "Number  Sads to active")
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_paused)), description: "Array campaign")
     }
@@ -1014,7 +1014,7 @@ tracks {
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_paused)), description: "Array campaign")
     }
 
-    "/advertising/pads2/hub/sads_paused/landing/see_campaign"(platform: "/web", type:TrackType.Event, parentPropertiesInherited: false){
+    "/advertising/pads2/hub/sads_paused/landing/see_campaign"(platform: "/", type:TrackType.Event, parentPropertiesInherited: false){
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
     }
