@@ -1020,6 +1020,7 @@ tracks {
     "/sell/item_data/products_finder_bar/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
+        debug_domain_discovery(required: false, type: PropertyType.String)
     }
     "/sell/item_data/carrier"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/carrier/show"(platform: "/web", type: TrackType.Event) {
@@ -1150,6 +1151,7 @@ tracks {
         kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
         decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
+        debug_domain_discovery(required: false, type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
