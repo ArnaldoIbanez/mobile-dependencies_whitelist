@@ -178,6 +178,11 @@ tracks {
         value_name(required: true, type: PropertyType.String, description: "This property describes value name of attribute")
     }
 
+    def productsLandingRowStructure = {
+      catalog_product_id(required: true, type: PropertyType.String, description: "The product id")
+      row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
+    }
+
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -270,7 +275,6 @@ tracks {
         selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
         selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
         row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
-   
     }
 
     propertyGroups {
@@ -1826,5 +1830,19 @@ tracks {
         productsLandingRowGroup
     }
 
+    "/seller_central/products_landing/search/copied_product_row"(platform: "/web", type: TrackType.View) {
+        productsLandingDataGroup
+        productsLandingRowGroup
+    }
+
+    "/seller_central/products_landing/search/copied_product_row"(platform: "/web", type: TrackType.Event) {
+        productsLandingDataGroup
+        productsLandingRowGroup
+    }
+
+    "/seller_central/products_landing/search/copied_products"(platform: "/web", type: TrackType.Event) {
+        productsLandingDataGroup
+        copied_products(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingRowStructure)), description: "This property describe copied products")
+    }
     // FINAL PRODUCTS LANDING PATHS
 }

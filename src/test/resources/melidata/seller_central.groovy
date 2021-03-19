@@ -4458,4 +4458,55 @@ test("seller central confirm leave suggestion task - optin moderated") {
         catalog_product_id = "MLA10335295"
       }
   }
+
+  test("Products Landing - Copied product row") {
+    "/seller_central/products_landing/search/copied_product_row"(platform: "/web", type: TrackType.Event) {
+      query = "Samsung Galaxy s s10 negro prisma"
+      query_type = "PRODUCT_NAME"
+      result_type = "SUGGESTED_PRODUCTS"
+      results = [
+          "MLA10335295"
+      ]
+      paging = [
+          total: 1,
+          limit: 10,
+          offset: 0
+      ]
+      selected_filters = []
+      selected_filters_quantity = 0
+      row_index = 0
+      catalog_product_id = "MLA10335295"
+    }
+  }
+
+  test("Products Landing - Copied products multiples") {
+    "/seller_central/products_landing/search/copied_products"(platform: "/web", type: TrackType.Event) {
+      query = "Samsung Galaxy s s10 negro prisma"
+      query_type = "PRODUCT_NAME"
+      result_type = "SUGGESTED_PRODUCTS"
+      results = [
+          "MLA10335295"
+      ]
+      paging = [
+          total: 1,
+          limit: 10,
+          offset: 0
+      ]
+      selected_filters = []
+      selected_filters_quantity = 0
+      copied_products = [[
+          catalog_product_id: "MLA10335295",
+          row_index: 0
+        ],
+        [
+          catalog_product_id: "MLA10335296",
+          row_index: 1
+        ],
+        [
+          catalog_product_id: "MLA10335297",
+           row_index: 2
+        ]
+      ]
+    }
+  }
 }
