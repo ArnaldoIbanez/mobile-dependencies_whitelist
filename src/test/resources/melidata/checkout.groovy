@@ -2610,7 +2610,7 @@ trackTests {
             ]
             recovery_flow=true
         }
-        "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/input_address/map/error_map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             items = [

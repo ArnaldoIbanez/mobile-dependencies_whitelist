@@ -57,7 +57,7 @@ tracks {
 
     "/addresses/input_address/error/additional_info"(platform:"/", type: TrackType.Event) {}
 
-    "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {}
+    "/addresses/input_address/map/error/map"(platform: "/", type: TrackType.Event) {}
 
     // UX INFORMATION
     "/addresses/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}

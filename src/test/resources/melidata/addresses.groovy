@@ -95,7 +95,7 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/map/error/map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             context = "MY_ML"
@@ -247,7 +247,7 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/map/error/map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             context = "MY_ML"

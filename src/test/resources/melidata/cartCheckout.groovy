@@ -518,7 +518,7 @@ trackTests {
             ]
             recovery_flow=true
         }
-        "/cart/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event) {
+        "/cart/checkout/shipping/input_address/map/error_map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             items = [
