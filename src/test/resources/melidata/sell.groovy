@@ -2808,6 +2808,7 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            debug_model_name ="DOMAIN_DETECTOR"
         }
     }
     test("SYI v4 product resume previous"){
@@ -5012,6 +5013,7 @@ trackTests {
             business = "classified"
             platform = "pi"
             listing_type_id = "silver"
+            debug_model_name ="DOMAIN_DETECTOR"
         }
     }
 
