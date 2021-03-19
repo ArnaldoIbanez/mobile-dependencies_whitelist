@@ -32,10 +32,6 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/map/submit"(platform: "/", type: TrackType.Event) {
-            context = "MY_ML"
-            editing_address = 12312312312
-        }
     }
 
     test("Addresses - Test the input errors") { 
@@ -108,15 +104,15 @@ trackTests {
     }
 
     test("Addresses - Test the UX info") { 
-        "/addresses/input_address/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }        
-        "/addresses/input_address/dont_know_my_zip_code/submit"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
@@ -188,10 +184,6 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/map/submit"(platform: "/", type: TrackType.Event) {
-            context = "MY_ML"
-            editing_address = 12312312312
-        }
     }
 
     test("Addresses - Test the input errors") { 
@@ -264,15 +256,15 @@ trackTests {
     }
 
     test("Addresses - Test the UX info") { 
-        "/addresses/input_address/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }        
-        "/addresses/input_address/dont_know_my_zip_code/submit"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }

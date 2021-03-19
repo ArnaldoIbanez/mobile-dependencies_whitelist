@@ -2230,11 +2230,16 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
-        "/checkout/shipping/input_address/map"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address/submit"(platform:"/", dataSet, type: TrackType.Event)
+        "/checkout/shipping/input_address/map"(platform:"/", dataSet)
         "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
+        "/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
+        "/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}        
+        "/checkout/shipping/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {}
+        "/checkout/shipping/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {}
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = ""
@@ -2420,6 +2425,178 @@ trackTests {
             recovery_flow=false
         }
         "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            value = "aa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/checkout/shipping/input_address/error_name"(platform:"/", type: TrackType.Event){
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_street_name"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_zip_code"(platform:"/", type: TrackType.Event){
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = "00"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_city"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_colony"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_street_number"(platform:"/",  type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            value = "aaa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_delivery"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_delivery_instructions"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_phone"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            value = "!*"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/checkout/shipping/input_address/error_internal_number"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_caixa_postal_number"(platform: "/", type: TrackType.Event) {
             label = "Ingresar solo valores numéricos"
             value = "aa"
             items = [
