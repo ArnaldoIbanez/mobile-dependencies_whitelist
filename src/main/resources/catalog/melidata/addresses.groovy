@@ -36,6 +36,11 @@ tracks {
         label(required: true, type: PropertyType.String, description: "The address input error message shown")
         value(required: false, type: PropertyType.String, description: "The address input error value")
     }
+    
+    "/addresses/input_address/map/error"(platform:"/", type: TrackType.Event, isAbstract: true) {
+        label(required: true, type: PropertyType.String, description: "The address input error message shown")
+        value(required: false, type: PropertyType.String, description: "The address input error value")
+    }
 
     "/addresses/input_address/error/name"(platform:"/", type: TrackType.Event) {}
     
