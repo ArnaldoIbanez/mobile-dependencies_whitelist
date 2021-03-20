@@ -256,17 +256,25 @@ trackTests {
   }
   test("Seller central Central of News events") {
     "/seller_central/news/filter"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/news/filter/primary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/news/filter/secondary"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/news/tag"(platform: "/web", type: TrackType.Event) {
-      notice_id = "2426"
+      tag = "FULL"
     }
     "/seller_central/news/expand"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/primary"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/secondary"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
     "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
