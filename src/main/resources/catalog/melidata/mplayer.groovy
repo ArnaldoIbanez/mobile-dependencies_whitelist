@@ -155,7 +155,7 @@ tracks {
 
     "/mplayer/closed_request/redirector"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/closed_request/redirector/manual_amount"(platform: "/mobile", type: TrackType.View) {
-        flow(required: flow, PropertyType.String, description: "the source flow")
+        flow(required: false, PropertyType.String, description: "the source flow")
         contact_type(required: true, PropertyType.String, description: "the type of the contact")
     }
 
