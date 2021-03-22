@@ -184,6 +184,11 @@ tracks {
         value_name(required: true, type: PropertyType.String, description: "This property describes value name of attribute")
     }
 
+    def productsLandingRowStructure = objectSchemaDefinitions {
+      catalog_product_id(required: true, type: PropertyType.String, description: "The product id")
+      row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
+    }
+
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -2006,5 +2011,14 @@ tracks {
         productsLandingRowGroup
     }
 
+    "/seller_central/products_landing/search/copied_product_row"(platform: "/web", type: TrackType.View) {
+        productsLandingDataGroup
+        productsLandingRowGroup
+    }
+
+    "/seller_central/products_landing/search/copied_products"(platform: "/web", type: TrackType.Event) {
+        productsLandingDataGroup
+        copied_products(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingRowStructure)), description: "This property describe copied products")
+    }
     // FINAL PRODUCTS LANDING PATHS
 }
