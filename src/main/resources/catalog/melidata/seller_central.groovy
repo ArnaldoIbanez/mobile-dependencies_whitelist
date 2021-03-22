@@ -327,17 +327,25 @@ tracks {
     // Central of News
     "/seller_central/news"(platform: "/", type: TrackType.View) {}
     "/seller_central/news/filter"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/news/filter/primary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/news/filter/secondary"(platform: "/", type: TrackType.Event) {}
     "/seller_central/news/tag"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        tag(description: "The tag of selected notice")
     }
     "/seller_central/news/expand"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/primary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/secondary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/keep"(platform: "/", type: TrackType.Event) {
         notice_id(required: true, description: "The id of selected notice")
@@ -1313,7 +1321,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/product_comparator/show"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1478,7 +1486,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/optin_moderated/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/optin_moderated/product_comparator/show"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1586,7 +1594,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/item_plus/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/item_plus/product_comparator/show"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
