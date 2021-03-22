@@ -18,7 +18,7 @@ trackTests {
             remedy_name = 'declarative_info'
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
-            variant = 'success'
+            result = 'approved'
         }
         "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadopago") {
             remedy_name = 'declarative_info'
@@ -27,8 +27,27 @@ trackTests {
             remedy_name = 'declarative_info'
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
-            variant = 'retry'
+            result = 'rejected'
         }
+        "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            result = 'approved'
+        }
+        "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            result = 'rejected'
+        }
+        "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            result = 'rejected'
+        }
+        "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            result = 'approved'
+        }
+
+        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
         /******************************************
         *       End: Flujo Upsell Consumer
         ******************************************/
