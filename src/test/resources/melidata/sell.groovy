@@ -2808,7 +2808,10 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
-            debug_domain_discovery =[{"debug_model_name":{"model_name":"DOMAINSEARCH","score":0.33333334}}]
+            debug_domain_discovery = [{ 
+                      debug_model_name: { model_name: "DOMAINSEARCH" ,
+                      score: 0.33333334}
+                      }]
         }
     }
     test("SYI v4 product resume previous"){
@@ -5013,7 +5016,7 @@ trackTests {
             business = "classified"
             platform = "pi"
             listing_type_id = "silver"
-            debug_domain_discovery =[{"debug_model_name":{"model_name":"DOMAINSEARCH","score":0.33333334}}]
+            debug_domain_discovery = [{debug_model_name:{model_name:"DOMAINSEARCH",score:0.33333334}}]
         }
     }
 
