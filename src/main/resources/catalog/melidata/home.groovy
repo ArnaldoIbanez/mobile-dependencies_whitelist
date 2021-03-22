@@ -150,6 +150,18 @@ tracks {
      // RealEstate Portal Inmobiliario Sections
     "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
 
+    "/home/category/real_estate/official-store/developers"(platform: "/", type: TrackType.Event) {
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official-store/realtor"(platform: "/", type: TrackType.Event) {
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official-store/view_all_brands"(platform: "/", type: TrackType.Event) {
+        carousel_id(required: true, type:PropertyType.Numeric, description: "Carousel id" )
+    }
+
     "/home/category/real_estate/bookmarks"(platform: "/", type: TrackType.View) {}
 
     "/home/category/real_estate/bookmarks/recommendation"(platform: "/", type: TrackType.View) {}
