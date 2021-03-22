@@ -2809,7 +2809,7 @@ trackTests {
             }]
             products_selected_index = -1
             debug_domain_discovery = [{ 
-                      debug_model_name: { model_name: "DOMAINSEARCH" ,
+                      debug_model_name: { model_name: "DOMAINSEARCH"
                       score: 0.33333334}
                       }]
         }
@@ -5016,7 +5016,7 @@ trackTests {
             business = "classified"
             platform = "pi"
             listing_type_id = "silver"
-            debug_domain_discovery = [{debug_model_name:{model_name:"DOMAINSEARCH",score:0.33333334}}]
+            debug_domain_discovery = [{debug_model_name:{model_name:"DOMAINSEARCH" score:0.33333334}}]
         }
     }
 
