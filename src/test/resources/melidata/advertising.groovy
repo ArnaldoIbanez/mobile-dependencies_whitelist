@@ -1749,7 +1749,6 @@ trackTests {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            multi = true
             days_since_modif = 2
         }
 
@@ -1757,7 +1756,6 @@ trackTests {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            multi = true
             days_since_modif = 2
         }
 
@@ -1765,7 +1763,6 @@ trackTests {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            multi = true
             days_since_modif = 2
         }
 
@@ -1773,7 +1770,6 @@ trackTests {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            multi = true
             days_since_modif = 2
         }
     }
