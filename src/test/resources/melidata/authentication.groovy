@@ -1271,28 +1271,28 @@ trackTests {
 
         test("Reauth Native") {
             //Validation Start
-            "/native_reauth/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/start"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
                 amount = ""
             }
 
-            "/native_reauth/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/start"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
                 amount = ""
             }
 
-            "/native_reauth/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/start"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
                 amount = "10.0"
             }
 
-            "/native_reauth/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/start"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1300,7 +1300,7 @@ trackTests {
             }
 
             //Validation End - Success
-            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1311,7 +1311,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1322,7 +1322,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1333,7 +1333,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1344,7 +1344,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1354,7 +1354,7 @@ trackTests {
                 screenlock_validated = true
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1364,7 +1364,7 @@ trackTests {
                 screenlock_validated = true
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1374,7 +1374,7 @@ trackTests {
                 screenlock_validated = true
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1386,7 +1386,7 @@ trackTests {
 
 
             //Validation End - Error
-            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1397,7 +1397,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1408,7 +1408,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1419,7 +1419,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
