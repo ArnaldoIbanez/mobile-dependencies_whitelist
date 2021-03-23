@@ -591,14 +591,14 @@ tracks {
     // Reauth Nativo
     "/native_reauth"(platform: "/mobile", isAbstract: true, initiative: 1127)
 
-    "/native_reauth/validation_start"(platform: "/mobile", type: TrackType.Event) {
+    "/native_reauth/start"(platform: "/mobile", type: TrackType.Event) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
         flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
         amount(type: PropertyType.String, required: true, description: "amount of the operation")
     }
 
-    "/native_reauth/validation_end"(platform: "/mobile", type: TrackType.Event) {
+    "/native_reauth/end"(platform: "/mobile", type: TrackType.Event) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
         flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
