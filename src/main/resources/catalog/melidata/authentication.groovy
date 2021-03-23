@@ -589,20 +589,20 @@ tracks {
     "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     // Reauth Nativo
-    "/native_reauth"(platform: "/mobile", isAbstract: true, initiative: 1127)
+    "/native_reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
 
     "/native_reauth/start"(platform: "/mobile", type: TrackType.Event) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
         flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
-        amount(type: PropertyType.String, required: true, description: "amount of the operation")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
     }
 
     "/native_reauth/end"(platform: "/mobile", type: TrackType.Event) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
         flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
-        amount(type: PropertyType.String, required: true, description: "amount of the operation")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
         transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")

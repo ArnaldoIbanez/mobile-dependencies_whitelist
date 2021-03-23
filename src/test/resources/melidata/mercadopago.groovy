@@ -5252,6 +5252,161 @@ trackTests {
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
 
+
+    test("Reauth Native") {
+        //Validation Start
+        "/native_reauth/start"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+
+        "/native_reauth/start"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+
+        "/native_reauth/start"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+        }
+
+        "/native_reauth/start"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+        }
+
+        //Validation End - Success
+        "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            transaction_id = "1"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            transaction_id = "2"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            transaction_id = "3"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            transaction_id = "4"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+
+        //Validation End - Error
+        "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "error"
+            errors = ["Ups error :S"]
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+
+        "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "error"
+            errors = ["Ups error :S"]
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+
+        "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "error"
+            errors = ["Ups error :S"]
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+
+        "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "error"
+            errors = ["Ups error :S"]
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+    }
+
     test("Browser device tracking in mobile") {
         "/browser/tracking" (platform: "/mobile") {
             browser_id = "9e588da2-f853-4266-a933-0f62f960345c"

@@ -1275,14 +1275,12 @@ trackTests {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
             }
 
             "/native_reauth/start"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
             }
 
             "/native_reauth/start"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1304,7 +1302,6 @@ trackTests {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
                 result = "success"
                 transaction_id = "1"
                 reauth_status = "created"
@@ -1315,7 +1312,6 @@ trackTests {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
                 result = "success"
                 transaction_id = "2"
                 reauth_status = "created"
@@ -1348,7 +1344,6 @@ trackTests {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
                 result = "success"
                 reauth_status = "not_needed"
                 screenlock_validated = true
@@ -1358,7 +1353,6 @@ trackTests {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
                 result = "success"
                 reauth_status = "not_needed"
                 screenlock_validated = true
@@ -1390,7 +1384,6 @@ trackTests {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
                 result = "error"
                 errors = ["Ups error :S"]
                 reauth_status = "error"
@@ -1401,7 +1394,6 @@ trackTests {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
-                amount = ""
                 result = "error"
                 errors = ["Ups error :S"]
                 reauth_status = "error"
@@ -1429,7 +1421,6 @@ trackTests {
                 reauth_status = "error"
                 screenlock_validated = false
             }
-
         }
     }
 }
