@@ -1422,7 +1422,6 @@ tracks {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
         trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
-        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
         days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
     }
 
