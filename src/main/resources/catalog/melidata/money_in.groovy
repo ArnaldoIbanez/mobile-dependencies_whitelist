@@ -306,4 +306,76 @@ tracks {
     "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
     "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
 
+    //Debin
+    "/money_in/debin"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/generic_error"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/ownership_error"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/success"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/dismiss"(platform:"/", isAbstract: true){}
+
+    //Debin Hub
+    "/money_in/debin/hub"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/hub/select"(platform:"/",type: TrackType.Event){
+        key_type(required:false, description: "indicate the source of the debin")
+    }
+    "/money_in/debin/hub/new-account"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
+
+    //Debin Onboarding
+    "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/onboarding/debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/onboarding/know-more"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/onboarding/exit"(platform:"/", type: TrackType.Event){}
+
+    //Debin Calculator
+    "/money_in/debin/calculator"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/calculator/continue"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description: "indicate the amount of the debin")
+    }
+    "/money_in/debin/calculator/preset"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description: "indicate the amount of the preset")
+    }
+    "/money_in/debin/calculator/message"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description: "indicate the error message")
+    }
+
+    //Debin RyC
+    "/money_in/debin/ryc"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/ryc/edit-amount"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/edit-account"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/create-debin"(platform:"/", type: TrackType.Event){}
+
+    //Debin Processing
+    "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
+
+    //Debin Congrats
+    "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
+        key_type(required:false, description:"status",values:["success", "pending", "error"])
+        error_type(required:false, description:"indicates the error of the debin")
+    }
+    "/money_in/debin/congrats/go-home"(platform:"/", type: TrackType.Event){
+         key_type(required:false, description:"status",values:["success", "pending", "error"])
+    }
+    "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
+         key_type(required:false, description:"status",values:["error"])
+    }
+    "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
+
+    //Debin Search account
+    "/money_in/debin/search"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/continue"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description:"indicates the result of the search")
+    }
+    "/money_in/debin/search/success/continue"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/generic_error/retry"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/generic_error/go_home"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/ownership_error/go_home"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/ownership_error/edit_account"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/dismiss/bottom-sheet"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description:"indicates the tye of the bottom-sheet")
+    }
 }
