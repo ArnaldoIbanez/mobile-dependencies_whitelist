@@ -589,6 +589,8 @@ tracks {
     "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     // Reauth Nativo
+    "/native_reauth"(platform: "/mobile", isAbstract: true, initiative: 1127)
+
     "/native_reauth/validation_start"(platform: "/mobile", type: TrackType.Event) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
