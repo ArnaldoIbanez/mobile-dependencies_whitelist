@@ -1268,5 +1268,168 @@ trackTests {
                 api_version = true
             }
         }
+
+        test("Reauth Native") {
+            //Validation Start
+            "/native_reauth/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+            }
+
+            "/native_reauth/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+            }
+
+            "/native_reauth/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+
+            "/native_reauth/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+            }
+
+            //Validation End - Success
+            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+                result = "success"
+                transaction_id = "1"
+                reauth_status = "created"
+                screenlock_validated = false
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+                result = "success"
+                transaction_id = "2"
+                reauth_status = "created"
+                screenlock_validated = false
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                transaction_id = "3"
+                reauth_status = "created"
+                screenlock_validated = false
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                transaction_id = "4"
+                reauth_status = "created"
+                screenlock_validated = false
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "success"
+                reauth_status = "not_needed"
+                screenlock_validated = true
+            }
+
+
+            //Validation End - Error
+            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+                result = "error"
+                errors = ["Ups error :S"]
+                reauth_status = "error"
+                screenlock_validated = false
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                amount = ""
+                result = "error"
+                errors = ["Ups error :S"]
+                reauth_status = "error"
+                screenlock_validated = false
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "error"
+                errors = ["Ups error :S"]
+                reauth_status = "error"
+                screenlock_validated = false
+            }
+
+            "/native_reauth/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                amount = "10.0"
+                result = "error"
+                errors = ["Ups error :S"]
+                reauth_status = "error"
+                screenlock_validated = false
+            }
+
+        }
     }
 }
