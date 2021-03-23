@@ -3832,7 +3832,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
-  test("seller central productization category confirm when PDP item has one relation with a normal item") {
+  test("seller central productization category confirm when PDP item has one relation with a marketplace item") {
     "/seller_central/catalog/productization/category/confirm"(platform: "/web", type: TrackType.Event) {
       list_mode = "PRODUCTIZATION"
       reputation_level = "yellow"
