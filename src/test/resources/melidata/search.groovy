@@ -733,7 +733,7 @@ trackTests {
     }
 
     test("Test official store tracking"){
-        "search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
             official_store_id = 123
         }
     }
