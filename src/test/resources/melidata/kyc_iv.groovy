@@ -384,6 +384,11 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/vanilla"(platform: "/web") {
+            vanilla_document_id = "passport"
+            transaction_user_id = 109479273
+        }
+
         "/kyc/iv/center/row"(platform: "/mobile") {
             status = "landing"
         }
@@ -508,6 +513,14 @@ trackTests {
         "/kyc/iv/error_page"(platform: "/web") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
+            handoff_type = "user_swap"
         }
     }
 
@@ -890,6 +903,11 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/vanilla"(platform: "/web") {
+            vanilla_document_id = "passport"
+            transaction_user_id = 109479273
+        }
+
         "/kyc/iv/center/row"(platform: "/mobile") {
             status = "landing"
         }
@@ -1002,6 +1020,14 @@ trackTests {
             custom_cam_offered = true
             transaction_user_id = 109479272
             reason = "thereason"
+        }
+
+        "/kyc/iv/handoff"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+            url = "https://www.mercadolibre.com.ar"
+            challenge = "documentation"
+            handoff_type = "no_camera"
         }
     }
 }

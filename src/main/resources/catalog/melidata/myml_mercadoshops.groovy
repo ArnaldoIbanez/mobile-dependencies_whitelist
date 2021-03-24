@@ -229,6 +229,32 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/quick_setup"(platform: "/", isAbstract: true) {}
+
+    "/mercado_shops/admin/quick_setup/name_and_logo"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/name_and_logo/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/contact_data"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/contact_data/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/theme"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/theme/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/theme/details"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/theme/details/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/deactivate_form"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin/deactivate"(platform: "/", type: TrackType.Event){
@@ -470,7 +496,9 @@ tracks {
 
     "/mercado_shops/marketing/google_shopping_smart/campaign"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
     "/mercado_shops/marketing/google_shopping_smart/campaign/context_help"(platform: "/", type: TrackType.Event){}
 

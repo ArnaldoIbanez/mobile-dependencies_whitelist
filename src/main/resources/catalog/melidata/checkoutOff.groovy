@@ -32,6 +32,8 @@ tracks {
         loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
         discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
+        checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
+        items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
     }
 
     // EVENTS
@@ -121,6 +123,8 @@ tracks {
         loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
         discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
+        checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
+        items_quantity(required: false, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
     }
 
     // For this path, none is required
@@ -132,15 +136,17 @@ tracks {
         is_split(required: false, description: "True if the flow was split", type: PropertyType.Boolean)
         total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
+        items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
     }
 
     //Final Views
     "/checkout_off/congrats"(platform: "/", type: TrackType.View) {
         payment_installments(required: false, description: "Installments selected")
-        payment_status_detail(required: true, description: "Reason for the payment status")
-        payment_status(required: true, description: "Reason for the payment status")
-        payment_id(required: true, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
+        payment_status_detail(required: false, description: "Reason for the payment status")
+        payment_status(required: false, description: "Reason for the payment status")
+        payment_id(required: false, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
         total_amount_usd(required: true, serverSide:true, description: "payment amount in usd acording to currency conversion", type: PropertyType.Numeric)
+        congrats_status(required: true, description: "Reason for the congrats status")
     }
 
     "/checkout_off/congrats/no_display"(platform: "/", type: TrackType.View) {

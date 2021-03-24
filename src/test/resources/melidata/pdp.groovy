@@ -446,6 +446,10 @@ trackTests {
         "/pdp/show_complete_description"(platform: "/web/desktop", {
             catalog_product_id = "MLA1234"
         })
+
+        "/pdp/html_description/show"(platform: "/", {catalog_product_id = "MLA1234"})
+
+        "/pdp/html_description/view_all_action"(platform: "/", {catalog_product_id = "MLA1234"})
     }
 
     test("mobile special actions") {
@@ -730,6 +734,13 @@ trackTests {
             category_id = "MLA43718"
             seller_id = 131662738
             category_path = ["MLA1234", "MLA6789"]
+        }
+    }
+
+    test("Vertical Gallery Show") {
+        "/pdp/vertical_gallery/show"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
         }
     }
 }

@@ -350,4 +350,205 @@ trackTests {
             description = "error description"
         }
     }
+
+    // Prefecture
+    test('Prefecture stores click'){
+        "/instore/prefecture/tap"(platform: "/", type: TrackType.Event) {
+            link = "stores"
+        }
+    }
+
+    test('Prefecture go home error click'){
+        "/instore/prefecture/error/tap"(platform: "/", type: TrackType.Event) {
+            link = "go_home"
+        }
+    }    
+
+    test("Prefecture") {
+        "/instore/prefecture"(platform: "/", type: TrackType.View) {}
+
+    }
+
+    test('Prefecture error view'){
+        "/instore/prefecture/error"(platform: "/", type: TrackType.View) {}
+    }
+ 
+     // INSTORE NEW HOME DISCOUNTS SELLERS
+
+ 
+    // Instore (ISDT) - Webview -  Home Sellers Error > segment
+    test("Home sellers - Home") {
+        "/discount_sellers/v2/home"(platform: "/", type: TrackType.View) {
+            segments = [
+                "featured_campaign",
+                "template_campaigns",
+                "personalized_campaign",
+                "how_to",
+            ] 
+        }
+    }
+
+    // Instore (ISDT) - Webview -  Home Sellers Error > segment
+    test("Home sellers - Segment Your campaigns") {
+        "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            drawing_type = "list"
+            segment_id = "your_campaigns"
+            position = 0
+            segment_data = [
+                components= [
+                    [
+                        component_id = "100524",
+                        status = "PAUSED",
+                        budget_total = 2000,
+                        budget_used = 1000,
+                    ],
+                    [
+                        component_id = "15_OFF_SATURDAY",
+                        status = "INACTIVE",
+                    ],
+                    [
+                        component_id = "20_OFF_HAPPY_HOUR",
+                        status = "ACTIVE",
+                    ]            
+                ]
+            ]
+            see_more = true
+        }
+    }
+   
+    // Instore (ISDT) - Webview -  Home Sellers Error > segment
+    test("Home sellers - Segment campaigns one click") {
+        "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            drawing_type = "list"
+            segment_id = "template_campaigns"
+            position = 1
+            segment_data = [
+                components= [
+                    [
+                        component_id = "100524"
+                    ],
+                    [
+                        component_id = "15_OFF_SATURDAY"
+                    ],
+                    [
+                        component_id = "20_OFF_HAPPY_HOUR",
+                    ]            
+                ]
+            ]
+            see_more = false
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers Error > segment
+    test("Home sellers - Segment: Moderacion") {
+        "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            drawing_type = "modal"
+            segment_id = "moderation"
+            position = 0
+            segment_data = [
+                components  = [
+                    [
+                        data_id = "modify"
+                    ]
+                ]
+            ] 
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers Error > segment
+    test("Home sellers - Segment: Create campaign") {
+        "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            drawing_type = "button"
+            segment_id = "personalized_campaign"
+            position = 3 
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers Error > segment
+    test("Home sellers - Segment: Melicampaign") {
+        "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            drawing_type = "banner"
+            segment_id = "featured_campaign"
+            position = 3
+        }
+    }
+    test("Home sellers -Home Tap") {
+        "/discount_sellers/v2/home/tap"(platform: "/", type: TrackType.Event) {
+            drawing_type = "list"
+            segment_id = "featured_campaign"
+            position = 3
+            component = [
+                component_id = "213219",
+                position = 1
+            ]
+        }
+    }
+
+    // Instore (ISDT) - Webview -  Home Sellers Detail "Active" > Pageview
+    test("Home sellers - Detail") {
+        "/discount_sellers/v2/detail" (platform: "/", type: TrackType.View) {
+            campaign_id = "432682"
+            status = "ACTIVE"
+            payments = "123"
+            budget_total = "1500"
+            payed_amount = "421"
+            budget_used = "12"
+            actions = ["pause","finish"]
+        }
+    }
+     // Instore (ISDT) - Webview -  Home Sellers Detail "Active" > tap
+    test("Home sellers - Detail - tap") {
+        "/discount_sellers/v2/detail/tap" (platform: "/", type: TrackType.Event) {
+            campaign_id = "432682"
+            status = "ACTIVE"
+            payments = "123"
+            budget_total = "1500"
+            payed_amount = "421"
+            budget_used = "12"
+            action = "repeat"
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers History > Pageview
+    test("Home sellers - history") {
+        "/discount_sellers/v2/history" (platform: "/", type: TrackType.View) {
+            campaigns = [
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "ACTIVE"
+                ],
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "INACTIVE"
+                ],
+            ]
+        }
+    }   
+    // Instore (ISDT) - Webview -  Home Sellers History > tap
+    test("Home sellers - History - tap") {
+        "/discount_sellers/v2/history/tap" (platform: "/", type: TrackType.Event) {
+            component_id = "100524"
+            position = 3
+            budget_total = 2000
+            budget_used = 1000
+            status = "ACTIVE"           
+            payed_amount = 6235
+            payments = 65
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers History > tap
+    test("Home sellers - error") {
+        "/discount_sellers/v2/error" (platform: "/", type: TrackType.View) {}
+    }
+
+    // Instore (ISDT) - Webview -  Home Sellers History > tap
+    test("Home sellers - error - tap") {
+        "/discount_sellers/v2/error/tap" (platform: "/", type: TrackType.Event) {
+            link = "go_home"  
+        }
+    }
 }

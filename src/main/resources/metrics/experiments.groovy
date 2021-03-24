@@ -38,4 +38,51 @@ metrics {
 		}
 	}
 
+	"idfa.deny"(description: "IDFA alert shown", deprecation_date:"2021/03/31") {
+		startWith {
+			experiment("mobile/IDFA_Banner")
+		}
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/denied")
+			}
+		}
+	}
+
+	"idfa.accept"(description: "IDFA permission accepted", deprecation_date:"2021/03/31") {
+		startWith {
+			experiment("mobile/IDFA_Banner")
+		}
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/accept")
+			}
+		}
+	}
+
+	"idfa.mp.deny"(description: "IDFA alert shown", deprecation_date:"2021/03/31") {
+		startWith {
+			experiment("mobile/IDFA_Banner_MP")
+		}
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/denied")
+			}
+		}
+	}
+
+	"idfa.mp.accept"(description: "IDFA permission accepted", deprecation_date:"2021/03/31") {
+		startWith {
+			experiment("mobile/IDFA_Banner_MP")
+		}
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/accept")
+			}
+		}
+	}
 }

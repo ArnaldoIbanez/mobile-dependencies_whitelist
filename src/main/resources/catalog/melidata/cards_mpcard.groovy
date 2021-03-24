@@ -42,7 +42,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual"],
+            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual", "copy_shipping_code"],
             description: "Action tapped"
         )
     }
@@ -275,7 +275,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["blocked_pin"],
+            values: ["blocked_pin", "unlock_card", "unlock_physical_card"],
             description: "Message button tapped"
           )
     }
@@ -384,10 +384,23 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message"],
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help"],
             description: "Virtual card buttons tapped"
         )
     }
+    
+    // Cards hub
+    "/cards/mpcard/card_hub"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/card_hub/block_card"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["physical_card", "virtual_debit_card"],
+            description: "Card tapped"
+        )
+    }
+
     //Highlighted row
     "/cards/mpcard/setup/virtual/highlighted_row"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
@@ -642,6 +655,14 @@ tracks {
             inheritable:false
         )
     }
+    "/cards/mpcard/nip/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_help"],
+            description: "Help button tapped"
+        )
+    }
     "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -735,7 +756,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "add_money", "info_payment"],
+            values: ["back", "add_money", "info_payment", "money_in"],
             description: "action tap by the user in the pending challenge view"
         )
     }
@@ -795,9 +816,33 @@ tracks {
     // --------
     "/cards/mpcard/request/init_point"(platform: "/", type: TrackType.View) {}
 
+    // CARD REQUEST physical init point
+    // --------
+    "/cards/mpcard/request/physical/init_point"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST virtual init point
+    // --------
+    "/cards/mpcard/request/virtual/init_point"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST PJ virtual lock
+    // --------
+    "/cards/mpcard/request/virtual/onboarding/lock"(platform: "/", type: TrackType.View) {}
+    
+    // CARD REQUEST PJ virtual lock
+    // --------
+    "/cards/mpcard/request/physical/onboarding/lock"(platform: "/", type: TrackType.View) {}
+    
     // CARD REQUEST virtual on boarding
     // --------
-    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["no_kyc", "kyc", "onboarding_shown"],
+            description: "type of onboarding",
+            inheritable:false
+        )
+    }
     "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -869,6 +914,17 @@ tracks {
             type: PropertyType.String,
             values: ["back_button"],
             description: "Cards contingency nip tap"
+            )
+    }
+
+    "/cards/mpcard/tracking"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/tracking/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/tracking/feedback/tap" (platform:"/mobile", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Taps feedback in App"
             )
     }
 

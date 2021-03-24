@@ -32,8 +32,11 @@ trackTests {
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 
-        "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
-            status = "opted_in"
+        "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
+            event_type = "click"
+            action = "add"
+            method = "totp"
+            registered_by_phone = false
         }
     }
 
@@ -42,11 +45,13 @@ trackTests {
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "single"
             target = "unlink_button"
         }
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "all"
             target = "confirm_unlink_button"
         }
     }

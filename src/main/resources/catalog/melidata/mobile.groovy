@@ -77,6 +77,11 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
+    
+    "/permissions/idfa"(platform: "/mobile", isAbstract: true){}
+    "/permissions/idfa/accept"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/denied"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/shown"(platform: "/mobile", type: TrackType.Event){}
 
     "/settings"(platform: "/mobile", isAbstract: true){}
     "/settings/about"(platform: "/mobile", type: TrackType.View){}
@@ -95,6 +100,12 @@ tracks {
         desired_link(required:true, type: PropertyType.String, descripcion: "Original Link where we want to search for a Target Link")
         target_link(required:false, type: PropertyType.String, descripcion:"The Target Link that was retrieved by the Original Link")
         message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
+    }
+
+    "/landing/load"(platform: "/mobile") {
+        status(required: true, type: PropertyType.String, values: ["success", "cancelled", "error"], description: "Loading finish status")
+        url(required: true, type: PropertyType.String, description: "The url to be loaded in the landing webview")
+        loading_time(required: true, type: PropertyType.Numeric, description: "Loading time in milliseconds")
     }
 
     "/sso" (platform: "/mobile", isAbstract: true){}
@@ -164,5 +175,13 @@ tracks {
     "/apprater/error_service_rules"(platform: "/mobile") {
     }
     "/apprater/popup"(platform: "/mobile") {
+    }
+    // Track is accepted, remind me leater or cancel(only mp) qualification in popup app rater.
+    "/apprater/accept"(platform: "/mobile") {
+    }
+    // Only track for MP.
+    "/apprater/cancel"(platform: "/mobile") {
+    }
+    "/apprater/remind_me_later"(platform: "/mobile") {
     }
 }

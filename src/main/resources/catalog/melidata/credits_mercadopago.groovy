@@ -87,6 +87,15 @@ tracks {
             required: false,
             inheritable: true
         )
+        accesses(
+                description: "Type of accesses shown to users",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                    'open_market'
+                ],
+                inheritable: false
+        )
     }
 
     propertyGroups {
@@ -169,10 +178,20 @@ tracks {
     "/credits/express_money"(platform: "/web", isAbstract: true) {}
     "/credits/merchant"(platform: "/web", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
-    "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open-market"(platform: "/", isAbstract: true) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was landing accessed",
+            values: [
+                'upsell_offer',
+                'request_offer',
+            ]
+        )
+    }
     "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
@@ -234,6 +253,11 @@ tracks {
             required: false,
             inheritable: false
         )
+        accesses(
+            description: "List of accesses shown to the user",
+            type: PropertyType.ArrayList(accesses),
+            required: false
+        )
 
         // Included in products properties. Deprecate after new web admin, check native first
         status(
@@ -250,6 +274,10 @@ tracks {
     }
 
     "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
+    "/credits/merchant/administrator/spl_proactive_payment_click"(platform: "/", type: TrackType.Event) {
         products_with_status
     }
 
@@ -328,17 +356,35 @@ tracks {
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
+    "/credits/merchant/proactive_payment/form"(platform: "/", type: TrackType.View) {
+        products_group
+    }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
-                'installment_paid',
+                "rejected:rejected_by_regulations",
+                "in_process:pending_review_manual",
+                "internal_error",
                 'default'
             ],
             inheritable: false
+        )
+        products_group
+    }
+    "/credits/merchant/proactive_payment/info"(platform: "/", type: TrackType.View) {
+        reason(
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "installment_paid",
+                        "payment_pending",
+                        "payment_already_processed"
+                ],
+                inheritable: false
         )
         products_group
     }
@@ -377,11 +423,24 @@ tracks {
      *       Start: Credits Hub
      *******************************************/
 
-    "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-        flow(
+    "/credits/mp-hub"(platform: "/", type: TrackType.View) {
+        user_type(
             type: PropertyType.String,
             required: true,
-            description: "Flow which the user is being redirected",
+            description: "User status when entering hub",
+            values: [
+                'mixed',
+                'no_credit_line'
+            ],
+            inheritable: false,
+        )
+    }
+
+    "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
+        user_status(
+            type: PropertyType.String,
+            required: true,
+            description: "User status at the moment it was redirected",
             values: [
                 'fixed_term_loan_collect',
                 'sales_percentage_loan_collect',
@@ -408,6 +467,7 @@ tracks {
                 'personal_loan_finished',
                 'consumer_loan_finished',
                 'consumer_loan_adoption',
+                'unknown',
             ]
         )
     }
@@ -489,29 +549,11 @@ tracks {
 
     "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
-        bank(
-            type: PropertyType.String,
-            required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
-            values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
-            ]
-        )
-    }
-
-    "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
-
     "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was congrats accessed",
+            description: "From which sub-flow was congrats accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
@@ -550,7 +592,7 @@ tracks {
         reason(
             type: PropertyType.String,
             required: true,
-            description: "From which flow was stop page accessed",
+            description: "From which sub-flow was stop page accessed",
             values: [
                 'financial_files',
                 'financial_scraping',
@@ -559,23 +601,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
-        bank(
-            type: PropertyType.String,
-            required: true,
-            inheritable: false,
-            description: "bank identifier clicked",
-            values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
-            ]
-        )
-    }
-
-    "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Merchants Open Market
@@ -968,6 +994,33 @@ tracks {
         products_group
     }
 
+    //Access
+    "/credits/merchant/enrollment/capped_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the capped form",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'hero_card',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
+    }
+
+    "/credits/merchant/enrollment/open_market_access"(platform: "/", type: TrackType.Event) {
+        context(
+            description: "Section from which the user accesses the open market landing",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'simulator',
+                'upsell_offer',
+            ],
+            inheritable: false
+        )
+    }
+
     /******************************************
      *       End: Merchants Enrollment
      ******************************************/
@@ -1214,7 +1267,7 @@ tracks {
         )
     }
 
-    "/credits/express_money/summary"(platform: "/", type: TrackType.View) {
+    "/credits/express_money/summary"(platform: "/web", type: TrackType.View) {
         requested_amount(
             description: "User requested amount",
             type: PropertyType.Numeric,
@@ -1247,26 +1300,21 @@ tracks {
         )
     }
 
-    "/credits/express_money/congrats"(platform: "/", type: TrackType.View) {
-        has_prepaid(
-            description: "Metric to track users who has accepted a loan and has prepaid card enabled",
-            type: PropertyType.Boolean,
-            required: false,
-        )
+    "/credits/express_money/summary"(platform: "/mobile", type: TrackType.View) {
         requested_amount(
-            description: "User requested amount",
-            type: PropertyType.Numeric,
-            required: false,
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
         max_amount(
-            description: "Credit line maximum allowed amount",
-            type: PropertyType.Numeric,
-            required: false,
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
         min_amount(
-            description: "Credit line minimum allowed amount",
-            type: PropertyType.Numeric,
-            required: false,
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
         default_payment_term(
                 description: "Default payment term selected",
@@ -1283,13 +1331,91 @@ tracks {
                 type: PropertyType.ArrayList,
                 required: false,
         )
-        reason(
-            description: "State reason",
-            type: PropertyType.String,
-            required: false,
-            values: [
-                'already_taken_credit_line',
-            ]
+        default_amount(
+                description: "Default requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+    }
+
+    "/credits/express_money/congrats"(platform: "/web", type: TrackType.View) {
+        has_prepaid(
+            description: "Metric to track users who has accepted a loan and has prepaid card enabled",
+            type: PropertyType.Boolean,
+            required: true,
+        )
+        requested_amount(
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        max_amount(
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        min_amount(
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
+        )
+    }
+
+    "/credits/express_money/congrats"(platform: "/mobile", type: TrackType.View) {
+        has_prepaid(
+                description: "Metric to track users who has accepted a loan and has prepaid card enabled",
+                type: PropertyType.Boolean,
+                required: true,
+        )
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
+        )
+        default_amount(
+                description: "Default requested amount",
+                type: PropertyType.Numeric,
+                required: true,
         )
     }
 
@@ -1304,6 +1430,21 @@ tracks {
                 'ccb_creation',
                 'simulation',
                 'default',
+                'create_express_money_validation',
+                'ext_bank_rejected',
+                'origination_error',
+                'bad_request',
+                'credit_option_not_found',
+                'repeated_request',
+                'gateway_timeout',
+                'date_validation',
+                'internal_error',
+                'concurrency_error',
+                'update_credit_line_error',
+                'invalid_first_due_date',
+                'insufficient_credit_balance',
+                'conflict',
+                'external_api_error'
             ]
         )
     }
@@ -1315,6 +1456,7 @@ tracks {
             required: true,
             values: [
                 'no_credit_lines_present',
+                'already_taken_credit_line'
             ]
         )
     }
@@ -1473,6 +1615,15 @@ tracks {
             description: "Self service option shown to the user",
             type: PropertyType.ArrayList(PropertyType.String)
         )
+        opt_in_separator(
+                required: false,
+                description: "It is only shown when user needs to allow notifications",
+                type: PropertyType.String,
+                values: [
+                        "visible",
+                        "not visible"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -1488,6 +1639,13 @@ tracks {
     //Events
 
     //Mobile Events
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
+        status(
+                required: true,
+                description: "Define if user allows or not whatsapp notifications",
+                type: PropertyType.Boolean,
+        )
+    }
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
         installments_qty(
@@ -1495,6 +1653,11 @@ tracks {
                 description: "Tne number of the installments to pay",
                 required: true,
                 inheritable: false
+        )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
         )
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
@@ -1508,6 +1671,7 @@ tracks {
     }
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
@@ -1722,7 +1886,18 @@ tracks {
             )
         }
 
-    "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+    "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+        error_type(
+                required: true,
+                description: "Error type message",
+                type: PropertyType.String,
+                values: [
+                    "no_offer",
+                    "not_found",
+                    "invalid_offer",
+                    "unknown",
+                ]
+            )
         }
      /******************************************
      *    End: Self service
