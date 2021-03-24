@@ -22,8 +22,6 @@ trackTests {
         def dataSet = {
             category_id = 'MLC1459'
             category_path = ['MLC1459']
-            official_store_id = 123
-            carousel_id = 456
         }
 
         "/home/category/real_estate"(platform: "/", type: TrackType.View, dataSet)
@@ -43,21 +41,25 @@ trackTests {
         "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View, dataSet)
         "/home/category/real_estate/map"(platform: "/", type: TrackType.View, dataSet)
-        "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
-        "/home/category/real_estate/official-store/developers"(platform: "/", type: TrackType.Event) {
-            official_store_id = 123
-        }
-        "/home/category/real_estate/official-store/realtor"(platform: "/", type: TrackType.Event) {
-            official_store_id = 123
-        }
-        "/home/category/real_estate/official-store/view_all_brands"(platform: "/", type: TrackType.Event) {
-            carousel_id = 456
-        }
         "/home/category/real_estate/landing"(platform: "/"){
             id = 'absal'
             category_id = 'MLC1459'
             category_path = ['MLC1459']
         }
+    }
+
+    test("Test Official store tracking") {
+        def dataSet = {
+            official_store_name = "test123"
+            official_store_id = 123
+        }
+
+        "/home/category/real_estate/official_store/developer/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/developer/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/developer/all_brands"(platform: "/", type: TrackType.Event) {}
+        "/home/category/real_estate/official_store/realtor/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/realtor/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/realtor/all_brands"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Home core tracking") {
