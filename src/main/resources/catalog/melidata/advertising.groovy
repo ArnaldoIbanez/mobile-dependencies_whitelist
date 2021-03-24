@@ -1810,6 +1810,10 @@ tracks {
         ads_deleted (required: true, type: PropertyType.Numeric, description: "Deleted ads in this campaign transition")
     }
 
+    "/advertising/pads2/manager/auto"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/auto/modal"(platform: "/", isAbstract: true) {}
+
     "/advertising/pads2/manager/auto/modal/show"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
         campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
