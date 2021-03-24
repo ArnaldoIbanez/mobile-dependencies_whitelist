@@ -2084,13 +2084,13 @@ trackTests {
             total_ads = 1
         }
 
-        "advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event) {
             campaign_id = 123
             status = "active"
             mode = "automatic"
         }
 
-        "advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             strategy = "PROFITABILITY"
             campaign_name = "campaign name"
