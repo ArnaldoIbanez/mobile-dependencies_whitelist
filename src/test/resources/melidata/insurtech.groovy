@@ -1712,7 +1712,7 @@ trackTests {
            is_generic = false
            site = "MLB"
      }
- "/insurtech/protections/landings_fe/go_to_store"(platform:"/web", type: TrackType.Event) {
+ "/insurtech/protections/landings_fe/go_to_store"(platform:"/", type: TrackType.Event) {
             type = "desktop"
            os_name = "ios"
            os_version = "9"
