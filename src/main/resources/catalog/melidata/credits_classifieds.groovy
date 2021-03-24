@@ -43,7 +43,7 @@ tracks {
         congrats_status(required: false, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree", serverSide: true) // -> Lo completa Melidata automaticamente
         errors( required: false, type: PropertyType.ArrayList(PropertyType.String), description: "error fallback banks")
-        seller_type(required: false, type: PropertyType.String, description: "Seller Type", values: ["normal", "car_dealer"])
+        seller_type(required: false, type: PropertyType.String, description: "Seller Type", values: ["branch", "brand", "car_dealer", "franchise", "normal","real_estate_agency"])
     }
 
     propertyGroups {
