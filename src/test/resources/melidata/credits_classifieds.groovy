@@ -20,6 +20,7 @@ trackTests {
             category_path = ["MLB1743", "MLB1744"]
             flow_type = "INVALID"
             errors = ["santander", "itau"]
+            seller_type = "car_dealer"
         }
 
 
