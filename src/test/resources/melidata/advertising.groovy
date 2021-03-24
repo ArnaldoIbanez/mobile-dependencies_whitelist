@@ -2004,6 +2004,218 @@ trackTests {
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
             campaign_id = 123
             status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+
+        "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.View) {
+            campaign_id = 123
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
+
+        "/advertising/pads2/configuration/mode/change"(platform: "/", type: TrackType.Event) {
+            campaign_id = 123
+            status = "active"
+            mode_previous = "automatic"
+            mode_new = "custom"
+        }
+
+        "/advertising/pads2/configuration/mode/change"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+        }
+
+        "/advertising/pads2/configuration/mode/details"(platform: "/", type: TrackType.View) {
+            campaign_id = 123
+            status = "active"
+            mode_previous = "automatic"
+            mode_new = "custom"
+        }
+
+        "/advertising/pads2/configuration/mode/details"(platform: "/", type: TrackType.View) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            ads_active = 1
+            ads_deleted = 1
+        }
+
+        "/advertising/pads2/configuration/mode/details/next"(platform: "/", type: TrackType.Event) {
+            campaign_id = 123
+            status = "active"
+            mode_previous = "automatic"
+            mode_new = "custom"
+        }
+
+        "/advertising/pads2/configuration/mode/details/next"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            ads_active = 1
+            ads_deleted = 1
+        }
+
+        "/advertising/pads2/configuration/mode/confirmation"(platform: "/", type: TrackType.View) {
+            campaign_id = 123
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/configuration/mode/confirmation"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            total_ads = 1
+        }
+
+        "advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event) {
+            campaign_id = 123
+            status = "active"
+            mode = "automatic"
+        }
+
+        "advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            total_ads = 1
+        }
+
+        "/advertising/pads2/configuration/emptystate"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/configuration/mode/strategy"(platform: "/", type: TrackType.View) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+        }
+
+        "/advertising/pads2/configuration/mode/strategy/next"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+        }
+
+        "/advertising/pads2/configuration/mode/settings"(platform: "/", type: TrackType.View) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+        }
+
+        "/advertising/pads2/configuration/mode/settings/next"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget_suggested = 1
+            budget_selected = 1
+            trtarget = 1
+        }
+
+        "/advertising/pads2/configuration/mode/addads"(platform: "/", type: TrackType.View) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+        }
+
+        "/advertising/pads2/configuration/mode/addads/add"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            total_ads = 1
+        }
+
+        "/advertising/pads2/configuration/mode/addads/editads"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            total_ads = 1
+        }
+
+        "/advertising/pads2/configuration/mode/addads/editads/confirm"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            total_ads = 1
+            total_ads_deleted = 1
+        }
+
+        "/advertising/pads2/configuration/mode/addads/confirm"(platform: "/", type: TrackType.View) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            total_ads = 1
+        }
+
+        "/advertising/pads2/configuration/mode/details/showads"(platform: "/", type: TrackType.Event) {
+            mode_previous = "custom"
+            mode_new = "automatic"
+            strategy = "PROFITABILITY"
+            campaign_name = "campaign name"
+            budget = 1
+            trtarget = 1
+            ads_active = 1
+            ads_deleted = 1
+        }
+
+        "/advertising/pads2/manager/auto/modal/show"(platform: "/", type: TrackType.View) {
+            campaign_id = 123
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/manager/auto/modal/show"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
+
+        "/advertising/pads2/manager/auto/modal/close"(platform: "/", type: TrackType.Event) {
+            campaign_id = 123
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/manager/auto/modal/close"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+
+        "/advertising/pads2/manager/auto/modal/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = 123
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/manager/auto/modal/go"(platform: "/", type: TrackType.Event) {
             mode = "custom"
         }
     }
