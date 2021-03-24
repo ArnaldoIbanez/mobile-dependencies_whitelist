@@ -1999,4 +1999,12 @@ trackTests {
             c_original_target = "meli://test"
         }
     }
+
+    test("Advertising - Campaign Transition"){
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
+            campaign_id = 123
+            status = "active"
+            mode = "custom"
+        }
+    }
 }

@@ -1,6 +1,8 @@
 package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
+import javafx.beans.property.Property
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
@@ -1647,6 +1649,20 @@ tracks {
         c_category (required: true, description: "category for the content")
         c_original_target (required: false, description: "target url or deeplink for the component")
         merch_data (required:false, type: PropertyType.Map(merchdata), description: "data from merch engine")
+    }
+
+    // Campaign Transition
+
+    "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
 }
