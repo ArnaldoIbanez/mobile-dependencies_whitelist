@@ -319,13 +319,13 @@ tracks {
     "/money_in/debin/hub/select"(platform:"/",type: TrackType.Event){
         key_type(required:false, description: "indicate the source of the debin")
     }
-    "/money_in/debin/hub/new-account"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
     "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
 
     //Debin Onboarding
     "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
     "/money_in/debin/onboarding/debin"(platform:"/", type: TrackType.Event){}
-    "/money_in/debin/onboarding/know-more"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/onboarding/know_more"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/onboarding/exit"(platform:"/", type: TrackType.Event){}
 
     //Debin Calculator
@@ -342,10 +342,10 @@ tracks {
 
     //Debin RyC
     "/money_in/debin/ryc"(platform:"/", type: TrackType.View){}
-    "/money_in/debin/ryc/edit-amount"(platform:"/", type: TrackType.Event){}
-    "/money_in/debin/ryc/edit-account"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/edit_amount"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
-    "/money_in/debin/ryc/create-debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
 
     //Debin Processing
     "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
@@ -355,7 +355,7 @@ tracks {
         key_type(required:false, description:"status",values:["success", "pending", "error"])
         error_type(required:false, description:"indicates the error of the debin")
     }
-    "/money_in/debin/congrats/go-home"(platform:"/", type: TrackType.Event){
+    "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
          key_type(required:false, description:"status",values:["success", "pending", "error"])
     }
     "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
@@ -375,7 +375,7 @@ tracks {
     "/money_in/debin/search/generic_error/go_home"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/ownership_error/go_home"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/ownership_error/edit_account"(platform:"/", type: TrackType.Event){}
-    "/money_in/debin/search/dismiss/bottom-sheet"(platform:"/", type: TrackType.Event){
+    "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
         key_type(required:false, description:"indicates the tye of the bottom-sheet")
     }
 }
