@@ -1213,17 +1213,6 @@ trackTests {
             view_time = 964578
         }
 
-        // INSURTECH Webview
-        "/insurtech/webview/generic_error"(platform:"/mobile", type: TrackType.Event) {
-            deeplink = "mercadopago://insurtech/webview?url=https%3A%2F%2Fmercadopago.com.br%2Fprotections%2Froda%2Fqpage&toolbar=true"
-            device = [
-                brand: "Samsung",
-                model: "J7",
-                model_code: "SM-J700M",
-                size: "64GB",
-            ]
-        }
-
         // INSURTECH RODA Payments
 
         "/insurtech/payments/loading"(platform:"/mobile", type: TrackType.View) {
@@ -2043,6 +2032,17 @@ trackTests {
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        // INSURTECH Webview
+        "/insurtech/webview/generic_error"(platform:"/mobile", type: TrackType.Event) {
+            deeplink = "mercadopago://insurtech/webview?url=https%3A%2F%2Fmercadopago.com.br%2Fprotections%2Froda%2Fqpage&toolbar=true"
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
             ]
         }
     }
