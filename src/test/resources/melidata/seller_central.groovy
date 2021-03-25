@@ -375,6 +375,7 @@ trackTests {
         key: "LIGHTNING_OFFER"
       ]
       seller_experience = "ADVANCED"
+      user_id = 421232
     }
   }
 
@@ -388,6 +389,7 @@ trackTests {
         key: "LIGHTNING_OFFER"
       ]
       seller_experience = "ADVANCED"
+      user_id = 421232
     }
   }
 
@@ -407,6 +409,7 @@ trackTests {
         ]
       ]
       seller_experience = "ADVANCED"
+      user_id = 421232
     }
   }
 
@@ -418,6 +421,7 @@ trackTests {
       page = 2
       scroll_type = "next"
       seller_experience = "ADVANCED"
+      user_id = 421232
     }
   }
 
