@@ -626,7 +626,7 @@ tracks {
     "/vip/payment_method"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/payment_method/back"(platform: "/mobile", parentPropertiesInherited: false) {}
-    
+
     "/payment_methods"(platform: "/", type: TrackType.View, isAbstract: true) {}
 
     "/payment_methods/show"(platform: "/", type: TrackType.View) {
@@ -1484,9 +1484,9 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        installments_value_total(required:true, type: PropertyType.Numeric, description: "The final price with installments in payment method")        
-        installments_value_each(required:true, type: PropertyType.Numeric, description: "The price of each installment in payment method")        
-        installments_amount(required:true, type: PropertyType.Numeric, description: "The amount of installments in payment method")        
+        installments_value_total(required:true, type: PropertyType.Numeric, description: "The final price with installments in payment method")
+        installments_value_each(required:true, type: PropertyType.Numeric, description: "The price of each installment in payment method")
+        installments_amount(required:true, type: PropertyType.Numeric, description: "The amount of installments in payment method")
         is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
     }
 
@@ -1494,5 +1494,10 @@ tracks {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
         item_id(required: false, type: PropertyType.String, description: "Indica el identificador del item")
         is_component_tracker(required: false, type: PropertyType.String, description: "Indica si el componente es el backup track")
+    }
+
+    "/vip/official_store"(platform: "/", isAbstract: true) {}
+    "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        official_store_id(required: true, type: PropertyType.Numeric, description: "Link's Official store id")
     }
 }

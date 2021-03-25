@@ -341,6 +341,12 @@ tracks {
         url(required: true, description: "Url of landing associated with the logo click event")
     }
 
+    "/search/official_store"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        official_store_id(required: true, type: PropertyType.Numeric, description: "Link's Official store id")
+    }
+
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
