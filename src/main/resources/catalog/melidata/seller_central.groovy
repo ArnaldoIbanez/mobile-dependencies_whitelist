@@ -203,7 +203,7 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
-        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
+        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A marketplace item, associated_default: A marketplace item which has at least 1 variation that is associated  with a PDP item, associated_products: A PDP item associated with a marketplace item", values: ["product", "default", "associated_products", "associated_default"])
         domain_id(required: false, type: PropertyType.String, description: "Category domain id")
         moderated(required: false, type: PropertyType.Boolean, description: "Determine if the item is moderated")
 
