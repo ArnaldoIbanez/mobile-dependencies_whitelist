@@ -127,7 +127,7 @@ tracks {
     "/mplayer/closed_request/reject/reject"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/reject/back"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/reject/exit"(platform: "/mobile", type: TrackType.Event) {
-        button(required: true, PropertyType.String, description: "the button selected to exit")
+        button(required: true, PropertyType.String, values: ["close_button", "main_button"], description: "the button selected to exit")
     }
 
     "/mplayer/closed_request/result"(platform: "/mobile", isAbstract: true) {}
