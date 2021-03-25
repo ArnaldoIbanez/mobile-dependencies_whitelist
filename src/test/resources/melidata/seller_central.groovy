@@ -371,9 +371,10 @@ trackTests {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
-        type: "recommendation",
+        type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER"
       ]
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -383,9 +384,10 @@ trackTests {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
-        type: "recommendation",
+        type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER"
       ]
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -396,14 +398,15 @@ trackTests {
       reputation = "4_light_green"
       cards = [
         [
-          type: "recommendation",
+          type: "RECOMMENDATION",
           key: "LIGHTNING_OFFER"
         ],
         [
-          type: "content",
+          type: "CONTENT",
           key: "PB01"
         ]
       ]
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -414,6 +417,7 @@ trackTests {
       reputation = "4_light_green"
       page = 2
       scroll_type = "next"
+      seller_experience = "ADVANCED"
     }
   }
 
