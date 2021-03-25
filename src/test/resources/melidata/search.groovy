@@ -75,7 +75,10 @@ trackTests {
                 [item_id: "MLB510446223", position: 2, "type": "MLB3722"],
                 [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
                 [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722"]
-        ]
+        ],
+        discount_volume : [],
+        same_day : [],
+        next_day : []
     ]
 
     def promiseInfo = [
@@ -543,6 +546,12 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/search_map"(platform: "/") {
+            defaultSearchInformation()
+        }
+        "/search/back_listing"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }
@@ -720,6 +729,12 @@ trackTests {
     test("Search Advertising banners") {
         "/search/advertising"(platform: "/", type: TrackType.Event) {
             advertising_id = "sky"
+        }
+    }
+
+    test("Test official store tracking"){
+        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            official_store_id = 123
         }
     }
 

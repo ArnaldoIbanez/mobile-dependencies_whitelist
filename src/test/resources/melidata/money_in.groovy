@@ -488,6 +488,7 @@ trackTests {
 
         //PIX QR
         "/money_in/pix/qr"(platform:"/", type: TrackType.View){}
+        "/money_in/pix/qr/share"(platform: "/", type: TrackType.Event){}
         "/money_in/pix/qr/setup"(platform: "/", type: TrackType.Event){}
 
         //PIX Setup QR

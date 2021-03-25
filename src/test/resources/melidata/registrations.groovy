@@ -595,10 +595,13 @@ trackTests {
         "/register/v3/hub/email_validation/congrats"(platform: "/mobile"){}
         "/register/v3/hub/phone_validation/congrats"(platform: "/mobile"){}
         "/register/v3/hub/kyc/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/pix/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/regulations/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/tyc/congrats"(platform: "/mobile"){}
         "/register/v3/hub/congrats"(platform: "/mobile"){}
 
         // MP
-         "/register/v3/hub/landing"(platform: "/mobile/android", business: "mercadopago"){
+         "/register/v3/hub/landing"(platform: "/mobile", business: "mercadopago"){
         }
         "/register/v3/hub/main"(platform: "/mobile", business: "mercadopago"){
             status = "in_progress"
@@ -615,11 +618,59 @@ trackTests {
                     id: "kyc",
                     status: "pending",
                 ],
+                [
+                    id: "pix",
+                    status: "pending",
+                ],
+                [
+                    id: "regulations",
+                    status: "pending",
+                ],
+            ]
+        }
+                "/register/v3/hub/main"(platform: "/mobile", business: "mercadopago"){
+            status = "in_progress"
+            steps = [
+                [
+                    id: "email_validation",
+                    status: "completed",
+                ],
+                [
+                    id: "phone_validation",
+                    status: "pending",
+                ],
+                [
+                    id: "kyc",
+                    status: "pending",
+                ],
+                [
+                    id: "tyc",
+                    status: "pending",
+                ],
             ]
         }
         "/register/v3/hub/email_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/phone_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/kyc/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/pix/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/regulations/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/tyc/congrats"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/hub/congrats"(platform: "/mobile", business: "mercadopago"){}
+    }
+
+    test("Registration v3 Challenges") {
+      // ML
+        "/register/v3/challenge/tyc/wallet"(platform: "/mobile"){}
+        "/register/v3/challenge/tyc/wallet/submit"(platform: "/mobile"){}
+        
+        "/register/v3/challenge/tyc/standard"(platform: "/mobile"){}
+        "/register/v3/challenge/tyc/standard/submit"(platform: "/mobile"){}   
+
+      // MP
+        "/register/v3/challenge/tyc/wallet"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/challenge/tyc/wallet/submit"(platform: "/mobile", business: "mercadopago"){}
+        
+        "/register/v3/challenge/tyc/standard"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/challenge/tyc/standard/submit"(platform: "/mobile", business: "mercadopago"){}   
     }
 }

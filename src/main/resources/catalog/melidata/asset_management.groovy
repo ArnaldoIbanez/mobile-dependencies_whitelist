@@ -225,5 +225,8 @@ tracks {
     "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_edit_amount"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", type: TrackType.Event) {}
-  
+
+    //Update App
+    "/asset_management/update_app"(platform: "mobile", type: TrackType.View) {}
+
 }

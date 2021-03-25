@@ -5,6 +5,9 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
+
+    initiative = "1208"
+
     "/privacy_preferences"(platform: "/") {}
     "/privacy_preferences/export"(platform: "/") {}
     "/privacy_preferences/export/download"(platform: "/") {}

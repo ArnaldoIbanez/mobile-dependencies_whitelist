@@ -319,6 +319,12 @@ trackTests {
         "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
         }
+        "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_card"
+        }
+        "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_physical_card"
+        }
     }
     
     //Account info: Tracking
@@ -469,8 +475,11 @@ trackTests {
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message"
         }
-         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "close_modal"
+        }
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
         }
     }
 
@@ -480,6 +489,17 @@ trackTests {
             action = "money_in"
         }
     }
+    
+    // Cards hub
+     test("cards mpcard card block hub") {
+            "/cards/mpcard/card_hub/block_card"(platform:"/", type: TrackType.View) {}
+            "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "virtual_debit_card"
+            }
+             "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "physical_card"
+            }
+        }
     
     //Account options
     test("cards mpcard setup virtual card message") {

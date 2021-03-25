@@ -270,6 +270,9 @@ trackTests {
         "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_edit_amount"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", type: TrackType.Event) {}
+
+        //Update App
+        "/asset_management/update_app"(platform: "mobile", type: TrackType.View) {}
     
         // Meli tests
 
@@ -516,6 +519,8 @@ trackTests {
         "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_edit_amount"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
-      
+
+        //UpdateApp
+        "/asset_management/update_app"(platform: "/mobile", business: "mercadolibre") {}
     }
 }

@@ -702,6 +702,7 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            credits=[]
             banking_v2=[
                     hidden : true
             ]
@@ -783,6 +784,8 @@ trackTests {
             metadata_user = [
                 type: "newbie"
             ]
+            link = "mercadopago://link"
+            button_link = "mercadopago://link"
         }
     }
 
@@ -965,6 +968,7 @@ trackTests {
             section_id="subscription"
             component_id="cta"
             level=4
+            partner="multi-partner"
             metadata_user:[
                 type: "payer"
             ]
@@ -1116,6 +1120,7 @@ trackTests {
 
         "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
             favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            from = "modal"
             metadata_user:[
                 type: "payer"
             ]

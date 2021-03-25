@@ -752,4 +752,17 @@ trackTests {
              *       End: Credit Card Disable
              ***********************************************/
         }
+
+        test("Credits Credit Card - Landings tests") {
+            /***********************************************
+             *       Start: Credit Card Landings
+             ***********************************************/
+
+            // Generic Stop Page
+            "/credits/credit_card/landing/generic"(platform: "/web", type: TrackType.View) {}
+
+            /***********************************************
+             *       End: Credit Card Landings
+             ***********************************************/
+        }
 }

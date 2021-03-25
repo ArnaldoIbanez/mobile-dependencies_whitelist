@@ -24,6 +24,7 @@ tracks {
     def realestate = objectSchemaDefinitions {
         discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
         main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
+        collections(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestatedata)))
     }
 
     "/home"(platform: "/mobile") {
@@ -184,6 +185,36 @@ tracks {
     "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View) {}
 
     "/home/category/real_estate/map"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/official_store"(platform: "/", isAbstract: true) {}
+
+    "/home/category/real_estate/official_store/developer"(platform: "/", isAbstract: true) {}
+
+    "/home/category/real_estate/official_store/developer/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/developer/print"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/developer/all_brands"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){}
+
+    "/home/category/real_estate/official_store/realtor"(platform: "/", isAbstract: true) {}
+
+    "/home/category/real_estate/official_store/realtor/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/realtor/print"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/realtor/all_brands"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){}
 
     // Apparel
     "/home/category/apparel"(platform: "/", isAbstract: true) {

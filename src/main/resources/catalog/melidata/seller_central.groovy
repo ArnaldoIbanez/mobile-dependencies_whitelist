@@ -137,6 +137,11 @@ tracks {
         kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
     }
 
+    def sellerCoachCard = objectSchemaDefinitions {
+        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['recommendation', 'content'])
+        key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
+    }
+
     def picture_info_map = objectSchemaDefinitions {
         width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
         height(required: true, type: PropertyType.Numeric, description: "this property describes height of the image")
@@ -179,6 +184,11 @@ tracks {
         value_name(required: true, type: PropertyType.String, description: "This property describes value name of attribute")
     }
 
+    def productsLandingRowStructure = objectSchemaDefinitions {
+      catalog_product_id(required: true, type: PropertyType.String, description: "The product id")
+      row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
+    }
+
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -193,7 +203,7 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
-        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
+        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A marketplace item, associated_default: A marketplace item which has at least 1 variation that is associated  with a PDP item, associated_products: A PDP item associated with a marketplace item", values: ["product", "default", "associated_products", "associated_default"])
         domain_id(required: false, type: PropertyType.String, description: "Category domain id")
         moderated(required: false, type: PropertyType.Boolean, description: "Determine if the item is moderated")
 
@@ -271,7 +281,6 @@ tracks {
         selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
         selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
         row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
-
     }
 
     propertyGroups {
@@ -287,6 +296,8 @@ tracks {
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
         sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type)
+
+        sellerCentralCatalogProductizationGroup(item_id, session_id, category_id, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, rejected_products, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause, item_type)
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
@@ -316,17 +327,25 @@ tracks {
     // Central of News
     "/seller_central/news"(platform: "/", type: TrackType.View) {}
     "/seller_central/news/filter"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/news/filter/primary"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/news/filter/secondary"(platform: "/", type: TrackType.Event) {}
     "/seller_central/news/tag"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        tag(description: "The tag of selected notice")
     }
     "/seller_central/news/expand"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/primary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/secondary"(platform: "/", type: TrackType.Event) {
-        notice_id(required: true, description: "The id of selected notice")
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
     }
     "/seller_central/news/keep"(platform: "/", type: TrackType.Event) {
         notice_id(required: true, description: "The id of selected notice")
@@ -364,6 +383,35 @@ tracks {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
+    }
+
+    // Seller coach
+    "/seller_central/seller_coach"(platform: "/web", isAbstract: true) {}
+    "/seller_central/seller_coach/summary"(platform: "/web", isAbstract: true) {}
+    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Card clicked")
+    }
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
+        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
+        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
+        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
+        page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
+        scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Target page scrolled")
     }
 
 
@@ -1273,7 +1321,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/product_comparator/show"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1438,7 +1486,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/optin_moderated/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/optin_moderated/product_comparator/show"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1546,7 +1594,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/item_plus/product_comparator"(platform: "/web", isAbstract: true) {}
-    
+
     "/seller_central/catalog/optin/item_plus/product_comparator/show"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         sellerCentralCatalogOptinGroup
@@ -1663,6 +1711,54 @@ tracks {
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
     }
+
+
+    // CATALOG PRODUCTIZATION SECTION
+
+    "/seller_central/catalog/productization"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogProductizationGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "PRODUCTIZATION"])
+    }
+
+    "/seller_central/catalog/productization/products_finder_bar"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/products_finder_bar/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
+        sellerCentralCatalogProductizationGroup
+    }
+
+    "/seller_central/catalog/productization/products_finder"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/products_finder/update"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+    }
+
+    "/seller_central/catalog/productization/products_finder/product_selection"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+    }
+
+    "/seller_central/catalog/productization/product_bullet_resume"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/product_bullet_resume/show"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "PRODUCTIZATION"])
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: false, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        product_title(required: true, description: "title of catalog product", type: PropertyType.String)
+    }
+
+    "/seller_central/catalog/productization/category"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/productization/category/confirm"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellerCentralCatalogProductizationGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "PRODUCTIZATION"])
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: false, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
+    }
+
 
     // ADD NEW PATHS FOR SELLER PROMOTIONS FORM
     // To be compatible with the actuals paths.
@@ -1804,6 +1900,10 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
+    "/seller_central/questions/response"(platform: "/web", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
     "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
@@ -1822,6 +1922,40 @@ tracks {
 
     "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central Buyer Questions
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/buyer_questions"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/buyer_questions/list_by_item"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/buyer_questions/list_by_question"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/buyer_questions/make_question_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the question is sent")
+    }
+
+    "/seller_central/buyer_questions/delete_all_questions"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String, description: "Item id needed to delete questions")
+        failed(required: true, type: PropertyType.Boolean, description: "To know if the question have been deleted")
+    }
+
+    "/seller_central/buyer_questions/delete_all_questions_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id from questions to delete")
+    }
+
+    "/seller_central/buyer_questions/denounce_answer"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the answer is denounced")
+        question_id(requested: false, type: PropertyType.Numeric, description: "Question id to which the answer is denounced")
+        failed(required: true, type: PropertyType.Boolean, description: "To know if the answer has been denounced")
+    }
+
+    "/seller_central/buyer_questions/denounce_answer_intention"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item id needed to denounce")
+        question_id(requested: true, type: PropertyType.Numeric, description: "Question id needed to denounce")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1885,5 +2019,14 @@ tracks {
         productsLandingRowGroup
     }
 
+    "/seller_central/products_landing/search/copied_product_row"(platform: "/web", type: TrackType.View) {
+        productsLandingDataGroup
+        productsLandingRowGroup
+    }
+
+    "/seller_central/products_landing/search/copied_products"(platform: "/web", type: TrackType.Event) {
+        productsLandingDataGroup
+        copied_products(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingRowStructure)), description: "This property describe copied products")
+    }
     // FINAL PRODUCTS LANDING PATHS
 }

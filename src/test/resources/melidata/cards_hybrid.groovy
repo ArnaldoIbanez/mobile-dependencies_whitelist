@@ -627,6 +627,33 @@ trackTests {
         }
     }
     
+
+    // Cards hub
+    test("cards hybrid card setup virtual hub") {
+            "/cards/hybrid/card_hub/setup_virtual"(platform:"/", type: TrackType.View) {}
+            "/cards/hybrid/card_hub/setup_virtual/tap"(platform:"/", type: TrackType.Event) {
+                action = "credit_card"
+            }
+            "/cards/hybrid/card_hub/setup_virtual/tap"(platform:"/", type: TrackType.Event) {
+                action = "debit_card"
+            }
+        }
+
+
+    test("cards hybrid card block hub") {
+            "/cards/hybrid/card_hub/block_card"(platform:"/", type: TrackType.View) {}
+            "/cards/hybrid/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "virtual_debit_card"
+            }
+            "/cards/hybrid/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "virtual_credit_card"
+            }
+             "/cards/hybrid/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "physical_card"
+            }
+        }
+
+    
     //Account options
     test("cards hybrid setup virtual card message") {
         "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
@@ -1031,9 +1058,7 @@ trackTests {
         "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
             status = "ERROR"
         }
-        "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
-             deviceType = "desktop"
-        }
+        "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) { }
     }
 
     //COACHMARK
