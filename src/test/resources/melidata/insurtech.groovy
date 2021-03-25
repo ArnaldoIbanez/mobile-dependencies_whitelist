@@ -2036,7 +2036,7 @@ trackTests {
         }
 
         // INSURTECH Webview
-        "/insurtech/webview/generic_error"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/webview/generic-error"(platform:"/mobile", type: TrackType.Event) {
             deeplink = "mercadopago://insurtech/webview?url=https%3A%2F%2Fmercadopago.com.br%2Fprotections%2Froda%2Fqpage&toolbar=true"
             device = [
                 brand: "Samsung",

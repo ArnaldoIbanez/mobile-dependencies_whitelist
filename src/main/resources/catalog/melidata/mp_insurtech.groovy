@@ -404,7 +404,7 @@ tracks {
 
     // INSURTECH Webview
     "/insurtech/webview"(platform: "/", isAbstract: true) {}
-    "/insurtech/webview/generic_error"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/webview/generic-error"(platform:"/mobile", type: TrackType.Event) {
         deeplink(required: true, type: PropertyType.String, description: "Deeplink that enter on webview.")
         device(required: true, type: PropertyType.Map(roda_device), description: "Device data of user")
     }
