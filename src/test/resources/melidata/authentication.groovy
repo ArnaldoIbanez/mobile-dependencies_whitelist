@@ -1385,7 +1385,7 @@ trackTests {
                 operation_id = "1"
                 flow_type = "other"
                 result = "error"
-                errors = ["Ups error :S"]
+                error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
             }
@@ -1395,7 +1395,7 @@ trackTests {
                 operation_id = "1"
                 flow_type = "other"
                 result = "error"
-                errors = ["Ups error :S"]
+                error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
             }
@@ -1406,7 +1406,7 @@ trackTests {
                 flow_type = "payment"
                 amount = "10.0"
                 result = "error"
-                errors = ["Ups error :S"]
+                error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
             }
@@ -1417,7 +1417,7 @@ trackTests {
                 flow_type = "payment"
                 amount = "10.0"
                 result = "error"
-                errors = ["Ups error :S"]
+                error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
             }

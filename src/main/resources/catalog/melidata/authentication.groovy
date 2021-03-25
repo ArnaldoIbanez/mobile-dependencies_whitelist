@@ -604,7 +604,7 @@ tracks {
         flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
         amount(type: PropertyType.String, required: false, description: "amount of the operation")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
-        errors(type: PropertyType.ArrayList, required: false)
+        error(type: PropertyType.String, required: false)
         transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
         reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error"], description: "Identify 201, 204 o error status by api result workflow decide")
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
