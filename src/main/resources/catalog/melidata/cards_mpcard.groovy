@@ -561,7 +561,64 @@ tracks {
         )
     }
 
-    "/cards/mpcard/block_card/physical/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/cards/mpcard/block_card/physical/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If reissue was request by warning address"
+        )
+    }
+    // INTERMEDIATE ONBOARDING REISSUE
+    // --------
+    "/cards/mpcard/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of onboarding"
+            inheritable: false
+        )
+        card_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Optional Card Id"
+            inheritable: false
+        )
+    }
+
+    "/cards/mpcard/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.View) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["reissue_pause_card", "reissue", "reissue_change_pin", "reissue_activate_contactless", "back", "close"]
+            description: "The action type tapped"
+        )
+    }
+
+    
+    // REASONS REISSUE
+    // --------
+    "/cards/mpcard/block_card/physical/reasons"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of onboarding"
+            inheritable: false
+        )
+    }
+
+    "/cards/mpcard/block_card/physical/reasons/tap"(platform: "/", type: TrackType.View) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["selected", "continue"]
+            description: "The action type tapped"
+        )
+        option_id (
+            required: true,
+            type: PropertyType.String,
+            description: "The selected option"
+        )
+    }
 
     // SETUP FÍSICA
     // --------
@@ -738,6 +795,11 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If reissue was request by warning address"
         )
     }
 
