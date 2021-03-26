@@ -1681,5 +1681,34 @@ tracks {
             ]
         )
     }
+    
+    // NFC-FEATURE-IGNITE-STATUS
+    // ----------------------
+    
+    "/cards/nfc/core/ignite"(platform: "/", type: TrackType.Event) {
+        value (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Ignite status for this user"
+        )
+    }
+    
+    // NFC-INITIALIZATION-SERVICE
+    // ----------------------
+    
+    // NfcInitializationServiceInitialized
+    "/cards/nfc/core/service"(platform: "/", type: TrackType.Event) { }
 
+    "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) { 
+        error_code (
+            required: true,
+            type: PropertyType.String,
+            description: "Error code for nfc service initialization"
+        )
+    }
+
+    // NfcInitializationServiceSucess
+    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
+    
+    
 }
