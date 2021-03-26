@@ -30,7 +30,7 @@ This repository contains all the definitions for the information tracked in *mel
 Download JDK 8 (u212) and set JAVA_HOME variable. In your terminal, run:
 
 ```
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home 
 ```
 
 If your JAVA_HOME is set to JDK 9+, it might trigger incompatibility problems.

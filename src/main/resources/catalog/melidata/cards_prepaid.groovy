@@ -25,6 +25,9 @@ tracks {
     "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
     "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
 
+	"/cards"(platform: "/", isAbstract: true) { }
+	"/cards/prepaid-detail"(platform: "/", isAbstract: true) { }
+    "/cards/prepaid-detail/click-ask-for-card"(platform: "/", isAbstract: true) { }
 
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
@@ -159,6 +162,20 @@ tracks {
     "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/money_in"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/money_in/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid/challenge/money_in/onboarding/slide/exit"(platform: "/mobile", type: TrackType.Event) {
+        slide(
+                required: true,
+                type: PropertyType.Numeric,
+                description: "Slide number where ocurre the event"
+        )
+        cause(
+                required: true,
+                type: PropertyType.String,
+                values: ["close", "back"],
+                description: "The quit reason"
+        )
+    }
     "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
@@ -315,5 +332,59 @@ tracks {
     //New (invalid)
     "/prepaid_recharge/add_recipient"(platform: "/mobile") {}
     "/prepaid_recharge/recipient"(platform: "/mobile") {}
+
+    // PJ Onboarding
+    "/prepaid/acquisition/pj_onboarding"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/pj_onboarding/tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {}
+
+    // Onboarding Adapt KYC
+    "/prepaid/acquisition/onboarding_adapt_kyc"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding_adapt_kyc/tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/acquisition/onboarding_adapt_kyc/error"(platform: "/", type: TrackType.Event) {}
+
+    // Congrats Adapt KYC 
+    "/prepaid/acquisition/adapt_kyc"(platform: "/", isAbstract: true){}
+    "/prepaid/acquisition/adapt_kyc/congrats"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/adapt_kyc/congrats/tap"(platform: "/", type: TrackType.Event) {
+        deeplink (required:true, type: PropertyType.String, description: "Screen pushed by the action")
+    }
+    "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
+
+    //Prepaid click ask for card
+    "/cards/prepaid-detail/click-ask-for-card" (platform: "/web", type: TrackType.Event) {
+         osName (
+            required: false,
+            type: PropertyType.String,
+            description: "Device type click ask for card"
+        )
+    }
+
+    //Prepaid regret flow
+    "/prepaid/regret" (platform: "/", type: TrackType.View) {}
+    "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancel_card","back"],
+            description: "user regrets having the prepaid"
+            )
+        cardStatus (
+            required: true,
+            type: PropertyType.String,
+            description: "card status before block"
+            )
+        cardStatusDetail (
+            required: false,
+            type: PropertyType.String,
+            description: "card status detail before block"
+            )
+        blockStatus (
+            required: true,
+            type: PropertyType.String,
+            values: ["unknow","sucess","apiError","localError"],
+            description: "result state of the api-call"
+            )
+    }
 
 }

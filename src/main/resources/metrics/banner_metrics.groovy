@@ -55,7 +55,7 @@ metrics {
                 }
         }
 
-        "deal_banner_click"(description: "Search deal banner clicked") {
+        "deal_banner_click"(description: "Search deal banner clicked", deprecation_date:"2020/04/20") {
                 startWith {
                         experiment("deal_banner_shown")
                 }

@@ -2,11 +2,10 @@ package com.melidata.definitions.validators
 
 import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
-import com.ml.melidata.catalog.model.ApplicationModel
 
 class InitiativeValidate {
 
-    private static Set validPaths = []
+    private static Set validPaths = ["/"]
     private static Set totalPaths = []
     private static double baseCoverage = 100
     private static Set coveragebleCatalogs = ['melidata']
@@ -14,7 +13,8 @@ class InitiativeValidate {
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
 
-        if(initiativeId && InitiativeAPI.getInstance().applications.any() { ApplicationModel init -> init.getInitiativeId() == initiativeId }) {
+        if(initiativeId && (InitiativeAPI.getInstance().applications.values().any() { it == initiativeId }
+            || InitiativeAPI.getInstance().initiatives.any() { Integer init -> init.toString() == initiativeId })) {
             validPaths << path
             return true
         } else {
@@ -39,7 +39,7 @@ class InitiativeValidate {
             }
         }
 
-        validPaths = []
+        validPaths = ["/"]
         totalPaths = []
 
         return isValidStatus

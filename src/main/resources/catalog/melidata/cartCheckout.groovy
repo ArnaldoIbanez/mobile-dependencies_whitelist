@@ -15,6 +15,11 @@ tracks {
 
     initiative = "1104"
 
+    def coordinatesStructure = objectSchemaDefinitions {
+      latitude(required: true, type: PropertyType.String)
+      longitude(required: true, type: PropertyType.String)
+    }
+
     "/cart"(platform: "/", isAbstract: true) {}
 
     "/cart/checkout"(platform: "/", isAbstract: true) {
@@ -286,41 +291,58 @@ tracks {
     "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
         edit_flow(required: false, type: PropertyType.Boolean)
     }
+    "/cart/checkout/shipping/input_address/submit"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        edit_flow(required: false, type: PropertyType.Boolean)
+        }
+    "/cart/checkout/shipping/input_address/map"(platform:"/", type: TrackType.View, isAbstract: true) {
+        edit_flow(required: false, type: PropertyType.Boolean)
+    }
+    "/cart/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        edit_flow(required: false, type: PropertyType.Boolean)
+    }
 
 // Events
-
+    "/cart/checkout/shipping/input_address/unknown_zip_code"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/cart/checkout/shipping/input_address/unknown_zip_code_back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/cart/checkout/shipping/input_address/unknown_zip_code_submit"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
     "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the name track the name value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_name track the street_name value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/city"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -333,18 +355,21 @@ tracks {
     }
     "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery track the delivery value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/delivery_instructions"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery instructions")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery instructions track the delivery instructions value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -357,6 +382,7 @@ tracks {
     }
     "/cart/checkout/shipping/input_address/additional_info"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -371,6 +397,148 @@ tracks {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the caixa postal number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the caixa postal number track the caixa postal number value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the name track the name value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_name track the street_name value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_city"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery track the delivery value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_delivery_instructions"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery instructions")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery instructions track the delivery instructions value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_additional_info"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_internal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the internal number")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_caixa_postal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the caixa postal number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the caixa postal number track the caixa postal number value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/map/error_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the map step")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the map step track the map coordinates value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        written(required: true, type: PropertyType.String, description: "The written text before selecting a street suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a street suggestion")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        written(required: true, type: PropertyType.String, description: "The written text before selecting a phone suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    
+    "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that are shown after opening the replace zip codes modal")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    
+    "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that were shown on the replace zip codes modal")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        suggested(required: true, type: PropertyType.Map(coordinatesStructure), description: "The suggested coordinates where we positioned the user on the map")
+        final_coordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+
+    "/cart/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        start_loading(required: true, type: PropertyType.String, description: "The datetime when the map started loading")
     }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
