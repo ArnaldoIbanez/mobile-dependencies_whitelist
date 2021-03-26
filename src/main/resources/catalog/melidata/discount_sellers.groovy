@@ -271,6 +271,7 @@ tracks {
     }
 
     "/discount_sellers/v2/home/tap" (platform: "/", type: TrackType.View, parentPropertiesInherited:false) {
+        session_id(required: true, type: PropertyType.String, description: "Session identifier")
         drawing_type (type: PropertyType.String, description:"shape of element on the screen")
         component (required: false, type: PropertyType.ArrayList, description: "infomation objects")
         segment_id (type: PropertyType.String, description: "identifier of segment")
@@ -293,6 +294,7 @@ tracks {
 
     // Instore (ISDT) - Webview -  Home Sellers History > tap 
     "/discount_sellers/v2/history/tap" (platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        session_id(required: true, type: PropertyType.String, description: "Session identifier")
         campaign_id (type: PropertyType.String, required: false, description: "Id of campaign")
         component_id (type: PropertyType.String, required: false, description: "id of the component")
         payments (type: PropertyType.Numeric, required: false, description: "pyments of campaign, example: 342")
