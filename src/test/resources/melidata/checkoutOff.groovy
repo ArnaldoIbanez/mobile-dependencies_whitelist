@@ -47,6 +47,10 @@ trackTests {
             payment_status = "approved"
         }
 
+        def expressRecoverRequiredProperties = {
+            original_payment_id = "376478974"
+        }
+
         // ALL PROPERTIES TESTS
         // EVENTS
         "/checkout_off/init"(platform: "/web/mobile") {
@@ -132,6 +136,11 @@ trackTests {
 
         "/checkout_off/agencies"(platform: "/web/mobile") {
             defaultProperties()
+        }
+
+        "/checkout_off/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            expressRecoverRequiredProperties()
         }
 
         "/checkout_off/error"(platform: "/web/mobile") {
@@ -236,6 +245,11 @@ trackTests {
 
         "/checkout_off/agencies"(platform: "/web/mobile") {
             onlyRequiredProperties()
+        }
+
+        "/checkout_off/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            expressRecoverRequiredProperties()
         }
 
         "/checkout_off/error"(platform: "/web/mobile") {

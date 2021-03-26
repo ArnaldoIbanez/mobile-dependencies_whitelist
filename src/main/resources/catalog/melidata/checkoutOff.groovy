@@ -76,6 +76,10 @@ tracks {
 
     "/checkout_off/agencies"(platform: "/", type: TrackType.View) {}
 
+    "/checkout_off/express_recover"(platform: "/", type: TrackType.View) {
+        original_payment_id(required: true, description: "Identification of payment that failed and resulted in a recover process", type: PropertyType.String)
+    }
+
     // For this path, none is required
     "/checkout_off/error"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         checkout_flow_id(required: false, description: "Unique ID of the current flow, e.g: 'b24bcffe-4b26-46c9-8646-61891dbd978b'", type: PropertyType.String)
