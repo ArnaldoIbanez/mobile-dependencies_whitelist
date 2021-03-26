@@ -227,7 +227,9 @@ tracks {
         link (type: PropertyType.String, required: true, values: ["go_home"], description: "Name of tap, example: go_home")
     }
 
-    "/discount_sellers/v2" (platform: "/", isAbstract: true) {}
+    "/discount_sellers/v2" (platform: "/", isAbstract: true) {
+        session_id(required: true, type: PropertyType.String, description: "Session identifier")
+    }
     "/discount_sellers/v2/error" (platform: "/", isAbstract: true) {}
 
     // Instore (ISDT) - Webview -  Home Sellers Error > Pageview
