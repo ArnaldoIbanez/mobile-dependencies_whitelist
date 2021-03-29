@@ -549,7 +549,8 @@ tracks {
         card_id (
             required: true,
             type: PropertyType.String,
-            description: "Card id"
+            description: "Card id",
+            inheritable: false
         )
     }
     "/cards/mpcard/block_card/physical/tap"(platform:"/", type: TrackType.Event) {
@@ -558,6 +559,12 @@ tracks {
             type: PropertyType.String,
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
+        )
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable: false
         )
     }
 
@@ -575,16 +582,16 @@ tracks {
         type (
             required: true,
             type: PropertyType.String,
-            description: "Type of onboarding"
+            description: "Type of onboarding",
             inheritable: false
         )
     }
 
-    "/cards/mpcard/block_card/physical/reasons/tap"(platform: "/", type: TrackType.View) {
+    "/cards/mpcard/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["selected", "continue"]
+            values: ["selected", "continue"],
             description: "The action type tapped"
         )
         option_id (
@@ -594,22 +601,22 @@ tracks {
         )
     }
 
-       // CUSTOM FEEDBACK
+    // CUSTOM FEEDBACK
     // --------
     "/cards/mpcard/feedback_custom"(platform: "/", type: TrackType.View) {
         type (
             required: true,
             type: PropertyType.String,
-            description: "Type of custom feedback"
+            description: "Type of custom feedback",
             inheritable: false
         )
     }
 
-    "/cards/mpcard/feedback_custom/tap"(platform: "/", type: TrackType.View) {
+    "/cards/mpcard/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["confirm", "exit"]
+            values: ["confirm", "exit"],
             description: "The action tapped"
         )
     }
@@ -620,22 +627,22 @@ tracks {
         type (
             required: true,
             type: PropertyType.String,
-            description: "Type of onboarding"
+            description: "Type of onboarding",
             inheritable: false
         )
         card_id (
             required: false,
             type: PropertyType.String,
-            description: "Optional Card id"
+            description: "Optional Card id",
             inheritable: false
         )
     }
 
-    "/cards/mpcard/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.View) {
+    "/cards/mpcard/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"]
+            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"],
             description: "The action tapped"
         )
     }
@@ -683,7 +690,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Card id",
-            inheritable:false,
+            inheritable:false
         )
     }
     "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
