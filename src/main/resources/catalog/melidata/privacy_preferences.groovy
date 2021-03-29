@@ -20,7 +20,7 @@ tracks {
     }
 
     //Privacy view for LGPD
-    "/advertising"(platform: "/"){}
+    "/advertising"(platform: "/", isAbstract: true) {}
     "/advertising/privacy"(platform: "/", type: TrackType.View) {}
     "/advertising/privacy/modal"(platform: "/", type: TrackType.Event, isAbstract: true){}
     "/advertising/privacy/modal/show"(platform: "/", type: TrackType.Event) {
