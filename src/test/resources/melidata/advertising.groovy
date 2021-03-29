@@ -573,7 +573,7 @@ trackTests {
             campaign_id = "2222222"
         }
         "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event){
-            campaign_id = "2222222"
+            campaign_id = 123
             ad_status = "active"
             ad_id = "MLC123"
         }
