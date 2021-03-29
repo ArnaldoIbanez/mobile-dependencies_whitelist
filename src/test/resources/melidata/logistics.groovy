@@ -788,7 +788,7 @@ trackTests {
             invalid_shipments = [
                     [
                         shipment_id: "1234456",
-                        shipment_substatus: "test",
+                        shipment_status: "KEY_INVALID_STATUS",
                     ]
             ]
         }
