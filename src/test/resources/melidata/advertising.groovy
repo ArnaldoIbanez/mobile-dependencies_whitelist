@@ -574,6 +574,8 @@ trackTests {
         }
         "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event){
             campaign_id = "2222222"
+            ad_status = "active"
+            ad_id = "MLC123"
         }
     }
 
