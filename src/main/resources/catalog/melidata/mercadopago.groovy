@@ -499,9 +499,9 @@ tracks {
     "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
-    * PDV Onboarding IIBB - Register Point Plus
+    * Register Point Devices
     */
-    "/point/register"(platform: "/", isAbstract: true, initiative : "1046") {}
+    "/point/register"(platform: "/", isAbstract: true, initiative : "1300") {}
 
     // Register device
     "/point/register/start"(platform: "/", type: TrackType.View) {}
