@@ -787,8 +787,8 @@ trackTests {
             driver_id = 400
             invalid_shipments = [
                     [
-                        shipment_id: "1234456",
-                        shipment_status: "KEY_INVALID_STATUS",
+                        shipment_id: "123456",
+                        shipment_status: "KEY_INVALID_STATUS"
                     ]
             ]
         }
