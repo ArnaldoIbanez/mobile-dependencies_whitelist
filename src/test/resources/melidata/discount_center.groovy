@@ -510,7 +510,9 @@ trackTests {
                                 collector_id: 1234567,
                                 name: "Mc Donalds",
                                 purchase_id: 12345678,
-                                purchase_state: "Delivered",
+                                purchase_state: "paid",
+                                action_label: "Tu pedido fue entregado",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                 tracking_id: "purchase_tracking_id"
                             ]
                 ],
@@ -885,7 +887,9 @@ trackTests {
                                 collector_id: 1234567,
                                 name: "Mc Donalds",
                                 purchase_id: 12345678,
-                                purchase_state: "Ins",
+                                purchase_state: "paid",
+                                action_label: "Tu pedido esta en camino",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                 tracking_id: "purchase_tracking_id"
                     ]
                 ],
