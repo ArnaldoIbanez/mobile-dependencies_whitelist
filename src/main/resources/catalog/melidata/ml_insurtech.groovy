@@ -10,6 +10,14 @@ tracks {
 
     "/garex"(platform: "/", isAbstract: true) {}
 
+    def roda_device = objectSchemaDefinitions {
+        brand(required: true, type: PropertyType.String, description: "Brand of device. For ex: Samsung.")
+        model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7. Send by provider.")
+        model_code(required: false, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M. Get from native.")
+        size(required: true, type: PropertyType.String, description: "Size of the device. For ex: 64GB.")
+        device_code(required: false, type: PropertyType.String, description: "device code to quote. For ex: diw387_1u1")
+    }
+
     def garex_track_structure = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "Selected warranty option id. For ex: MLA-HAIR_CLIPPERS_GAR110203")
         period(required: true, type: PropertyType.Numeric, description: "Period of de selected warranty (months). For ex: 12")
@@ -224,6 +232,13 @@ tracks {
         option_id(required: true, type: PropertyType.String, description: "Selected option id")
         cost(required: true, type: PropertyType.Numeric, description: "Product cost")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+
+    // INSURTECH Webview
+    "/insurtech/webview"(platform: "/", isAbstract: true) {}
+    "/insurtech/webview/generic-error"(platform:"/mobile", type: TrackType.Event) {
+        deeplink(required: true, type: PropertyType.String, description: "Deeplink that enter on webview.")
+        device(required: true, type: PropertyType.Map(roda_device), description: "Device data of user")
     }
 
     //INSURTECH Hub-ON

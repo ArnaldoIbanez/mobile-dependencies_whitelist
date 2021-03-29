@@ -2058,6 +2058,17 @@ trackTests {
                 product_id:"MLB_RD00000000000065134TEST"
             ]
         }
+
+        // INSURTECH Webview
+        "/insurtech/webview/generic-error"(platform:"/mobile", type: TrackType.Event) {
+            deeplink = "mercadopago://insurtech/webview?url=https%3A%2F%2Fmercadopago.com.br%2Fprotections%2Froda%2Fqpage&toolbar=true"
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
     }
   }
 }
