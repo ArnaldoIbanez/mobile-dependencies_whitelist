@@ -526,7 +526,7 @@ tracks {
         first_mile_logistic_type(required: false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
-        invalid_shipments(required: true, type: PropertyType.ArrayList(invalid_shipment), description: "Specifies the packages not allowed for pickup", inheritable: false)
+        invalid_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Map(invalid_shipment)), description: "Specifies the packages not allowed for pickup", inheritable: false)
     }
     "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
