@@ -742,32 +742,6 @@ tracks {
         )
     }
 
-    // INTERMEDIATE ONBOARDING REISSUE
-    // --------
-    "/cards/hybrid/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
-        type (
-            required: true,
-            type: PropertyType.String,
-            description: "Type of onboarding"
-            inheritable: false
-        )
-        card_id (
-            required: false,
-            type: PropertyType.String,
-            description: "Optional Card Id"
-            inheritable: false
-        )
-    }
-
-    "/cards/hybrid/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.View) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["reissue_pause_card", "reissue", "reissue_change_pin", "reissue_activate_contactless", "back", "close"]
-            description: "The action type tapped"
-        )
-    }
-
     
     // REASONS REISSUE
     // --------
@@ -793,7 +767,52 @@ tracks {
             description: "The selected option"
         )
     }
-    
+
+    // CUSTOM FEEDBACK
+    // --------
+    "/cards/hybrid/feedback_custom"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of custom feedback"
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/feedback_custom/tap"(platform: "/", type: TrackType.View) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["confirm", "exit"]
+            description: "The action tapped"
+        )
+    }
+
+    // INTERMEDIATE ONBOARDING
+    // --------
+    "/cards/hybrid/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of onboarding"
+            inheritable: false
+        )
+        card_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Optional Card id"
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.View) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"]
+            description: "The action tapped"
+        )
+    }
 
     // SETUP FÍSICA
     // --------
