@@ -38,4 +38,22 @@ trackTests {
         }
         "/privacy_preferences/onboarding"(platform: "/", business: "mercadopago") {}
     }
+
+    test("MercadoPago: Privacy view for LGPD") {
+        "/advertising"(platform: "/", business: "mercadopago"){}
+        "/advertising/privacy"(platform: "/", business: "mercadopago", type: TrackType.View) {}
+        "/advertising/privacy/modal"(platform: "/", business: "mercadopago", type: TrackType.Event) {}
+        "/advertising/privacy/modal/show"(platform: "/", business: "mercadopago", type: TrackType.Event) {
+            switch_status = "enabled"
+        }
+        "/advertising/privacy/modal/deactivate_ads"(platform: "/", business: "mercadopago", type: TrackType.Event) {}
+        "/advertising/privacy/modal/keep_ads_active"(platform: "/", business: "mercadopago", type: TrackType.Event) {}
+        "/advertising/privacy/modal/dismiss"(platform: "/", business: "mercadopago", type: TrackType.Event) {
+            switch_status = "deactivate"
+        }
+        "/advertising/privacy/switch"(platform: "/", business: "mercadopago", type: TrackType.Event) {}
+        "/advertising/privacy/switch/activated"(platform: "/", business: "mercadopago", type: TrackType.Event) {
+            switch_status = "activated"
+        }
+    }
 }
