@@ -67,10 +67,6 @@ trackTests {
             congrats_status = "success"
         }
 
-        def expressRecoverRequiredProperties = {
-            original_payment_id = "376478974"
-        }
-
         // ALL PROPERTIES TESTS
         // EVENTS
         "/checkout_off/init"(platform: "/web/mobile") {
@@ -170,11 +166,6 @@ trackTests {
             defaultProperties()
         }
 
-        "/checkout_off/express_recover"(platform: "/web/mobile") {
-            defaultProperties()
-            expressRecoverRequiredProperties()
-        }
-
         "/checkout_off/error"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -234,6 +225,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -349,11 +345,6 @@ trackTests {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/express_recover"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-            expressRecoverRequiredProperties()
-        }
-
         "/checkout_off/error"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -413,6 +404,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
@@ -533,10 +529,6 @@ trackTests {
             congrats_status = "success"
         }
 
-        def expressRecoverRequiredProperties = {
-            original_payment_id = "376478974"
-        }
-
         // ALL PROPERTIES TESTS
         // EVENTS
         "/checkout_off/init"(platform: "/web/mobile") {
@@ -636,11 +628,6 @@ trackTests {
             defaultProperties()
         }
 
-        "/checkout_off/express_recover"(platform: "/web/mobile") {
-            defaultProperties()
-            expressRecoverRequiredProperties()
-        }
-
         "/checkout_off/error"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -700,6 +687,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -815,11 +807,6 @@ trackTests {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/express_recover"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-            expressRecoverRequiredProperties()
-        }
-
         "/checkout_off/error"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -879,6 +866,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
