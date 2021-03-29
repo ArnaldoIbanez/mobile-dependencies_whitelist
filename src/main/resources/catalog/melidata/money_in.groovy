@@ -352,7 +352,7 @@ tracks {
 
     //Debin Congrats
     "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
-        key_type(required:false, description:"status",values:["success", "pending", "error"])
+        key_type(required:true, description:"status",values:["success", "pending", "error"])
         error_type(required:false, description:"indicates the error of the debin")
     }
     "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
@@ -368,7 +368,7 @@ tracks {
     "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/continue"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
-        key_type(required:false, description:"indicates the result of the search")
+        key_type(required:true, description:"indicates the result of the search")
     }
     "/money_in/debin/search/success/continue"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/generic_error/retry"(platform:"/", type: TrackType.Event){}

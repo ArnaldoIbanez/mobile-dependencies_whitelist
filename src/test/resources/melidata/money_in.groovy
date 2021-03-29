@@ -556,7 +556,9 @@ trackTests {
         "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
             key_type = "error"        
         }
-        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){
+            key_type = "success"
+        }
 
         //Debin Search account
         "/money_in/debin/search"(platform:"/", type: TrackType.View){}
