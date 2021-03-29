@@ -409,7 +409,11 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        ad_id(required: true, description: "Id related to pad")
+        ad_status(required: true, description: "Current status related to the pad", values: ['active', 'paused'])
+    }
 
     //Matching
     "/advertising/pads2/manager/winbacks"(platform: "/", isAbstract: true) {}
