@@ -30,6 +30,8 @@ tracks {
         category_id(type: PropertyType.String, required: true, description: "The Category item id")
         item_id(type: PropertyType.String, required: true, description: "The item id")
         item_name(type: PropertyType.String, required: true, description: "The item title")
+        purchase_id(type: PropertyType.Numeric, required: false, description: "The purchase id")
+        purchase_state(type: PropertyType.String, required: false, description: "The purchase state")
     }
 
     propertyGroups {
@@ -180,6 +182,16 @@ tracks {
         index(type: PropertyType.Numeric, required: true, description: "The position of the image banner")
     }
 
+    def purchase_item_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        tracking_id(type: PropertyType.String, required: true, description: "The unique id of the actionable info item item we are showing")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        name(type: PropertyType.String, required: true, description: "The name")
+        purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
+        purchase_state(type: PropertyType.String, required: true, values: ['In progress', 'Delivered'], description: "The purchase state")
+    }
+
     def marketplace_main_slider_definition = objectSchemaDefinitions {
         segment_id(type: PropertyType.String, required: true, description: "The section segment")
         marketplace_type(type: PropertyType.String, required: true, description: "The section type")
@@ -241,6 +253,13 @@ tracks {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the carousel")
     }
 
+    def marketplace_purchase_status_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, values: ['cover_carousel'], description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        purchases(required: true, type: PropertyType.ArrayList(PropertyType.Map(purchase_item_definition)), description: "Items shown in the purchase carousel")
+    }
+
     def marketplace_components_definition = objectSchemaDefinitions {
         main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_slider_definition)), description: "Main slider components")
         main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
@@ -254,6 +273,7 @@ tracks {
         filters(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_definition)), description: "Filters components")
         filters_l2(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_l2_definition)), description: "Filters L2 components")
         cover_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_cover_carousel_definition)), description: "Cover carousel components")
+        purchases_status(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_purchase_status_definition)), description: "Purchase status components")
     }
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {

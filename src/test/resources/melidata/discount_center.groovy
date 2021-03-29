@@ -500,6 +500,20 @@ trackTests {
                                 ]
                         ]
                 ],
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "Delivered",
+                                tracking_id: "purchase_tracking_id"
+                            ]
+                ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -853,6 +867,27 @@ trackTests {
                                 selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ]
+                ],
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+
+        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "Ins",
+                                tracking_id: "purchase_tracking_id"
+                    ]
                 ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
