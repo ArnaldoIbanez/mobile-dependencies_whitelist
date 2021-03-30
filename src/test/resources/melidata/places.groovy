@@ -261,4 +261,92 @@ trackTests {
             defaultTrackInformation()
         }
     }
+
+    test("places operations unified scanner step") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/unified_scan_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations detailed transition screen") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/unified_flow_identification_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations helper screen") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/helper_info_view_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations early pickup information screen") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/early_pickup_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations spinner only transition view") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/redirect_outbound_view_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations returns error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/error_step_return"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations outbounds error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/error_step_outbound"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations inbounds error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/error_step_inbound"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
 }
