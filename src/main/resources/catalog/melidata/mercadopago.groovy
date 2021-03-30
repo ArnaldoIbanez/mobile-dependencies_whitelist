@@ -163,6 +163,12 @@ tracks {
 
     // [Merchants Growth] Landings Navigation > Events
     "/point/landings/navigation"(platform:"/", type: TrackType.Event) {}
+    
+    // [Merchants Growth] Landings Navigation > Calculator link
+    "/point/landings/calculator"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landings Navigation > Security module link
+    "/point/landings/security"(platform:"/", type: TrackType.Event) {}
 
     // [Merchants Growth] Landing compare
     "/point/landings/compare"(platform:"/", type: TrackType.View) {}
