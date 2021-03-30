@@ -989,6 +989,54 @@ trackTests {
         }
     }
 
+        // REASONS REISSUE
+    // --------
+    test("cards hybrid block card reasons") {
+        "/cards/hybrid/block_card/physical/reasons"(platform: "/", type: TrackType.View) {
+            type = "reissue_normal_reasons"
+        }
+
+        "/cards/hybrid/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+            action = "selected"
+            option_id = "not_working"
+        }
+
+         "/cards/hybrid/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+            option_id = "not_working"
+        }
+    }
+
+    // CUSTOM FEEDBACK
+    // --------
+    test("cards hybrid custom feedback") {
+        "/cards/hybrid/feedback_custom"(platform: "/", type: TrackType.View) {
+            type = "reissue_other_reasons"
+        }
+
+        "/cards/hybrid/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+            action = "confirm"
+        }
+
+        "/cards/hybrid/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+            action = "exit"
+        }
+    }
+
+    // INTERMEDIATE ONBOARDING
+    // --------
+    test("cards hybrid custom feedback") {
+        "/cards/hybrid/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
+            type = "reissue_cancel_damaged_card"
+            card_id = "123asd"
+        }
+
+        "/cards/hybrid/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "pause_card"
+        }
+    }
+
+
     // CARD IDENTIFICATION
     // --------
     test("cards hybrid identification") {
@@ -1767,4 +1815,22 @@ trackTests {
             result= "success"
         }
     }
+
+    test("cards hybrid nfc feature ignite status") {
+        "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
+            value = true
+        }
+        "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
+            value = false
+        }
+    }
+    
+    test("cards hybrid nfc initialization service") {
+        "/cards/nfc/core/service"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/error"(platform:"/", type: TrackType.Event) {
+            error_code = "INTERNAL_COMPONENT_ERROR"
+        }
+        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { }
+    }
+
 }

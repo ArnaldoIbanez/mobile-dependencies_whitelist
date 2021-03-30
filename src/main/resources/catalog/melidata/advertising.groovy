@@ -409,7 +409,11 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        ad_id(required: true, description: "Id related to pad")
+        ad_status(required: true, description: "Current status related to the pad", values: ['active', 'paused'])
+    }
 
     //Matching
     "/advertising/pads2/manager/winbacks"(platform: "/", isAbstract: true) {}
@@ -1647,6 +1651,188 @@ tracks {
         c_category (required: true, description: "category for the content")
         c_original_target (required: false, description: "target url or deeplink for the component")
         merch_data (required:false, type: PropertyType.Map(merchdata), description: "data from merch engine")
+    }
+
+    // Campaign Transition
+
+    "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/configuration/mode/change"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/configuration/mode/details"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status (required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        strategy(required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: false, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: false, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: false, type: PropertyType.Numeric, description: "Take Rate selected")
+        ads_active (required: false, type: PropertyType.Numeric, description: "Active ads in this campaign transition")
+        ads_deleted (required: false, type: PropertyType.Numeric, description: "Deleted ads in this campaign transition")
+    }
+
+    "/advertising/pads2/configuration/mode/details/next"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status (required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        strategy(required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: false, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: false, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: false, type: PropertyType.Numeric, description: "Take Rate selected")
+        ads_active (required: false, type: PropertyType.Numeric, description: "Active ads in this campaign transition")
+        ads_deleted (required: false, type: PropertyType.Numeric, description: "Deleted ads in this campaign transition")
+    }
+
+    "/advertising/pads2/configuration/mode/confirmation"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status (required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        strategy(required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: false, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: false, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: false, type: PropertyType.Numeric, description: "Take Rate selected")
+        total_ads(required: false, type: PropertyType.Numeric, description: "Indicates total of ads")
+    }
+
+    "/advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status (required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        strategy(required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: false, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: false, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: false, type: PropertyType.Numeric, description: "Take Rate selected")
+        total_ads(required: false, type: PropertyType.Numeric, description: "Indicates total of ads")
+    }
+
+    "/advertising/pads2/configuration/emptystate"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+    }
+
+    "/advertising/pads2/configuration/mode/strategy"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/configuration/mode/strategy/next"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: true, type: PropertyType.String, description: "Strategy selected")
+    }
+
+    "/advertising/pads2/configuration/mode/settings"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+    }
+
+    "/advertising/pads2/configuration/mode/settings/next"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        budget_suggested (required: true, type: PropertyType.Numeric, description: "Upselling budget suggested for the campaign")
+        budget_selected (required: true, type: PropertyType.Numeric, description: "Upselling budget selected for the campaign")
+        trtarget (required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
+
+    "/advertising/pads2/configuration/mode/addads"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+    }
+
+    "/advertising/pads2/configuration/mode/addads/add"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+        total_ads(required: true, type: PropertyType.Numeric, description: "Indicates total of ads")
+    }
+
+    "/advertising/pads2/configuration/mode/addads/editads"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+        total_ads(required: true, type: PropertyType.Numeric, description: "Indicates total of ads")
+    }
+
+    "/advertising/pads2/configuration/mode/addads/editads/confirm"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+        total_ads(required: true, type: PropertyType.Numeric, description: "Indicates total of ads")
+        total_ads_deleted(required: true, type: PropertyType.Numeric, description: "Indicates total of ads deleted")
+    }
+
+    "/advertising/pads2/configuration/mode/addads/confirm"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+        total_ads(required: true, type: PropertyType.Numeric, description: "Indicates total of ads")
+    }
+
+    "/advertising/pads2/configuration/mode/details/showads"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode_previous (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        mode_new (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        strategy (required: false, type: PropertyType.String, description: "Strategy selected")
+        campaign_name (required: true, type: PropertyType.String, description: "Current name related to the campaign")
+        budget (required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
+        trtarget (required: true, type: PropertyType.Numeric, description: "Take Rate selected")
+        ads_active (required: true, type: PropertyType.Numeric, description: "Active ads in this campaign transition")
+        ads_deleted (required: true, type: PropertyType.Numeric, description: "Deleted ads in this campaign transition")
+    }
+
+    "/advertising/pads2/manager/auto"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/auto/modal"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/auto/modal/show"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/manager/auto/modal/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/manager/auto/modal/go"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode (required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+        campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
 }

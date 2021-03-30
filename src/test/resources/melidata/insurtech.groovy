@@ -1712,7 +1712,7 @@ trackTests {
            is_generic = false
            site = "MLB"
      }
- "/insurtech/protections/landings_fe/go_to_store"(platform:"/web", type: TrackType.Event) {
+ "/insurtech/protections/landings_fe/go_to_store"(platform:"/", type: TrackType.Event) {
             type = "desktop"
            os_name = "ios"
            os_version = "9"
@@ -2056,6 +2056,17 @@ trackTests {
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        // INSURTECH Webview
+        "/insurtech/webview/generic-error"(platform:"/mobile", type: TrackType.Event) {
+            deeplink = "mercadopago://insurtech/webview?url=https%3A%2F%2Fmercadopago.com.br%2Fprotections%2Froda%2Fqpage&toolbar=true"
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
             ]
         }
     }
