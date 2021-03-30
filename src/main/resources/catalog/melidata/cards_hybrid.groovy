@@ -735,6 +735,83 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
         )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If reissue was request by warning address"
+        )
+    }
+
+    
+    // REASONS REISSUE
+    // --------
+    "/cards/hybrid/block_card/physical/reasons"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of onboarding",
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["selected", "continue"],
+            description: "The action type tapped"
+        )
+        option_id (
+            required: true,
+            type: PropertyType.String,
+            description: "The selected option"
+        )
+    }
+
+    // CUSTOM FEEDBACK
+    // --------
+    "/cards/hybrid/feedback_custom"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of custom feedback",
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["confirm", "exit"],
+            description: "The action tapped"
+        )
+    }
+
+    // INTERMEDIATE ONBOARDING
+    // --------
+    "/cards/hybrid/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of onboarding",
+            inheritable: false
+        )
+        card_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Optional Card id",
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"],
+            description: "The action tapped"
+        )
     }
 
     // SETUP FÍSICA
@@ -867,6 +944,11 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If reissue was request by warning address"
         )
     }
     "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
