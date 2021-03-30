@@ -1362,7 +1362,7 @@ tracks {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
@@ -1389,7 +1389,7 @@ tracks {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
@@ -1414,7 +1414,7 @@ tracks {
         source(required: fasle,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
