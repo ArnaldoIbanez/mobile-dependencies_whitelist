@@ -71,6 +71,7 @@ tracks {
     "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
         has_account_money (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has enough money in account")
+        has_consumer_credits (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has credit balance")
     }
 
     "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
