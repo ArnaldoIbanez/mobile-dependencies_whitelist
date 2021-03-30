@@ -186,7 +186,9 @@ tracks {
         store_id(type: PropertyType.Numeric, required: true, description: "The store id")
         name(type: PropertyType.String, required: true, description: "The name")
         purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
-        purchase_state(type: PropertyType.String, required: true, values: ['In progress', 'Delivered'], description: "The purchase state")
+        purchase_state(type: PropertyType.String, required: true, values: ['paid'], description: "The purchase state")
+        action_label(type: PropertyType.String, required: true, description: "Label text of the action link")
+        action_target(type: PropertyType.String, required: true, description: "Target of the action link")
     }
 
     def marketplace_main_slider_definition = objectSchemaDefinitions {
@@ -270,7 +272,7 @@ tracks {
         filters(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_definition)), description: "Filters components")
         filters_l2(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_l2_definition)), description: "Filters L2 components")
         cover_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_cover_carousel_definition)), description: "Cover carousel components")
-        purchases_status(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_purchases_status_definition)), description: "Purchase status components")
+        purchases_status(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_purchases_status_definition)), description: "Purchases status components")
     }
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
