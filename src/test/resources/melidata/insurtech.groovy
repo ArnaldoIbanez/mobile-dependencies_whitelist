@@ -255,7 +255,7 @@ trackTests {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
         }
 
-        "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/select"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
@@ -268,12 +268,12 @@ trackTests {
             currency_id = "BR"
         }
 
-        "/insurtech/qpage_on/open_faq"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/help"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
         }
 
-        "/insurtech/qpage_on/selected"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/add"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
@@ -286,11 +286,11 @@ trackTests {
             currency_id = "BR"
         }
 
-        "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/skip"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
         }
 
-        "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/quote_fail"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
@@ -302,7 +302,7 @@ trackTests {
             currency_id = "BR"
         }
 
-        "/insurtech/qpage_on/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/quote_success"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             quote_id = "343cae11-d2ef-4115-b284-96c7e69fb1d8"
