@@ -1270,35 +1270,96 @@ trackTests {
         }
 
         test("Reauth Native") {
-            //Validation Start
-            "/native_reauth/start"(platform: "/mobile/android", type: TrackType.Event) {
+            //Operation Start
+            "/reauth/success"(platform: "/mobile/android", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "grant_code"
+                tracking_id = "1"
+            }
+
+            "/reauth/success"(platform: "/mobile/ios", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "grant_code"
+                tracking_id = "1"
+            }
+
+            "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
+                authentication_id = "1"
+                error = "server"
+            }
+
+            "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
+                authentication_id = "1"
+                error = "server"
+            }
+
+            "/reauth/challenge"(platform: "/mobile/android", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                tracking_id = "1"
+            }
+
+            "/reauth/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                tracking_id = "1"
+            }
+
+            "/reauth/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                errors = ["un error", "dos errores"]
+                tracking_id = "1"
+            }
+
+            "/reauth/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+                authentication_id = "1"
+                challenge = "test1"
+                errors = ["un error", "dos errores"]
+                tracking_id = "1"
+            }
+
+            "/reauth/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_decline"
+                tracking_id = "1"
+            }
+
+            "/reauth/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_decline"
+                tracking_id = "1"
+            }
+
+            //Operation Start
+            "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
             }
 
-            "/native_reauth/start"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
             }
 
-            "/native_reauth/start"(platform: "/mobile/android", type: TrackType.Event) {
+            "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
                 amount = "10.0"
             }
 
-            "/native_reauth/start"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
                 amount = "10.0"
             }
 
-            //Validation End - Success
-            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            //Operation End - Success
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1308,7 +1369,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1318,7 +1379,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1329,7 +1390,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1340,7 +1401,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1349,7 +1410,7 @@ trackTests {
                 screenlock_validated = true
             }
 
-            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1358,7 +1419,7 @@ trackTests {
                 screenlock_validated = true
             }
 
-            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1368,7 +1429,7 @@ trackTests {
                 screenlock_validated = true
             }
 
-            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1379,8 +1440,8 @@ trackTests {
             }
 
 
-            //Validation End - Error
-            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            //Operation End - Error
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1390,7 +1451,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
@@ -1400,7 +1461,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
@@ -1411,7 +1472,7 @@ trackTests {
                 screenlock_validated = false
             }
 
-            "/native_reauth/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
                 reauth_mods_id = "2"
                 operation_id = "2"
                 flow_type = "payment"
