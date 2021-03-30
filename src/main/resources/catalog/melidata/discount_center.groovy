@@ -254,7 +254,7 @@ tracks {
 
     def marketplace_purchases_status_definition = objectSchemaDefinitions {
         segment_id(type: PropertyType.String, required: true, description: "The section segment")
-        marketplace_type(type: PropertyType.String, required: true, values: ['cover_carousel'], description: "The section type")
+        marketplace_type(type: PropertyType.String, required: true, values: ['purchases_status'], description: "The section type")
         marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(purchase_item_definition)), description: "Items shown in the purchase carousel")
     }
