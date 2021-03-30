@@ -785,10 +785,10 @@ trackTests {
             first_mile_logistic_type = "FF"
             route_id = "1234"
             driver_id = 400
-            invalid_shipments = [
+            invalid_pickups = [
                     [
-                        shipment_id: "123456",
-                        shipment_status: "KEY_INVALID_STATUS"
+                        id: "123456",
+                        reason: "KEY_INVALID_STATUS"
                     ]
             ]
         }

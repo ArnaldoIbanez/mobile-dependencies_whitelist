@@ -58,9 +58,9 @@ tracks {
         accuracy(required: false, type: PropertyType.String, description: "The accuracy radius in meters for this geo point")
     }
 
-    def invalid_shipment = objectSchemaDefinitions {
-        shipment_id(required: true, type: PropertyType.String, description: "The id of the package")
-        shipment_status(required: true, type: PropertyType.String, description: "The invalid status of package", values: ["KEY_INVALID_STATUS", "KEY_INVALID_CODE",
+    def invalid_pickup = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "The id of the pickup")
+        reason(required: true, type: PropertyType.String, description: "The reason not allowed pickup", values: ["KEY_INVALID_STATUS", "KEY_INVALID_CODE",
                                                                                                                           "KEY_OPERATION_CANCELED", "KEY_PREVIOUSLY_COLLECTED",
                                                                                                                           "KEY_INVALID_ROUTE", "KEY_INVALID_SITE", "KEY_UNKNOWN_ERROR"])
     }
@@ -526,7 +526,7 @@ tracks {
         first_mile_logistic_type(required: false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
-        invalid_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Map(invalid_shipment)), description: "Specifies the packages not allowed for pickup", inheritable: false)
+        invalid_pickups(required: true, type: PropertyType.ArrayList(PropertyType.Map(invalid_pickup)), description: "Specifies the pickups not allowed", inheritable: false)
     }
     "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
