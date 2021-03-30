@@ -478,6 +478,30 @@ trackTests {
         "/login/auth/phone_validation/sms_detection/autodetect_code_failure"(platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("Multi Step Login Web") {
+      "/login/auth/challenge"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        recaptcha = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+        has_error = false
+      }
+      "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
+      "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
+        rememberme_enabled = true
+        is_otp = false
+        is_admin_otp = false
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
+    }
+
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
             mode = "prefetch_only"
