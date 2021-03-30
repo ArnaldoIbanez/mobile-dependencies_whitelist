@@ -18,6 +18,11 @@ tracks {
     "/privacy_preferences/data_usage"(platform: "/", type: TrackType.Event) {
         denied(type: PropertyType.Boolean, required: true, description: "Denied or not user data usage")
     }
+    "/privacy_preferences/cookies"(platform: "/") {}
+    "/privacy_preferences/cookies/save"(platform: "/", type: TrackType.Event) {
+        advertising(type: PropertyType.Boolean, required: true, description: "User preferences, advertising category")
+    }
+    "/privacy_preferences/cookies/cancel"(platform: "/") {}
 
     //Privacy view for LGPD
     "/advertising"(platform: "/", isAbstract: true) {}
