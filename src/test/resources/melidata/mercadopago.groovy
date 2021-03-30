@@ -5467,6 +5467,45 @@ trackTests {
             reauth_status = "error"
             screenlock_validated = false
         }
+
+        //Operation End - Cancel
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "created"
+            transaction_id = "4"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "created"
+            transaction_id = "4"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
     }
 
     test("Browser device tracking in mobile") {
