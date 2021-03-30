@@ -493,7 +493,7 @@ trackTests {
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
       }
-      "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
+      "/login/auth/success"(platform: "/web", type: TrackType.View) {
         rememberme_enabled = true
         is_otp = false
         is_admin_otp = false
