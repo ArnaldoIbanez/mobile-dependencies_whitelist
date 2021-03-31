@@ -284,13 +284,24 @@ trackTests {
         }
     }
 
-    test("places operations helper screen") {
+    test("places operations helper screen in scanner") {
 
         def defaultTrackInformation = {
             place_id = "123456"
         }
 
-        "/places/operations/helper_info_view_step"(platform: "/web", type: TrackType.Event) {
+        "/places/operations/helper_info_scanner_view_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations helper screen in manual input") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/helper_info_manual_input_view_step"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }

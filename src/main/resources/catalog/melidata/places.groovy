@@ -165,7 +165,12 @@ tracks {
                 description: "ID of place (agency) user operates in.")
     }
 
-    "/places/operations/helper_info_view_step"(platform: "/web", type: TrackType.View) {
+    "/places/operations/helper_info_scanner_view_step"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/helper_info_manual_input_view_step"(platform: "/web", type: TrackType.View) {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
     }
