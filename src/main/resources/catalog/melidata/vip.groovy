@@ -1037,7 +1037,7 @@ tracks {
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
         deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
-        item_seller_type(required: false, values: ['car_dealer','normal'], description: "Seller type: normal, car_dealer, etc")
+        item_seller_type(required: false, values: ['car_dealer','normal', 'real_estate_agency'], description: "Seller type: normal, car_dealer, etc")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
