@@ -94,6 +94,9 @@ tracks {
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         highlights(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        discount_volume(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -338,6 +341,12 @@ tracks {
         url(required: true, description: "Url of landing associated with the logo click event")
     }
 
+    "/search/official_store"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        official_store_id(required: true, type: PropertyType.String, description: "Link's Official store id")
+    }
+
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
@@ -384,6 +393,12 @@ tracks {
     }
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/search_map"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/back_listing"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

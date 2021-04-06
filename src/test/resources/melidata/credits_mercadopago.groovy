@@ -755,33 +755,55 @@ trackTests {
             reason = 'lender_cannot_collect_installments'
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'rejected:rejected_by_regulations'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'in_process:pending_review_manual'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'internal_error'
+            fixed_term()
+        }
+
+        "/credits/merchant/proactive_payment/info"(platform: "/web/desktop") {
             reason = 'installment_paid'
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'default'
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'insufficient_account_money'
             fixed_term()
         }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'lender_cannot_collect_installments'
+        "/credits/merchant/proactive_payment/info"(platform: "/web/desktop") {
+            reason = 'payment_pending'
             express_money()
         }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'default'
-            fixed_term()
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'insufficient_account_money'
-            fixed_term()
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'lender_cannot_collect_installments'
-            express_money()
-        }
-        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
-            reason = 'default'
+        "/credits/merchant/proactive_payment/info"(platform: "/web/desktop") {
+            reason = 'payment_already_processed'
             fixed_term()
         }
 
@@ -968,6 +990,7 @@ trackTests {
             requested_amount = 700
             max_amount = 1000
             min_amount = 500
+            default_amount = 1000
         }
 
         "/credits/express_money/summary"(platform: "/web/desktop", type: TrackType.View) {
@@ -986,6 +1009,7 @@ trackTests {
             default_payment_term = "7"
             selected_payment_term = "7"
             payment_terms = ["7", "14", "21"]
+            default_amount = 1000
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop") {
@@ -1000,6 +1024,7 @@ trackTests {
             max_amount = 1000
             min_amount = 500
             has_prepaid = true
+            default_amount = 1000
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop") {
@@ -1014,6 +1039,7 @@ trackTests {
             max_amount = 1000
             min_amount = 500
             has_prepaid = false
+            default_amount = 500
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop", type: TrackType.View) {
@@ -1034,6 +1060,7 @@ trackTests {
             default_payment_term = "7"
             selected_payment_term = "7"
             payment_terms = ["7", "14", "21"]
+            default_amount = 1000
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop", type: TrackType.View) {
@@ -1054,12 +1081,7 @@ trackTests {
             default_payment_term = "7"
             selected_payment_term = "7"
             payment_terms = ["7", "14", "21"]
-        }
-
-        "/credits/express_money/congrats"(platform: "/mobile/ios", type: TrackType.View) {
-            reason = "already_taken_credit_line"
-            from = 'hub'
-            additional_info = 'clicked_on_access_row'
+            default_amount = 500
         }
 
         "/credits/express_money/error"(platform: "/web/desktop") {
@@ -1100,12 +1122,76 @@ trackTests {
 
         "/credits/express_money/error"(platform: "/mobile/android") {
             reason = 'simulation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'create_express_money_validation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'ext_bank_rejected'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'origination_error'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'bad_request'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'credit_option_not_found'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'repeated_request'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'gateway_timeout'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'date_validation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'internal_error'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'concurrency_error'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'update_credit_line_error'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'invalid_first_due_date'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'insufficient_credit_balance'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'conflict'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'external_api_error'
         }
 
         "/credits/express_money/info"(platform: "/mobile/android") {
             reason = 'no_credit_lines_present'
             from = 'hub'
             additional_info = 'clicked_on_access_row'
+        }
+
+        "/credits/express_money/info"(platform: "/mobile/android") {
+            reason = 'already_taken_credit_line'
         }
 
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
@@ -1513,6 +1599,10 @@ trackTests {
         "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/mobile", type: TrackType.Event) {
+            status = true
+            dashboard_status = 'on_time'
+        }
 
         /******************************************
             *       End: Consumers Admin Detail

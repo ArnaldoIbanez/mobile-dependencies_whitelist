@@ -45,11 +45,13 @@ trackTests {
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "single"
             target = "unlink_button"
         }
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "all"
             target = "confirm_unlink_button"
         }
     }

@@ -619,6 +619,7 @@ trackTests {
           user_id = 5010815
           e2e_test = false
           has_account_money = true
+          has_consumer_credits = true
         }
         
         "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -761,6 +762,17 @@ trackTests {
         }
 
         "/point/buyingflow/complete_card_data"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
+          user_id = 5010815
+          e2e_test = false
+        }
+
+        "/point/buyingflow/sim_card"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -1254,6 +1266,16 @@ trackTests {
             coupon_type = "default"
         }
 
+        // Landing go to calculator event
+        "/point/landings/calculator"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+
+        // Landing go to security landing event
+        "/point/landings/security"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
@@ -1693,6 +1715,9 @@ trackTests {
         }
         "/point_payment/new_payment/pix/shield_dismiss"(platform: "/mobile", type: TrackType.Event) {}
         "/point_payment/new_payment/pix/show_tos"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/shield_ota_update"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/shield_ota_update/skip"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/shield_ota_update/update"(platform: "/mobile", type: TrackType.Event) {}
         "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
@@ -2587,6 +2612,33 @@ trackTests {
             mandatory()
         }
 
+        // Invoice delete success
+        "/bill_payments/invoices/delete/success"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            item = "7433006"
+        }
+
+        "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            entity = "PERNAMBUCANAS FINANCIADORA S/A - CFI"
+        }
+
         // Invoice menu
         "/bill_payments/menu"(platform: "/mobile") {
             mandatory()
@@ -3177,6 +3229,7 @@ trackTests {
         "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View){}
+        "/tfs_dashboard/home/marketplace"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/detail"(platform: "/", type: TrackType.View){
             chart_id="tpv"
             section="online"
@@ -3794,6 +3847,33 @@ trackTests {
             id = "id"
             event_type = "submit"
             target = "enter_code"
+        }
+    }
+
+    test("TOTP_IN_APP flow") {
+        "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "approved"
+            event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "go_home"
+            event_type = "click"
         }
     }
 
@@ -4702,11 +4782,13 @@ trackTests {
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "single"
             target = "unlink_button"
         }
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "all"
             target = "confirm_unlink_button"
         }
     }
@@ -5021,6 +5103,8 @@ trackTests {
     test("Stores frontend admin") {
         "/stores/create"(platform: "/web", type: TrackType.View) {}
         "/stores/create_poses"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_schedule/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_schedule/end"(platform: "/web", type: TrackType.Event) {}
         "/stores/create_delivery/start"(platform: "/web", type: TrackType.View) {}
         "/stores/create_delivery/end"(platform: "/web", type: TrackType.Event) {
         types = 'both'
@@ -5028,6 +5112,8 @@ trackTests {
         "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
         "/stores/list"(platform: "/web", type: TrackType.View) {}
         "/stores/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_schedule/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_schedule/end"(platform: "/web", type: TrackType.Event) {}
         "/stores/update_delivery/start"(platform: "/web", type: TrackType.View) {}
         "/stores/update_delivery/end"(platform: "/web", type: TrackType.Event) {
         types = 'both'
@@ -5069,6 +5155,8 @@ trackTests {
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/create_poses"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/create_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/create_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
         types = 'pickup'
@@ -5076,6 +5164,8 @@ trackTests {
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_schedule/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_schedule/end"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/update_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/update_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
         types = 'pickup'

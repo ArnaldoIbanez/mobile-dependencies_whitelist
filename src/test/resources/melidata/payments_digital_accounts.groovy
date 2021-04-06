@@ -32,6 +32,10 @@ trackTests {
         "/banking/debts"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Balance Debts Detail") {
+        "/banking/debts/detail"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Balance Events") {
         "/banking/balance/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'

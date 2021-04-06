@@ -1770,6 +1770,25 @@ trackTests {
             event_type= "sent"
         }
 
+        "/notification/institutional_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+        "/notification/mpinstitutional_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -6521,6 +6540,25 @@ trackTests {
             event_type= "sent"
         }
         "/notification/mpcampaigns_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+
+        "/notification/institutional_sms"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "{\"item_id\":\"MLB12345\"}"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20180508"
+            event_type= "sent"
+        }
+        "/notification/mpinstitutional_sms"(platform: "/"){
             segment_name= "segment"
             experiment_name= "experiment"
             communication_data = "{\"item_id\":\"MLB12345\"}"

@@ -31,6 +31,7 @@ trackTests {
             discount_type = "cosmetic"
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
         }
 
         def finishDefaultProperties = {
@@ -41,6 +42,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
             congrats_status = "success"
         }
 
@@ -52,6 +54,7 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
         }
 
         def finishOnlyRequiredProperties = {
@@ -226,6 +229,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -396,6 +404,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
@@ -479,6 +492,7 @@ trackTests {
             discount_type = "cosmetic"
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
         }
 
         def finishDefaultProperties = {
@@ -501,6 +515,7 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
         }
 
         def finishOnlyRequiredProperties = {
@@ -510,6 +525,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
             congrats_status = "success"
         }
 
@@ -671,6 +687,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -845,6 +866,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
