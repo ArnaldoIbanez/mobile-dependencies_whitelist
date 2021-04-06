@@ -22,7 +22,22 @@ trackTests {
         "/privacy_preferences/onboarding"(platform: "/") {}
     }
 
-    
+    test("MercadoLibre: Privacy Preferences Cookies") {
+        "/privacy_preferences/cookies"(platform: "/") {}
+        "/privacy_preferences/cookies/save"(platform: "/", type: TrackType.Event) {
+            advertising = true
+        }
+        "/privacy_preferences/cookies/cancel"(platform: "/") {}
+    }
+
+   test("MercadoPago: Privacy Preferences Cookies") {
+        "/privacy_preferences/cookies"(platform: "/", business: "mercadopago") {}
+        "/privacy_preferences/cookies/save"(platform: "/", business: "mercadopago", type: TrackType.Event) {
+            advertising = true
+        }
+        "/privacy_preferences/cookies/cancel"(platform: "/", business: "mercadopago") {}
+    }
+
     test("MercadoPago: Privacy Preferences Hub ") {
         "/privacy_preferences"(platform: "/", business: "mercadopago") {}
         "/privacy_preferences/data_usage"(platform: "/", business: "mercadopago", type: TrackType.Event) {

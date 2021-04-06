@@ -1266,6 +1266,16 @@ trackTests {
             coupon_type = "default"
         }
 
+        // Landing go to calculator event
+        "/point/landings/calculator"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+
+        // Landing go to security landing event
+        "/point/landings/security"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"

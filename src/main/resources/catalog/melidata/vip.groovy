@@ -1037,7 +1037,7 @@ tracks {
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
         deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
-        item_seller_type(required: false, values: ['car_dealer','normal'], description: "Seller type: normal, car_dealer, etc")
+        item_seller_type(required: false, values: ['car_dealer','normal', 'real_estate_agency'], description: "Seller type: normal, car_dealer, etc")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
@@ -1362,7 +1362,7 @@ tracks {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
@@ -1389,7 +1389,7 @@ tracks {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
@@ -1414,7 +1414,7 @@ tracks {
         source(required: fasle,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
