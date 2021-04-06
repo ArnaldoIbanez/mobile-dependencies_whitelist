@@ -636,6 +636,20 @@ tracks {
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
     }
 
+    "/reauth/error/retry"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
+        operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
+    }
+
+    "/reauth/error/close"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
+        operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
+    }
+
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
     "/login/sign_in"(platform: "/mobile", type: TrackType.View) {}
