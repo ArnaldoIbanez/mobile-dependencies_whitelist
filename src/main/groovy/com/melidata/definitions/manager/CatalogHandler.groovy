@@ -6,8 +6,6 @@ import com.amazonaws.services.s3.model.S3ObjectInputStream
 import com.amazonaws.services.s3.model.S3ObjectSummary
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.DslUtils
-import groovy.time.TimeCategory
-import groovy.time.TimeDuration
 import org.apache.commons.io.FileUtils
 
 /**
