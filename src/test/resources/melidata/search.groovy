@@ -429,6 +429,38 @@ trackTests {
             ]
         })
 
+        "/search"(platform: "/mobile", {
+            total = 258
+            limit = 0
+            view_mode = "MAP"
+            results = []
+            billboards = []
+            category_path = []
+            offset = 50.0
+            sort_id = "relevance"
+            filters = { official_store = "140" }
+            autoselected_filters = ["official_store"]
+            geo_search = "false"
+            filter_tags = "locationFromHistory"
+            pads = []
+            pads_info = {
+                ids = []
+                printed_positions = []
+                printed_positions_size = 0
+            }
+            carousel_filters = ["BRAND", "official_store", "STYLE"]
+            pdp_grouped_search = true
+            pdp_info = pdpInfo
+            promoted_items = ["MLA1", "MLA2"]
+            carousel_categories_shown = true
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
+        })
+
         "/search/color_picker"(platform: "/web") {
             defaultWebTrack()
             item_id = "MLM1234"
