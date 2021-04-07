@@ -830,7 +830,7 @@ trackTests {
         "/vip/similar_vehicles"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
-        
+
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
 
@@ -999,7 +999,7 @@ trackTests {
             otherShipping
         ]
         }
-    
+
     }
 
     test("VIP Web Classifieds services track click on link to landing_services") {
@@ -1168,8 +1168,8 @@ trackTests {
             variationInformation()
             shipping_pay_before = false
         }
-        
-        def shipping_method = { 
+
+        def shipping_method = {
             shipping_method = {
                 id = 531332827
                 name = "Retiro en Correo Argentino"
@@ -1190,7 +1190,7 @@ trackTests {
                         date =  "2018-12-10T00:00:00.000-03:00"
                         shipping = 48
                     }
-                }      
+                }
             }
         }
 
@@ -1348,10 +1348,10 @@ trackTests {
             model()
             shipping_method()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
              model()
         }
@@ -1369,15 +1369,15 @@ trackTests {
         "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
-        
-        
+
+
         //Apps
         "/vip/shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
             model()
@@ -1391,10 +1391,10 @@ trackTests {
         "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
 
-    
+
         "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-                
+
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
         }
@@ -1577,7 +1577,7 @@ trackTests {
             vip_version = "new"
         }
     }
-	
+
     test("VIP prevent stock question for mobile") {
         "/vip/question/ask/prevent_stock"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA792156560"
@@ -1942,7 +1942,11 @@ trackTests {
         "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
+    }
 
-
+    test("Test Official Store link"){
+        "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            official_store_id = 123
+        }
     }
 }

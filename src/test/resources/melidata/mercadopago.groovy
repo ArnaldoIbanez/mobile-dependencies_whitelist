@@ -619,6 +619,7 @@ trackTests {
           user_id = 5010815
           e2e_test = false
           has_account_money = true
+          has_consumer_credits = true
         }
         
         "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -1265,6 +1266,16 @@ trackTests {
             coupon_type = "default"
         }
 
+        // Landing go to calculator event
+        "/point/landings/calculator"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+
+        // Landing go to security landing event
+        "/point/landings/security"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"

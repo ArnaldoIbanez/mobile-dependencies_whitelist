@@ -465,7 +465,6 @@ trackTests {
 
         "/kyc/iv/camera/open_camera_error"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             error = "epic_error"
             error_reason = "permission_denied"
@@ -475,6 +474,32 @@ trackTests {
             flow = "flow_doc"
             custom_cam_offered = true
             transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/cc_scan/landing"(platform: "/web") { 
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/start_camera"(platform: "/web") {  
+            flow = "flow_doc"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/cc_scan/start_scan"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/scan_error"(platform: "/web") {  
+            error_reason = "Wrong card issuer"
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/upload_image"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
         }
 
         "/kyc/iv/documentation/uploader_change"(platform: "/web") {
@@ -984,7 +1009,6 @@ trackTests {
 
         "/kyc/iv/camera/open_camera_error"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             error = "epic_error"
             error_reason = "permission_denied"
@@ -994,6 +1018,32 @@ trackTests {
             flow = "flow_doc"
             custom_cam_offered = true
             transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/cc_scan/landing"(platform: "/web") { 
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/start_camera"(platform: "/web") {  
+            flow = "flow_doc"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/cc_scan/start_scan"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/scan_error"(platform: "/web") {  
+            error_reason = "Wrong card issuer"
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/upload_image"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
         }
 
         "/kyc/iv/documentation/uploader_change"(platform: "/web") {

@@ -125,6 +125,7 @@ tracks {
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
         flow(type: PropertyType.String, required: false, description: "indicates whether flow is native or generic", values: ["login_by_phone", "registration","change_user_phone", "login", "forgot_password"])
         channel(type: PropertyType.String, required: false, description: "indicates whether channel is SMS or call", values: ["sms", "call", "whatsApp"])
+        reauthentication(type: PropertyType.Boolean, required: false, description: "indicates if the flow is reauth or login")
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {
