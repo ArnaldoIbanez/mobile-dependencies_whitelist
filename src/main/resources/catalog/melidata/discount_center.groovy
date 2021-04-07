@@ -10,7 +10,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1218"
+    initiative = "1305"
 	
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
     "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
