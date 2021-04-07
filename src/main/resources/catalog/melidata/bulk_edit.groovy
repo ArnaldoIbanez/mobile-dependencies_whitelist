@@ -49,6 +49,12 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
+    "/seller_central/bulk/changes/price_mshops"(platform: "/", type: TrackType.Event) {
+        oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
+        newValue(required: true, type: PropertyType.String, description: "New value")
+        item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
+    }
+
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }

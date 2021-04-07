@@ -61,6 +61,14 @@ trackTests {
         }
     }
 
+      test("seller central bulk changes price mp column mshops") {
+        "/seller_central/bulk/changes/price_mshops"(platform: "/", type: TrackType.Event) {
+            oldValue = "20"
+            newValue = "25"
+            item_id = "MLB341920"
+        }
+    }
+
     test("seller central bulk shipping tooltip mp") {
         "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
             item_id = "MLB341920"
