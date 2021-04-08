@@ -524,6 +524,10 @@ tracks {
         externalData
     }
 
+    "/px_checkout/combo_switch"(platform: "/mobile", type: TrackType.Event) {
+        option_selected(required: true, type: PropertyType.String, description: "selected option in the switch", values: ["debit_card", "credit_card", "account_money"])
+    }
+
     // Review:
     "/px_checkout/review/confirm"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
@@ -532,6 +536,10 @@ tracks {
         review_type(required: true, type: PropertyType.String, description: "Review screen type", values: ["one_tap" , "traditional"])
         extra_info(required: false, description: "Extra payment method info")
         externalData
+    }
+
+    "/px_checkout/program_validation"(platform: "/mobile", type: TrackType.Event) {
+        validation_program_used(required: false, type: PropertyType.String, description: "validaton program executed if there was one", values: ["STP"])
     }
 
     // Congrats:
