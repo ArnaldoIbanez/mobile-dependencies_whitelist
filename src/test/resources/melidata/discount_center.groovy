@@ -8,6 +8,39 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    // VIP
+
+    test("Mercado Pago discount center payers vip") {
+        "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
+            collector_id = 20565408
+            category_id = "MLA410861"
+            item_id = "MLA886428635"
+            item_name = "Duplao Burger"
+            context_info = [
+                    has_cart: true
+            ]
+            amount = [
+                    final_price: 40.2,
+                    currency: "ARS\$",
+                    discount: 31,
+                    original_price: 58
+            ]
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+    // MORE INFO
+
+    test("Mercado Pago discount center payers More info") {
+        "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+            store_id = 30286315
+            collector_id = 20565408
+            brand_id = 20565408
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+
     // VSP
 
     test("Mercado Pago discount center payers vsp") {
@@ -34,6 +67,12 @@ trackTests {
                 radius: 1000,
                 delivery: true,
                 pickup: false
+            ]
+            context_info = [
+                    has_cart: true,
+                    has_catalog: true,
+                    version_code: 2,
+                    version_name: "New VSP"
             ]
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
@@ -461,6 +500,22 @@ trackTests {
                                 ]
                         ]
                 ],
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido fue entregado",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                            ]
+                ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -716,6 +771,22 @@ trackTests {
                                         ]
                                 ]
                         ]
+                ],
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido esta en camino",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                    ]
                 ]
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -814,6 +885,29 @@ trackTests {
                                 selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ]
+                ],
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+
+        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido esta en camino",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                    ]
                 ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"

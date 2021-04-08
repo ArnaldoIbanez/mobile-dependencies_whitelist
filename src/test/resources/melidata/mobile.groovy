@@ -292,7 +292,19 @@ trackTests {
         "/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/accept"(platform: "/mobile") {}
+        "/apprater/accept"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/cancel"(platform: "/mobile") {}
+        "/apprater/cancel"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile", business: "mercadopago") {}
     }
+
+    test("MercadoLibre apprater") {
+        "/apprater/popup"(platform: "/mobile") {}
+        "/apprater/accept"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
+    } 
 
     test("Landing Deeplinks in Mobile") {
         "/landing/deeplinks"(platform:"/mobile") {

@@ -64,6 +64,16 @@ tracks {
         valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
     }
 
+    def debug_model_map = objectSchemaDefinitions { 
+              model_name(type: PropertyType.String, required: true, description: "") 
+              score(type: PropertyType.Numeric, required: true, description: "") 
+    } 
+
+    def debug_domain_discovery_map = objectSchemaDefinitions { 
+              debug_model_name(type: PropertyType.Map(debug_model_map), 
+              required: true, description: "") 
+    }
+    
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         domain_id(required: false, type: PropertyType.String, description: "Item's category domain id")
@@ -100,7 +110,7 @@ tracks {
         product_predictions(required: false, type: PropertyType.ArrayList(PropertyType.Map(product_prediction_map)), description: "Product Predictions")
         accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
-
+        debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
     }
 
     propertyGroups {
@@ -116,7 +126,7 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
-        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
+        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index, debug_domain_discovery)
     }
 
     // Sell
@@ -554,6 +564,7 @@ tracks {
         price(required: false, description: "Item price")
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
+    "/sell/list/license_plate"(platform: "/mobile", type: TrackType.View) {}
 
     //update flow
     "/sell/update" (platform: "/", isAbstract: true){
@@ -879,6 +890,11 @@ tracks {
     }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/legal_requirements"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/legal_requirements/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/legal_requirements/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
         category_domain(required: true, description: "Category Domain", type: PropertyType.String)
         attribute_id(required: true, type: PropertyType.String, description: "Id of the attribute")
@@ -990,6 +1006,9 @@ tracks {
     "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/license_plate/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}

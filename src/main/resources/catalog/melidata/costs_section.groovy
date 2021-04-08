@@ -120,8 +120,14 @@ tracks {
     "/pricing_section/a12/save" (platform: "/", isAbstract: true) { }
     "/pricing_section/psj" (platform: "/", isAbstract: true) { }
     "/pricing_section/psj/save" (platform: "/", isAbstract: true) { }
+    "/pricing_section/coachmark" (platform: "/", isAbstract: true) { }
 
     // Tracks
+
+    // Coachmark
+    "/pricing_section/coachmark/start" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/coachmark/finish" (platform: "/", type: TrackType.Event) { }
+    "/pricing_section/coachmark/dismiss" (platform: "/", type: TrackType.Event) { }
 
     "/pricing_section/success" (platform: "/", type: TrackType.View) { }
     "/pricing_section/error" (platform: "/", type: TrackType.View) {
@@ -181,7 +187,9 @@ tracks {
     }
 
     // Tracks Ahora 12
-    "/pricing_section/a12/error" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/a12/error" (platform: "/", type: TrackType.View) {
+        result_request_group
+    }
     "/pricing_section/a12/success" (platform: "/", type: TrackType.View) { }
     "/pricing_section/a12/optin" (platform: "/", type: TrackType.View) { }
     "/pricing_section/a12/shield" (platform: "/", type: TrackType.View) {
@@ -201,7 +209,9 @@ tracks {
     "/pricing_section/a12/cuit_verification/accept" (platform: "/", type: TrackType.Event) { }
 
     // Tracks PSJ
-    "/pricing_section/psj/error" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/psj/error" (platform: "/", type: TrackType.View) {
+        result_request_group
+    }
     "/pricing_section/psj/success" (platform: "/", type: TrackType.View) { }
     "/pricing_section/psj/optin" (platform: "/", type: TrackType.View) { }
     "/pricing_section/psj/shield" (platform: "/", type: TrackType.View) {

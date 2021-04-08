@@ -381,7 +381,32 @@ trackTests {
         }
     }
 
-
+    test("TOTP_IN_APP flow") {
+        "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            status = "approved"
+            event_type = "polling"
+        }
+        "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "decline_challenge"
+            event_type = "click"
+        }
+        "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "go_home"
+            event_type = "click"
+        }
+    }
 
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -451,6 +476,30 @@ trackTests {
         "/login/auth/phone_validation/sms_detection/autodetect_code_success"(platform: "/mobile", type: TrackType.Event) {}
 
         "/login/auth/phone_validation/sms_detection/autodetect_code_failure"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Multi Step Login Web") {
+      "/login/auth/challenge"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        recaptcha = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+        has_error = false
+      }
+      "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
+      "/login/auth/success"(platform: "/web", type: TrackType.View) {
+        rememberme_enabled = true
+        is_otp = false
+        is_admin_otp = false
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
     }
 
     test("Device Attestation"){
@@ -1208,37 +1257,37 @@ trackTests {
 
         test("Remove Session") {
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = true
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = true
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "sharedPreferences"
+                strategy_used = "both"
                 keepnite_is_on = true
                 api_version = false
             }
 
             "/login/remove_session"(platform: "/mobile", type: TrackType.Event) {
-                strategy_used = "localStorage"
+                strategy_used = "both"
                 keepnite_is_on = false
                 api_version = true
             }

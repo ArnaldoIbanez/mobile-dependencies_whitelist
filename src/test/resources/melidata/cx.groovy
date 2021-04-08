@@ -61,9 +61,14 @@ trackTests {
         "/portal/home"(platform: "/", type: TrackType.View) { portal_has_one_click = false }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
 
-        "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/search"(platform: "/", type: TrackType.View) {
+            portal_contents_result = []
+        }
         "/portal/validate_user"(platform: "/", type: TrackType.View) {}
-
+        "/portal/search/click"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1627
+            portal_content_id = 1
+        }
     }
 
     test("Support Widget") {
@@ -137,6 +142,10 @@ trackTests {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
             portal_prediction_id = 1234
+        }
+        "/portal/delay_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_delayed_pack_id = 12345678
         }
     }
 
@@ -307,18 +316,47 @@ trackTests {
         "/portal/home"(platform: "/", type: TrackType.View) {
             portal_source_id = 1627
             portal_show_cancel_card = true
+            portal_custom_orders_ids = [12412]
             portal_prediction_id = 1234
             portal_has_one_click = false
         }
          "/portal/home"(platform: "/", type: TrackType.View) {
             portal_source_id = 1627
             portal_show_cancel_card = false
+            portal_custom_orders_ids = [12412]
             portal_prediction_id = 1234
             portal_has_one_click = false
             portal_predicted_contents = [123, 456]
         }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_show_delay_cards = true
+            portal_delayed_packs_ids = [123]
+            portal_prediction_id = 1234
+            portal_has_one_click = false
+        }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_show_delay_cards = false
+            portal_prediction_id = 1234
+            portal_has_one_click = false
+            portal_predicted_contents = [123, 456]
+        }
+         "/portal/home"(platform: "/", type: TrackType.View) {
+            portal_source_id = 1627
+            portal_oneclick_cluster_id = 3
+            portal_oneclick_contents_predicted = [1234, 5678]
+            portal_oneclick_features = [ "TPV_USER" : 85443 ]
+            portal_has_one_click = true
+        }
         "/portal/zrp"(platform: "/", type: TrackType.View) {}
-        "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/search"(platform: "/", type: TrackType.View) {
+            portal_contents_result = [1234, 4321, 6543]
+        }
+        "/portal/search/click"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_content_id = 637
+        }
         "/portal/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
             portal_source_id = 123
@@ -331,6 +369,10 @@ trackTests {
             portal_source_id = 1628
             portal_custom_order_id = 12345678
             portal_prediction_id = 1234
+        }
+        "/portal/delay_card"(platform: "/", type: TrackType.Event) {
+            portal_source_id = 1628
+            portal_delayed_pack_id = 12345678
         }
     }
 

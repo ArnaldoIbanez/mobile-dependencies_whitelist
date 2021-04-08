@@ -175,11 +175,11 @@ tracks
     }
 
     "/driver/stops/next_modal"(platform: "/mobile", type: TrackType.View) {
-        suggested_stop(required: true, type: PropertyType.Numeric, description: "Specifies the suggested stop number")
+        suggested_stop(required: true, type: PropertyType.String, description: "Specifies the suggested stop number")
     }
 
     "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
-        suggested_stop(required: true, type: PropertyType.Numeric, description: "Specifies the suggested stop number")
+        suggested_stop(required: true, type: PropertyType.String, description: "Specifies the suggested stop number")
     }
 
     "/driver/stops/end_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -281,13 +281,13 @@ tracks
 
     "/driver/delivery/receiver_info"(platform: "/mobile", type: TrackType.View) {
         receiver_type(required: true, type: PropertyType.String,
-                values: ["holder", "reception", "family", "neighbour"],
+                values: ["holder", "reception", "family", "neighbour", "place"],
                 description: "Describes the relationship between receiver and buyer")
     }
 
     "/driver/delivery/delivery_ok"(platform: "/mobile", type: TrackType.View) {
         receiver_type(required: true, type: PropertyType.String,
-                values: ["holder", "reception", "family", "neighbour"],
+                values: ["holder", "reception", "family", "neighbour", "place"],
                 description: "Describes the relationship between receiver and buyer")
         doc_type(required: true, type: PropertyType.String,
                 description: "Describes the doc type filled by receiver (but not the doc number)")
@@ -299,6 +299,22 @@ tracks
     "/driver/delivery/undelivery_ok"(platform: "/mobile", type: TrackType.View) {
         selected_reason(required: true, type: PropertyType.String,
                 description: "Describes why the driver couldn't deliver the packages")
+    }
+
+    "/driver/delivery/security_keyword"(platform: "/mobile", type: TrackType.View) {
+
+    }
+
+    "/driver/delivery/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
+
+    }
+
+    "/driver/delivery/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
+
+    }
+
+    "/driver/delivery/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+
     }
 
     /// MY ACCOUNT FLOW TRACKS
@@ -324,6 +340,53 @@ tracks
     "/driver/my_account/logout/confirm"(platform: "/mobile", type: TrackType.Event) {
         latitude(required: false, type: PropertyType.String, description: "The latitude of driver at that point")
         longitude(required: false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    // RETURN TO STATION FLOW TRACKS
+    "/driver/return_to_station/return_to_station_disclaimer"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+
+    "/driver/return_to_station/facility_map"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+
+    "/driver/return_to_station/enter_facility_qr"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+
+    "/driver/return_to_station/remaining_packages_disclaimer"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        packages_to_return(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of pending shipment to return to the facility", inheritable: false)
+
+    }
+
+    "/driver/return_to_station/remaining_packages_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        packages_to_return(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of pending shipment to return to the facility", inheritable: false)
+
+    }
+
+    "/driver/return_to_station/route_still_open"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        packages_to_return(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of pending shipment to return to the facility", inheritable: false)
+
+    }
+
+    "/driver/return_to_station/exit_facility_qr"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+
+    "/driver/return_to_station/success"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
     }
 }
 

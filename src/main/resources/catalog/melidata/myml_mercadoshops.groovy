@@ -229,6 +229,32 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/quick_setup"(platform: "/", isAbstract: true) {}
+
+    "/mercado_shops/admin/quick_setup/name_and_logo"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/name_and_logo/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/contact_data"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/contact_data/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/theme"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/theme/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/quick_setup/theme/details"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/admin/quick_setup/theme/details/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/deactivate_form"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin/deactivate"(platform: "/", type: TrackType.Event){
@@ -320,6 +346,22 @@ tracks {
     "/mercado_shops/marketing/google_analytics/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google_analytics/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_tag_manager/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager/open_faqs"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/cancel"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 

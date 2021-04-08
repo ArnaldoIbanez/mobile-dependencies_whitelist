@@ -32,6 +32,10 @@ trackTests {
         "/banking/debts"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Balance Debts Detail") {
+        "/banking/debts/detail"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Balance Events") {
         "/banking/balance/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
@@ -96,6 +100,38 @@ trackTests {
 
     test("PNF") {
         "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("PNF confirm") {
+        "/banking/pnf/confirm"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("PNF confirm back") {
+        "/banking/pnf/back"(platform: "/", type: TrackType.Event) {
+            action = 'PAGE_BACK'
+        }
+    }
+
+    test("PNF progress") {
+        "/banking/pnf/inprogress"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("PNF error") {
+        "/banking/pnf/error"(platform: "/", type: TrackType.View) {
+            page = 'myPage'
+        }
+    }
+
+    test("PNF congrats FAIL") {
+        "/banking/pnf/congrats"(platform: "/", type: TrackType.Event) {
+            status = 'error'
+        }
+    }
+
+    test("PNF congrats SUCCESS") {
+        "/banking/pnf/congrats"(platform: "/", type: TrackType.Event) {
+            status = 'success'
+        }
     }
 
     test("Banking Balance Merch Engine Events") {

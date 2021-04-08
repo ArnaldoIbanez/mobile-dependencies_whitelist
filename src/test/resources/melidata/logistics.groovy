@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -71,10 +72,13 @@ trackTests {
             vehicle_id = "123"
         }
 
+        "/logistics/login/license_plate_form"(platform: "/mobile", type: TrackType.View) {}
+
         //Login account disabled error
         "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
-            error_type = "generic"
+            driver_id = "123"
+            vehicle_id = "234"
         }
 
         //Login error generic
@@ -85,6 +89,7 @@ trackTests {
         //Login vehicle on route error
         "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "234"
             vehicle_id = "123"
         }
 
@@ -92,6 +97,7 @@ trackTests {
         "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             driver_id = "987"
+            vehicle_id = "786"
         }
 
         //Profile
@@ -157,6 +163,8 @@ trackTests {
     test("Testing Logistics Last Mile") {
         "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
             route_id = "123"
+            driver_id = "234"
+            vehicle_id = "345"
             defaultLocation()
         }
         "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
@@ -474,26 +482,195 @@ trackTests {
             driver_id = "123"
             case_type_id = "6"
         }
-        "/logistics/last_mile/places/disclaimer_handshake"(platform: "/mobile", type: TrackType.Event) {
+        /*
+        "/logistics/last_mile/places/inbound_disclaimer"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
-            driver_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
         }
-        "/logistics/last_mile/places/disclaimer_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/places/inbound_disclaimer/confirm"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             route_id = "123"
-            driver_id = "123"
-            packages_to_scan = ["123", "123"]
+            driver_id = 123
+            packages_to_scan = [123, 123]
+            vehicle_id = 123
+            agency_id = 123
         }
-        "/logistics/last_mile/places/modal_handshake"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/places/inbound_disclaimer_modal"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
-            driver_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
         }
-        "/logistics/last_mile/places/modal_handshake/confirm"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/places/inbound_disclaimer_modal/confirm"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             route_id = "123"
-            driver_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+
+        "/logistics/last_mile/places/unsuccessful_handshake_warning"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            missing_shipments = [123, 123]
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/places/unsuccessful_handshake/delivery_done"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            missing_shipments = [123, 123]
+            vehicle_id = 123
+            agency_id = 123
+        }
+
+        "/logistics/last_mile/places/unsuccessful_handshake/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            missing_shipments = [123, 123]
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/places/unsuccessful_handshake_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            missing_shipments = [123, 123]
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/places/unsuccessful_handshake_modal/understand"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+
+         */
+
+        //Handshake
+        "/logistics/last_mile/handshake_disclaimer"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/handshake_disclaimer/confirm"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            shipments = [123, 123]
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/handshake_disclaimer_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/handshake_disclaimer_modal/understand"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/handshake_warning"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            missing_shipments = [123, 123]
+        }
+        "/logistics/last_mile/handshake_warning/delivery_done"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            missing_shipments = [123, 123]
+        }
+        "/logistics/last_mile/handshake_warning/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            missing_shipments = [123, 123]
+        }
+        "/logistics/last_mile/handshake_warning_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/handshake_warning_modal/understand"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/deliver/receives_form"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            context = "agency"
+        }
+        "/logistics/last_mile/deliver/receives_form/save"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            context = "agency"
+            shipments_delivered = [123, 123]
+            shipments_not_delivered = [1234, 12345]
+        }
+        "/logistics/last_mile/package/not_delivered_reason"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+        }
+        "/logistics/last_mile/package/not_delivered_reason/save"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            reason = "broken"
+        }
+        "/logistics/last_mile/handshake_missing_packages_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
+            missing_shipments = [123, 123]
+        }
+        "/logistics/last_mile/handshake_missing_packages_modal/understand"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = 123
+            vehicle_id = 123
+            agency_id = 123
         }
         "/logistics/end_route/authentication_qr"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -603,6 +780,17 @@ trackTests {
         }
         "/logistics/first_mile/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
+        }
+        "/logistics/first_mile/scanner/pickup_denied_warning"(platform: "/mobile", type: TrackType.View) {
+            first_mile_logistic_type = "FF"
+            route_id = "1234"
+            driver_id = 400
+            invalid_pickups = [
+                    [
+                        id: "123456",
+                        reason: "KEY_INVALID_STATUS"
+                    ]
+            ]
         }
         "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
             driver_id = 400

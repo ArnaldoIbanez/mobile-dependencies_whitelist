@@ -176,4 +176,12 @@ tracks {
     }
     "/apprater/popup"(platform: "/mobile") {
     }
+    // Track is accepted, remind me leater or cancel(only mp) qualification in popup app rater.
+    "/apprater/accept"(platform: "/mobile") {
+    }
+    // Only track for MP.
+    "/apprater/cancel"(platform: "/mobile") {
+    }
+    "/apprater/remind_me_later"(platform: "/mobile") {
+    }
 }
