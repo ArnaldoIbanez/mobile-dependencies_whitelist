@@ -786,6 +786,24 @@ trackTests {
             latest_news_type= "account_fund_approved_ted"
             status= "unread"
         }
+        "/notification_center/account_fund_active_disabled_clabe"(platform: "/mobile"){
+            newsgroup_id= "account_fund_active_disabled_clabe-12345678"
+            latest_news_id= "account_fund_active_disabled_clabe-12345678"
+            latest_news_type= "account_fund_active_disabled_clabe"
+            status= "unread"
+        }
+        "/notification_center/account_fund_iv_cvu_spb"(platform: "/mobile"){
+            newsgroup_id= "account_fund_iv_cvu_spb-12345678"
+            latest_news_id= "account_fund_iv_cvu_spb-12345678"
+            latest_news_type= "account_fund_iv_cvu_spb"
+            status= "unread"
+        }
+        "/notification_center/account_fund_ticket"(platform: "/mobile"){
+            newsgroup_id= "account_fund_ticket-12345678"
+            latest_news_id= "account_fund_ticket-12345678"
+            latest_news_type= "account_fund_ticket"
+            status= "unread"
+        }
         "/notification_center/asset_management_warm_up"(platform: "/mobile"){
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
@@ -1651,8 +1669,28 @@ trackTests {
             event_type = "shown"
         }
 
-        "/notification/account_fund_salary"(platform: "/mobile") {
-            news_id = "account_fund-account_fund_salary-12345678"
+        "/notification/account_fund_active_disabled_clabe"(platform: "/mobile") {
+            news_id = "account_fund_active_disabled_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_bank_transfer"(platform: "/mobile") {
+            news_id = "account_fund_bank_transfer-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_iv_cvu_spb"(platform: "/mobile") {
+            news_id = "account_fund_iv_cvu_spb-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_pending_clabe"(platform: "/mobile") {
+            news_id = "account_fund_pending_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_ticket"(platform: "/mobile") {
+            news_id = "account_fund_ticket-12345678"
             event_type = "shown"
         }
 
@@ -1666,8 +1704,18 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/account_fund_approved_ted"(platform: "/mobile") {
+            news_id = "account_fund-approved_ted-12345678"
+            event_type = "shown"
+        }
+
         "/notification/account_balance_approved_mp"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_mp-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_create_ted_account"(platform: "/mobile") {
+            news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
         }
 
@@ -3613,6 +3661,31 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/account_fund_active_disabled_clabe"(platform: "/mobile") {
+            news_id = "account_fund_active_disabled_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_bank_transfer"(platform: "/mobile") {
+            news_id = "account_fund_bank_transfer-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_iv_cvu_spb"(platform: "/mobile") {
+            news_id = "account_fund_iv_cvu_spb-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_pending_clabe"(platform: "/mobile") {
+            news_id = "account_fund_pending_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_ticket"(platform: "/mobile") {
+            news_id = "account_fund_ticket-12345678"
+            event_type = "shown"
+        }
+
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-account_fund_cvu-12345678"
             event_type = "shown"
@@ -3630,6 +3703,11 @@ trackTests {
 
         "/notification/account_balance_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_ml-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_create_ted_account"(platform: "/mobile") {
+            news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
         }
 
@@ -5512,6 +5590,24 @@ trackTests {
             latest_news_type= "account_fund_approved_ted"
             status= "unread"
         }
+        "/notification_center/account_fund_active_disabled_clabe"(platform: "/mobile"){
+            newsgroup_id= "account_fund_active_disabled_clabe-12345678"
+            latest_news_id= "account_fund_active_disabled_clabe-12345678"
+            latest_news_type= "account_fund_active_disabled_clabe"
+            status= "unread"
+        }
+        "/notification_center/account_fund_iv_cvu_spb"(platform: "/mobile"){
+            newsgroup_id= "account_fund_iv_cvu_spb-12345678"
+            latest_news_id= "account_fund_iv_cvu_spb-12345678"
+            latest_news_type= "account_fund_iv_cvu_spb"
+            status= "unread"
+        }
+        "/notification_center/account_fund_ticket"(platform: "/mobile"){
+            newsgroup_id= "account_fund_ticket-12345678"
+            latest_news_id= "account_fund_ticket-12345678"
+            latest_news_type= "account_fund_ticket"
+            status= "unread"
+        }
         "/notification_center/asset_management_warm_up"(platform: "/mobile"){
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
@@ -6459,6 +6555,31 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/account_fund_active_disabled_clabe"(platform: "/mobile") {
+            news_id = "account_fund_active_disabled_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_bank_transfer"(platform: "/mobile") {
+            news_id = "account_fund_bank_transfer-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_iv_cvu_spb"(platform: "/mobile") {
+            news_id = "account_fund_iv_cvu_spb-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_pending_clabe"(platform: "/mobile") {
+            news_id = "account_fund_pending_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_ticket"(platform: "/mobile") {
+            news_id = "account_fund_ticket-12345678"
+            event_type = "shown"
+        }
+
         "/notification/account_balance_approved_mp"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_mp-12345678"
             event_type = "shown"
@@ -6466,6 +6587,11 @@ trackTests {
 
         "/notification/account_balance_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_ml-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_create_ted_account"(platform: "/mobile") {
+            news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
         }
 
@@ -8533,6 +8659,31 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/account_fund_active_disabled_clabe"(platform: "/mobile") {
+            news_id = "account_fund_active_disabled_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_bank_transfer"(platform: "/mobile") {
+            news_id = "account_fund_bank_transfer-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_iv_cvu_spb"(platform: "/mobile") {
+            news_id = "account_fund_iv_cvu_spb-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_pending_clabe"(platform: "/mobile") {
+            news_id = "account_fund_pending_clabe-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_ticket"(platform: "/mobile") {
+            news_id = "account_fund_ticket-12345678"
+            event_type = "shown"
+        }
+
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
             news_id = "account_fund-account_fund_approved_ted-12345678"
             event_type = "shown"
@@ -8545,6 +8696,11 @@ trackTests {
 
         "/notification/account_balance_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_ml-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_balance_create_ted_account"(platform: "/mobile") {
+            news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
         }
 

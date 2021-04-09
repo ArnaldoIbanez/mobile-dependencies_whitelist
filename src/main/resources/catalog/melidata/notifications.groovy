@@ -538,6 +538,18 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/account_fund_active_disabled_clabe"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_fund_iv_cvu_spb"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_fund_ticket"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/asset_management_warm_up"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1266,8 +1278,14 @@ tracks {
       "/notification/account_fund_salary"(platform: "/") {}
       "/notification/account_fund_cvu"(platform: "/") {}
       "/notification/account_fund_approved_ted"(platform: "/") {}
+      "/notification/account_fund_active_disabled_clabe"(platform: "/") {}
+      "/notification/account_fund_bank_transfer"(platform: "/") {}
+      "/notification/account_fund_iv_cvu_spb"(platform: "/") {}
+      "/notification/account_fund_pending_clabe"(platform: "/") {}
+      "/notification/account_fund_ticket"(platform: "/") {}
       "/notification/account_balance_approved_mp"(platform: "/") {}
       "/notification/account_balance_approved_ml"(platform: "/") {}
+      "/notification/account_balance_create_ted_account"(platform: "/") {}
 
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
