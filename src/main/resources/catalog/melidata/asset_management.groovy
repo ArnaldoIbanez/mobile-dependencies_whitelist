@@ -131,6 +131,8 @@ tracks {
     "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_invest_money"(platform: "/", type: TrackType.View) {}
+    "/asset_management/result_reports"(platform: "/", type: TrackType.View) {}
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}

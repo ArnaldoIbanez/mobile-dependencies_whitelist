@@ -349,6 +349,22 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/marketing/google_tag_manager"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_tag_manager/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager/open_faqs"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/cancel"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/marketing/google_ads"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/google_ads/confirmation"(platform: "/", type: TrackType.View){}
