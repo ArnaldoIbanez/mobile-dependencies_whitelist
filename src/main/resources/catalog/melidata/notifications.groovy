@@ -595,6 +595,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/billing_iva_isr_meli"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/credits_merchants_expired_near_to_daily_charges"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1268,9 +1272,13 @@ tracks {
           send_health_check(required: false, type: PropertyType.Boolean, description: "Indicates if notification has associated a health check's sent")
       }
 
-      //Anses
-      "/notification/anses_payment_date"(platform: "/") {}
-      "/notification/anses_paid_benefit"(platform: "/") {}
+    //Anses
+    "/notification/anses_payment_date"(platform: "/") {}
+    "/notification/anses_paid_benefit"(platform: "/") {}
+
+    //Address
+    "/notification/addresses_update_bad_address"(platform: "/") {}
+    "/notification/addresses_update_bad_address_delivered"(platform: "/") {}
 
       //Account
       "/notification/account_fund_approved_mp"(platform: "/") {}
@@ -1346,6 +1354,7 @@ tracks {
       "/notification/billing_newtax"(platform: "/") {}
       "/notification/billing_newtaxhabituality"(platform: "/") {}
       "/notification/billing_responsable_inscripto_reminder"(platform: "/") {}
+      "/notification/billing_iva_isr_meli"(platform: "/") {}
 
       //CX Question
       "/notification/cx_question_mp"(platform: "/") {

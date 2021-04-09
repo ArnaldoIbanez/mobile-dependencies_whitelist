@@ -832,6 +832,10 @@ trackTests {
             latest_news_type= "billing_responsable_inscripto_reminder"
             latest_news_id= "billing_responsable_inscripto_reminder-143816022-MLB1013046714"
         }
+        "/notification_center/billing_iva_isr_meli"(platform: "/mobile"){
+            latest_news_type= "billing_iva_isr_meli"
+            latest_news_id= "billing_iva_isr_meli-143816022-MLB1013046714"
+        }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
             newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
@@ -1734,6 +1738,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/addresses_update_bad_address"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/addresses_update_bad_address_delivered"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address_delivered-12345678-123"
+            event_type = "shown"
+        }
+
         "/notification/billing_iva_ganancias_reactive"(platform: "/mobile"){
             news_id = "billing_iva_ganancias_reactive-12345678-123"
             event_type = "shown"
@@ -1748,6 +1762,10 @@ trackTests {
         }
         "/notification/billing_responsable_inscripto_reminder"(platform: "/mobile"){
             news_id = "billing_responsable_inscripto_reminder-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_iva_isr_meli"(platform: "/mobile"){
+            news_id = "billing_iva_isr_meli-12345678-123"
             event_type = "shown"
         }
 
@@ -3721,6 +3739,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/addresses_update_bad_address"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/addresses_update_bad_address_delivered"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address_delivered-12345678-123"
+            event_type = "shown"
+        }
+
         "/notification/asset_management_warm_up"(platform: "/mobile") {
             news_id = "asset-management_warm_up-12345678-123123"
             event_type = "shown"
@@ -5636,6 +5664,10 @@ trackTests {
             latest_news_type= "billing_responsable_inscripto_reminder"
             latest_news_id= "billing_responsable_inscripto_reminder-143816022-MLB1013046714"
         }
+        "/notification_center/billing_iva_isr_meli"(platform: "/mobile"){
+            latest_news_type= "billing_iva_isr_meli"
+            latest_news_id= "billing_iva_isr_meli-143816022-MLB1013046714"
+        }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
             newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
@@ -6605,6 +6637,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/addresses_update_bad_address"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/addresses_update_bad_address_delivered"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address_delivered-12345678-123"
+            event_type = "shown"
+        }
+
         "/notification/billing_iva_ganancias_reactive"(platform: "/mobile"){
             news_id = "billing_iva_ganancias_reactive-12345678-123"
             event_type = "shown"
@@ -6619,6 +6661,10 @@ trackTests {
         }
         "/notification/billing_responsable_inscripto_reminder"(platform: "/mobile"){
             news_id = "billing_responsable_inscripto_reminder-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_iva_isr_meli"(platform: "/mobile"){
+            news_id = "billing_iva_isr_meli-12345678-123"
             event_type = "shown"
         }
 
@@ -8714,6 +8760,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/addresses_update_bad_address"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/addresses_update_bad_address_delivered"(platform: "/mobile") {
+            news_id = "addresses_update_bad_address_delivered-12345678-123"
+            event_type = "shown"
+        }
+
         "/notification/asset_management_warm_up"(platform: "/mobile") {
             news_id = "asset-management_warm_up-12345678-123123"
             event_type = "shown"
@@ -9953,6 +10009,10 @@ trackTests {
         "/notification_center/billing_responsable_inscripto_reminder"(platform: "/mobile"){
             latest_news_type= "billing_responsable_inscripto_reminder"
             latest_news_id= "billing_responsable_inscripto_reminder-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_iva_isr_meli"(platform: "/mobile"){
+            latest_news_type= "billing_iva_isr_meli"
+            latest_news_id= "billing_iva_isr_meli-143816022-MLB1013046714"
         }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
