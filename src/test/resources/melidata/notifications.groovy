@@ -816,6 +816,30 @@ trackTests {
             latest_news_type= "billing_mpoff"
             status= "read"
         }
+        "/notification_center/buybox_forced_item"(platform: "/mobile"){
+            newsgroup_id= "buybox_forced_item-186785675-76283123"
+            latest_news_id= "buybox_forced_item-186785675-76283123"
+            latest_news_type= "buybox_forced_item"
+            status= "read"
+        }
+        "/notification_center/buybox_forewarning"(platform: "/mobile"){
+            newsgroup_id= "buybox_forewarning-186785675-76283123"
+            latest_news_id= "buybox_forewarning-186785675-76283123"
+            latest_news_type= "buybox_forewarning"
+            status= "read"
+        }
+        "/notification_center/buybox_losing_item"(platform: "/mobile"){
+            newsgroup_id= "buybox_losing_item-186785675-76283123"
+            latest_news_id= "buybox_losing_item-186785675-76283123"
+            latest_news_type= "buybox_losing_item"
+            status= "read"
+        }
+        "/notification_center/buybox_losing_many"(platform: "/mobile"){
+            newsgroup_id= "buybox_losing_many-186785675-76283123"
+            latest_news_id= "buybox_losing_many-186785675-76283123"
+            latest_news_type= "buybox_losing_many"
+            status= "read"
+        }
         "/notification_center/billing_iva_ganancias_reactive"(platform: "/mobile"){
             latest_news_type= "billing_iva_ganancias_reactive"
             latest_news_id= "billing_iva_ganancias_reactive-143816022-MLB1013046714"
@@ -1766,6 +1790,22 @@ trackTests {
         }
         "/notification/billing_iva_isr_meli"(platform: "/mobile"){
             news_id = "billing_iva_isr_meli-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_forced_item"(platform: "/mobile"){
+            news_id = "buybox_forced_item-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_forewarning"(platform: "/mobile"){
+            news_id = "buybox_forewarning-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_losing_item"(platform: "/mobile"){
+            news_id = "buybox_losing_item-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_losing_many"(platform: "/mobile"){
+            news_id = "buybox_losing_many-12345678-123"
             event_type = "shown"
         }
 
@@ -5668,6 +5708,30 @@ trackTests {
             latest_news_type= "billing_iva_isr_meli"
             latest_news_id= "billing_iva_isr_meli-143816022-MLB1013046714"
         }
+        "/notification_center/buybox_forced_item"(platform: "/mobile"){
+            newsgroup_id= "buybox_forced_item-186785675-76283123"
+            latest_news_id= "buybox_forced_item-186785675-76283123"
+            latest_news_type= "buybox_forced_item"
+            status= "read"
+        }
+        "/notification_center/buybox_forewarning"(platform: "/mobile"){
+            newsgroup_id= "buybox_forewarning-186785675-76283123"
+            latest_news_id= "buybox_forewarning-186785675-76283123"
+            latest_news_type= "buybox_forewarning"
+            status= "read"
+        }
+        "/notification_center/buybox_losing_item"(platform: "/mobile"){
+            newsgroup_id= "buybox_losing_item-186785675-76283123"
+            latest_news_id= "buybox_losing_item-186785675-76283123"
+            latest_news_type= "buybox_losing_item"
+            status= "read"
+        }
+        "/notification_center/buybox_losing_many"(platform: "/mobile"){
+            newsgroup_id= "buybox_losing_many-186785675-76283123"
+            latest_news_id= "buybox_losing_many-186785675-76283123"
+            latest_news_type= "buybox_losing_many"
+            status= "read"
+        }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
             newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
@@ -6665,6 +6729,22 @@ trackTests {
         }
         "/notification/billing_iva_isr_meli"(platform: "/mobile"){
             news_id = "billing_iva_isr_meli-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_forced_item"(platform: "/mobile"){
+            news_id = "buybox_forced_item-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_forewarning"(platform: "/mobile"){
+            news_id = "buybox_forewarning-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_losing_item"(platform: "/mobile"){
+            news_id = "buybox_losing_item-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/buybox_losing_many"(platform: "/mobile"){
+            news_id = "buybox_losing_many-12345678-123"
             event_type = "shown"
         }
 
