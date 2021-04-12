@@ -1021,6 +1021,42 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/card_limit"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_offering_physical_card"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_pin"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_reminders"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_request_challenge"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_unlock_incentive_second_day"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_wallet"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2430,11 +2466,23 @@ tracks {
     "/notification/card_first_use_incentive_fourteenth_day"(platform: "/") {}
     "/notification/card_first_use_incentive_seventh_day"(platform: "/") {}
     "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/") {}
-
     "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/") {}
     "/notification/card_flow_incentive_prepaid_acquisition_second"(platform: "/") {}
     "/notification/card_freeze_rejected_authorization"(platform: "/") {}
     "/notification/card_freeze_rejected_withdraw"(platform: "/") {}
+    "/notification/card_limit_rejected_withdraw_by_limit"(platform: "/") {}
+    "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/") {}
+    "/notification/card_offering_physical_card"(platform: "/") {}
+    "/notification/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/") {}
+    "/notification/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/") {}
+
+    "/notification/card_pin_invalid_pin_first_tries"(platform: "/") {}
+    "/notification/card_pin_invalid_pin_fourth_try"(platform: "/") {}
+    "/notification/card_pin_pin_blocked"(platform: "/") {}
+    "/notification/card_reminders_pin_reminder"(platform: "/") {}
+    "/notification/card_reminders_virtual_digital_services"(platform: "/") {}
+    "/notification/card_request_challenge_expired"(platform: "/") {}
+    "/notification/card_request_challenge_pending"(platform: "/") {}
 
     "/notification/card_kyc_data_completed_nfc_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile") {}

@@ -1330,6 +1330,60 @@ trackTests {
             latest_news_type= "card_freeze"
             status= "read"
         }
+        "/notification_center/card_limit"(platform: "/mobile"){
+            newsgroup_id= "card_limit-186785675-76283123"
+            latest_news_id= "card_limit-186785675-76283123"
+            latest_news_type= "card_limit"
+            status= "read"
+        }
+        "/notification_center/card_pin"(platform: "/mobile"){
+            newsgroup_id= "card_pin-186785675-76283123"
+            latest_news_id= "card_pin-186785675-76283123"
+            latest_news_type= "card_pin"
+            status= "read"
+        }
+        "/notification_center/card_reminders"(platform: "/mobile"){
+            newsgroup_id= "card_reminders-186785675-76283123"
+            latest_news_id= "card_reminders-186785675-76283123"
+            latest_news_type= "card_reminders"
+            status= "read"
+        }
+        "/notification_center/card_request_challenge"(platform: "/mobile"){
+            newsgroup_id= "card_request_challenge-186785675-76283123"
+            latest_news_id= "card_request_challenge-186785675-76283123"
+            latest_news_type= "card_request_challenge"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_second_day"
+            status= "read"
+        }
+        "/notification_center/card_wallet"(platform: "/mobile"){
+            newsgroup_id= "card_wallet-186785675-76283123"
+            latest_news_id= "card_wallet-186785675-76283123"
+            latest_news_type= "card_wallet"
+            status= "read"
+        }
+        "/notification_center/card_offering_physical_card"(platform: "/mobile"){
+            newsgroup_id= "card_offering_physical_card-186785675-76283123"
+            latest_news_id= "card_offering_physical_card-186785675-76283123"
+            latest_news_type= "card_offering_physical_card"
+            status= "read"
+        }
+        "/notification_center/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/mobile"){
+            newsgroup_id= "card_offering_transaction_generic_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_id= "card_offering_transaction_generic_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_type= "card_offering_transaction_generic_opt_in_ppd_to_hybrid"
+            status= "read"
+        }
+        "/notification_center/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/mobile"){
+            newsgroup_id= "card_offering_transaction_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_id= "card_offering_transaction_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_type= "card_offering_transaction_opt_in_ppd_to_hybrid"
+            status= "read"
+        }
         "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed-virtual-186785675-76283123"
             latest_news_id= "card_kyc_data_completed-virtual-186785675-76283123"
@@ -1795,12 +1849,58 @@ trackTests {
             news_id = "card_freeze_rejected_withdraw-12345678"
             event_type = "shown"
         }
-
+        "/notification/card_limit_rejected_withdraw_by_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_maximum_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_physical_card"(platform: "/mobile") {
+            news_id = "card_offering_physical_card-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_generic_opt_in_ppd_to_hybrid-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_opt_in_ppd_to_hybrid-12345678"
+            event_type = "shown"
+        }
         "/notification/account_balance_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_ml-12345678"
             event_type = "shown"
         }
-
+        "/notification/card_pin_invalid_pin_first_tries"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_first_tries-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_invalid_pin_fourth_try"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_fourth_try-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_pin_blocked"(platform: "/mobile") {
+            news_id = "card_pin_pin_blocked-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_pin_reminder"(platform: "/mobile") {
+            news_id = "card_reminders_pin_reminder-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_virtual_digital_services"(platform: "/mobile") {
+            news_id = "card_reminders_virtual_digital_services-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_expired-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_pending"(platform: "/mobile") {
+            news_id = "card_request_challenge_pending-12345678"
+            event_type = "shown"
+        }
         "/notification/anses_payment_date"(platform: "/mobile") {
             news_id = "anses_payment_date-12345678-123"
             event_type = "shown"
@@ -3848,6 +3948,54 @@ trackTests {
         }
         "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
             news_id = "card_freeze_rejected_withdraw-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_limit_rejected_withdraw_by_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_maximum_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_invalid_pin_first_tries"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_first_tries-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_invalid_pin_fourth_try"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_fourth_try-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_pin_blocked"(platform: "/mobile") {
+            news_id = "card_pin_pin_blocked-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_pin_reminder"(platform: "/mobile") {
+            news_id = "card_reminders_pin_reminder-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_virtual_digital_services"(platform: "/mobile") {
+            news_id = "card_reminders_virtual_digital_services-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_expired-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_pending"(platform: "/mobile") {
+            news_id = "card_request_challenge_pending-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_physical_card"(platform: "/mobile") {
+            news_id = "card_offering_physical_card-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_generic_opt_in_ppd_to_hybrid-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_opt_in_ppd_to_hybrid-12345678"
             event_type = "shown"
         }
 
@@ -6326,6 +6474,60 @@ trackTests {
             latest_news_type= "card_freeze"
             status= "read"
         }
+        "/notification_center/card_limit"(platform: "/mobile"){
+            newsgroup_id= "card_limit-186785675-76283123"
+            latest_news_id= "card_limit-186785675-76283123"
+            latest_news_type= "card_limit"
+            status= "read"
+        }
+        "/notification_center/card_pin"(platform: "/mobile"){
+            newsgroup_id= "card_pin-186785675-76283123"
+            latest_news_id= "card_pin-186785675-76283123"
+            latest_news_type= "card_pin"
+            status= "read"
+        }
+        "/notification_center/card_reminders"(platform: "/mobile"){
+            newsgroup_id= "card_reminders-186785675-76283123"
+            latest_news_id= "card_reminders-186785675-76283123"
+            latest_news_type= "card_reminders"
+            status= "read"
+        }
+        "/notification_center/card_request_challenge"(platform: "/mobile"){
+            newsgroup_id= "card_request_challenge-186785675-76283123"
+            latest_news_id= "card_request_challenge-186785675-76283123"
+            latest_news_type= "card_request_challenge"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_second_day"
+            status= "read"
+        }
+        "/notification_center/card_wallet"(platform: "/mobile"){
+            newsgroup_id= "card_wallet-186785675-76283123"
+            latest_news_id= "card_wallet-186785675-76283123"
+            latest_news_type= "card_wallet"
+            status= "read"
+        }
+        "/notification_center/card_offering_physical_card"(platform: "/mobile"){
+            newsgroup_id= "card_offering_physical_card-186785675-76283123"
+            latest_news_id= "card_offering_physical_card-186785675-76283123"
+            latest_news_type= "card_offering_physical_card"
+            status= "read"
+        }
+        "/notification_center/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/mobile"){
+            newsgroup_id= "card_offering_transaction_generic_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_id= "card_offering_transaction_generic_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_type= "card_offering_transaction_generic_opt_in_ppd_to_hybrid"
+            status= "read"
+        }
+        "/notification_center/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/mobile"){
+            newsgroup_id= "card_offering_transaction_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_id= "card_offering_transaction_opt_in_ppd_to_hybrid-186785675-76283123"
+            latest_news_type= "card_offering_transaction_opt_in_ppd_to_hybrid"
+            status= "read"
+        }
         "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed-virtual-186785675-76283123"
             latest_news_id= "card_kyc_data_completed-virtual-186785675-76283123"
@@ -6824,6 +7026,54 @@ trackTests {
         }
         "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
             news_id = "card_freeze_rejected_withdraw-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_limit_rejected_withdraw_by_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_maximum_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_invalid_pin_first_tries"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_first_tries-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_invalid_pin_fourth_try"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_fourth_try-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_pin_blocked"(platform: "/mobile") {
+            news_id = "card_pin_pin_blocked-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_pin_reminder"(platform: "/mobile") {
+            news_id = "card_reminders_pin_reminder-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_virtual_digital_services"(platform: "/mobile") {
+            news_id = "card_reminders_virtual_digital_services-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_expired-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_pending"(platform: "/mobile") {
+            news_id = "card_request_challenge_pending-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_physical_card"(platform: "/mobile") {
+            news_id = "card_offering_physical_card-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_generic_opt_in_ppd_to_hybrid-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_opt_in_ppd_to_hybrid-12345678"
             event_type = "shown"
         }
 
@@ -8996,6 +9246,54 @@ trackTests {
         }
         "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
             news_id = "card_freeze_rejected_withdraw-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_limit_rejected_withdraw_by_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit_rejected_withdraw_by_maximum_limit-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_invalid_pin_first_tries"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_first_tries-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_invalid_pin_fourth_try"(platform: "/mobile") {
+            news_id = "card_pin_invalid_pin_fourth_try-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_pin_pin_blocked"(platform: "/mobile") {
+            news_id = "card_pin_pin_blocked-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_pin_reminder"(platform: "/mobile") {
+            news_id = "card_reminders_pin_reminder-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_reminders_virtual_digital_services"(platform: "/mobile") {
+            news_id = "card_reminders_virtual_digital_services-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_expired-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_request_challenge_pending"(platform: "/mobile") {
+            news_id = "card_request_challenge_pending-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_physical_card"(platform: "/mobile") {
+            news_id = "card_offering_physical_card-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_generic_opt_in_ppd_to_hybrid-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/mobile") {
+            news_id = "card_offering_transaction_opt_in_ppd_to_hybrid-12345678"
             event_type = "shown"
         }
 
