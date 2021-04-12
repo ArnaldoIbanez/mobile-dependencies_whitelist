@@ -4778,6 +4778,7 @@ trackTests {
             news_id = "card_unlock_incentive_second_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
+            has_money = true
         }
 
         "/notification/card_unlock_incentive_fifth_day"(platform: "/mobile") {
@@ -9967,6 +9968,7 @@ trackTests {
             news_id = "card_unlock_incentive_second_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
+            has_money = true
         }
 
         "/notification/card_unlock_incentive_fifth_day"(platform: "/mobile") {
@@ -10421,6 +10423,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/card_wallet_insufficient_account_balance"(platform: "/mobile") {
+            news_id = "card_wallet_insufficient_account_balance-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -10745,6 +10752,11 @@ trackTests {
         }
         "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {
             news_id = "card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_wallet_insufficient_account_balance"(platform: "/mobile") {
+            news_id = "card_wallet_insufficient_account_balance-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }

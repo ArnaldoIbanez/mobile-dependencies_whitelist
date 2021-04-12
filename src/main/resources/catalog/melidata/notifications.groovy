@@ -2475,7 +2475,6 @@ tracks {
     "/notification/card_offering_physical_card"(platform: "/") {}
     "/notification/card_offering_transaction_generic_opt_in_ppd_to_hybrid"(platform: "/") {}
     "/notification/card_offering_transaction_opt_in_ppd_to_hybrid"(platform: "/") {}
-
     "/notification/card_pin_invalid_pin_first_tries"(platform: "/") {}
     "/notification/card_pin_invalid_pin_fourth_try"(platform: "/") {}
     "/notification/card_pin_pin_blocked"(platform: "/") {}
@@ -2483,7 +2482,6 @@ tracks {
     "/notification/card_reminders_virtual_digital_services"(platform: "/") {}
     "/notification/card_request_challenge_expired"(platform: "/") {}
     "/notification/card_request_challenge_pending"(platform: "/") {}
-
     "/notification/card_kyc_data_completed_nfc_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_unlock"(platform: "/mobile") {}
@@ -2493,7 +2491,9 @@ tracks {
     "/notification/card_kyc_data_completed_prepaid_acquisition_third"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_virtual_acquisition"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {}
-    "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {
+        has_money(required: true, type: PropertyType.Boolean)
+    }
     "/notification/card_unlock_incentive_fifth_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_tenth_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_fifteenth_day"(platform: "/mobile") {}
@@ -2521,6 +2521,7 @@ tracks {
     "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {}
+    "/notification/card_wallet_insufficient_account_balance"(platform: "/mobile") {}
 
     //Prepaidbuild.gradle
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
