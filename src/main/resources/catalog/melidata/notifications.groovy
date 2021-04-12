@@ -2521,6 +2521,15 @@ tracks {
     "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {}
+
+    "/notification/card_transactions_cancelled_withdraw"(platform: "/mobile") {}
+    "/notification/card_transactions_capture_after_ttl"(platform: "/mobile") {}
+    "/notification/card_transactions_capture_expired_ttl"(platform: "/mobile") {}
+    "/notification/card_transactions_capture_less_than_amount"(platform: "/mobile") {}
+    "/notification/card_transactions_chargeback_reimbursed"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_virtual_wrong_cvv"(platform: "/mobile") {}
+    "/notification/card_transactions_transaction_invalid_amount_option_credit"(platform: "/mobile") {}
+
     "/notification/card_wallet_insufficient_account_balance"(platform: "/mobile") {}
 
     //Prepaidbuild.gradle

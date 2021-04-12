@@ -10423,6 +10423,41 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/card_transactions_cancelled_withdraw"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_withdraw-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_after_ttl"(platform: "/mobile") {
+            news_id = "card_transactions_capture_after_ttl-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_expired_ttl"(platform: "/mobile") {
+            news_id = "card_transactions_capture_expired_ttl-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_less_than_amount"(platform: "/mobile") {
+            news_id = "card_transactions_capture_less_than_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_chargeback_reimbursed"(platform: "/mobile") {
+            news_id = "card_transactions_chargeback_reimbursed-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_virtual_wrong_cvv"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_virtual_wrong_cvv-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_transaction_invalid_amount_option_credit"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_credit-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/card_wallet_insufficient_account_balance"(platform: "/mobile") {
             news_id = "card_wallet_insufficient_account_balance-186785675"
             event_type = "open"
@@ -10752,6 +10787,41 @@ trackTests {
         }
         "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {
             news_id = "card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_cancelled_withdraw"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_withdraw-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_after_ttl"(platform: "/mobile") {
+            news_id = "card_transactions_capture_after_ttl-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_expired_ttl"(platform: "/mobile") {
+            news_id = "card_transactions_capture_expired_ttl-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_capture_less_than_amount"(platform: "/mobile") {
+            news_id = "card_transactions_capture_less_than_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_chargeback_reimbursed"(platform: "/mobile") {
+            news_id = "card_transactions_chargeback_reimbursed-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_virtual_wrong_cvv"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_virtual_wrong_cvv-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_transaction_invalid_amount_option_credit"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_credit-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
