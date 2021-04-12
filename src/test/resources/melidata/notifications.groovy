@@ -1261,6 +1261,10 @@ trackTests {
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
         }
+        "/notification_center/card_first_use_incentive"(platform: "/mobile") {
+            latest_news_type= "card_first_use_incentive"
+            latest_news_id= "card_first_use_incentive-143816022-MLB1013046714"
+        }
         "/notification_center/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor_-ampaign_start_campaign-143816022-MLB1013046714"
@@ -1312,6 +1316,18 @@ trackTests {
             newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
             latest_news_id= "card_correios_strike-delayed-186785675-76283123"
             latest_news_type= "card_correios_strike-delayed"
+            status= "read"
+        }
+        "/notification_center/card_flow_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_flow_incentive-186785675-76283123"
+            latest_news_id= "card_flow_incentive-186785675-76283123"
+            latest_news_type= "card_flow_incentive"
+            status= "read"
+        }
+        "/notification_center/card_freeze"(platform: "/mobile"){
+            newsgroup_id= "card_freeze-186785675-76283123"
+            latest_news_id= "card_freeze-186785675-76283123"
+            latest_news_type= "card_freeze"
             status= "read"
         }
         "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
@@ -1744,6 +1760,39 @@ trackTests {
 
         "/notification/account_balance_create_ted_account"(platform: "/mobile") {
             news_id = "account_balance_create_ted_account-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_first_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_fourteenth_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_seventh_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_seventh_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_first-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_first-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_second"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_second-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_authorization"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_authorization-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_withdraw-12345678"
             event_type = "shown"
         }
 
@@ -3769,6 +3818,39 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_first_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_fourteenth_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_seventh_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_seventh_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_twentyoneth_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_first-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_second"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_second-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_authorization"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_authorization-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_withdraw-12345678"
+            event_type = "shown"
+        }
+
         "/notification/anses_payment_date"(platform: "/mobile") {
             news_id = "anses_payment_date-12345678-123"
             event_type = "shown"
@@ -4524,6 +4606,11 @@ trackTests {
         }
         "/notification/card_kyc_data_completed_prepaid_acquisition_third"(platform: "/mobile") {
             news_id = "card_kyc_data_completed_prepaid_acquisition_fthird-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_kyc_data_completed_virtual_acquisition"(platform: "/mobile") {
+            news_id = "card_kyc_data_completed_virtual_acquisition-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
@@ -6035,6 +6122,10 @@ trackTests {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_seller-campaign_start_campaign-143816022-MLB1013046714"
         }
+        "/notification_center/card_first_use_incentive"(platform: "/mobile") {
+            latest_news_type= "card_first_use_incentive"
+            latest_news_id= "card_first_use_incentive-143816022-MLB1013046714"
+        }
         "/notification_center/mp_seller_campaign_end_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_seller-campaign_end_campaign-143816022-MLB1013046714"
@@ -6221,6 +6312,18 @@ trackTests {
             newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
             latest_news_id= "card_correios_strike-delayed-186785675-76283123"
             latest_news_type= "card_correios_strike-delayed"
+            status= "read"
+        }
+        "/notification_center/card_flow_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_flow_incentive-186785675-76283123"
+            latest_news_id= "card_flow_incentive-186785675-76283123"
+            latest_news_type= "card_flow_incentive"
+            status= "read"
+        }
+        "/notification_center/card_freeze"(platform: "/mobile"){
+            newsgroup_id= "card_freeze-186785675-76283123"
+            latest_news_id= "card_freeze-186785675-76283123"
+            latest_news_type= "card_freeze"
             status= "read"
         }
         "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
@@ -6688,6 +6791,39 @@ trackTests {
 
         "/notification/account_balance_create_ted_account"(platform: "/mobile") {
             news_id = "account_balance_create_ted_account-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_first_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_fourteenth_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_seventh_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_seventh_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_twentyoneth_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_first-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_second"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_second-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_authorization"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_authorization-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_withdraw-12345678"
             event_type = "shown"
         }
 
@@ -8830,6 +8966,39 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_first_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_fourteenth_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_seventh_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_seventh_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_twentyoneth_day-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_first-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_flow_incentive_prepaid_acquisition_second"(platform: "/mobile") {
+            news_id = "card_flow_incentive_prepaid_acquisition_second-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_authorization"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_authorization-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
+            news_id = "card_freeze_rejected_withdraw-12345678"
+            event_type = "shown"
+        }
+
         "/notification/anses_payment_date"(platform: "/mobile") {
             news_id = "anses_payment_date-12345678-123"
             event_type = "shown"
@@ -9482,6 +9651,11 @@ trackTests {
         }
         "/notification/card_kyc_data_completed_prepaid_acquisition_second"(platform: "/mobile"){
             news_id= "card_kyc_data_completed_prepaid_acquisition_second-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_kyc_data_completed_virtual_acquisition"(platform: "/mobile") {
+            news_id = "card_kyc_data_completed_virtual_acquisition-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }

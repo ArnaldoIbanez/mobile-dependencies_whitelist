@@ -965,6 +965,10 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         type(required: false, type: PropertyType.String, description: "Payment pending type.")
     }
+    "/notification_center/card_first_use_incentive"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/prepaid_card_delivery"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1006,6 +1010,14 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/card_correios_strike"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_flow_incentive"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_freeze"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -2414,6 +2426,16 @@ tracks {
     //Hybrid
     "/notification/card_request_challenge_pending"(platform: "/mobile") {}
     "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_first_day"(platform: "/") {}
+    "/notification/card_first_use_incentive_fourteenth_day"(platform: "/") {}
+    "/notification/card_first_use_incentive_seventh_day"(platform: "/") {}
+    "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/") {}
+
+    "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/") {}
+    "/notification/card_flow_incentive_prepaid_acquisition_second"(platform: "/") {}
+    "/notification/card_freeze_rejected_authorization"(platform: "/") {}
+    "/notification/card_freeze_rejected_withdraw"(platform: "/") {}
+
     "/notification/card_kyc_data_completed_nfc_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_unlock"(platform: "/mobile") {}
@@ -2421,6 +2443,7 @@ tracks {
     "/notification/card_kyc_data_completed_prepaid_acquisition_first"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_prepaid_acquisition_second"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_prepaid_acquisition_third"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_virtual_acquisition"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_fifth_day"(platform: "/mobile") {}
