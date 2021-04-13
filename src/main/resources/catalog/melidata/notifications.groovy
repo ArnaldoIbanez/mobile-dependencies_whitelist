@@ -918,6 +918,18 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/multiplayer_ml_money_request"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/multiplayer_regulation"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/multiplayer_regulation_validated"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/mp_seller_campaign_moderation"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1212,6 +1224,22 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/withdraw_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    //Payroll
+    "/notification_center/payroll_portability"(platform: "/", type: TrackType.Event){
+        portability_id(required: true , type: PropertyType.String, description: "Corresponds to the portability id")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/payroll_portability_request"(platform: "/", type: TrackType.Event){
+        portability_request_id(required: true , type: PropertyType.String, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/payroll_kyc_approved"(platform: "/", type: TrackType.Event){
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1568,7 +1596,11 @@ tracks {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
       }
 
+    //Multiplayer
     "/notification/multiplayer_money_request"(platform: "/") {}
+    "/notification/multiplayer_ml_money_request"(platform: "/") {}
+    "/notification/multiplayer_regulation"(platform: "/") {}
+    "/notification/multiplayer_regulation_validated"(platform: "/") {}
 
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/") {
@@ -2096,6 +2128,8 @@ tracks {
       }
 
       "/notification/payroll_kyc_accepted"(platform: "/") {}
+
+    "/notification/payroll_kyc_approved"(platform: "/") {}
       /* ------------------------------------------------------------ */
 
       //Puis

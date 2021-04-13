@@ -1229,6 +1229,24 @@ trackTests {
             latest_news_type= "multiplayer-money_request"
             status= "read"
         }
+        "/notification_center/multiplayer_ml_money_request"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_ml_money_request-186785675-76283123"
+            latest_news_id= "multiplayer_ml_money_request-186785675-76283123"
+            latest_news_type= "multiplayer_ml_money_request"
+            status= "read"
+        }
+        "/notification_center/multiplayer_regulation"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_regulation-186785675-76283123"
+            latest_news_id= "multiplayer_regulation-186785675-76283123"
+            latest_news_type= "multiplayer_regulation"
+            status= "read"
+        }
+        "/notification_center/multiplayer_regulation_validated"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_regulation_validated-186785675-76283123"
+            latest_news_id= "multiplayer_regulation_validated-186785675-76283123"
+            latest_news_type= "multiplayer_regulation_validated"
+            status= "read"
+        }
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-campaigns-186785675-76283123"
             latest_news_id= "mpcampaigns-campaigns-186785675-76283123"
@@ -1664,6 +1682,21 @@ trackTests {
             latest_news_id= "withdraw_rejected-143816022-MLB1013046714"
         }
 
+        "/notification_center/payroll_portability"(platform: "/mobile"){
+            latest_news_type = "payroll_portability"
+            latest_news_id = "payroll_portability-143816022-MLB1013046714"
+            portability_id = "123"
+        }
+        "/notification_center/payroll_portability_request"(platform: "/mobile"){
+            latest_news_type = "payroll_portability_request"
+            latest_news_id = "payroll_portability_request-143816022-MLB1013046714"
+            portability_request_id = "123"
+        }
+        "/notification_center/payroll_kyc_approved"(platform: "/mobile"){
+            latest_news_type = "payroll_kyc_approved"
+            latest_news_id = "payroll_kyc_approved-143816022-MLB1013046714"
+        }
+
         "/notification_center/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
             latest_news_type= "seller_journey_congrats"
@@ -1803,11 +1836,12 @@ trackTests {
             step_id= 123
             event_type= "sent"
         }
-        "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
+
+        "/notification/seller_journey_do_something"(platform: "/mobile"){
             step_id= 123
             event_type= "sent"
         }
-        "/notification/seller_journey_work_harder"(platform: "/mobile"){
+        "/notification/seller_journey_do_something"(platform: "/mobile"){
             step_id= 123
             event_type= "sent"
         }
@@ -2607,7 +2641,19 @@ trackTests {
 
         "/notification/multiplayer_money_request"(platform: "/mobile"){
             news_id = "multiplayer-money_request-1004906131-ACAVAUNHASHRELINDOYRELOCO"
-            event_type = "discarded"
+            event_type = "open"
+        }
+        "/notification/multiplayer_ml_money_request"(platform: "/mobile"){
+            news_id = "multiplayer_ml_money_request-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_regulation"(platform: "/mobile"){
+            news_id = "multiplayer_regulation-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
+            news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
         }
 
         "/notification/listings_upgrade"(platform: "/mobile") {
@@ -2961,6 +3007,19 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             shipment_id = 1234
+        }
+
+        "/notification/seller_journey_congrats"(platform: "/mobile"){
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
+            step_id= 123
+            event_type= "sent"
+        }
+        "/notification/seller_journey_work_harder"(platform: "/mobile"){
+            step_id= 123
+            event_type= "sent"
         }
 
         "/notification/shipping_shipped_out_for_delivery"(platform: "/mobile") {
@@ -3607,6 +3666,21 @@ trackTests {
 
         "/notification/payroll_kyc_accepted"(platform: "/mobile") {
             news_id = "payroll-kyc_accepted-1234"
+            event_type = "auto_dismiss"
+        }
+
+        "/notification/payroll_kyc_approved"(platform: "/mobile") {
+            news_id = "payroll_kyc_approved-1234"
+            event_type = "open"
+        }
+
+        "/notification/payroll_kyc_approved"(platform: "/mobile") {
+            news_id = "payroll_kyc_approved-1234"
+            event_type = "dismiss"
+        }
+
+        "/notification/payroll_kyc_approved"(platform: "/mobile") {
+            news_id = "payroll_kyc_approved-1234"
             event_type = "auto_dismiss"
         }
 
@@ -5564,6 +5638,22 @@ trackTests {
             deeplink= "meli://purchases/1287016973/claims/900736064"
             type_layout= "standard"
         }
+
+        "/notification_center/payroll_portability"(platform: "/mobile"){
+            latest_news_type = "payroll_portability"
+            latest_news_id = "payroll_portability-143816022-MLB1013046714"
+            portability_id = "123"
+        }
+        "/notification_center/payroll_portability_request"(platform: "/mobile"){
+            latest_news_type = "payroll_portability_request"
+            latest_news_id = "payroll_portability_request-143816022-MLB1013046714"
+            portability_request_id = "123"
+        }
+        "/notification_center/payroll_kyc_approved"(platform: "/mobile"){
+            latest_news_type = "payroll_kyc_approved"
+            latest_news_id = "payroll_kyc_approved-143816022-MLB1013046714"
+        }
+
         "/notification_center/purchase-pending-legacy"(platform: "/mobile"){
             newsgroup_id= "purchase-pending-210167262-MLA646946595"
             status= "read"
@@ -6451,6 +6541,24 @@ trackTests {
             latest_news_type= "multiplayer-money_request"
             status= "read"
         }
+        "/notification_center/multiplayer_ml_money_request"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_ml_money_request-186785675-76283123"
+            latest_news_id= "multiplayer_ml_money_request-186785675-76283123"
+            latest_news_type= "multiplayer_ml_money_request"
+            status= "read"
+        }
+        "/notification_center/multiplayer_regulation"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_regulation-186785675-76283123"
+            latest_news_id= "multiplayer_regulation-186785675-76283123"
+            latest_news_type= "multiplayer_regulation"
+            status= "read"
+        }
+        "/notification_center/multiplayer_regulation_validated"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_regulation_validated-186785675-76283123"
+            latest_news_id= "multiplayer_regulation_validated-186785675-76283123"
+            latest_news_type= "multiplayer_regulation_validated"
+            status= "read"
+        }
         "/notification_center/invite_gift"(platform: "/mobile"){
             newsgroup_id= "invite-gift-186785675-76283123"
             latest_news_id= "invite-gift-186785675-76283123"
@@ -7279,6 +7387,17 @@ trackTests {
             latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
 
+        "/notification"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "sent"
+        }
+
+        "/notification"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            source = "logout"
+        }
+
         "/notification/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
             event_type= "sent"
@@ -7294,17 +7413,6 @@ trackTests {
         "/notification/seller_journey_do_something"(platform: "/mobile"){
             step_id= 123
             event_type= "sent"
-        }
-
-        "/notification"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "sent"
-        }
-
-        "/notification"(platform: "/mobile") {
-            news_id = "12332323"
-            event_type = "auto_dismiss"
-            source = "logout"
         }
 
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
@@ -8112,7 +8220,19 @@ trackTests {
 
         "/notification/multiplayer_money_request"(platform: "/mobile"){
             news_id = "multiplayer-money_request-1004906131-ACAVAUNHASHRELINDOYRELOCO"
-            event_type = "discarded"
+            event_type = "open"
+        }
+        "/notification/multiplayer_ml_money_request"(platform: "/mobile"){
+            news_id = "multiplayer_ml_money_request-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_regulation"(platform: "/mobile"){
+            news_id = "multiplayer_regulation-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
+            news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
         }
 
         "/notification/listings_upgrade"(platform: "/mobile") {
@@ -9239,6 +9359,21 @@ trackTests {
 
         "/notification/payroll_kyc_accepted"(platform: "/mobile") {
             news_id = "payroll-kyc_accepted-1234"
+            event_type = "auto_dismiss"
+        }
+
+        "/notification/payroll_kyc_approved"(platform: "/mobile") {
+            news_id = "payroll_kyc_approved-1234"
+            event_type = "open"
+        }
+
+        "/notification/payroll_kyc_approved"(platform: "/mobile") {
+            news_id = "payroll_kyc_approved-1234"
+            event_type = "dismiss"
+        }
+
+        "/notification/payroll_kyc_approved"(platform: "/mobile") {
+            news_id = "payroll_kyc_approved-1234"
             event_type = "auto_dismiss"
         }
 
