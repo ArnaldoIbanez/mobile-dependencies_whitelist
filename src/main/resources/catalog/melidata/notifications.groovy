@@ -287,6 +287,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/data_privacy_export"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/fraud-identity_validation"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -320,6 +324,15 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/fraud_remedies_trust_vote_ml"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/flows_default"(platform: "/", type: TrackType.Event) {
+        initiative_code(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/fraud_poc_trust_vote_second_score"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -687,6 +700,14 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/flammables_notification"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/growth_tooling_mgm_kyc_booster"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/growth_tooling_mgm_kyc_guest"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1481,7 +1502,16 @@ tracks {
           case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
       }
 
+    //Data
     "/notification/da_kyc_manual_review"(platform: "/") {}
+    "/notification/data_privacy_about_to_expire"(platform: "/") {}
+    "/notification/data_privacy_extend_expiration"(platform: "/") {}
+    "/notification/data_privacy_ready"(platform: "/") {}
+
+    //Drive Logistics
+    "/notification/driver_logistics_changed_address"(platform: "/") {}
+    "/notification/driver_logistics_retry_collect"(platform: "/") {}
+    "/notification/driver_logistics_retry_delivery"(platform: "/") {}
 
       "/notification/instore_discover_activities"(platform: "/") {}
     "/notification/instore_buyer_qr"(platform: "/") {}
@@ -2188,6 +2218,7 @@ tracks {
       "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/") {}
       "/notification/fraud_remedies_trust_vote_ml"(platform: "/") {}
       "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/") {}
+      "/notification/fraud_poc_trust_vote_second_score"(platform: "/") {}
 
       //Loyalty
       "/notification/loyalty"(platform: "/") {}
@@ -2458,6 +2489,15 @@ tracks {
     "/notification/merchants_growth_mgm"(platform: "/mobile") {
         gift_reason_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+
+    //Flows
+    "/notification/flows_default"(platform: "/mobile") {
+        initiative_code(required: true, type: PropertyType.String)
+    }
+
+    //Growth
+    "/notification/growth_tooling_mgm_kyc_booster"(platform: "/mobile") {}
+    "/notification/growth_tooling_mgm_kyc_guest"(platform: "/mobile") {}
 
     //killers
     "/notification/killers_winner_item_recover"(platform: "/mobile") {}

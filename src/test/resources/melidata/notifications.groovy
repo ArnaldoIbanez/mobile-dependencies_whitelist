@@ -402,6 +402,10 @@ trackTests {
             latest_news_type= "da_kyc_manual_review"
             latest_news_id= "da_kyc_manual_review-143816022-MLB1013046714"
         }
+        "/notification_center/data_privacy_export"(platform: "/mobile"){
+            latest_news_type= "data_privacy_export"
+            latest_news_id= "data_privacy_export-143816022-MLB1013046714"
+        }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
             newsgroup_id= "fraud-identity_validation-142593788"
             event_type= "open"
@@ -428,11 +432,14 @@ trackTests {
             latest_news_type= "fraud_delivery_cancellation_stop_mp"
             latest_news_id= "fraud_delivery_cancellation_stop_mp-143816022-MLB1013046714"
         }
+        "/notification_center/fraud_poc_trust_vote_second_score"(platform: "/mobile") {
+            latest_news_type= "fraud_poc_trust_vote_second_score"
+            latest_news_id= "fraud_poc_trust_vote_second_score-143816022-MLB1013046714"
+        }
         "/notification_center/fraud_delivery_cancellation_mp"(platform: "/mobile") {
             latest_news_type= "fraud_delivery_cancellation_mp"
             latest_news_id= "fraud_delivery_cancellation_mp-143816022-MLB1013046714"
         }
-
         "/notification_center/kyc_user_notification_mp_web"(platform: "/mobile"){
             latest_news_id= "kyc_user_notification_mp_web-186785675-76283123"
             latest_news_type= "kyc_user_notification_mp_web"
@@ -1015,6 +1022,12 @@ trackTests {
             latest_news_type= "fraud_remedies_trust_vote_ml"
             status= "read"
         }
+        "/notification_center/flows_default"(platform: "/mobile"){
+            initiative_code= "123"
+            latest_news_id= "flows_default-186785675-76283123"
+            latest_news_type= "flows_default"
+            status= "read"
+        }
         "/notification_center/instore_buyer_qr"(platform: "/mobile"){
             newsgroup_id= "instore-buyer_qr-186785675-76283123"
             latest_news_id= "instore-buyer_qr-186785675-76283123"
@@ -1047,6 +1060,14 @@ trackTests {
         "/notification_center/flammables_notification"(platform: "/mobile"){
             latest_news_id= "flammables_notification-186785675-76283123"
             latest_news_type= "flammables_notification"
+        }
+        "/notification_center/growth_tooling_mgm_kyc_booster"(platform: "/mobile"){
+            latest_news_id= "growth_tooling_mgm_kyc_booster-186785675-76283123"
+            latest_news_type= "growth_tooling_mgm_kyc_booster"
+        }
+        "/notification_center/growth_tooling_mgm_kyc_guest"(platform: "/mobile"){
+            latest_news_id= "growth_tooling_mgm_kyc_guest-186785675-76283123"
+            latest_news_type= "growth_tooling_mgm_kyc_guest"
         }
         "/notification_center/money_split_started"(platform: "/mobile") {
             latest_news_id= "money_split_started-186785675-76283123"
@@ -3899,7 +3920,37 @@ trackTests {
             event_type= "open"
         }
 
+        "/notification/data_privacy_about_to_expire"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/data_privacy_extend_expiration"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/data_privacy_ready"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/driver_logistics_changed_address"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/driver_logistics_retry_collect"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/driver_logistics_retry_delivery"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+
         "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_poc_trust_vote_second_score"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }
@@ -3932,6 +3983,21 @@ trackTests {
         "/notification/fraud_remedies_trust_vote_ml"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
+        }
+
+        "/notification/flows_default"(platform: "/mobile"){
+            initiative_code= "123"
+            news_id= "123"
+            event_type= "open"
+        }
+
+        "/notification/growth_tooling_mgm_kyc_booster"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/growth_tooling_mgm_kyc_guest"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
         }
 
         "/notification/health_check"(platform: "/mobile/android") {
@@ -5686,6 +5752,10 @@ trackTests {
             latest_news_type= "da_kyc_manual_review"
             latest_news_id= "da_kyc_manual_review-143816022-MLB1013046714"
         }
+        "/notification_center/data_privacy_export"(platform: "/mobile"){
+            latest_news_type= "data_privacy_export"
+            latest_news_id= "data_privacy_export-143816022-MLB1013046714"
+        }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
             newsgroup_id= "fraud-identity_validation-142593788"
             event_type= "open"
@@ -5710,6 +5780,10 @@ trackTests {
         "/notification_center/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
             latest_news_type= "fraud_delivery_cancellation_stop_mp"
             latest_news_id= "fraud_delivery_cancellation_stop_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/fraud_poc_trust_vote_second_score"(platform: "/mobile") {
+            latest_news_type= "fraud_poc_trust_vote_second_score"
+            latest_news_id= "fraud_poc_trust_vote_second_score-143816022-MLB1013046714"
         }
         "/notification_center/fraud_delivery_cancellation_mp"(platform: "/mobile") {
             latest_news_type= "fraud_delivery_cancellation_mp"
@@ -6250,6 +6324,12 @@ trackTests {
             latest_news_type= "fraud_remedies_trust_vote_ml"
             status= "read"
         }
+        "/notification_center/flows_default"(platform: "/mobile"){
+            initiative_code= "123"
+            latest_news_id= "flows_default-186785675-76283123"
+            latest_news_type= "flows_default"
+            status= "read"
+        }
         "/notification_center/instore_buyer_qr"(platform: "/mobile"){
             newsgroup_id= "instore-buyer_qr-186785675-76283123"
             latest_news_id= "instore-buyer_qr-186785675-76283123"
@@ -6430,6 +6510,14 @@ trackTests {
         "/notification_center/flammables_notification"(platform: "/mobile"){
             latest_news_id= "flammables_notification-186785675-76283123"
             latest_news_type= "flammables_notification"
+        }
+        "/notification_center/growth_tooling_mgm_kyc_booster"(platform: "/mobile"){
+            latest_news_id= "growth_tooling_mgm_kyc_booster-186785675-76283123"
+            latest_news_type= "growth_tooling_mgm_kyc_booster"
+        }
+        "/notification_center/growth_tooling_mgm_kyc_guest"(platform: "/mobile"){
+            latest_news_id= "growth_tooling_mgm_kyc_guest-186785675-76283123"
+            latest_news_type= "growth_tooling_mgm_kyc_guest"
         }
         "/notification_center/kyc_user_notification_mp_web"(platform: "/mobile"){
             latest_news_id= "kyc_user_notification_mp_web-186785675-76283123"
@@ -9325,6 +9413,30 @@ trackTests {
             news_id= "123"
             event_type= "open"
         }
+        "/notification/data_privacy_about_to_expire"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/data_privacy_extend_expiration"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/data_privacy_ready"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/driver_logistics_changed_address"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/driver_logistics_retry_collect"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/driver_logistics_retry_delivery"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
 
         "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/mobile") {
             news_id = "123"
@@ -9332,6 +9444,10 @@ trackTests {
         }
 
         "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/fraud_poc_trust_vote_second_score"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }
@@ -9359,6 +9475,19 @@ trackTests {
         "/notification/fraud_remedies_trust_vote_ml"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
+        }
+        "/notification/flows_default"(platform: "/mobile"){
+            initiative_code= "123"
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/growth_tooling_mgm_kyc_booster"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+        "/notification/growth_tooling_mgm_kyc_guest"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
         }
 
         "/notification/health_check"(platform: "/mobile/android") {
