@@ -745,7 +745,7 @@ trackTests {
             fixed_term()
         }
         "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
-            express_money()
+            sales_percentage_on_time()
         }
 
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
