@@ -98,6 +98,8 @@ tracks {
     "/money_out/tecban/error/exit"(platform: "/", type: TrackType.Event) {
         error (required:true, description: "Status returned by wrapper")
     }
+    
+    "/money_out/tecban/risk_cap"(platform: "/", type: TrackType.View) {}
 
     //Transfer Hub 
     "/money_out/transfers"(platform: "/", isAbstract: true) {}
@@ -162,6 +164,9 @@ tracks {
     "/money_out/transfers/review_and_confirm/edit_amount_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/edit_account_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/confirm_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/know_more_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/know_more_tooltip_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/edit_reason_clicked"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Congrats
     "/money_out/transfers/result"(platform: "/", isAbstract:true) {}
