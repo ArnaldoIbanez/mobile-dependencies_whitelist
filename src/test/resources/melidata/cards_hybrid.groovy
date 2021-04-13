@@ -447,6 +447,33 @@ trackTests {
         "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
+    //FTU Carousel Onboarding: Tracking
+    test("cards hybrid dashboard ftu carousel onboarding") {
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid dashboard ftu carousel onboarding tap") {
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+    test("cards hybrid dashboard ftu carousel onboarding swiped") {
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_virtual_slide"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_physical_slide"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_credit_slide"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_nfc_slide"
+        }
+    }
+
     // Generic Webview
     // ------
 

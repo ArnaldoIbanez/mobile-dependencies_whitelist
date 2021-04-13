@@ -502,6 +502,25 @@ tracks {
     "/cards/hybrid/dashboard/map_info"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     
+    //FTU Carousel Onboarding: Tracking
+    "/cards/hybrid/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/dashboard/ftu_carousel_onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "action tap by the user in the ftu single onboarding view"
+        )
+    }
+    "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["swipe_virtual_slide", "swipe_physical_slide", "swipe_credit_slide", "swipe_nfc_slide"],
+            description: "ftu carousel onboarding item swiped"
+          )
+    }
+
     // SETUP VIRTUAL
     // --------
 
