@@ -398,6 +398,10 @@ trackTests {
             latest_news_type= "cx-cx_question"
             latest_news_id= "cx_question-143816022-MLB1013046714"
         }
+        "/notification_center/da_kyc_manual_review"(platform: "/mobile"){
+            latest_news_type= "da_kyc_manual_review"
+            latest_news_id= "da_kyc_manual_review-143816022-MLB1013046714"
+        }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
             newsgroup_id= "fraud-identity_validation-142593788"
             event_type= "open"
@@ -3890,6 +3894,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/da_kyc_manual_review"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
+        }
+
         "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -5672,6 +5681,10 @@ trackTests {
             case_id= 12345678
             latest_news_type= "cx-cx_question"
             latest_news_id= "cx_question-143816022-MLB1013046714"
+        }
+        "/notification_center/da_kyc_manual_review"(platform: "/mobile"){
+            latest_news_type= "da_kyc_manual_review"
+            latest_news_id= "da_kyc_manual_review-143816022-MLB1013046714"
         }
         "/notification_center/fraud-identity_validation"(platform: "/mobile"){
             newsgroup_id= "fraud-identity_validation-142593788"
@@ -9306,6 +9319,11 @@ trackTests {
         "/notification/fraud_identity_validation"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
+        }
+
+        "/notification/da_kyc_manual_review"(platform: "/mobile"){
+            news_id= "123"
+            event_type= "open"
         }
 
         "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/mobile") {
