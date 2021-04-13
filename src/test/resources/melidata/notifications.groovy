@@ -633,9 +633,13 @@ trackTests {
             latest_news_type= "point_pos_closed"
             latest_news_id= "point_pos_closed-1000000016305386"
         }
+        "/notification_center/point_pix"(platform: "/mobile") {
+            latest_news_type= "point_pix"
+            latest_news_id= "point_pix-1000000016305386"
+        }
         "/notification_center/point_pos_close_soon"(platform: "/mobile") {
-            latest_news_type= "point_pos_closed_soon"
-            latest_news_id= "point_pos_closed_soon-1000000016305386"
+            latest_news_type= "point_pix"
+            latest_news_id= "point_pix-1000000016305386"
         }
         "/notification_center/partners_pin_ml"(platform: "/mobile") {
             latest_news_type= "partners_pin_ml"
@@ -1827,9 +1831,18 @@ trackTests {
             latest_news_type= "shipping_moderation_cross_docking_downgrade"
             latest_news_id= "shipping_moderation_cross_docking_downgrade-143816022-MLB1013046714"
         }
+        "/notification_center/buyer_absent_driver_action"(platform: "/mobile"){
+            latest_news_type= "buyer_absent_driver_action"
+            latest_news_id= "buyer_absent_driver_action-143816022-MLB1013046714"
+            shipment_id = 123
+        }
         "/notification_center/transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
             latest_news_type= "transaction_rejected_international_authorization_by_invalid_amount"
             latest_news_id= "transaction_rejected_international_authorization_by_invalid_amount-143816022-MLB1013046714"
+        }
+        "/notification_center/transaction_invalid_amount_option_credit"(platform: "/mobile"){
+            latest_news_type= "transaction_invalid_amount_option_credit"
+            latest_news_id= "transaction_invalid_amount_option_credit-143816022-MLB1013046714"
         }
 
         "/notification/seller_journey_congrats"(platform: "/mobile"){
@@ -3058,6 +3071,12 @@ trackTests {
             event_type = "open"
             shipment_id = 1234
         }
+        "/notification/shipping_handling_agency_unavailable"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
 
         "/notification/shipping_agency_withdrawal"(platform: "/mobile") {
             news_id = "12332323"
@@ -3243,6 +3262,12 @@ trackTests {
             shipment_id = 1234
         }
         "/notification/shipping_delivered_cart_express_return"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
@@ -3978,6 +4003,12 @@ trackTests {
 
         "/notification/returns_label_unavailable"(platform: "/mobile") {
             news_id = "returns_label_unavailable-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_refund_bank_transfer"(platform: "/mobile") {
+            news_id = "returns_refund_bank_transfer-1703067817-269729837"
             event_type = "sent"
             order_id = 1703067817
         }
@@ -5011,6 +5042,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_invalid_amount_option_credit"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_invalid_amount_option_credit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -5231,6 +5268,11 @@ trackTests {
         }
         "/notification/point_pos_close_soon"(platform: "/mobile") {
             news_id = "point_pos_close_soon-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/point_pix"(platform: "/mobile") {
+            news_id = "point_pix-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -6147,6 +6189,10 @@ trackTests {
         "/notification_center/point_pos_close_soon"(platform: "/mobile") {
             latest_news_type= "point_pos_close_soon"
             latest_news_id= "point_pos_close_soon-1000000016305386"
+        }
+        "/notification_center/point_pix"(platform: "/mobile") {
+            latest_news_type= "point_pix"
+            latest_news_id= "point_pix-1000000016305386"
         }
         "/notification_center/point_voucher_sodexo"(platform: "/mobile") {
             latest_news_type= "point_voucher_sodexo"
@@ -7205,6 +7251,10 @@ trackTests {
             latest_news_type= "transaction_rejected_international_authorization_by_invalid_amount"
             latest_news_id= "transaction_rejected_international_authorization_by_invalid_amount-143816022-MLB1013046714"
         }
+        "/notification_center/transaction_invalid_amount_option_credit"(platform: "/mobile"){
+            latest_news_type= "transaction_invalid_amount_option_credit"
+            latest_news_id= "transaction_invalid_amount_option_credit-143816022-MLB1013046714"
+        }
 
         "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile"){
             newsgroup_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
@@ -7230,6 +7280,11 @@ trackTests {
         "/notification_center/shipping_moderation_cross_docking_downgrade"(platform: "/mobile"){
             latest_news_type= "shipping_moderation_cross_docking_downgrade"
             latest_news_id= "shipping_moderation_cross_docking_downgrade-143816022-MLB1013046714"
+        }
+        "/notification_center/buyer_absent_driver_action"(platform: "/mobile"){
+            latest_news_type= "buyer_absent_driver_action"
+            latest_news_id= "buyer_absent_driver_action-143816022-MLB1013046714"
+            shipment_id = 123
         }
 
         "/notification_center/transaction_approved_authorization"(platform: "/mobile"){
@@ -8653,6 +8708,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/point_pix"(platform: "/mobile") {
+            news_id = "point_pix-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/point_improvement"(platform: "/mobile") {
             news_id = "point_improvement-186785675"
             event_type = "open"
@@ -8957,6 +9017,18 @@ trackTests {
             shipment_id = 1234
         }
         "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_handling_agency_unavailable"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
@@ -9647,6 +9719,12 @@ trackTests {
 
         "/notification/returns_label_unavailable"(platform: "/mobile") {
             news_id = "returns_label_unavailable-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_refund_bank_transfer"(platform: "/mobile") {
+            news_id = "returns_refund_bank_transfer-1703067817-269729837"
             event_type = "sent"
             order_id = 1703067817
         }
@@ -10551,6 +10629,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_invalid_amount_option_credit"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_invalid_amount_option_credit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
@@ -10595,6 +10679,12 @@ trackTests {
         "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_canceled_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_invalid_amount_option_credit"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_invalid_amount_option_credit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
             notification_type= "deep_linking"
         }
 
@@ -10912,6 +11002,18 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
             shipment_id = 123
+        }
+        "/notification/shipping_handling_agency_unavailable"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+        }
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
         }
         "/notification/shipping_scoring_keyword_created"(platform: "/mobile"){
             news_id = "12332323"

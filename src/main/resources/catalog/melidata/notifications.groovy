@@ -962,6 +962,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/point_pix"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/pix_transfer_mo_rejected"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1210,6 +1214,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/transaction_invalid_amount_option_credit"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 
     "/notification_center/withdraw_approved_contingency"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1373,6 +1381,11 @@ tracks {
     "/notification_center/shipping_moderation_cross_docking_downgrade"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/buyer_absent_driver_action"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
 
     "/notification_center/institutional_generic"(platform: "/", type: TrackType.Event) {
@@ -1754,6 +1767,12 @@ tracks {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
     "/notification/shipping_buyer_absent_driver_action"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_handling_agency_unavailable"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_wrong_address_driver_action"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
     "/notification/shipping_agency_receiver_for_failed_delivery"(platform: "/") {
@@ -2341,6 +2360,9 @@ tracks {
       "/notification/returns_label_unavailable"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
+    "/notification/returns_refund_bank_transfer"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
 
     //Security
     "/notification/security_enrollment"(platform: "/") {}
@@ -2733,6 +2755,7 @@ tracks {
     "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_for_not_transaction"(platform: "/mobile") {}
     "/notification/prepaid_card_reprogrammed"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_invalid_amount_option_credit"(platform: "/mobile") {}
 
     //Protected Purchase
     "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {}
@@ -2764,6 +2787,7 @@ tracks {
     "/notification/point_pos_close_soon"(platform: "/mobile") {}
     "/notification/point_improvement"(platform: "/mobile") {}
     "/notification/point_voucher_sodexo"(platform: "/mobile") {}
+    "/notification/point_pix"(platform: "/mobile") {}
 
     //Partners
     "/notification/partners_pin_ml"(platform: "/mobile") {
