@@ -52,6 +52,9 @@ tracks {
         product_id(required: false, type: PropertyType.String, description: "the product id used to pay")
     }
 
+    //Invoice opt_out
+    "/bill_payments/invoices/empty_state"(platform: "/mobile", type: TrackType.View) {}
+
     // Invoice delete
     "/bill_payments/invoices/delete"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/invoices/delete/dialog"(platform: "/mobile", type: TrackType.Event) {}
@@ -71,6 +74,12 @@ tracks {
     "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Invoices suscription
+    "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+        entity (required: true, type: PropertyType.String, description: "The chosen item entity")
+    }
 
     // Input amount
     "/bill_payments/input_amount"(platform: "/mobile", type: TrackType.View) {}
@@ -101,6 +110,8 @@ tracks {
     "/bill_payments/info_screen/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/money_in"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/info_screen/continue_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/info_screen/confirm_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {}
 
     // Dialog
     "/bill_payments/dialog"(platform: "/mobile", type: TrackType.View) {

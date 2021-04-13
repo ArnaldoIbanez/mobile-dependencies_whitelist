@@ -2599,6 +2599,11 @@ trackTests {
             product_id = "10"
         }
 
+        //Invoice opt_out
+        "/bill_payments/invoices/empty_state"(platform: "/mobile") {
+            mandatory()
+        }
+
         // Invoice delete
         "/bill_payments/invoices/delete"(platform: "/mobile") {
             mandatory()
@@ -2654,6 +2659,16 @@ trackTests {
 
         "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+        }
+
+        "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Invoices susucription
+        "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            entity = "HBO"
         }
 
         // Product picker
@@ -2725,6 +2740,14 @@ trackTests {
         }
 
         "/bill_payments/info_screen/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/continue_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/confirm_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
