@@ -158,15 +158,20 @@ tracks {
     "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.Event) {
         data    (required:false, type: PropertyType.Map(structDataMakeWithdraw), description: "Contains information of windows show to user e.g title, disable or not button")
-        _label  (required:false, type: PropertyType.String, description: "Operation congrats")
-    }
-    "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {
-        data    (required:false, type: PropertyType.Map(structDataAddAccount), description: "Contains information of new account e.g holder name, bank name")
-        _label   (required:false, type: PropertyType.String, description: "Operation add")
+        label  (required:false, type: PropertyType.String, description: "Operation congrats")
     }
     "/withdraw/add_account"(platform: "/mobile", type: TrackType.Event) {
         data    (required:false, type: PropertyType.Map(structDataAddAccount), description: "Contains information of new account e.g holder name, bank name")
-        _label   (required:false, type: PropertyType.String, description: "Operation add")
+        label   (required:false, type: PropertyType.String, description: "Operation add")
+    }
+    "/withdraw/add_advance"(platform: "/mobile", type: TrackType.Event) {
+        label   (required:false, type: PropertyType.String, description: "Operation add advance")
+    }
+    "/withdraw/add_bank_account"(platform: "/mobile", type: TrackType.Event) {
+        label   (required:false, type: PropertyType.String, description: "Operation add bank account")
+    }
+    "/withdraw/edit_input"(platform: "/mobile", type: TrackType.Event) {
+        label   (required:false, type: PropertyType.String, description: "Operation edit input")
     }
     "/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/error"(platform: "/mobile", isAbstract: true) {}

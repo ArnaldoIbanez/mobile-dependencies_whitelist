@@ -3349,7 +3349,7 @@ trackTests {
         "/withdraw/make_withdraw"(platform: "/mobile") { 
             flow = "/withdraw"
             from = "/deep_link"
-            _label = "CONGRATS"}
+            label = "CONGRATS"}
         "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
         "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
@@ -3375,7 +3375,11 @@ trackTests {
         "/withdraw/delay"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}            
          "/withdraw/error"(platform: "/mobile") { flow = "/withdraw"
-            from = "/deep_link"}          
+            from = "/deep_link"}    
+        "/withdraw/edit_input"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/add_bank_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}            
     }
 
     test("Withdraw_advance") {
@@ -3393,6 +3397,9 @@ trackTests {
             result_status = "rejected"
             status_detail = "internal_server_error"
         }
+        "/withdraw/add_advance"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"
+        } 
     }
 
     test("Withdraw_delete_account") {
