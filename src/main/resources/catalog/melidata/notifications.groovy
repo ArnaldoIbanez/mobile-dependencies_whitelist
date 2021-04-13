@@ -1359,6 +1359,12 @@ tracks {
       "/notification/account_balance_approved_ml"(platform: "/") {}
       "/notification/account_balance_create_ted_account"(platform: "/") {}
 
+    "/notification/credit_card_collection_due_in_10"(platform: "/") {}
+    "/notification/credit_card_collection_expired_01"(platform: "/") {}
+    "/notification/credit_card_transaction_acquisition"(platform: "/") {}
+    "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
+    "/notification/credit_card_transaction_statement_payment"(platform: "/") {}
+
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -1399,6 +1405,27 @@ tracks {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
+    "/notification/credits_consumer_about_to_expire_first_notice"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_consumer_congrats_personal_loans"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_consumer_expired_last_notice"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_consumer_expired_n_loans_last_notice"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_consumer_on_due_day_notice"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+
     "/notification/credits_consumer_congrats_microlines"(platform: "/") {}
 
       "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
@@ -1408,10 +1435,6 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
-
-      "/notification/credits_merchants_educational"(platform: "/") {
-          loan_id(required: true, type: PropertyType.Numeric)
-      }
 
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
@@ -2321,6 +2344,9 @@ tracks {
     "/notification/mp_seller_discount_center_must"(platform: "/mobile") {}
 
     //Credits Merchants
+    "/notification/credits_merchants_educational"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric)
+    }
     "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
@@ -2382,6 +2408,15 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric)
     }
     "/notification/credits_merchants_em_congrats"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_em_collected"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_spl_congrats"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_std_finished_loan_payment"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric)
     }
 

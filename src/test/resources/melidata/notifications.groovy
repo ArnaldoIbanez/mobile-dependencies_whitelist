@@ -1817,6 +1817,27 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_choff_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
+            news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
             event_type = "shown"
@@ -2200,6 +2221,37 @@ trackTests {
             loan_id= 12345433
         }
 
+        "/notification/credits_consumer_about_to_expire_first_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_about_to_expire_first_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_congrats_personal_loans"(platform: "/mobile") {
+            news_id = "credits_consumer_congrats_personal_loans-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_n_loans_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_n_loans_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_on_due_day_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_on_due_day_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
         "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
             event_type = "shown"
@@ -2280,6 +2332,37 @@ trackTests {
 
         "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
             news_id = "credits_consumer_expired_fortyfive_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
+        "/notification/credits_consumer_about_to_expire_first_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_about_to_expire_first_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_congrats_personal_loans"(platform: "/mobile") {
+            news_id = "credits_consumer_congrats_personal_loans-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_n_loans_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_n_loans_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_on_due_day_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_on_due_day_notice-21680059-20180516"
             event_type = "shown"
             installment_id= 9876
             loan_id= 12345433
@@ -3918,6 +4001,27 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_choff_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
+            news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
             event_type = "shown"
@@ -4285,6 +4389,21 @@ trackTests {
         }
         "/notification/credits_merchants_em_congrats"(platform: "/mobile") {
             news_id = "credits_merchants_em_congrats-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_collected"(platform: "/mobile") {
+            news_id = "credits_merchants_em_collected-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_spl_congrats"(platform: "/mobile") {
+            news_id = "credits_merchants_spl_congrats-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_finished_loan_payment"(platform: "/mobile") {
+            news_id = "credits_merchants_std_finished_loan_payment-9876"
             event_type = "shown"
             installment_id = 123
         }
@@ -6997,6 +7116,27 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_choff_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
+            news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
             event_type = "shown"
@@ -7345,6 +7485,37 @@ trackTests {
             loan_id= 12345433
         }
 
+        "/notification/credits_consumer_about_to_expire_first_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_about_to_expire_first_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_congrats_personal_loans"(platform: "/mobile") {
+            news_id = "credits_consumer_congrats_personal_loans-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_n_loans_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_n_loans_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_on_due_day_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_on_due_day_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
         "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
             event_type = "shown"
@@ -7425,6 +7596,37 @@ trackTests {
 
         "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
             news_id = "credits_consumer_expired_fortyfive_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
+        "/notification/credits_consumer_about_to_expire_first_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_about_to_expire_first_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_congrats_personal_loans"(platform: "/mobile") {
+            news_id = "credits_consumer_congrats_personal_loans-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_expired_n_loans_last_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_n_loans_last_notice-21680059-20180516"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+        "/notification/credits_consumer_on_due_day_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_on_due_day_notice-21680059-20180516"
             event_type = "shown"
             installment_id= 9876
             loan_id= 12345433
@@ -9217,6 +9419,27 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
+            news_id = "credit_card_transaction_acquisition-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_choff_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
+            news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
             event_type = "shown"
@@ -9591,9 +9814,23 @@ trackTests {
             event_type = "shown"
             installment_id = 123
         }
-
         "/notification/credits_merchants_em_congrats"(platform: "/mobile") {
             news_id = "credits_merchants_em_congrats-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_collected"(platform: "/mobile") {
+            news_id = "credits_merchants_em_collected-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_spl_congrats"(platform: "/mobile") {
+            news_id = "credits_merchants_spl_congrats-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_finished_loan_payment"(platform: "/mobile") {
+            news_id = "credits_merchants_std_finished_loan_payment-9876"
             event_type = "shown"
             installment_id = 123
         }
