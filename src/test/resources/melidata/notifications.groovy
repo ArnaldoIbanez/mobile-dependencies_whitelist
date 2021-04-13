@@ -440,6 +440,14 @@ trackTests {
             latest_news_type= "fraud_delivery_cancellation_mp"
             latest_news_id= "fraud_delivery_cancellation_mp-143816022-MLB1013046714"
         }
+        "/notification_center/kyc_handoff_user_notification_ml"(platform: "/mobile"){
+            latest_news_id= "kyc_handoff_user_notification_ml-186785675-76283123"
+            latest_news_type= "kyc_handoff_user_notification_ml"
+        }
+        "/notification_center/kyc_handoff_user_notification_mp"(platform: "/mobile"){
+            latest_news_id= "kyc_handoff_user_notification_mp-186785675-76283123"
+            latest_news_type= "kyc_handoff_user_notification_mp"
+        }
         "/notification_center/kyc_user_notification_mp_web"(platform: "/mobile"){
             latest_news_id= "kyc_user_notification_mp_web-186785675-76283123"
             latest_news_type= "kyc_user_notification_mp_web"
@@ -1047,6 +1055,24 @@ trackTests {
             status= "read"
             gift_reason_id= "MLB_14456"
         }
+        "/notification_center/merchants_growth_fdv"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_fdv-186785675-76283123"
+            latest_news_id= "merchants_growth_fdv-186785675-76283123"
+            latest_news_type= "merchants_growth_fdv"
+            status= "read"
+        }
+        "/notification_center/merchants_growth_paper_roll"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_paper_roll-186785675-76283123"
+            latest_news_id= "merchants_growth_paper_roll-186785675-76283123"
+            latest_news_type= "merchants_growth_paper_roll"
+            status= "read"
+        }
+        "/notification_center/merchants_growth_resellers_smart_launch"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_resellers_smart_launch-186785675-76283123"
+            latest_news_id= "merchants_growth_resellers_smart_launch-186785675-76283123"
+            latest_news_type= "merchants_growth_resellers_smart_launch"
+            status= "read"
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -1120,6 +1146,26 @@ trackTests {
         "/notification_center/hub_transfer_new_approved"(platform: "/mobile") {
             latest_news_id= "hub_transfer_new_approved-186785675-76283123"
             latest_news_type= "hub_transfer_new_approved"
+        }
+        "/notification_center/hub_transfer_manualreview"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_manualreview-186785675-76283123"
+            latest_news_type= "hub_transfer_manualreview"
+        }
+        "/notification_center/hub_transfer_new_rejected"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_new_rejected-186785675-76283123"
+            latest_news_type= "hub_transfer_new_rejected"
+        }
+        "/notification_center/hub_transfer_rejected"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_rejected-186785675-76283123"
+            latest_news_type= "hub_transfer_rejected"
+        }
+        "/notification_center/hub_transfer_screening_one"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_screening_one-186785675-76283123"
+            latest_news_type= "hub_transfer_screening_one"
+        }
+        "/notification_center/hub_transfer_screening_two"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_screening_two-186785675-76283123"
+            latest_news_type= "hub_transfer_screening_two"
         }
         "/notification_center/money_split_finished"(platform: "/mobile") {
             latest_news_id= "money_split_finished-186785675-76283123"
@@ -4539,6 +4585,42 @@ trackTests {
             gift_reason_id = "test"
             event_type = "open"
         }
+        "/notification/merchants_growth_fdv_failure"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_fdv_recovery"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_fdv_success"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_fdv_warning"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_paper_roll_first_request"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_paper_roll_recurrent_request"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_paper_roll_reminder"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_caps"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_newland_nfc_launch"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_prizes"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_pro2_launch"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_smart_launch"(platform: "/mobile") {
+            event_type = "open"
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -4549,7 +4631,34 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
-
+        "/notification/hub_transfer_manualreview"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_new_rejected"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_rejected"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_screening_one"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_screening_two"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_handoff_user_notification_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_handoff_user_notification_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
         "/notification/kyc_user_notification_mp"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -6355,6 +6464,24 @@ trackTests {
             status= "read"
             gift_reason_id= "MLB_14456"
         }
+        "/notification_center/merchants_growth_fdv"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_fdv-186785675-76283123"
+            latest_news_id= "merchants_growth_fdv-186785675-76283123"
+            latest_news_type= "merchants_growth_fdv"
+            status= "read"
+        }
+        "/notification_center/merchants_growth_paper_roll"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_paper_roll-186785675-76283123"
+            latest_news_id= "merchants_growth_paper_roll-186785675-76283123"
+            latest_news_type= "merchants_growth_paper_roll"
+            status= "read"
+        }
+        "/notification_center/merchants_growth_resellers_smart_launch"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_resellers_smart_launch-186785675-76283123"
+            latest_news_id= "merchants_growth_resellers_smart_launch-186785675-76283123"
+            latest_news_type= "merchants_growth_resellers_smart_launch"
+            status= "read"
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -6519,6 +6646,14 @@ trackTests {
             latest_news_id= "growth_tooling_mgm_kyc_guest-186785675-76283123"
             latest_news_type= "growth_tooling_mgm_kyc_guest"
         }
+        "/notification_center/kyc_handoff_user_notification_ml"(platform: "/mobile"){
+            latest_news_id= "kyc_handoff_user_notification_ml-186785675-76283123"
+            latest_news_type= "kyc_handoff_user_notification_ml"
+        }
+        "/notification_center/kyc_handoff_user_notification_mp"(platform: "/mobile"){
+            latest_news_id= "kyc_handoff_user_notification_mp-186785675-76283123"
+            latest_news_type= "kyc_handoff_user_notification_mp"
+        }
         "/notification_center/kyc_user_notification_mp_web"(platform: "/mobile"){
             latest_news_id= "kyc_user_notification_mp_web-186785675-76283123"
             latest_news_type= "kyc_user_notification_mp_web"
@@ -6614,6 +6749,26 @@ trackTests {
         "/notification_center/hub_transfer_new_approved"(platform: "/mobile") {
             latest_news_id= "hub_transfer_new_approved-186785675-76283123"
             latest_news_type= "hub_transfer_new_approved"
+        }
+        "/notification_center/hub_transfer_manualreview"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_manualreview-186785675-76283123"
+            latest_news_type= "hub_transfer_manualreview"
+        }
+        "/notification_center/hub_transfer_new_rejected"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_new_rejected-186785675-76283123"
+            latest_news_type= "hub_transfer_new_rejected"
+        }
+        "/notification_center/hub_transfer_rejected"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_rejected-186785675-76283123"
+            latest_news_type= "hub_transfer_rejected"
+        }
+        "/notification_center/hub_transfer_screening_one"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_screening_one-186785675-76283123"
+            latest_news_type= "hub_transfer_screening_one"
+        }
+        "/notification_center/hub_transfer_screening_two"(platform: "/mobile") {
+            latest_news_id= "hub_transfer_screening_two-186785675-76283123"
+            latest_news_type= "hub_transfer_screening_two"
         }
         "/notification_center/money_split_finished"(platform: "/mobile") {
             latest_news_id= "money_split_finished-186785675-76283123"
@@ -10042,6 +10197,42 @@ trackTests {
             gift_reason_id = "test"
             event_type = "open"
         }
+        "/notification/merchants_growth_fdv_failure"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_fdv_recovery"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_fdv_success"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_fdv_warning"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_paper_roll_first_request"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_paper_roll_recurrent_request"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_paper_roll_reminder"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_caps"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_newland_nfc_launch"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_prizes"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_pro2_launch"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_resellers_smart_launch"(platform: "/mobile") {
+            event_type = "open"
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -10052,7 +10243,34 @@ trackTests {
             news_id = "123"
             event_type = "open"
         }
-
+        "/notification/hub_transfer_manualreview"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_new_rejected"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_rejected"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_screening_one"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/hub_transfer_screening_two"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_handoff_user_notification_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/kyc_handoff_user_notification_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
         "/notification/kyc_user_notification_mp"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
