@@ -4186,7 +4186,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("Seller central block buyer Questions") {
-    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/block_buyer"(platform: "/", type: TrackType.Event) {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_id = "789456"
@@ -4199,15 +4199,15 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("Seller central open modal advice Questions") {
-    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_date_action = "2020-11-08T10:00:00"
     }
   }
 
-  test("Seller central open modal stock Questions") {
-    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+   test("Seller central open modal stock Questions") {
+    "/seller_central/questions/modal_stock"(platform: "/", type: TrackType.Event) {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_date_action = "2020-11-08T10:30:00"

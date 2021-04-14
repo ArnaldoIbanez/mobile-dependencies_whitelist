@@ -1904,10 +1904,6 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/response"(platform: "/web", type: TrackType.Event) {
-        sellerCentralActionQuestionsGroup
-    }
-
     "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
@@ -1916,17 +1912,18 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/block_buyer"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_stock"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
     }
 
-    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
     }
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central Buyer Questions
