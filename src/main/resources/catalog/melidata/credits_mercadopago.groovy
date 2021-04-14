@@ -181,7 +181,7 @@ tracks {
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
     "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
-    "/credits/merchant/open-market"(platform: "/", isAbstract: true) {
+    "/credits/merchant/open_market"(platform: "/", isAbstract: true) {
         flow(
             type: PropertyType.String,
             required: true,
@@ -192,7 +192,7 @@ tracks {
             ]
         )
     }
-    "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open_market/financial_scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Consumer Public Landings
@@ -529,11 +529,11 @@ tracks {
      *       Start: Merchants Open Market
      *******************************************/
 
-    "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/statements_upload"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/statements_upload_click"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/statements_upload/error"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -545,11 +545,11 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/no_upsell_click"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/how_to_download_click"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/open_market/congrats"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -561,9 +561,9 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -575,7 +575,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -588,7 +588,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/open_market/stop"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -601,7 +601,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open-market/loans-faqs_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/loans_faqs_click"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *       End: Merchants Open Market
