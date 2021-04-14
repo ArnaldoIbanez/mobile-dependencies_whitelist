@@ -378,4 +378,7 @@ tracks {
     "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
         key_type(required:false, description:"indicates the tye of the bottom-sheet")
     }
+
+    //Money In Error View - Enchufe
+    "/money_in/error_view"(platform: "/", type: TrackType.View) {}
 }
