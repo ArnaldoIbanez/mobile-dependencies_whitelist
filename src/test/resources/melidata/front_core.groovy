@@ -529,6 +529,10 @@ trackTests {
                     ordinal: 16,
                     content_type : 'complete'
             ]
+            complaints_book= [
+                    ordinal: 17,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -698,6 +702,7 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            credits=[]
             banking_v2=[
                     hidden : true
             ]
@@ -711,6 +716,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 16,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 17,
                     content_type : 'complete'
             ]
             metadata = [
@@ -775,6 +784,8 @@ trackTests {
             metadata_user = [
                 type: "newbie"
             ]
+            link = "mercadopago://link"
+            button_link = "mercadopago://link"
         }
     }
 
@@ -957,6 +968,7 @@ trackTests {
             section_id="subscription"
             component_id="cta"
             level=4
+            partner="multi-partner"
             metadata_user:[
                 type: "payer"
             ]
@@ -979,6 +991,14 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="repentance_button"
             component_id="repentance_button"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Complaints Book") {
+        "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="complaints_book"
+            component_id="complaints_book"
         }
     }
 
@@ -1100,6 +1120,7 @@ trackTests {
 
         "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
             favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            from = "modal"
             metadata_user:[
                 type: "payer"
             ]
@@ -1636,6 +1657,10 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            complaints_book= [
+                    ordinal: 16,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -1812,6 +1837,10 @@ trackTests {
             ]
             repentance_button= [
                     ordinal: 15,
+                    content_type : 'complete'
+            ]
+            complaints_book= [
+                    ordinal: 16,
                     content_type : 'complete'
             ]
             metadata = [
@@ -2035,11 +2064,19 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Survey") {
+    test("Mercadopago Home Tap v3 - Repentance Button") {
         "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="repentance_button"
             component_id="repentance_button"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Complaints Book") {
+        "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="complaints_book"
+            component_id="complaints_book"
         }
     }
 

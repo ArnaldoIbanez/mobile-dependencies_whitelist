@@ -98,6 +98,8 @@ tracks {
     "/money_out/tecban/error/exit"(platform: "/", type: TrackType.Event) {
         error (required:true, description: "Status returned by wrapper")
     }
+    
+    "/money_out/tecban/risk_cap"(platform: "/", type: TrackType.View) {}
 
     //Transfer Hub 
     "/money_out/transfers"(platform: "/", isAbstract: true) {}
@@ -162,6 +164,9 @@ tracks {
     "/money_out/transfers/review_and_confirm/edit_amount_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/edit_account_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/confirm_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/know_more_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/know_more_tooltip_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/edit_reason_clicked"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Congrats
     "/money_out/transfers/result"(platform: "/", isAbstract:true) {}
@@ -179,6 +184,8 @@ tracks {
     "/money_out/transfers/result/view_receipt_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/result/go_to_home_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/result/complete_bacen_information_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/result/new_transfer"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/result/share_receipt"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Receipt
     "/money_out/transfers/receipt"(platform: "/", type: TrackType.View) {
@@ -208,6 +215,11 @@ tracks {
     "/money_out/transfers/home/ted_campaign_modal/ted_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/ted_campaign_modal/withdraw_legacy_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+    //Transfer Hub - Withdraw Campaign Modal
+    "/money_out/transfers/home/withdraw_bank_campaign_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/withdraw_bank_campaign_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/withdraw_bank_campaign_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
     //Transfer Hub - Coelsa Error
     "/money_out/transfers/home/coelsa_error"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/home/coelsa_error/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
@@ -234,4 +246,61 @@ tracks {
     "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_pix"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/recents/new_scheduled_modal/continue_transfer_with_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/recents/new_scheduled_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Withdraw Pix
+    "/money_out/transfers/home/modal_withdraw"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_withdraw/continue_button_with_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_withdraw/continue_button_with_legacy"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_withdraw/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Avoid Legacy
+    "/money_out/transfers/home/modal_avoid_legacy"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_avoid_legacy/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_avoid_legacy/more_info"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_avoid_legacy/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Xselling
+    "/money_out/transfers/home/modal_xselling"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_xselling"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/recents/modal_xselling/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_xselling/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - Modal Persuasion Pix
+    "/money_out/transfers/home/modal_persuasion_pix"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/modal_persuasion_pix/continue_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_persuasion_pix/continue_ted"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/modal_persuasion_pix/dismiss"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_persuasion_pix"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/recents/modal_persuasion_pix/continue_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_persuasion_pix/continue_ted"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/recents/modal_persuasion_pix/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Pix Limits MLB
+    "/pix"(platform: "/", isAbstract: true) {}
+    "/pix/limits"(platform: "/", isAbstract: true) {}
+
+    //Pix Limits MLB - Dashboard
+    "/pix/limits/dashboard"(platform: "/", type: TrackType.View) {}
+    "/pix/limits/dashboard/faq"(platform: "/", type: TrackType.Event) {}
+    "/pix/limits/dashboard/select_new_limit"(platform: "/", type: TrackType.Event) {}
+    "/pix/limits/dashboard/go_back"(platform: "/", type: TrackType.Event) {}
+
+    //Pix Limits MLB - Limit Selection
+    "/pix/limits/selection"(platform: "/", type: TrackType.View) {}
+    "/pix/limits/selection/faq"(platform: "/", type: TrackType.Event) {}
+    "/pix/limits/selection/limit_selected"(platform: "/", type: TrackType.Event) {}
+    "/pix/limits/selection/continue"(platform: "/", type: TrackType.Event) {}
+
+    //Pix Limits MLB - Review And Confirm
+    "/pix/limits/review_and_confirm"(platform: "/", type: TrackType.View) {}
+    "/pix/limits/review_and_confirm/faq"(platform: "/", type: TrackType.Event) {}
+    "/pix/limits/review_and_confirm/edit"(platform: "/", type: TrackType.Event) {}
+    "/pix/limits/review_and_confirm/continue"(platform: "/", type: TrackType.Event) {}
+
+    //Pix Limits MLB - Congrat
+    "/pix/limits/congrat"(platform: "/", type: TrackType.View) {}
+    "/pix/limits/congrat/primary_button_click"(platform: "/", type: TrackType.Event) {}
+    "/pix/limits/congrat/secondary_button_click"(platform: "/", type: TrackType.Event) {}
 }

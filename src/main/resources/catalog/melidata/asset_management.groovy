@@ -131,6 +131,8 @@ tracks {
     "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/result_invest_money"(platform: "/", type: TrackType.View) {}
+    "/asset_management/result_reports"(platform: "/", type: TrackType.View) {}
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
@@ -225,5 +227,8 @@ tracks {
     "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_edit_amount"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", type: TrackType.Event) {}
-  
+
+    //Update App
+    "/asset_management/update_app"(platform: "mobile", type: TrackType.View) {}
+
 }

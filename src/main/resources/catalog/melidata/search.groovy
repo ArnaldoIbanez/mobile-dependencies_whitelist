@@ -94,6 +94,9 @@ tracks {
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         highlights(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        discount_volume(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -138,7 +141,7 @@ tracks {
         filters(required: true, description: "filters applied")
         displayed_filters(required: false, descrition: "Information about displayed filters that can be applied by the user", PropertyType.ArrayList(PropertyType.Map(displayed_filter_object)))
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
-        view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
+        view_mode(required: true, description: "MOSAIC, LIST or GALLERY, MAP on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY","MAP"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
         promise_items(required: false, description:  "items with shipping promise", type: PropertyType.Map(promise_item_definition))
 
@@ -338,6 +341,12 @@ tracks {
         url(required: true, description: "Url of landing associated with the logo click event")
     }
 
+    "/search/official_store"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        official_store_id(required: true, type: PropertyType.String, description: "Link's Official store id")
+    }
+
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
@@ -384,6 +393,12 @@ tracks {
     }
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/search_map"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/back_listing"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

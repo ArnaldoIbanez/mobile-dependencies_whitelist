@@ -175,11 +175,11 @@ tracks
     }
 
     "/driver/stops/next_modal"(platform: "/mobile", type: TrackType.View) {
-        suggested_stop(required: true, type: PropertyType.Numeric, description: "Specifies the suggested stop number")
+        suggested_stop(required: true, type: PropertyType.String, description: "Specifies the suggested stop number")
     }
 
     "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
-        suggested_stop(required: true, type: PropertyType.Numeric, description: "Specifies the suggested stop number")
+        suggested_stop(required: true, type: PropertyType.String, description: "Specifies the suggested stop number")
     }
 
     "/driver/stops/end_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -281,13 +281,13 @@ tracks
 
     "/driver/delivery/receiver_info"(platform: "/mobile", type: TrackType.View) {
         receiver_type(required: true, type: PropertyType.String,
-                values: ["holder", "reception", "family", "neighbour"],
+                values: ["holder", "reception", "family", "neighbour", "place"],
                 description: "Describes the relationship between receiver and buyer")
     }
 
     "/driver/delivery/delivery_ok"(platform: "/mobile", type: TrackType.View) {
         receiver_type(required: true, type: PropertyType.String,
-                values: ["holder", "reception", "family", "neighbour"],
+                values: ["holder", "reception", "family", "neighbour", "place"],
                 description: "Describes the relationship between receiver and buyer")
         doc_type(required: true, type: PropertyType.String,
                 description: "Describes the doc type filled by receiver (but not the doc number)")

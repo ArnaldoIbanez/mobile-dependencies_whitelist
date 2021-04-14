@@ -126,7 +126,7 @@ tracks {
 
     
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
-        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie"], type: PropertyType.String, description: "Challenge type")
+        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
         challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
     }
 
@@ -329,6 +329,10 @@ tracks {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
 
+    "/kyc/iv/vanilla"(platform: "/web", type: TrackType.View) {
+        vanilla_document_id(type: PropertyType.String, required: true, description: "Vanilla document id")
+    }
+
     "/kyc/iv/camera"(platform: "/web", isAbstract: true) {}
 
     "/kyc/iv/camera/open_camera"(platform: "/web", type: TrackType.Event) {
@@ -374,7 +378,6 @@ tracks {
 
     "/kyc/iv/camera/open_camera_error"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
         error(type: PropertyType.String, required: true, description: "Type of error")
         error_reason(type: PropertyType.String, required: true, description: "Reason of the error")
     }
@@ -382,6 +385,24 @@ tracks {
     "/kyc/iv/camera/exit_camera"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/cc_scan"(platform: "/web", isAbstract: true) {}
+
+    "/kyc/iv/cc_scan/landing"(platform: "/web", type: TrackType.View) {  
+    }
+
+    "/kyc/iv/cc_scan/start_camera"(platform: "/web", type: TrackType.Event) {  
+    }
+
+    "/kyc/iv/cc_scan/start_scan"(platform: "/web", type: TrackType.Event) {  
+    }
+
+    "/kyc/iv/cc_scan/scan_error"(platform: "/web", type: TrackType.Event) {  
+        error_reason(type: PropertyType.String, required: true, description: "Reason of the error")
+    }
+
+    "/kyc/iv/cc_scan/upload_image"(platform: "/web", type: TrackType.Event) {  
     }
 
     "/kyc/iv/documentation"(platform: "/web", isAbstract: true) {}

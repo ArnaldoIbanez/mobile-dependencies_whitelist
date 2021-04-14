@@ -47,6 +47,8 @@ catalog {
 
     def mercadoenvios = ["mercadoenvios"]
 
+    def mercadoads = ["mercadoads"]
+
     def extra_marketplace = [
             "tucarro",
             "tumoto",
@@ -92,6 +94,7 @@ catalog {
         include business, "addresses.groovy"
         include business, "bulk_publish.groovy"
         include business, "bulk_edit.groovy"
+        include business, "pdf_viewer.groovy"
     }
 
     mercadolibre.each { business ->
@@ -151,7 +154,7 @@ catalog {
         include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
-        include business, "myaccount_billing.groovy"
+        include business, "billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
@@ -243,11 +246,18 @@ catalog {
         include business, "pix.groovy"
         include business, "black_friday.groovy"
         include business, "business_config.groovy"
+        include business, "qr_journey.groovy"
+        include business, "fees_installments.groovy"
+        include business, "point_devices.groovy"
     }
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
         include business, "notifications_mshops.groovy"
+    }
+
+    mercadoads.each { business ->
+        include business, "advertising.groovy"
     }
 
     mercadoenvios.each { business ->
@@ -270,7 +280,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "myml.groovy"
-        include business, "myaccount_billing.groovy"
+        include business, "billing.groovy"
         include business, "download_app.groovy"
         include business, "official_stores.groovy"
         include business, "qadb.groovy"

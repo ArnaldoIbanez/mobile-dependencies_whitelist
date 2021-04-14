@@ -7,6 +7,18 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    test("Coachmark starts after loading") {
+        "/pricing_section/coachmark/start" (platform: "/", type: TrackType.Event) { }
+    }
+
+    test("User closes coachmark before seeing all steps") {
+        "/pricing_section/coachmark/dismiss" (platform: "/", type: TrackType.Event) { }
+    }
+
+    test("User closes coachmark after seeing all steps") {
+        "/pricing_section/coachmark/finish" (platform: "/", type: TrackType.Event) { }
+    }
+
     test("Costs section finish loading successful") {
         "/pricing_section/success" (platform: "/", type: TrackType.View) {}
     }
@@ -177,7 +189,15 @@ trackTests {
 
     // OptIn Ahora 12
     test("Error trying to render Ahora 12 page") {
-        "/pricing_section/a12/error" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/a12/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+        }
+    }
+    test("Error trying to render Ahora 12 page") {
+        "/pricing_section/a12/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+            message = "server not found"
+        }
     }
     test("Renders Ahora 12 page") {
         "/pricing_section/a12/success" (platform: "/", type: TrackType.View) { }
@@ -240,7 +260,15 @@ trackTests {
 
     // OptIn PSJ
     test("Error trying to render PSJ page") {
-        "/pricing_section/psj/error" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/psj/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+        }
+    }
+    test("Error trying to render PSJ page") {
+        "/pricing_section/psj/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+            message = "server not found"
+        }
     }
     test("Renders PSJ page") {
         "/pricing_section/psj/success" (platform: "/", type: TrackType.View) { }

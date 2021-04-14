@@ -242,7 +242,7 @@ trackTests {
         "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
             defaultDeliveryData()
             defaultPackInfo()
-            suggested_stop = 4
+            suggested_stop = "4"
             defaultLocation()
         }
 
