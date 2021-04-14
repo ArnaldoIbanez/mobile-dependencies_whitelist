@@ -2520,6 +2520,10 @@ trackTests {
             label = "SADM"
         }
 
+        def receiptCollectorProperties = {
+            collector_id = "123456"
+        }
+
         def receiptProperties = {
             description = "description alternative scenario"
             collector_id = "123456"
@@ -2751,6 +2755,14 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/info_screen/search_entities"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // FTU
         "/bill_payments/ftu"(platform: "/mobile") {
             mandatory()
@@ -2826,14 +2838,17 @@ trackTests {
 
         "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/show"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/retry"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/error"(platform: "/mobile", type: TrackType.Event) {
@@ -2935,6 +2950,10 @@ trackTests {
         }
 
         "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3069,6 +3088,11 @@ trackTests {
         "/bill_payments/congrats/success"(platform: "/mobile") {
             mandatory()
         }
+
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
