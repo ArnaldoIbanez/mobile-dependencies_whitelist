@@ -167,6 +167,20 @@ tracks {
         processing_data(required: true, type: PropertyType.Map(optinatorNewListingProcessingDataStructure), description: "Relevant processing data")
     }
 
+    def orderStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.Numeric, description: "The order id")
+        quantity(required: true, type: PropertyType.Numeric, description: "The selected quantity")
+    }
+
+    def packStructure = objectSchemaDefinitions {
+        orders(required: true, type: PropertyType.Map(orderStructure), description: "List of orders in the pack")
+    }
+
+    def categoryStructure = objectSchemaDefinitions {
+        category_id(required: true, type: PropertyType.String, description: "The category id")
+        domain_id(required: false, type: PropertyType.String, description: "The category domain id")
+    }
+
     // --------------------------------------------------------------------------------------------------------------
     //  LANDING PRODUCTS STRUCTURE
     // --------------------------------------------------------------------------------------------------------------
@@ -281,6 +295,14 @@ tracks {
         selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
         selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
         row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
+
+        // Split Orders
+        orders_quantity(required: false, type: PropertyType.Numeric, description: "Number of orders")
+        orders(required: false, type: PropertyType.ArrayList(PropertyType.Map(orderStructure)), description: "List of orders")
+        selected_orders(required: false, type: PropertyType.ArrayList(PropertyType.Map(orderStructure)), description: "List of selected orders")
+        packs(required: false, type: PropertyType.ArrayList(PropertyType.Map(packStructure)), description: "List of packs")
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.Map(categoryStructure)), description: "List of categories")
+        logistic_type(required: true, type: PropertyType.String, description: "Logistic type of the shipment")
     }
 
     propertyGroups {
@@ -317,11 +339,13 @@ tracks {
         // Seller Central Optinator New Listings
         sellerCentralOptinatorNewListingsGroup(flow, domain_id, item_mk_id, item_mk_status, item_mk_sub_status, item_mk_tags, processing_data, variations)
 
-        //Products Landing
-        productsLandingDataGroup(query, query_type,result_type, results, paging, selected_filters, selected_filters_quantity)
+        // Products Landing
+        productsLandingDataGroup(query, query_type, result_type, results, paging, selected_filters, selected_filters_quantity)
         productsLandingRowGroup(catalog_product_id, row_index)
-    }
 
+        // Split Orders
+        sellerCentralSplitOrdersGroup(user_type, seller_profile, reputation_level, orders_quantity, orders, selected_orders, packs, has_variations, categories, logistic_type)
+    }
 
 
     // Central of News
@@ -1988,6 +2012,29 @@ tracks {
 
     "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central - Split Orders
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/split_orders"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/split_orders/splitter"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/split_orders/splitter/prepare"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/split_orders/splitter/prepare/action"(platform: "/web", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["PREPARE", "CANCEL"])
+        sellerCentralSplitOrdersGroup
+    }
+
+    "/seller_central/split_orders/splitter/split"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/split_orders/splitter/split/action"(platform: "/web", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["SPLIT", "CANCEL"])
+        sellerCentralSplitOrdersGroup
+    }
+
+    "/seller_central/split_orders/congrats"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // PRODUCTS LANDING PATHS

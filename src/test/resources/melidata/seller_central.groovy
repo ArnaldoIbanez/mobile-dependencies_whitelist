@@ -4722,6 +4722,107 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central - Split Orders
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Split Orders - render splitter/prepare page view") {
+    "/seller_central/split_orders/splitter/prepare"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Split Orders - user clicks Continue button in splitter/prepare page view") {
+    "/seller_central/split_orders/splitter/prepare/action"(platform: "/web", type: TrackType.Event) {
+      action_id = "PREPARE"
+      user_type = "NORMAL"
+      seller_profile = "ADVANCED"
+      reputation_level = "5_green"
+      orders_quantity = 2
+      orders = [
+          [
+              id: 1234,
+              quantity: 4
+          ],
+          [
+              id: 2345,
+              quantity: 1
+          ]
+      ]
+      selected_orders = [
+          [
+              id: 1234,
+              quantity: 2
+          ],
+          [
+              id: 2345,
+              quantity: 1
+          ]
+      ]
+      has_variations = true
+      categories = [
+          [
+              category_id: "MLM27420",
+              domain_id: "MLM-CARS_AND_VANS"
+          ],
+          [
+              category_id: "MLA390784",
+              domain_id: "MLA-CELLPHONES"
+          ]
+      ]
+      logistic_type = "XD_DROP_OFF"
+    }
+  }
+
+  test("Split Orders - render splitter/split page view") {
+    "/seller_central/split_orders/splitter/split"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Split Orders - user clicks Continue button in splitter/split page view") {
+    "/seller_central/split_orders/splitter/split/action"(platform: "/web", type: TrackType.Event) {
+      action_id = "SPLIT"
+      user_type = "NORMAL"
+      seller_profile = "ADVANCED"
+      reputation_level = "5_green"
+      orders_quantity = 1
+      orders = [
+          [
+              id: 1234,
+              quantity: 4
+          ]
+      ]
+      packs = [
+          [
+              orders: [
+                  [
+                      id: 1234,
+                      quantity: 2
+                  ]
+              ]
+          ],
+          [
+              orders: [
+                  [
+                      id: 1234,
+                      quantity: 2
+                  ]
+              ]
+          ]
+      ]
+      has_variations = false
+      categories = [
+          [
+              category_id: "MLM27420",
+              domain_id: "MLM-CARS_AND_VANS"
+          ]
+      ]
+      logistic_type = "DROP_OFF"
+    }
+  }
+
+  test("Split Orders - render congrats page view") {
+    "/seller_central/split_orders/congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Products Landing
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Products Landing - Home code help") {
