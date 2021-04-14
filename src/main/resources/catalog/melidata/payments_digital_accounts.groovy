@@ -124,6 +124,7 @@ tracks {
     "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
 
     // Vouchers - Account switch
+    "/banking/vouchers/account-money"(platform: "/", isAbstract: true) {}
     "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
 
     // Vouchers - Activities
