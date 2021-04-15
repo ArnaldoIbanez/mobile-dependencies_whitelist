@@ -1804,6 +1804,18 @@ trackTests {
         }
     }
     
+    test("cards hybrid nfc core sdk not initialized error") {
+        "/cards/nfc/core/error/sdk_not_initialized"(platform:"/", type: TrackType.View) {
+            from = "EnrollmentWorker"
+        }
+    }
+    
+    test("cards hybrid nfc core sdk initialization worker error") {
+        "/cards/nfc/core/error/sdk_initialization_worker"(platform:"/", type: TrackType.View) {
+            error_message = "The error was: error_code + error message"
+        }
+    }
+    
     // NFC-INFORMATIVE-SCREEN
     test("cards hybrid nfc informative screen") {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
@@ -1844,6 +1856,35 @@ trackTests {
             error_code = "INTERNAL_COMPONENT_ERROR"
         }
         "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { }
+    }
+    
+    // NFC-SEMAPHORE
+    
+    test("cards hybrid nfc semaphore constraints status") {
+        "/cards/nfc/semaphore/constraints"(platform: "/", type: TrackType.Event) {
+            has_nfc_card_created = true
+            has_active_nfc_card = true
+            has_pin = true
+            is_nfc_payments_initialized = true
+            is_token_ready = true
+            is_nfc_card_active = true
+            is_default_tap_n_pay = true
+            is_default_card = true
+            is_nfc_activated = true
+            are_payment_keys_avaliable = true
+        }
+        "/cards/nfc/semaphore/constraints"(platform: "/", type: TrackType.Event) {
+            has_nfc_card_created = false
+            has_active_nfc_card = false
+            has_pin = false
+            is_nfc_payments_initialized = false
+            is_token_ready = false
+            is_nfc_card_active = false
+            is_default_tap_n_pay = false
+            is_default_card = false
+            is_nfc_activated = false
+            are_payment_keys_avaliable = false
+        }
     }
 
 }

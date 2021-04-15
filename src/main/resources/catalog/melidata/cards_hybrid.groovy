@@ -36,6 +36,7 @@ tracks {
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
     "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
     "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/semaphore"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -1465,7 +1466,6 @@ tracks {
         result (
             required: true,
             type: PropertyType.String,
-            values: ["error_payment"],
             description: "Tap payment error transaction"
         )
         reasons (
@@ -1743,6 +1743,22 @@ tracks {
         )
     }
     
+    "/cards/nfc/core/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
+        from (
+            required: true,
+            type: PropertyType.String,
+            description: "Context from where its sended"
+        )
+    }
+    
+    "/cards/nfc/core/error/sdk_initialization_worker"(platform: "/", type: TrackType.Event) {
+        error_message (
+            required: true,
+            type: PropertyType.String,
+            description: "Message with error code and message"
+        )
+    }
+    
     
     // NFC-INFORMATIVE-SCREEN
     // ----------------------
@@ -1804,4 +1820,51 @@ tracks {
     "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
     
     
+    // NFC-SEMAPHORE
+    // -----------
+    
+    // NfcSemaphoreStatus
+    
+    "/cards/nfc/semaphore/constraints"(platform: "/", type: TrackType.Event) {
+        has_nfc_card_created (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        has_active_nfc_card (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        has_pin (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_nfc_payments_initialized (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_token_ready (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_nfc_card_active (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_default_tap_n_pay (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_default_card (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_nfc_activated (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        are_payment_keys_avaliable (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+    }
 }
