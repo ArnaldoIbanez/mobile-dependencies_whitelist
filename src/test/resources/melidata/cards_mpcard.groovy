@@ -399,6 +399,33 @@ trackTests {
         }
     }
 
+    //FTU Carousel Onboarding: Tracking
+    test("cards mpcard dashboard ftu carousel onboarding") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard dashboard ftu carousel onboarding tap") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+    test("cards mpcard dashboard ftu carousel onboarding swiped") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_virtual_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_physical_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_credit_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_nfc_slide"
+        }
+    }
+    
     //FTU Single Onboarding: Tracking 
     test("cards mpcard dashboard ftu single onboarding") {
         "/cards/mpcard/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
