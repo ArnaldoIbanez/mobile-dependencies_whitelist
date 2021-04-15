@@ -1549,7 +1549,7 @@ tracks {
     // Inicio mobile platform onetap
     // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/checkout/onetap/"(platform: "/mobile", , isAbstract: true) {}
+    "/checkout/onetap"(platform: "/mobile", isAbstract: true) {}
 
     //Billing info
     "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
