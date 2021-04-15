@@ -1572,8 +1572,8 @@ tracks {
     "/checkout/onetap/screenlock"(platform: "/mobile", type: TrackType.View) {}
     
     //SHIPPING
-    "/checkout/onetap/shipping"(platform: "/mobile", type: TrackType.View) {}
-    "/checkout/onetap/shipping/select_option"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/shipping"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
 
     //PAYMENT
     "/checkout/onetap/payment"(platform: "/mobile", isAbstract: true) {}
