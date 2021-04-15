@@ -346,6 +346,17 @@ tracks {
             description: "Map info tapped"
           )
     }
+
+    //FTU Single Onboarding: Tracking
+    "/cards/mpcard/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "action tap by the user in the ftu single onboarding view"
+        )
+    }
     
     //FTU Carousel Onboarding: Tracking
     "/cards/mpcard/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}

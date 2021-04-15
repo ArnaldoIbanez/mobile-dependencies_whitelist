@@ -2520,6 +2520,10 @@ trackTests {
             label = "SADM"
         }
 
+        def receiptCollectorProperties = {
+            collector_id = "123456"
+        }
+
         def receiptProperties = {
             description = "description alternative scenario"
             collector_id = "123456"
@@ -2599,6 +2603,11 @@ trackTests {
             product_id = "10"
         }
 
+        //Invoice opt_out
+        "/bill_payments/invoices/empty_state"(platform: "/mobile") {
+            mandatory()
+        }
+
         // Invoice delete
         "/bill_payments/invoices/delete"(platform: "/mobile") {
             mandatory()
@@ -2654,6 +2663,16 @@ trackTests {
 
         "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+        }
+
+        "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Invoices susucription
+        "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            entity = "HBO"
         }
 
         // Product picker
@@ -2725,6 +2744,22 @@ trackTests {
         }
 
         "/bill_payments/info_screen/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/continue_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/confirm_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/search_entities"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2803,14 +2838,17 @@ trackTests {
 
         "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/show"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/retry"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/error"(platform: "/mobile", type: TrackType.Event) {
@@ -2912,6 +2950,10 @@ trackTests {
         }
 
         "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3046,6 +3088,11 @@ trackTests {
         "/bill_payments/congrats/success"(platform: "/mobile") {
             mandatory()
         }
+
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -3349,7 +3396,7 @@ trackTests {
         "/withdraw/make_withdraw"(platform: "/mobile") { 
             flow = "/withdraw"
             from = "/deep_link"
-            _label = "CONGRATS"}
+            label = "CONGRATS"}
         "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
         "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
@@ -3375,7 +3422,11 @@ trackTests {
         "/withdraw/delay"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}            
          "/withdraw/error"(platform: "/mobile") { flow = "/withdraw"
-            from = "/deep_link"}          
+            from = "/deep_link"}    
+        "/withdraw/edit_input"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/add_bank_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}            
     }
 
     test("Withdraw_advance") {
@@ -3393,6 +3444,9 @@ trackTests {
             result_status = "rejected"
             status_detail = "internal_server_error"
         }
+        "/withdraw/add_advance"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"
+        } 
     }
 
     test("Withdraw_delete_account") {

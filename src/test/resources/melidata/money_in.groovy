@@ -587,5 +587,8 @@ trackTests {
         "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
             key_type = "error"
         }
+        
+        //Money In Error View - Enchufe
+        "/money_in/error_view"(platform: "/", type: TrackType.View) {}
     }
 }

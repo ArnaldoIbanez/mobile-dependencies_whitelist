@@ -1942,6 +1942,12 @@ trackTests {
         "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
+        "/vip/location/dynamic_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
     }
 
     test("Test Official Store link"){

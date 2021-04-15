@@ -2093,7 +2093,7 @@ trackTests {
             }
 
             "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event){
-                address_id= '123123'
+                address_id= 123123
             }
             "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event){
                 product_data =[

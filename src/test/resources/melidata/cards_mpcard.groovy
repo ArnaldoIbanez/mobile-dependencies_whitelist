@@ -425,6 +425,19 @@ trackTests {
             action = "swipe_nfc_slide"
         }
     }
+    
+    //FTU Single Onboarding: Tracking 
+    test("cards mpcard dashboard ftu single onboarding") {
+        "/cards/mpcard/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard dashboard ftu single onboarding tap") {
+        "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
 
     // SETUP VIRTUAL
     // --------

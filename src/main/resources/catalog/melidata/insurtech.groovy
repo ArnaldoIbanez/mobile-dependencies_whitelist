@@ -93,7 +93,7 @@ tracks {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
    "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        address_id(required: true, type: PropertyType.String, description: "")
+        address_id(required: true, type: PropertyType.Numeric, description: "Id of the selected address")
     }
     "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event) {}
 
