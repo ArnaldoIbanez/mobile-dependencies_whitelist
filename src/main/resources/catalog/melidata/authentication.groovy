@@ -497,6 +497,11 @@ tracks {
         validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
     }
 
+    "/authenticators/email_validation/enter_code/help"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {}
+
+
     "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
         social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")
     }
