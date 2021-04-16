@@ -110,6 +110,8 @@ trackTests {
          error = "rejected" 
       }
 
+      "/money_out/tecban/risk_cap"(platform: "/", type: TrackType.View) {}
+
       "/money_out"(platform: "/", type: TrackType.Event) {}
       "/money_out/tecban/select_amount"(platform: "/", type: TrackType.View) {}
 
@@ -174,7 +176,10 @@ trackTests {
       "/money_out/transfers/review_and_confirm/edit_amount_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/review_and_confirm/edit_account_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/review_and_confirm/confirm_button_clicked"(platform: "/", type: TrackType.Event) {}
-
+      "/money_out/transfers/review_and_confirm/know_more_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/review_and_confirm/know_more_tooltip_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/review_and_confirm/edit_reason_clicked"(platform: "/", type: TrackType.Event) {}
+      
       //Transfer Hub - Congrats
       "/money_out/transfers/result"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/result/success_online"(platform: "/", type: TrackType.View) {
@@ -325,5 +330,8 @@ trackTests {
       "/pix/limits/congrat"(platform: "/", type: TrackType.View) {}
       "/pix/limits/congrat/primary_button_click"(platform: "/", type: TrackType.Event) {}
       "/pix/limits/congrat/secondary_button_click"(platform: "/", type: TrackType.Event) {}
+
+      //Money Out Error View - Enchufe
+      "/money_out/error_view"(platform: "/", type: TrackType.View) {}
     }
 }

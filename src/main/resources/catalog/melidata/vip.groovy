@@ -1500,4 +1500,13 @@ tracks {
     "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         official_store_id(required: true, type: PropertyType.Numeric, description: "Link's Official store id")
     }
+
+    "/vip/location"(platform: "/", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/location/dynamic_map"(platform: "/", type: TrackType.Event) {}
 }

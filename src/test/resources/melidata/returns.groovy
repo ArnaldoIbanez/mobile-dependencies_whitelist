@@ -141,6 +141,10 @@ trackTests {
         review_return_method = 'review_code'
       }
 
+      "/return/review/agencies"(platform: "/", type: TrackType.Event) {
+        selection = "view_agencies"
+      }
+
       // STEP 07
       "/return/congrats"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
@@ -163,6 +167,10 @@ trackTests {
 
       "/return/congrats/selection"(platform: "/", type: TrackType.Event) {
         selection = "to_myml"
+      }
+
+      "/return/congrats/agencies"(platform: "/", type: TrackType.Event) {
+        selection = "view_agencies"
       }
 
       "/return/congrats_error"(platform: "/", type: TrackType.View) {
