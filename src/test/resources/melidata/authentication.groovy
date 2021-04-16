@@ -816,6 +816,16 @@ trackTests {
                 validation_status = "success"
             }
 
+            "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "web"
+            }
+
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
                 flow = "login"
                 client_type = "web"

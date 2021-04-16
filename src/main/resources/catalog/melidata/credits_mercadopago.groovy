@@ -357,7 +357,7 @@ tracks {
         products_group
     }
     "/credits/merchant/proactive_payment/form"(platform: "/", type: TrackType.View) {
-        products_group
+        products_with_status
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
