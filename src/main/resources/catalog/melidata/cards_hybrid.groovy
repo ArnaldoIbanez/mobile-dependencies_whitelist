@@ -1376,9 +1376,9 @@ tracks {
 
     // CREATE-CARD-NFC
     //-------------------
-    "/cards/nfc/acquisition/create-nfc-card"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/acquisition/create_nfc_card"(platform: "/", type: TrackType.View) {}
     
-    "/cards/nfc/acquisition/create-nfc-card/redirect"(platform:"/", type: TrackType.Event) {
+    "/cards/nfc/acquisition/create_nfc_card/redirect"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -1388,7 +1388,7 @@ tracks {
     
     // NFC-KYC
     //-------------------
-    "/cards/nfc/acquisition/init-nfc-kyc"(platform:"/", type: TrackType.Event) {
+    "/cards/nfc/acquisition/init_nfc_kyc"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,

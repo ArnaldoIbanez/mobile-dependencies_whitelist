@@ -1424,8 +1424,8 @@ trackTests {
     }
     // CREATE-CARD-NFC
     test("cards hybrid nfc card creation") {
-        "/cards/nfc/acquisition/create-nfc-card"(platform:"/", type: TrackType.View) {}
-        "/cards/nfc/acquisition/create-nfc-card/redirect"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/acquisition/create_nfc_card"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/acquisition/create_nfc_card/redirect"(platform:"/", type: TrackType.Event) {
             action = "some deeplink"
         }
         "/cards/nfc/congrats/create_nfc_card_error"(platform: "/", type: TrackType.View) {}
@@ -1433,7 +1433,7 @@ trackTests {
     
     // NFC-KYC
     test("cards hybrid nfc kyc initialization") {
-        "/cards/nfc/acquisition/init-nfc-kyc"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/acquisition/init_nfc_kyc"(platform:"/", type: TrackType.Event) {
             action = "some deeplink"
         }
     }
