@@ -252,7 +252,6 @@ trackTests {
             vertical = "core"
             user_has_shops = "none"
             sale_channel = "both"
-            sale_channel = "both"
             defaultCatalogFlowMobile()
         }
         "/sell/list/hub"(platform: "/mobile") {
