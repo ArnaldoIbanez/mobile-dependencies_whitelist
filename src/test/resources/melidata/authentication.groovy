@@ -1302,5 +1302,28 @@ trackTests {
                 api_version = true
             }
         }
+
+        test("Values Ignite") {
+            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+                values_ignite = "{'authentication_session_site_first':'true','authentication_session_local_storage':'true'}"
+                values_list_compare = "{'La lista [MLU] contiene: MLU':'true','La lista [10] contiene: 10':'true'}"
+                site_to_compare = "MLU"
+                number_to_compare = "10"
+            }
+
+            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+                values_ignite = ""
+                values_list_compare = ""
+                site_to_compare = ""
+                number_to_compare = ""
+            }
+
+            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+                values_ignite = "{'authentication_session_site_first':'false','authentication_session_local_storage':'false'}"
+                values_list_compare = "{}"
+                site_to_compare = "MLU"
+                number_to_compare = "10"
+            }
+        }
     }
 }

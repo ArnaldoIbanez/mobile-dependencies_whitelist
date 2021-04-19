@@ -67,6 +67,13 @@ tracks {
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
     }
 
+    "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+        values_ignite(type: PropertyType.String, required: true, description: "Json with values for each Ignite key")
+        values_list_compare(type: PropertyType.String, required: true, description: "Json with values for each List key")
+        site_to_compare(type: PropertyType.String, required: true, description: "Site used to compare against list")
+        number_to_compare(type: PropertyType.String, required: true, description: "Number/ UserID used to compare against list")
+    }
+
     "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
 
     "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}
