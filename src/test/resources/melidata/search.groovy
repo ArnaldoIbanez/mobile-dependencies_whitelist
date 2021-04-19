@@ -600,12 +600,7 @@ trackTests {
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }
-        "/search/official_store"(platform: "/", defaultSearchInformation())
-        "/search/official_store/official_store_link"(platform: "/web", type: TrackType.Event) {
-            defaultSearchInformation()
-            official_store_id = "123"
-        }
-        "/search/official_store/official_store_link"(platform: "/mobile", type: TrackType.Event) {
+        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
             defaultSearchInformation()
             official_store_id = "123"
         }
