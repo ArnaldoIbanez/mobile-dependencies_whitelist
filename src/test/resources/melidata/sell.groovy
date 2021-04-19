@@ -616,8 +616,6 @@ trackTests {
             vertical = "core"
             user_has_shops = "none"
             sale_channel = "both"
-            user_has_shops = "none"
-            sale_channel = "both"
         }
         "/sell/list/warranty_time_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
