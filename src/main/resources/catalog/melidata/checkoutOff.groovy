@@ -149,6 +149,9 @@ tracks {
         congrats_status(required: true, description: "Reason for the congrats status")
     }
 
+    "/checkout_off/congrats/express_recover"(platform: "/", type: TrackType.View) {
+    }
+
     "/checkout_off/congrats/no_display"(platform: "/", type: TrackType.View) {
     }
 

@@ -48,6 +48,20 @@ trackTests {
         }
     }
 
+    test("Test Official store tracking") {
+        def dataSet = {
+            official_store_name = "test123"
+            official_store_id = 123
+        }
+
+        "/home/category/real_estate/official_store/developer/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/developer/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/developer/all_brands"(platform: "/", type: TrackType.Event) {}
+        "/home/category/real_estate/official_store/realtor/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/realtor/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/realtor/all_brands"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("Home core tracking") {
         "/home"(platform: "/mobile") {
             mp_installed = true

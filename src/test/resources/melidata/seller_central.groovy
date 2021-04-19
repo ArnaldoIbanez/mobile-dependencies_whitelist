@@ -371,9 +371,10 @@ trackTests {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
-        type: "recommendation",
+        type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER"
       ]
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -383,9 +384,10 @@ trackTests {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
-        type: "recommendation",
+        type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER"
       ]
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -396,14 +398,15 @@ trackTests {
       reputation = "4_light_green"
       cards = [
         [
-          type: "recommendation",
+          type: "RECOMMENDATION",
           key: "LIGHTNING_OFFER"
         ],
         [
-          type: "content",
+          type: "CONTENT",
           key: "PB01"
         ]
       ]
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -414,6 +417,7 @@ trackTests {
       reputation = "4_light_green"
       page = 2
       scroll_type = "next"
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -3680,6 +3684,28 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
+  test("seller central reproductization page view") {
+    "/seller_central/catalog/productization"(platform: "/web", type: TrackType.View) {
+      list_mode = "PRODUCTIZATION"
+      reputation_level = "yellow"
+      moderated = false
+      has_variations = false
+      original_catalog_product_id = "MLA15793959"
+      selected_catalog_product_id = "MLA15793958"
+      item_id = "MLA123"
+      item_type = "associated_products"
+      session_id = "123-productization-abc123"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = null
+      rejected_products = ["MLA886745340:MLA15793959"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = null
+    }
+  }
+
   test("seller central productization product finder bar confirmation") {
     "/seller_central/catalog/productization/products_finder_bar/confirm"(platform: "/web", type: TrackType.View) {
       reputation_level = "yellow"
@@ -3778,7 +3804,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("seller central productization category confirm") {
-    "/seller_central/catalog/productization/category/confirm"(platform: "/web", type: TrackType.View) {
+    "/seller_central/catalog/productization/category/confirm"(platform: "/web", type: TrackType.Event) {
       list_mode = "PRODUCTIZATION"
       reputation_level = "yellow"
       moderated = false
@@ -3805,6 +3831,39 @@ test("seller central confirm leave suggestion task - optin moderated") {
           "value_id": "123",
           "value_name": "TEST"
         ]
+      ]
+      task_id = "category"
+    }
+  }
+
+  test("seller central productization category confirm when PDP item has one relation with a marketplace item") {
+    "/seller_central/catalog/productization/category/confirm"(platform: "/web", type: TrackType.Event) {
+      list_mode = "PRODUCTIZATION"
+      reputation_level = "yellow"
+      moderated = false
+      has_variations = false
+      original_catalog_product_id = "MLA15793959"
+      selected_catalog_product_id = "MLA15793958"
+      item_id = "MLA123"
+      item_type = "associated_default"
+      session_id = "123-productization-abc123"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      variation_id = null
+      rejected_products = ["MLA886745340:MLA15793959"]
+      seller_profile = "ADVANCED"
+      invalid_product_cause = null
+      categorization_flow_successful = null
+      attribute_id = "BRAND"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
       ]
       task_id = "category"
     }
@@ -4127,7 +4186,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("Seller central block buyer Questions") {
-    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/block_buyer"(platform: "/", type: TrackType.Event) {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_id = "789456"
@@ -4140,15 +4199,15 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("Seller central open modal advice Questions") {
-    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_date_action = "2020-11-08T10:00:00"
     }
   }
 
-  test("Seller central open modal stock Questions") {
-    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+   test("Seller central open modal stock Questions") {
+    "/seller_central/questions/modal_stock"(platform: "/", type: TrackType.Event) {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_date_action = "2020-11-08T10:30:00"
@@ -4659,6 +4718,107 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("SYI ME1 Config - User exceed characters limit in comment when uploading files") {
     "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event){}
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central - Split Orders
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Split Orders - render splitter/prepare page view") {
+    "/seller_central/split_orders/splitter/prepare"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Split Orders - user clicks Continue button in splitter/prepare page view") {
+    "/seller_central/split_orders/splitter/prepare/action"(platform: "/web", type: TrackType.Event) {
+      action_id = "PREPARE"
+      user_type = "NORMAL"
+      seller_profile = "ADVANCED"
+      reputation_level = "5_green"
+      orders_quantity = 2
+      orders = [
+          [
+              id: 1234,
+              quantity: 4
+          ],
+          [
+              id: 2345,
+              quantity: 1
+          ]
+      ]
+      selected_orders = [
+          [
+              id: 1234,
+              quantity: 2
+          ],
+          [
+              id: 2345,
+              quantity: 1
+          ]
+      ]
+      has_variations = true
+      categories = [
+          [
+              category_id: "MLM27420",
+              domain_id: "MLM-CARS_AND_VANS"
+          ],
+          [
+              category_id: "MLA390784",
+              domain_id: "MLA-CELLPHONES"
+          ]
+      ]
+      logistic_type = "XD_DROP_OFF"
+    }
+  }
+
+  test("Split Orders - render splitter/split page view") {
+    "/seller_central/split_orders/splitter/split"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Split Orders - user clicks Continue button in splitter/split page view") {
+    "/seller_central/split_orders/splitter/split/action"(platform: "/web", type: TrackType.Event) {
+      action_id = "SPLIT"
+      user_type = "NORMAL"
+      seller_profile = "ADVANCED"
+      reputation_level = "5_green"
+      orders_quantity = 1
+      orders = [
+          [
+              id: 1234,
+              quantity: 4
+          ]
+      ]
+      packs = [
+          [
+              orders: [
+                  [
+                      id: 1234,
+                      quantity: 2
+                  ]
+              ]
+          ],
+          [
+              orders: [
+                  [
+                      id: 1234,
+                      quantity: 2
+                  ]
+              ]
+          ]
+      ]
+      has_variations = false
+      categories = [
+          [
+              category_id: "MLM27420",
+              domain_id: "MLM-CARS_AND_VANS"
+          ]
+      ]
+      logistic_type = "DROP_OFF"
+    }
+  }
+
+  test("Split Orders - render congrats page view") {
+    "/seller_central/split_orders/congrats"(platform: "/web", type: TrackType.View) {}
   }
 
 

@@ -478,6 +478,30 @@ trackTests {
         "/login/auth/phone_validation/sms_detection/autodetect_code_failure"(platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("Multi Step Login Web") {
+      "/login/auth/challenge"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        recaptcha = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+        has_error = false
+      }
+      "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
+        reauthentication = false
+        challenge = "pass"
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
+      "/login/auth/success"(platform: "/web", type: TrackType.View) {
+        rememberme_enabled = true
+        is_otp = false
+        is_admin_otp = false
+        source = "MSL_EXPLICIT"
+        tracking_id = "tracking_id"
+      }
+    }
+
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
             mode = "prefetch_only"
@@ -790,6 +814,16 @@ trackTests {
                 flow = "registration"
                 client_type = "mobile"
                 validation_status = "success"
+            }
+
+            "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "web"
             }
 
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
@@ -1269,6 +1303,7 @@ trackTests {
             }
         }
 
+
         test("Reauth Native") {
             //Operation Start
             "/reauth/success"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1566,6 +1601,29 @@ trackTests {
                 operation_id = "1"
                 flow_type = "payment"
                 amount = "10.0"
+            }
+        }
+      
+        test("Values Ignite") {
+            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+                values_ignite = "{'authentication_session_site_first':'true','authentication_session_local_storage':'true'}"
+                values_list_compare = "{'La lista [MLU] contiene: MLU':'true','La lista [10] contiene: 10':'true'}"
+                site_to_compare = "MLU"
+                number_to_compare = "10"
+            }
+
+            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+                values_ignite = ""
+                values_list_compare = ""
+                site_to_compare = ""
+                number_to_compare = ""
+            }
+
+            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+                values_ignite = "{'authentication_session_site_first':'false','authentication_session_local_storage':'false'}"
+                values_list_compare = "{}"
+                site_to_compare = "MLU"
+                number_to_compare = "10"
             }
         }
     }

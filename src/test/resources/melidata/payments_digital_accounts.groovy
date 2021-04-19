@@ -156,4 +156,19 @@ trackTests {
             flow = '1'
         }
     }
+
+    test("Vouchers") {
+        "/banking/vouchers"(platform: "/", type: TrackType.View) {}
+
+        "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/activities/row"(platform: "/", type: TrackType.Event) {}
+        "/banking/vouchers/activities/footer"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
+    }
 }

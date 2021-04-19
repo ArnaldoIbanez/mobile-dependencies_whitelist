@@ -604,6 +604,24 @@ tracks {
         campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
+    /**
+     * Seller Invoices - Inform Nfe
+     */
+    "/myml/invoices/inform_nfe"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+        shipments_quantity(required: true, type: PropertyType.Numeric, description: "Quantity of Shipments in view")
+    }
+    "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+    "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
     "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
     "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
         seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")

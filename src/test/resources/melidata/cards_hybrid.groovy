@@ -447,6 +447,46 @@ trackTests {
         "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
+    //FTU Carousel Onboarding: Tracking
+    test("cards hybrid dashboard ftu carousel onboarding") {
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid dashboard ftu carousel onboarding tap") {
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+    test("cards hybrid dashboard ftu carousel onboarding swiped") {
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_virtual_slide"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_physical_slide"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_credit_slide"
+        }
+        "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_nfc_slide"
+        }
+    }
+    
+    //FTU Single Onboarding: Tracking 
+    test("cards hybrid dashboard ftu single onboarding") {
+        "/cards/hybrid/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid dashboard ftu single onboarding tap") {
+        "/cards/hybrid/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/hybrid/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+
     // Generic Webview
     // ------
 
@@ -988,6 +1028,54 @@ trackTests {
             reasons = ["card_whitelist_physical_first", "reissue"]
         }
     }
+
+        // REASONS REISSUE
+    // --------
+    test("cards hybrid block card reasons") {
+        "/cards/hybrid/block_card/physical/reasons"(platform: "/", type: TrackType.View) {
+            type = "reissue_normal_reasons"
+        }
+
+        "/cards/hybrid/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+            action = "selected"
+            option_id = "not_working"
+        }
+
+         "/cards/hybrid/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+            option_id = "not_working"
+        }
+    }
+
+    // CUSTOM FEEDBACK
+    // --------
+    test("cards hybrid custom feedback") {
+        "/cards/hybrid/feedback_custom"(platform: "/", type: TrackType.View) {
+            type = "reissue_other_reasons"
+        }
+
+        "/cards/hybrid/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+            action = "confirm"
+        }
+
+        "/cards/hybrid/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+            action = "exit"
+        }
+    }
+
+    // INTERMEDIATE ONBOARDING
+    // --------
+    test("cards hybrid custom feedback") {
+        "/cards/hybrid/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
+            type = "reissue_cancel_damaged_card"
+            card_id = "123asd"
+        }
+
+        "/cards/hybrid/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "pause_card"
+        }
+    }
+
 
     // CARD IDENTIFICATION
     // --------
@@ -1743,6 +1831,18 @@ trackTests {
         }
     }
     
+    test("cards hybrid nfc core sdk not initialized error") {
+        "/cards/nfc/core/error/sdk_not_initialized"(platform:"/", type: TrackType.View) {
+            from = "EnrollmentWorker"
+        }
+    }
+    
+    test("cards hybrid nfc core sdk initialization worker error") {
+        "/cards/nfc/core/error/sdk_initialization_worker"(platform:"/", type: TrackType.View) {
+            error_message = "The error was: error_code + error message"
+        }
+    }
+    
     // NFC-INFORMATIVE-SCREEN
     test("cards hybrid nfc informative screen") {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
@@ -1767,4 +1867,51 @@ trackTests {
             result= "success"
         }
     }
+
+    test("cards hybrid nfc feature ignite status") {
+        "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
+            value = true
+        }
+        "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
+            value = false
+        }
+    }
+    
+    test("cards hybrid nfc initialization service") {
+        "/cards/nfc/core/service"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/error"(platform:"/", type: TrackType.Event) {
+            error_code = "INTERNAL_COMPONENT_ERROR"
+        }
+        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { }
+    }
+    
+    // NFC-SEMAPHORE
+    
+    test("cards hybrid nfc semaphore constraints status") {
+        "/cards/nfc/semaphore/constraints"(platform: "/", type: TrackType.Event) {
+            has_nfc_card_created = true
+            has_active_nfc_card = true
+            has_pin = true
+            is_nfc_payments_initialized = true
+            is_token_ready = true
+            is_nfc_card_active = true
+            is_default_tap_n_pay = true
+            is_default_card = true
+            is_nfc_activated = true
+            are_payment_keys_avaliable = true
+        }
+        "/cards/nfc/semaphore/constraints"(platform: "/", type: TrackType.Event) {
+            has_nfc_card_created = false
+            has_active_nfc_card = false
+            has_pin = false
+            is_nfc_payments_initialized = false
+            is_token_ready = false
+            is_nfc_card_active = false
+            is_default_tap_n_pay = false
+            is_default_card = false
+            is_nfc_activated = false
+            are_payment_keys_avaliable = false
+        }
+    }
+
 }

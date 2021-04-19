@@ -154,4 +154,49 @@ tracks {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
     }
+
+    "/places/operations/unified_scan_step"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/unified_flow_identification_step"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/helper_info_scanner_view_step"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/helper_info_manual_input_view_step"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/early_pickup_step"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/redirect_outbound_view_step"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/error_step_return"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/error_step_outbound"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/error_step_inbound"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
 }

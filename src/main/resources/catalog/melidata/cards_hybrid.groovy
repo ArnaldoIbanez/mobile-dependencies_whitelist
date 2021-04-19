@@ -36,6 +36,7 @@ tracks {
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
     "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
     "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/semaphore"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -501,7 +502,37 @@ tracks {
     //Map Info: Tracking
     "/cards/hybrid/dashboard/map_info"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
+
+    //FTU Single Onboarding: Tracking
+    "/cards/hybrid/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/dashboard/ftu_single_onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "action tap by the user in the ftu single onboarding view"
+        )
+    }
     
+    //FTU Carousel Onboarding: Tracking
+    "/cards/hybrid/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/dashboard/ftu_carousel_onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "action tap by the user in the ftu single onboarding view"
+        )
+    }
+    "/cards/hybrid/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["swipe_virtual_slide", "swipe_physical_slide", "swipe_credit_slide", "swipe_nfc_slide"],
+            description: "ftu carousel onboarding item swiped"
+          )
+    }
+
     // SETUP VIRTUAL
     // --------
 
@@ -735,6 +766,83 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
         )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If reissue was request by warning address"
+        )
+    }
+
+    
+    // REASONS REISSUE
+    // --------
+    "/cards/hybrid/block_card/physical/reasons"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of onboarding",
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["selected", "continue"],
+            description: "The action type tapped"
+        )
+        option_id (
+            required: true,
+            type: PropertyType.String,
+            description: "The selected option"
+        )
+    }
+
+    // CUSTOM FEEDBACK
+    // --------
+    "/cards/hybrid/feedback_custom"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of custom feedback",
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["confirm", "exit"],
+            description: "The action tapped"
+        )
+    }
+
+    // INTERMEDIATE ONBOARDING
+    // --------
+    "/cards/hybrid/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of onboarding",
+            inheritable: false
+        )
+        card_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Optional Card id",
+            inheritable: false
+        )
+    }
+
+    "/cards/hybrid/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"],
+            description: "The action tapped"
+        )
     }
 
     // SETUP FÍSICA
@@ -867,6 +975,11 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If reissue was request by warning address"
         )
     }
     "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
@@ -1372,7 +1485,6 @@ tracks {
         result (
             required: true,
             type: PropertyType.String,
-            values: ["error_payment"],
             description: "Tap payment error transaction"
         )
         reasons (
@@ -1650,6 +1762,22 @@ tracks {
         )
     }
     
+    "/cards/nfc/core/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
+        from (
+            required: true,
+            type: PropertyType.String,
+            description: "Context from where its sended"
+        )
+    }
+    
+    "/cards/nfc/core/error/sdk_initialization_worker"(platform: "/", type: TrackType.Event) {
+        error_message (
+            required: true,
+            type: PropertyType.String,
+            description: "Message with error code and message"
+        )
+    }
+    
     
     // NFC-INFORMATIVE-SCREEN
     // ----------------------
@@ -1681,5 +1809,81 @@ tracks {
             ]
         )
     }
+    
+    // NFC-FEATURE-IGNITE-STATUS
+    // ----------------------
+    
+    "/cards/nfc/core/ignite"(platform: "/", type: TrackType.Event) {
+        value (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Ignite status for this user"
+        )
+    }
+    
+    // NFC-INITIALIZATION-SERVICE
+    // ----------------------
+    
+    // NfcInitializationServiceInitialized
+    "/cards/nfc/core/service"(platform: "/", type: TrackType.Event) { }
 
+    "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) { 
+        error_code (
+            required: true,
+            type: PropertyType.String,
+            description: "Error code for nfc service initialization"
+        )
+    }
+
+    // NfcInitializationServiceSucess
+    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
+    
+    
+    // NFC-SEMAPHORE
+    // -----------
+    
+    // NfcSemaphoreStatus
+    
+    "/cards/nfc/semaphore/constraints"(platform: "/", type: TrackType.Event) {
+        has_nfc_card_created (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        has_active_nfc_card (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        has_pin (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_nfc_payments_initialized (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_token_ready (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_nfc_card_active (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_default_tap_n_pay (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_default_card (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        is_nfc_activated (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+        are_payment_keys_avaliable (
+            required: true,
+            type: PropertyType.Boolean,
+        )
+    }
 }

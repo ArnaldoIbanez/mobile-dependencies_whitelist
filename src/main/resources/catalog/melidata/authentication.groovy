@@ -67,6 +67,13 @@ tracks {
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
     }
 
+    "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+        values_ignite(type: PropertyType.String, required: true, description: "Json with values for each Ignite key")
+        values_list_compare(type: PropertyType.String, required: true, description: "Json with values for each List key")
+        site_to_compare(type: PropertyType.String, required: true, description: "Site used to compare against list")
+        number_to_compare(type: PropertyType.String, required: true, description: "Number/ UserID used to compare against list")
+    }
+
     "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
 
     "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}
@@ -125,6 +132,7 @@ tracks {
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
         flow(type: PropertyType.String, required: false, description: "indicates whether flow is native or generic", values: ["login_by_phone", "registration","change_user_phone", "login", "forgot_password"])
         channel(type: PropertyType.String, required: false, description: "indicates whether channel is SMS or call", values: ["sms", "call", "whatsApp"])
+        reauthentication(type: PropertyType.Boolean, required: false, description: "indicates if the flow is reauth or login")
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {
@@ -495,6 +503,11 @@ tracks {
     "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
         validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
     }
+
+    "/authenticators/email_validation/enter_code/help"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {}
+
 
     "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
         social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")

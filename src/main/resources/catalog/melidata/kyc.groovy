@@ -378,7 +378,6 @@ tracks {
 
     "/kyc/iv/camera/open_camera_error"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
         error(type: PropertyType.String, required: true, description: "Type of error")
         error_reason(type: PropertyType.String, required: true, description: "Reason of the error")
     }
@@ -386,6 +385,24 @@ tracks {
     "/kyc/iv/camera/exit_camera"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/cc_scan"(platform: "/web", isAbstract: true) {}
+
+    "/kyc/iv/cc_scan/landing"(platform: "/web", type: TrackType.View) {  
+    }
+
+    "/kyc/iv/cc_scan/start_camera"(platform: "/web", type: TrackType.Event) {  
+    }
+
+    "/kyc/iv/cc_scan/start_scan"(platform: "/web", type: TrackType.Event) {  
+    }
+
+    "/kyc/iv/cc_scan/scan_error"(platform: "/web", type: TrackType.Event) {  
+        error_reason(type: PropertyType.String, required: true, description: "Reason of the error")
+    }
+
+    "/kyc/iv/cc_scan/upload_image"(platform: "/web", type: TrackType.Event) {  
     }
 
     "/kyc/iv/documentation"(platform: "/web", isAbstract: true) {}

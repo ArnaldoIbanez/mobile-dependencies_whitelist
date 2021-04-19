@@ -138,7 +138,7 @@ tracks {
     }
 
     def sellerCoachCard = objectSchemaDefinitions {
-        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['recommendation', 'content'])
+        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['RECOMMENDATION', 'CONTENT', 'TASK'])
         key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
     }
 
@@ -165,6 +165,20 @@ tracks {
     def optinatorVariationNewListingProcessingDataStructure = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "ID of the processed variation")
         processing_data(required: true, type: PropertyType.Map(optinatorNewListingProcessingDataStructure), description: "Relevant processing data")
+    }
+
+    def orderStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.Numeric, description: "The order id")
+        quantity(required: true, type: PropertyType.Numeric, description: "The selected quantity")
+    }
+
+    def packStructure = objectSchemaDefinitions {
+        orders(required: true, type: PropertyType.Map(orderStructure), description: "List of orders in the pack")
+    }
+
+    def categoryStructure = objectSchemaDefinitions {
+        category_id(required: true, type: PropertyType.String, description: "The category id")
+        domain_id(required: false, type: PropertyType.String, description: "The category domain id")
     }
 
     // --------------------------------------------------------------------------------------------------------------
@@ -203,7 +217,7 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
-        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
+        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A marketplace item, associated_default: A marketplace item which has at least 1 variation that is associated  with a PDP item, associated_products: A PDP item associated with a marketplace item", values: ["product", "default", "associated_products", "associated_default"])
         domain_id(required: false, type: PropertyType.String, description: "Category domain id")
         moderated(required: false, type: PropertyType.Boolean, description: "Determine if the item is moderated")
 
@@ -281,6 +295,14 @@ tracks {
         selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
         selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
         row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
+
+        // Split Orders
+        orders_quantity(required: false, type: PropertyType.Numeric, description: "Number of orders")
+        orders(required: false, type: PropertyType.ArrayList(PropertyType.Map(orderStructure)), description: "List of orders")
+        selected_orders(required: false, type: PropertyType.ArrayList(PropertyType.Map(orderStructure)), description: "List of selected orders")
+        packs(required: false, type: PropertyType.ArrayList(PropertyType.Map(packStructure)), description: "List of packs")
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.Map(categoryStructure)), description: "List of categories")
+        logistic_type(required: true, type: PropertyType.String, description: "Logistic type of the shipment")
     }
 
     propertyGroups {
@@ -317,11 +339,13 @@ tracks {
         // Seller Central Optinator New Listings
         sellerCentralOptinatorNewListingsGroup(flow, domain_id, item_mk_id, item_mk_status, item_mk_sub_status, item_mk_tags, processing_data, variations)
 
-        //Products Landing
-        productsLandingDataGroup(query, query_type,result_type, results, paging, selected_filters, selected_filters_quantity)
+        // Products Landing
+        productsLandingDataGroup(query, query_type, result_type, results, paging, selected_filters, selected_filters_quantity)
         productsLandingRowGroup(catalog_product_id, row_index)
-    }
 
+        // Split Orders
+        sellerCentralSplitOrdersGroup(user_type, seller_profile, reputation_level, orders_quantity, orders, selected_orders, packs, has_variations, categories, logistic_type)
+    }
 
 
     // Central of News
@@ -393,18 +417,21 @@ tracks {
         power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
         reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
         card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
     "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
         segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
         power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
         reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
         card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
     "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
         segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
         power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
         reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
         cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Card clicked")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
     "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
         segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
@@ -412,6 +439,7 @@ tracks {
         reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
         page(required: true, type: PropertyType.Numeric, description: "Target page scrolled")
         scroll_type(required: true, type: PropertyType.String, values: ['prev', 'next'], description: "Target page scrolled")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
     }
 
 
@@ -1900,10 +1928,6 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/response"(platform: "/web", type: TrackType.Event) {
-        sellerCentralActionQuestionsGroup
-    }
-
     "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
@@ -1912,17 +1936,18 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/block_buyer"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_stock"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
     }
 
-    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
     }
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central Buyer Questions
@@ -1987,6 +2012,29 @@ tracks {
 
     "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central - Split Orders
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/split_orders"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/split_orders/splitter"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/split_orders/splitter/prepare"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/split_orders/splitter/prepare/action"(platform: "/web", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["PREPARE", "CANCEL"])
+        sellerCentralSplitOrdersGroup
+    }
+
+    "/seller_central/split_orders/splitter/split"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/split_orders/splitter/split/action"(platform: "/web", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["SPLIT", "CANCEL"])
+        sellerCentralSplitOrdersGroup
+    }
+
+    "/seller_central/split_orders/congrats"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // PRODUCTS LANDING PATHS

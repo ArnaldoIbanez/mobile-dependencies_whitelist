@@ -142,6 +142,56 @@ trackTests {
         }
     }
 
+    test("Inform NFe flow") {
+        "/myml/invoices/inform_nfe"(platform: "/") {}
+        "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime = "Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime = "Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Regime Normal"
+        }
+        "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Simples Nacional"
+        }
+    }
+
     test("Optin flow") {
         "/myml/invoices/optin"(platform: "/") {}
         "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {}
