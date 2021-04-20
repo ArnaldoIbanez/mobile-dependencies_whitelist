@@ -1948,6 +1948,12 @@ trackTests {
         "/vip/location/dynamic_map"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
+        "/vip/print_file_pdf"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
     }
 
     test("Test Official Store link"){

@@ -1509,4 +1509,7 @@ tracks {
     }
 
     "/vip/location/dynamic_map"(platform: "/", type: TrackType.Event) {}
+
+    "/vip/print_file_pdf"(platform: "/", type: TrackType.Event) {}
+
 }
