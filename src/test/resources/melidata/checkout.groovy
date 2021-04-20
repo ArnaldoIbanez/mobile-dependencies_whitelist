@@ -2821,4 +2821,26 @@ trackTests {
 
     }
 
+    test("Mobile platform onetap") {
+        "/checkout/onetap/billing" (platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/error" (platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/loading" (platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/congrats" (platform:"/mobile/android", type: TrackType.View) {
+            purchase_id = 11111
+        }
+
+        "/checkout/onetap/main" (platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/screenlock" (platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/shipping/select_option" (platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/payment/input_card" (platform:"/mobile/android", type: TrackType.View) {}
+        
+        "/checkout/onetap/payment/input_sec_code" (platform:"/mobile/android", type: TrackType.View) {}
+    }
+
 }

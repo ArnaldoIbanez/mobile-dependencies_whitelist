@@ -1544,4 +1544,44 @@ tracks {
     }
     "/checkout_recovery/error"(platform: "/", type: TrackType.View) {}
     "/checkout_recovery/notfound"(platform: "/", type: TrackType.View) {}
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Inicio mobile platform onetap
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/checkout/onetap"(platform: "/mobile", isAbstract: true) {}
+
+    //Billing info
+    "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
+
+    //Congrats tracks 
+    "/checkout/onetap/congrats"(platform: "/mobile", type: TrackType.View) {
+        purchase_id(required: false, type: PropertyType.Numeric, description: "Identifier purchase")
+    }
+
+    //ERROR
+    "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}
+
+    //LOADING
+    "/checkout/onetap/loading"(platform: "/mobile", type: TrackType.View) {}
+  
+    //MAIN
+    "/checkout/onetap/main"(platform: "/mobile", type: TrackType.View) {}
+    
+    //ScreenLock
+    "/checkout/onetap/screenlock"(platform: "/mobile", type: TrackType.View) {}
+    
+    //SHIPPING
+    "/checkout/onetap/shipping"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
+
+    //PAYMENT
+    "/checkout/onetap/payment"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/payment/input_card"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/onetap/payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Fin mobile platform onetap
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 }
