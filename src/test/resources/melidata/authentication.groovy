@@ -1305,62 +1305,62 @@ trackTests {
 
 
         test("Reauth Native") {
-            //Operation Start
-            "/reauth/success"(platform: "/mobile/android", type: TrackType.Event) {
+            //Login Module
+            "/login/transactional/success"(platform: "/mobile/android", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "grant_code"
                 tracking_id = "1"
             }
 
-            "/reauth/success"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/login/transactional/success"(platform: "/mobile/ios", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "grant_code"
                 tracking_id = "1"
             }
 
-            "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/error"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 error = "server"
             }
 
-            "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/error"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 error = "server"
             }
 
-            "/reauth/challenge"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/challenge"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/challenge"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 errors = ["un error", "dos errores"]
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 errors = ["un error", "dos errores"]
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
+            "/login/transactional/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "test1_decline"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/login/transactional/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "test1_decline"
                 tracking_id = "1"
