@@ -84,10 +84,10 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
-                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GENERAL', 'GRID',
+                values: ['AFIP', 'AFIP_FROM_SHOP_NAME', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
+                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FISCAL_DATA_FROM_SHOP_NAME', 'FOOTER', 'GENERAL', 'GRID',
                          'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE',
-                         'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
+                         'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SHOP_INFO', 'SLIDER', 'SOCIAL_NETWORKS',
                          'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA',
                          'FOOTER_MESSAGE', 'WHATSAPP']
         )
