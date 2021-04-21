@@ -790,6 +790,7 @@ tracks {
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         points_interest_available(required: true, type: PropertyType.Boolean,
                 description: "Indicates if the item has points of interest available")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
     "/vip/points_of_interest/transport"(platform: "/web", type: TrackType.Event) {}
@@ -1506,10 +1507,13 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
     "/vip/location/dynamic_map"(platform: "/", type: TrackType.Event) {}
 
-    "/vip/print_file_pdf"(platform: "/", type: TrackType.Event) {}
+    "/vip/print_file_pdf"(platform: "/", type: TrackType.Event) {
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
 }
