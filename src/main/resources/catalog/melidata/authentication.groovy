@@ -222,7 +222,6 @@ tracks {
     //Account Recovery
     "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
