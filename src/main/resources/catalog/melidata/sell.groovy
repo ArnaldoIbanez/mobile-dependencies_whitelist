@@ -135,7 +135,7 @@ tracks {
         sellGroupMobile
         listingTypeFlowMobile
         seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
-        user_has_shops(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
+        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
         sale_channel(required: false, type: PropertyType.String, description: "Item's sale channel", values: ["both", "marketplace", "mshops"])
     }
     "/sell/list"(platform: "/", isAbstract: true){
