@@ -306,5 +306,5 @@ tracks {
 
     //Money Out Error View - Enchufe
     "/money_out/error_view"(platform: "/", type: TrackType.View) {}
-
+    "/da_base_activity/error_view"(platform: "/", type: TrackType.View) {}
 }
