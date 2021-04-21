@@ -610,6 +610,9 @@ trackTests {
             manufacturer_warranty = null
             period = null
          }
+         "/insurtech/qpage_on/terms"(platform:"/web", type: TrackType.View) {
+            product_id = "RODA"
+         }
         "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
             item = [
                     id: "MLB1539246793",
