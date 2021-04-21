@@ -343,7 +343,7 @@ tracks {
 
     "/search/official_store"(platform: "/", isAbstract: true) {}
 
-    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
         official_store_id(required: true, type: PropertyType.String, description: "Link's Official store id")
     }
 
