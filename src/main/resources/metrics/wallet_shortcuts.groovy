@@ -1,7 +1,7 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
-  "wallet_shortcut.pay"(description: "Counts when a user enters a Pay Shortcut", deprecation_date:"2020/06/01") {
+  "wallet_shortcut.pay"(description: "Counts when a user enters a Pay Shortcut") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -23,7 +23,7 @@ metrics {
     }
   }
 
-  "wallet_shortcut.charge"(description: "Counts when a user enters a Charge Shortcut", deprecation_date:"2020/06/01") {
+  "wallet_shortcut.charge"(description: "Counts when a user enters a Charge Shortcut") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -44,7 +44,7 @@ metrics {
     }
   }
 
-  "wallet_shortcut.friends"(description: "Counts when a user enters a Friends Shortcut", deprecation_date:"2020/06/01") {
+  "wallet_shortcut.friends"(description: "Counts when a user enters a Friends Shortcut") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -60,7 +60,7 @@ metrics {
     }
   }
 
-  "wallet_shortcut.benefits"(description: "Counts when a user enters a Benefits Shortcut", deprecation_date:"2020/06/01") {
+  "wallet_shortcut.benefits"(description: "Counts when a user enters a Benefits Shortcut") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -75,7 +75,7 @@ metrics {
     }
   }
 
-  "wallet_shortcut.mgm"(description: "Counts when a user enters a MGM Shortcut", deprecation_date:"2020/06/01") {
+  "wallet_shortcut.mgm"(description: "Counts when a user enters a MGM Shortcut") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -88,7 +88,7 @@ metrics {
     }
   }
 
-  "wallet_shortcut.business"(description: "Counts when a user enters a Business Shortcut", deprecation_date:"2020/06/01") {
+  "wallet_shortcut.business"(description: "Counts when a user enters a Business Shortcut") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -108,7 +108,7 @@ metrics {
     }
   }
 
-  "wallet_shortcut.money"(description: "Counts when a user enters a Money Shortcut", deprecation_date:"2020/06/01") {
+  "wallet_shortcut.money"(description: "Counts when a user enters a Money Shortcut") {
     startWith {
       experiment(regex("wallet/.*"))
     }
