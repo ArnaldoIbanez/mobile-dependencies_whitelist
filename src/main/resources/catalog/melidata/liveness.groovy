@@ -25,6 +25,10 @@ tracks {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
+    "/liveness/validation"(platform: "/", type: TrackType.Event) {
+        params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
+    }
+
     "/liveness/initialization"(platform: "/", type: TrackType.Event) {
         initialization_result(type: PropertyType.Boolean, required: true, description: "Result of initialization")
         initialization_status(type: PropertyType.Numeric, required: true, description: "Status of initialization")
@@ -64,7 +68,8 @@ tracks {
         type(type: PropertyType.String, required: true, values: [
                 "close",
                 "back",
-                "start_liveness"
+                "start_liveness",
+                "redirect"
         ], description: "Type of actions")
     }
 
