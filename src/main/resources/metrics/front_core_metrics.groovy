@@ -2,166 +2,19 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-  //Banking Taps
-
-  "wallet_home.banking"(description: "Counts when an user taps any row on the banking section", deprecation_date:"2020/09/30") {
+  "wallet_home.banking_v2.components"(description: "Counts when an user taps on the components for the banking v2 section") {
     startWith {
       experiment(regex("wallet/.*"))
     }
 
     countsOn {
       condition {
-        path("/wallet_home/section/tap/banking")
-        equals("application.business", "mercadopago")
-      }
-    }
-  }
-
-  "wallet_home.banking.balance"(description: "Counts when an user taps the balance row on the banking section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking")
-        and(
-          equals("event_data.component_id", "balance"),
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "wallet_home.banking.assets"(description: "Counts when an user taps the assets row on the banking section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking")
-        and(
-          equals("event_data.component_id", "assets"),
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "wallet_home.banking.credits"(description: "Counts when an user taps the credits row on the banking section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking")
-        and(
-          equals("event_data.component_id", "credits"),
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "wallet_home.banking.cards"(description: "Counts when an user taps the cards row on the banking section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking")
-        and(
-          equals("event_data.component_id", "cards"),
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  ////BANKING V2//////////////////////////////////////////
-  "wallet_home.banking_v2"(description: "Counts when an user taps any row on the banking v2 section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        //Esta bien esta regex??
-        path(regex("/wallet_home/section/tap/banking_v2-*"))
-        and(
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "wallet_home.banking_v2.balance"(description: "Counts when an user taps the balance row on the banking v2 section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking_v2-balance")
-        and(
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "wallet_home.banking_v2.actions"(description: "Counts when an user taps the actions row on the banking v2 section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking_v2-actions")
-        and(
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
- "wallet_home.banking_v2.assets"(description: "Counts when an user taps the assets row on the banking v2 section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking_v2-assets")
-        and(
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "wallet_home.banking_v2.cards"(description: "Counts when an user taps the cards row on the banking v2 section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking_v2-cards")
-        and(
-          equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "wallet_home.banking_v2.cards"(description: "Counts when an user taps the mpcards row on the banking v2 section") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/banking_v2-mpcard")
+        path("/wallet_home/section/tap/banking_v2-balance",
+             "/wallet_home/section/tap/banking_v2-actions",
+             "/wallet_home/section/tap/banking_v2-assets",
+             "/wallet_home/section/tap/banking_v2-cards",
+             "/wallet_home/section/tap/banking_v2-mpcard"
+             )
         and(
           equals("application.business", "mercadopago")
         )
@@ -179,19 +32,6 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/discount_center")
-        equals("application.business", "mercadopago")
-      }
-    }
-  }
-
-  "wallet_home.main_actions"(description: "Counts when an user taps the Main Actions Section in the Home", deprecation_date:"2020/09/30") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        path("/wallet_home/section/tap/main_actions")
         equals("application.business", "mercadopago")
       }
     }
@@ -275,6 +115,32 @@ metrics {
           equals("event_data.component_id", "user_activities_see_more_button"),
           equals("application.business", "mercadopago")
         )
+      }
+    }
+  }
+
+  "wallet_home.banner"(description: "Counts when an user taps the banner section in the Home") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/prepaid_banner")
+        equals("application.business", "mercadopago")
+      }
+    }
+  }
+
+  "wallet_home.credits"(description: "Counts when an user taps the credits section in the Home") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/credits")
+        equals("application.business", "mercadopago")
       }
     }
   }
