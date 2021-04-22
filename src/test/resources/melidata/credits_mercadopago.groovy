@@ -708,6 +708,7 @@ trackTests {
             sales_percentage_map()
         }
 
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             fixed_term()
@@ -754,6 +755,7 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {
             sales_percentage_on_time()
+            category = 'regular'
         }
 
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
@@ -799,6 +801,26 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'internal_error'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'rejected:rejected_high_risk'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'rejected:payer_unavailable'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'bad_request'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'unauthorized'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'conflict_error'
             fixed_term()
         }
 
