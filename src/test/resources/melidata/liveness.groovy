@@ -20,6 +20,7 @@ trackTests {
 
         "/liveness/validation"(platform: "/mobile/android") {
             params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
         }
 
         "/liveness/initialization"(platform: "/mobile/android") {
@@ -143,6 +144,8 @@ trackTests {
         
         "/liveness/validation"(platform: "/web") {
             params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/initialization"(platform: "/web") {
@@ -362,6 +365,8 @@ trackTests {
         
         "/liveness/validation"(platform: "/web") {
             params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/initialization"(platform: "/web") {
