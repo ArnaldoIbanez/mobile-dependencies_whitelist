@@ -338,7 +338,6 @@ tracks {
     }
 
     //Voluntary Payment
-
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
     }
