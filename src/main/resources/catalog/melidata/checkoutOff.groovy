@@ -34,6 +34,8 @@ tracks {
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
+        app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
     }
 
     // EVENTS
@@ -43,6 +45,20 @@ tracks {
     "/checkout_off/checkout_confirmed"(platform: "/", type: TrackType.Event) {}
 
     // VIEWS
+
+    // Routing
+    "/checkout_off/routing"(platform: "/", type: TrackType.View) {
+        checkout_flow_id(required: false, description: "Unique ID of the current flow, e.g: 'b24bcffe-4b26-46c9-8646-61891dbd978b'", type: PropertyType.String)
+        product_id(required: false, description: "Unique ID of the current flow, e.g: 'BC32A4JU643001OI3920'", type: PropertyType.String)
+        productive(required: false, description: "True if productive flow", type: PropertyType.Boolean)
+        payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
+        is_split(required: false, description: "True if the flow was split", type: PropertyType.Boolean)
+        total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
+        currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
+        items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
+    }
+
+    // Login
     "/checkout_off/login"(platform: "/", type: TrackType.View) {}
     "/checkout_off/logout"(platform: "/", type: TrackType.View) {}
 

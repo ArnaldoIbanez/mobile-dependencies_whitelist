@@ -447,6 +447,10 @@ trackTests {
         "/checkout_off/loading"(platform: "/web/mobile") {
         }
 
+        // Properties not necessary
+        "/checkout_off/routing"(platform: "/web/mobile") {
+        }
+
         // MP personalFrontend
         "/tools/list"(platform: "/"){
         }
@@ -907,6 +911,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/loading"(platform: "/web/mobile") {
+        }
+
+        // Properties not necessary
+        "/checkout_off/routing"(platform: "/web/mobile") {
         }
 
         // MP personalFrontend
