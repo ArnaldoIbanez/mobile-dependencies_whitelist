@@ -610,6 +610,9 @@ trackTests {
             manufacturer_warranty = null
             period = null
          }
+         "/insurtech/qpage_on/terms"(platform:"/web", type: TrackType.View) {
+            product_id = "RODA"
+         }
         "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
             item = [
                     id: "MLB1539246793",
@@ -644,6 +647,259 @@ trackTests {
                             ],
                     ]
             ]
+        }
+    }
+
+    defaultBusiness = "mercadolibre"
+    test('Insurtech - test hub-off tacking on checkout'){
+        "/insurtech/qpage_off"(platform:"/", type: TrackType.View) {
+            item = [
+               id: "MLB1539246793",
+               domain_id: "MLB-FREEZERS",
+               price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ]
+            ]
+            has_roda = false
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/select"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/add"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/quote_success"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/quote_fail"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/help"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ]
+            has_roda = true
+            has_garex = false
+            order_id = '12345'
+         }
+        "/insurtech/qpage_off/faq"(platform:"/", type: TrackType.View) {
+            product_id = "RODA"
+            coverage = "screen"
+            manufacturer_warranty = null
+            period = null
+        }
+        "/insurtech/qpage_off/error"(platform:"/", type: TrackType.View) {
+        }
+        "/insurtech/qpage_off/fallback"(platform:"/", type: TrackType.View) {
         }
     }
 

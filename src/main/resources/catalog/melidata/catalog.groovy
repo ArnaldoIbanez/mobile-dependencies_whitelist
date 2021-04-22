@@ -249,6 +249,7 @@ catalog {
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
         include business, "point_devices.groovy"
+        include business, "proximity_marketplace.groovy"
     }
 
     mercadoshops.each { business ->

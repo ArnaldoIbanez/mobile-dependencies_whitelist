@@ -2125,8 +2125,7 @@ trackTests {
             mode_new = "automatic"
             strategy = "PROFITABILITY"
             campaign_name = "campaign name"
-            budget_suggested = 1
-            budget_selected = 1
+            budget = 1
             trtarget = 1
         }
 

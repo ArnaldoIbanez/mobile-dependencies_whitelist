@@ -1904,6 +1904,7 @@ trackTests {
             buying_mode = "classified"
             deal_ids = []
             points_interest_available = true
+            item_seller_type = "normal"
         }
 
         "/vip/points_of_interest/transport"(platform: "/web/desktop", type: TrackType.Event) {
@@ -1946,6 +1947,12 @@ trackTests {
             properties()
         }
         "/vip/location/dynamic_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
     }

@@ -67,6 +67,13 @@ tracks {
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
     }
 
+    "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
+        values_ignite(type: PropertyType.String, required: true, description: "Json with values for each Ignite key")
+        values_list_compare(type: PropertyType.String, required: true, description: "Json with values for each List key")
+        site_to_compare(type: PropertyType.String, required: true, description: "Site used to compare against list")
+        number_to_compare(type: PropertyType.String, required: true, description: "Number/ UserID used to compare against list")
+    }
+
     "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
 
     "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}
@@ -215,7 +222,6 @@ tracks {
     //Account Recovery
     "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
-        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
@@ -593,6 +599,68 @@ tracks {
         retry_url_present(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")
     }
     "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
+
+    // Native Reauth Mobile
+    "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {
+        authentication_id(type: PropertyType.String, required: true, description: "Reauthentication id Transaction")
+    }
+
+    "/reauth/success"(platform: "/mobile", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: true, description: "Reauthentication step")
+        tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
+    }
+
+    "/reauth/error"(platform: "/mobile", type: TrackType.View) {
+        error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"],
+                description: "Indicates the error type shown in error view.")
+    }
+
+    "/reauth/challenge"(platform: "/mobile", type: TrackType.View) {
+        challenge(type: PropertyType.String, required: true, description: "Reauthentication Step")
+        tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
+    }
+
+    "/reauth/challenge/error"(platform: "/mobile", type: TrackType.View) {
+        errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
+    }
+
+    "/reauth/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
+        challenge(type: PropertyType.String, required: true, description: "Reauthentication Step")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
+    }
+
+    "/reauth/operation_start"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
+        operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
+    }
+
+    "/reauth/operation_end"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
+        operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
+        result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
+        error(type: PropertyType.String, required: false)
+        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
+        reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error"], description: "Identify 201, 204 o error status by api result workflow decide")
+        screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
+    }
+
+    "/reauth/error/retry"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
+        operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
+    }
+
+    "/reauth/error/close"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
+        operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        amount(type: PropertyType.String, required: false, description: "amount of the operation")
+    }
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
