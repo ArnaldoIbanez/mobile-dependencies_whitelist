@@ -338,10 +338,7 @@ tracks {
     }
 
     //Voluntary Payment
-    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
-        products_group
-    }
-    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/proactive_payment/summary"(platform: "/", type: TrackType.View) {
         account_money(
             type: PropertyType.String,
             required: false,
@@ -351,12 +348,27 @@ tracks {
             ],
             inheritable: false
         )
+        total_amount_owed(
+           type: PropertyType.String,
+           required: false,
+           inheritable: false
+        )
+        available_balance(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        amount_to_pay(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
         products_group
     }
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
-    "/credits/merchant/proactive_payment/form"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/proactive_payment/amount_input"(platform: "/", type: TrackType.View) {
         products_with_status
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
@@ -367,8 +379,13 @@ tracks {
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
                 "rejected:rejected_by_regulations",
+                'rejected:rejected_high_risk',
+                'rejected:payer_unavailable',
                 "in_process:pending_review_manual",
                 "internal_error",
+                'conflict_error',
+                'bad_request',
+                'unauthorized',
                 'default'
             ],
             inheritable: false

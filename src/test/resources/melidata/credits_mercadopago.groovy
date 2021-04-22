@@ -708,28 +708,36 @@ trackTests {
             sales_percentage_map()
         }
 
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             fixed_term()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             express_money()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'sufficient'
             fixed_term()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'insufficient'
             fixed_term()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'sufficient'
             express_money()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'insufficient'
             express_money()
+        }
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            category = 'regular'
+            total_amount_owed = '2000'
+            available_balance = '2000'
+            amount_to_pay = '1000'
+            sales_percentage()
         }
 
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
@@ -740,11 +748,11 @@ trackTests {
             express_money()
         }
 
-        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {}
-        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {
             fixed_term()
         }
-        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
 
