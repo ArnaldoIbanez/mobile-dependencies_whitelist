@@ -291,11 +291,11 @@ tracks {
     }
 
     // Web desktop and web mobile tracks
-    "/kyc/iv/phone_landing"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/phone_landing"(platform: "/", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/kyc/iv/phone_validation"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/phone_validation"(platform: "/", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
     "/kyc/iv/continue_phone_landing"(platform: "/web", type: TrackType.View) {
@@ -327,7 +327,7 @@ tracks {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
 
-    "/kyc/iv/vanilla"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/vanilla"(platform: "/", type: TrackType.View) {
         vanilla_document_id(type: PropertyType.String, required: true, description: "Vanilla document id")
     }
 
