@@ -230,5 +230,15 @@ tracks {
 
     //Update App
     "/asset_management/update_app"(platform: "mobile", type: TrackType.View) {}
+    
+    //Kyc Onboarding
+    "/asset_management/kyc_onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/kyc_onboarding/click_button_send_to_kyc"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/kyc_onboarding/click_button_show_more"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Redirect onbaording mobile
+    "/asset_management/redirect_onboarding"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/redirect_onboarding/click_button_play_store"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/redirect_onboarding/click_button_app_store"(platform: "/web", type: TrackType.Event) {} 
 
 }
