@@ -126,7 +126,7 @@ tracks {
 
     
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
-        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
+        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla", "liveness"], type: PropertyType.String, description: "Challenge type")
         challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
     }
 
@@ -397,7 +397,7 @@ tracks {
 
     "/kyc/iv/documentation"(platform: "/web", isAbstract: true) {}
 
-    "/kyc/iv/documentation/uploader_change"(platform: "/web", type: TrackType.Event) {
+    "/kyc/iv/documentation/uploader_change"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
@@ -406,11 +406,11 @@ tracks {
         option(type: PropertyType.String, required: true, description: "Indicates if the user chose to continue from desktop or from phone")
     }
 
-    "/kyc/iv/documentation/uploader_click"(platform: "/web", type: TrackType.Event) {
+    "/kyc/iv/documentation/uploader_click"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/kyc/iv/trust_vote_recommender"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/trust_vote_recommender"(platform: "/", type: TrackType.View) {
     }
 
     "/kyc/iv/trust_vote_recommendation"(platform: "/web", type: TrackType.View) {
