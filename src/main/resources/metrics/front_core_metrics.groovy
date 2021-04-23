@@ -19,7 +19,8 @@ metrics {
              "/wallet_home/section/tap/cross_selling",
              "/wallet_home/section/tap/activities",
              "/wallet_home/section/tap/prepaid_banner",
-             "/wallet_home/section/tap/credits"
+             "/wallet_home/section/tap/credits",
+             "/wallet_home/section/tap/discount_center"
              )
       }
     }
@@ -36,8 +37,7 @@ metrics {
              "/wallet_home/section/tap/banking_v2-actions",
              "/wallet_home/section/tap/banking_v2-assets",
              "/wallet_home/section/tap/banking_v2-cards",
-             "/wallet_home/section/tap/banking_v2-mpcard",
-             "/wallet_home/section/tap/discount_center"
+             "/wallet_home/section/tap/banking_v2-mpcard"
              )
       }
     }
