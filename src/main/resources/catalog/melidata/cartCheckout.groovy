@@ -433,6 +433,13 @@ tracks {
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
+    "/cart/checkout/shipping/input_address/error_state"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the state")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the state value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
     "/cart/checkout/shipping/input_address/error_colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
@@ -443,6 +450,20 @@ tracks {
     "/cart/checkout/shipping/input_address/error_street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_intersection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the intersection")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the intersection track the intersection value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/error_street_type"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_type")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_type track the street_type value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -507,12 +528,12 @@ tracks {
         final_text(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
-    
+
     "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that are shown after opening the replace zip codes modal")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
-    
+
     "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that were shown on the replace zip codes modal")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")

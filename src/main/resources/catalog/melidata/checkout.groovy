@@ -1229,6 +1229,10 @@ tracks {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
     }
+    "/checkout/shipping/input_address/error_state"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the state")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the state track the state value")
+    }
     "/checkout/shipping/input_address/error_city"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
@@ -1237,9 +1241,17 @@ tracks {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
     }
+    "/checkout/shipping/input_address/error_intersection"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the intersection")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the intersection track the intersection value")
+    }
     "/checkout/shipping/input_address/error_street_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
+    }
+    "/checkout/shipping/input_address/error_street_type"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_type")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_type track the street_type value")
     }
     "/checkout/shipping/input_address/error_delivery"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
