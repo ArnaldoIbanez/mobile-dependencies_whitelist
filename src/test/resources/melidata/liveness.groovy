@@ -18,6 +18,11 @@ trackTests {
             params = "test=true"
         }
 
+        "/liveness/validation"(platform: "/mobile/android") {
+            params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+        }
+
         "/liveness/initialization"(platform: "/mobile/android") {
             initialization_result = true
             initialization_status = 0
@@ -71,6 +76,10 @@ trackTests {
         }
 
         "/liveness/authentication"(platform: "/mobile/ios") {
+            params = "test=true"
+        }
+
+        "/liveness/validation"(platform: "/mobile/ios") {
             params = "test=true"
         }
 
@@ -128,6 +137,12 @@ trackTests {
         }
 
         "/liveness/authentication"(platform: "/web") {
+            params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+        }
+        
+        "/liveness/validation"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
             transaction_user_id = 124123123
@@ -210,6 +225,10 @@ trackTests {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
         }
+        
+        "/liveness/validation"(platform: "/mobile/android") {
+            params = "test=true"
+        }
 
         "/liveness/initialization"(platform: "/mobile/android") {
             initialization_result = true
@@ -272,6 +291,10 @@ trackTests {
         "/liveness/authentication"(platform: "/mobile/ios") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+        }
+        
+        "/liveness/validation"(platform: "/mobile/ios") {
+            params = "test=true"
         }
 
         "/liveness/initialization"(platform: "/mobile/ios") {
@@ -339,6 +362,12 @@ trackTests {
             transaction_id = "fdsf21341fdsf13123"
             transaction_user_id = 124123123
         }
+        
+        "/liveness/validation"(platform: "/web") {
+            params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+        }
 
         "/liveness/initialization"(platform: "/web") {
             initialization_result = true
@@ -397,6 +426,12 @@ trackTests {
 
         "/liveness/action"(platform: "/web") {
             type = "start_liveness"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+        }
+
+        "/liveness/action"(platform: "/web") {
+            type = "redirect"
             transaction_id = "fdsf21341fdsf13123"
             transaction_user_id = 124123123
         }
