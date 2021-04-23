@@ -2,6 +2,29 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
+  "wallet_home.taps"(description: "Counts when an user taps any section ") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/banking_v2-balance",
+             "/wallet_home/section/tap/banking_v2-actions",
+             "/wallet_home/section/tap/banking_v2-assets",
+             "/wallet_home/section/tap/banking_v2-cards",
+             "/wallet_home/section/tap/banking_v2-mpcard",
+             "/wallet_home/section/tap/shortcuts",
+             "/wallet_home/section/tap/advertising",
+             "/wallet_home/section/tap/cross_selling",
+             "/wallet_home/section/tap/activities",
+             "/wallet_home/section/tap/prepaid_banner",
+             "/wallet_home/section/tap/credits"
+             )
+      }
+    }
+  }
+
   "wallet_home.banking_v2.components"(description: "Counts when an user taps on the components for the banking v2 section") {
     startWith {
       experiment(regex("wallet/.*"))
@@ -13,7 +36,8 @@ metrics {
              "/wallet_home/section/tap/banking_v2-actions",
              "/wallet_home/section/tap/banking_v2-assets",
              "/wallet_home/section/tap/banking_v2-cards",
-             "/wallet_home/section/tap/banking_v2-mpcard"
+             "/wallet_home/section/tap/banking_v2-mpcard",
+             "/wallet_home/section/tap/discount_center"
              )
       }
     }
