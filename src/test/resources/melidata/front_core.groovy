@@ -461,6 +461,17 @@ trackTests {
                             ]
                     ]
             ]
+            advertising= [
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
+                    ]
+            ]
             loyalty= [
                     content_type : 'partial',
                     ordinal: 8,
@@ -1595,6 +1606,17 @@ trackTests {
                             ]
                     ]
             ]
+            advertising= [
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
+                    ]
+            ]
             loyalty= [
                     content_type : 'partial',
                     ordinal: 8,
@@ -2218,6 +2240,32 @@ trackTests {
                 audience = "all"
                 component_id = "secondary_actions_payers_recharge_sube_mp"
                 section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+
+        test("Mercadopago Home Tap v3 - Advertising [${business}]") {
+            "/wallet_home/section/tap/advertising" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_item1"
+                section_id = "advertising"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/advertising" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_payers_recharge_sube_mp"
+                section_id = "advertising"
                 content_id = "recharge_sube"
                 bu = "mp"
                 bu_line = "default"
