@@ -311,11 +311,11 @@ trackTests {
             challenge_time = 24000
         }
 
-        "/kyc/iv/phone_landing"(platform: "/web") {
+        "/kyc/iv/phone_landing"(platform: "/") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
-        "/kyc/iv/phone_validation"(platform: "/web") {
+        "/kyc/iv/phone_validation"(platform: "/") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
@@ -382,7 +382,7 @@ trackTests {
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/vanilla"(platform: "/web") {
+        "/kyc/iv/vanilla"(platform: "/") {
             vanilla_document_id = "passport"
             transaction_user_id = 109479273
         }
@@ -491,7 +491,7 @@ trackTests {
             transaction_user_id = 109479273 
         }
 
-        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+        "/kyc/iv/documentation/uploader_change"(platform: "/") {
             flow = "flow_doc"
             transaction_user_id = 109479273
         }
@@ -502,7 +502,7 @@ trackTests {
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+        "/kyc/iv/documentation/uploader_click"(platform: "/") {
             flow = "flow_doc"
             transaction_user_id = 109479273
         }
@@ -512,7 +512,7 @@ trackTests {
             transaction_user_id = 109479272
             reason = "thereason"
         }
-        "/kyc/iv/trust_vote_recommender"(platform: "/web") {
+        "/kyc/iv/trust_vote_recommender"(platform: "/") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
@@ -893,7 +893,7 @@ trackTests {
             transaction_user_id = 109479273
             doc_type = "address_company"
         }
-        "/kyc/iv/trust_vote_recommender"(platform: "/web") {
+        "/kyc/iv/trust_vote_recommender"(platform: "/") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
@@ -1020,7 +1020,7 @@ trackTests {
             transaction_user_id = 109479273 
         }
 
-        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+        "/kyc/iv/documentation/uploader_change"(platform: "/") {
             flow = "flow_doc"
             transaction_user_id = 109479273
         }
@@ -1031,7 +1031,7 @@ trackTests {
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+        "/kyc/iv/documentation/uploader_click"(platform: "/") {
             flow = "flow_doc"
             transaction_user_id = 109479273
         }
