@@ -15,9 +15,6 @@ metrics {
              "/wallet_home/section/tap/banking_v2-cards",
              "/wallet_home/section/tap/banking_v2-mpcard"
              )
-        and(
-          equals("application.business", "mercadopago")
-        )
       }
     }
   }
@@ -32,7 +29,6 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/discount_center")
-        equals("application.business", "mercadopago")
       }
     }
   }
@@ -45,7 +41,6 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/shortcuts")
-        equals("application.business", "mercadopago")
       }
     }
   }
@@ -58,7 +53,6 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/advertising")
-        equals("application.business", "mercadopago")  
       }
     }
   }
@@ -71,7 +65,6 @@ metrics {
     countsOn {
       condition {
           path("/wallet_home/section/tap/cross_selling")
-          equals("application.business", "mercadopago")
       }
     }
   }
@@ -84,7 +77,6 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/activities")
-        equals("application.business", "mercadopago")
       }
     }
   }
@@ -98,7 +90,6 @@ metrics {
           path("/wallet_home/section/tap/activities")
           and(
             equals("event_data.component_id", "user_activities"),
-            equals("application.business", "mercadopago")
           )
       }
     }
@@ -113,7 +104,6 @@ metrics {
         path("/wallet_home/section/tap/activities")
         and(
           equals("event_data.component_id", "user_activities_see_more_button"),
-          equals("application.business", "mercadopago")
         )
       }
     }
@@ -127,7 +117,6 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/prepaid_banner")
-        equals("application.business", "mercadopago")
       }
     }
   }
@@ -140,7 +129,6 @@ metrics {
     countsOn {
       condition {
         path("/wallet_home/section/tap/credits")
-        equals("application.business", "mercadopago")
       }
     }
   }
