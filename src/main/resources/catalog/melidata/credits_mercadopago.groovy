@@ -342,9 +342,6 @@ tracks {
         products_group
     }
     "/credits/merchant/proactive_payment/summary"(platform: "/", type: TrackType.View) {
-        products_group
-    }
-    "/credits/merchant/proactive_payment/summary"(platform: "/", type: TrackType.View) {
         account_money(
             type: PropertyType.String,
             required: false,
