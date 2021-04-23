@@ -863,14 +863,14 @@ trackTests {
     }
 
     test("Invite and win web") {
-        "/merchant_acquisition/point/landing/mla/invite_and_win"(platform:"/", type: TrackType.View) {}
+        "/merchant_acquisition/point/landing/invite_and_win"(platform:"/", type: TrackType.View) {}
 
-        "/merchant_acquisition/point/landing/mla/invite_and_win/recommend"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/point/landing/mla/invite_and_win/sign_up"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/point/landing/mla/invite_and_win/additional_benefits"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/point/landing/mla/invite_and_win/point_details"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/point/landing/mla/invite_and_win/qr_details"(platform:"/", type: TrackType.Event) {}
-        "/merchant_acquisition/point/landing/mla/invite_and_win/kit_download"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/recommend"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/sign_up"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/additional_benefits"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/point_details"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/qr_details"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/kit_download"(platform:"/", type: TrackType.Event) {}
     }
     
 
