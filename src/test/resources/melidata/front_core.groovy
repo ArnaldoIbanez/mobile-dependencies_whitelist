@@ -461,7 +461,7 @@ trackTests {
                             ]
                     ]
             ]
-            advertising= [
+            ads_top_banner= [
                     content_type : 'partial',
                     ordinal: 7,
                     realestates: [
@@ -1606,7 +1606,7 @@ trackTests {
                             ]
                     ]
             ]
-            advertising= [
+            ads_top_banner= [
                     content_type : 'partial',
                     ordinal: 7,
                     realestates: [
@@ -2249,7 +2249,7 @@ trackTests {
         }
 
         test("Mercadopago Home Tap v3 - Advertising [${business}]") {
-            "/wallet_home/section/tap/advertising" (platform: "/mobile", type: TrackType.Event) {
+            "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
                 component_id = "advertising_item1"
                 section_id = "advertising"
@@ -2262,7 +2262,7 @@ trackTests {
                 flow = "default"
                 position = 1
             }
-            "/wallet_home/section/tap/advertising" (platform: "/mobile", type: TrackType.Event) {
+            "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
                 component_id = "advertising_payers_recharge_sube_mp"
                 section_id = "advertising"
