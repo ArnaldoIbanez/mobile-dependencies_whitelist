@@ -85,6 +85,14 @@ trackTests {
 
             "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
 
+            "/mgm_seller/referal" (platform: "/web", type: TrackType.View) {}
+
+            "/mgm_seller/referal/tap" (platform: "/web", type: TrackType.Event) {
+                media = "whatsapp"
+                device= "Point Mini"
+                link= "dashboard"
+            }
+
             /*************************
             * MGM PAYER TRACKS v3  *
             *************************/
