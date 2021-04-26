@@ -77,7 +77,7 @@ tracks {
      * MGM SELLER TRACKS *
      *************************/
 
-    "/mgm_seller" (platform: "/mobile", isAbstract: true) {}
+    "/mgm_seller" (platform: "/", isAbstract: true) {}
 
     // Views
     "/mgm_seller/referal" (platform: "/", type: TrackType.View) {}
