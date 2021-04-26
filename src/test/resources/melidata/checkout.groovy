@@ -2452,6 +2452,20 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/error_street_type"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/error_street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
@@ -2480,6 +2494,20 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/error_state"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/error_city"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
@@ -2497,6 +2525,20 @@ trackTests {
         "/checkout/shipping/input_address/error_colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_intersection"(platform:"/",  type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            value = "aaa"
             items = [
                     [
                             quantity: 1,

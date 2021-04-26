@@ -551,7 +551,7 @@ trackTests {
             payments = 65
         }
     }
-    // Instore (ISDT) - Webview -  Home Sellers History > tap
+    // Instore (ISDT) - Webview -  Home Sellers error > Pageview
     test("Home sellers - error") {
         "/discount_sellers/v2/error" (platform: "/", type: TrackType.View) {
             session_id= "qowejqboej1b11klasdsjal"
@@ -565,4 +565,60 @@ trackTests {
             link = "go_home"  
         }
     }
+
+    // Instore (ISDT) - Webview -  Home Sellers template-details > Pageview
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details" (platform: "/", type: TrackType.View) {
+            session_id= "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"  
+        }
+    }
+
+    // Instore (ISDT) - Webview -  Home Sellers template-details > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/tap" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            action = "TyC"
+        }
+    }
+
+    // Instore (ISDT) - Webview -  Home Sellers template-details > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = "672315"
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers template-details > congrats > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = 672315
+            result = "success"
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers template-details > congrats > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            result = "fail"
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers template-details > congrats > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats/tap" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = 672315
+            action = "admin"
+        }
+    }
+
+
+
+
 }

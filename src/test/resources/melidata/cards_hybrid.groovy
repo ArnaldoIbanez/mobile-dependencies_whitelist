@@ -1398,6 +1398,7 @@ trackTests {
     test("cards hybrid nfc onboarding") {
         "/cards/nfc/enrollment/hub/onboarding"(platform:"/", type: TrackType.View) {}
         "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            kyc_status = "kyc_compilance"
             action = "main"
         }
     }
@@ -1419,6 +1420,21 @@ trackTests {
         }
         "/cards/nfc/block_page/acquisition_rollout/tap"(platform:"/", type: TrackType.Event) {
             action = "close"
+        }
+    }
+    // CREATE-CARD-NFC
+    test("cards hybrid nfc card creation") {
+        "/cards/nfc/acquisition/create_nfc_card"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/acquisition/create_nfc_card/redirect"(platform:"/", type: TrackType.Event) {
+            action = "some deeplink"
+        }
+        "/cards/nfc/congrats/create_nfc_card_error"(platform: "/", type: TrackType.View) {}
+    }
+    
+    // NFC-KYC
+    test("cards hybrid nfc kyc initialization") {
+        "/cards/nfc/acquisition/init_nfc_kyc"(platform:"/", type: TrackType.Event) {
+            action = "some deeplink"
         }
     }
     
@@ -1545,6 +1561,9 @@ trackTests {
             action = "money_in"
         }
         "/cards/nfc/payment/without_money"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/without_money/tap"(platform: "/", type: TrackType.Event) {
+            action = "money_in"
+        }
         "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
             status = "success"
         }
@@ -1559,27 +1578,39 @@ trackTests {
         "/cards/nfc/congrats/generic_error"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
-            type = "insufficient_money"
         }
-        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/acquisition/congrats"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/acquisition/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "primary"
             type = "blocked_pin"
         }
-        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/acquisition/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "secondary"
             type = "connection_error"
         }
-        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/acquisition/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "secondary"
             type = "invalid_pin"
         }
-        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/acquisition/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "primary"
             type = "generic_tap_pos_error"
         }
-        "/cards/nfc/payment/congrats/tap"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/payments/congrats/tap"(platform: "/", type: TrackType.Event) {
             action = "finish"
             type = "generic_error"
+        }
+        "/cards/nfc/payments/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "finish"
+            type = "generic_tap_pos_error"
+        }
+        "/cards/nfc/payments/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "primary"
+            type = "generic_error"
+        } 
+        "/cards/nfc/payments/congrats/tap"(platform: "/", type: TrackType.Event) {
+            action = "secondary"
+            type = "invalid_pin"
         }
     }
     
@@ -1848,11 +1879,13 @@ trackTests {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
             has_money = true
         }
-    }
-    
-    test("cards hybrid nfc informative screen") {
+        
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
             has_money = false
+        }
+        
+        "/cards/nfc/enrollment/instructions/tap"(platform:"/", type: TrackType.View) {
+            action = "close"
         }
     }
     
