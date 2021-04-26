@@ -392,6 +392,7 @@ tracks {
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        ads_top_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The advertising section information")
         loyalty(required: false, type: PropertyType.Map(loyalty_section_definition), description: "The loyalty section information")
         subscription(required: false, type: PropertyType.Map(subscription_section_definition), description: "The subscription section")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
@@ -419,6 +420,7 @@ tracks {
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        ads_top_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The advertising section information")
         loyalty(required: false, type: PropertyType.Map(loyalty_section_definition), description: "The loyalty section information")
         subscription(required: false, type: PropertyType.Map(subscription_section_definition), description: "The subscription section")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
@@ -628,6 +630,10 @@ tracks {
     "/wallet_home/section/tap/complaints_book" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomeMerchEngineFields
+    }
+
+    "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }
 
