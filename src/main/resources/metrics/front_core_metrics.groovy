@@ -15,7 +15,7 @@ metrics {
              "/wallet_home/section/tap/banking_v2-cards",
              "/wallet_home/section/tap/banking_v2-mpcard",
              "/wallet_home/section/tap/shortcuts",
-             "/wallet_home/section/tap/advertising",
+             "/wallet_home/section/tap/ads_top_banner",
              "/wallet_home/section/tap/cross_selling",
              "/wallet_home/section/tap/activities",
              "/wallet_home/section/tap/prepaid_banner",
@@ -69,14 +69,14 @@ metrics {
     }
   }
 
-  "wallet_home.advertising"(description: "Counts when an user taps on the advertising section") {
+  "wallet_home.ads_top_banner"(description: "Counts when an user taps on the advertising section") {
     startWith {
       experiment(regex("wallet/.*"))
     }
 
     countsOn {
       condition {
-        path("/wallet_home/section/tap/advertising")
+        path("/wallet_home/section/tap/ads_top_banner")
       }
     }
   }
