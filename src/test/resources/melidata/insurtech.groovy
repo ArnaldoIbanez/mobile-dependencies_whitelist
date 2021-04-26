@@ -612,6 +612,11 @@ trackTests {
          }
          "/insurtech/qpage_on/terms"(platform:"/web", type: TrackType.View) {
             product_id = "RODA"
+            from = "insurance-fe-hub-off"
+         }
+         "/insurtech/qpage_on/particular_conditions"(platform:"/web", type: TrackType.View) {
+            product_id = "GAREX"
+            from = "insurance-fe-hub-off"
          }
         "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
             item = [
