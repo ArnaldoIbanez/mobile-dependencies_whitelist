@@ -1869,16 +1869,19 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        promoId(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any" )
         promo_id(required: false, type: PropertyType.String, description: "Promotion id")
     }
 
     "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN"])
     }
+
     "/seller_central/promotions/action/tooltip_adv"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         promo_id(required: true, type: PropertyType.String, description: "Promo id")
         item_id(required: true, type: PropertyType.String, description: "Item id to which the tooltip is executed")
     }
+
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
@@ -1908,7 +1911,6 @@ tracks {
         total_eligible_items(required: false, type: PropertyType.Numeric, description: "number of total elegible items")
         actives_items(required: false, type: PropertyType.ArrayList(PropertyType.Map(CardItemStructure)), description: "array of percentage data of active items")
         eligible_items(required: false, type: PropertyType.ArrayList(PropertyType.Map(CardItemStructure)), description: "total number of items that can be activated in promotion")
-
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
