@@ -80,28 +80,16 @@ tracks {
     "/mgm_seller" (platform: "/mobile", isAbstract: true) {}
 
     // Views
-    "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
-    "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
+    "/mgm_seller/referal" (platform: "/", type: TrackType.View) {}
+    "/mgm_seller/dashboard" (platform: "/", type: TrackType.View) {}
     
     // Events
-    "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
+    "/mgm_seller/referal/tap" (platform: "/", type: TrackType.Event) {
         media(required: false, type: PropertyType.String, description: "media to share the content")
         device(required: false, type: PropertyType.String, description: "Device to share")
         link(required: false, type: PropertyType.String, description: "link to screen")
     }
-    "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
-
-    // Web
-    "/mgm_seller" (platform: "/web", isAbstract: true) {}
-    // View
-    "/mgm_seller/referal" (platform: "/web", type: TrackType.View) {}
-
-    // Events
-    "/mgm_seller/referal/tap" (platform: "/web", type: TrackType.Event) {
-        media(required: false, type: PropertyType.String, description: "media to share the content")
-        device(required: false, type: PropertyType.String, description: "Device to share")
-        link(required: false, type: PropertyType.String, description: "link to screen")
-    }
+    "/mgm_seller/referal/swipe" (platform: "/", type: TrackType.Event) {}
 
     /*************************
      * MGM PAYER TRACKS v3  *
