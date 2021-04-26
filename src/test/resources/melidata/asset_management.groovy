@@ -528,6 +528,20 @@ trackTests {
         //UpdateApp
         "/asset_management/update_app"(platform: "/mobile", business: "mercadolibre") {}
 
-        //
+        //Kyc Onboarding
+        "/asset_management/kyc_onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/kyc_onboarding/send_to_kyc"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/kyc_onboarding/show_more"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/kyc_onboarding"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/kyc_onboarding/send_to_kyc"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/kyc_onboarding/show_more"(platform: "/mobile", business: "mercadolibre") {}
+
+        //Redirect onbaording mobile
+        "/asset_management/redirect_onboarding"(platform: "/web", type: TrackType.View) {}
+        "/asset_management/redirect_onboarding/play_store"(platform: "/web", type: TrackType.Event) {}
+        "/asset_management/redirect_onboarding/app_store"(platform: "/web", type: TrackType.Event) {}
+        "/asset_management/redirect_onboarding"(platform: "/web",  business: "mercadolibre") {}
+        "/asset_management/redirect_onboarding/play_store"(platform: "/web",  business: "mercadolibre") {}
+        "/asset_management/redirect_onboarding/app_store"(platform: "/web",  business: "mercadolibre") {}
     }
 }
