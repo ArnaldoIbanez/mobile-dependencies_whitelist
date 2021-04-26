@@ -1368,6 +1368,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // Flash Offer Experiment
+    "/sell/flash_offer"(platform: "/web", isAbstract: true) {}
     "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View) {}
     "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
     "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}

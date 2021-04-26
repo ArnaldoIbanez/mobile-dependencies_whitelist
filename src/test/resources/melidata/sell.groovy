@@ -5713,23 +5713,16 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-    test("SYI v4 Flash Offer Hub"){
+    test("SYI v4 Flash Offer Experiment"){
+
         "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View){}
-    }
 
-    test("SYI v4 Event Sell By my self from Flash Offer Hub"){
         "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
-    }
 
-    test("SYI v4 Event sell fast from Flash Offer Hub"){
         "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}
-    }
 
-    test("SYI v4 View Flash Offer under construction info"){
         "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
-    }
 
-    test("SYI v4 Event go to sell flow from Flash Offer info"){
         "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
     }
 }
