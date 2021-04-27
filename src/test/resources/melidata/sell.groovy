@@ -5707,4 +5707,22 @@ trackTests {
             seller_id = 123
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 - Motors
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    test("SYI v4 Flash Offer Experiment"){
+
+        "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View){}
+
+        "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
+
+        "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}
+
+        "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
+
+        "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
+    }
 }
