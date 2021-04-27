@@ -1,6 +1,7 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def searchVipClassifiedExperiments = "((search|vip|classifieds|vis)/.*)|(pdp/viewItemPageMigration.*)"
+def searchVipClassifiedExperiments = "((search|vip|classifieds|vis|sparkle)/.*)|(pdp/viewItemPageMigration.*)"
+def visRegex="(vis|vip)/.*"
 
 metrics {
 
@@ -123,6 +124,28 @@ metrics {
 		countsOn {
 			condition {
 				path("/quotation/congrats","/quotation/congrats/unregistered")
+			}
+		}
+	}
+
+	"vis_credits_intention"(description: "track credits intention as success for vis") {
+		startWith {
+			experiment(regex(visRegex))
+		}
+		countsOn {
+			condition {
+				path("/vip/credits_intention/main_action/down", "/vip/credits_intention/card")
+			}
+		}
+	}
+
+	"vis_credits_congrats"(description: "track credits congrats as success for vis") {
+		startWith {
+			experiment(regex(visRegex))
+		}
+		countsOn {
+			condition {
+				path("/classi_credits/evaluation/congrats")
 			}
 		}
 	}

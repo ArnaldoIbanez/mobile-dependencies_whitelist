@@ -8,6 +8,43 @@ tracks {
 
     initiative = "1205"
 
+    def account_data = objectSchemaDefinitions {
+        rating(
+                description: "User reputation level",
+                type: PropertyType.String,
+                required: true
+        )
+        status(
+                description: "Status user's account",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        "pending",
+                        "active",
+                        "blocked",
+                        "cancelled"
+                ]
+        )
+        status_detail(
+                description: "Status detail of user's account",
+                type: PropertyType.String,
+                required: false
+        )
+        overdue_days(
+                description: "Overdue days of user's account",
+                type: PropertyType.Numeric,
+                required: false
+        )
+    }
+
+    def proposal_data = objectSchemaDefinitions {
+        rating(
+                description: "User reputation level",
+                type: PropertyType.String,
+                required: true
+        )
+    }
+
     def amount_input_data = objectSchemaDefinitions {
         amount(
             description: "The amount that the user want to pay",
@@ -49,19 +86,7 @@ tracks {
         )
     }
 
-    def offer_data = objectSchemaDefinitions {
-        scoring(
-            description: "User reputation level",
-            type: PropertyType.String,
-            required: true,
-        )
-    }
-
     propertyDefinitions {
-        offer(
-            type: PropertyType.Map(offer_data),
-            required: true
-        )
         amount_input(
             type: PropertyType.Map(amount_input_data),
             required: false
@@ -73,12 +98,10 @@ tracks {
         statement_status(
             description: "Status from the user's statement",
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 "closed",
-                "open",
-                "overdue",
-                "paid"
+                "open"
             ]
         )
         payment_option(
@@ -113,15 +136,51 @@ tracks {
             type: PropertyType.Numeric,
             required: true
         )
+        account(
+                type: PropertyType.Map(account_data),
+                required: false
+        )
+        proposal(
+                type: PropertyType.Map(proposal_data),
+                required: true
+        )
+        pending_payments(
+                description: "The pending payments",
+                type: PropertyType.Boolean,
+                required: true
+        )
+        disable_option(
+            description: "The account cancellation type",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                "one_payment",
+                "monthly_payment"
+            ]
+        )
+        reasons(
+            description: "The chosen reasons list",
+            type: PropertyType.ArrayList,
+            required: true
+        )
+        other_reason(
+            description: "The user input reason",
+            type: PropertyType.String,
+            required: false
+        )
     }
 
     propertyGroups {
-        payment_group(offer, statement_status)
-        upgrade_info(offer, is_card_active)
-        full_payment_group(offer, statement_status, payment_option, amount_input, payment_plan)
+        dashboard_view_group(account, statement_status, pending_payments)
+        dashboard_event_group(account, statement_status)
+        payment_group(account, statement_status)
+        upgrade_info(proposal, is_card_active)
+        full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         bucket_group(bucket)
         statement_status_group(statement_status)
         statement_period(month, year)
+        disable_group(account, disable_option)
+        disable_full_group(account, disable_option, reasons, other_reason)
     }
 
     /******************************************
@@ -132,6 +191,9 @@ tracks {
     "/credits/credit_card/payment"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/upgrade"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/statement"(platform: "/", isAbstract: true) {}
+    "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
+    "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
+
 
     /******************************************
      *       Start: Credit Card Payment
@@ -141,7 +203,7 @@ tracks {
         payment_group
     }
 
-    "/credits/credit_card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/payment/hub/total_payment_action"(platform: "/", type: TrackType.Event) {
         amount(
             description: "Statement amount",
             type: PropertyType.Numeric,
@@ -150,7 +212,7 @@ tracks {
     }
 
     //Payment plan
-    "/credits/credit_card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/payment/hub/payment_plan_selection"(platform: "/", type: TrackType.View) {
         payment_group
     }
 
@@ -164,7 +226,7 @@ tracks {
         full_payment_group
     }
 
-    "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
         full_payment_group
     }
     /******************************************
@@ -179,6 +241,11 @@ tracks {
     "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
         upgrade_info
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
+    }
+
+    "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
+        upgrade_info
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
     }
 
     // Payment due date selection
@@ -235,6 +302,20 @@ tracks {
         reason(type: PropertyType.String, required: false)
     }
 
+    // Stop page
+    "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+        reason(
+                description: "Reason why the Card can't be upgraded",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "no_proposal_match",
+                        "invalid_proposal_status",
+                        "user_has_active_account"
+                ]
+        )
+    }
+
     /*********************************************
      *       End: Credit Card Upgrade
      *********************************************/
@@ -264,5 +345,122 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Statement
+     *********************************************/
+
+    /***********************************************
+     *       Start: Credit Card Dashboard
+     ***********************************************/
+    // Dashboard
+    "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+        dashboard_view_group
+    }
+
+    "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+        available_limit(
+                description: "Amount available limit card",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        total_limit(
+                description: "Total amount limit card",
+                type: PropertyType.Numeric,
+                required: true
+        )
+    }
+
+    /*********************************************
+     *       End: Credit Card Dashboard
+     *********************************************/
+
+     /***********************************************
+     *       Start: Credit Card Disable
+     ***********************************************/
+    // Disable
+
+    //Hub
+    "/credits/credit_card/disable/hub"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Summary
+    "/credits/credit_card/disable/summary"(platform: "/", type: TrackType.View) {
+        disable_group
+    }
+
+    //Separator
+    "/credits/credit_card/disable/separator"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Reason
+    "/credits/credit_card/disable/reasons"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Confirmation Modal
+    "/credits/credit_card/disable/modal"(platform: "/", type: TrackType.View) {
+        account(
+                type: PropertyType.Map(account_data),
+                required: true
+        )
+    }
+
+    //Congrats
+    "/credits/credit_card/disable/congrats"(platform: "/", type: TrackType.View) {
+        disable_full_group
+    }
+
+    /*********************************************
+     *       End: Credit Card Disable
+     *********************************************/
+
+    /***********************************************
+     *       Start: Credit Card Landings
+     ***********************************************/
+    // Landings
+
+    // Generic Stop Page
+    "/credits/credit_card/landing/generic"(platform: "/web", type: TrackType.View) { }
+
+    /*********************************************
+     *       End: Credit Card Landings
      *********************************************/
 }

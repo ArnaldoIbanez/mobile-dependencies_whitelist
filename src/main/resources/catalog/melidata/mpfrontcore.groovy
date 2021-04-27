@@ -60,6 +60,14 @@ tracks {
         userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
     }
 
+    // MP Home regret
+    "/mp_home/regret"(platform: "/", type: TrackType.View) {
+        userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+    }
+
+    // MP Enigma
+    "/not-found"(platform: "/", type: TrackType.View) {}
+
     // MP Home - Merch Engine Events
     "/mp_home/sections"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/crossselling"(platform: "/", , isAbstract: true) {}
@@ -82,6 +90,15 @@ tracks {
     "/mp_home/sections/oneshotmodal/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+
+    //MP Home - Shortcuts
+    "/mp_home/sections/shortcuts"(platform:"/", type: TrackType.Event) {
+        shortcut_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        section_id (type: PropertyType.String, required: true, description: "ID from section")
+        bu_team (type: PropertyType.String, required: true, description: "The business unit team")
+        action (type: PropertyType.String, required: true, description: "The executed action")
+        destination (type: PropertyType.String, required: true, description: "Link to execute")
+    }
 
     // MP Profile
     "/profile"(platform: "/", type: TrackType.View) {}

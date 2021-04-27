@@ -97,6 +97,13 @@ trackTests {
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
             best_seller_position = 3
+            highlights = [
+                "id": "id_highlight",
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
+            ]
             cac_item = false
             cac_status = "normal"
             catalog_product_id = "MLA1234"
@@ -435,6 +442,14 @@ trackTests {
         "/pdp/description/show"(platform: "/", {
             catalog_product_id = "MLA1234"
         })
+
+        "/pdp/show_complete_description"(platform: "/web/desktop", {
+            catalog_product_id = "MLA1234"
+        })
+
+        "/pdp/html_description/show"(platform: "/", {catalog_product_id = "MLA1234"})
+
+        "/pdp/html_description/view_all_action"(platform: "/", {catalog_product_id = "MLA1234"})
     }
 
     test("mobile special actions") {
@@ -677,6 +692,55 @@ trackTests {
             installments_value_each = 8.7
             installments_amount = 12
             is_free_installments = false
+        }
+    }
+
+    test("Pdp Advertising banners") {
+        "/pdp/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "fullscreen"
+        }
+    }
+
+    test("Technical Specs Viewport") {
+        "/pdp/technical_specs/show"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
+        }
+    }
+
+    test("Technical Specs View More") {
+        "/pdp/technical_specs/view_more"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
+        }
+    }
+
+    test("Technical Specs Features View More") {
+        "/pdp/technical_specs_features/view_more"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
+        }
+    }
+
+    test("Vertical Gallery Show") {
+        "/pdp/vertical_gallery/show"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
         }
     }
 }

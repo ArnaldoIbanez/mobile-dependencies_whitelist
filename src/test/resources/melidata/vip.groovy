@@ -48,7 +48,9 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             has_good_price = true
+            has_highlighted_sale_specs=true
             price_comparison_position =  0.75
+            catalog_market_price =  37855
             whatsapp_available = "false"
             video_type = "TOUR360"
             quote_demand_available = false
@@ -59,6 +61,19 @@ trackTests {
 			neighborhood = "none"
 			state = "none"
             vip_version = "new"
+            best_seller_position = 5
+            highlights = [
+                "id": "id_highlight",
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
+            ]
+            has_seller_level_kyc = true
+            seller_type = 'normal'
+            apparel = [
+                    "has_size_chart": true
+            ]
         }
 
         Object items_attributes = {
@@ -73,6 +88,7 @@ trackTests {
             mandatory()
             catalog_listing = false
             items_attributes()
+            description_type = "none"
         })
 
         "/vip"(platform: "/web/mobile", {
@@ -142,6 +158,7 @@ trackTests {
             item_seller_type = "AB001"
             deal_ids = []
             item_condition= "new"
+            failed = false
         })
 
         "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
@@ -167,6 +184,7 @@ trackTests {
             deal_ids = []
             item_condition= "new"
             has_good_price= true
+            has_highlighted_sale_specs=true
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -217,6 +235,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_premium"
             has_good_price = false
+            has_highlighted_sale_specs=false
             seller_id = 210183916
         })
 
@@ -391,6 +410,7 @@ trackTests {
             unregistered_contact= false
             unregistered_contact_context= false
             has_good_price= false
+            has_highlighted_sale_specs=false
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -585,15 +605,22 @@ trackTests {
             video_type = "NONE"
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             tourOption()
         }
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             videoOption()
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "TOUR360"
+        }
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIDEO"
         }
     }
 
@@ -684,6 +711,7 @@ trackTests {
 
         "/vip/sizechart"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
+            referer = "vip"
         }
 
         "/vip/sizechart/tutorial"(platform: "/mobile", type: TrackType.View) {
@@ -802,7 +830,7 @@ trackTests {
         "/vip/similar_vehicles"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
-        
+
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
 
@@ -813,6 +841,7 @@ trackTests {
         "/vip/show_all_description"(platform: "/", type: TrackType.Event){
             item_id = "MLA213512313"
             has_good_price = true
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs"(platform: "/web", type: TrackType.View){
@@ -820,6 +849,7 @@ trackTests {
             vertical = "core"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -834,6 +864,7 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -848,12 +879,14 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -868,6 +901,7 @@ trackTests {
             catalog_product_id="MLA123456"
             vip_version = "new"
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -965,7 +999,7 @@ trackTests {
             otherShipping
         ]
         }
-    
+
     }
 
     test("VIP Web Classifieds services track click on link to landing_services") {
@@ -1134,8 +1168,8 @@ trackTests {
             variationInformation()
             shipping_pay_before = false
         }
-        
-        def shipping_method = { 
+
+        def shipping_method = {
             shipping_method = {
                 id = 531332827
                 name = "Retiro en Correo Argentino"
@@ -1156,7 +1190,7 @@ trackTests {
                         date =  "2018-12-10T00:00:00.000-03:00"
                         shipping = 48
                     }
-                }      
+                }
             }
         }
 
@@ -1314,10 +1348,10 @@ trackTests {
             model()
             shipping_method()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
              model()
         }
@@ -1335,15 +1369,15 @@ trackTests {
         "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
-        
-        
+
+
         //Apps
         "/vip/shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
             model()
@@ -1357,10 +1391,10 @@ trackTests {
         "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
 
-    
+
         "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-                
+
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
         }
@@ -1471,6 +1505,7 @@ trackTests {
 
         "/vip/technical_specs/see_more"(platform: "/mobile", type: TrackType.Event){
             properties()
+            item_seller_type = "normal"
         }
     }
 
@@ -1542,7 +1577,7 @@ trackTests {
             vip_version = "new"
         }
     }
-	
+
     test("VIP prevent stock question for mobile") {
         "/vip/question/ask/prevent_stock"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA792156560"
@@ -1749,11 +1784,19 @@ trackTests {
             properties()
         }
 
-        "/vip/comparator_price/interactive_bin"(platform: "/web/desktop", type: TrackType.Event) {
+        "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web/desktop", type: TrackType.Event) {
             properties()
         }
 
-        "/vip/comparator_price/interactive_bin"(platform: "/web/mobile", type: TrackType.Event) {
+        "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/comparator_price/interactive_bin/bar"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/comparator_price/interactive_bin/bar"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
 
@@ -1833,5 +1876,90 @@ trackTests {
         }
 
         "/vip"(platform:"/web", dataSet)
+    }
+
+    test("Vip Advertising banners") {
+        "/vip/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "fullscreen-core"
+        }
+    }
+
+    // Points of Interest - RealEstate
+
+    test("VIP Points of Interest section for properties RE"){
+        def properties = {
+            vertical = "realEstate"
+            seller_id =  430012134
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+            deal_ids = []
+            points_interest_available = true
+            item_seller_type = "normal"
+        }
+
+        "/vip/points_of_interest/transport"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/transport"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/education"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/education"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/leisure"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/leisure"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/commerce"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/commerce"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/health"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/health"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+    }
+
+    test("Test Official Store link"){
+        "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            official_store_id = 123
+        }
     }
 }

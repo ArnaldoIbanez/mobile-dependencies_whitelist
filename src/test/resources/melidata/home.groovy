@@ -15,6 +15,7 @@ trackTests {
 
      test("Home Navigation") {
         "/home/navigation"(platform: "/", type: TrackType.View) {}
+        "/home/navigation_history/admin"(platform: "/", type: TrackType.View) {}
     }
 
     test("Home Portal Inmobiliario") {
@@ -47,12 +48,45 @@ trackTests {
         }
     }
 
-    test("Home core tracking") {
-        "/home"(platform: "/mobile") {
-            mp_installed = true 
+    test("Test Official store tracking") {
+        def dataSet = {
+            official_store_name = "test123"
+            official_store_id = 123
         }
 
-        "/home/navigation_history"(platform: "/mobile") {}
+        "/home/category/real_estate/official_store/developer/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/developer/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/developer/all_brands"(platform: "/", type: TrackType.Event) {}
+        "/home/category/real_estate/official_store/realtor/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/realtor/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/realtor/all_brands"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Home core tracking") {
+        "/home"(platform: "/mobile") {
+            mp_installed = true
+        }
+
+        "/home/navigation_history"(platform: "/") {
+            privacy_config_state = true
+        }
+
+        "/home/navigation_history/privacy_config_on"(platform: "/") {
+            privacy_config_state = false
+        }
+
+        "/home/navigation_history/privacy_config_off"(platform: "/") {
+            privacy_config_state = true
+        }
+
+        "/home/navigation_history/remove_all"(platform: "/") {
+            privacy_config_state = false
+        }
+
+        "/home/navigation_history/remove"(platform: "/") {
+            item_id = "MLB681933310"
+            privacy_config_state = true
+        }
 
         "/home/abort"(platform: "/mobile") {}
 
@@ -177,13 +211,121 @@ trackTests {
         "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
+    test("Home Discovery Mobile") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+            realestates = {
+                discovery = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = 2
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/mobile", dataSet)
+    }
+
+    test("Home Discovery Web") {
+        def dataSet = {
+            realestates = {
+                discovery = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = '2'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
+    test("Home Main Slider Mobile") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+            realestates = {
+                main_slider = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = 2
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/mobile", dataSet)
+    }
+
+    test("Home Main Slider Web") {
+        def dataSet = {
+            realestates = {
+                main_slider = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = '2'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
+    test("Home Collections Web") {
+        def dataSet = {
+            realestates = {
+                collections = [
+                        {
+                            audience = '2'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '1'
+                            logic = '2'
+                            position = '4'
+                        }
+                ]
+            }
+        }
+        "/home"(platform: "/web", dataSet)
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
 
     test("Home.com tracking") {
         "/home_com"(platform: "/", type: TrackType.View) {}
-        
+
         "/home_com/site_click"(platform: "/") {
             site_click = 'AR'
         }
@@ -200,5 +342,10 @@ trackTests {
     test("Home Advertising banners") {
         "/home/advertising"(platform: "/", type: TrackType.Event) {}
         "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Home Motors Sell Action") {
+        "/home/motors"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
     }
 }

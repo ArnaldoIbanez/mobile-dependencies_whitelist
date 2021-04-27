@@ -147,6 +147,7 @@ trackTests {
     test("cards mpcard dashboard") {
         "/cards/mpcard/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
@@ -168,6 +169,12 @@ trackTests {
     
     //Mini card: Tracking
     test("cards mpcard dashboard mini card tracking") {
+        "/cards/mpcard/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "options"
+        }
+        "/cards/mpcard/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_data"
+        }
         "/cards/mpcard/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "physical_delivered"
         }
@@ -206,6 +213,65 @@ trackTests {
         }
         "/cards/mpcard/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tracking_shipped"
+        }
+    }
+
+     //Physical acquisition stop: Tracking
+    test("cards mpcard dashboard physical acquistion stop tracking") {
+        "/cards/mpcard/dashboard/physical_acquisition_stop/tap"(platform:"/", type: TrackType.Event) {
+            action = "button"
+        }
+    }
+
+    //Banner: Tracking
+    test("cards mpcard dashboard banner tracking") {
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "render"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_pending"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_ready_to_ship"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_soon_deliver"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_delayed"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_waiting_for_withdrawal"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_delivered"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_not_delivered"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_pending_manual_review"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_not_compliance"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_compliance"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/mpcard/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "hybrid_active"
         }
     }
     
@@ -252,6 +318,12 @@ trackTests {
     test("cards mpcard dashboard message") {
         "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
+        }
+        "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_card"
+        }
+        "/cards/mpcard/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_physical_card"
         }
     }
     
@@ -327,6 +399,46 @@ trackTests {
         }
     }
 
+    //FTU Carousel Onboarding: Tracking
+    test("cards mpcard dashboard ftu carousel onboarding") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard dashboard ftu carousel onboarding tap") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+    test("cards mpcard dashboard ftu carousel onboarding swiped") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_virtual_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_physical_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_credit_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_nfc_slide"
+        }
+    }
+    
+    //FTU Single Onboarding: Tracking 
+    test("cards mpcard dashboard ftu single onboarding") {
+        "/cards/mpcard/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard dashboard ftu single onboarding tap") {
+        "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+
     // SETUP VIRTUAL
     // --------
 
@@ -392,24 +504,6 @@ trackTests {
     }
     test("cards mpcard setup virtual card taps tracking") {
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "reissue"
-        }
-        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "freeze"
-        }
-        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "unfreeze"
-        }
-        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "card_unfreeze"
-        }
-        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "copy"
-        }
-        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "header_help"
-        }
-        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "card_name_copy"
         }
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -421,7 +515,31 @@ trackTests {
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message"
         }
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "close_modal"
+        }
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
     }
+
+    //Highlighted Row
+    test("cards mpcard setup virtual Highlighted Row") {
+        "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+    }
+    
+    // Cards hub
+     test("cards mpcard card block hub") {
+            "/cards/mpcard/card_hub/block_card"(platform:"/", type: TrackType.View) {}
+            "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "virtual_debit_card"
+            }
+             "/cards/mpcard/card_hub/block_card/tap"(platform:"/", type: TrackType.Event) {
+                action = "physical_card"
+            }
+        }
     
     //Account options
     test("cards mpcard setup virtual card message") {
@@ -444,6 +562,55 @@ trackTests {
             action = "account_info_modal_experimental_b"
         }
     }
+
+    /// SETUP OPTIONS
+    test("cards mpcard setup options") {
+        "/cards/mpcard/setup/options"(platform: "/", type: TrackType.View) {
+            virtual_status = "active"
+            debit_status = "active"
+        }
+    }
+    test("cards mpcard setup options taps") {
+        "/cards/mpcard/setup/options"(platform: "/", type: TrackType.View) {}
+        "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+            action = "freeze"
+        }
+        "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+            action = "unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_freeze"
+        }
+        "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_limits"
+        }
+        "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+            action = "see_nip"
+        }
+        "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
+            action = "block_card"
+        }
+    }
+    test("cards mpcard setup options physical locked message") {
+        "/cards/mpcard/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock"
+        }
+        "/cards/mpcard/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+    }
+    test("cards mpcard setup options physical card unlock status") {
+        "/cards/mpcard/setup/options/physical/unlock"(platform:"/", type: TrackType.Event) {
+            action = "success"
+        }
+        "/cards/mpcard/setup/options/physical/unlock"(platform:"/", type: TrackType.Event) {
+            action = "error"
+        }
+    }
+
     
     //Redirect when the user don't have a virtual card
     test("cards mpcard setup virtual card need to redirect in order to create a new virtual card") {
@@ -564,6 +731,24 @@ trackTests {
             action = "research_form"
         }
     }
+    // Physical Unlock
+    test("cards hybrid physical unlock View") {
+        "/cards/mpcard/physical/unlock"(platform:"/", type: TrackType.View) {
+            card_id = "Axs12345"
+        }
+    }
+
+    test("cards hybrid physical unlock Events") {
+        "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_card"
+        }
+        "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "block_card"
+        }
+    }
     
      // CHANGE-PIN
     // --------
@@ -579,6 +764,24 @@ trackTests {
     
     test("cards mpcard change pin congrats") {
         "/cards/mpcard/change_pin/congrats"(platform: "/", type: TrackType.View) {}
+    }
+
+    // NIP
+    // --------
+    test("cards mpcard nip screen") {
+        "/cards/mpcard/nip/physical"(platform: "/", type: TrackType.View) {
+            card_id = "Axs12345"
+        }
+    }
+    test("cards mpcard nip screen") {
+        "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
+            action = "header_help"
+        }
+    }
+    test("cards mpcard nip, It_was_not_me link message tap") {
+        "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "blocked_pin"
+        }
     }
     
     // LIMITS
@@ -650,6 +853,13 @@ trackTests {
     }
 
     // Request: Challenge
+
+    test("cards mpcard request physical challenge success") {
+        "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
+    }
+
     test("cards mpcard request physical challenge") {
         "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     }
@@ -675,6 +885,19 @@ trackTests {
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "info_payment"
+        }
+    }
+
+    // Request: Expired Challenge
+    test("cards mpcard request physical expired challenge") {
+        "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard request physical pending challenge tap") {
+        "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
         }
     }
 
@@ -723,8 +946,58 @@ trackTests {
 
     // Request: Success Physical
     test("cards mpcard physical success event"){
-        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
     }
+
+    // REASONS REISSUE
+    // --------
+    test("cards mpcard block card reasons") {
+        "/cards/mpcard/block_card/physical/reasons"(platform: "/", type: TrackType.View) {
+            type = "reissue_normal_reasons"
+        }
+
+        "/cards/mpcard/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+            action = "selected"
+            option_id = "not_working"
+        }
+
+         "/cards/mpcard/block_card/physical/reasons/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+            option_id = "not_working"
+        }
+    }
+
+    // CUSTOM FEEDBACK
+    // --------
+    test("cards mpcard custom feedback") {
+        "/cards/mpcard/feedback_custom"(platform: "/", type: TrackType.View) {
+            type = "reissue_other_reasons"
+        }
+
+        "/cards/mpcard/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+            action = "confirm"
+        }
+
+        "/cards/mpcard/feedback_custom/tap"(platform: "/", type: TrackType.Event) {
+            action = "exit"
+        }
+    }
+
+    // INTERMEDIATE ONBOARDING
+    // --------
+    test("cards mpcard custom feedback") {
+        "/cards/mpcard/block_card/physical/intermediate_onboarding"(platform: "/", type: TrackType.View) {
+            type = "reissue_cancel_damaged_card"
+            card_id = "123asd"
+        }
+
+        "/cards/mpcard/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "pause_card"
+        }
+    }
+
 
     // CARD IDENTIFICATION
     // --------
@@ -739,10 +1012,45 @@ trackTests {
             from = "home"
         }
     }
+
+    // CARD REQUEST virtual init point
+    // --------
+    test("cards mpcard request virtual init point") {
+        "/cards/mpcard/request/virtual/init_point"(platform: "/", type: TrackType.View) {
+            from = "home"
+        }
+    }
+
+    // CARD REQUEST physical init point
+    // --------
+    test("cards mpcard request physical init point") {
+        "/cards/mpcard/request/physical/init_point"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
+        }
+    }
+
+    // CARD REQUEST virtual pj lock
+    // --------
+    test("cards mpcard request virtual pj lock") {
+        "/cards/mpcard/request/virtual/onboarding/lock"(platform: "/", type: TrackType.View) {
+            from = "unknown"
+        }
+    }
+
+     // CARD REQUEST physical pj lock
+    // --------
+    test("cards mpcard request physical pj lock") {
+        "/cards/mpcard/request/physical/onboarding/lock"(platform: "/", type: TrackType.View) {
+            from = "dashboard"
+        }
+    }
+
     // CARD REQUEST virtual on boarding
     // --------
     test("cards mpcard virtual onboarding"){
-        "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {
+            context = "kyc"
+        }
     }
      test("cards mpcard virtual onboarding tap") {
         "/cards/mpcard/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
@@ -755,7 +1063,9 @@ trackTests {
 
     // Request: Success Virtual
     test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_physical_first_whitelist"]
+        }
     }
 
     test ("mpcard Setup") {
@@ -770,11 +1080,6 @@ trackTests {
         "/cards/mp-card/mpcard/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
              deviceType = "desktop"
         }
-    }
-    
-    // Request: Success Virtual
-    test("cards mpcard virtual success event"){
-        "/cards/mpcard/request/virtual/success"(platform:"/", type: TrackType.Event) {}
     }
 
     //COACHMARK
@@ -794,6 +1099,21 @@ trackTests {
             action = "previous"
             step = 2
             id = "dashboard_physical"
+        }
+    }
+
+    //Contingency
+    test("Cards contingency tests"){
+        "/cards/mpcard/contingency/nip/physical"(platform: "/mobile", type: TrackType.View) {}
+
+        "/cards/mpcard/contingency/nip/physical/tap"(platform: "/mobile", type: TrackType.Event) {
+            action = "back_button"
+        }
+    }
+
+    test("Feedback Tap event"){
+        "/cards/mpcard/tracking/feedback/tap"(platform:"/mobile", type: TrackType.Event) {
+            action = "research_form"
         }
     }
 }

@@ -29,6 +29,19 @@ trackTests {
             has_reason = true
         }
 
+        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {}
+
+        "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile") {
+            isAmbiguous = true
+        }
+
+        "/mplayer/send_money/manual_amount/modal"(platform: "/mobile") {}
+
+        "/mplayer/send_money/manual_amount/modal/exit"(platform: "/mobile") {
+            button = "close_button"
+        }
+
+
         "/mplayer/send_money/friend_invite/invite_pressed"(platform: "/mobile") {
             source = "phone"
             destination = "whatsapp"
@@ -56,6 +69,18 @@ trackTests {
             flow = "flow"
             contact_type = "user_id"
         }
+
+ 
+        "/mplayer/send_money/contact_picker/search"(platform: "/mobile") {}
+        "/mplayer/send_money/contact_picker/search/not_found"(platform: "/mobile") {}
+        "/mplayer/send_money/contact_picker/add_new_contact"(platform: "/mobile") {}
+
+        "/mplayer/send_money/bottom_sheet"(platform: "/mobile") {}
+        "/mplayer/send_money/bottom_sheet/new_contact_email"(platform: "/mobile") {}
+        "/mplayer/send_money/bottom_sheet/new_contact_phone"(platform: "/mobile") {}
+        "/mplayer/send_money/bottom_sheet/continue"(platform: "/mobile") {}
+
+
 
         // Money Request
         "/mplayer/closed_request/onboarding"(platform: "/mobile") {}
@@ -92,6 +117,8 @@ trackTests {
             has_reason = true
         }
 
+        "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile") {}
+
         "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
 
@@ -102,6 +129,10 @@ trackTests {
         "/mplayer/closed_request/reject/reject"(platform: "/mobile") {}
 
         "/mplayer/closed_request/reject/back"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/reject/exit"(platform: "/mobile") {
+            button = "close_button"
+        }
 
         "/mplayer/closed_request/result/success"(platform: "/mobile") {
             payment_method_id = "1"
@@ -115,6 +146,21 @@ trackTests {
 
         "/mplayer/closed_request/result/in_process"(platform: "/mobile") {}
 
+        "/mplayer/closed_request/contact_picker/search"(platform: "/mobile") {}
+        "/mplayer/closed_request/contact_picker/search/not_found"(platform: "/mobile") {}
+        "/mplayer/closed_request/contact_picker/add_new_contact"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/bottom_sheet"(platform: "/mobile") {}
+        "/mplayer/closed_request/bottom_sheet/new_contact_email"(platform: "/mobile") {}
+        "/mplayer/closed_request/bottom_sheet/new_contact_phone"(platform: "/mobile") {}
+        "/mplayer/closed_request/bottom_sheet/continue"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/redirector/manual_amount"(platform: "/mobile") {
+            flow = "flow"
+            contact_type = "user_id"
+        }
+
+
         // Open Request
         "/mplayer/open_request/manual_amount"(platform: "/mobile") {}
         "/mplayer/open_request/mandatory_reason"(platform: "/mobile") {}
@@ -127,6 +173,8 @@ trackTests {
             transaction_amount = 100
             has_reason = true
         }
+
+        "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile") {}
 
         "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
@@ -201,6 +249,16 @@ trackTests {
             error = "Algo salio mal"
         }
         "/mplayer/money_split/result/in_process"(platform: "/mobile") {}
+
+        "/mplayer/money_split/contact_picker/search"(platform: "/mobile") {}
+        "/mplayer/money_split/contact_picker/search/not_found"(platform: "/mobile") {}
+        "/mplayer/money_split/contact_picker/add_new_contact"(platform: "/mobile") {}
+
+        "/mplayer/money_split/bottom_sheet"(platform: "/mobile") {}
+        "/mplayer/money_split/bottom_sheet/new_contact_email"(platform: "/mobile") {}
+        "/mplayer/money_split/bottom_sheet/new_contact_phone"(platform: "/mobile") {}
+        "/mplayer/money_split/bottom_sheet/continue"(platform: "/mobile") {}
+
 
         // Tracing
         "/mplayer/tracing/onboarding"(platform: "/mobile") {}

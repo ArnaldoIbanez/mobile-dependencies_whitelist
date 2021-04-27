@@ -48,6 +48,9 @@ metrics {
 				)
 			}
 		}
+		divisionBy {
+			divisionMetric("bids")
+		}
 	}
 	
 	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
@@ -113,19 +116,6 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				empty("event_data.items.item.official_store_id", false)
-			}
-		}
-	}
-
-	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
-		startWith {
-			experiment("/search/test")
-		}
-		
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				sameDeal("event_data.items.item.deal_ids", true)
 			}
 		}
 	}
@@ -405,6 +395,27 @@ metrics {
 								},
 								"paid"
 						))
+			}
+		}
+	}
+
+	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				like(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("internal_tags")
+						},
+						"meli_warranty"
+				)
 			}
 		}
 	}

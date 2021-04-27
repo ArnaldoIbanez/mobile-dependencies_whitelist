@@ -19,6 +19,22 @@ trackTests {
         }
     }
 
+    test("places home view") {
+        "/places/home"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("places home geolocation_error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            geolocation_error_message = "Permission denied"
+        }
+
+        "/places/home/geolocation_error"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
     test("places reception_congrats view") {
 
         def defaultTrackInformation = {
@@ -61,7 +77,7 @@ trackTests {
 
         def defaultTrackInformation = {
             place_id = "123456"
-            code_type = "QRCode"
+            code_type = "QR"
             scanner_input = "{'id':'12345678901', hash: 'jndiSD_FSGXn289352hjfXF'}"
             scanner_output = "{'id':'12345678901'}"
             scanner_end_char = 13
@@ -72,13 +88,39 @@ trackTests {
         }
     }
 
-    test("places reception validation error event") {
+    test("places reception geolocation_error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            geolocation_error_message = "Permission denied"
+        }
+
+        "/places/home/geolocation_error"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places reception validation error event with valid data") {
 
         def defaultTrackInformation = {
             place_id = "123456"
             shipment_id = "12345678901"
             display = "browser"
             validation_error = "duplicated"
+        }
+
+        "/places/reception/validate_shipment/error"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places reception validation error event with invalid data") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            display = "browser"
+            validation_error = "invalid_data"
+            invalid_data = "I8fhuje2324fffkklfsnN"
         }
 
         "/places/reception/validate_shipment/error"(platform: "/web", type: TrackType.Event) {
@@ -216,6 +258,105 @@ trackTests {
         }
 
         "/places/returns/congrats"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations unified scanner step") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/unified_scan_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations detailed transition screen") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/unified_flow_identification_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations helper screen in scanner") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/helper_info_scanner_view_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations helper screen in manual input") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/helper_info_manual_input_view_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations early pickup information screen") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/early_pickup_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations spinner only transition view") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/redirect_outbound_view_step"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations returns error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/error_step_return"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations outbounds error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/error_step_outbound"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations inbounds error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/error_step_inbound"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }

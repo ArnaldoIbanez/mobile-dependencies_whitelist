@@ -604,59 +604,95 @@ tracks {
         campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
+    /**
+     * Seller Invoices - Inform Nfe
+     */
+    "/myml/invoices/inform_nfe"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+        shipments_quantity(required: true, type: PropertyType.Numeric, description: "Quantity of Shipments in view")
+    }
+    "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+    "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
     "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
     "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
-        seller_type(required: false,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+        seller_type(required: false,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click - if seller profile needs go to previous page
     "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click - if seller profile needs help
     "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click -  if seller profile needs change yours data
     "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click - if seller profile accept use biller (facturador)
     "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLB - Basic tax settings
-    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Blocked Access Page
     "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
         reason(required: true,  values: ["NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
     }
 
     // MLB - Certificate
-    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - GNRE
-    "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Invoice Data (NFe)
-    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Base Validations
-    "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Activity Validation
-    "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Business Name (Social Reason) Validation
-    "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - State Registry Validation
-    "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     //not found
     "/myml/invoices/not-found"(platform: "/") {}
@@ -1286,31 +1322,54 @@ tracks {
         code(required: true, type: PropertyType.Numeric, description: "Error")
     }
 
-    "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {}
-
-    "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
-        destination_to(required: true, type: PropertyType.String, desciption: 'Page to GO')
+    "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
     }
 
-    "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
+        destination_to(required: true, type: PropertyType.String, description: 'Page to GO')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
 
-    "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
 
-    "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
 
-    "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
 
-    "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
 
-    "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
 
-    "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
 
-    "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
 
-    "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
 
-    "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
+
+    "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
 
     //TRACKS MYML Search Bookmarks Alerts
     "/myml/search_alerts"(type: TrackType.View, isAbstract: true) {}
@@ -1321,4 +1380,29 @@ tracks {
     //TRACKS MYML MYContact Section
     "/myml/mycontact" (type: TrackType.View, isAbstract: true) {}
     "/myml/mycontact/main" (type: TrackType.View) {}
+
+    // TRACKS MYML Invoice Detail
+    "/myml/invoices/detail"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/detail/correction_letter_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_modal_cancel"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_modal_confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_cancel"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/resend_invoice_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/resend_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fiscal_data_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fiscal_data_modal_close"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/to_send_devolution_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/create_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/print_danfe_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fix_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/download_xml_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
 }

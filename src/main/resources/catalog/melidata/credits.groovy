@@ -31,8 +31,18 @@ tracks {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
     }
     "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
-        variant(description: "Congrats variant", type: PropertyType.String, required: true, values: ["success", "retry"])
+        result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
     }
+    "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event) {
+        result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+    }
+    "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event) {
+        result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+    }
+
+    "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {}
     /******************************************
     *       End: Flujo Upsell Consumer
     ******************************************/
@@ -103,6 +113,7 @@ tracks {
     "/credits/consumer/opensea/start"(platform: "/mobile", type: TrackType.View) {}
     "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View){
         result(description: "Current status of the IV/KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        offer_type(description: "Offer Type on Approved Credits Lines", type: PropertyType.String, required: false, values: ["special_full_offer", "full_offer", "early_offer"])
     }
 
     /* Remedy MLM */
@@ -113,6 +124,10 @@ tracks {
     "/credits/consumer/opensea/remedy/authorization/modal"(platform: "/mobile", type: TrackType.View) {}
     "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event) {}
+    /* Remedy MLM WebView */
+    "/credits/consumer/opensea/remedy/opt_in_authorization"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/opt_in_authorization/give_consent"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/opensea/remedy/opt_in_authorization/deny_consent"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *   End: Consumers Opensea Flow
@@ -123,11 +138,18 @@ tracks {
      ******************************************/
     //Public landing
     "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
-        user_profile(
-            type: PropertyType.String,
-            required: true
+        offers(
+            type: PropertyType.ArrayList(PropertyType.String),
+            required: false,
+            inheritable: false
         )
     }
+    
+    "/credits/merchant/public_landing/ftl_offer"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/public_landing/spl_offer"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/public_landing/em_offer"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/public_landing/new_account"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/public_landing/credits_access"(platform: "/", type: TrackType.Event) {}
 
     // Credits Marketing Performance landing 
     "/credits/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
