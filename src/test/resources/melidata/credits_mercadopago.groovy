@@ -1534,6 +1534,11 @@ trackTests {
         "/credits/consumer/administrator"(platform: "/mobile", type: TrackType.View) {
         }
 
+        "/credits/consumer/administrator/detail"(platform: "/mobile", type: TrackType.View) {
+            loan_id = 123456
+            next_installment_status = "on_time"
+        }
+
         "/credits/consumer/administrator/dashboard"(platform: "/mobile", type: TrackType.View) {
                 dashboard_status = 'empty_state'
         }
