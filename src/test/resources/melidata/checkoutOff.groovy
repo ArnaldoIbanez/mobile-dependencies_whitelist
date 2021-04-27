@@ -32,6 +32,17 @@ trackTests {
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
+            app_candidate = true
+            client_id = "0C470234B553122"
+        }
+
+        def launchingDefaultProperties = {
+            productive = true
+            collector_id = 1010101001
+            preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
+            operation_type = "regular_payment"
+            app_candidate = true
+            client_id = "0C470234B553122"
         }
 
         def finishDefaultProperties = {
@@ -55,6 +66,10 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             items_quantity = 2
+        }
+
+        def launchingOnlyRequiredProperties = {
+            productive = true
         }
 
         def finishOnlyRequiredProperties = {
@@ -135,6 +150,10 @@ trackTests {
 
         "/checkout_off/payment/card/split_second"(platform: "/web/mobile") {
             defaultProperties()
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingDefaultProperties()
         }
 
         // Tokenizer product final screen.
@@ -447,8 +466,8 @@ trackTests {
         "/checkout_off/loading"(platform: "/web/mobile") {
         }
 
-        // Properties not necessary
         "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingOnlyRequiredProperties()
         }
 
         // MP personalFrontend
@@ -497,6 +516,17 @@ trackTests {
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
+            app_candidate = true
+            client_id = "0C470234B553122"
+        }
+
+        def launchingDefaultProperties = {
+            productive = true
+            collector_id = 1010101001
+            preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
+            operation_type = "regular_payment"
+            app_candidate = true
+            client_id = "0C470234B553122"
         }
 
         def finishDefaultProperties = {
@@ -520,6 +550,10 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             items_quantity = 2
+        }
+
+        def launchingOnlyRequiredProperties = {
+            productive = true
         }
 
         def finishOnlyRequiredProperties = {
@@ -603,6 +637,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingDefaultProperties()
+        }
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             defaultProperties()
@@ -913,8 +951,8 @@ trackTests {
         "/checkout_off/loading"(platform: "/web/mobile") {
         }
 
-        // Properties not necessary
         "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingOnlyRequiredProperties()
         }
 
         // MP personalFrontend
