@@ -1959,4 +1959,28 @@ tracks {
             type: PropertyType.Boolean,
         )
     }
+    
+    // NFC-PRODUCT-METRICS
+    // -------------------
+    
+    // NFC status
+    
+    "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+        restrictiveness (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                'restrictive',
+                'not_restrictive'
+            ]
+        )
+        default_app (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "default",
+                "not_default"
+            ]
+        )
+    }
 }
