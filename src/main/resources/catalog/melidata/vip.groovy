@@ -430,7 +430,7 @@ tracks {
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
-         referer(required: true, type: PropertyType.String, description: "Size chart referer")
+         referer(required: false, type: PropertyType.String, description: "Size chart referer")
     }
 
     "/vip/sizechart/tutorial"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
