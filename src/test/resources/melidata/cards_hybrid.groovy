@@ -1946,5 +1946,25 @@ trackTests {
             are_payment_keys_avaliable = false
         }
     }
+    
+    // NFC status
+    test ("cards hybrid nfc feature nfc status") {
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'restrictive'
+            default_app = 'default'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'not_restrictive'
+            default_app = 'default'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'restrictive'
+            default_app = 'not_default'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'not_restrictive'
+            default_app = 'not_default'
+        }
+    }
 
 }
