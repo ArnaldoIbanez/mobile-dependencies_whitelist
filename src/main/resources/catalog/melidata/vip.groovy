@@ -260,6 +260,7 @@ tracks {
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
         whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
+        contract_available(required: false, type: PropertyType.Boolean)
     }
 
     "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
