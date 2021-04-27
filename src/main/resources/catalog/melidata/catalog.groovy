@@ -251,6 +251,7 @@ catalog {
         include business, "point_devices.groovy"
         include business, "proximity_marketplace.groovy"
         include business, "point_receipts.groovy"
+        include business, "disbursements_wu.groovy"
     }
 
     mercadoshops.each { business ->
