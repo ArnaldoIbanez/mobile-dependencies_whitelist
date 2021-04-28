@@ -303,6 +303,12 @@ tracks {
 
     "/insurtech/qpage_on/terms"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_id(required: true, type: PropertyType.String, description: "product type id")
+        from(required: true, type: PropertyType.String, description: "from origin where this was requested")
+    }
+
+    "/insurtech/qpage_on/particular_conditions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_id(required: true, type: PropertyType.String, description: "product type id")
+        from(required: true, type: PropertyType.String, description: "from origin where this was requested")
     }
 
     // Hub-ON garex flow experiment

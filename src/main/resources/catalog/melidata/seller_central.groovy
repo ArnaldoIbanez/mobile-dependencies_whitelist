@@ -202,7 +202,12 @@ tracks {
       catalog_product_id(required: true, type: PropertyType.String, description: "The product id")
       row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
     }
-
+    def CardItemStructure = objectSchemaDefinitions {
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
+        seller_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by the seller")
+        meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
+        adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
+    }
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -1852,6 +1857,10 @@ tracks {
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
         origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        promo_id(required: false, type: PropertyType.String, description: "Deals co-funded campaign identifier")
+        seller_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by the seller")
+        meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
+        adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
     }
 
     "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
@@ -1860,10 +1869,17 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        promoId(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
+        promo_id(required: false, type: PropertyType.String, description: "Deals co-funded campaign identifier")
     }
 
     "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN"])
+    }
+
+    "/seller_central/promotions/action/tooltip_adv"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        promo_id(required: true, type: PropertyType.String, description: "Deals co-funded campaign identifier")
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the tooltip is executed")
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
@@ -1890,6 +1906,11 @@ tracks {
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
         slide(required: false, type: PropertyType.Numeric, description: "Slide where the card is shown. Only tracked when there are multiple slides.")
+        promo_id(required: false, type: PropertyType.String, description: "Promo id ")
+        total_actives_items(required: false, type: PropertyType.Numeric, description: "number of total actives items")
+        total_eligible_items(required: false, type: PropertyType.Numeric, description: "number of total elegible items")
+        actives_items(required: false, type: PropertyType.ArrayList(PropertyType.Map(CardItemStructure)), description: "array of percentage data of active items")
+        eligible_items(required: false, type: PropertyType.ArrayList(PropertyType.Map(CardItemStructure)), description: "total number of items that can be activated in promotion")
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}

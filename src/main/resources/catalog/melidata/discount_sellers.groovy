@@ -320,5 +320,21 @@ tracks {
         action (type: PropertyType.String, required: false,  description: "Name of button on the screen")
     }
 
+    "/discount_sellers/v2/template-details" (platform: "/", type: TrackType.View) {
+        template_id (type: PropertyType.String, description: "Id of template")
+    }
+
+    "/discount_sellers/v2/template-details/tap" (platform: "/", type: TrackType.Event) {
+        action (type: PropertyType.String, values:['TyC'], description: "Element taped")
+    }
+    
+    "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+         result (type: PropertyType.String, values:['success','fail'], required:false, description: "check if campaign was created")
+         campaign_id (type: PropertyType.Numeric,required:false, description: "Id of created campaign if result was succes")
+    }
+
+    "/discount_sellers/v2/template-details/congrats/tap" (platform: "/", type: TrackType.Event) {
+         action (type: PropertyType.String, values:['close', 'admin'], description: "button taped in modal")
+    }
     
 }

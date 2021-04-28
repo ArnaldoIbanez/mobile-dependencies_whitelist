@@ -1657,14 +1657,17 @@ trackTests {
         }
 
         "/vip/classi_credits_onboard"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/ok"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/close"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
     }

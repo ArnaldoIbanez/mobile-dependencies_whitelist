@@ -808,7 +808,6 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
-
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
@@ -1363,5 +1362,18 @@ tracks {
         has_validation_error(required: true, description: "Other suggestion has personal validation error or not", type: PropertyType.Boolean)
         error_references(required: true, description: "List of validation error references", PropertyType.ArrayList(PropertyType.String))
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 - Motors
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // Flash Offer Experiment
+    "/sell/flash_offer"(platform: "/web", isAbstract: true) {}
+    "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View) {}
+    "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
+    "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}
+    "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
+    "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
+
 
 }

@@ -341,7 +341,7 @@ tracks {
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
     }
-    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/proactive_payment/summary"(platform: "/", type: TrackType.View) {
         account_money(
             type: PropertyType.String,
             required: false,
@@ -351,12 +351,27 @@ tracks {
             ],
             inheritable: false
         )
+        total_amount_owed(
+           type: PropertyType.String,
+           required: false,
+           inheritable: false
+        )
+        available_balance(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        amount_to_pay(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
         products_group
     }
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
-    "/credits/merchant/proactive_payment/form"(platform: "/", type: TrackType.View) {
+    "/credits/merchant/proactive_payment/amount_input"(platform: "/", type: TrackType.View) {
         products_with_status
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
@@ -367,8 +382,13 @@ tracks {
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
                 "rejected:rejected_by_regulations",
+                'rejected:rejected_high_risk',
+                'rejected:payer_unavailable',
                 "in_process:pending_review_manual",
                 "internal_error",
+                'conflict_error',
+                'bad_request',
+                'unauthorized',
                 'default'
             ],
             inheritable: false
@@ -1544,6 +1564,30 @@ tracks {
      ******************************************/
 
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/detail"(platform: "/", type: TrackType.View) {
+        loan_id(
+                type: PropertyType.Numeric,
+                description: "The id of the current loan",
+                required: true,
+                inheritable: false
+        )
+        next_installment_status(
+                type: PropertyType.String,
+                description: "Status of the closest to expire installment",
+                required: true,
+                inheritable: false,
+                values: [
+                        'on_time',
+                        'to_expire_soft',
+                        'to_expire_hard',
+                        'expired_today',
+                        'no_charge_period',
+                        'fixed_charge_period_1',
+                        'fixed_charge_period_2',
+                        'daily_charge_period',
+                        'paid'
+                ])
+    }
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
     }
@@ -1662,6 +1706,7 @@ tracks {
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}

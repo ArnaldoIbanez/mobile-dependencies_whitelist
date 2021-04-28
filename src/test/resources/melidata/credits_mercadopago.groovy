@@ -709,27 +709,36 @@ trackTests {
         }
 
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             fixed_term()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             express_money()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'sufficient'
             fixed_term()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'insufficient'
             fixed_term()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'sufficient'
             express_money()
         }
-        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
             account_money = 'insufficient'
             express_money()
+        }
+        "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            category = 'regular'
+            total_amount_owed = '2000'
+            available_balance = '2000'
+            amount_to_pay = '1000'
+            sales_percentage()
         }
 
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
@@ -740,12 +749,13 @@ trackTests {
             express_money()
         }
 
-        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {}
-        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {
             fixed_term()
         }
-        "/credits/merchant/proactive_payment/form"(platform: "/web/desktop") {
+        "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {
             sales_percentage_on_time()
+            category = 'regular'
         }
 
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
@@ -791,6 +801,26 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'internal_error'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'rejected:rejected_high_risk'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'rejected:payer_unavailable'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'bad_request'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'unauthorized'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'conflict_error'
             fixed_term()
         }
 
@@ -1504,6 +1534,11 @@ trackTests {
         "/credits/consumer/administrator"(platform: "/mobile", type: TrackType.View) {
         }
 
+        "/credits/consumer/administrator/detail"(platform: "/mobile", type: TrackType.View) {
+            loan_id = 123456
+            next_installment_status = "on_time"
+        }
+
         "/credits/consumer/administrator/dashboard"(platform: "/mobile", type: TrackType.View) {
                 dashboard_status = 'empty_state'
         }
@@ -1560,6 +1595,9 @@ trackTests {
             dashboard_status = 'overdue'
         }
         "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
         }
         "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
