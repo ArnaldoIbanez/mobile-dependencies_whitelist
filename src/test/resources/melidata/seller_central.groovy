@@ -4102,6 +4102,14 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
+  }
+
   test("seller central listing action") {
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
       action_id = "CREATE_MARKETPLACE_CAMPAIGN"

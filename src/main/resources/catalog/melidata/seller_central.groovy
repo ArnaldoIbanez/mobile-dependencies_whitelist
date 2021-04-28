@@ -1921,6 +1921,10 @@ tracks {
         viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
     }
 
+    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS SYI V4 - RealEstate
     //------------------------------------------------------------------------------------------------------------------------------------------------------
