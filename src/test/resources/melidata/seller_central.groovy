@@ -1876,6 +1876,12 @@ trackTests {
     }
   }
 
+  test("seller central sales detail message action") {
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+      id = "action_id"
+    }
+  }
+
   test("seller central sales print action") {
     "/seller_central/sales/detail/action/print"(platform: "/web", type: TrackType.Event) {}
   }

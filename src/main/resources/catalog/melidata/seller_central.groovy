@@ -1211,6 +1211,7 @@ tracks {
     }
     "/seller_central/sales/detail/action/primary/show"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/secondary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/print"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {}
 
     "/seller_central/sales/detail/modal_action"(platform: "/web", isAbstract: true) {
