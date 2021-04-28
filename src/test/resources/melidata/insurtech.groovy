@@ -2422,6 +2422,16 @@ trackTests {
                 type_congrats= 'success'
             }
 
+            "/insurtech/protections/claims/execute/congrats"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'success'
+            }
+
             "/insurtech/protections/claims/execute/certificate_update"(platform:"/", type: TrackType.View) {
                 product_data =[
                     entity_type:"quote",
