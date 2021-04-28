@@ -1876,12 +1876,6 @@ trackTests {
     }
   }
 
-  test("seller central sales detail message action") {
-    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
-      id = "action_id"
-    }
-  }
-
   test("seller central sales print action") {
     "/seller_central/sales/detail/action/print"(platform: "/web", type: TrackType.Event) {}
   }
@@ -2001,6 +1995,12 @@ trackTests {
     "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail message action") {
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+      id = "action_id"
+    }
   }
 
   test("upload invoices view secondary actions") {

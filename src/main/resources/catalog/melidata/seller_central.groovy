@@ -1211,9 +1211,6 @@ tracks {
     }
     "/seller_central/sales/detail/action/primary/show"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/secondary"(platform: "/web", type: TrackType.Event) {}
-    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
-    }
     "/seller_central/sales/detail/action/print"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {}
 
     "/seller_central/sales/detail/modal_action"(platform: "/web", isAbstract: true) {
@@ -1284,6 +1281,10 @@ tracks {
     "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
 
     "/seller_central/sales/fiscal_document"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
     "/seller_central/sales/fiscal_document/action"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
