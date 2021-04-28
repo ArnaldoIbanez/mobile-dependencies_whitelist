@@ -1997,7 +1997,12 @@ trackTests {
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
   }
 
-  test("seller central sales detail message action") {
+  test("seller central sales detail message") {
+    "/seller_central/sales/detail/message"(platform: "/web", type: TrackType.Event) {}
+  }
+
+
+ test("seller central sales detail message action") {
     "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
       id = "action_id"
     }

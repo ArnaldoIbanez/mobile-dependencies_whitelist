@@ -1282,6 +1282,8 @@ tracks {
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
 
+    "/seller_central/sales/detail/message"(platform: "/web", type: TrackType.View) {}
+
     "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
