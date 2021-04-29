@@ -783,6 +783,30 @@ trackTests {
             flow = "/instore"
         }
 
+        "/px_checkout/combo_switch"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            option_selected = "debit_card"
+        }
+
+        "/px_checkout/program_validation"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            validation_program_used = "STP"
+        }
+
         // One tap + credit card
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
             payment_method_type = "credit_card"
@@ -3370,6 +3394,30 @@ trackTests {
         "/px_checkout/review/one_tap/swipe"(platform: "/mobile", type: TrackType.Event) {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             flow = "/instore"
+        }
+
+        "/px_checkout/combo_switch"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            option_selected = "debit_card"
+        }
+
+        "/px_checkout/program_validation"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            validation_program_used = "STP"
         }
 
         // One tap + credit card
