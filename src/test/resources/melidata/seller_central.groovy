@@ -1997,6 +1997,17 @@ trackTests {
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("seller central sales detail message") {
+    "/seller_central/sales/detail/message"(platform: "/web", type: TrackType.Event) {}
+  }
+
+
+ test("seller central sales detail message action") {
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+      id = "action_id"
+    }
+  }
+
   test("upload invoices view secondary actions") {
     "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {
       id = "fiscal_document_go_back"
