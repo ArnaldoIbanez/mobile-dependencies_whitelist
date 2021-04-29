@@ -122,7 +122,4 @@ tracks {
     }
     "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/execute/franchise/cancel"(platform:"/", type: TrackType.Event) {}
-    "insurtech/protections/claims/feedback"(platform:"/", type: TrackType.Event){
-
-    }
 }
