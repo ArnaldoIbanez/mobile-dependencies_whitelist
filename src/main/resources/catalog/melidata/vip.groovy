@@ -448,12 +448,16 @@ tracks {
         video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
                 description: "Video type of the item"
             )
+        item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"],
+                description: "Seller type: normal, car_dealer, etc")
     }
 
     "/vip/video_focus"(platform: "/mobile", parentPropertiesInherited: false) {
         video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO"],
                 description: "Video type of the item"
             )
+        item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"],
+                description: "Seller type: normal, car_dealer, etc")
     }
 
     "/vip/contact_seller"(platform: "/", type: TrackType.Event) {

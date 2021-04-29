@@ -588,6 +588,7 @@ trackTests {
             description_type = "plain_text"
             quantity_models = null
             domain_id = "MLC-APARTMENTS_FOR_RENT"
+            item_seller_type = "normal"
         }
 
         def tourOption = {
