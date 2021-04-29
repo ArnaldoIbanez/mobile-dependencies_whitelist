@@ -1643,7 +1643,9 @@ trackTests {
         }
 
         //Event PX Congrats Extra Component
-        "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
 
         /******************************************
             *       End: Consumers Admin Detail
