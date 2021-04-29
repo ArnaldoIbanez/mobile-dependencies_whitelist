@@ -272,6 +272,9 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
 
+    //Event PX Congrats Extra Component
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {}
+
     //Admin History (Compras Finalizadas)
 
     //Page views
