@@ -743,7 +743,7 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
         }
     }
-    test("Vertical Gallery Show") {
+    test("Back to top methods") {
         "/pdp/back_to_top/show"(platform: "/", type: TrackType.View) {
             catalog_product_id = "MLA1234"
         }
