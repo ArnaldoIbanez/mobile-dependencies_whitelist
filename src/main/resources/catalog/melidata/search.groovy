@@ -388,13 +388,22 @@ tracks {
     "/search/alert_intention"(platform: "/", type: TrackType.Event) {
     }
 
-    "/search/map_link"(platform: "/", type: TrackType.Event) {
+    "/search/map_link"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {
     }
 
-    "/search/search_map"(platform: "/", type: TrackType.Event) {
+    "/search/search_map"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {
     }
 
-    "/search/back_listing"(platform: "/", type: TrackType.Event) {
+    "/search/back_listing"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {
+    }
+
+    "/search/map_link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
+
+    "/search/search_map"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
+
+    "/search/back_listing"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

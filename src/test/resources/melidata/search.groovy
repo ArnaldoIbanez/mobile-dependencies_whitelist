@@ -575,13 +575,22 @@ trackTests {
         "/search/alert_intention"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/map_link"(platform: "/") {
+        "/search/map_link"(platform: "/web") {
             defaultSearchInformation()
         }
-        "/search/search_map"(platform: "/") {
+        "/search/search_map"(platform: "/web") {
             defaultSearchInformation()
         }
-        "/search/back_listing"(platform: "/") {
+        "/search/back_listing"(platform: "/web") {
+            defaultSearchInformation()
+        }
+        "/search/map_link"(platform: "/mobile") {
+            defaultSearchInformation()
+        }
+        "/search/search_map"(platform: "/mobile") {
+            defaultSearchInformation()
+        }
+        "/search/back_listing"(platform: "/mobile") {
             defaultSearchInformation()
         }
         "/search/official_stores_carousel"(platform: "/") {
