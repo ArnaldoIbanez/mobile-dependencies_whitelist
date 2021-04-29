@@ -4103,7 +4103,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("seller central listing secondary_actions") {
-    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.View) {}
   }
 
   test("seller central listing secondary_actions") {
