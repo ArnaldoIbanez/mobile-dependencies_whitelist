@@ -887,7 +887,6 @@ trackTests {
             newsgroup_id= "chargeback-payer_high_agree_repayment_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_high_agree_repayment_mp-186785675-76283123"
             latest_news_type= "chargeback_payer_high_agree_repayment_mp"
-            case_id = "158213000000"
             status= "read"
         }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
@@ -6486,7 +6485,6 @@ trackTests {
             newsgroup_id= "chargeback-payer_high_agree_repayment_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_high_agree_repayment_mp-186785675-76283123"
             latest_news_type= "chargeback_payer_high_agree_repayment_mp"
-            case_id = "158213000000"
             status= "read"
         }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
