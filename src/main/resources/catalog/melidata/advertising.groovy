@@ -445,7 +445,7 @@ tracks {
     }
 
     //Credits
-    "/advertising/pads2/manager/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/manager/credits"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         status(required: true, type: PropertyType.String, description: "Campaign status (active, paused)")
@@ -469,7 +469,7 @@ tracks {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/hub/credits"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/hub/credits"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono_campaign")
         available_credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
         close_duedate(required: false, type: PropertyType.Boolean, description: "indicates if warning of credits due to expire is displayed")

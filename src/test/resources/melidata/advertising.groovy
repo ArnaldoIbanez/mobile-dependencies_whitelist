@@ -619,11 +619,12 @@ trackTests {
     }
 
     test("Advertising credits deals") {
-        "/advertising/pads2/manager/credits"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/manager/credits"(platform: "/", type: TrackType.View) {
             mode = "AUTOMATIC"
             campaign_id = 290783009
             status = "active"
             available_credit = 600
+            close_duedate = true
         }
         "/advertising/pads2/manager/credits/go"(platform: "/web", type: TrackType.Event) {
             mode = "AUTOMATIC"
@@ -637,19 +638,36 @@ trackTests {
             status = "active"
             available_credit = 600
             used_credit = 1000
+            close_duedate = true
         }
-        "/advertising/pads2/hub/credits"(platform: "/web", type: TrackType.View){
+        "/advertising/pads2/manager/credits/download"(platform: "/", type: TrackType.Event) {
+            mode = "AUTOMATIC"
+            campaign_id = 290783009
+        }
+        "/advertising/pads2/manager/credits/duedate_tooltip"(platform: "/", type: TrackType.View) {
+            mode = "AUTOMATIC"
+            campaign_id = 290783009
+        }
+        "/advertising/pads2/hub/credits"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+            available_credit = 600
+            close_duedate = true
+        }
+        "/advertising/pads2/hub/credits/go"(platform: "/web", type: TrackType.Event) {
             mode = "custom"
             available_credit = 600
         }
-        "/advertising/pads2/hub/credits/go"(platform: "/web", type: TrackType.Event){
-            mode = "custom"
-            available_credit = 600
-        }
-        "/advertising/pads2/hub/credits/details"(platform: "/web", type: TrackType.View){
+        "/advertising/pads2/hub/credits/details"(platform: "/web", type: TrackType.View) {
             mode = "custom"
             available_credit = 600
             used_credit = 1000
+            close_duedate = true
+        }
+        "/advertising/pads2/hub/credits/download"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+        "/advertising/pads2/hub/credits/duedate_tooltip"(platform: "/", type: TrackType.View) {
+            mode = "custom"
         }
     }
 
