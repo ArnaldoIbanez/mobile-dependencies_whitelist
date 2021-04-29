@@ -994,7 +994,7 @@ trackTests {
         }
 
         "/cards/mpcard/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
-            action = "pause_card"
+            action = "reissue_pause_card"
         }
     }
 
