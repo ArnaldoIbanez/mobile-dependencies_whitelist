@@ -594,6 +594,7 @@ tracks {
     "/notification_center/chargeback_payer_high_agree_repayment_mp"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
     }
     "/notification_center/chargeback_payer_intensify_mp"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
