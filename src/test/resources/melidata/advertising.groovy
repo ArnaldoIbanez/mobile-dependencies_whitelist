@@ -649,25 +649,25 @@ trackTests {
             campaign_id = 290783009
         }
         "/advertising/pads2/hub/credits"(platform: "/", type: TrackType.View) {
-            mode = "custom"
+            mode = "CUSTOM"
             available_credit = 600
             close_duedate = true
         }
         "/advertising/pads2/hub/credits/go"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+            mode = "CUSTOM"
             available_credit = 600
         }
         "/advertising/pads2/hub/credits/details"(platform: "/", type: TrackType.View) {
-            mode = "custom"
+            mode = "CUSTOM"
             available_credit = 600
             used_credit = 1000
             close_duedate = true
         }
         "/advertising/pads2/hub/credits/download"(platform: "/", type: TrackType.Event) {
-            mode = "custom"
+            mode = "CUSTOM"
         }
         "/advertising/pads2/hub/credits/duedate_tooltip"(platform: "/", type: TrackType.View) {
-            mode = "custom"
+            mode = "CUSTOM"
         }
     }
 

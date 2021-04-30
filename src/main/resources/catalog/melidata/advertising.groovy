@@ -446,7 +446,10 @@ tracks {
 
     //Credits
     "/advertising/pads2/manager/credits"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
+        mode(
+                required: true, type: PropertyType.String,
+                values: ["AUTOMATIC", "CUSTOM", "MONO_CAMPAIGN", "NONE"],
+                description: "User mode, custom, automatic or mono")
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         status(required: true, type: PropertyType.String, description: "Campaign status (active, paused)")
         available_credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
@@ -460,17 +463,26 @@ tracks {
     }
 
     "/advertising/pads2/manager/credits/download"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
+        mode(
+                required: true, type: PropertyType.String,
+                values: ["AUTOMATIC", "CUSTOM", "MONO_CAMPAIGN", "NONE"],
+                description: "User mode, custom, automatic or mono")
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
     "/advertising/pads2/manager/credits/duedate_tooltip"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
+        mode(
+                required: true, type: PropertyType.String,
+                values: ["AUTOMATIC", "CUSTOM", "MONO_CAMPAIGN", "NONE"],
+                description: "User mode, custom, automatic or mono")
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
     "/advertising/pads2/hub/credits"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono_campaign")
+        mode(
+                required: true, type: PropertyType.String,
+                values: ["AUTOMATIC", "CUSTOM", "MONO_CAMPAIGN", "NONE"],
+                description: "User mode, custom, automatic or mono")
         available_credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
         close_duedate(required: false, type: PropertyType.Boolean, description: "indicates if warning of credits due to expire is displayed")
     }
@@ -482,11 +494,17 @@ tracks {
     }
 
     "/advertising/pads2/hub/credits/download"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
+        mode(
+                required: true, type: PropertyType.String,
+                values: ["AUTOMATIC", "CUSTOM", "MONO_CAMPAIGN", "NONE"],
+                description: "User mode, custom, automatic or mono")
     }
 
     "/advertising/pads2/hub/credits/duedate_tooltip"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
-        mode(required: true, type: PropertyType.String, description: "User mode, custom, automatic or mono")
+        mode(
+                required: true, type: PropertyType.String,
+                values: ["AUTOMATIC", "CUSTOM", "MONO_CAMPAIGN", "NONE"],
+                description: "User mode, custom, automatic or mono")
     }
 
     //Sorting
