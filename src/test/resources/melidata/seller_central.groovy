@@ -1063,7 +1063,7 @@ trackTests {
   test("seller central conversion price value updated"){
     "/seller_central/modify/update_conversion_price"(platform: "/", type: TrackType.Event){
       item_type = "product"
-      ategory_domain = "MLA-CELLPHONES"
+      category_domain = "MLA-CELLPHONES"
       category_id = "MLA390784"
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
