@@ -453,9 +453,9 @@ tracks {
         close_duedate(required: false, type: PropertyType.Boolean, description: "indicates if warning of credits due to expire is displayed")
     }
 
-    "/advertising/pads2/manager/credits/go"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/credits/go"(platform: "/", type: TrackType.Event) {}
 
-    "/advertising/pads2/manager/credits/details"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/manager/credits/details"(platform: "/", type: TrackType.View) {
         used_credit(required: true, description:"Amount that has already been consumed")
     }
 
@@ -475,9 +475,9 @@ tracks {
         close_duedate(required: false, type: PropertyType.Boolean, description: "indicates if warning of credits due to expire is displayed")
     }
 
-    "/advertising/pads2/hub/credits/go"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/hub/credits/go"(platform: "/", type: TrackType.Event) {}
 
-    "/advertising/pads2/hub/credits/details"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/hub/credits/details"(platform: "/", type: TrackType.View) {
         used_credit(required: true, type: PropertyType.Numeric, description: "Amount that has already been consumed")
     }
 
