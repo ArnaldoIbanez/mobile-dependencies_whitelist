@@ -657,14 +657,7 @@ tracks {
     // WHATSAPP BUTTON
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["button_tap"],
-            description: "when button tap"
-          )
-    }
+    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {}
 
 
     // CARDS HUBS

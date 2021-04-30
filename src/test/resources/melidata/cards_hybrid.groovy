@@ -755,9 +755,7 @@ trackTests {
 
     // WHATSAPP BUTTON
     test("cards hybrid card setup virtual whatsapp button") {
-            "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
-                action = "button_tap"
-            }
+            "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event)
         }
 
     // REISSUE VIRTUAL
