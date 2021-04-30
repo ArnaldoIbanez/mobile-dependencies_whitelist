@@ -845,6 +845,12 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_conversion_price"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
     /**
      * La idea es trackear en el snackbar informacion
      * del item original y algunos cambios que se produjeron.
