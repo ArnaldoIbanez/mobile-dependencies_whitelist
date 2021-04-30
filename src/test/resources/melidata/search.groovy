@@ -575,16 +575,16 @@ trackTests {
         "/search/alert_intention"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/map_link"(platform: "/web") {
+        "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/search_map"(platform: "/web") {
+        "/search/search_map"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/back_listing"(platform: "/web") {
+        "/search/back_listing"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/map_link"(platform: "/mobile") {
+       "/search/map_link"(platform: "/mobile") {
         }
         "/search/search_map"(platform: "/mobile") {
         }

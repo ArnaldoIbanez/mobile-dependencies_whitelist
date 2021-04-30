@@ -388,22 +388,37 @@ tracks {
     "/search/alert_intention"(platform: "/", type: TrackType.Event) {
     }
 
-    "/search/map_link"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {
+    "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
 
-    "/search/search_map"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {
+    "/search/search_map"(platform: "/", type: TrackType.Event) {
     }
 
-    "/search/back_listing"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: true) {
+    "/search/back_listing"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/map_link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
     "/search/search_map"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
     "/search/back_listing"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
