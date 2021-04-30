@@ -1060,6 +1060,22 @@ trackTests {
     }
   }
 
+  test("seller central conversion price value updated"){
+    "/seller_central/modify/update_conversion_price"(platform: "/", type: TrackType.Event){
+      item_type = "product"
+      ategory_domain = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      from = "1200"
+      to = "1500"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
   test("seller central quantity value updated"){
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event){
       item_type = "product"
