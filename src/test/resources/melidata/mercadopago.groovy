@@ -513,11 +513,6 @@ trackTests {
         }
     }
 
-
-    test("Landing mercadopago home") {
-        "/landing/home" (platform: "/web") {}
-    }
-
     test("Landing mercadopago sellers") {
         "/landing/sellers" (platform: "/web") {}
     }

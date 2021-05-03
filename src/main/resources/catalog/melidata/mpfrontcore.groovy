@@ -175,7 +175,10 @@ tracks {
     "/landing"(platform: "/", isAbstract: true) {}
 
     // MP Landing - Landing Home
-    "/landing/home"(platform: "/web") {}
+    "/landing/home"(platform: "/", type: TrackType.View) {}
+    "/landing/home/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+    }
 
     // MP Landing - Conta / Cuenta
     "/landing/digital_account"(platform: "/") {}
