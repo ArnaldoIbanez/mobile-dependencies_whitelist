@@ -140,6 +140,13 @@ trackTests {
         }
     }
 
+    test("Mercadopago Landing Home") {
+        "/landing/home" (platform: "/web") {}
+        "/landing/home/click"(platform: "/", type: TrackType.Event) {
+            id = "digital-account"
+        }
+    }
+
     test("Mercadopago Landing Cuenta / Conta") {
         "/landing/digital_account" (platform: "/") {}
     }
