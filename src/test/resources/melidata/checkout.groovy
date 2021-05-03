@@ -2237,7 +2237,7 @@ trackTests {
         "/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
-        "/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}        
+        "/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}
         "/checkout/shipping/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {}
         "/checkout/shipping/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {}
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
@@ -2452,6 +2452,20 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/error_street_type"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/error_street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
@@ -2480,6 +2494,20 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/error_state"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/error_city"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
@@ -2497,6 +2525,20 @@ trackTests {
         "/checkout/shipping/input_address/error_colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_intersection"(platform:"/",  type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            value = "aaa"
             items = [
                     [
                             quantity: 1,
@@ -2634,11 +2676,11 @@ trackTests {
             written = "123"
             final_text = "12345678"
         }
-        
+
         "/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 10.0
         }
-        
+
         "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 2.0
             session_id = "1234567"
@@ -2823,24 +2865,36 @@ trackTests {
 
     test("Mobile platform onetap") {
         "/checkout/onetap/billing" (platform:"/mobile/android", type: TrackType.View) {}
-        
+
         "/checkout/onetap/error" (platform:"/mobile/android", type: TrackType.View) {}
-        
+
         "/checkout/onetap/loading" (platform:"/mobile/android", type: TrackType.View) {}
-        
+
         "/checkout/onetap/congrats" (platform:"/mobile/android", type: TrackType.View) {
             purchase_id = 11111
         }
 
         "/checkout/onetap/main" (platform:"/mobile/android", type: TrackType.View) {}
-        
+
         "/checkout/onetap/screenlock" (platform:"/mobile/android", type: TrackType.View) {}
-        
+
         "/checkout/onetap/shipping/select_option" (platform:"/mobile/android", type: TrackType.View) {}
-        
+
         "/checkout/onetap/payment/input_card" (platform:"/mobile/android", type: TrackType.View) {}
-        
+
         "/checkout/onetap/payment/input_sec_code" (platform:"/mobile/android", type: TrackType.View) {}
     }
 
+    test("Mobile platform split") {
+
+        "/checkout/payment/split_payment/input_amount"(platform: "/mobile", type: TrackType.View) {}
+
+        "/checkout/payment/split_payment/input_amount/error"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/checkout/payment/split_payment/select_type"(platform: "/mobile", type: TrackType.View) {}
+
+        "/checkout/payment/split_payment/select_installments"(platform: "/mobile", type: TrackType.View) {}
+
+        "/checkout/payment/split_payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+    }
 }

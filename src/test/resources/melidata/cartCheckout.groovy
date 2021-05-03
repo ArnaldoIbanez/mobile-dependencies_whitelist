@@ -335,7 +335,7 @@ trackTests {
         }
         "/cart/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event) {}
         // Event
-        "/cart/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}        
+        "/cart/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}
         "/cart/checkout/shipping/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {}
         "/cart/checkout/shipping/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {}
         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
@@ -603,6 +603,11 @@ trackTests {
             value = "123"
             session_id="some_session_id"
         }
+        "/cart/checkout/shipping/input_address/error_state"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+        }
         "/cart/checkout/shipping/input_address/error_city"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             value = ""
@@ -613,7 +618,19 @@ trackTests {
             value = ""
             session_id="some_session_id"
         }
+        "/cart/checkout/shipping/input_address/error_intersection"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+            recovery_flow=true
+        }
         "/cart/checkout/shipping/input_address/error_street_number"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/error_street_type"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             value = ""
             session_id="some_session_id"
@@ -687,11 +704,11 @@ trackTests {
             final_text = "12345678"
             session_id = "1234567"
         }
-        
+
         "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 10.0
         }
-        
+
         "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 2.0
             session_id = "1234567"

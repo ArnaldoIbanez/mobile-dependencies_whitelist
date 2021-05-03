@@ -33,10 +33,6 @@ tracks {
     }
 
     def seo_item_definition = objectSchemaDefinitions {
-        is_whitelisted(type: PropertyType.Boolean, required: false)
-        check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: false)
-        value(type: PropertyType.Numeric, required: false)
-        is_default(type: PropertyType.Boolean, required: false)
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
     }
 
@@ -343,7 +339,7 @@ tracks {
 
     "/search/official_store"(platform: "/", isAbstract: true) {}
 
-    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
         official_store_id(required: true, type: PropertyType.String, description: "Link's Official store id")
     }
 
@@ -399,6 +395,30 @@ tracks {
     }
 
     "/search/back_listing"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/map_link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+    }
+
+    "/search/search_map"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+    }
+
+    "/search/back_listing"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

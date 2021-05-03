@@ -22,6 +22,9 @@ tracks {
     "/privacy_preferences/cookies/save"(platform: "/", type: TrackType.Event) {
         advertising(type: PropertyType.Boolean, required: true, description: "User preferences, advertising category")
     }
+    "/privacy_preferences/cookies/switch"(platform: "/", type: TrackType.Event) {
+        advertising(type: PropertyType.Boolean, required: false, description: "User preferences, advertising category")
+    }
     "/privacy_preferences/cookies/cancel"(platform: "/") {}
 
     //Privacy view for LGPD

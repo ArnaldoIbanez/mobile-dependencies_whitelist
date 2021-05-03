@@ -584,6 +584,12 @@ trackTests {
         "/search/back_listing"(platform: "/") {
             defaultSearchInformation()
         }
+       "/search/map_link"(platform: "/mobile") {
+        }
+        "/search/search_map"(platform: "/mobile") {
+        }
+        "/search/back_listing"(platform: "/mobile") {
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }
@@ -599,6 +605,10 @@ trackTests {
         "/search/official_store_logo/click"(platform: "/web") {
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
+        }
+        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            defaultSearchInformation()
+            official_store_id = "123"
         }
         "/search/banner"(platform: "/web", defaultWebTrack)
         "/search/banner/click"(platform: "/web", type: TrackType.Event) {
@@ -763,11 +773,4 @@ trackTests {
             advertising_id = "sky"
         }
     }
-
-    test("Test official store tracking"){
-        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
-            official_store_id = "123"
-        }
-    }
-
 }

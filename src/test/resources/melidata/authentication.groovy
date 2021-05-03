@@ -237,55 +237,45 @@ trackTests {
     test("Account recovery flow") {
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "validate_identity_button"
-            is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
         "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "confirm_button"
-            is_webview = true
         }
         "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "cancel_button"
-            is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
     }
 
@@ -1305,62 +1295,62 @@ trackTests {
 
 
         test("Reauth Native") {
-            //Operation Start
-            "/reauth/success"(platform: "/mobile/android", type: TrackType.Event) {
+            //Login Module
+            "/login/transactional/success"(platform: "/mobile/android", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "grant_code"
                 tracking_id = "1"
             }
 
-            "/reauth/success"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/login/transactional/success"(platform: "/mobile/ios", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "grant_code"
                 tracking_id = "1"
             }
 
-            "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/error"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 error = "server"
             }
 
-            "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/error"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 error = "server"
             }
 
-            "/reauth/challenge"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/challenge"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/challenge"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 errors = ["un error", "dos errores"]
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 errors = ["un error", "dos errores"]
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
+            "/login/transactional/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "test1_decline"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/login/transactional/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "test1_decline"
                 tracking_id = "1"
@@ -1601,29 +1591,6 @@ trackTests {
                 operation_id = "1"
                 flow_type = "payment"
                 amount = "10.0"
-            }
-        }
-      
-        test("Values Ignite") {
-            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
-                values_ignite = "{'authentication_session_site_first':'true','authentication_session_local_storage':'true'}"
-                values_list_compare = "{'La lista [MLU] contiene: MLU':'true','La lista [10] contiene: 10':'true'}"
-                site_to_compare = "MLU"
-                number_to_compare = "10"
-            }
-
-            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
-                values_ignite = ""
-                values_list_compare = ""
-                site_to_compare = ""
-                number_to_compare = ""
-            }
-
-            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
-                values_ignite = "{'authentication_session_site_first':'false','authentication_session_local_storage':'false'}"
-                values_list_compare = "{}"
-                site_to_compare = "MLU"
-                number_to_compare = "10"
             }
         }
     }

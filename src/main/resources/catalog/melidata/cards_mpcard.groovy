@@ -672,7 +672,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"],
+            values: ["reissue_pause_card", "reissue", "reissue_change_pin", "reissue_show_nip", "reissue_activate_contactless", "reissue_continue", "reissue_exit"],
             description: "The action tapped"
         )
     }

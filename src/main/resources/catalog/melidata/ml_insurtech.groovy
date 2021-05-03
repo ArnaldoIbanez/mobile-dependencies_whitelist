@@ -301,6 +301,16 @@ tracks {
         period(required: false, type: PropertyType.Numeric, description: "duration of warranty")
     }
 
+    "/insurtech/qpage_on/terms"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_id(required: true, type: PropertyType.String, description: "product type id")
+        from(required: true, type: PropertyType.String, description: "from origin where this was requested")
+    }
+
+    "/insurtech/qpage_on/particular_conditions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_id(required: true, type: PropertyType.String, description: "product type id")
+        from(required: true, type: PropertyType.String, description: "from origin where this was requested")
+    }
+
     // Hub-ON garex flow experiment
     "/insurtech/marketplace"(platform: "/", isAbstract: true) {}
     "/insurtech/marketplace/checkout"(platform:"/", isAbstract: true) {}

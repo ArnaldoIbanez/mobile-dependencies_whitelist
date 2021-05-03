@@ -107,6 +107,11 @@ tracks {
         type_congrats(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["success", "error"])
     }
 
+    "/insurtech/protections/claims/execute/congrats/feedback"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+        type_congrats(required: false, type: PropertyType.String, description: "Congrats state", values: ["success", "error"])
+    }
+
     "/insurtech/protections/claims/execute/certificate_update"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }

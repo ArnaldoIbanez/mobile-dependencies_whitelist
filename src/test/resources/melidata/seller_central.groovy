@@ -1060,6 +1060,22 @@ trackTests {
     }
   }
 
+  test("seller central conversion price value updated"){
+    "/seller_central/modify/update_conversion_price"(platform: "/", type: TrackType.Event){
+      item_type = "product"
+      category_domain = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      from = "1200"
+      to = "1500"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
   test("seller central quantity value updated"){
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event){
       item_type = "product"
@@ -1995,6 +2011,17 @@ trackTests {
     "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail message") {
+    "/seller_central/sales/detail/message"(platform: "/web", type: TrackType.Event) {}
+  }
+
+
+ test("seller central sales detail message action") {
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+      id = "action_id"
+    }
   }
 
   test("upload invoices view secondary actions") {
@@ -4054,16 +4081,41 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
   }
 
-  test("seller central listing promos card filter action") {
+  test("seller central listing promos card filter action with elegible item") {
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
       type = "lightning"
+      total_actives_items = 0
+      eligible_items = [
+              {
+                item_id = "MLB1861379548"
+                meli__pct = 5.0
+                seller_pct = 10.0
+              }
+      ]
+      total_eligible_items = 1
+      type = "meli_campaign"
+      promo_id = "P-MLB430009"
+      actives_items = []
     }
   }
 
-  test("seller central listing promos card filter action with slide") {
+  test("seller central listing promos card filter action with slide and pads") {
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
       type = "lightning"
       slide = 2
+      total_actives_items = 0
+      eligible_items = [
+              {
+                item_id = "MLB1861379548"
+                meli__pct = 5.0
+                seller_pct = 10.0
+                adv_pct = 18.5
+              }
+      ]
+      total_eligible_items = 1
+      type = "meli_campaign"
+      promo_id = "P-MLB430009"
+      actives_items = []
     }
   }
 
@@ -4077,21 +4129,51 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
-  test("seller central listing action") {
-    "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
-      action_id = "MODIFY"
-    }
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
   }
 
   test("seller central listing action") {
+    "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
+      action_id = "CREATE_MARKETPLACE_CAMPAIGN"
+      item_id = "MLB1834796998"
+      meli_pct = 2.0
+      promo_id = "P-MLB412005"
+      seller_pct = 18.0
+    }
+  }
+  test("seller central listing action with pads") {
+    "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
+      action_id = "CREATE_MARKETPLACE_CAMPAIGN"
+      item_id = "MLB1834796998"
+      meli_pct = 2.0
+      promo_id = "P-MLB412005"
+      seller_pct = 18.0
+      adv_pct = 18.5
+    }
+  }
+
+  test("seller central listing action confirm ") {
     "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
-      action_id = "MODIFY"
+      action_id = "CREATE_MARKETPLACE_CAMPAIGN"
+      item_id = "MLM896434921"
+      promo_id = "P-MLM412004"
     }
   }
 
   test("seller central listing promos error action") {
     "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
       action_id = "CREATE"
+    }
+  }
+  test("seller central listing promos tooltip pads executed") {
+    "/seller_central/promotions/action/tooltip_adv"(platform: "/", type: TrackType.Event) {
+      item_id = "MLM896427737"
+      promo_id = "P-MLM412004"
     }
   }
 
