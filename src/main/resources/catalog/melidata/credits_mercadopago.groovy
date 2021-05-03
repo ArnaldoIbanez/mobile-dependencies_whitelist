@@ -372,6 +372,16 @@ tracks {
         products_group
     }
     "/credits/merchant/proactive_payment/amount_input"(platform: "/", type: TrackType.View) {
+        available_balance(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        max_value_to_pay(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
         products_with_status
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
