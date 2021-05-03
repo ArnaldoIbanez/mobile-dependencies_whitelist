@@ -141,7 +141,7 @@ trackTests {
     }
 
     test("Mercadopago Landing Home") {
-        "/landing/home"(platform: "/web") {}
+        "/landing/home"(platform: "/", type: TrackType.View) {}
         "/landing/home/click"(platform: "/", type: TrackType.Event) {
             id = "digital-account"
         }
