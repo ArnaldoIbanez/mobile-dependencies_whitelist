@@ -4,7 +4,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-propertyDefinitions {
+    propertyDefinitions {
         flow_id (type: PropertyType.String, required: true, description: "Flow ID")
         product (type: PropertyType.String, required: true, description: "Product identifier")
         currency (type: PropertyType.String, required: true, description: "ISO Currency")
