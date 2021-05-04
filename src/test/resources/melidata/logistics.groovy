@@ -809,6 +809,21 @@ trackTests {
             driver_id = 400
             route_id = "1234"
         }
+        "/logistics/last_mile/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+        }
+        "/logistics/first_mile/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+        }
+        "/logistics/exchange_point/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+        }
     }
 
 }

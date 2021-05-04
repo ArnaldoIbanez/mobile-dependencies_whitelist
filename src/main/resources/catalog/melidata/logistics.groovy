@@ -542,4 +542,21 @@ tracks {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: true)
     }
     "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View) {}
+
+    // Covid19 Modal
+    "/logistics/last_mile/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+    }
+    "/logistics/first_mile/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+    }
+    "/logistics/exchange_point/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+    }
 }
