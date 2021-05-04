@@ -1524,11 +1524,7 @@ tracks {
         reasons (
             required: true,
             type: PropertyType.String,
-            values: [
-                "payment is not allowed as SDK initialization is ongoing",
-                "payment is not allowed as SDK is not initialized"
-            ],
-            description: "Reasons that one tap payment failed with closed application"
+            description: "Error code of the payment tap pos error"
         )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
