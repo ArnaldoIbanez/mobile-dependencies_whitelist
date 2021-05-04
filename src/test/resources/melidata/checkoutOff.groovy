@@ -34,6 +34,7 @@ trackTests {
             items_quantity = 2
             app_candidate = true
             client_id = "0C470234B553122"
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
         }
 
         def launchingDefaultProperties = {
@@ -253,6 +254,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -432,6 +438,11 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
@@ -518,6 +529,7 @@ trackTests {
             items_quantity = 2
             app_candidate = true
             client_id = "0C470234B553122"
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
         }
 
         def launchingDefaultProperties = {
@@ -738,6 +750,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -913,6 +930,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
