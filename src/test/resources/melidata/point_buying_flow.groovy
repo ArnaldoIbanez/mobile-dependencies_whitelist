@@ -2,8 +2,6 @@ package src.test.resources.melidata
 import com.ml.melidata.TrackType
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
-import com.ml.melidata.catalog.PropertyType
-
 
 trackTests {
     defaultBusiness = "mercadopago"
