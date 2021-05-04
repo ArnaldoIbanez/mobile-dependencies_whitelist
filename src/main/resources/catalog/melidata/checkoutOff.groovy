@@ -34,6 +34,8 @@ tracks {
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
+        app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
     }
 
     // EVENTS
@@ -43,6 +45,18 @@ tracks {
     "/checkout_off/checkout_confirmed"(platform: "/", type: TrackType.Event) {}
 
     // VIEWS
+
+    // Routing
+    "/checkout_off/routing"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        productive(required: true, description: "True if productive flow", type: PropertyType.Boolean)
+        collector_id(required: false, description: "Seller's id, e.g: 1010101001", type: PropertyType.Numeric)
+        preference_id(required: false, description: "Preference being paid, e.g: '123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61'", type: PropertyType.String)
+        operation_type(required: false, description: "Operation type, e.g: 'regular_payment'", type: PropertyType.String, values: ["regular_payment", "account_fund", "money_transfer", "pos_payment", "payment_addition"])
+        app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
+    }
+
+    // Login
     "/checkout_off/login"(platform: "/", type: TrackType.View) {}
     "/checkout_off/logout"(platform: "/", type: TrackType.View) {}
 
@@ -125,6 +139,8 @@ tracks {
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
+        app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
     }
 
     // For this path, none is required
@@ -147,6 +163,9 @@ tracks {
         payment_id(required: false, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
         total_amount_usd(required: true, serverSide:true, description: "payment amount in usd acording to currency conversion", type: PropertyType.Numeric)
         congrats_status(required: true, description: "Reason for the congrats status")
+    }
+
+    "/checkout_off/congrats/express_recover"(platform: "/", type: TrackType.View) {
     }
 
     "/checkout_off/congrats/no_display"(platform: "/", type: TrackType.View) {

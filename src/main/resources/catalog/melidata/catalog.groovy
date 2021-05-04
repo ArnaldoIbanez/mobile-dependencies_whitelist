@@ -46,7 +46,7 @@ catalog {
     def mercadoshops = ["mercadoshops"]
 
     def mercadoenvios = ["mercadoenvios"]
-    
+
     def mercadoads = ["mercadoads"]
 
     def extra_marketplace = [
@@ -94,6 +94,7 @@ catalog {
         include business, "addresses.groovy"
         include business, "bulk_publish.groovy"
         include business, "bulk_edit.groovy"
+        include business, "pdf_viewer.groovy"
     }
 
     mercadolibre.each { business ->
@@ -247,13 +248,17 @@ catalog {
         include business, "business_config.groovy"
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
+        include business, "point_devices.groovy"
+        include business, "proximity_marketplace.groovy"
+        include business, "point_receipts.groovy"
+        include business, "disbursements_wu.groovy"
     }
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
         include business, "notifications_mshops.groovy"
     }
-    
+
     mercadoads.each { business ->
         include business, "advertising.groovy"
     }

@@ -54,6 +54,8 @@ tracks {
             description: "Indicates the criteria used in the search in the help portal")
         portal_custom_order_id(required: false, type: PropertyType.Numeric, 
             description: "Indicates the order shown to the user according to the predicted problem")
+        portal_custom_orders_ids(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the cancelled orders shown to the user")
         portal_prediction_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the id of the prediction for the user problem")        
         portal_content_destination_url(required: false, type: PropertyType.String, 
@@ -106,6 +108,7 @@ tracks {
         portal_effectivity_survey_value(portal_effectivity_survey_value)
         portal_search_criteria(portal_search_criteria)
         portal_custom_order_id(portal_custom_order_id)
+        portal_custom_orders_ids(portal_custom_orders_ids)
         portal_prediction_id(portal_prediction_id)
         portal_content_destination_url(portal_content_destination_url)
         portal_show_cancel_card(portal_show_cancel_card)
@@ -257,6 +260,7 @@ tracks {
         portal_show_cancel_card
         portal_show_delay_cards
         portal_delayed_packs_ids
+        portal_custom_orders_ids
         portal_prediction_id
         portal_has_one_click
         portal_predicted_contents
@@ -279,6 +283,7 @@ tracks {
         portal_source_id
         portal_custom_order_id
         portal_prediction_id
+        portal_predicted_label
     }
 
     "/portal/delay_card"(platform: "/", type: TrackType.Event) {

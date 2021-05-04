@@ -31,8 +31,18 @@ tracks {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
     }
     "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
-        variant(description: "Congrats variant", type: PropertyType.String, required: true, values: ["success", "retry"])
+        result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
     }
+    "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event) {
+        result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+    }
+    "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event) {
+        result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
+    }
+
+    "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {}
     /******************************************
     *       End: Flujo Upsell Consumer
     ******************************************/

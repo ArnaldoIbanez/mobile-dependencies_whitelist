@@ -7,8 +7,8 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
 
     defaultBusiness = "mercadolibre"
-    
-    test("Addresses - Test the views") { 
+
+    test("Addresses - Test the views") {
         "/addresses/input_address"(platform: "/", type: TrackType.View) {
             context = "MY_ML"
             editing_address = 12312312312
@@ -18,8 +18,8 @@ trackTests {
             editing_address = null
         }
     }
-    
-    test("Addresses - Test the views actions") { 
+
+    test("Addresses - Test the views actions") {
         "/addresses/input_address/back"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
@@ -32,19 +32,15 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/map/submit"(platform: "/", type: TrackType.Event) {
-            context = "MY_ML"
-            editing_address = 12312312312
-        }
     }
 
-    test("Addresses - Test the input errors") { 
+    test("Addresses - Test the input errors") {
         "/addresses/input_address/error/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
-        }        
+        }
         "/addresses/input_address/error/zip_code"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = "00"
@@ -57,13 +53,31 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
+        "/addresses/input_address/error/street_type"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
         "/addresses/input_address/error/street_number"(platform:"/",  type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             value = "aaa"
             context = "MY_ML"
             editing_address = 12312312312
         }
+        "/addresses/input_address/error/intersection"(platform:"/",  type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
         "/addresses/input_address/error/city"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
+        "/addresses/input_address/error/state"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             value = ""
             context = "MY_ML"
@@ -99,7 +113,7 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/map/error/map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             context = "MY_ML"
@@ -107,16 +121,16 @@ trackTests {
         }
     }
 
-    test("Addresses - Test the UX info") { 
-        "/addresses/input_address/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {
-            context = "MY_ML"
-            editing_address = 12312312312
-        }        
-        "/addresses/input_address/dont_know_my_zip_code/submit"(platform: "/", type: TrackType.Event) {
+    test("Addresses - Test the UX info") {
+        "/addresses/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
+        "/addresses/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
@@ -131,12 +145,12 @@ trackTests {
             final_text = "12345678"
             context = "MY_ML"
             editing_address = 12312312312
-        }        
+        }
         "/addresses/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 10.0
             context = "MY_ML"
             editing_address = 12312312312
-        }        
+        }
         "/addresses/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 2.0
             context = "MY_ML"
@@ -163,8 +177,8 @@ trackTests {
     }
 
     defaultBusiness = "mercadopago"
-    
-    test("Addresses - Test the views") { 
+
+    test("Addresses - Test the views") {
         "/addresses/input_address"(platform: "/", type: TrackType.View) {
             context = "MY_ML"
             editing_address = 12312312312
@@ -174,8 +188,8 @@ trackTests {
             editing_address = null
         }
     }
-    
-    test("Addresses - Test the views actions") { 
+
+    test("Addresses - Test the views actions") {
         "/addresses/input_address/back"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
@@ -188,22 +202,24 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/map/submit"(platform: "/", type: TrackType.Event) {
-            context = "MY_ML"
-            editing_address = 12312312312
-        }
     }
 
-    test("Addresses - Test the input errors") { 
+    test("Addresses - Test the input errors") {
         "/addresses/input_address/error/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = ""
             context = "MY_ML"
             editing_address = 12312312312
-        }        
+        }
         "/addresses/input_address/error/zip_code"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
             value = "00"
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
+        "/addresses/input_address/error/street_type"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
@@ -213,9 +229,21 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
+        "/addresses/input_address/error/intersection"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
         "/addresses/input_address/error/street_number"(platform:"/",  type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             value = "aaa"
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
+        "/addresses/input_address/error/state"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
             context = "MY_ML"
             editing_address = 12312312312
         }
@@ -255,7 +283,7 @@ trackTests {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/error/map"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/map/error/map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             context = "MY_ML"
@@ -263,16 +291,16 @@ trackTests {
         }
     }
 
-    test("Addresses - Test the UX info") { 
-        "/addresses/input_address/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {
-            context = "MY_ML"
-            editing_address = 12312312312
-        }        
-        "/addresses/input_address/dont_know_my_zip_code/submit"(platform: "/", type: TrackType.Event) {
+    test("Addresses - Test the UX info") {
+        "/addresses/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
-        "/addresses/input_address/dont_know_my_zip_code/back"(platform: "/", type: TrackType.Event) {
+        "/addresses/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {
+            context = "MY_ML"
+            editing_address = 12312312312
+        }
+        "/addresses/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {
             context = "MY_ML"
             editing_address = 12312312312
         }
@@ -287,12 +315,12 @@ trackTests {
             final_text = "12345678"
             context = "MY_ML"
             editing_address = 12312312312
-        }        
+        }
         "/addresses/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 10.0
             context = "MY_ML"
             editing_address = 12312312312
-        }        
+        }
         "/addresses/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 2.0
             context = "MY_ML"

@@ -189,7 +189,15 @@ trackTests {
 
     // OptIn Ahora 12
     test("Error trying to render Ahora 12 page") {
-        "/pricing_section/a12/error" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/a12/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+        }
+    }
+    test("Error trying to render Ahora 12 page") {
+        "/pricing_section/a12/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+            message = "server not found"
+        }
     }
     test("Renders Ahora 12 page") {
         "/pricing_section/a12/success" (platform: "/", type: TrackType.View) { }
@@ -252,7 +260,15 @@ trackTests {
 
     // OptIn PSJ
     test("Error trying to render PSJ page") {
-        "/pricing_section/psj/error" (platform: "/", type: TrackType.View) { }
+        "/pricing_section/psj/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+        }
+    }
+    test("Error trying to render PSJ page") {
+        "/pricing_section/psj/error" (platform: "/", type: TrackType.View) {
+            status = "400"
+            message = "server not found"
+        }
     }
     test("Renders PSJ page") {
         "/pricing_section/psj/success" (platform: "/", type: TrackType.View) { }
@@ -287,9 +303,14 @@ trackTests {
         }
     }
     test("The save button was clicked with a error result 2 - PSJ") {
-        "/pricing_section/psj/save/error" (platform: "/", type: TrackType.Event) {
+        "/pricing_section/psj/save/error"(platform: "/", type: TrackType.Event) {
             status = "500"
             message = "Error"
+        }
+    }
+    test("Access psj activity from deeplink outside pricing section") {
+        "/pricing_section/psj_activity"(platform: "/mobile", type: TrackType.Event) {
+            caller="test.java"
         }
     }
 }

@@ -588,6 +588,7 @@ trackTests {
             description_type = "plain_text"
             quantity_models = null
             domain_id = "MLC-APARTMENTS_FOR_RENT"
+            item_seller_type = "normal"
         }
 
         def tourOption = {
@@ -830,7 +831,7 @@ trackTests {
         "/vip/similar_vehicles"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
-        
+
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
 
@@ -999,7 +1000,7 @@ trackTests {
             otherShipping
         ]
         }
-    
+
     }
 
     test("VIP Web Classifieds services track click on link to landing_services") {
@@ -1168,8 +1169,8 @@ trackTests {
             variationInformation()
             shipping_pay_before = false
         }
-        
-        def shipping_method = { 
+
+        def shipping_method = {
             shipping_method = {
                 id = 531332827
                 name = "Retiro en Correo Argentino"
@@ -1190,7 +1191,7 @@ trackTests {
                         date =  "2018-12-10T00:00:00.000-03:00"
                         shipping = 48
                     }
-                }      
+                }
             }
         }
 
@@ -1348,10 +1349,10 @@ trackTests {
             model()
             shipping_method()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
              model()
         }
@@ -1369,15 +1370,15 @@ trackTests {
         "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
-        
-        
+
+
         //Apps
         "/vip/shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
             model()
@@ -1391,10 +1392,10 @@ trackTests {
         "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
 
-    
+
         "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-                
+
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
         }
@@ -1577,7 +1578,7 @@ trackTests {
             vip_version = "new"
         }
     }
-	
+
     test("VIP prevent stock question for mobile") {
         "/vip/question/ask/prevent_stock"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA792156560"
@@ -1657,14 +1658,17 @@ trackTests {
         }
 
         "/vip/classi_credits_onboard"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/ok"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/close"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
     }
@@ -1904,6 +1908,7 @@ trackTests {
             buying_mode = "classified"
             deal_ids = []
             points_interest_available = true
+            item_seller_type = "normal"
         }
 
         "/vip/points_of_interest/transport"(platform: "/web/desktop", type: TrackType.Event) {
@@ -1942,7 +1947,23 @@ trackTests {
         "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
+        "/vip/location/dynamic_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+    }
 
-
+    test("Test Official Store link"){
+        "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            official_store_id = 123
+        }
     }
 }

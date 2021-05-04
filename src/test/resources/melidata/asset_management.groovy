@@ -137,6 +137,8 @@ trackTests {
         "/asset_management/result_investing_company/approved"(platform: "/mobile") {}
         "/asset_management/result_investing_company/pending"(platform: "/mobile") {}
         "/asset_management/result_investing_company/rejected"(platform: "/mobile") {}
+        "/asset_management/result_invest_money"(platform: "/") {}
+        "/asset_management/result_reports"(platform: "/") {}
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
@@ -270,6 +272,9 @@ trackTests {
         "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_edit_amount"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", type: TrackType.Event) {}
+
+        //Update App
+        "/asset_management/update_app"(platform: "mobile", type: TrackType.View) {}
     
         // Meli tests
 
@@ -376,6 +381,9 @@ trackTests {
         "/asset_management/result_investing_company/approved"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/result_investing_company/pending"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/result_investing_company/rejected"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/result_invest_money"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/result_reports"(platform: "/", business: "mercadolibre") {}
+        
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile", business: "mercadolibre") {}
@@ -516,6 +524,24 @@ trackTests {
         "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_edit_amount"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
-      
+
+        //UpdateApp
+        "/asset_management/update_app"(platform: "/mobile", business: "mercadolibre") {}
+
+        //Kyc Onboarding
+        "/asset_management/kyc_onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/kyc_onboarding/send_to_kyc"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/kyc_onboarding/show_more"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/kyc_onboarding"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/kyc_onboarding/send_to_kyc"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/kyc_onboarding/show_more"(platform: "/mobile", business: "mercadolibre") {}
+
+        //Redirect onbaording mobile
+        "/asset_management/redirect_onboarding"(platform: "/web", type: TrackType.View) {}
+        "/asset_management/redirect_onboarding/play_store"(platform: "/web", type: TrackType.Event) {}
+        "/asset_management/redirect_onboarding/app_store"(platform: "/web", type: TrackType.Event) {}
+        "/asset_management/redirect_onboarding"(platform: "/web",  business: "mercadolibre") {}
+        "/asset_management/redirect_onboarding/play_store"(platform: "/web",  business: "mercadolibre") {}
+        "/asset_management/redirect_onboarding/app_store"(platform: "/web",  business: "mercadolibre") {}
     }
 }

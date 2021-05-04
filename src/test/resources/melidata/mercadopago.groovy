@@ -513,11 +513,6 @@ trackTests {
         }
     }
 
-
-    test("Landing mercadopago home") {
-        "/landing/home" (platform: "/web") {}
-    }
-
     test("Landing mercadopago sellers") {
         "/landing/sellers" (platform: "/web") {}
     }
@@ -619,6 +614,7 @@ trackTests {
           user_id = 5010815
           e2e_test = false
           has_account_money = true
+          has_consumer_credits = true
         }
         
         "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -871,6 +867,18 @@ trackTests {
 		
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
     }
+
+    test("Invite and win web") {
+        "/merchant_acquisition/point/landing/invite_and_win"(platform:"/", type: TrackType.View) {}
+
+        "/merchant_acquisition/point/landing/invite_and_win/recommend"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/sign_up"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/additional_benefits"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/point_details"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/qr_details"(platform:"/", type: TrackType.Event) {}
+        "/merchant_acquisition/point/landing/invite_and_win/kit_download"(platform:"/", type: TrackType.Event) {}
+    }
+    
 
     test("Paper Rolls (Bobinas)") {
         "/merchant_acquisition/flows/paper_rolls"(platform:"/", type: TrackType.View) {
@@ -1276,6 +1284,16 @@ trackTests {
             coupon_type = "default"
         }
 
+        // Landing go to calculator event
+        "/point/landings/calculator"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+
+        // Landing go to security landing event
+        "/point/landings/security"(platform:"/", type: TrackType.Event) {
+            product = "Point Newland"
+        }
+        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
@@ -2520,6 +2538,10 @@ trackTests {
             label = "SADM"
         }
 
+        def receiptCollectorProperties = {
+            collector_id = "123456"
+        }
+
         def receiptProperties = {
             description = "description alternative scenario"
             collector_id = "123456"
@@ -2599,6 +2621,11 @@ trackTests {
             product_id = "10"
         }
 
+        //Invoice opt_out
+        "/bill_payments/invoices/empty_state"(platform: "/mobile") {
+            mandatory()
+        }
+
         // Invoice delete
         "/bill_payments/invoices/delete"(platform: "/mobile") {
             mandatory()
@@ -2609,6 +2636,15 @@ trackTests {
         }
 
         "/bill_payments/invoices/delete/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Invoice delete success
+        "/bill_payments/invoices/delete/success"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2645,6 +2681,16 @@ trackTests {
 
         "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+        }
+
+        "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Invoices susucription
+        "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            entity = "HBO"
         }
 
         // Product picker
@@ -2716,6 +2762,22 @@ trackTests {
         }
 
         "/bill_payments/info_screen/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/continue_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/confirm_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/search_entities"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/faq"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2794,14 +2856,17 @@ trackTests {
 
         "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/show"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/retry"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            receiptCollectorProperties()
         }
 
         "/bill_payments/receipt/error"(platform: "/mobile", type: TrackType.Event) {
@@ -2903,6 +2968,10 @@ trackTests {
         }
 
         "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3037,6 +3106,11 @@ trackTests {
         "/bill_payments/congrats/success"(platform: "/mobile") {
             mandatory()
         }
+
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -3220,6 +3294,7 @@ trackTests {
         "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View){}
+        "/tfs_dashboard/home/marketplace"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/detail"(platform: "/", type: TrackType.View){
             chart_id="tpv"
             section="online"
@@ -3339,7 +3414,7 @@ trackTests {
         "/withdraw/make_withdraw"(platform: "/mobile") { 
             flow = "/withdraw"
             from = "/deep_link"
-            _label = "CONGRATS"}
+            label = "CONGRATS"}
         "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
         "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
@@ -3365,7 +3440,11 @@ trackTests {
         "/withdraw/delay"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}            
          "/withdraw/error"(platform: "/mobile") { flow = "/withdraw"
-            from = "/deep_link"}          
+            from = "/deep_link"}    
+        "/withdraw/edit_input"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/add_bank_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}            
     }
 
     test("Withdraw_advance") {
@@ -3383,6 +3462,9 @@ trackTests {
             result_status = "rejected"
             status_detail = "internal_server_error"
         }
+        "/withdraw/add_advance"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"
+        } 
     }
 
     test("Withdraw_delete_account") {
@@ -3696,55 +3778,45 @@ trackTests {
     test("Account recovery flow") {
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "validate_identity_button"
-            is_webview = true
         }
         "/auth/account_recovery/landing/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
         "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "confirm_button"
-            is_webview = true
         }
         "/auth/account_recovery/confirm/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "cancel_button"
-            is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
         }
     }
 
@@ -4772,11 +4844,13 @@ trackTests {
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "single"
             target = "unlink_button"
         }
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "all"
             target = "confirm_unlink_button"
         }
     }
@@ -5249,6 +5323,308 @@ trackTests {
 
         // Access denied
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
+    }
+
+
+
+    test("Reauth Native") {
+        //Login Module
+        "/login/transactional/success"(platform: "/mobile/android", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "grant_code"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/success"(platform: "/mobile/ios", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "grant_code"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/error"(platform: "/mobile/android", type: TrackType.View) {
+            authentication_id = "1"
+            error = "server"
+        }
+
+        "/login/transactional/error"(platform: "/mobile/ios", type: TrackType.View) {
+            authentication_id = "1"
+            error = "server"
+        }
+
+        "/login/transactional/challenge"(platform: "/mobile/android", type: TrackType.View) {
+            authentication_id = "1"
+            challenge = "test1"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+            authentication_id = "1"
+            challenge = "test1"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+            authentication_id = "1"
+            challenge = "test1"
+            errors = ["un error", "dos errores"]
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+            authentication_id = "1"
+            challenge = "test1"
+            errors = ["un error", "dos errores"]
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "test1_decline"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "test1_decline"
+            tracking_id = "1"
+        }
+
+        //Operation Start
+        "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+
+        "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+
+        "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+        }
+
+        //Operation End - Success
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            transaction_id = "1"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            transaction_id = "2"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            transaction_id = "3"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            transaction_id = "4"
+            reauth_status = "created"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+
+        //Operation End - Error
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            amount = "10.0"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+        }
+
+        //Operation End - Cancel
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "created"
+            transaction_id = "4"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "created"
+            transaction_id = "4"
+            screenlock_validated = false
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+        }
+        //Reauth Retry
+        "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+        "/reauth/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+        "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "payment"
+            amount = "10.0"
+        }
+        "/reauth/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "payment"
+            amount = "10.0"
+        }
+        //Reauth Close
+        "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+        "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+        "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "payment"
+            amount = "10.0"
+        }
+        "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "payment"
+            amount = "10.0"
+        }
     }
 
     test("Browser device tracking in mobile") {

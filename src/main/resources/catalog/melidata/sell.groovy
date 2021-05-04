@@ -64,6 +64,16 @@ tracks {
         valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
     }
 
+    def debug_model_map = objectSchemaDefinitions { 
+              model_name(type: PropertyType.String, required: true, description: "") 
+              score(type: PropertyType.Numeric, required: true, description: "") 
+    } 
+
+    def debug_domain_discovery_map = objectSchemaDefinitions { 
+              debug_model_name(type: PropertyType.Map(debug_model_map), 
+              required: true, description: "") 
+    }
+    
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         domain_id(required: false, type: PropertyType.String, description: "Item's category domain id")
@@ -100,7 +110,7 @@ tracks {
         product_predictions(required: false, type: PropertyType.ArrayList(PropertyType.Map(product_prediction_map)), description: "Product Predictions")
         accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
-
+        debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
     }
 
     propertyGroups {
@@ -116,7 +126,7 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
-        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
+        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index, debug_domain_discovery)
     }
 
     // Sell
@@ -125,6 +135,8 @@ tracks {
         sellGroupMobile
         listingTypeFlowMobile
         seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
+        sale_channel(required: false, type: PropertyType.String, description: "Item's sale channel", values: ["both", "marketplace", "mshops"])
     }
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
@@ -796,7 +808,6 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
-
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
@@ -1351,5 +1362,18 @@ tracks {
         has_validation_error(required: true, description: "Other suggestion has personal validation error or not", type: PropertyType.Boolean)
         error_references(required: true, description: "List of validation error references", PropertyType.ArrayList(PropertyType.String))
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 - Motors
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // Flash Offer Experiment
+    "/sell/flash_offer"(platform: "/web", isAbstract: true) {}
+    "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View) {}
+    "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
+    "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}
+    "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
+    "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
+
 
 }

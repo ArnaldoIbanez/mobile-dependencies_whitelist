@@ -233,9 +233,8 @@ tracks {
     "/discount_sellers/v2/error" (platform: "/", isAbstract: true) {}
 
     // Instore (ISDT) - Webview -  Home Sellers Error > Pageview
-    "/discount_sellers/v2/error" (platform: "/",  type: TrackType.View) {
-        session_id(type: PropertyType.String, description: "Session identifier")
-    }
+    "/discount_sellers/v2/error" (platform: "/",  type: TrackType.View) {}
+
     "/discount_sellers/v2/error/tap" (platform: "/", type: TrackType.Event) {
         link (type: PropertyType.String, required: false, description: "Name of button on the screen error")
         
@@ -243,7 +242,7 @@ tracks {
     
     def campaign = objectSchemaDefinitions {
         component_id (type: PropertyType.String, description: "Id of campaign")
-        status (type: PropertyType.String, values: ["ACTIVE","INACTIVE","PAUSED"], description: "status of campaign, example: ACTIVE")
+        status (type: PropertyType.String, description: "status of campaign, example: ACTIVE")
         total_charges (type: PropertyType.Numeric, description: "pyments of campaign, example: 342")
         budget_total (type: PropertyType.Numeric, description: "budget of campaign")
         budget_used (type: PropertyType.Numeric, description: "budget used of campaign")
@@ -251,7 +250,6 @@ tracks {
    
     // Instore (ISDT) - Webview -  Home Sellers Home > Pageview 
     "/discount_sellers/v2/home"(platform: "/", type: TrackType.View){
-        session_id(required: true, type: PropertyType.String, description: "Session identifier")
         segments(PropertyType.ArrayList, required: false, description:"list of elements rendered in the home page")
     }
         
@@ -260,11 +258,11 @@ tracks {
         segment_data (required: false, type: PropertyType.ArrayList, description: "infomation objects")
         drawing_type (type: PropertyType.String, description:"shape of element on the screen")
         segment_id (type: PropertyType.String, description: "identifier of segment")
-        position (type: PropertyType.Numeric, description: "positon of element on the secreen")
+        position (type: PropertyType.Numeric, required: false, description: "positon of element on the secreen")
         component_id (type: PropertyType.String, required: false, description: "id of the component")
         components (PropertyType.ArrayList(PropertyType.Map(campaign)), required: false, description: "array of elements on the screen")
         data_id (type: PropertyType.String, required: false, description: "moderation status example: more_clients")
-        status (type: PropertyType.String, required: false, values: ["ACTIVE","INACTIVE","PAUSED"], description: "status of campaign, example: ACTIVE")
+        status (type: PropertyType.String, required: false, description: "status of campaign, example: ACTIVE")
         payments (type: PropertyType.Numeric, required: false, description: "pyments of campaign, example: 342")
         budget_total (type: PropertyType.Numeric, required: false, description: "budget of campaign")
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
@@ -272,18 +270,17 @@ tracks {
         see_more (type: PropertyType.Boolean, required: false, description: "check if user saw the button see more campaigns")
     }
 
-    "/discount_sellers/v2/home/tap" (platform: "/", type: TrackType.View) {
+    "/discount_sellers/v2/home/tap" (platform: "/", type: TrackType.View, parentPropertiesInherited:false) {
         session_id(required: true, type: PropertyType.String, description: "Session identifier")
         drawing_type (type: PropertyType.String, description:"shape of element on the screen")
         component (required: false, type: PropertyType.ArrayList, description: "infomation objects")
         segment_id (type: PropertyType.String, description: "identifier of segment")
-        position (type: PropertyType.Numeric, description: "positon of element on the secreen")
+        position (type: PropertyType.Numeric, required: false, description: "positon of element on the secreen")
         component_id (type: PropertyType.String, required: false, description: "id of the component") 
     }
 
     // Instore (ISDT) - Webview -  Home Sellers History > Pageview
     "/discount_sellers/v2/history" (platform: "/", type: TrackType.View) {
-        session_id(type: PropertyType.String, description: "Session identifier")
         campaigns(type: PropertyType.ArrayList, required: false, description: "Campaign list")
         campaign_id (type: PropertyType.String, required: false, description: "Id of campaign")
         component_id (type: PropertyType.String, required: false, description: "id of the component")
@@ -291,20 +288,27 @@ tracks {
         budget_total (type: PropertyType.Numeric, required: false, description: "budget of campaign")
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
         budget_used (type: PropertyType.Numeric, required: false, description: "budget used of campaign")
-        status (type: PropertyType.String, values: ["ACTIVE","INACTIVE","PAUSED"], description: "status of campaign, example: ACTIVE")
+        status (type: PropertyType.String, required: false, description: "status of campaign, example: ACTIVE")
+        position (type: PropertyType.Numeric, required: false, description: "positon of element on the secreen")
     }
 
     // Instore (ISDT) - Webview -  Home Sellers History > tap 
-    "/discount_sellers/v2/history/tap" (platform: "/", type: TrackType.Event) {
-         position (type: PropertyType.Numeric, description: "positon of element on the secreen")
-
+    "/discount_sellers/v2/history/tap" (platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        session_id(required: true, type: PropertyType.String, description: "Session identifier")
+        campaign_id (type: PropertyType.String, required: false, description: "Id of campaign")
+        component_id (type: PropertyType.String, required: false, description: "id of the component")
+        payments (type: PropertyType.Numeric, required: false, description: "pyments of campaign, example: 342")
+        budget_total (type: PropertyType.Numeric, required: false, description: "budget of campaign")
+        payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
+        budget_used (type: PropertyType.Numeric, required: false, description: "budget used of campaign")
+        status (type: PropertyType.String, required: false, description: "status of campaign, example: ACTIVE")
+        position (type: PropertyType.Numeric, required: false, description: "positon of element on the secreen")
     }
 
     // Instore (ISDT) - Webview -  Home Sellers Detail "Active" > Pageview
     "/discount_sellers/v2/detail" (platform: "/", type: TrackType.View) {
-        session_id(type: PropertyType.String, description: "Session identifier")
-        campaign_id (type: PropertyType.String, description: "Id of campaign")
-        status (type: PropertyType.String, values: ["ACTIVE","INACTIVE","PAUSED"], description: "status of campaign, example: ACTIVE")
+        campaign_id (type: PropertyType.String, required: false, description: "Id of campaign")
+        status (type: PropertyType.String, required: false, description: "status of campaign, example: ACTIVE")
         payments (type: PropertyType.Numeric, required: false, description: "pyments of campaign, example: 342")
         budget_total (type: PropertyType.Numeric, required: false, description: "budget of campaign")
         payed_amount (type: PropertyType.Numeric, required: false, description: "tvpv of campaign")
@@ -313,8 +317,24 @@ tracks {
     }
 
     "/discount_sellers/v2/detail/tap" (platform: "/", type: TrackType.View) {
-        action (type: PropertyType.String,  description: "Name of button on the screen")
+        action (type: PropertyType.String, required: false,  description: "Name of button on the screen")
     }
 
+    "/discount_sellers/v2/template-details" (platform: "/", type: TrackType.View) {
+        template_id (type: PropertyType.String, description: "Id of template")
+    }
+
+    "/discount_sellers/v2/template-details/tap" (platform: "/", type: TrackType.Event) {
+        action (type: PropertyType.String, values:['TyC'], description: "Element taped")
+    }
+    
+    "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+         result (type: PropertyType.String, values:['success','fail'], required:false, description: "check if campaign was created")
+         campaign_id (type: PropertyType.Numeric,required:false, description: "Id of created campaign if result was succes")
+    }
+
+    "/discount_sellers/v2/template-details/congrats/tap" (platform: "/", type: TrackType.Event) {
+         action (type: PropertyType.String, values:['close', 'admin'], description: "button taped in modal")
+    }
     
 }

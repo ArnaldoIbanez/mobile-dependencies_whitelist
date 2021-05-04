@@ -340,6 +340,9 @@ tracks {
         mandatory
         step_information
         view_time
+        item_id(required: false, PropertyType.String, description: "Id of the item")
+        type(required: false, PropertyType.String, description: "Type of item")
+        content(required: false, PropertyType.ArrayList, description: "Content of the item")
     }
     "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
@@ -840,7 +843,7 @@ tracks {
     // Congrats pending
     "/single_player/paygo/congrats_pending"(platform: "/mobile", type: TrackType.View) {}
     "/single_player/paygo/congrats_pending/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/single_player/paygo/congrats_pending/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // Congrats rejected
     "/single_player/paygo/congrats_rejected"(platform: "/mobile", type: TrackType.View) {
@@ -848,7 +851,6 @@ tracks {
     }
     "/single_player/paygo/congrats_rejected/back"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/paygo/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/paygo/congrats_pending/back"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Recurrence
@@ -1070,15 +1072,20 @@ tracks {
     "/single_player/paygo/cancel_device/cancel"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-
-
-    // Congrats Cancel Tag
-    "/single_player/paygo/congrats_cancel_tag"(platform: "/mobile", type: TrackType.View) {}
-
-    "/single_player/paygo/congrats_cancel_tag/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/cancel_device/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
+
+    // Congrats Cancel Device
+    "/single_player/paygo/congrats_cancel_device"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/congrats_cancel_device/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/congrats_cancel_device/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     // Delete Device
     "/single_player/paygo/delete_device"(platform: "/mobile", type: TrackType.View) {}
@@ -1089,15 +1096,20 @@ tracks {
     "/single_player/paygo/delete_device/cancel"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-
-
-    // Congrats Delete Device
-    "/single_player/paygo/congrats_delete_tag"(platform: "/mobile", type: TrackType.View) {}
-
-    "/single_player/paygo/congrats_delete_tag/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/delete_device/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
+
+    // Congrats Delete Device
+    "/single_player/paygo/congrats_delete_device"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/congrats_delete_device/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/congrats_delete_device/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
     // Errors
     "/single_player/paygo/error"(platform: "/mobile", isAbstract: true) {}

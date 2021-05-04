@@ -461,6 +461,17 @@ trackTests {
                             ]
                     ]
             ]
+            ads_top_banner= [
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
+                    ]
+            ]
             loyalty= [
                     content_type : 'partial',
                     ordinal: 8,
@@ -1120,6 +1131,7 @@ trackTests {
 
         "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
             favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            from = "modal"
             metadata_user:[
                 type: "payer"
             ]
@@ -1584,6 +1596,17 @@ trackTests {
                     ]
             ]
             cross_selling= [
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
+                    ]
+            ]
+            ads_top_banner= [
                     content_type : 'partial',
                     ordinal: 7,
                     realestates: [
@@ -2217,6 +2240,32 @@ trackTests {
                 audience = "all"
                 component_id = "secondary_actions_payers_recharge_sube_mp"
                 section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+
+        test("Mercadopago Home Tap v3 - Advertising [${business}]") {
+            "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_item1"
+                section_id = "advertising"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_payers_recharge_sube_mp"
+                section_id = "advertising"
                 content_id = "recharge_sube"
                 bu = "mp"
                 bu_line = "default"

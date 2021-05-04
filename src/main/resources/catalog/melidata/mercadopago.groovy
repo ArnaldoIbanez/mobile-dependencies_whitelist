@@ -71,6 +71,7 @@ tracks {
     "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
         has_account_money (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has enough money in account")
+        has_consumer_credits (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has credit balance")
     }
 
     "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -166,6 +167,12 @@ tracks {
 
     // [Merchants Growth] Landings Navigation > Events
     "/point/landings/navigation"(platform:"/", type: TrackType.Event) {}
+    
+    // [Merchants Growth] Landings Navigation > Calculator link
+    "/point/landings/calculator"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landings Navigation > Security module link
+    "/point/landings/security"(platform:"/", type: TrackType.Event) {}
 
     // [Merchants Growth] Landing compare
     "/point/landings/compare"(platform:"/", type: TrackType.View) {}
@@ -503,9 +510,9 @@ tracks {
     "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
-    * PDV Onboarding IIBB - Register Point Plus
+    * Register Point Devices
     */
-    "/point/register"(platform: "/", isAbstract: true, initiative : "1046") {}
+    "/point/register"(platform: "/", isAbstract: true, initiative : "1300") {}
 
     // Register device
     "/point/register/start"(platform: "/", type: TrackType.View) {}

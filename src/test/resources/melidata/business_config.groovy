@@ -237,4 +237,26 @@ trackTests {
             url = 'http://url'
         }
     }
+
+    test("Partner view is loaded successfully") {
+        "/business_config/partner/success"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Partner view is loaded with errors") {
+        "/business_config/partner/error"(platform: "/", type: TrackType.View) {
+            status = '123'
+            message = 'error message'
+        }
+    }
+
+    test("Legal-rep view is loaded successfully") {
+        "/business_config/legal-rep/success"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Legal-rep view is loaded with errors") {
+        "/business_config/legal-rep/error"(platform: "/", type: TrackType.View) {
+            status = '123'
+            message = 'error message'
+        }
+    }
 }

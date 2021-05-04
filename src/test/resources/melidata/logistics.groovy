@@ -781,6 +781,17 @@ trackTests {
         "/logistics/first_mile/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
         }
+        "/logistics/first_mile/scanner/pickup_denied_warning"(platform: "/mobile", type: TrackType.View) {
+            first_mile_logistic_type = "FF"
+            route_id = "1234"
+            driver_id = 400
+            invalid_pickups = [
+                    [
+                        id: "123456",
+                        reason: "KEY_INVALID_STATUS"
+                    ]
+            ]
+        }
         "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
             driver_id = 400
         }

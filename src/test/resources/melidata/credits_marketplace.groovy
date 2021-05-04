@@ -157,6 +157,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
+            opt_in_separator = 'visible'
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = 'overdue'
@@ -191,6 +192,7 @@ trackTests {
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
+            opt_in_separator = 'visible'
         }
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
@@ -203,8 +205,17 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
         }
+        "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
         "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_uses_modal"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_how_to_use_modal"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
         }
         "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
@@ -234,6 +245,10 @@ trackTests {
         "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {
             user_status = 'manually_paused'
         }
+        "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/mobile", type: TrackType.Event) {
+            status = true
+            dashboard_status = 'on_time'
+        }
 
 
         // "/credits/consumer/administrator_v2/suggested_product_modal"(platform: "/mobile", type: TrackType.Event) {}
@@ -248,6 +263,10 @@ trackTests {
         //Events
         "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {
+        }
+        //Event PX Congrats Extra Component
+        "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
         }
 
 
