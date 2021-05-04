@@ -15,7 +15,7 @@ tracks {
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product, currency, price, discount_code, is_guest, user_id, e2e_test)
+        groupCheckoutProperties(flow_id, product, currency, price, discount_code, is_guest, e2e_test)
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
