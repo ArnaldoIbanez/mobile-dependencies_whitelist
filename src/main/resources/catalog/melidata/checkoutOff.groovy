@@ -35,7 +35,7 @@ tracks {
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
-        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
     }
 
@@ -54,7 +54,7 @@ tracks {
         preference_id(required: false, description: "Preference being paid, e.g: '123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61'", type: PropertyType.String)
         operation_type(required: false, description: "Operation type, e.g: 'regular_payment'", type: PropertyType.String, values: ["regular_payment", "account_fund", "money_transfer", "pos_payment", "payment_addition"])
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
-        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
     }
 
     // Login
@@ -141,7 +141,7 @@ tracks {
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
-        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
     }
 

@@ -33,7 +33,7 @@ trackTests {
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
         }
 
@@ -43,7 +43,7 @@ trackTests {
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
         }
 
         def finishDefaultProperties = {
@@ -528,7 +528,7 @@ trackTests {
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
         }
 
@@ -538,7 +538,7 @@ trackTests {
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
         }
 
         def finishDefaultProperties = {
