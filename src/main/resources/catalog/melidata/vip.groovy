@@ -1508,11 +1508,11 @@ tracks {
         item_seller_type(required: false, values: ['normal', 'real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
 
-    "/vip/back_to_top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+    "/vip/back_to_top/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
-    "/vip/back_to_top/show"(platform: "/", type: TrackType.View, parentPropertiesInherited: true) {
+    "/vip/back_to_top/action"(platform: "/", type: TrackType.View, parentPropertiesInherited: true) {
     }
 
 }

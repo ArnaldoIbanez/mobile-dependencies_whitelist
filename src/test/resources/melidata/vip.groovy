@@ -1967,7 +1967,7 @@ trackTests {
     }
 
     test("Vip back to top methods") {
-        "/vip/back_to_top"(platform: "/", type: TrackType.Event) {
+        "/vip/back_to_top/action"(platform: "/", type: TrackType.Event) {
             item_id = "MLB533657947"
         }
 

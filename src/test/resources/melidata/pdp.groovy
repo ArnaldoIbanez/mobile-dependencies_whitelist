@@ -748,7 +748,7 @@ trackTests {
             catalog_product_id = "MLA1234"
         }
 
-        "/pdp/back_to_top"(platform: "/", type: TrackType.Event) {
+        "/pdp/back_to_top/action"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
         }
     }
