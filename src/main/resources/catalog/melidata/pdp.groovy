@@ -685,11 +685,9 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
     }
 
-    "/pdp/back_to_top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
+    "/pdp/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
 
-    "/pdp/back_to_top/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
-    "/pdp/back_to_top/action"(platform: "/", type: TrackType.View, parentPropertiesInherited: true) {}
-
+    "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event) {}
 }
