@@ -61,8 +61,8 @@ tracks {
     def invalid_pickup = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "The id of the pickup")
         reason(required: true, type: PropertyType.String, description: "The reason not allowed pickup", values: ["KEY_INVALID_STATUS", "KEY_INVALID_CODE",
-                                                                                                                          "KEY_OPERATION_CANCELED", "KEY_PREVIOUSLY_COLLECTED",
-                                                                                                                          "KEY_INVALID_ROUTE", "KEY_INVALID_SITE", "KEY_UNKNOWN_ERROR"])
+                                                                                                                 "KEY_OPERATION_CANCELED", "KEY_PREVIOUSLY_COLLECTED",
+                                                                                                                 "KEY_INVALID_ROUTE", "KEY_INVALID_SITE", "KEY_UNKNOWN_ERROR"])
     }
 
     propertyGroups {
@@ -544,19 +544,10 @@ tracks {
     "/logistics/last_mile/poll/modal"(platform: "/mobile", type: TrackType.View) {}
 
     // Covid19 Modal
-    "/logistics/last_mile/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+    "/logistics/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
         vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
-    }
-    "/logistics/first_mile/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
-        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
-    }
-    "/logistics/exchange_point/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
-        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_type(required: false, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
     }
 }
