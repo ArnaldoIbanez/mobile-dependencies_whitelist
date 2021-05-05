@@ -1358,7 +1358,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back","primary_button","secondary_button"],
+            values: ["back","primary_button","secondary_button","contextual_help","feedback"],
             description: "Action Tapped"
         )
     }
