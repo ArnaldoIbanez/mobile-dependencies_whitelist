@@ -513,6 +513,10 @@ trackTests {
         }
     }
 
+    test("Landing cuenta") {
+        "/landing/digital_account" (platform: "/web") {}
+    }
+
     test("Landing mercadopago sellers") {
         "/landing/sellers" (platform: "/web") {}
     }
