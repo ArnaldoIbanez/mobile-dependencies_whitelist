@@ -1967,11 +1967,11 @@ trackTests {
     }
 
     test("Vip back to top methods") {
-        "/vip/back_to_top/action"(platform: "/", type: TrackType.Event) {
+        "/vip/back_to_top/top"(platform: "/", type: TrackType.Event) {
             item_id = "MLB533657947"
         }
 
-        "/vip/back_to_top/show"(platform: "/", type: TrackType.View) {
+        "/vip/back_to_top"(platform: "/", type: TrackType.View) {
             item_id = "MLB533657947"
         }
     }

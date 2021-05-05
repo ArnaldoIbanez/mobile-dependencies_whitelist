@@ -689,5 +689,5 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
 
-    "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event) {}
+    "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 }

@@ -744,11 +744,11 @@ trackTests {
         }
     }
     test("Back to top methods") {
-        "/pdp/back_to_top/show"(platform: "/", type: TrackType.View) {
+        "/pdp/back_to_top"(platform: "/", type: TrackType.View) {
             catalog_product_id = "MLA1234"
         }
 
-        "/pdp/back_to_top/action"(platform: "/", type: TrackType.Event) {
+        "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
         }
     }
