@@ -1513,4 +1513,10 @@ tracks {
         item_seller_type(required: false, values: ['normal', 'real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
 
+    "/vip/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
+
 }

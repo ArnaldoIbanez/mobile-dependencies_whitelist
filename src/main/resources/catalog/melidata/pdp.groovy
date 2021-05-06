@@ -130,7 +130,7 @@ tracks {
         cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
-        cac_status(required: false, type: PropertyType.String, 
+        cac_status(required: false, type: PropertyType.String,
                 values: ["normal", "after_dispatch", "unknown"],
                 description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
 
@@ -685,4 +685,9 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
     }
 
+    "/pdp/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 }

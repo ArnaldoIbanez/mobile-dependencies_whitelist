@@ -1966,4 +1966,14 @@ trackTests {
             official_store_id = 123
         }
     }
+
+    test("Vip back to top methods") {
+        "/vip/back_to_top/top"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB533657947"
+        }
+
+        "/vip/back_to_top"(platform: "/", type: TrackType.View) {
+            item_id = "MLB533657947"
+        }
+    }
 }
