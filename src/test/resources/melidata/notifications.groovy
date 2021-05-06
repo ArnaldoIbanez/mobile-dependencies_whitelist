@@ -11304,7 +11304,7 @@ trackTests {
         }
 
 
-          "/notification/card_nip_first_try"(platform: "/mobile") {
+        "/notification/card_nip_first_try"(platform: "/mobile") {
             news_id = "card_nip_first_try-186785675"
             event_type = "open"
             notification_type= "deep_linking"
@@ -11325,6 +11325,12 @@ trackTests {
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
+        }
+            
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit-rejected_withdraw_by_maximum_limit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg-1565881200"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
 
         "/notification/card_transactions_balance_atm"(platform: "/mobile") {
@@ -11693,6 +11699,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
+                
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit-rejected_withdraw_by_maximum_limit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg-1565881200"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/card_transactions_balance_atm"(platform: "/mobile") {
             news_id = "card_transactions_balance_atm-186785675"
@@ -11796,7 +11808,6 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-
     }
 
 }
