@@ -11339,6 +11339,30 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions-approved_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-approved_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-approved_withdraw_mute"(platform: "/mobile") {
+            news_id = "card_transactions-approved_withdraw_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
             news_id = "card_transactions_payment_reject_whit_contactless-186785675"
             event_type = "open"
@@ -11712,6 +11736,30 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions-approved_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-approved_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-approved_withdraw_mute"(platform: "/mobile") {
+            news_id = "card_transactions-approved_withdraw_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
             news_id = "card_transactions_payment_reject_whit_contactless-186785675"
             event_type = "open"

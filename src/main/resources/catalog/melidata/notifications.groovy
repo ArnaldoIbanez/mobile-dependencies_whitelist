@@ -2750,6 +2750,10 @@ tracks {
     "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {}
+    "/notification/card_transactions-approved_authorization_whatsapp"(platform: "/mobile") {}
+    "/notification/card_transactions-approved_withdraw_mute"(platform: "/mobile") {}
+    "/notification/card_transactions-fund_money_in_whatsapp"(platform: "/mobile") {}
+    "/notification/card_transactions-fund_money_in_whatsapp_mute"(platform: "/mobile") {}
 
     "/notification/card_transactions_cancelled_withdraw"(platform: "/mobile") {}
     "/notification/card_transactions_capture_after_ttl"(platform: "/mobile") {}
