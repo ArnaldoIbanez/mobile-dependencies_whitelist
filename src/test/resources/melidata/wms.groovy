@@ -163,6 +163,11 @@ trackTests {
             warehouse_id = "BRWT01"
         }
 
+        "/wms/sorter/scan_origin"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
         "/wms/put_away/scan_product/cancel"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"

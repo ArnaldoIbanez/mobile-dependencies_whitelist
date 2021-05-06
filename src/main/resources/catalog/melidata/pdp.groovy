@@ -130,7 +130,7 @@ tracks {
         cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
-        cac_status(required: false, type: PropertyType.String, 
+        cac_status(required: false, type: PropertyType.String,
                 values: ["normal", "after_dispatch", "unknown"],
                 description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
 
@@ -634,7 +634,9 @@ tracks {
 
     "/pdp/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
-    }
+        is_component_tracker(required: false, type: PropertyType.String, description: "Indica si el componente es el backup track")
+        item_id(required: false, type: PropertyType.String, description: "Indica el identificador del item")
+   }
 
     "/pdp/technical_specs"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
@@ -651,4 +653,41 @@ tracks {
 
     "/pdp/technical_specs/view_more"(platform: "/", parentPropertiesInherited: true) {
     }
+
+    "/pdp/technical_specs_features"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        is_highlighted(required: true, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        seller_id(required: false, type: PropertyType.Numeric, description: "The Id of the seller")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
+    }
+
+    "/pdp/technical_specs_features/view_more"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/html_description"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/html_description/show"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/html_description/view_all_action"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/vertical_gallery"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+    }
+
+    "/pdp/vertical_gallery/show"(platform: "/", parentPropertiesInherited: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+    }
+
+    "/pdp/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 }

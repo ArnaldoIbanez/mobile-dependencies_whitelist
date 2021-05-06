@@ -8,6 +8,39 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    // VIP
+
+    test("Mercado Pago discount center payers vip") {
+        "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
+            collector_id = 20565408
+            category_id = "MLA410861"
+            item_id = "MLA886428635"
+            item_name = "Duplao Burger"
+            context_info = [
+                    has_cart: true
+            ]
+            amount = [
+                    final_price: 40.2,
+                    currency: "ARS\$",
+                    discount: 31,
+                    original_price: 58
+            ]
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+    // MORE INFO
+
+    test("Mercado Pago discount center payers More info") {
+        "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+            store_id = 30286315
+            collector_id = 20565408
+            brand_id = 20565408
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+
     // VSP
 
     test("Mercado Pago discount center payers vsp") {
@@ -35,71 +68,76 @@ trackTests {
                 delivery: true,
                 pickup: false
             ]
+            context_info = [
+                    has_cart: true,
+                    has_catalog: true,
+                    version_code: 2,
+                    version_name: "New VSP"
+            ]
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
-    // DETAIL
-
-    test("Mercado Pago discount center payers detail") {
-        "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-            title = "Angus"
-            enabled = true
-            availability = "full"
-            level = 1
-            blocked = false
-            amount = 20.0
-            amount_type = "percent"
-            status = "active"
-            stores_id = [
-                    30091700
+    test("Mercado Pago discount center payers vsp tap") {
+        "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
             ]
-            has_logo = false
-            coupon_used = true
-            sections= [
-                    [
-                        id: "header",
-                        type: "header",
-                        position: 0
-                    ]
-            ]
-            tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            referer_origin= "12341234"
-            category="Restaurant"
-            collector_id="1234"
-            store_id="1234"
         }
     }
 
-    test("Mercado Pago discount center payers detail tap") {
-        "/discount_center/payers/detail/tap" (platform: "/mobile", type: TrackType.Event) {
-            title = "Angus"
-            enabled = true
-            availability = "full"
-            level = 1
-            blocked = false
-            amount = 20.0
-            amount_type = "percent"
-            status = "active"
-            stores_id = [
-                    30091700
+    test("Mercado Pago discount center payers vsp print") {
+        "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
             ]
-            has_logo = false
-            coupon_used = true
-            sections= [
-                    [
-                            id: "header",
-                            type: "header",
-                            position: 0
-                    ]
-            ]
-            tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            referer_origin= "12341234"
-            category="Restaurant"
-            collector_id="1234"
-            store_id="1234"
+        }
+    }
+
+    test("Mercado Pago discount center payers vsp show") {
+        "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
@@ -130,77 +168,10 @@ trackTests {
         }
     }
 
-    // TOUCH POINT
-
-    test("Mercado Pago discount center payers touchpoint px congrats tap") {
-        "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
-            tracking_id= "346859234"
-            flow= "/instore"
-            checkout_type= "one_tap"
-            security_enabled= false
-            session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
-            session_time= 58
-            flow_detail= [
-                store_id: "30974197",
-                pos_id: "7414488"
-            ]
-            category="category_test"
-            experiments="experiment_test"
-        }
-    }
-
-    test("Mercado Pago discount center payers touchpoint px congrats show") {
-        "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
-            items= [
-                [
-                    tracking_id: "346859234"
-                ]
-            ]
-            flow= "/instore"
-            checkout_type= "one_tap"
-            security_enabled= false
-            session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
-            session_time= 58
-            flow_detail= [
-                store_id: "30974197",
-                pos_id: "7414488"
-            ]
-            category="category_test"
-            experiments="experiment_test"
-        }
-    }
-
-    test("Mercado Pago discount center payers touchpoint px congrats print") {
-        "/discount_center/payers/touchpoint/px_congrats/print" (platform: "/mobile", type: TrackType.Event) {
-            items= [
-                    [
-                            tracking_id: "346859234"
-                    ]
-            ]
-            flow= "/instore"
-            checkout_type= "one_tap"
-            security_enabled= false
-            session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
-            session_time= 58
-            flow_detail= [
-                    store_id: "30974197",
-                    pos_id: "7414488"
-            ]
-            category="category_test"
-            experiments="experiment_test"
-        }
-    }
-
     // MARKETPLACE
 
     test("Mercado Pago discount center payers marketplace") {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
-            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-        }
-    }
-
-    test("Mercado Pago discount center payers marketplace components") {
-        "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
@@ -486,6 +457,65 @@ trackTests {
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
+                cover_carousel: [
+                        [
+                                marketplace_type: "cover_carousel",
+                                segment_id: "top_brands",
+                                marketplace_index: 2,
+                                items: [
+                                        [
+                                                type: "store",
+                                                index: 0,
+                                                store: [
+                                                        store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                                ]
+                                        ],
+                                        [
+                                                type: "see_more",
+                                                index: 1
+                                        ]
+                                ]
+                        ]
+                ],
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido fue entregado",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                            ]
+                ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -708,6 +738,56 @@ trackTests {
                                 ]
                         ]
                 ],
+                cover_carousel: [
+                        [
+                                marketplace_type: "cover_carousel",
+                                segment_id: "neighborhood",
+                                marketplace_index: 5,
+                                items: [
+                                        [   store_id: 30286315,
+                                            collector_id: 20565408,
+                                            name: "Maqyherr De Jose Luis Mangini",
+                                            distance: 1813,
+                                            category: "Ferretería",
+                                            mcc: "523630",
+                                            discounts: [
+                                                    [
+                                                            campaign_id: 1070400,
+                                                            index: 0,
+                                                            blocked: false,
+                                                            availability: "full",
+                                                            level: 1,
+                                                            amount_type: "percent",
+                                                            amount: 5.0,
+                                                            priority: 6
+                                                    ]
+                                            ],
+                                            delivery: [
+                                                    radius: 1000,
+                                                    delivery: true,
+                                                    pickup: false
+                                            ],
+                                            session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                        ]
+                                ]
+                        ]
+                ],
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido esta en camino",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                    ]
+                ]
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -758,12 +838,76 @@ trackTests {
 
         "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
             components = [
+                    cover_carousel: [
+                            [
+                                    marketplace_type: "cover_carousel",
+                                    segment_id: "neighborhood",
+                                    marketplace_index: 4,
+                                    items: [
+                                            [   store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                            ]
+                                    ]
+                            ]
+                    ]
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+
+        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
                     filters_l2: [
                         [
                                 index: 0,
                                 selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ]
+                ],
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+
+        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido esta en camino",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                    ]
                 ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"

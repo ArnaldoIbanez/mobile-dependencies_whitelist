@@ -9,7 +9,7 @@ tracks {
 
     initiative = "1205"
 
-    propertyDefinitions {        
+    propertyDefinitions {
         installments_qty( type: PropertyType.Numeric, required: true, description: "The total number of installments to pay")
     }
 
@@ -29,6 +29,7 @@ tracks {
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -169,11 +170,11 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(
                             required: true,
-                            description: "Current status of the Dashboard", 
-                            type: PropertyType.String, 
-                            values: [ 
-                                        "empty_state", 
-                                        "on_time", 
+                            description: "Current status of the Dashboard",
+                            type: PropertyType.String,
+                            values: [
+                                        "empty_state",
+                                        "on_time",
                                         "overdue"
                                     ]
                         )
@@ -191,13 +192,22 @@ tracks {
             description: "Self service option shown to the user",
             type: PropertyType.ArrayList(PropertyType.String)
         )
+        opt_in_separator(
+                required: false,
+                description: "It is only shown when user needs to allow notifications",
+                type: PropertyType.String,
+                values: [
+                        "visible",
+                        "not visible"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
                             required: true,
-                            description: "Credit line's current status", 
-                            type: PropertyType.String, 
-                            values: [ 
+                            description: "Credit line's current status",
+                            type: PropertyType.String,
+                            values: [
                                         "manually_paused"
                                     ]
                     )
@@ -205,8 +215,20 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
+        status(
+                required: true,
+                description: "Define if user allows or not whatsapp notifications",
+                type: PropertyType.Boolean,
+        )
+    }
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
         installments_group
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/choose_installments"(platform: "/", type: TrackType.Event) {}
@@ -218,19 +240,29 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/consumer/administrator_v2/promises"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/debt_relief"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
-    //Mobile Events 
+    //Mobile Events
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_uses_modal"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_how_to_use_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
@@ -239,7 +271,11 @@ tracks {
     }
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Event PX Congrats Extra Component
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {}
 
     //Admin History (Compras Finalizadas)
 
@@ -315,6 +351,11 @@ tracks {
                 required: true,
                 values: ['cho', 'ticket']
         )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/", type: TrackType.Event) {
         installment_status(
@@ -337,6 +378,11 @@ tracks {
                 description: "Current selected 'path' to payment",
                 required: true,
                 values: ['cho', 'ticket']
+        )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
         )
     }
 
@@ -729,7 +775,7 @@ tracks {
     }
 
     "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {}
-    
+
     "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {}
 
     "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {}
@@ -737,7 +783,7 @@ tracks {
      /******************************************
      *    End: Consumers Change Due Date FLow
      ******************************************/
-     
+
      /******************************************
      *    Start: Self service
      ******************************************/
@@ -754,7 +800,7 @@ tracks {
             ]
         )
     }
-        
+
     "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
         is_partial_amount(
             required: true,
@@ -784,7 +830,7 @@ tracks {
     }
 
     "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,
@@ -826,6 +872,74 @@ tracks {
             ]
         )
     }
+
+    "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+            user_type(
+                required: true,
+                description: "User type (merchant, consumer or mix)",
+                type: PropertyType.String,
+                values: [
+                    "merchant",
+                    "consumer",
+                    "mix"
+                ]
+            )
+        }
+
+        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+                bulk_amount(
+                    required: true,
+                    description: "Bulk amount of the debt relief proposed by the user",
+                    type: PropertyType.Numeric
+                )
+                total_amount(
+                    required: true,
+                    description: "Total debt amount",
+                    type: PropertyType.Numeric
+                )
+                min_amount(
+                    required: false,
+                    description: "Total debt amount",
+                    type: PropertyType.Boolean
+                )
+            }
+
+        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+                bulk_amount(
+                    required: true,
+                    description: "Bulk amount of the debt relief proposed by the user",
+                    type: PropertyType.Numeric
+                )
+                total_amount(
+                    required: true,
+                    description: "Total debt amount",
+                    type: PropertyType.Numeric
+                )
+                installments_id(
+                    required: true,
+                    description: "Array of Installments reached by the punitive condonation",
+                    type: PropertyType.ArrayList
+                )
+                debt_relief_amount(
+                    required: true,
+                    description: "final Debt relief amount",
+                    type: PropertyType.Numeric
+                )
+            }
+
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+               error_type(
+                       required: true,
+                       description: "Error type message",
+                       type: PropertyType.String,
+                       values: [
+                           "no_offer",
+                           "not_found",
+                           "invalid_offer",
+                           "unknown",
+                       ]
+                   )
+               }
      /******************************************
      *    End: Self service
      ******************************************/

@@ -4,7 +4,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1046"
+    initiative = "1300"
 
     propertyDefinitions {
         share_type(required: true, type: PropertyType.String, description: "export share type", values: ["download", "email"])

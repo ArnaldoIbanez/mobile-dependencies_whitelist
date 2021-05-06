@@ -434,7 +434,7 @@ metrics {
     }
   }
 
-  "payment.installments"(description: "Counts when a user pay with installments > 1", compute_payment: true, deprecation_date:"2021/01/31") {
+  "payment.installments"(description: "Counts when a user pay with installments > 1", compute_payment: true, deprecation_date:"2021/06/30") {
     startWith {
       experiment("px_nativo/highlight_installments")
     }
@@ -447,7 +447,7 @@ metrics {
     }
   }
 
-  "payment_intent.installments"(description: "Counts when a user confirm pay with installments > 1", compute_payment: true, deprecation_date:"2021/01/31") {
+  "payment_intent.installments"(description: "Counts when a user confirm pay with installments > 1", compute_payment: true, deprecation_date:"2021/06/30") {
     startWith {
       experiment("px_nativo/highlight_installments")
     }

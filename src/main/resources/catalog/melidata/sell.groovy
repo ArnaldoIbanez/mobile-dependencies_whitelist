@@ -64,6 +64,16 @@ tracks {
         valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
     }
 
+    def debug_model_map = objectSchemaDefinitions { 
+              model_name(type: PropertyType.String, required: true, description: "") 
+              score(type: PropertyType.Numeric, required: true, description: "") 
+    } 
+
+    def debug_domain_discovery_map = objectSchemaDefinitions { 
+              debug_model_name(type: PropertyType.Map(debug_model_map), 
+              required: true, description: "") 
+    }
+    
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         domain_id(required: false, type: PropertyType.String, description: "Item's category domain id")
@@ -100,7 +110,7 @@ tracks {
         product_predictions(required: false, type: PropertyType.ArrayList(PropertyType.Map(product_prediction_map)), description: "Product Predictions")
         accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
-
+        debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
     }
 
     propertyGroups {
@@ -116,7 +126,7 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
-        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
+        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index, debug_domain_discovery)
     }
 
     // Sell
@@ -125,6 +135,8 @@ tracks {
         sellGroupMobile
         listingTypeFlowMobile
         seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
+        sale_channel(required: false, type: PropertyType.String, description: "Item's sale channel", values: ["both", "marketplace", "mshops"])
     }
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
@@ -554,6 +566,7 @@ tracks {
         price(required: false, description: "Item price")
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
+    "/sell/list/license_plate"(platform: "/mobile", type: TrackType.View) {}
 
     //update flow
     "/sell/update" (platform: "/", isAbstract: true){
@@ -740,6 +753,13 @@ tracks {
     "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
 
+    "/sell/sip_upgrade"(platform: "/mobile", type: TrackType.Event){
+        source(required: true, values: ["section"], description: "Upgrade intention source's", type: PropertyType.String)
+        vertical(required: true, values: ["core", "motors", "realEstate", "services"], description: "Item Vertical: core/service/motor/realEstate/etc...")
+        seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
+        seller_profile(required: false, description: "Type of seller", type: PropertyType.String)
+    }
+
     // Relist flow
     "/sell/relist"(platform: "/", isAbstract: true) {
         item_id (required: true, type: PropertyType.String)
@@ -788,7 +808,6 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
-
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
@@ -819,6 +838,17 @@ tracks {
         confirm_category_detail(required: false, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/category/leave_suggestion_link"(isAbstract: true) {}
+    "/sell/item_data/category/leave_suggestion_link/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+
+    "/sell/item_data/category/default_product_link"(isAbstract: true) {} 
+    "/sell/item_data/category/default_product_link/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+    
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
@@ -861,6 +891,11 @@ tracks {
     }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/legal_requirements"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/legal_requirements/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/legal_requirements/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
         category_domain(required: true, description: "Category Domain", type: PropertyType.String)
         attribute_id(required: true, type: PropertyType.String, description: "Id of the attribute")
@@ -918,6 +953,15 @@ tracks {
         flow_decision(required: true, type: PropertyType.Boolean, description: "Flow decision - true if is catalog")
         catalog_forced(required: true, type: PropertyType.Boolean, description: "Indicates if the flow decision card is forcing catalog")
     }
+    
+    "/sell/item_data/catalog_optional"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/catalog_optional/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+    "/sell/item_data/catalog_optional/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+    }
+
     "/sell/item_data/catalog_forced"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/catalog_forced/show"(platform: "/web", type: TrackType.Event) {
         sellGroup
@@ -963,6 +1007,9 @@ tracks {
     "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/license_plate/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/license_plate/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1113,6 +1160,7 @@ tracks {
         health_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for Health card")
         kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
+        decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -1314,5 +1362,18 @@ tracks {
         has_validation_error(required: true, description: "Other suggestion has personal validation error or not", type: PropertyType.Boolean)
         error_references(required: true, description: "List of validation error references", PropertyType.ArrayList(PropertyType.String))
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 - Motors
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // Flash Offer Experiment
+    "/sell/flash_offer"(platform: "/web", isAbstract: true) {}
+    "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View) {}
+    "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
+    "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}
+    "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
+    "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
+
 
 }

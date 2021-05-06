@@ -60,6 +60,11 @@ tracks {
         userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
     }
 
+    // MP Home regret
+    "/mp_home/regret"(platform: "/", type: TrackType.View) {
+        userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+    }
+
     // MP Enigma
     "/not-found"(platform: "/", type: TrackType.View) {}
 
@@ -85,6 +90,15 @@ tracks {
     "/mp_home/sections/oneshotmodal/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+
+    //MP Home - Shortcuts
+    "/mp_home/sections/shortcuts"(platform:"/", type: TrackType.Event) {
+        shortcut_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        section_id (type: PropertyType.String, required: true, description: "ID from section")
+        bu_team (type: PropertyType.String, required: true, description: "The business unit team")
+        action (type: PropertyType.String, required: true, description: "The executed action")
+        destination (type: PropertyType.String, required: true, description: "Link to execute")
+    }
 
     // MP Profile
     "/profile"(platform: "/", type: TrackType.View) {}
@@ -161,10 +175,17 @@ tracks {
     "/landing"(platform: "/", isAbstract: true) {}
 
     // MP Landing - Landing Home
-    "/landing/home"(platform: "/web") {}
+    "/landing/home"(platform: "/", type: TrackType.View) {}
+    "/landing/home/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+    }
 
     // MP Landing - Conta / Cuenta
-    "/landing/digital_account"(platform: "/") {}
+    "/landing/digital_account"(platform: "/", type: TrackType.View) {}
+    "/landing/digital_account/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+        type(required: true, description: 'Type of element clicked', type: PropertyType.String, values: ['cta', 'shortcut'])
+    }
 
     // MP Landing - Landing Sellers
     "/landing/sellers"(platform: "/") {}

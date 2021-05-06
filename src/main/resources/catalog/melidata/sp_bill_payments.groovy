@@ -32,7 +32,7 @@ tracks {
     // Home
     "/bill_payments/home"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/home/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/home/info_hour"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/home/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/home/type_barcode"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/home/scan_barcode"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/home/search_entities"(platform: "/mobile", type: TrackType.Event) {}
@@ -45,11 +45,40 @@ tracks {
     // Invoice
     "/bill_payments/invoices"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/invoices/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/invoices/info_hour"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/invoices/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/invoices/cancel_dda"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: false, type: PropertyType.String, description: "the barcode used to pay")
         product_id(required: false, type: PropertyType.String, description: "the product id used to pay")
+    }
+
+    //Invoice opt_out
+    "/bill_payments/invoices/empty_state"(platform: "/mobile", type: TrackType.View) {}
+
+    // Invoice delete
+    "/bill_payments/invoices/delete"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/invoices/delete/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/invoices/delete/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/invoices/delete/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/invoices/delete/item"(platform: "/mobile", type: TrackType.Event) {
+        item (required:false, type: PropertyType.String, description: "The chosen item id")
+        entity (required:false, type: PropertyType.String, description: "The chosen item entity")
+    }
+
+    // Invoice delete success
+    "/bill_payments/invoices/delete/success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/invoices/delete/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Invoice menu
+    "/bill_payments/menu"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/menu/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/delete_debt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/dda_optout"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/menu/notification_preference"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Invoices suscription
+    "/bill_payments/invoices/suscription"(platform: "/mobile", type: TrackType.Event) {
+        entity (required: true, type: PropertyType.String, description: "The chosen item entity")
     }
 
     // Input amount
@@ -66,6 +95,8 @@ tracks {
     // Input data
     "/bill_payments/input_data"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input_data/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input_data/faq"(platform: "/mobile", type: TrackType.Event) {}
 
     // Input debt id
     "/bill_payments/input_option_debt"(platform: "/mobile", type: TrackType.View) {}
@@ -79,6 +110,10 @@ tracks {
     "/bill_payments/info_screen/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/money_in"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/info_screen/continue_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/info_screen/confirm_unsubscribe_services"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/info_screen/search_entities"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/info_screen/faq"(platform: "/mobile", type: TrackType.Event) {}
 
     // Dialog
     "/bill_payments/dialog"(platform: "/mobile", type: TrackType.View) {
@@ -105,7 +140,7 @@ tracks {
     // Barcode manual input
     "/bill_payments/barcode_manual_input"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/barcode_manual_input/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/barcode_manual_input/info_hour"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/barcode_manual_input/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/barcode_manual_input/open_scanner"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/barcode_manual_input/continue"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
@@ -114,7 +149,27 @@ tracks {
     // Payment receipt
     "/bill_payments/receipt"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/receipt/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
+    "/bill_payments/receipt/show"(platform: "/mobile", type: TrackType.Event) {
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
+    "/bill_payments/receipt/retry"(platform: "/mobile", type: TrackType.Event) {
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
+    "/bill_payments/receipt/error"(platform: "/mobile", type: TrackType.Event) {
+        description(required: false, type: PropertyType.String, description: "description about scenario")
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
+    "/bill_payments/receipt/error/render"(platform: "/mobile", type: TrackType.Event) {
+        description(required: false, type: PropertyType.String, description: "description about scenario")
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
+    "/bill_payments/receipt/error/download_share"(platform: "/mobile", type: TrackType.Event) {
+        description(required: false, type: PropertyType.String, description: "description about scenario")
+        collector_id(required: false, type: PropertyType.String, description: "provider collector id")
+    }
 
     // Scanner
     "/bill_payments/scan"(platform: "/mobile", type: TrackType.View) {}
@@ -122,6 +177,10 @@ tracks {
     "/bill_payments/scan/flash"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/click"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.View) {
+        label(required: true, type: PropertyType.String, description: "the label the info message")
+    }
     "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/permission_camera"(platform: "/mobile") {}
@@ -217,6 +276,7 @@ tracks {
     // congrats success
     "/bill_payments/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {}
@@ -224,4 +284,56 @@ tracks {
     // search
     "/bill_payments/search"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/search_error"(platform: "/mobile", type: TrackType.View) {}
+
+    // Contingency screen
+    "/bill_payments/contingency_screen"(platform: "/mobile", type: TrackType.View) {
+        label(required: false, type: PropertyType.String, description: "the label of contingency screen")
+    }
+
+    "/bill_payments/contingency_screen/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule payment
+    "/bill_payments/schedule_payment"(platform: "/mobile", isAbstract: true) {}
+
+    // schedule payment create
+    "/bill_payments/schedule_payment/create"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/create/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/confirm"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule payment success
+    "/bill_payments/schedule_payment/create/success"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/create/success/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/success/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/create/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule payment list
+    "/bill_payments/schedule_payment/list"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/list/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item"(platform: "/mobile", type: TrackType.Event) {
+        item (required:false, type: PropertyType.String, description: "The chosen schedule id")
+        entity (required:false, type: PropertyType.String, description: "The chosen schedule entity")
+    }
+
+    // schedule payment details
+    "/bill_payments/schedule_payment/list/selected_item/details"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/dialog"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/list/selected_item/details/pay"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule payment cancel
+    "/bill_payments/schedule_payment/cancel"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/cancel/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // schedule payment retry
+    "/bill_payments/schedule_payment/retry"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/schedule_payment/retry/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/retry/pay"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
 }

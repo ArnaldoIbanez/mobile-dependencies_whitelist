@@ -56,6 +56,8 @@ tracks {
     	purchase_status(required: true, type: PropertyType.String, description: "Purchase status")
     	purchases_flow(required: true, type: PropertyType.String, description: "Flow identification to know if it is the new or old flow")
     	checkout_flow(required: false, type: PropertyType.String, values: ["pack", "order"], description: "cart (pack) or direct (order) purchase")
+    	pack_ids(required: false, type: PropertyType.ArrayList, description: "Pack ids involved in the purchase")
+    	order_ids(required: false, type: PropertyType.ArrayList, description: "Order ids involved in the purchase")
         garex(required: false, type: PropertyType.String, values: ["yes", "no"], description: "the type of extended warranty of this purchase")
         vertical_case_id(required: true, type: PropertyType.String, description: "Case identified for the purchase status")
         vertical_sub_case_id(required: false, type: PropertyType.String, description: "Sub case identified for the purchase status")
@@ -67,7 +69,7 @@ tracks {
     }
 
     propertyGroups {
-        newPurchasesGroup(items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
+        newPurchasesGroup(items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, pack_ids, order_ids, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
         newPurchasesEventGroup(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id)
     }
 
@@ -75,7 +77,7 @@ tracks {
 
     "/my_purchases"(platform:"/", isAbstract: true) {}
 
-    
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -124,6 +126,13 @@ tracks {
         newPurchasesEventGroup
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MY PURCHASES STATUS_DETAIL
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/my_purchases/status_detail"(platform:"/", type: TrackType.View) {
+        newPurchasesGroup
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS ITEMS
@@ -189,6 +198,34 @@ tracks {
     }
 
     "/my_purchases/status/places/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MY PURCHASES DETAIL
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/my_purchases/detail"(platform:"/", type: TrackType.View) {
+        newPurchasesGroup
+    }
+
+    "/my_purchases/detail/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_shipment_detail"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_download_invoice"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
 

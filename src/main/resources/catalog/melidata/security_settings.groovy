@@ -25,8 +25,11 @@ tracks {
 
     "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 
-    "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values: ["opted_in", "opted_out"], description: "The user interacted with the two-factor authentication switch")
+    "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
+        event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in Two Factor Authentication page")
+        action(type: PropertyType.String, required: true, values: ["add", "delete", "modify"], description: "Actions that can be clicked on each 2fa")
+        method(type: PropertyType.String, required: true, values: ["authy", "totp", "phoneValidation", "deviceAuthorization"], description: "Methods accepted as 2fa")
+        registered_by_phone(type: PropertyType.Boolean, required: false, description: "Registered by phone user or legacy user")
     }
 
     // Devices Admin
@@ -34,6 +37,7 @@ tracks {
 
     "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in the Devices Admin page")
+        unlink_type(type: PropertyType.String, required: true, values: ["single", "all"], description: "Whether the user is unlinking one or all devices")
         target(type: PropertyType.String, required: true, values: ["unlink_button", "confirm_unlink_button"], description: "Button clicked by the user in the Devices Admin page")
     }
 

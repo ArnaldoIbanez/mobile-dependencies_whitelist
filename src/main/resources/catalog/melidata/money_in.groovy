@@ -40,6 +40,8 @@ tracks {
         amount (required:true, description: "Continue amount entered")
     }
 
+    "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {}
+    
     //Checkout PX
     "/money_in/px"(platform: "/", isAbstract: true) {}
 
@@ -86,7 +88,7 @@ tracks {
     "/money_in/ted/account"(platform: "/", type: TrackType.View) {}
 
     "/money_in/ted/account/copy"(platform: "/", type: TrackType.Event) {
-        text (required:true, description: "Ted account coppied text", values: ["account", "name", "id_number"])
+        text (required:true, description: "Ted account coppied text", values: ["account", "name", "id_number", "bank_name", "agency_number"])
     }
 
     "/money_in/ted/account/share"(platform: "/", type: TrackType.Event) {}
@@ -174,6 +176,21 @@ tracks {
         type (required:true, description: "Back ticket selected", values: ["paycash", "oxxo"])
     }
 
+    //Ticket Cashin MLB - Congrats
+    "/money_in/cash/congrats"(platform: "/", type: TrackType.View) {
+        type (required:false, description: "congrats type")
+        payment_method (required:true, description: "Payment method selected in congrats")
+    }
+    "/money_in/cash/copy_code"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on copy code")
+    }
+    "/money_in/cash/view_ticket"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on view ticket")
+    }
+    "/money_in/cash/go_home"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on go to tome")
+    }
+    
     // Oxxo Tickets - Disuassive Modal 
     "/money_in/cash/location"(platform:"/", isAbstract:true){}
     "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
@@ -184,7 +201,18 @@ tracks {
     "/money_in/cash/ifpe_cap_exceeded"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
     "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
-
+    
+    // Ticket Cashin MLB - review and confirm
+    "/money_in/cash/review_and_confirm"(platform: "/", type: TrackType.View) {
+        payment_method (required:true, description: "Payment method selected on ryc")
+    }
+    "/money_in/cash/review_and_confirm/create"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on ryc creation")
+    }
+    "/money_in/cash/review_and_confirm/edit_amount"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on ryc edition")
+    }
+    
     //PIX keys - Congrats
     "/money_in/pix_keys"(platform:"/", isAbstract:true){}
     "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
@@ -271,10 +299,86 @@ tracks {
 
     //PIX QR
     "/money_in/pix/qr"(platform:"/", type: TrackType.View){}
+    "/money_in/pix/qr/share"(platform: "/", type: TrackType.Event){}
     "/money_in/pix/qr/setup"(platform: "/", type: TrackType.Event){}
 
     //PIX Setup QR
     "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
     "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
 
+    //Debin
+    "/money_in/debin"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/generic_error"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/ownership_error"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/success"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/dismiss"(platform:"/", isAbstract: true){}
+
+    //Debin Hub
+    "/money_in/debin/hub"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/hub/select"(platform:"/",type: TrackType.Event){
+        key_type(required:false, description: "indicate the source of the debin")
+    }
+    "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
+
+    //Debin Onboarding
+    "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/onboarding/debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/onboarding/know_more"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/onboarding/exit"(platform:"/", type: TrackType.Event){}
+
+    //Debin Calculator
+    "/money_in/debin/calculator"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/calculator/continue"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description: "indicate the amount of the debin")
+    }
+    "/money_in/debin/calculator/preset"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description: "indicate the amount of the preset")
+    }
+    "/money_in/debin/calculator/message"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description: "indicate the error message")
+    }
+
+    //Debin RyC
+    "/money_in/debin/ryc"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/ryc/edit_amount"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+
+    //Debin Processing
+    "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
+
+    //Debin Congrats
+    "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
+        key_type(required:true, description:"status",values:["success", "pending", "error"])
+        error_type(required:false, description:"indicates the error of the debin")
+    }
+    "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
+         key_type(required:false, description:"status",values:["success", "pending", "error"])
+    }
+    "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
+         key_type(required:false, description:"status",values:["error"])
+    }
+    "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
+
+    //Debin Search account
+    "/money_in/debin/search"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/continue"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
+        key_type(required:true, description:"indicates the result of the search")
+    }
+    "/money_in/debin/search/success/continue"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/generic_error/retry"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/generic_error/go_home"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/ownership_error/go_home"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/ownership_error/edit_account"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
+        key_type(required:false, description:"indicates the tye of the bottom-sheet")
+    }
+
+    //Money In Error View - Enchufe
+    "/money_in/error_view"(platform: "/", type: TrackType.View) {}
 }
