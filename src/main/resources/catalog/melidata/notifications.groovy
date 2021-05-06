@@ -1439,6 +1439,11 @@ tracks {
         items_count(required: true , type: PropertyType.Numeric, description: "Number of Items has to sell.")
     }
 
+    "/notification_center/insurtech_imei_activation"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
 
 
       /**
@@ -2957,5 +2962,8 @@ tracks {
 
     //Contactless card
     "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {}
+
+    //Insurtech
+    "/notification/insurtech_imei_activation"(platform: "/mobile") {}
 
 }

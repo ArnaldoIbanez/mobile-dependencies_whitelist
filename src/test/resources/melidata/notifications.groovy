@@ -5471,6 +5471,7 @@ trackTests {
             news_id = "single_player_directv_smartcard_expiration_123"
             event_type = "open"
         }
+
         "/notification/single_player_payment_reminder"(platform: "/mobile") {
             news_id = "single_player_payment_reminder_123"
             event_type = "open"
@@ -5646,6 +5647,16 @@ trackTests {
             news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        "/notification_center/insurtech_imei_activation"(platform: "/") {
+            latest_news_type= "insurtech_imei_activation"
+            latest_news_id= "insurtech_imei_activation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_activation"(platform: "/mobile") {
+            news_id = "insurtech_imei_activation_123"
+            event_type = "open"
         }
 
     }
@@ -7518,6 +7529,7 @@ trackTests {
             latest_news_type= "single_player_directv_smartcard_expiration"
             latest_news_id= "single_player_directv_smartcard_expiration-143816022-MLB1013046714"
         }
+
         "/notification_center/single_player_payment_reminder"(platform: "/") {
             latest_news_type= "single_player_payment_reminder"
             latest_news_id= "single_player_payment_reminder-143816022-MLB1013046714"
@@ -11152,6 +11164,16 @@ trackTests {
             news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        "/notification_center/insurtech_imei_activation"(platform: "/") {
+            latest_news_type= "insurtech_imei_activation"
+            latest_news_id= "insurtech_imei_activation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_activation"(platform: "/mobile") {
+            news_id = "insurtech_imei_activation_123"
+            event_type = "open"
         }
     }
 
