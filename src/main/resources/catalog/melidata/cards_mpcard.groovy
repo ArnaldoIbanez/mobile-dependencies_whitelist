@@ -414,7 +414,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help"],
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help", "additional_message_freeze"],
             description: "Virtual card buttons tapped"
         )
     }
@@ -773,8 +773,8 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header_help"],
-            description: "Help button tapped"
+            values: ["header_help", "back_button"],
+            description: "Help and Back button tapped"
         )
     }
     "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}

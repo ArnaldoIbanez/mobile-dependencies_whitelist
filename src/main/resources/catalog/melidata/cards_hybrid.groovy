@@ -1222,7 +1222,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["button_primary"],
+            values: ["button_primary", "button_secondary"],
             inheritable: false
         )
     }
@@ -1300,6 +1300,17 @@ tracks {
                 "not_configured"
             ],
             description: "Semaphore Tap"
+        )
+    }
+    // Cards Helper
+    //--------------
+    "/cards/hybrid/card_helper"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/card_helper/extraction"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
         )
     }
     

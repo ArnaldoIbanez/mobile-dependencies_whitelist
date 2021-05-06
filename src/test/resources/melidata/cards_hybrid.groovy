@@ -1201,6 +1201,9 @@ trackTests {
         "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
             action = "button_primary"
         }
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "button_secondary"
+        }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
             action = "reissue"
@@ -1288,6 +1291,13 @@ trackTests {
             action = "research_form"
         }
     }
+    //Cards Helper Extraction
+    test("cards hybrid helper extraction to show user physical card data") {
+        "/cards/hybrid/card_helper/extraction"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+    }
+
 
     // OPTIONS Semaphore
     test("card options semaphore states for nfc") {
