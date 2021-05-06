@@ -1969,27 +1969,6 @@ trackTests {
             event_type = "shown"
         }
 
-        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
-            news_id = "credit_card_collection_due_in_10-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
-            news_id = "credit_card_collection_expired_01-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
-            news_id = "credit_card_transaction_acquisition-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
-            news_id = "credit_card_transaction_choff_purchase-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
-            news_id = "credit_card_transaction_statement_payment-12345678"
-            event_type = "shown"
-        }
-
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
             event_type = "shown"
@@ -4270,8 +4249,64 @@ trackTests {
             news_id = "credit_card_collection_due_in_10-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_collection_due_in_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_00"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_00-12345678"
+            event_type = "shown"
+        }
         "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
             news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_04"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_04-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_15"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_15-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_19"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_19-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_20"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_20-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_29"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_29-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_30"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_30-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_50"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_50-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_53"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_53-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_58"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_58-12345678"
             event_type = "shown"
         }
         "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
@@ -4284,6 +4319,14 @@ trackTests {
         }
         "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
             news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_withdrawal"(platform: "/mobile") {
+            news_id = "credit_card_transaction_withdrawal-12345678"
             event_type = "shown"
         }
 
@@ -7649,8 +7692,64 @@ trackTests {
             news_id = "credit_card_collection_due_in_10-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_collection_due_in_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_00"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_00-12345678"
+            event_type = "shown"
+        }
         "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
             news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_04"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_04-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_15"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_15-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_19"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_19-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_20"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_20-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_29"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_29-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_30"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_30-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_50"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_50-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_53"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_53-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_58"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_58-12345678"
             event_type = "shown"
         }
         "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
@@ -7663,6 +7762,14 @@ trackTests {
         }
         "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
             news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_withdrawal"(platform: "/mobile") {
+            news_id = "credit_card_transaction_withdrawal-12345678"
             event_type = "shown"
         }
 
@@ -10070,27 +10177,6 @@ trackTests {
 
         "/notification/account_balance_create_ted_account"(platform: "/mobile") {
             news_id = "account_balance_create_ted_account-12345678"
-            event_type = "shown"
-        }
-
-        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
-            news_id = "credit_card_collection_due_in_10-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
-            news_id = "credit_card_collection_expired_01-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
-            news_id = "credit_card_transaction_acquisition-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
-            news_id = "credit_card_transaction_choff_purchase-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
-            news_id = "credit_card_transaction_statement_payment-12345678"
             event_type = "shown"
         }
 

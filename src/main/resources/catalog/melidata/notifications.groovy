@@ -1503,11 +1503,30 @@ tracks {
       "/notification/account_balance_approved_ml"(platform: "/") {}
       "/notification/account_balance_create_ted_account"(platform: "/") {}
 
+    // Credits - Credit Card
+    // Collection
     "/notification/credit_card_collection_due_in_10"(platform: "/") {}
+    "/notification/credit_card_collection_due_in_05"(platform: "/") {}
+    "/notification/credit_card_collection_due_in_01"(platform: "/") {}
+    "/notification/credit_card_collection_due_in_00"(platform: "/") {}
     "/notification/credit_card_collection_expired_01"(platform: "/") {}
+    "/notification/credit_card_collection_expired_04"(platform: "/") {}
+    "/notification/credit_card_collection_expired_05"(platform: "/") {}
+    "/notification/credit_card_collection_expired_10"(platform: "/") {}
+    "/notification/credit_card_collection_expired_15"(platform: "/") {}
+    "/notification/credit_card_collection_expired_19"(platform: "/") {}
+    "/notification/credit_card_collection_expired_20"(platform: "/") {}
+    "/notification/credit_card_collection_expired_29"(platform: "/") {}
+    "/notification/credit_card_collection_expired_30"(platform: "/") {}
+    "/notification/credit_card_collection_expired_50"(platform: "/") {}
+    "/notification/credit_card_collection_expired_53"(platform: "/") {}
+    "/notification/credit_card_collection_expired_58"(platform: "/") {}
+    // Transaction
     "/notification/credit_card_transaction_acquisition"(platform: "/") {}
     "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_statement_payment"(platform: "/") {}
+    "/notification/credit_card_transaction_purchase"(platform: "/") {}
+    "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
 
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
