@@ -1503,6 +1503,20 @@ trackTests {
         "/point_payment/bank_detail"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/pairing_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_network_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_generic_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_timeout_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/show_cancel_modal"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/cancel_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/cancel_continue"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/try_again"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/cancel"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/payment_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/show_code"(platform: "/mobile", type: TrackType.Event) {
+            kind = "PIX"
+            order_id = "3f04ad3f-4648-4b4a-890f-686354e07d07"
+        }
         "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/pix"(platform: "/mobile", type: TrackType.View) {}
