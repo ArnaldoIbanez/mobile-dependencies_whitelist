@@ -516,6 +516,9 @@ trackTests {
             action = "additional_message"
         }
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message_freeze"
+        }
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "close_modal"
         }
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -776,6 +779,9 @@ trackTests {
     test("cards mpcard nip screen") {
         "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
             action = "header_help"
+        }
+        "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
+            action = "back_button"
         }
     }
     test("cards mpcard nip, It_was_not_me link message tap") {
