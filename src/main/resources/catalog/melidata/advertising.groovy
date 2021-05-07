@@ -692,7 +692,7 @@ tracks {
     "/advertising/pads2/hub/campaign/update/budget/go"(
         platform: "/web",
         type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
         budget_new(required: true, type: PropertyType.String, description: "New budget related to the campaign.")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
@@ -1248,10 +1248,10 @@ tracks {
     //Admin Mobile
 
     "/advertising/pads2/manager/faqs"(platform: "/", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Budget related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
-        has_problem(required: true, description: "Problem related to the campaign", values: ['true', 'false'])
+        has_problem(required: true, type: PropertyType.Boolean, description: "Problem related to the campaign")
         problem_type(required: true, description: "Type problem related to the campaign")
     }
 
@@ -1581,7 +1581,6 @@ tracks {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         strategy(required: true, type: PropertyType.String, description: "Current campaign strategy")
         trtarget(required: true, type: PropertyType.Numeric, description: "Current campaign take rate")
-        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         days_since_modif(required: true, type: PropertyType.Numeric, description: "Number of days since last campaign modification")
     }
 
@@ -1697,6 +1696,10 @@ tracks {
     }
 
     // Campaign Transition
+
+    "/advertising/pads2/hub/faqs"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
+    }
 
     "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
