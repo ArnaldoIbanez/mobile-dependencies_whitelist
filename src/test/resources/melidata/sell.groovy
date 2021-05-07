@@ -251,7 +251,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/hub"(platform: "/mobile") {
@@ -261,7 +261,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -271,7 +271,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip_catalog"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -280,7 +280,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip/publish/publish_cancel"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -289,7 +289,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip/publish/abandonment"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -298,7 +298,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip/publish/back_selected"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -307,7 +307,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip/section/disabled"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -316,7 +316,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/catalog_trim_selection"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -325,7 +325,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/catalog_vehicle_year_selection"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -334,7 +334,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category_suggestion"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -344,7 +344,7 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/domain_suggestion"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -353,7 +353,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category_navigation"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -363,7 +363,7 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/catalog"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -374,7 +374,7 @@ trackTests {
             categorization_flow_successful= true
             title_predicted = "test"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/catalog/decision"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -384,7 +384,7 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -393,7 +393,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/catalog/forced"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -404,7 +404,7 @@ trackTests {
             catalog_listing_forced_type = "open"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/catalog/forced"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -415,7 +415,7 @@ trackTests {
             catalog_listing_forced_type = "closed"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/classifieds_reservation_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -424,7 +424,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/color_selection"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -434,7 +434,7 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/color_selection_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -443,7 +443,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/color_selection_fallback"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -453,7 +453,7 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/condition"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -463,7 +463,7 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/condition_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -472,7 +472,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/condition_fallback"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -482,7 +482,7 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/description"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -491,7 +491,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/description_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -500,7 +500,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/description_fallback"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -509,7 +509,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/description_included"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -518,7 +518,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/description_included_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -527,7 +527,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/description_not_included"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -543,7 +543,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/description_additional_information_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -552,7 +552,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/payment_methods"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -561,7 +561,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/payment_methods_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -570,7 +570,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/listing_types"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -579,7 +579,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/listing_types_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -588,7 +588,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/listing_types_catalog"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -597,7 +597,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/warranty_type"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -606,7 +606,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/warranty_time"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -615,7 +615,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/warranty_time_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -624,7 +624,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/warranty_type_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -633,7 +633,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/warranty_time_condition_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -642,7 +642,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/warranty_type_condition_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -651,7 +651,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -660,7 +660,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -669,7 +669,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures/album_selector"(platform: "/mobile") {
@@ -679,7 +679,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
@@ -690,7 +690,7 @@ trackTests {
             seller_profile="NEWBIE"
             vertical="core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures/pictures_selector"(platform: "/mobile") {
@@ -700,7 +700,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures/editor"(platform: "/mobile") {
@@ -710,7 +710,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures/crop"(platform: "/mobile") {
@@ -720,7 +720,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback"(platform: "/mobile") {
@@ -730,7 +730,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/album_selector"(platform: "/mobile") {
@@ -748,7 +748,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/editor"(platform: "/mobile") {
@@ -758,7 +758,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/crop"(platform: "/mobile", type: TrackType.View) {
@@ -768,7 +768,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/picture_uploader/mode/camera"(platform: "/mobile") {
@@ -778,7 +778,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/picture_uploader/crop"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -787,7 +787,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/picture_uploader/delete"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -796,7 +796,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/picture_uploader/rotate"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -805,7 +805,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -814,7 +814,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures_review/album_selector"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -823,7 +823,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures_review/pictures_selector"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -832,7 +832,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures_review/editor"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -841,7 +841,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures_review/crop"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -850,7 +850,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -859,7 +859,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/price"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -868,7 +868,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/price_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -877,7 +877,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/seller_registration"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -886,7 +886,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/seller_registration_zip_code"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -895,7 +895,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/size_selection"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -904,7 +904,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/size_selection_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -913,7 +913,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/size_selection_fallback"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -922,7 +922,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/title"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -931,7 +931,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/title_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -940,7 +940,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/shipping_options_me"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -949,7 +949,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -958,7 +958,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures_landing_fallback"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -967,7 +967,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/registration_landing"(platform: "/mobile") {
@@ -977,7 +977,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/shipping_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -986,7 +986,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/shipping_mandatory_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -995,7 +995,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1004,7 +1004,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip_optional_landing"(platform: "/mobile",  type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1013,7 +1013,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/title_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1022,7 +1022,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/listing_types"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1031,7 +1031,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/congrats/payment_pending"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1040,7 +1040,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             item_id = "MLA12345"
             defaultCatalogFlowMobile()
         }
@@ -1052,7 +1052,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/technical_specifications_catalog"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1061,7 +1061,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {
@@ -1071,7 +1071,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/product_identifier"(platform: "/mobile") {
@@ -1081,7 +1081,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/attribute"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1090,7 +1090,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/attribute/kilometers"(platform: "/mobile") {
@@ -1100,7 +1100,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/category/selection/l1"(platform: "/mobile") {
@@ -1110,7 +1110,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category/selection/l2"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1119,7 +1119,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category/selection/l3"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1128,7 +1128,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category/selection/l4"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1137,7 +1137,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category/selection/l5"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1146,7 +1146,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category/selection/confirm_suggested"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1155,7 +1155,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/category/selection/wrong_suggested"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1164,7 +1164,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/location"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1173,7 +1173,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/location_map"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1182,7 +1182,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/location_suggestion"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1191,7 +1191,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/location_street"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1200,7 +1200,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1209,7 +1209,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1218,7 +1218,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/phone"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1227,7 +1227,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1236,7 +1236,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile") {
@@ -1246,7 +1246,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/price_modality"(platform: "/mobile") {
@@ -1256,7 +1256,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/free_shipping"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1265,7 +1265,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/free_shipping_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1274,7 +1274,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1283,7 +1283,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             fail_pictures = 2
             total_pictures = 6
             pictures_errors = ["error 1" , "error 2"]
@@ -1295,7 +1295,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             error_message="error"
         }
         "/sell/list/sip/notification/congrats"(platform: "/mobile") {
@@ -1305,7 +1305,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/listing_types"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1314,7 +1314,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/condition_confirmation_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1323,7 +1323,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/quotable_category_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1332,7 +1332,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/license_plate"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1645,7 +1645,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1654,7 +1654,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile", type: TrackType.Event) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1663,7 +1663,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/attribute"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1672,7 +1672,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {
@@ -1682,7 +1682,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/category_navigation"(platform: "/mobile", type: TrackType.View) {
@@ -1692,7 +1692,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/category_suggestion"(platform: "/mobile", type: TrackType.View) {
@@ -1702,7 +1702,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/domain_suggestion"(platform: "/mobile", type: TrackType.View) {
@@ -1712,7 +1712,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/color_selection"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1721,7 +1721,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/color_selection_fallback"(platform: "/mobile", type: TrackType.View) {
@@ -1731,7 +1731,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/condition"(platform: "/mobile", type: TrackType.View) {
@@ -1741,7 +1741,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/condition_review"(platform: "/mobile", type: TrackType.View) {
@@ -1751,7 +1751,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/condition_fallback"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1760,7 +1760,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/congrats"(platform: "/mobile", type: TrackType.View) {
@@ -1771,7 +1771,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/congrats/payment_pending"(platform: "/mobile", type: TrackType.View) {
@@ -1782,7 +1782,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/description"(platform: "/mobile", type: TrackType.View) {
@@ -1792,7 +1792,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/description_fallback"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1801,7 +1801,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/description_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1810,7 +1810,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/description_included"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1819,7 +1819,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/free_shipping"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1828,7 +1828,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/listing_types"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1837,7 +1837,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/listing_types_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1846,7 +1846,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/location"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1855,7 +1855,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/location_suggestion"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1864,7 +1864,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/payment_methods"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1873,7 +1873,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/phone_suggestion"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1882,7 +1882,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1891,7 +1891,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1900,7 +1900,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1909,7 +1909,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1918,7 +1918,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures/pictures_selector"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1927,7 +1927,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures/editor"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1936,7 +1936,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures_fallback"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1945,7 +1945,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_landing_fallback"(platform: "/mobile", type: TrackType.View) {
@@ -1955,7 +1955,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {
@@ -1965,7 +1965,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {
@@ -1975,7 +1975,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_fallback/editor"(platform: "/mobile", type: TrackType.View) {
@@ -1985,7 +1985,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_review"(platform: "/mobile", type: TrackType.View) {
@@ -1995,7 +1995,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures_review/album_selector"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2004,7 +2004,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures_review/pictures_selector"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2013,7 +2013,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/pictures_review/editor"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2022,7 +2022,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/price"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2031,7 +2031,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/price_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2040,7 +2040,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/price_modality"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2049,7 +2049,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2058,7 +2058,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View) {
@@ -2068,7 +2068,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/registration_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2077,7 +2077,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/seller_registration"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2086,7 +2086,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/seller_registration_zip_code"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2095,7 +2095,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/shipping_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2104,7 +2104,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2113,7 +2113,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/shipping_options_me"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2122,7 +2122,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/sip_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2131,7 +2131,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/sip_optional_landing"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2140,7 +2140,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/sip"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2149,7 +2149,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/size_selection"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2158,7 +2158,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/size_selection_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2167,7 +2167,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/size_selection_fallback"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2176,7 +2176,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2185,7 +2185,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/technical_specifications_catalog"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2194,7 +2194,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/title"(platform: "/mobile", type: TrackType.View) {
@@ -2204,7 +2204,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/title_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2213,7 +2213,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2222,7 +2222,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2231,7 +2231,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2240,7 +2240,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2249,7 +2249,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/catalog/decision"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2258,7 +2258,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             defaultCatalogFlowMobile()
         }
         "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile") {
@@ -2268,7 +2268,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/draft/catalog/forced"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2277,7 +2277,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             catalog_listing_forced_type = "open"
             defaultCatalogFlowMobile()
         }
@@ -2288,7 +2288,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             catalog_listing_forced_type = "closed"
             defaultCatalogFlowMobile()
         }
@@ -2299,7 +2299,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
     }
 
@@ -2419,7 +2419,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             rebate_status = "not_boosted"
         }
         "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {
@@ -2431,7 +2431,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             rebate_status = "not_boosted"
         }
         "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
@@ -2445,7 +2445,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             rebate_status = "not_boosted"
         }
         "/sell/update/sip/rebate/action"(platform: "/mobile", type: TrackType.Event) {
@@ -2457,7 +2457,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA123456"
@@ -2471,7 +2471,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             rebate_status = "boosted"
         }
         "/sell/update/sip/header_modal/open"(platform: "/mobile", type: TrackType.Event) {
@@ -2483,7 +2483,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             header_type = "buybox"
         }
         "/sell/update/sip/header_modal/action"(platform: "/mobile", type: TrackType.Event) {
@@ -2495,7 +2495,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             header_type = "buybox"
             action_id = "reputation"
         }
@@ -2511,7 +2511,7 @@ trackTests {
             seller_segment = ""
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
             rebate_status = "none"
         }
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
@@ -2522,7 +2522,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             user_shops_status = "none"
-            sale_channel = "both"
+            sale_channels = ["mshops", "marketplace"]
         }
         "/sell/update/goals"(platform: "/mobile") {
             item_id = "MLA123456"

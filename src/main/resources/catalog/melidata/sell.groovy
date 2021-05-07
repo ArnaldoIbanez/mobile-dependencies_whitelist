@@ -136,7 +136,7 @@ tracks {
         listingTypeFlowMobile
         seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
         user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
-        sale_channel(required: false, type: PropertyType.String, description: "Item's sale channel", values: ["both", "marketplace", "mshops"])
+        sale_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's sale channel values accepted: ['private', 'proximity', 'marketplace', 'mshops']")
     }
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
