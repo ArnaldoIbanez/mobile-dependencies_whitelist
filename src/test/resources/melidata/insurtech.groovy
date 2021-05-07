@@ -2222,6 +2222,13 @@ trackTests {
                 ]
             }
 
+            "/insurtech/protections/claims/feedback"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
             "/insurtech/protections/claims/need_help"(platform:"/", type: TrackType.View) {
                 product_data =[
                     entity_type:"quote",
