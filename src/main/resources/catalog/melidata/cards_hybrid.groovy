@@ -693,6 +693,13 @@ tracks {
             description: "Card id",
             inheritable: false
         )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
+            inheritable:false
+        )
     }
     "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (

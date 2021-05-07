@@ -766,6 +766,11 @@ trackTests {
     test("cards hybrid reissue virtual card ") {
         "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
+            context = "cancellation"
+        }
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
         }
         "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
