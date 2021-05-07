@@ -83,7 +83,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load"]
+	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml"]
 }
 
 task uploadAll(type:JavaExec) {
@@ -95,7 +95,7 @@ task uploadAll(type:JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld",
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load"]
+	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -302,6 +302,11 @@ task testMonitoringWagnerDeployLoadCatalog (dependsOn: 'classes', type: JavaExec
 	args = ["mlo-mon-wagner-deploy-load"]
 }
 
+task testMonitoringAdvertisingPadsAmlCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-advertising-pads-aml"]
+}
 
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.MetricsTest'
@@ -317,7 +322,7 @@ task uploadAllCatalog(type:JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load"]
+	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -522,6 +527,12 @@ task uploadMonitoringWagnerDeployLoadCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-wagner-deploy-load"]
+}
+
+task uploadMonitoringAdvertisingPadsAmlCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-advertising-pads-aml"]
 }
 
 task uploadMetrics(type:JavaExec) {
