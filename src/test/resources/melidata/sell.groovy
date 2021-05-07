@@ -3002,6 +3002,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 render item_data"){
@@ -3019,6 +3021,8 @@ trackTests {
                 status = "under_review"
                 substatus = "finalized_for_prevention"
             }
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 title card showed"){
@@ -3030,6 +3034,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 title card confirmed"){
@@ -3041,6 +3047,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 products finder showed"){
@@ -3063,6 +3071,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 products finder confirmed"){
@@ -3085,6 +3095,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 products finder updated"){
@@ -3107,6 +3119,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 products finder category selected"){
@@ -3129,6 +3143,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 products finder product selected"){
@@ -3151,6 +3167,8 @@ trackTests {
                 result_type: "QUERY_PRODUCT_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 products finder click on back to search"){
@@ -3173,6 +3191,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 products finder bar confirmed"){
@@ -3202,6 +3222,8 @@ trackTests {
                       debug_model_name: { model_name: "DOMAINSEARCH"
                       score: 0.33333334}
                       }]
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 product resume previous"){
@@ -3224,6 +3246,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 carrier showed"){
@@ -3246,6 +3270,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 carrier confirmed"){
@@ -3268,6 +3294,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 redirect to syi-core confirmed"){
@@ -3279,6 +3307,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 redirect from title to install the app"){
@@ -3292,6 +3322,8 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             list_mode = "LIST"
             session_id = "1234-wm-08f2d"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 category suggested card showed"){
@@ -3306,6 +3338,8 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 category suggested card confirmed"){
@@ -3321,6 +3355,8 @@ trackTests {
             title_predicted = "test"
             confirm_category_detail = "not_present"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 category suggested click wrong category"){
@@ -3336,6 +3372,8 @@ trackTests {
             categorization_flow_successful = false
             chosen_categorization_model = "ZORDON"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 category card showed"){
@@ -3350,6 +3388,8 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 category card confirmed"){
@@ -3372,6 +3412,8 @@ trackTests {
                 status = "under_review"
                 substatus = "finalized_for_prevention"
             }
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 category card confirmed motors"){
@@ -3387,6 +3429,8 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 wrong category"){
@@ -3401,6 +3445,8 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 product resume card showed"){
@@ -3417,6 +3463,8 @@ trackTests {
             title_predicted = "test"
             product_title = "Iphone X"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 product identifier card showed"){
@@ -3427,6 +3475,8 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             seller_reputation = "green"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 product identifier card confirmed"){
@@ -3437,6 +3487,8 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             seller_reputation = "green"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 product identifier card required"){
@@ -3447,6 +3499,8 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             seller_reputation = "green"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 flow decision card showed"){
@@ -3458,6 +3512,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 flow decision card confirmed"){
@@ -3472,6 +3528,8 @@ trackTests {
             flow_decision = true
             list_mode = "LIST"
             catalog_forced = true
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 quantity with specifications card showed"){
@@ -3484,6 +3542,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 quantity with specifications card confirmed"){
@@ -3496,6 +3556,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 consequences modal showed"){
@@ -3507,6 +3569,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 consequences modal confirmed"){
@@ -3529,6 +3593,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 pks card confirmed"){
@@ -3540,6 +3606,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 item condition card showed"){
@@ -3551,6 +3619,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 item condition card confirmed"){
@@ -3562,6 +3632,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 main variation card showed"){
@@ -3573,6 +3645,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 main variation card confirmed"){
@@ -3584,6 +3658,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 item variations card showed"){
@@ -3595,6 +3671,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 item variations card confirmed"){
@@ -3606,6 +3684,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 specifications card showed"){
@@ -3617,6 +3697,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 specifications card confirmed"){
@@ -3628,6 +3710,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 technical specifications card showed"){
@@ -3639,6 +3723,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 technical specifications card confirmed"){
@@ -3650,6 +3736,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 legal requirements card showed"){
@@ -3661,6 +3749,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 legal requirements card confirmed"){
@@ -3672,6 +3762,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 set multivalue input"){
@@ -3689,6 +3781,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 set autocomplete input"){
@@ -3705,6 +3799,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -3825,6 +3921,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 price and currency card showed"){
@@ -3836,6 +3934,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 price and currency card confirmed"){
@@ -3847,6 +3947,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 listing types card showed"){
@@ -3859,6 +3961,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -3871,6 +3975,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 free shipping card showed"){
@@ -3882,6 +3988,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 free shipping card confirmed"){
@@ -3893,6 +4001,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 consequences modal showed"){
@@ -3904,6 +4014,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 consequences modal confirmed"){
@@ -3915,6 +4027,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 calculator showed"){
@@ -3926,6 +4040,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 calculator hide"){
@@ -3937,6 +4053,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 shipping card showed"){
@@ -3948,6 +4066,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 shipping card confirmed"){
@@ -3959,6 +4079,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 localpickup card showed"){
@@ -3970,6 +4092,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 localpickup card confirmed"){
@@ -3981,6 +4105,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 payment_methods card showed"){
@@ -3992,6 +4118,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 payment_methods card confirmed"){
@@ -4003,6 +4131,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 warranty card showed"){
@@ -4014,6 +4144,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 warranty card confirmed"){
@@ -4025,6 +4157,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 manufacturing time card showed"){
@@ -4036,6 +4170,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 manufacturing time card confirmed"){
@@ -4047,6 +4183,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 description card showed"){
@@ -4058,6 +4196,8 @@ trackTests {
             seller_reputation = "green"
             list_mode = "LIST"
             listing_type_id = "gold"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 description card confirmed"){
@@ -4070,6 +4210,8 @@ trackTests {
             seller_reputation = "green"
             list_mode = "LIST"
             listing_type_id = "gold"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 video card showed"){
@@ -4082,6 +4224,8 @@ trackTests {
             seller_reputation = "green"
             list_mode = "LIST"
             listing_type_id = "gold"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 video card confirmed"){
@@ -4094,6 +4238,8 @@ trackTests {
             seller_reputation = "green"
             list_mode = "LIST"
             listing_type_id = "gold"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 invoice card showed"){
@@ -4106,6 +4252,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 invoice card confirmed"){
@@ -4118,6 +4266,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4130,6 +4280,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4142,6 +4294,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 location info card showed"){
@@ -4153,6 +4307,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4165,6 +4321,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 seller contact card showed"){
@@ -4176,6 +4334,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4188,6 +4348,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4200,6 +4362,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4212,6 +4376,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4224,6 +4390,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4236,6 +4404,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4248,6 +4418,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4269,6 +4441,8 @@ trackTests {
             health_card_shown = true
             kyc_card_shown = true
             share_card_shown = true
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 congrats card showed"){
@@ -4370,6 +4544,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4382,6 +4558,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4422,6 +4600,8 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 Category breadcrumb mount"){
@@ -4437,6 +4617,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 Category breadcrumb previous"){
@@ -4463,6 +4645,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 Category breadcrumb navigate"){
@@ -4489,6 +4673,8 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4502,6 +4688,8 @@ trackTests {
             seller_segment = "professional_sellers"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4515,9 +4703,11 @@ trackTests {
             seller_segment = "professional_sellers"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
-    
+
     test("List Equals V3 Modifications"){
         def originalItemData = [
                 has_variations: false,
@@ -4563,6 +4753,8 @@ trackTests {
             list_mode = "LIST"
             item_type = "default"
             parent_product_id = "MLA390783"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4580,6 +4772,8 @@ trackTests {
             parent_product_id = "MLA390783"
             flow_decision = true
             catalog_forced = false
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4595,6 +4789,8 @@ trackTests {
             list_mode = "LIST"
             item_type = "default"
             parent_product_id = "MLA390783"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4612,6 +4808,8 @@ trackTests {
             parent_product_id = "MLA390783"
             flow_decision = false
             catalog_forced = true
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4640,6 +4838,8 @@ trackTests {
             list_mode = "LIST"
             domain_id = "MLA_CELLPHONES"
             parent_product_id = "MLA390783"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4655,6 +4855,8 @@ trackTests {
             list_mode = "LIST"
             domain_id = "MLA_CELLPHONES"
             parent_product_id = "MLA390783"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4672,6 +4874,8 @@ trackTests {
             parent_product_id = "MLA390783"
             id = "description"
             new_value = "this is the new description"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4740,6 +4944,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 render phone"){
@@ -4752,6 +4958,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 render whatsapp"){
@@ -4764,6 +4972,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 render default address"){
@@ -4776,6 +4986,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4789,6 +5001,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4802,6 +5016,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4815,6 +5031,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 pictures delete one picture"){
@@ -4827,6 +5045,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 pictures check suggestions to take better picture"){
@@ -4839,6 +5059,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 pictures confirm"){
@@ -4854,6 +5076,8 @@ trackTests {
             limit_errors = true
             format_errors = 1
             size_errors = 0
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 pictures upload"){
@@ -4867,6 +5091,8 @@ trackTests {
             vertical = "motors"
             item_type = "default"
             quantity = 3
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 phone confirm"){
@@ -4879,6 +5105,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 whatsapp confirm"){
@@ -4891,6 +5119,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 default address confirm"){
@@ -4903,6 +5133,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 default address wrong suggestion"){
@@ -4915,6 +5147,8 @@ trackTests {
             seller_reputation = "green"
             vertical = "motors"
             item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5032,6 +5266,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5049,6 +5285,8 @@ trackTests {
             business = "classified"
             platform = "pi"
             listing_type_id = "silver"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5088,6 +5326,8 @@ trackTests {
                             "valid": false
                     ],
             ]
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5139,6 +5379,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
     test("SYI v4 publicar - category card confirmed") {
@@ -5155,6 +5397,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5171,6 +5415,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5188,6 +5434,8 @@ trackTests {
             business = "classified"
             platform = "pi"
             item_from = null
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5205,6 +5453,8 @@ trackTests {
             business = "classified"
             platform = "pi"
             listing_type_id = "silver"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5221,6 +5471,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5240,6 +5492,8 @@ trackTests {
             platform = "pi"
             intent_type = "invalid_intent"
             field_intent_ids = ["CONTACT_SCHEDULE", "OPERATION_SUBTYPE", "TOTAL_AREA"]
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5257,6 +5511,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5273,6 +5529,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5289,6 +5547,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5305,6 +5565,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5321,6 +5583,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
 
     }
@@ -5338,6 +5602,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5355,6 +5621,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5371,6 +5639,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5387,6 +5657,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5407,6 +5679,8 @@ trackTests {
             platform = "pi"
             listing_type_id = "silver"
             debug_domain_discovery = [{debug_model_name:{model_name:"DOMAINSEARCH" score:0.33333334}}]
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5427,6 +5701,8 @@ trackTests {
             platform = "pi"
             listing_type_id = "silver"
             decision_flow_label = "BY_CATALOG"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5440,6 +5716,8 @@ trackTests {
             seller_segment = ""
             seller_reputation = "NO_REPUTATION"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5453,6 +5731,8 @@ trackTests {
             seller_segment = ""
             seller_reputation = "NO_REPUTATION"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5469,6 +5749,8 @@ trackTests {
             seller_segment = ""
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             seller_profile = "NEWBIE"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5486,6 +5768,8 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             listing_type_id = "free"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5584,6 +5868,8 @@ trackTests {
             seller_profile = "NEWBIE"
             listing_type_id = "silver"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
         "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event, dataSet)
         "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event, dataSet)
@@ -5638,6 +5924,8 @@ trackTests {
             title_predicted = "test"
             list_mode = "LIST"
             item_id = "MLA123"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5654,6 +5942,8 @@ trackTests {
             title_predicted = "test"
             list_mode = "LIST"
             item_id = "MLA123"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5670,6 +5960,8 @@ trackTests {
             title_predicted = "test"
             list_mode = "LIST"
             item_id = "MLA123"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5687,6 +5979,8 @@ trackTests {
             list_mode = "LIST"
             item_id = "MLA123"
             action = "picture"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -5705,6 +5999,8 @@ trackTests {
             item_id = "MLA123"
             seller_type = "normal"
             seller_id = 123
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
