@@ -677,12 +677,27 @@ tracks {
     "/pdp/html_description/view_all_action"(platform: "/", parentPropertiesInherited: true) {
     }
 
+    "/pdp/fullscreen_gallery"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        context(required: true, type: PropertyType.String, description: "Indicate from what gallery is called")
+        action(required: true, type: PropertyType.String, description: "Indicate from what image or button is called")
+    }
+
     "/pdp/vertical_gallery"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
     }
 
     "/pdp/vertical_gallery/show"(platform: "/", parentPropertiesInherited: true) {
+        image_quantity(required: true, type: PropertyType.Numeric, description: "Indicates the quantity of images in the gallery")
+        has_show_more(required: true, type: PropertyType.Boolean, description: "Indicates if has the button show more image")
+    }
+
+    "/pdp/vertical_gallery/show/open_image"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        order(required: true, type: PropertyType.String, description: "Indicate position of the image or the button who was tapped")
     }
 
     "/pdp/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {

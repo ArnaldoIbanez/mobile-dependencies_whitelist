@@ -741,8 +741,26 @@ trackTests {
         "/pdp/vertical_gallery/show"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
             domain_id = "MLA-CELLPHONES"
+            image_quantity = 6
+            has_show_more = true
+        }
+
+        "/pdp/vertical_gallery/show/open_image"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            order = "show_more_image"
         }
     }
+
+    test("FullScreen Gallery Show") {
+        "/pdp/fullscreen_gallery"(platform: "/", type: TrackType.View) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            context = "vertical_gallery"
+            action = "image"
+        }
+    }
+
     test("Back to top methods") {
         "/pdp/back_to_top"(platform: "/", type: TrackType.View) {
             catalog_product_id = "MLA1234"
