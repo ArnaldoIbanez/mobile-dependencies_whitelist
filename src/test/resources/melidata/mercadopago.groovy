@@ -4216,7 +4216,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4227,7 +4229,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4238,7 +4242,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4251,7 +4257,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4264,7 +4272,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4277,7 +4287,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4290,7 +4302,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4303,7 +4317,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4316,7 +4332,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4329,7 +4347,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4342,7 +4362,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4355,7 +4377,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4368,7 +4392,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4381,7 +4407,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4394,7 +4422,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
     }
@@ -4408,7 +4438,9 @@ trackTests {
                     "transaction": "disabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "transaction"
         }
@@ -4420,7 +4452,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "opening_lock"
         }
@@ -4432,7 +4466,9 @@ trackTests {
                     "transaction": "disabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "transaction"
         }
@@ -4444,7 +4480,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "opening_lock"
         }
@@ -4456,7 +4494,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4467,7 +4507,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "100",
-                    "opening_custom": "5"
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4478,7 +4520,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4489,7 +4533,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "100",
-                    "opening_custom": "5"
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4527,7 +4573,7 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
-                "transaction_granularity_option": "daily_amount",
+                "transaction_granularity_option": "always",
                 "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
