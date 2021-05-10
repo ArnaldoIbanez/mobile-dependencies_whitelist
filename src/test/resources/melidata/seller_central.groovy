@@ -3942,7 +3942,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       promotion_duration = 17
     }
 
-    // TESTS FOR NEW PATHS
     "/seller_central/promotions/list"(platform: "/web", type: TrackType.View){
       original_promotion = []
       original_lightning = []
@@ -3963,7 +3962,11 @@ test("seller central confirm leave suggestion task - optin moderated") {
               involved_stock: 20,
               discount_delta: 0.05,
       ]
-      context: "CREATE"
+      context = "CREATE"
+    }
+
+    "/seller_central/promotions/list"(platform: "/web", type: TrackType.View){
+      origin = "mail"
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event){
