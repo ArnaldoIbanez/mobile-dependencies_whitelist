@@ -5266,6 +5266,7 @@ trackTests {
             transaction_id = "1"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5276,6 +5277,7 @@ trackTests {
             transaction_id = "2"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5287,6 +5289,7 @@ trackTests {
             transaction_id = "3"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5298,6 +5301,7 @@ trackTests {
             transaction_id = "4"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5307,6 +5311,7 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5316,6 +5321,7 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5326,6 +5332,7 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5336,6 +5343,7 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
 
@@ -5348,6 +5356,7 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5358,6 +5367,7 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5369,6 +5379,7 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5380,6 +5391,7 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         //Operation End - Cancel
@@ -5391,6 +5403,7 @@ trackTests {
             reauth_status = "created"
             transaction_id = "4"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5401,6 +5414,7 @@ trackTests {
             reauth_status = "created"
             transaction_id = "4"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5410,6 +5424,7 @@ trackTests {
             result = "cancel"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5419,6 +5434,7 @@ trackTests {
             result = "cancel"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
         //Reauth Retry
         "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
