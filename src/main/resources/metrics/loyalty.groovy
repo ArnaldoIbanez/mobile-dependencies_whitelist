@@ -34,7 +34,7 @@ metrics {
 
     "loyalty.hub"(description: "Loyalty Hub View") {
         startWith {
-            experiment(regex("loyalty/hub"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -46,7 +46,7 @@ metrics {
 
     "loyalty.hub.ml"(description: "Loyalty Hub View in ML") {
         startWith {
-            experiment(regex("loyalty/hub"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -61,7 +61,7 @@ metrics {
 
     "loyalty.hub.mp"(description: "Loyalty Hub View in MP") {
         startWith {
-            experiment(regex("loyalty/hub"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -78,7 +78,7 @@ metrics {
 
     "loyalty.subscriptions.mp"(description: "Partner VDP View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -93,7 +93,7 @@ metrics {
 
     "loyalty.subscriptions.ml"(description: "Partner VDP View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -108,7 +108,7 @@ metrics {
 
     "loyalty.subscriptions.mp.disney"(description: "Partner (Disney) VDP View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -124,7 +124,7 @@ metrics {
 
     "loyalty.subscriptions.ml.disney"(description: "Partner (Disney) VDP View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -140,7 +140,7 @@ metrics {
 
     "loyalty.subscriptions.mp.deezer"(description: "Partner (Deezer) VDP View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -156,7 +156,7 @@ metrics {
 
     "loyalty.subscriptions.ml.deezer"(description: "Partner (Deezer) VDP View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -172,7 +172,7 @@ metrics {
 
     "loyalty.subscriptions.mp.hbo"(description: "Partner (HBO) VDP View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -188,7 +188,7 @@ metrics {
 
     "loyalty.subscriptions.ml.hbo"(description: "Partner (HBO) VDP View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -204,7 +204,7 @@ metrics {
 
     "loyalty.subscriptions.mp.paramount"(description: "Partner (Paramount) VDP View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -220,7 +220,7 @@ metrics {
 
     "loyalty.subscriptions.ml.paramount"(description: "Partner (Paramount) VDP View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -236,7 +236,7 @@ metrics {
 
     "loyalty.subscriptions.congrats,mp"(description: "Partner Congrats View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -251,7 +251,7 @@ metrics {
 
     "loyalty.subscriptions.congrats.ml"(description: "Partner Congrats View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -266,7 +266,7 @@ metrics {
 
     "loyalty.subscriptions,congrats,ml.disney"(description: "Partner (Disney) Congrats View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -282,7 +282,7 @@ metrics {
 
     "loyalty.subscriptions,congrats,mp.disney"(description: "Partner (Disney) Congrats View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -298,7 +298,7 @@ metrics {
 
     "loyalty.subscriptions,congrats,ml.deezer"(description: "Partner (Deezer) Congrats View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -314,7 +314,7 @@ metrics {
 
     "loyalty.subscriptions,congrats,mp.deezer"(description: "Partner (Deezer) Congrats View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -330,7 +330,7 @@ metrics {
 
     "loyalty.subscriptions,congrats,ml.hbo"(description: "Partner (HBO) Congrats View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -346,7 +346,7 @@ metrics {
 
     "loyalty.subscriptions,congrats,mp.hbo"(description: "Partner (HBO) Congrats View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -362,7 +362,7 @@ metrics {
 
     "loyalty.subscriptions.congrats,ml,paramount"(description: "Partner (Paramount) Congrats View in ML") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
@@ -378,7 +378,7 @@ metrics {
 
     "loyalty.subscriptions.congrats.mp.paramount"(description: "Partner (Paramount) Congrats View in MP") {
         startWith {
-            experiment(regex("loyalty/subscriptions"))
+            experiment(regex("wallet/.*"))
         }
 
         countsOn {
