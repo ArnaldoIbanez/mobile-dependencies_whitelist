@@ -103,17 +103,25 @@ tracks {
     // MP Profile
     "/profile"(platform: "/", type: TrackType.View) {}
 
+    // MP Activities - Details - Mobile
+    "/activity"(platform: "/mobile", isAbstract: true) {}
+    "/activity/detail"(platform: "/mobile", type: TrackType.View) {}
+    "/activity/detail/component_not_parsed"(platform: "/mobile", type: TrackType.View) {}
+
+    // MP Activities - Balance - Mobile
+    "/activities"(platform: "/mobile", isAbstract: true) {}
+
     // MP Activities
     "/listing"(platform: "/", isAbstract: true) {}
     "/listing/activities"(platform: "/web", type: TrackType.View) {}
     "/listing/gateway"(platform: "/web", type: TrackType.View) {}
 
-    // MP Activities - Details/Shipping
+    // MP Activities - Details/Shipping - Web
     "/activity"(platform: "/web", isAbstract: true) {}
     "/activity/detail"(platform: "/web", type: TrackType.View) {}
     "/activity/detail/shipping"(platform: "/web", type: TrackType.View) {}
 
-    // MP Activities - Balance/Advances
+    // MP Activities - Balance/Advances - Web
     "/activities"(platform: "/web", isAbstract: true) {}
 
     // MP Activities - Export

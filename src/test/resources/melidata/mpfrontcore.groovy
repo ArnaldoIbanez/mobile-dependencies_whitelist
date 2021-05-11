@@ -57,6 +57,14 @@ trackTests {
         "/profile" (platform: "/", type: TrackType.View) {}
     }
 
+    test("Mercadopago Activities Detail") {
+        "/activity/detail" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Activities Detail Component Not Parsed") {
+        "/activity/detail/component_not_parsed" (platform: "/mobile", type: TrackType.View) {}
+    }
+
     test("Mercadopago Activities List") {
         "/listing/activities" (platform: "/web", type: TrackType.View) {}
     }
