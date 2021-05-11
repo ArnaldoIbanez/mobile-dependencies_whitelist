@@ -693,6 +693,11 @@ tracks {
             description: "Card id",
             inheritable: false
         )
+        flow_version (
+            required: false,
+            type: PropertyType.Numeric,
+            description: "This value represents the version iteration for reissue flow",
+        )
         context (
             required: true,
             type: PropertyType.String,
@@ -713,6 +718,13 @@ tracks {
             type: PropertyType.String,
             description: "Card id",
             inheritable: false
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
+            inheritable:false
         )
     }
     "/cards/hybrid/block_card/virtual/success"(platform: "/", type: TrackType.Event) {

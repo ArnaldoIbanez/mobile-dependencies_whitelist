@@ -560,6 +560,18 @@ tracks {
             type: PropertyType.String,
             description: "Card id"
         )
+        flow_version (
+            required: false,
+            type: PropertyType.Numeric,
+            description: "This value represents the version iteration for reissue flow",
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
+            inheritable:false
+        )
     }
     "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -567,6 +579,13 @@ tracks {
             type: PropertyType.String,
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
+            inheritable:false
         )
     }
 

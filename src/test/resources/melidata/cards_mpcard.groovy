@@ -658,14 +658,26 @@ trackTests {
     test("cards mpcard reissue virtual card ") {
         "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
+            context = "cancellation"
+        }
+        "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+        }
+        "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            flow_version = 2
+            context = "creation"
         }
         "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "primary_button"
+            context = "cancellation"
         }
         "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "secondary_button"
+            context = "creation"
         }
 
         "/cards/mpcard/block_card/virtual/success"(platform:"/", type: TrackType.Event) { }
