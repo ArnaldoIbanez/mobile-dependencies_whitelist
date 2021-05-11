@@ -171,7 +171,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats.mp.deezer"(description: "Partner (Deezer) Congrats View in MP") {
+    "loyalty.subscriptions.congrats.mp.deezer"(description: "Partner (Deezer) Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
         }
