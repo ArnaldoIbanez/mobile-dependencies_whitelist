@@ -2,6 +2,8 @@ package metrics
 
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
+def loyaltyExperimentsRegex = '(loyalty|wallet)/.*'
+
 metrics {
 
     "loyalty.suscription.disneyplus.intention"(description: "define what type of plan to show in VPD to see which one converts better", deprecation_date: "2021/01/30") {
@@ -34,7 +36,7 @@ metrics {
 
     "loyalty.hub.mp"(description: "Loyalty Hub View in MP") {
         startWith {
-            experiment(regex("wallet/.*"))
+            experiment(regex(loyaltyExperimentsRegex))
         }
 
         countsOn {
@@ -51,7 +53,7 @@ metrics {
 
     "loyalty.subscriptions.mp"(description: "Partner VDP View in MP") {
         startWith {
-            experiment(regex("wallet/.*"))
+            experiment(regex(loyaltyExperimentsRegex))
         }
 
         countsOn {
@@ -66,7 +68,7 @@ metrics {
 
     "loyalty.subscriptions.congrats.mp"(description: "Partner Congrats View in MP") {
         startWith {
-            experiment(regex("wallet/.*"))
+            experiment(regex(loyaltyExperimentsRegex))
         }
 
         countsOn {
