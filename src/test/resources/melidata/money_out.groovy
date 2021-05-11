@@ -332,6 +332,9 @@ trackTests {
       "/pix/limits/congrat/secondary_button_click"(platform: "/", type: TrackType.Event) {}
 
       //Money Out Error View - Enchufe
-      "/money_out/error_view"(platform: "/", type: TrackType.View) {}
+      "/money_out/error_view"(platform: "/", type: TrackType.View) {
+        error = "Error 404"
+        view = "Transfer Dashboard"
+      }
     }
 }

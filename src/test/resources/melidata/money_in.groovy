@@ -625,6 +625,9 @@ trackTests {
         }
         
         //Money In Error View - Enchufe
-        "/money_in/error_view"(platform: "/", type: TrackType.View) {}
+        "/money_in/error_view"(platform: "/", type: TrackType.View) {
+           error = "Error 404"
+           view = "Payment Methods Dashboard"
+        }
     }
 }
