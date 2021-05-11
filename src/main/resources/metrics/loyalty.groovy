@@ -44,21 +44,6 @@ metrics {
         }
     }
 
-    "loyalty.hub.ml"(description: "Loyalty Hub View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/hub")
-                and(
-                        equals("application.business", "mercadolibre")
-                )
-            }
-        }
-    }
-
     "loyalty.hub.mp"(description: "Loyalty Hub View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
@@ -91,21 +76,6 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions.ml"(description: "Partner VDP View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/vdp")
-                and(
-                        equals("application.business", "mercadolibre")
-                )
-            }
-        }
-    }
-
     "loyalty.subscriptions.mp.disney"(description: "Partner (Disney) VDP View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
@@ -116,22 +86,6 @@ metrics {
                 path("/loyalty/partners/vdp")
                 and(
                         equals("application.business", "mercadopago"),
-                        equals("event_data.subscription_partner", "disneyplus")
-                )
-            }
-        }
-    }
-
-    "loyalty.subscriptions.ml.disney"(description: "Partner (Disney) VDP View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/vdp")
-                and(
-                        equals("application.business", "mercadolibre"),
                         equals("event_data.subscription_partner", "disneyplus")
                 )
             }
@@ -154,22 +108,6 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions.ml.deezer"(description: "Partner (Deezer) VDP View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/vdp")
-                and(
-                        equals("application.business", "mercadolibre"),
-                        equals("event_data.subscription_partner", "deezer")
-                )
-            }
-        }
-    }
-
     "loyalty.subscriptions.mp.hbo"(description: "Partner (HBO) VDP View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
@@ -180,22 +118,6 @@ metrics {
                 path("/loyalty/partners/vdp")
                 and(
                         equals("application.business", "mercadopago"),
-                        equals("event_data.subscription_partner", "hbo")
-                )
-            }
-        }
-    }
-
-    "loyalty.subscriptions.ml.hbo"(description: "Partner (HBO) VDP View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/vdp")
-                and(
-                        equals("application.business", "mercadolibre"),
                         equals("event_data.subscription_partner", "hbo")
                 )
             }
@@ -218,22 +140,6 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions.ml.paramount"(description: "Partner (Paramount) VDP View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/vdp")
-                and(
-                        equals("application.business", "mercadolibre"),
-                        equals("event_data.subscription_partner", "paramount")
-                )
-            }
-        }
-    }
-
     "loyalty.subscriptions.congrats.mp"(description: "Partner Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
@@ -244,37 +150,6 @@ metrics {
                 path("/loyalty/partners/congrats")
                 and(
                         equals("application.business", "mercadopago")
-                )
-            }
-        }
-    }
-
-    "loyalty.subscriptions.congrats.ml"(description: "Partner Congrats View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/congrats")
-                and(
-                        equals("application.business", "mercadolibre")
-                )
-            }
-        }
-    }
-
-    "loyalty.subscriptions,congrats.ml.disney"(description: "Partner (Disney) Congrats View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/congrats")
-                and(
-                        equals("application.business", "mercadolibre"),
-                        equals("event_data.subscription_partner", "disneyplus")
                 )
             }
         }
@@ -296,22 +171,6 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats.ml.deezer"(description: "Partner (Deezer) Congrats View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/congrats")
-                and(
-                        equals("application.business", "mercadolibre"),
-                        equals("event_data.subscription_partner", "deezer")
-                )
-            }
-        }
-    }
-
     "loyalty.subscriptions,congrats.mp.deezer"(description: "Partner (Deezer) Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
@@ -328,22 +187,6 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats.ml.hbo"(description: "Partner (HBO) Congrats View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/congrats")
-                and(
-                        equals("application.business", "mercadolibre"),
-                        equals("event_data.subscription_partner", "hbo")
-                )
-            }
-        }
-    }
-
     "loyalty.subscriptions,congrats.mp.hbo"(description: "Partner (HBO) Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
@@ -355,22 +198,6 @@ metrics {
                 and(
                         equals("application.business", "mercadopago"),
                         equals("event_data.subscription_partner", "hbo")
-                )
-            }
-        }
-    }
-
-    "loyalty.subscriptions.congrats.ml,paramount"(description: "Partner (Paramount) Congrats View in ML") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/partners/congrats")
-                and(
-                        equals("application.business", "mercadolibre"),
-                        equals("event_data.subscription_partner", "paramount")
                 )
             }
         }
