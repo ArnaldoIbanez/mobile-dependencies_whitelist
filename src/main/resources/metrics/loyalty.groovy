@@ -234,7 +234,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions.congrats,mp"(description: "Partner Congrats View in MP") {
+    "loyalty.subscriptions.congrats.mp"(description: "Partner Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
         }
@@ -264,7 +264,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats,ml.disney"(description: "Partner (Disney) Congrats View in ML") {
+    "loyalty.subscriptions,congrats.ml.disney"(description: "Partner (Disney) Congrats View in ML") {
         startWith {
             experiment(regex("wallet/.*"))
         }
@@ -280,7 +280,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats,mp.disney"(description: "Partner (Disney) Congrats View in MP") {
+    "loyalty.subscriptions,congrats.mp.disney"(description: "Partner (Disney) Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
         }
@@ -296,7 +296,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats,ml.deezer"(description: "Partner (Deezer) Congrats View in ML") {
+    "loyalty.subscriptions,congrats.ml.deezer"(description: "Partner (Deezer) Congrats View in ML") {
         startWith {
             experiment(regex("wallet/.*"))
         }
@@ -312,7 +312,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats,mp.deezer"(description: "Partner (Deezer) Congrats View in MP") {
+    "loyalty.subscriptions,congrats.mp.deezer"(description: "Partner (Deezer) Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
         }
@@ -328,7 +328,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats,ml.hbo"(description: "Partner (HBO) Congrats View in ML") {
+    "loyalty.subscriptions,congrats.ml.hbo"(description: "Partner (HBO) Congrats View in ML") {
         startWith {
             experiment(regex("wallet/.*"))
         }
@@ -344,7 +344,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats,mp.hbo"(description: "Partner (HBO) Congrats View in MP") {
+    "loyalty.subscriptions,congrats.mp.hbo"(description: "Partner (HBO) Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
         }
@@ -360,7 +360,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions.congrats,ml,paramount"(description: "Partner (Paramount) Congrats View in ML") {
+    "loyalty.subscriptions.congrats.ml,paramount"(description: "Partner (Paramount) Congrats View in ML") {
         startWith {
             experiment(regex("wallet/.*"))
         }
