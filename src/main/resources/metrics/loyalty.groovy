@@ -187,7 +187,7 @@ metrics {
         }
     }
 
-    "loyalty.subscriptions,congrats.mp.hbo"(description: "Partner (HBO) Congrats View in MP") {
+    "loyalty.subscriptions.congrats.mp.hbo"(description: "Partner (HBO) Congrats View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
         }
