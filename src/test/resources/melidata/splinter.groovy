@@ -308,9 +308,9 @@ trackTests {
       category = "landings"
       action = "test-landings"
       label = "button_4_ver_mas"
-      filters = {
-          deal_id = "MLA4312"
-      }
+      filters = [
+        deal_id = "MLA4312"
+      ]
     }
   }
 
@@ -319,9 +319,9 @@ trackTests {
       category = "landings"
       action = "test-landings"
       label = "button_4_ver_mas"
-      filters = {
-          deal_id = "MLA4312"
-      }
+      filters = [
+        deal_id = "MLA4312"
+      ]
     }
   }
 
