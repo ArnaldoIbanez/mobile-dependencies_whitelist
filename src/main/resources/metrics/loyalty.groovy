@@ -32,18 +32,6 @@ metrics {
 
     // Loyalty HUB
 
-    "loyalty.hub"(description: "Loyalty Hub View") {
-        startWith {
-            experiment(regex("wallet/.*"))
-        }
-
-        countsOn {
-            condition {
-                path("/loyalty/hub")
-            }
-        }
-    }
-
     "loyalty.hub.mp"(description: "Loyalty Hub View in MP") {
         startWith {
             experiment(regex("wallet/.*"))
