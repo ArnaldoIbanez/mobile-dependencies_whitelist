@@ -106,7 +106,7 @@ tracks {
     // MP Activities - Details - Mobile
     "/activity"(platform: "/mobile", isAbstract: true) {}
     "/activity/detail"(platform: "/mobile", type: TrackType.View) {}
-    "/activity/detail/component_not_parsed"(platform: "/mobile", type: TrackType.View) {}
+    "/activity/detail/component_not_parsed"(platform: "/mobile", type: TrackType.Event) {}
 
     // MP Activities - Balance - Mobile
     "/activities"(platform: "/mobile", isAbstract: true) {}

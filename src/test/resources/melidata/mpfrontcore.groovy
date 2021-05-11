@@ -62,7 +62,7 @@ trackTests {
     }
 
     test("Mercadopago Activities Detail Component Not Parsed") {
-        "/activity/detail/component_not_parsed" (platform: "/mobile", type: TrackType.View) {}
+        "/activity/detail/component_not_parsed" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Activities List") {
