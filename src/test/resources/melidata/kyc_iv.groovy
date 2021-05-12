@@ -15,6 +15,7 @@ trackTests {
 
         "/kyc/iv/step_time"(platform: "/mobile") {
             time = 10000
+            step = "landing"
         }
 
         "/kyc/iv/challenge_time"(platform: "/mobile") {
