@@ -1529,6 +1529,13 @@ trackTests {
         }
     }
 
+    // NFC Message Processor
+    test("message processor information") {
+        "/cards/nfc/enrollment/tokenization/messageprocessor"(platform:"/", type: TrackType.Event) {
+            information = "The message processor: error_code + error message"
+        }
+    }
+
     // NFC Tokenization Time
     test("cards hybrid nfc enrollment tokenization time") {
         "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
