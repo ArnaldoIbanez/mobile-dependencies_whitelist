@@ -40,7 +40,7 @@ trackTests {
 
         "/kyc/iv/step_time"(platform: "/mobile") {
             step_time = 10000
-            step_name = "confirmation"
+            step_name = "confirming"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
