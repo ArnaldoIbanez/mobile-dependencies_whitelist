@@ -748,7 +748,12 @@ trackTests {
         "/pdp/vertical_gallery/show/open_image"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
             domain_id = "MLA-CELLPHONES"
-            order = "show_more_image"
+            order = "1"
+        }
+
+        "/pdp/vertical_gallery/show/more_images"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
         }
     }
 

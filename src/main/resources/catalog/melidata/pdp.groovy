@@ -700,6 +700,11 @@ tracks {
         order(required: true, type: PropertyType.String, description: "Indicate position of the image or the button who was tapped")
     }
 
+    "/pdp/vertical_gallery/show/more_images"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+    }
+
     "/pdp/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
