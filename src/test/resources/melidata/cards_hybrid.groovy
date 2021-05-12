@@ -1957,7 +1957,7 @@ trackTests {
             has_pin = true
             is_nfc_payments_initialized = true
             is_token_ready = true
-            is_nfc_card_active = true
+            is_token_active = true
             is_default_tap_n_pay = true
             is_default_card = true
             is_nfc_activated = true
@@ -1969,7 +1969,7 @@ trackTests {
             has_pin = false
             is_nfc_payments_initialized = false
             is_token_ready = false
-            is_nfc_card_active = false
+            is_token_active = false
             is_default_tap_n_pay = false
             is_default_card = false
             is_nfc_activated = false

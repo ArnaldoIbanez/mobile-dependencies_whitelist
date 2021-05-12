@@ -1961,7 +1961,7 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
-        is_nfc_card_active (
+        is_token_active (
             required: true,
             type: PropertyType.Boolean,
         )
