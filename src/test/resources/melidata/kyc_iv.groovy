@@ -15,6 +15,11 @@ trackTests {
 
         "/kyc/iv/step_time"(platform: "/mobile") {
             step_time = 10000
+            step_name = "none"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
             step_name = "permission"
         }
 
