@@ -13,50 +13,50 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "permission"
-//        }
-//
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "landing"
-//        }
-//
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "landing_vanilla"
-//        }
-//
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "landing_error"
-//        }
-//
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "camera"
-//        }
-//
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "confirming"
-//        }
-//
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "uploading"
-//        }
-//
-//        "/kyc/iv/step_time"(platform: "/mobile") {
-//            step_time = 10000
-//            step_name = "result"
-//        }
-//
-//        "/kyc/iv/challenge_time"(platform: "/mobile") {
-//            challenge_type = "doc_front"
-//            challenge_time = 24000
-//        }
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "permission"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing_vanilla"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing_error"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "camera"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "confirming"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "uploading"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "result"
+        }
+
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
 
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"

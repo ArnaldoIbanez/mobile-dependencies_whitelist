@@ -12,12 +12,12 @@ tracks {
 
     // Challenges v2
     "/kyc/challenge"(platform: "/", type: TrackType.View) {
-        id(required: true, type: PropertyType.String, description: "The challenge name")
-        initiative(required: true, type: PropertyType.String, description: "The initiative")
-        configuration_token(required: false, type: PropertyType.String, description: "The configuration token")
-        callback(required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
-        kyc_flow_id(required: true, type: PropertyType.String, description: "The kyc flow identifier")
-        transaction_id(required: false, type: PropertyType.String, description: "The transaction id from session less registration flow")
+        id (required: true, type: PropertyType.String, description: "The challenge name")
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
+        callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+        transaction_id (required: false, type: PropertyType.String, description: "The transaction id from session less registration flow")
     }
 
     // challenge life cyclev v2
@@ -29,9 +29,9 @@ tracks {
 
     // challenge validation error
     "/kyc/challenge/validation_fail"(platform: "/", type: TrackType.Event) {
-        input(required: true, type: PropertyType.String, description: "The input which validation failed")
-        value(required: true, type: PropertyType.String, description: "The value entered by the user")
-        reason(required: true, type: PropertyType.String, description: "The error description")
+        input (required: true, type: PropertyType.String, description: "The input which validation failed")
+        value (required: true, type: PropertyType.String, description: "The value entered by the user")
+        reason (required: true, type: PropertyType.String, description: "The error description")
     }
 
     // Challenges
@@ -79,26 +79,26 @@ tracks {
 
     // WebView events
     "/kyc/url_external"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "The context where this event occurred")
-        url(required: true, type: PropertyType.String, description: "The external webview URL")
+        context (required: true, type: PropertyType.String, description: "The context where this event occurred")
+        url (required: true, type: PropertyType.String, description: "The external webview URL")
     }
 
     // Browser events
     "/kyc/browser_external"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, description: "The context where this event occurred")
-        url(required: true, type: PropertyType.String, description: "The external browser URL")
+        context (required: true, type: PropertyType.String, description: "The context where this event occurred")
+        url (required: true, type: PropertyType.String, description: "The external browser URL")
     }
 
     // Errors
     "/kyc/error"(platform: "/", type: TrackType.Event) {
-        label(required: false, type: PropertyType.String, description: "The label attached to the current event")
-        verbose(required: false, type: PropertyType.String, description: "The error description for the error occurred")
+        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
         kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
-        image(required: false, type: PropertyType.String, description: "The Image name to the current event")
-        verbose(required: false, type: PropertyType.String, description: "The error description for the error occurred")
+        image (required: false, type: PropertyType.String, description: "The Image name to the current event")
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
 
     "/kyc/profile"(platform: "/", type: TrackType.Event) {}
@@ -129,7 +129,7 @@ tracks {
     }
 
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
-        challenge_type(required: true, values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
+        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
         challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
     }
 
@@ -430,32 +430,32 @@ tracks {
 
     // KYC File Upload
     "/kyc/upload_file"(platform: "/", isAbstract: true) {
-        id(required: false, type: PropertyType.String, description: "The challenge name")
-        initiative(required: false, type: PropertyType.String, description: "The initiative")
-        kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
+        id (required: false, type: PropertyType.String, description: "The challenge name")
+        initiative (required: false, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: false, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
-    "/kyc/upload_file/open_files"(platform: "/", type: TrackType.Event) {}
+    "/kyc/upload_file/open_files"(platform: "/", type: TrackType.Event) { }
 
     "/kyc/upload_file/upload_start"(platform: "/", type: TrackType.Event) {
-        amount(required: true, type: PropertyType.String, description: "The amount of files")
+        amount (required: true, type: PropertyType.String, description: "The amount of files")
     }
 
-    "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) {}
+    "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) { }
 
     "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) {
-        verbose(required: false, type: PropertyType.String, description: "The error description for the error occurred")
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
 
     // KYC Landing Congrats
 
     "/kyc/landing"(platform: "/", type: TrackType.View) {
-        initiative(required: true, type: PropertyType.String, description: "The initiative")
-        kyc_flow_id(required: true, type: PropertyType.String, description: "The kyc flow identifier")
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     "/kyc/congrats"(platform: "/", type: TrackType.View) {
-        initiative(required: true, type: PropertyType.String, description: "The initiative")
-        kyc_flow_id(required: true, type: PropertyType.String, description: "The kyc flow identifier")
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
 }
