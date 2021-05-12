@@ -471,6 +471,20 @@ trackTests {
             shipment_id = "222"
             driver_id = 124
         }
+        "/logistics/last_mile/package/security_keyword_modal"(platform: "/mobile", type: TrackType.View) {
+            shipment_id = "222"
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
+        }
+        "/logistics/last_mile/package/security_keyword_modal/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
+        }
         "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
