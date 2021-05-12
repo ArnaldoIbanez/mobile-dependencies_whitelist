@@ -1883,53 +1883,53 @@ tracks {
     }
 
     //Data transparency
-    "/advertising/pads2/reports"(platform: "/web", type: TrackType.View) {
-        mode(required: true, type: PropertyType.String,  description: "")
-        type(required: false, type: PropertyType.String,  description: "")
-        days(required: false, type: PropertyType.String,  description: "")
-        from(required: false, type: PropertyType.String,  description: "")
-        to(required: false, type: PropertyType.String,  description: "")
-        group_by(required: false, type: PropertyType.String,  description: "")
+    "/advertising/pads2/reports"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        mode(required: true, type: PropertyType.String,  description: "user mode", values: ['custom', 'automatic'])
+        type(required: false, type: PropertyType.String,  description: "Report type", values: ['ads, campaigns'])
+        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7d','15d', '30d', '60d', '90d'] )
+        from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
+        to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
         filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
-    "/advertising/pads2/reports/range"(platform: "/web", type: TrackType.Event) {
-        days(required: false, type: PropertyType.String,  description: "")
-        from(required: false, type: PropertyType.String,  description: "")
-        to(required: false, type: PropertyType.String,  description: "")
+    "/advertising/pads2/reports/range"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7d','15d', '30d', '60d', '90d'] )
+        from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
+        to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
     }
 
-    "/advertising/pads2/reports/group"(platform: "/web", type: TrackType.Event) {
-        group_by(required: true, type: PropertyType.String,  description: "")
+    "/advertising/pads2/reports/group"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
     }
 
-    "/advertising/pads2/reports/filters"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/reports/filters"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
-    "/advertising/pads2/reports/rows_warning"(platform: "/web", type: TrackType.View) {
-        rows(required: true, type: PropertyType.Numeric,  description: "")
+    "/advertising/pads2/reports/rows_warning"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        rows(required: true, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
     }
 
-    "/advertising/pads2/reports/create"(platform: "/web", type: TrackType.Event) {
-        mode(required: true, type: PropertyType.String,  description: "")
-        type(required: false, type: PropertyType.String,  description: "")
-        days(required: false, type: PropertyType.String,  description: "")
-        from(required: false, type: PropertyType.String,  description: "")
-        to(required: false, type: PropertyType.String,  description: "")
-        group_by(required: false, type: PropertyType.String,  description: "")
-        filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
-        rows(required: false, type: PropertyType.Numeric,  description: "")
+    "/advertising/pads2/reports/create"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        mode(required: true, type: PropertyType.String,  description: "user mode", values: ['custom', 'automatic'])
+        type(required: false, type: PropertyType.String,  description: "Report type", values: ['ads, campaigns'])
+        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7d','15d', '30d', '60d', '90d'] )
+        from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
+        to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+        rows(required: true, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
     }
 
-    "/advertising/pads2/reports/confirmation"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/reports/confirmation"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
     }
 
-    "/advertising/pads2/reports/empty_state"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/reports/empty_state"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
     }
 
-    "/advertising/pads2/reports/download"(platform: "/web", type: TrackType.View) {
-        status(required: true, type: PropertyType.Boolean,  description: "")
+    "/advertising/pads2/reports/download"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        status(required: true, type: PropertyType.String,  description: "Report download status", values: ['success', 'fail'])
     }
 
 }

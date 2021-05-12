@@ -2238,4 +2238,83 @@ trackTests {
             mode = "custom"
         }
     }
+
+    test("Advertising Reports"){
+        "/advertising/pads2/reports"(platform: "/web", type: TrackType.View) {
+         //   {"mode":,"type":,"days":,"from":,"to":,"group_by":,"filters":}
+            mode = "custom"
+            type: "ads"
+            days = "15d"
+            from = "2021-02-02"
+            to = "2021-05-02"
+            group_by = "monthly"
+            filters = [
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
+                    sll: "true",
+                    date_created: "2020-07-01"
+            ]
+        }
+
+        "/advertising/pads2/reports/range"(platform: "/web", type: TrackType.Event) {
+            days = "15d"
+            from = "2021-02-02"
+            to = "2021-05-02"
+        }
+
+        "/advertising/pads2/reports/group"(platform: "/web", type: TrackType.Event) {
+            group_by = "monthly"
+        }
+
+        "/advertising/pads2/reports/filters"(platform: "/web", type: TrackType.Event) {
+            filters = [
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
+                    sll: "true",
+                    date_created: "2020-07-01"
+            ]
+        }
+
+        "/advertising/pads2/reports/create"(platform: "/web", type: TrackType.Event) {
+            //   {"mode":,"type":,"days":,"from":,"to":,"group_by":,"filters":}
+            mode = "custom"
+            type: "ads"
+            days = "15d"
+            from = "2021-02-02"
+            to = "2021-05-02"
+            group_by = "monthly"
+            filters = [
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
+                    sll: "true",
+                    date_created: "2020-07-01"
+            ]
+            rows = 9999
+        }
+
+        "/advertising/pads2/reports/rows_warning"(platform: "/web", type: TrackType.Event) {
+            rows = 9999
+        }
+
+        "/advertising/pads2/reports/confirmation"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/reports/empty_state"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/reports/download"(platform: "/web", type: TrackType.Event) {
+            status = "success"
+        }
+    }
+
+
 }
