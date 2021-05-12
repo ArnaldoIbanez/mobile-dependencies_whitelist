@@ -13,8 +13,8 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
-        "/kyc/iv/landing_time"(platform: "/mobile") {
-            landing_time = 10000
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            time = 10000
         }
 
         "/kyc/iv/challenge_time"(platform: "/mobile") {
