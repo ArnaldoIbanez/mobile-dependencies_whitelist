@@ -645,6 +645,8 @@ tracks {
         step(required: true, type: PropertyType.Numeric , description: "Current modal step")
     }
 
+
+
     // Multicampaña
     "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
         tab(required: true, description: "It could be: Campaigns or Ads tab", values: ['campaigns', 'ads'])
@@ -1878,6 +1880,56 @@ tracks {
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
         campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    //Data transparency
+    "/advertising/pads2/reports"(platform: "/web", type: TrackType.View) {
+        mode(required: true, type: PropertyType.String,  description: "")
+        type(required: false, type: PropertyType.String,  description: "")
+        days(required: false, type: PropertyType.String,  description: "")
+        from(required: false, type: PropertyType.String,  description: "")
+        to(required: false, type: PropertyType.String,  description: "")
+        group_by(required: false, type: PropertyType.String,  description: "")
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+    }
+
+    "/advertising/pads2/reports/range"(platform: "/web", type: TrackType.Event) {
+        days(required: false, type: PropertyType.String,  description: "")
+        from(required: false, type: PropertyType.String,  description: "")
+        to(required: false, type: PropertyType.String,  description: "")
+    }
+
+    "/advertising/pads2/reports/group"(platform: "/web", type: TrackType.Event) {
+        group_by(required: true, type: PropertyType.String,  description: "")
+    }
+
+    "/advertising/pads2/reports/filters"(platform: "/web", type: TrackType.Event) {
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+    }
+
+    "/advertising/pads2/reports/rows_warning"(platform: "/web", type: TrackType.View) {
+        rows(required: true, type: PropertyType.Numeric,  description: "")
+    }
+
+    "/advertising/pads2/reports/create"(platform: "/web", type: TrackType.Event) {
+        mode(required: true, type: PropertyType.String,  description: "")
+        type(required: false, type: PropertyType.String,  description: "")
+        days(required: false, type: PropertyType.String,  description: "")
+        from(required: false, type: PropertyType.String,  description: "")
+        to(required: false, type: PropertyType.String,  description: "")
+        group_by(required: false, type: PropertyType.String,  description: "")
+        filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+        rows(required: false, type: PropertyType.Numeric,  description: "")
+    }
+
+    "/advertising/pads2/reports/confirmation"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/advertising/pads2/reports/empty_state"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/advertising/pads2/reports/download"(platform: "/web", type: TrackType.View) {
+        status(required: true, type: PropertyType.Boolean,  description: "")
     }
 
 }
