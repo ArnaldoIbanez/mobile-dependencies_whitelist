@@ -8,7 +8,7 @@ tracks {
 
     initiative = "1202"
     defaultBusiness = "mercadolibre"
-    def deal_id = objectSchemaDefinitions {
+    def filters_definition = objectSchemaDefinitions {
         deal_id(type: PropertyType.String, required: false)
     }
 
@@ -179,13 +179,13 @@ tracks {
         category(required: false, type: PropertyType.String, description: "Landing category", values: ["landings"])
         action(required: false, type: PropertyType.String, description: "Name of the campaign")
         label(required: false, type: PropertyType.String, description: "Component related info")
-        filters(required: false, type: PropertyType.Map(deal_id), description: "filters applied")
+        filters(required: false, type: PropertyType.Map(filters_definition), description: "filters applied")
     }
     "/splinter/landing/all/tier1"(platform: "/",  type: TrackType.Event) {
         category(required: false, type: PropertyType.String, description: "Landing category", values: ["landings"])
         action(required: false, type: PropertyType.String, description: "Name of the campaign")
         label(required: false, type: PropertyType.String, description: "Component related info")
-        filters(required: false, type: PropertyType.Map(deal_id), description: "filters applied")
+        filters(required: false, type: PropertyType.Map(filters_definition), description: "filters applied")
     }
     "/splinter/landing/all/video"(platform: "/",  type: TrackType.Event) {
         category(required: false, type: PropertyType.String, description: "Landing category", values: ["landings"])
