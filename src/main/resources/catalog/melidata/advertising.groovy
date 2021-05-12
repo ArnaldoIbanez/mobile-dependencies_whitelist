@@ -645,8 +645,6 @@ tracks {
         step(required: true, type: PropertyType.Numeric , description: "Current modal step")
     }
 
-
-
     // Multicampaña
     "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
         tab(required: true, description: "It could be: Campaigns or Ads tab", values: ['campaigns', 'ads'])
