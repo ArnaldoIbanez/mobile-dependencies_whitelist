@@ -75,6 +75,7 @@ tracks {
     "/kyc/challenge_proof_of_address"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_death"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_under_age"(platform: "/", type: TrackType.View) {}
+
     "/kyc/identity_handler"(platform: "/", type: TrackType.Event) {}
 
     // WebView events
