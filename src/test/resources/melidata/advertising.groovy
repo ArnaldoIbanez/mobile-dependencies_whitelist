@@ -2282,7 +2282,6 @@ trackTests {
         }
 
         "/advertising/pads2/reports/create"(platform: "/web", type: TrackType.Event) {
-            //   {"mode":,"type":,"days":,"from":,"to":,"group_by":,"filters":}
             mode = "custom"
             type: "ads"
             days = "15d"
