@@ -124,6 +124,10 @@ tracks {
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
+    "/kyc/iv/step_time"(platform: "/", type: TrackType.Event) {
+        step_time(required: true, type: PropertyType.Numeric, description: "Time of step")
+        step_name(required: true, values: ["none", "permission", "landing", "landing_vanilla", "landing_error", "camera", "confirmation", "uploading", "result"], type: PropertyType.String, description: "Step name")
+    }
     
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
         challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
