@@ -363,6 +363,20 @@ tracks {
     }
     "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
 
+    //Debin Merch Engine
+    "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
+        key_type(required:true, description:"status", values:["success","error"])
+        audience(required:false, description:"indicates the audience")
+        bu(required:false, description:"Indicates the buisiness unit")
+        bu_line(required:false, description:"buisiness unit line")
+        component_id(required:false, description:"Id of the merch engine real state")
+        content_id(required:false, description:"id of the content")
+        flow(required:false, description:"flow of the merch engine")
+        logic(required:false, description:"logic of the merch engine")
+        position(required:false, description:"Position of the item")
+        xp_id(required:false, description:"id of the experiments")
+    }
+
     //Debin Search account
     "/money_in/debin/search"(platform:"/", type: TrackType.View){}
     "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
