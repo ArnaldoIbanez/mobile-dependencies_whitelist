@@ -75,7 +75,7 @@ tracks {
     "/kyc/challenge_proof_of_address"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_death"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_under_age"(platform: "/", type: TrackType.View) {}
-
+    
     "/kyc/identity_handler"(platform: "/", type: TrackType.Event) {}
 
     // WebView events
@@ -124,11 +124,7 @@ tracks {
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
-    "/kyc/iv/step_time"(platform: "/", type: TrackType.Event) {
-        step_time(required: true, type: PropertyType.Numeric, description: "Time of step")
-        step_name(required: true, values: ["none", "permission", "landing", "landing_vanilla", "landing_error", "camera", "confirmation", "uploading", "result"], type: PropertyType.String, description: "Step name")
-    }
-
+    
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
         challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla"], type: PropertyType.String, description: "Challenge type")
         challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
@@ -222,7 +218,7 @@ tracks {
     }
 
     "/kyc/iv/activity/check_step"(platform: "/mobile", type: TrackType.View) {}
-
+    
     "/kyc/iv/activity/landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/kyc/iv/activity/phone_landing"(platform: "/mobile", type: TrackType.View) {}
@@ -233,7 +229,7 @@ tracks {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
     }
-
+    
     "/kyc/iv/activity/image_upload/landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/kyc/iv/activity/image_upload/uploading"(platform: "/mobile", type: TrackType.View) {}
@@ -263,7 +259,7 @@ tracks {
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
     "/kyc/iv/activity/liveness"(platform: "/mobile", type: TrackType.View) {}
-
+    
     // Mobile tracks
     "/kyc/iv/center/row"(platform: "/mobile", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
@@ -383,20 +379,20 @@ tracks {
 
     "/kyc/iv/cc_scan"(platform: "/web", isAbstract: true) {}
 
-    "/kyc/iv/cc_scan/landing"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/cc_scan/landing"(platform: "/web", type: TrackType.View) {  
     }
 
-    "/kyc/iv/cc_scan/start_camera"(platform: "/web", type: TrackType.Event) {
+    "/kyc/iv/cc_scan/start_camera"(platform: "/web", type: TrackType.Event) {  
     }
 
-    "/kyc/iv/cc_scan/start_scan"(platform: "/web", type: TrackType.Event) {
+    "/kyc/iv/cc_scan/start_scan"(platform: "/web", type: TrackType.Event) {  
     }
 
-    "/kyc/iv/cc_scan/scan_error"(platform: "/web", type: TrackType.Event) {
+    "/kyc/iv/cc_scan/scan_error"(platform: "/web", type: TrackType.Event) {  
         error_reason(type: PropertyType.String, required: true, description: "Reason of the error")
     }
 
-    "/kyc/iv/cc_scan/upload_image"(platform: "/web", type: TrackType.Event) {
+    "/kyc/iv/cc_scan/upload_image"(platform: "/web", type: TrackType.Event) {  
     }
 
     "/kyc/iv/documentation"(platform: "/web", isAbstract: true) {}
@@ -450,12 +446,12 @@ tracks {
 
     // KYC Landing Congrats
 
-    "/kyc/landing"(platform: "/", type: TrackType.View) {
+    "/kyc/landing"(platform: "/", type: TrackType.View) { 
         initiative (required: true, type: PropertyType.String, description: "The initiative")
         kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
-    "/kyc/congrats"(platform: "/", type: TrackType.View) {
+    "/kyc/congrats"(platform: "/", type: TrackType.View) { 
         initiative (required: true, type: PropertyType.String, description: "The initiative")
         kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
