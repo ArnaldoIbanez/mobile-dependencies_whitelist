@@ -14,43 +14,43 @@ trackTests {
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "permission"
+            step_time = 10000
+            step_name = "permission"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "landing"
+            step_time = 10000
+            step_name = "landing"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "landing_vanilla"
+            step_time = 10000
+            step_name = "landing_vanilla"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "landing_error"
+            step_time = 10000
+            step_name = "landing_error"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "camera"
+            step_time = 10000
+            step_name = "camera"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "confirmation"
+            step_time = 10000
+            step_name = "confirmation"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "uploading"
+            step_time = 10000
+            step_name = "uploading"
         }
 
         "/kyc/iv/step_time"(platform: "/mobile") {
-            time = 10000
-            step = "result"
+            step_time = 10000
+            step_name = "result"
         }
 
         "/kyc/iv/challenge_time"(platform: "/mobile") {

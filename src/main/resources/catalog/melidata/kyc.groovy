@@ -124,8 +124,8 @@ tracks {
     }
 
     "/kyc/iv/step_time"(platform: "/", type: TrackType.Event) {
-        time(required: true, type: PropertyType.Numeric, description: "Time of step")
-        step(required: true, values: ["permission", "landing", "landing_vanilla", "landing_error", "camera", "confirmation", "uploading", "result"], type: PropertyType.String, description: "Step name")
+        step_time(required: true, type: PropertyType.Numeric, description: "Time of step")
+        step_name(required: true, values: ["permission", "landing", "landing_vanilla", "landing_error", "camera", "confirmation", "uploading", "result"], type: PropertyType.String, description: "Step name")
     }
 
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
