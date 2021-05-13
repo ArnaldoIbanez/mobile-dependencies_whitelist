@@ -742,7 +742,7 @@ trackTests {
             catalog_product_id = "MLA1234"
             domain_id = "MLA-CELLPHONES"
             image_quantity = 6
-            has_show_more = true
+            show_more_button = true
         }
 
         "/pdp/vertical_gallery/show/open_image"(platform: "/", type: TrackType.Event) {
