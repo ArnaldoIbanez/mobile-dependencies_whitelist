@@ -124,7 +124,7 @@ tracks {
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
-    "/kyc/iv/step_time"(platform: "/", type: TrackType.Event) {
+    "/kyc/iv/step_time"(platform: "/mobile", type: TrackType.Event) {
         step_time(required: true, type: PropertyType.Numeric, description: "Time of step")
         step_name(required: true, values: ["none", "permission", "landing", "landing_vanilla", "landing_error", "camera", "confirmation", "uploading", "result"], type: PropertyType.String, description: "Step name")
     }
