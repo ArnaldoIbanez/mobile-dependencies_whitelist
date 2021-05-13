@@ -691,7 +691,7 @@ tracks {
 
     "/pdp/vertical_gallery/show"(platform: "/", parentPropertiesInherited: true) {
         image_quantity(required: true, type: PropertyType.Numeric, description: "Indicates the quantity of images in the gallery")
-        has_show_more(required: true, type: PropertyType.Boolean, description: "Indicates if has the button show more image")
+        show_more_button(required: true, type: PropertyType.Boolean, description: "Indicates if has the button show more image")
     }
 
     "/pdp/vertical_gallery/show/open_image"(platform: "/", parentPropertiesInherited: false) {
