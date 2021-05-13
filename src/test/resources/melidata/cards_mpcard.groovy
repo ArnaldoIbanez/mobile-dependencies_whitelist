@@ -399,6 +399,46 @@ trackTests {
         }
     }
 
+    //FTU Carousel Onboarding: Tracking
+    test("cards mpcard dashboard ftu carousel onboarding") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard dashboard ftu carousel onboarding tap") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+    test("cards mpcard dashboard ftu carousel onboarding swiped") {
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_virtual_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_physical_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_credit_slide"
+        }
+        "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+            action = "swipe_nfc_slide"
+        }
+    }
+    
+    //FTU Single Onboarding: Tracking 
+    test("cards mpcard dashboard ftu single onboarding") {
+        "/cards/mpcard/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards mpcard dashboard ftu single onboarding tap") {
+        "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
+
     // SETUP VIRTUAL
     // --------
 
@@ -474,6 +514,9 @@ trackTests {
         }
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message"
+        }
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message_freeze"
         }
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "close_modal"
@@ -737,6 +780,9 @@ trackTests {
         "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
             action = "header_help"
         }
+        "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
+            action = "back_button"
+        }
     }
     test("cards mpcard nip, It_was_not_me link message tap") {
         "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
@@ -954,7 +1000,7 @@ trackTests {
         }
 
         "/cards/mpcard/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
-            action = "pause_card"
+            action = "reissue_pause_card"
         }
     }
 

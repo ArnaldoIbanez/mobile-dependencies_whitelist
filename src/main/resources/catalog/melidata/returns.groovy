@@ -72,6 +72,9 @@ tracks {
     "/return/review/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       review_return_method(required: true, type: PropertyType.String, description: 'type of review', values: ['review_code', 'review_label'] )
     }
+    "/return/review/agencies"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'selected agencies button in review step')
+    }
 
     // STEP 07
     "/return/congrats"(platform: "/", type: TrackType.View) {
@@ -87,6 +90,10 @@ tracks {
 
     "/return/congrats/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       selection(required: true, type: PropertyType.String, description: 'selected option button')
+    }
+
+    "/return/congrats/agencies"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'selected agencies button in congrats step')
     }
 
     // Bloqueo Scoring High

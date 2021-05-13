@@ -346,7 +346,37 @@ tracks {
             description: "Map info tapped"
           )
     }
+
+    //FTU Single Onboarding: Tracking
+    "/cards/mpcard/dashboard/ftu_single_onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/dashboard/ftu_single_onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "action tap by the user in the ftu single onboarding view"
+        )
+    }
     
+    //FTU Carousel Onboarding: Tracking
+    "/cards/mpcard/dashboard/ftu_carousel_onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/dashboard/ftu_carousel_onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "action tap by the user in the ftu single onboarding view"
+        )
+    }
+    "/cards/mpcard/dashboard/ftu_carousel_onboarding/swipe"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["swipe_virtual_slide", "swipe_physical_slide", "swipe_credit_slide", "swipe_nfc_slide"],
+            description: "ftu carousel onboarding item swiped"
+          )
+    }
+
     // SETUP VIRTUAL
     // --------
 
@@ -384,7 +414,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help"],
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help", "additional_message_freeze"],
             description: "Virtual card buttons tapped"
         )
     }
@@ -642,7 +672,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"],
+            values: ["reissue_pause_card", "reissue", "reissue_change_pin", "reissue_show_nip", "reissue_activate_contactless", "reissue_continue", "reissue_exit"],
             description: "The action tapped"
         )
     }
@@ -743,8 +773,8 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header_help"],
-            description: "Help button tapped"
+            values: ["header_help", "back_button"],
+            description: "Help and Back button tapped"
         )
     }
     "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}

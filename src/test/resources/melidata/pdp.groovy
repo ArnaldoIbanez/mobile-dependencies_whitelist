@@ -630,7 +630,7 @@ trackTests {
             currency_id = "ARS"
             original_price = 18.0
         })
-        
+
         "/pdp/cbt_modal/show"(platform: "/", type: TrackType.Event, {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
@@ -741,6 +741,38 @@ trackTests {
         "/pdp/vertical_gallery/show"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
             domain_id = "MLA-CELLPHONES"
+            image_quantity = 6
+            show_more_button = true
+        }
+
+        "/pdp/vertical_gallery/show/open_image"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            order = "1"
+        }
+
+        "/pdp/vertical_gallery/show/more_images"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+        }
+    }
+
+    test("FullScreen Gallery Show") {
+        "/pdp/fullscreen_gallery"(platform: "/", type: TrackType.View) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            context = "vertical_gallery"
+            action = "image"
+        }
+    }
+
+    test("Back to top methods") {
+        "/pdp/back_to_top"(platform: "/", type: TrackType.View) {
+            catalog_product_id = "MLA1234"
+        }
+
+        "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
         }
     }
 }
