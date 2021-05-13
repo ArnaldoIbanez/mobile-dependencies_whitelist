@@ -181,7 +181,11 @@ tracks {
     }
 
     // MP Landing - Conta / Cuenta
-    "/landing/digital_account"(platform: "/") {}
+    "/landing/digital_account"(platform: "/", type: TrackType.View) {}
+    "/landing/digital_account/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+        type(required: true, description: 'Type of element clicked', type: PropertyType.String, values: ['cta', 'shortcut'])
+    }
 
     // MP Landing - Landing Sellers
     "/landing/sellers"(platform: "/") {}

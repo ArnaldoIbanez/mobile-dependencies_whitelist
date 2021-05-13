@@ -148,7 +148,11 @@ trackTests {
     }
 
     test("Mercadopago Landing Cuenta / Conta") {
-        "/landing/digital_account" (platform: "/") {}
+        "/landing/digital_account" (platform: "/", type: TrackType.View) {}
+        "/landing/digital_account/click" (platform: "/", type: TrackType.Event) {
+            id = "payments-shortcut"
+            type = 'shortcut'
+        }
     }
 
     test("Business Site") {

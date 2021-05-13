@@ -568,6 +568,9 @@ tracks {
         retries_number(required: true, type: PropertyType.Numeric, description: "Number of attempts before to activate with success")
         modal_imei_retries(required: true, type: PropertyType.Numeric, description: "Number of times that modal showed up")
    }
+   "/insurtech/protections/detail/roda/change_protection"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited:false) {
+           protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+    }
 
    "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")

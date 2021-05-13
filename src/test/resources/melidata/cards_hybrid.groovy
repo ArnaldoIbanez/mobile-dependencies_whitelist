@@ -1395,6 +1395,12 @@ trackTests {
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
         }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "contextual_help"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "feedback"
+        }
         "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
             action = "step_tap_and_pay"
         }
