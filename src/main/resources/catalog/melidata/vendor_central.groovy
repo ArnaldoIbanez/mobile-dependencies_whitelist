@@ -112,6 +112,18 @@ tracks {
 
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
 
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Inbound creator
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/inbound-shipment"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/inbound-shipment/creator"(platform: "/web",  type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/congrats"(platform: "/web", type: TrackType.View) {}
+
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central Fiscal Documents Template Mappings
     //------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -83,6 +83,7 @@ tracks {
         id(required: true, type: PropertyType.String, description: "ID of claim associated to the RODA protection.")
         franchise_payment_id(required: false, type: PropertyType.Numeric, description: "ID of payment associated to the franchise.")
         franchise_payment_amount(required: false, type: PropertyType.Numeric, description: "Amount associated to the franchise payment.")
+        status_detail(required: false, type: PropertyType.String, description: "Detailed status of the claim")
     }
 
     // INSURTECH RODA QPage Abstract
@@ -567,6 +568,14 @@ tracks {
         retries_number(required: true, type: PropertyType.Numeric, description: "Number of attempts before to activate with success")
         modal_imei_retries(required: true, type: PropertyType.Numeric, description: "Number of times that modal showed up")
    }
+   "/insurtech/protections/detail/roda/change_protection"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited:false) {
+           protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+    }
+
+   "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+       protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+       claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
+    }
 
     "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")

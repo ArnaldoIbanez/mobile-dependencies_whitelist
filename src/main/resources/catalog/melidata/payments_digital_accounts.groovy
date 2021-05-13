@@ -115,4 +115,26 @@ tracks {
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { eventDataTrack }
+
+    // Vouchers
+    "/banking/vouchers"(platform: "/", type: TrackType.View) {}
+
+    // Vouchers - Benefits 
+    "/banking/vouchers/benefits"(platform: "/", isAbstract: true) {}
+    "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - Account switch
+    "/banking/vouchers/account-money"(platform: "/", isAbstract: true) {}
+    "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - Activities
+    "/banking/vouchers/activities"(platform: "/", isAbstract: true) {}
+    "/banking/vouchers/activities/row"(platform: "/", type: TrackType.Event) {}
+    "/banking/vouchers/activities/footer"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - MP Card
+    "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - Help
+    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}   
 }

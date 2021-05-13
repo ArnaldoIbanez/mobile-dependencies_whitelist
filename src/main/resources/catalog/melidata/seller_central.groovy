@@ -167,6 +167,20 @@ tracks {
         processing_data(required: true, type: PropertyType.Map(optinatorNewListingProcessingDataStructure), description: "Relevant processing data")
     }
 
+    def orderStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.Numeric, description: "The order id")
+        quantity(required: true, type: PropertyType.Numeric, description: "The selected quantity")
+    }
+
+    def packStructure = objectSchemaDefinitions {
+        orders(required: true, type: PropertyType.Map(orderStructure), description: "List of orders in the pack")
+    }
+
+    def categoryStructure = objectSchemaDefinitions {
+        category_id(required: true, type: PropertyType.String, description: "The category id")
+        domain_id(required: false, type: PropertyType.String, description: "The category domain id")
+    }
+
     // --------------------------------------------------------------------------------------------------------------
     //  LANDING PRODUCTS STRUCTURE
     // --------------------------------------------------------------------------------------------------------------
@@ -188,7 +202,12 @@ tracks {
       catalog_product_id(required: true, type: PropertyType.String, description: "The product id")
       row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
     }
-
+    def CardItemStructure = objectSchemaDefinitions {
+        item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
+        seller_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by the seller")
+        meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
+        adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
+    }
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -281,6 +300,14 @@ tracks {
         selected_filters(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingSelectedFiltersStructure)), description: "This property describe seleted filters")
         selected_filters_quantity(required: true, type: PropertyType.Numeric, description: "This property describes total filters selected")
         row_index(required: false, type: PropertyType.Numeric, description: "This property describes row index in results")
+
+        // Split Orders
+        orders_quantity(required: false, type: PropertyType.Numeric, description: "Number of orders")
+        orders(required: false, type: PropertyType.ArrayList(PropertyType.Map(orderStructure)), description: "List of orders")
+        selected_orders(required: false, type: PropertyType.ArrayList(PropertyType.Map(orderStructure)), description: "List of selected orders")
+        packs(required: false, type: PropertyType.ArrayList(PropertyType.Map(packStructure)), description: "List of packs")
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.Map(categoryStructure)), description: "List of categories")
+        logistic_type(required: true, type: PropertyType.String, description: "Logistic type of the shipment")
     }
 
     propertyGroups {
@@ -317,11 +344,13 @@ tracks {
         // Seller Central Optinator New Listings
         sellerCentralOptinatorNewListingsGroup(flow, domain_id, item_mk_id, item_mk_status, item_mk_sub_status, item_mk_tags, processing_data, variations)
 
-        //Products Landing
-        productsLandingDataGroup(query, query_type,result_type, results, paging, selected_filters, selected_filters_quantity)
+        // Products Landing
+        productsLandingDataGroup(query, query_type, result_type, results, paging, selected_filters, selected_filters_quantity)
         productsLandingRowGroup(catalog_product_id, row_index)
-    }
 
+        // Split Orders
+        sellerCentralSplitOrdersGroup(user_type, seller_profile, reputation_level, orders_quantity, orders, selected_orders, packs, has_variations, categories, logistic_type)
+    }
 
 
     // Central of News
@@ -816,6 +845,12 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_conversion_price"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
     /**
      * La idea es trackear en el snackbar informacion
      * del item original y algunos cambios que se produjeron.
@@ -1252,6 +1287,12 @@ tracks {
     "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/message"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
 
     "/seller_central/sales/fiscal_document"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
     "/seller_central/sales/fiscal_document/action"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
@@ -1771,6 +1812,7 @@ tracks {
         original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
         original_dod(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original deal_of_they_day promotion data")
         context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING", "CREATE_DOD"])
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
@@ -1828,6 +1870,10 @@ tracks {
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
         origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        promo_id(required: false, type: PropertyType.String, description: "Deals co-funded campaign identifier")
+        seller_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by the seller")
+        meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
+        adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
     }
 
     "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
@@ -1836,10 +1882,17 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        promoId(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
+        promo_id(required: false, type: PropertyType.String, description: "Deals co-funded campaign identifier")
     }
 
     "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN"])
+    }
+
+    "/seller_central/promotions/action/tooltip_adv"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        promo_id(required: true, type: PropertyType.String, description: "Deals co-funded campaign identifier")
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the tooltip is executed")
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
@@ -1866,6 +1919,11 @@ tracks {
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
         slide(required: false, type: PropertyType.Numeric, description: "Slide where the card is shown. Only tracked when there are multiple slides.")
+        promo_id(required: false, type: PropertyType.String, description: "Promo id ")
+        total_actives_items(required: false, type: PropertyType.Numeric, description: "number of total actives items")
+        total_eligible_items(required: false, type: PropertyType.Numeric, description: "number of total elegible items")
+        actives_items(required: false, type: PropertyType.ArrayList(PropertyType.Map(CardItemStructure)), description: "array of percentage data of active items")
+        eligible_items(required: false, type: PropertyType.ArrayList(PropertyType.Map(CardItemStructure)), description: "total number of items that can be activated in promotion")
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
@@ -1875,6 +1933,10 @@ tracks {
         page(required: false, type: PropertyType.Numeric, description: "Page number")
         viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
     }
+
+    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS SYI V4 - RealEstate
@@ -1904,10 +1966,6 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/response"(platform: "/web", type: TrackType.Event) {
-        sellerCentralActionQuestionsGroup
-    }
-
     "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
@@ -1916,17 +1974,18 @@ tracks {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/block_buyer"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
 
-    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_stock"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
     }
 
-    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+    "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
     }
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central Buyer Questions
@@ -1991,6 +2050,29 @@ tracks {
 
     "/seller_central/me1_transport_config/upload/exceed_characters_limit"(platform: "/web", type: TrackType.Event) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central - Split Orders
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/split_orders"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/split_orders/splitter"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/split_orders/splitter/prepare"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/split_orders/splitter/prepare/action"(platform: "/web", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["PREPARE", "CANCEL"])
+        sellerCentralSplitOrdersGroup
+    }
+
+    "/seller_central/split_orders/splitter/split"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/split_orders/splitter/split/action"(platform: "/web", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["SPLIT", "CANCEL"])
+        sellerCentralSplitOrdersGroup
+    }
+
+    "/seller_central/split_orders/congrats"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // PRODUCTS LANDING PATHS

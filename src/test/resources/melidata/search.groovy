@@ -429,6 +429,38 @@ trackTests {
             ]
         })
 
+        "/search"(platform: "/mobile", {
+            total = 258
+            limit = 0
+            view_mode = "MAP"
+            results = []
+            billboards = []
+            category_path = []
+            offset = 50.0
+            sort_id = "relevance"
+            filters = { official_store = "140" }
+            autoselected_filters = ["official_store"]
+            geo_search = "false"
+            filter_tags = "locationFromHistory"
+            pads = []
+            pads_info = {
+                ids = []
+                printed_positions = []
+                printed_positions_size = 0
+            }
+            carousel_filters = ["BRAND", "official_store", "STYLE"]
+            pdp_grouped_search = true
+            pdp_info = pdpInfo
+            promoted_items = ["MLA1", "MLA2"]
+            carousel_categories_shown = true
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
+        })
+
         "/search/color_picker"(platform: "/web") {
             defaultWebTrack()
             item_id = "MLM1234"
@@ -552,6 +584,12 @@ trackTests {
         "/search/back_listing"(platform: "/") {
             defaultSearchInformation()
         }
+       "/search/map_link"(platform: "/mobile") {
+        }
+        "/search/search_map"(platform: "/mobile") {
+        }
+        "/search/back_listing"(platform: "/mobile") {
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }
@@ -567,6 +605,10 @@ trackTests {
         "/search/official_store_logo/click"(platform: "/web") {
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
+        }
+        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            defaultSearchInformation()
+            official_store_id = "123"
         }
         "/search/banner"(platform: "/web", defaultWebTrack)
         "/search/banner/click"(platform: "/web", type: TrackType.Event) {
@@ -731,11 +773,4 @@ trackTests {
             advertising_id = "sky"
         }
     }
-
-    test("Test official store tracking"){
-        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
-            official_store_id = "123"
-        }
-    }
-
 }

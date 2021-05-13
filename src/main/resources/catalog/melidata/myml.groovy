@@ -557,35 +557,198 @@ tracks {
         code(required: false, type: PropertyType.String, description: "Message code to display")
     }
 
-    // Type page
-    "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
-
-    "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, values: ["nfe", "gnre"], description: "Type of download page")
-    }
-
     // Success page
     "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
         query_data(required: false, type: PropertyType.String, description: "Base64 code with zip informations")
     }
-
     "/myml/invoices/documents/success/btn"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
-
-    // GNRE page
-    "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
-        start(required: false, type: PropertyType.String, description: "Date start")
-        end(required: false, type: PropertyType.String, description: "Date end")
-        printed(required: false, type: PropertyType.Boolean, description: "With last printed")
+    "/myml/invoices/documents/success/btn/back"(platform: "/", type: TrackType.Event) {
+        url(required: true, type: PropertyType.String, description: "Action of user on page to back")
     }
 
-    "/myml/invoices/documents/gnre/btn"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
+    // Type page
+    "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, values: ["nfe", "gnre"], description: "Type of download page")
+    }
+
+    // CTE page
+    "/myml/invoices/documents/cte"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/cte/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/cte/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/cte/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+    "/myml/invoices/documents/cte/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/cte/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/cte/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+    // NFE View
+    "/myml/invoices/documents/nfe"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/nfe/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/nfe/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+        sale(required: true, type: PropertyType.String, description: "File select of nfe sale")
+        returns(required: true, type: PropertyType.String, description: "File select of nfe return")
+        full(required: true, type: PropertyType.String, description: "File select of nfe full")
+        others(required: true, type: PropertyType.String, description: "File select of nfe others")
+    }
+
+    "/myml/invoices/documents/nfe/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+        sale(required: true, type: PropertyType.String, description: "File select of nfe sale")
+        returns(required: true, type: PropertyType.String, description: "File select of nfe return")
+        full(required: true, type: PropertyType.String, description: "File select of nfe full")
+        others(required: true, type: PropertyType.String, description: "File select of nfe others")
+    }
+
+    "/myml/invoices/documents/nfe/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+        sale(required: true, type: PropertyType.String, description: "File select of nfe sale")
+        returns(required: true, type: PropertyType.String, description: "File select of nfe return")
+        full(required: true, type: PropertyType.String, description: "File select of nfe full")
+        others(required: true, type: PropertyType.String, description: "File select of nfe others")
+    }
+
+    // NFE Purchases View
+    "/myml/invoices/documents/nfe/purchases"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/nfe/purchases/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/nfe/purchases/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/purchases/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+    }
+
+    "/myml/invoices/documents/nfe/purchases/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/purchases/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+    }
+
+    "/myml/invoices/documents/nfe/purchases/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+    }
+
+    // NFe Reports View
+    "/myml/invoices/documents/nfe/reports"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/nfe/reports/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/nfe/reports/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/reports/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+    "/myml/invoices/documents/nfe/reports/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/reports/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/nfe/reports/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+
+    // GNRE page
+    "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/gnre/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/gnre/download/start"(platform: "/", type: TrackType.Event) {
         start(required: true, type: PropertyType.String, description: "Date start")
         end(required: true, type: PropertyType.String, description: "Date end")
         printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+        paid(required: true, type: PropertyType.String, description: "Status paid")
     }
+
+    "/myml/invoices/documents/gnre/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/gnre/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+        paid(required: true, type: PropertyType.String, description: "Status paid")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/gnre/download/validate/error"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+        paid(required: true, type: PropertyType.String, description: "Status paid")
+    }
+
+    // Gnre Unprocessed View
+    "/myml/invoices/documents/gnre/unprocessed"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/gnre/unprocessed/download"(platform: "/", isAbstract: true) {}
+
+     "/myml/invoices/documents/gnre/unprocessed/download/start"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        failed(required: true, type: PropertyType.Boolean, description: "NFe who had errors")
+        unsupported(required: true, type: PropertyType.Boolean, description: "NFe that belong to the states of SP or ES")
+    }
+
+    "/myml/invoices/documents/gnre/unprocessed/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/gnre/unprocessed/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        failed(required: true, type: PropertyType.Boolean, description: "NFe who had errors")
+        unsupported(required: true, type: PropertyType.Boolean, description: "NFe that belong to the states of SP or ES")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/gnre/unprocessed/download/validate/error"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        failed(required: true, type: PropertyType.Boolean, description: "NFe who had errors")
+        unsupported(required: true, type: PropertyType.Boolean, description: "NFe that belong to the states of SP or ES")
+    }
+
 
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
@@ -602,6 +765,24 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
         campaign(required: false, type: PropertyType.String, description: "Campaign description")
         campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
+
+    /**
+     * Seller Invoices - Inform Nfe
+     */
+    "/myml/invoices/inform_nfe"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+        shipments_quantity(required: true, type: PropertyType.Numeric, description: "Quantity of Shipments in view")
+    }
+    "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+    "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
     }
 
     "/myml/invoices/optin"(platform: "/", isAbstract: true) {}

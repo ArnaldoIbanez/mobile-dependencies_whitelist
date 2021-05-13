@@ -1229,6 +1229,10 @@ tracks {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
     }
+    "/checkout/shipping/input_address/error_state"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the state")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the state track the state value")
+    }
     "/checkout/shipping/input_address/error_city"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
@@ -1237,9 +1241,17 @@ tracks {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
     }
+    "/checkout/shipping/input_address/error_intersection"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the intersection")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the intersection track the intersection value")
+    }
     "/checkout/shipping/input_address/error_street_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
         value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
+    }
+    "/checkout/shipping/input_address/error_street_type"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_type")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_type track the street_type value")
     }
     "/checkout/shipping/input_address/error_delivery"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
@@ -1286,12 +1298,12 @@ tracks {
         final_text(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
-    
+
     "/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that are shown after opening the replace zip codes modal")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
-    
+
     "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that were shown on the replace zip codes modal")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -1544,4 +1556,57 @@ tracks {
     }
     "/checkout_recovery/error"(platform: "/", type: TrackType.View) {}
     "/checkout_recovery/notfound"(platform: "/", type: TrackType.View) {}
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Inicio mobile platform onetap
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/checkout/onetap"(platform: "/mobile", isAbstract: true) {}
+
+    //Billing info
+    "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
+
+    //Congrats tracks
+    "/checkout/onetap/congrats"(platform: "/mobile", type: TrackType.View) {
+        purchase_id(required: false, type: PropertyType.Numeric, description: "Identifier purchase")
+    }
+
+    //ERROR
+    "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}
+
+    //LOADING
+    "/checkout/onetap/loading"(platform: "/mobile", type: TrackType.View) {}
+
+    //MAIN
+    "/checkout/onetap/main"(platform: "/mobile", type: TrackType.View) {}
+
+    //ScreenLock
+    "/checkout/onetap/screenlock"(platform: "/mobile", type: TrackType.View) {}
+
+    //SHIPPING
+    "/checkout/onetap/shipping"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
+
+    //PAYMENT
+    "/checkout/onetap/payment"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/payment/input_card"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/onetap/payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Fin mobile platform onetap
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Inicio mobile platform split
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/checkout/payment/split_payment"(platform: "/", isAbstract: true) {
+    }
+    "/checkout/payment/split_payment/input_amount"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/split_payment/input_amount/error"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/payment/split_payment/select_type"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/split_payment/select_installments"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/split_payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+
 }

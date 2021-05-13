@@ -37,6 +37,7 @@ tracks {
     "/insurtech/protections/claims/cancel_protection"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/help"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/read_certificate"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/feedback"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/need_help"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
@@ -93,7 +94,7 @@ tracks {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
    "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        address_id(required: true, type: PropertyType.String, description: "")
+        address_id(required: true, type: PropertyType.Numeric, description: "Id of the selected address")
     }
     "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event) {}
 
@@ -105,6 +106,11 @@ tracks {
    "/insurtech/protections/claims/execute/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
         type_congrats(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["success", "error"])
+    }
+
+    "/insurtech/protections/claims/execute/congrats/feedback"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+        type_congrats(required: false, type: PropertyType.String, description: "Congrats state", values: ["success", "error"])
     }
 
     "/insurtech/protections/claims/execute/certificate_update"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {

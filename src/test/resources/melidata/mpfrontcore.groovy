@@ -130,6 +130,13 @@ trackTests {
     /**
      * Tracks Tests - Public Context
      */
+    test("Public Navigation") {
+        "/navigation/navbar/link"(platform: "/web", type: TrackType.Event) {
+            id = "digital-account"
+            hierarchy = "header"
+        }
+    }
+
     test("Digital Wallet") {
         "/digital_wallet"(platform: "/", type: TrackType.View) {}
         "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
@@ -140,8 +147,19 @@ trackTests {
         }
     }
 
+    test("Mercadopago Landing Home") {
+        "/landing/home"(platform: "/", type: TrackType.View) {}
+        "/landing/home/click"(platform: "/", type: TrackType.Event) {
+            id = "digital-account"
+        }
+    }
+
     test("Mercadopago Landing Cuenta / Conta") {
-        "/landing/digital_account" (platform: "/") {}
+        "/landing/digital_account" (platform: "/", type: TrackType.View) {}
+        "/landing/digital_account/click" (platform: "/", type: TrackType.Event) {
+            id = "payments-shortcut"
+            type = 'shortcut'
+        }
     }
 
     test("Business Site") {

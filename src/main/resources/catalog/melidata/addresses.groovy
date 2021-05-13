@@ -17,18 +17,18 @@ tracks {
     "/addresses"(platform: "/", isAbstract: true) {
         context(required: false, description: "The client which is using the addresses flow", values: ["MY_ML","PM"], type: PropertyType.String)
     }
-    
+
     "/addresses/input_address"(platform: "/", type: TrackType.View) {
         editing_address(required: false, description: "The address that the user is editing or null if it's a new address", type: PropertyType.Numeric)
     }
-    
+
     "/addresses/input_address/map"(platform:"/", type: TrackType.View) {}
 
     // VIEWS ACTIONS
     "/addresses/input_address/back"(platform: "/", type: TrackType.Event) {}
 
     "/addresses/input_address/submit"(platform: "/", type: TrackType.Event) {}
-    
+
     "/addresses/input_address/map/back"(platform:"/", type: TrackType.Event) {}
 
     // INPUT ERRORS
@@ -36,24 +36,30 @@ tracks {
         label(required: true, type: PropertyType.String, description: "The address input error message shown")
         value(required: false, type: PropertyType.String, description: "The address input error value")
     }
-    
+
     "/addresses/input_address/map/error"(platform:"/", type: TrackType.Event, isAbstract: true) {
         label(required: true, type: PropertyType.String, description: "The address input error message shown")
         value(required: false, type: PropertyType.String, description: "The address input error value")
     }
 
     "/addresses/input_address/error/name"(platform:"/", type: TrackType.Event) {}
-    
+
     "/addresses/input_address/error/zip_code"(platform:"/", type: TrackType.Event) {}
 
+    "/addresses/input_address/error/street_type"(platform:"/", type: TrackType.Event) {}
+
     "/addresses/input_address/error/street_name"(platform:"/", type: TrackType.Event) {}
-    
+
     "/addresses/input_address/error/street_number"(platform:"/", type: TrackType.Event) {}
-    
+
+    "/addresses/input_address/error/intersection"(platform:"/", type: TrackType.Event) {}
+
+    "/addresses/input_address/error/state"(platform:"/", type: TrackType.Event) {}
+
     "/addresses/input_address/error/city"(platform:"/", type: TrackType.Event) {}
-    
+
     "/addresses/input_address/error/colony"(platform:"/", type: TrackType.Event) {}
-    
+
     "/addresses/input_address/error/delivery"(platform:"/", type: TrackType.Event) {}
 
     "/addresses/input_address/error/delivery_instructions"(platform:"/", type: TrackType.Event) {}
@@ -80,11 +86,11 @@ tracks {
         written(required: true, type: PropertyType.String, description: "The written text before selecting a phone suggestion")
         final_text(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
     }
-    
+
     "/addresses/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that are shown after opening the replace zip codes modal")
     }
-    
+
     "/addresses/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
         count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that were shown on the replace zip codes modal")
     }
