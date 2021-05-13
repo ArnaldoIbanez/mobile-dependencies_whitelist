@@ -1884,7 +1884,7 @@ tracks {
     "/advertising/pads2/reports"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String,  description: "user mode", values: ['custom', 'automatic'])
         type(required: false, type: PropertyType.String,  description: "Report type", values: ['ads, campaigns'])
-        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7d','15d', '30d', '60d', '90d'] )
+        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
         group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
@@ -1892,7 +1892,7 @@ tracks {
     }
 
     "/advertising/pads2/reports/range"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7d','15d', '30d', '60d', '90d'] )
+        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
     }
@@ -1912,7 +1912,7 @@ tracks {
     "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String,  description: "user mode", values: ['custom', 'automatic'])
         type(required: false, type: PropertyType.String,  description: "Report type", values: ['ads, campaigns'])
-        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7d','15d', '30d', '60d', '90d', 'custom'] )
+        days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
         group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])

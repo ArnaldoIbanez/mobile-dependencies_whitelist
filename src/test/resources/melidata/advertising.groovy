@@ -2244,7 +2244,7 @@ trackTests {
          //   {"mode":,"type":,"days":,"from":,"to":,"group_by":,"filters":}
             mode = "custom"
             type: "ads"
-            days = "15d"
+            days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
             group_by = "monthly"
@@ -2260,7 +2260,7 @@ trackTests {
         }
 
         "/advertising/pads2/reports/range"(platform: "/", type: TrackType.Event) {
-            days = "15d"
+            days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
         }
@@ -2284,7 +2284,7 @@ trackTests {
         "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             type: "ads"
-            days = "15d"
+            days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
             group_by = "monthly"
