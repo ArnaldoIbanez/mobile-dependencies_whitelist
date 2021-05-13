@@ -588,6 +588,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "none"
+        }
+
         "/kyc/iv/challenge_time"(platform: "/mobile") {
             challenge_type = "doc_front"
             challenge_time = 24000
