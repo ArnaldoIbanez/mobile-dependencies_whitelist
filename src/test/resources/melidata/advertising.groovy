@@ -2240,7 +2240,7 @@ trackTests {
     }
 
     test("Advertising Reports"){
-        "/advertising/pads2/reports"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/reports"(platform: "/", type: TrackType.View) {
          //   {"mode":,"type":,"days":,"from":,"to":,"group_by":,"filters":}
             mode = "custom"
             type: "ads"
@@ -2259,17 +2259,17 @@ trackTests {
             ]
         }
 
-        "/advertising/pads2/reports/range"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/reports/range"(platform: "/", type: TrackType.Event) {
             days = "15d"
             from = "2021-02-02"
             to = "2021-05-02"
         }
 
-        "/advertising/pads2/reports/group"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/reports/group"(platform: "/", type: TrackType.Event) {
             group_by = "monthly"
         }
 
-        "/advertising/pads2/reports/filters"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event) {
             filters = [
                     status: "A",
                     release_date: "less_than_seven_days",
@@ -2281,7 +2281,7 @@ trackTests {
             ]
         }
 
-        "/advertising/pads2/reports/create"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             type: "ads"
             days = "15d"
@@ -2300,17 +2300,17 @@ trackTests {
             rows = 9999
         }
 
-        "/advertising/pads2/reports/rows_warning"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/reports/rows_warning"(platform: "/", type: TrackType.Event) {
             rows = 9999
         }
 
-        "/advertising/pads2/reports/confirmation"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/reports/confirmation"(platform: "/", type: TrackType.Event) {
         }
 
         "/advertising/pads2/reports/empty_state"(platform: "/", type: TrackType.Event) {
         }
 
-        "/advertising/pads2/reports/download"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/reports/download"(platform: "/", type: TrackType.Event) {
             status = "success"
         }
     }
