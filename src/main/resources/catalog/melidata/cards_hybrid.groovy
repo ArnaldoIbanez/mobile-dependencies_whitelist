@@ -1496,6 +1496,17 @@ tracks {
             description: "Tokenization callback for nfc enrollment"
         )
     }
+
+    "/cards/nfc/enrollment/tokenization/messageprocessor"(platform: "/", type: TrackType.Event) {
+        information (
+                required: true,
+                type: PropertyType.String,
+                description: "Message processor information",
+                inheritable: false
+        )
+    }
+
+
     "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -1950,7 +1961,7 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
-        is_nfc_card_active (
+        is_token_active (
             required: true,
             type: PropertyType.Boolean,
         )

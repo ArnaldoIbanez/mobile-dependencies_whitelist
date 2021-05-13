@@ -542,7 +542,9 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
-        transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
+        transaction_granularity_option(required: true, type: PropertyType.String, values: ["always", "daily_amount"], description: "Granularity option selected by user")
+        transaction_accumulated_amount(required: true, type: PropertyType.String, description: "User tx accumulated amount")
+        transaction_custom(required: true, type: PropertyType.String, description: "Granularity amount on which screenLock will be triggered")
         opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 

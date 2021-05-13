@@ -238,6 +238,16 @@ tracks {
     "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
     }
+    "/money_in/pix_keys/admin/carousel"(platform:"/", isAbstract: true){}
+    "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/admin/carousel/swipe"(platform: "/", type: TrackType.Event) {
+        swipe_direction (required:false, description: "carousel swipe direction", values: ["left", "right"])
+    }
+    "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
     "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])

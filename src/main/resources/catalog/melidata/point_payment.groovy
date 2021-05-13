@@ -87,11 +87,29 @@ tracks {
     "/point_payment/pairing/problem"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing/problem/help"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/bbpos_connectivity_help_web_view"(platform: "/mobile", type: TrackType.View) {}
-    "/point_payment/qr_congrats"(platform: "/mobile", type: TrackType.View) {}
+    //TODO: These parameters must be changed to required when fcu starts handling 100% of the traffic (pf legacy can't access this parameters in the congrats)
+    "/point_payment/qr_congrats"(platform: "/mobile", type: TrackType.View) {
+        external_reference (required:false, type: PropertyType.String, description: "Public id of the QR order used to recover payment data")
+        pos_id (required:false, type: PropertyType.String, description: "Seller's POS id that received the payment or 'default' if it has none created used to recover payment data")
+    }
     "/point_payment/qr_congrats_nofee"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/bank_detail"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing_ftu"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/qr_network_error"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/qr_generic_error"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/qr_timeout_error"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/try_again"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/show_code"(platform: "/mobile", type: TrackType.Event) {
+        kind(required: true, type: PropertyType.String, description: 'Type of QR code to generate the user will see')
+        order_id(required: true, type: PropertyType.String, description: 'Order Id derived from the QR code shown to the user')
+    }
+    "/point_payment/new_payment/qr/payment_notification"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/show_cancel_modal"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/cancel_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/cancel_continue"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment/pix"(platform: "/mobile", type: TrackType.View) {}

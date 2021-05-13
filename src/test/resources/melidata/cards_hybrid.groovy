@@ -1529,6 +1529,13 @@ trackTests {
         }
     }
 
+    // NFC Message Processor
+    test("message processor information") {
+        "/cards/nfc/enrollment/tokenization/messageprocessor"(platform:"/", type: TrackType.Event) {
+            information = "The message processor: error_code + error message"
+        }
+    }
+
     // NFC Tokenization Time
     test("cards hybrid nfc enrollment tokenization time") {
         "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
@@ -1950,7 +1957,7 @@ trackTests {
             has_pin = true
             is_nfc_payments_initialized = true
             is_token_ready = true
-            is_nfc_card_active = true
+            is_token_active = true
             is_default_tap_n_pay = true
             is_default_card = true
             is_nfc_activated = true
@@ -1962,7 +1969,7 @@ trackTests {
             has_pin = false
             is_nfc_payments_initialized = false
             is_token_ready = false
-            is_nfc_card_active = false
+            is_token_active = false
             is_default_tap_n_pay = false
             is_default_card = false
             is_nfc_activated = false

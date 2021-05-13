@@ -837,7 +837,7 @@ trackTests {
         }
 
         "/advertising/pads2/hub/campaign/update/budget/go"(platform: "/web", type: TrackType.Event) {
-        campaign_id = "2222222"
+        campaign_id = 2222222
         budget = "4000"
         budget_new = "5600"
         status = "active"
@@ -1526,10 +1526,10 @@ trackTests {
     test("Advertising Admin Mobile") {
 
         "/advertising/pads2/manager/faqs"(platform: "/", type: TrackType.Event) {
-            campaign_id = "2222222"
-            budget = "4000"
+            campaign_id = 2222222
+            budget = 4000
             status = "active"
-            has_problem = "true"
+            has_problem = true
             problem_type = "test"
         }
 
@@ -1896,7 +1896,6 @@ trackTests {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            mode = "automatic"
             days_since_modif = 2
         }
 
@@ -1904,21 +1903,18 @@ trackTests {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            mode = "automatic"
             days_since_modif = 2
         }
         "/advertising/pads2/manager/modal/bidding/warning/changetime/stay"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            mode = "automatic"
             days_since_modif = 2
         }
         "/advertising/pads2/manager/modal/bidding/warning/changetime/change"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = 5
-            mode = "automatic"
             days_since_modif = 2
         }
     }
@@ -2021,6 +2017,10 @@ trackTests {
     }
 
     test("Advertising - Campaign Transition"){
+        "/advertising/pads2/hub/faqs"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
+
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
             campaign_id = 123
             status = "active"

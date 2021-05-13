@@ -37,6 +37,7 @@ tracks {
     "/insurtech/protections/claims/cancel_protection"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/help"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/read_certificate"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/feedback"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/need_help"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
