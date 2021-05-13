@@ -15,6 +15,11 @@ tracks {
     //Abstract Path
     "/cards"(platform: "/", isAbstract: true) {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
+        flow_version (
+            required: false,
+            type: PropertyType.Numeric,
+            description: "This value represents the version iteration for the given flow",
+        )
      }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/physical"(platform: "/", isAbstract: true) { }
@@ -693,6 +698,13 @@ tracks {
             description: "Card id",
             inheritable: false
         )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
+            inheritable: false
+        )
     }
     "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -705,6 +717,13 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Card id",
+            inheritable: false
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
             inheritable: false
         )
     }
