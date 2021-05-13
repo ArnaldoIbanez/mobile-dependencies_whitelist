@@ -438,6 +438,10 @@ tracks {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
+    "/vip/apparel/fit_as_expected/view"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+    }
+
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/video_focus"(platform: "/web", type: TrackType.Event) {

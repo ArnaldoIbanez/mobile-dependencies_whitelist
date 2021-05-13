@@ -916,6 +916,10 @@ trackTests {
         "/vip/qadb/call-to-action"(platform: "/", {
             item_id = "MLA112341"
         })
+
+        "/vip/apparel/fit_as_expected/view"(platform: "/", {
+            item_id = "MLA112341"
+        })
     }
 
     test("New Shipping calculator"){
