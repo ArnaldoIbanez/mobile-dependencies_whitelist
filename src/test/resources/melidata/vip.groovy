@@ -917,9 +917,13 @@ trackTests {
             item_id = "MLA112341"
         })
 
-        "/vip/apparel/fit_as_expected/view"(platform: "/", {
+        "/vip/apparel"(platform: "/") {}
+
+        "/vip/apparel/fit_as_expected"(platform: "/") {}
+
+        "/vip/apparel/fit_as_expected/viewed"(platform: "/", type: TrackType.Event) {
             item_id = "MLA112341"
-        })
+        }
     }
 
     test("New Shipping calculator"){
