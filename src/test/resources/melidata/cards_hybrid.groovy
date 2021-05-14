@@ -766,14 +766,26 @@ trackTests {
     test("cards hybrid reissue virtual card ") {
         "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
+            context = "cancellation"
+        }
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+        }
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+            flow_version = 2
         }
         "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "primary_button"
+            context = "creation"
         }
         "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "secondary_button"
+            context = "cancellation"
         }
         "/cards/hybrid/block_card/virtual/success"(platform:"/", type: TrackType.Event) {
             reasons = ["debit_available_push_strategy_none", "reissue"]
