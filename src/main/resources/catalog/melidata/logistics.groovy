@@ -362,10 +362,10 @@ tracks {
         receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
     }
     "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
-        shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id")
+        shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id", inheritable: false)
     }
     "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
-        shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id")
+        shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id", inheritable: false)
     }
     "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
