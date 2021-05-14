@@ -766,14 +766,26 @@ trackTests {
     test("cards hybrid reissue virtual card ") {
         "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
+            context = "cancellation"
+        }
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+        }
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+            flow_version = 2
         }
         "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "primary_button"
+            context = "creation"
         }
         "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "secondary_button"
+            context = "cancellation"
         }
         "/cards/hybrid/block_card/virtual/success"(platform:"/", type: TrackType.Event) {
             reasons = ["debit_available_push_strategy_none", "reissue"]
@@ -1201,6 +1213,9 @@ trackTests {
         "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
             action = "button_primary"
         }
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "button_secondary"
+        }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
             action = "reissue"
@@ -1288,6 +1303,13 @@ trackTests {
             action = "research_form"
         }
     }
+    //Cards Helper Extraction
+    test("cards hybrid helper extraction to show user physical card data") {
+        "/cards/hybrid/card_helper/extraction"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+    }
+
 
     // OPTIONS Semaphore
     test("card options semaphore states for nfc") {
@@ -1384,6 +1406,12 @@ trackTests {
         }
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "back"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "contextual_help"
+        }
+        "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "feedback"
         }
         "/cards/nfc/configuration/hub/step/tap"(platform:"/", type: TrackType.Event) {
             action = "step_tap_and_pay"
@@ -1510,6 +1538,13 @@ trackTests {
         "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
             action = "success_callback"
             result = "fetchTokenizationDataWorker success"
+        }
+    }
+
+    // NFC Message Processor
+    test("message processor information") {
+        "/cards/nfc/enrollment/tokenization/messageprocessor"(platform:"/", type: TrackType.Event) {
+            information = "The message processor: error_code + error message"
         }
     }
 
@@ -1934,7 +1969,7 @@ trackTests {
             has_pin = true
             is_nfc_payments_initialized = true
             is_token_ready = true
-            is_nfc_card_active = true
+            is_token_active = true
             is_default_tap_n_pay = true
             is_default_card = true
             is_nfc_activated = true
@@ -1946,7 +1981,7 @@ trackTests {
             has_pin = false
             is_nfc_payments_initialized = false
             is_token_ready = false
-            is_nfc_card_active = false
+            is_token_active = false
             is_default_tap_n_pay = false
             is_default_card = false
             is_nfc_activated = false

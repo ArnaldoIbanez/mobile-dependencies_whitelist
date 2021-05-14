@@ -756,6 +756,8 @@ trackTests {
         "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {
             sales_percentage_on_time()
             category = 'regular'
+            available_balance = '32.32'
+            max_value_to_pay = '123.23'
         }
 
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
@@ -1586,6 +1588,7 @@ trackTests {
 
         //Events
 
+        "/credits/consumer/administrator_v2/details_button"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
             installments_qty = 3

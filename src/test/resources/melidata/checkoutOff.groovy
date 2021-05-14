@@ -33,7 +33,8 @@ trackTests {
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
         }
 
         def launchingDefaultProperties = {
@@ -42,7 +43,7 @@ trackTests {
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
         }
 
         def finishDefaultProperties = {
@@ -253,6 +254,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -432,6 +438,11 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
@@ -517,7 +528,8 @@ trackTests {
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
         }
 
         def launchingDefaultProperties = {
@@ -526,7 +538,7 @@ trackTests {
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
         }
 
         def finishDefaultProperties = {
@@ -738,6 +750,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -913,6 +930,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }

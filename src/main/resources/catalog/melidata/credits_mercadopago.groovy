@@ -372,6 +372,16 @@ tracks {
         products_group
     }
     "/credits/merchant/proactive_payment/amount_input"(platform: "/", type: TrackType.View) {
+        available_balance(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        max_value_to_pay(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
         products_with_status
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
@@ -1704,6 +1714,7 @@ tracks {
             type: PropertyType.Boolean,
         )
     }
+    "/credits/consumer/administrator_v2/details_button"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}

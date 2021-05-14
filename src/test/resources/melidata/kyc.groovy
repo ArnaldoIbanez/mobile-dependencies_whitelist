@@ -353,6 +353,22 @@ trackTests {
             reason = "Por favor ingrese una fecha válida"
         }
 
+        "/kyc/challenge/tap"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_proof_of_income"
+            initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
+            component = "linkable_label"
+            link = "https://www.mercadolibre.com/"
+        }
+
+        "/kyc/challenge/tap"(platform: "/mobile", business: "mercadopago") {
+            id = "user_proof_of_income"
+            initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
+            component = "linkable_label"
+            link = "https://www.mercadopago.com/"
+        }
+
         "/kyc/challenge/validation_fail"(platform: "/mobile", business: "mercadopago") {
             id = "user_birthdate"
             initiative = "cvu"

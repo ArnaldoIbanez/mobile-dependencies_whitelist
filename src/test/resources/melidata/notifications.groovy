@@ -1969,27 +1969,6 @@ trackTests {
             event_type = "shown"
         }
 
-        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
-            news_id = "credit_card_collection_due_in_10-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
-            news_id = "credit_card_collection_expired_01-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
-            news_id = "credit_card_transaction_acquisition-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
-            news_id = "credit_card_transaction_choff_purchase-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
-            news_id = "credit_card_transaction_statement_payment-12345678"
-            event_type = "shown"
-        }
-
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
             event_type = "shown"
@@ -4270,8 +4249,64 @@ trackTests {
             news_id = "credit_card_collection_due_in_10-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_collection_due_in_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_00"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_00-12345678"
+            event_type = "shown"
+        }
         "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
             news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_04"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_04-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_15"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_15-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_19"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_19-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_20"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_20-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_29"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_29-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_30"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_30-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_50"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_50-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_53"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_53-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_58"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_58-12345678"
             event_type = "shown"
         }
         "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
@@ -4284,6 +4319,14 @@ trackTests {
         }
         "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
             news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_withdrawal"(platform: "/mobile") {
+            news_id = "credit_card_transaction_withdrawal-12345678"
             event_type = "shown"
         }
 
@@ -5471,6 +5514,7 @@ trackTests {
             news_id = "single_player_directv_smartcard_expiration_123"
             event_type = "open"
         }
+
         "/notification/single_player_payment_reminder"(platform: "/mobile") {
             news_id = "single_player_payment_reminder_123"
             event_type = "open"
@@ -5646,6 +5690,16 @@ trackTests {
             news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        "/notification_center/insurtech_imei_activation"(platform: "/") {
+            latest_news_type= "insurtech_imei_activation"
+            latest_news_id= "insurtech_imei_activation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_activation"(platform: "/mobile") {
+            news_id = "insurtech_imei_activation_123"
+            event_type = "open"
         }
 
     }
@@ -7518,6 +7572,7 @@ trackTests {
             latest_news_type= "single_player_directv_smartcard_expiration"
             latest_news_id= "single_player_directv_smartcard_expiration-143816022-MLB1013046714"
         }
+
         "/notification_center/single_player_payment_reminder"(platform: "/") {
             latest_news_type= "single_player_payment_reminder"
             latest_news_id= "single_player_payment_reminder-143816022-MLB1013046714"
@@ -7637,8 +7692,64 @@ trackTests {
             news_id = "credit_card_collection_due_in_10-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_collection_due_in_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_01"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_due_in_00"(platform: "/mobile") {
+            news_id = "credit_card_collection_due_in_00-12345678"
+            event_type = "shown"
+        }
         "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
             news_id = "credit_card_collection_expired_01-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_04"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_04-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_05"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_05-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_10"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_10-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_15"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_15-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_19"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_19-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_20"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_20-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_29"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_29-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_30"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_30-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_50"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_50-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_53"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_53-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_collection_expired_58"(platform: "/mobile") {
+            news_id = "credit_card_collection_expired_58-12345678"
             event_type = "shown"
         }
         "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
@@ -7651,6 +7762,14 @@ trackTests {
         }
         "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
             news_id = "credit_card_transaction_statement_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_purchase"(platform: "/mobile") {
+            news_id = "credit_card_transaction_purchase-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_transaction_withdrawal"(platform: "/mobile") {
+            news_id = "credit_card_transaction_withdrawal-12345678"
             event_type = "shown"
         }
 
@@ -10061,27 +10180,6 @@ trackTests {
             event_type = "shown"
         }
 
-        "/notification/credit_card_collection_due_in_10"(platform: "/mobile") {
-            news_id = "credit_card_collection_due_in_10-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_collection_expired_01"(platform: "/mobile") {
-            news_id = "credit_card_collection_expired_01-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_acquisition"(platform: "/mobile") {
-            news_id = "credit_card_transaction_acquisition-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_choff_purchase"(platform: "/mobile") {
-            news_id = "credit_card_transaction_choff_purchase-12345678"
-            event_type = "shown"
-        }
-        "/notification/credit_card_transaction_statement_payment"(platform: "/mobile") {
-            news_id = "credit_card_transaction_statement_payment-12345678"
-            event_type = "shown"
-        }
-
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
             event_type = "shown"
@@ -11153,6 +11251,16 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
         }
+
+        "/notification_center/insurtech_imei_activation"(platform: "/") {
+            latest_news_type= "insurtech_imei_activation"
+            latest_news_id= "insurtech_imei_activation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_activation"(platform: "/mobile") {
+            news_id = "insurtech_imei_activation_123"
+            event_type = "open"
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -11304,7 +11412,7 @@ trackTests {
         }
 
 
-          "/notification/card_nip_first_try"(platform: "/mobile") {
+        "/notification/card_nip_first_try"(platform: "/mobile") {
             news_id = "card_nip_first_try-186785675"
             event_type = "open"
             notification_type= "deep_linking"
@@ -11326,9 +11434,39 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
+            
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit-rejected_withdraw_by_maximum_limit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg-1565881200"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/card_transactions_balance_atm"(platform: "/mobile") {
             news_id = "card_transactions_balance_atm-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-approved_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-approved_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-approved_withdraw_mute"(platform: "/mobile") {
+            news_id = "card_transactions-approved_withdraw_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp_mute-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -11693,6 +11831,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
+                
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit-rejected_withdraw_by_maximum_limit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg-1565881200"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/card_transactions_balance_atm"(platform: "/mobile") {
             news_id = "card_transactions_balance_atm-186785675"
@@ -11700,6 +11844,30 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions-approved_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-approved_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-approved_withdraw_mute"(platform: "/mobile") {
+            news_id = "card_transactions-approved_withdraw_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions-fund_money_in_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions-fund_money_in_whatsapp_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
             news_id = "card_transactions_payment_reject_whit_contactless-186785675"
             event_type = "open"
@@ -11796,7 +11964,6 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-
     }
 
 }

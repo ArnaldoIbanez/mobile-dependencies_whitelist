@@ -513,6 +513,10 @@ trackTests {
         }
     }
 
+    test("Landing cuenta") {
+        "/landing/digital_account" (platform: "/web") {}
+    }
+
     test("Landing mercadopago sellers") {
         "/landing/sellers" (platform: "/web") {}
     }
@@ -567,218 +571,6 @@ trackTests {
         "/growth/login"(platform: "/", type: TrackType.View) {
           view = "guest"
         }
-    }
-
-    test("Point Buying Flow") {
-        "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          is_guest = true
-          has_coupon = true
-          discount_code = "GHZM"
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-          has_account_money = true
-          has_consumer_credits = true
-        }
-        
-        "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          is_guest = true
-          selected_payment_method_id = "tarshop"
-          selected_payment_method_type = "credit_card"
-          discount_code = "GHZM"
-          installments = 6
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          is_guest = true
-          selected_payment_method_id = "tarshop"
-          selected_payment_method_type = "credit_card"
-          discount_code = "GHZM"
-          installments = 6
-          user_id = 5010815
-          e2e_test = false
-        }
-        
-        "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          is_guest = true
-          discount_code = "GHZM"
-          error_code = 6
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/invalid_address"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/complete_card_data"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          is_guest = true
-          discount_code = "GHZM"
-          user_id = 5010815
-          e2e_test = false
-        }
-
-        "/point/buyingflow/sim_card"(platform: "/", type: TrackType.View) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product = "11"
-          currency = "ARS"
-          price = 299
-          is_guest = true
-          discount_code = "GHZM"
-          user_id = 5010815
-          e2e_test = false
-        }
-        
-        "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
     }
 
     test("MP-MA Landing QR") {
@@ -1711,6 +1503,20 @@ trackTests {
         "/point_payment/bank_detail"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/pairing_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_network_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_generic_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_timeout_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/show_cancel_modal"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/cancel_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/cancel_continue"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/try_again"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/cancel"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/payment_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/show_code"(platform: "/mobile", type: TrackType.Event) {
+            kind = "PIX"
+            order_id = "3f04ad3f-4648-4b4a-890f-686354e07d07"
+        }
         "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/pix"(platform: "/mobile", type: TrackType.View) {}
@@ -4119,6 +3925,8 @@ trackTests {
                 "type": "transactional"
             ]
             config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4138,6 +3946,8 @@ trackTests {
                 "type": "non_transactional"
             ]
             config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4156,6 +3966,8 @@ trackTests {
                 "type": "other"
             ]
             config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4181,6 +3993,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4193,6 +4007,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4205,6 +4021,8 @@ trackTests {
             enrollment_status = "disabled"
             os_status = "basic_screenlock"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
@@ -4218,6 +4036,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4230,6 +4050,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4243,6 +4065,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4256,6 +4080,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4270,6 +4096,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4283,6 +4111,8 @@ trackTests {
             os_status = "basic_screenlock"
             dismissible = "disabled"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
@@ -4297,6 +4127,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4311,6 +4143,8 @@ trackTests {
             dismissible = "disabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4325,6 +4159,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4339,6 +4175,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4353,6 +4191,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4661,6 +4501,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4672,6 +4514,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4683,6 +4527,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4694,6 +4540,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4705,6 +4553,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4716,6 +4566,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",

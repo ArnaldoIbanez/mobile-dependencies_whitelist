@@ -855,6 +855,8 @@ trackTests {
                     "type": "transactional"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -874,6 +876,8 @@ trackTests {
                     "type": "non_transactional"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -892,6 +896,8 @@ trackTests {
                     "type": "other"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -917,6 +923,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -930,6 +938,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -942,6 +952,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -955,6 +967,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -968,6 +982,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -980,6 +996,8 @@ trackTests {
                 enrollment_status = "disabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "disabled",
                         "transaction_custom": "0",
@@ -994,6 +1012,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1007,6 +1027,8 @@ trackTests {
                 os_status = "basic_screenlock"
                 dismissible = "disabled"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "disabled",
                         "transaction_custom": "0",
@@ -1021,6 +1043,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1035,6 +1059,8 @@ trackTests {
                 dismissible = "disabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1049,6 +1075,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1063,6 +1091,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1077,6 +1107,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1099,6 +1131,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1110,6 +1144,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1121,6 +1157,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1132,6 +1170,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1143,6 +1183,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1154,6 +1196,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",

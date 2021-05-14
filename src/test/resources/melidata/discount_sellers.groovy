@@ -551,6 +551,62 @@ trackTests {
             payments = 65
         }
     }
+    // Instore (ISDT) - Webview -  Home Sellers History > filter
+    test("Home sellers - History - filter") {
+        "/discount_sellers/v2/history/filter" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
+            campaigns = [
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "ACTIVE"
+                ],
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "INACTIVE"
+                ],
+            ]
+            active_filters = ['ONGOING'] 
+            filter_selected = "PAUSED"
+            is_selected = false
+
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers History > scroll
+    test("Home sellers - History - scroll") {
+        "/discount_sellers/v2/history/scroll" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
+            campaigns = [
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "ACTIVE"
+                ],
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "INACTIVE"
+                ],
+            ]
+            active_filters = ['ONGOING'] 
+            page = 2
+            
+
+        }
+    }
     // Instore (ISDT) - Webview -  Home Sellers error > Pageview
     test("Home sellers - error") {
         "/discount_sellers/v2/error" (platform: "/", type: TrackType.View) {
