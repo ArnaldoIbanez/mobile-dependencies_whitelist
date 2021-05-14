@@ -32,6 +32,32 @@ metrics {
         }
     }
 
+      "loyalty.suscription.deezer.intention"(description: "define what type of distribution of components to show in VPD to see which one converts better", deprecation_date: "2021/06/14") {
+        startWith {
+            experiment("loyalty/subscription_deezer")
+        }
+
+        countsOn {
+            condition {
+                path("/loyalty/partners/vdp/action")
+                equals("event_data.subscription_partner", "deezer")
+            }
+        }
+    }
+
+    "loyalty.suscription.deezer"(description: "Finally makes a suscription to deezer", deprecation_date: "2021/06/14") {
+        startWith {
+            experiment("loyalty/subscription_deezer")
+        }
+
+        countsOn {
+            condition {
+                path("/loyalty/partners/checkout/congrats")
+                equals("event_data.subscription_partner", "deezer")
+            }
+        }
+    }
+
     // Loyalty HUB
 
     "loyalty.hub.mp"(description: "Loyalty Hub View in MP") {
