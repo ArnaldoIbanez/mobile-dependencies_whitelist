@@ -1812,6 +1812,7 @@ tracks {
         original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
         original_dod(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original deal_of_they_day promotion data")
         context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING", "CREATE_DOD"])
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {

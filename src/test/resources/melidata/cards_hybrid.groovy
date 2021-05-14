@@ -766,14 +766,26 @@ trackTests {
     test("cards hybrid reissue virtual card ") {
         "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
+            context = "cancellation"
+        }
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+        }
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+            flow_version = 2
         }
         "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "primary_button"
+            context = "creation"
         }
         "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "secondary_button"
+            context = "cancellation"
         }
         "/cards/hybrid/block_card/virtual/success"(platform:"/", type: TrackType.Event) {
             reasons = ["debit_available_push_strategy_none", "reissue"]
@@ -1529,6 +1541,13 @@ trackTests {
         }
     }
 
+    // NFC Message Processor
+    test("message processor information") {
+        "/cards/nfc/enrollment/tokenization/messageprocessor"(platform:"/", type: TrackType.Event) {
+            information = "The message processor: error_code + error message"
+        }
+    }
+
     // NFC Tokenization Time
     test("cards hybrid nfc enrollment tokenization time") {
         "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
@@ -1950,7 +1969,7 @@ trackTests {
             has_pin = true
             is_nfc_payments_initialized = true
             is_token_ready = true
-            is_nfc_card_active = true
+            is_token_active = true
             is_default_tap_n_pay = true
             is_default_card = true
             is_nfc_activated = true
@@ -1962,7 +1981,7 @@ trackTests {
             has_pin = false
             is_nfc_payments_initialized = false
             is_token_ready = false
-            is_nfc_card_active = false
+            is_token_active = false
             is_default_tap_n_pay = false
             is_default_card = false
             is_nfc_activated = false

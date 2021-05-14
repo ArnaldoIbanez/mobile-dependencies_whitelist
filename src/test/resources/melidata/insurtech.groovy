@@ -906,6 +906,51 @@ trackTests {
         }
         "/insurtech/qpage_off/fallback"(platform:"/", type: TrackType.View) {
         }
+        "/insurtech/qpage_off/congrats"(platform:"/", type: TrackType.View) {
+            order_id = '12345'
+            product_id = 'GAREX'
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            payment = [
+                id: 12345,
+                payment_type_id: 'credit_card',
+                transaction_amount: 2330.0,
+                status: 'approved',
+            ]
+        }
+        "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event) {
+            order_id = '12345'
+            product_id = 'GAREX'
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            payment = [
+                id: 12345,
+                payment_type_id: 'credit_card',
+                transaction_amount: 2330.0,
+                status: 'approved',
+            ]
+        }
+        "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event) {
+            order_id = '12345'
+            product_id = 'GAREX'
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            payment = [
+                id: 12345,
+                payment_type_id: 'credit_card',
+                transaction_amount: 2330.0,
+                status: 'approved',
+            ]
+        }
     }
 
     defaultBusiness = "mercadopago"
