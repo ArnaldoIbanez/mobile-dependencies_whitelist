@@ -58,8 +58,10 @@ trackTests {
         "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile") {}
 
         // Congrats View
-        "/asset_management/congrats_success"(platform: "/mobile", type: TrackType.View) {}
-        "/asset_management/congrats_success"(platform: "/web", type: TrackType.View) {}
+         "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {}
+         "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {
+            congratsName = 'idCongrats'
+        }
         "/asset_management/congrats_error"(platform: "/mobile", type: TrackType.View) {}
         "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
@@ -94,8 +96,6 @@ trackTests {
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile") {}
         "/asset_management/opt_out"(platform: "/web") {}
-        "/asset_management/result_stop_investing"(platform: "/mobile") {}
-        "/asset_management/result_stop_investing"(platform: "/web") {}
 
         // Detail
         "/asset_management/investment_detail"(platform: "/mobile") {}
@@ -130,15 +130,6 @@ trackTests {
         // Operations
         "/asset_management/operations"(platform: "/mobile") {} // new name
         "/asset_management/operations/detail"(platform: "/mobile") {} // specific operation
-
-        // Congrats
-        "/asset_management/result_investing"(platform: "/mobile") {}
-        "/asset_management/result_unavailable"(platform: "/mobile") {}
-        "/asset_management/result_investing_company/approved"(platform: "/mobile") {}
-        "/asset_management/result_investing_company/pending"(platform: "/mobile") {}
-        "/asset_management/result_investing_company/rejected"(platform: "/mobile") {}
-        "/asset_management/result_invest_money"(platform: "/") {}
-        "/asset_management/result_reports"(platform: "/") {}
 
         // Faqs
         "/asset_management/faqs"(platform: "/mobile") {}
@@ -331,8 +322,6 @@ trackTests {
 
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_stop_investing"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_stop_investing"(platform: "/web", business: "mercadolibre") {}
 
         // Detail
         "/asset_management/investment_detail"(platform: "/mobile", business: "mercadolibre") {
@@ -376,13 +365,10 @@ trackTests {
         "/asset_management/operations/detail"(platform: "/mobile", business: "mercadolibre") {} // specific operation
 
         // Congrats
-        "/asset_management/result_investing"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_unavailable"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_investing_company/approved"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_investing_company/pending"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_investing_company/rejected"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/result_invest_money"(platform: "/", business: "mercadolibre") {}
-        "/asset_management/result_reports"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/congrats_success"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/congrats_success"(platform: "/", business: "mercadolibre") {
+            congratsName = "idCongrats"
+        }
         
 
         // Faqs
@@ -479,8 +465,6 @@ trackTests {
         "/asset_management/activities"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/bind_reports"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/bind_reports"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/congrats_success"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/congrats_success"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/congrats_error"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/congrats_error"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/kyc_blocker"(platform: "/mobile", business: "mercadolibre") {}
