@@ -1776,7 +1776,7 @@ trackTests {
             user_type = "merchant"
             error_type = "no_offer"
         }
-        "/credits/administrator/inconsistency"(platform: "/", type: TrackType.View) {
+        "/credits/merchant/administrator/inconsistency"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
             error_type = "not_found"
         }
