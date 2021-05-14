@@ -917,10 +917,6 @@ trackTests {
             item_id = "MLA112341"
         })
 
-        "/vip/apparel"(platform: "/") {}
-
-        "/vip/apparel/fit_as_expected"(platform: "/") {}
-
         "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
             item_id = "MLA112341"
         }

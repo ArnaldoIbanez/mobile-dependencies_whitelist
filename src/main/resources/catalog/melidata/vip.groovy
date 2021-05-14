@@ -438,9 +438,9 @@ tracks {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
-    "/vip/apparel"(platform: "/", parentPropertiesInherited: false) {}
+    "/vip/apparel"(platform: "/", parentPropertiesInherited: false, isAbstract:true) {}
 
-    "/vip/apparel/fit_as_expected"(platform: "/", parentPropertiesInherited: false) {}
+    "/vip/apparel/fit_as_expected"(platform: "/", parentPropertiesInherited: false, isAbstract:true) {}
 
     "/vip/apparel/fit_as_expected/open"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
