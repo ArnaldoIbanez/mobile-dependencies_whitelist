@@ -369,7 +369,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["physical_delivered", "hybrid_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "options", "card_data", "kyc_compliance", "kyc_not_compliance"],
+            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped"],
             description: "Mini card tapped"
           )
     }
@@ -413,7 +413,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["money_in", "account_info_modal"],
+            values: ["money_in"],
             description: "Account info tapped"
           )
     }
@@ -424,19 +424,20 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["help", "call", "block", "contact"],
+            values: ["help", "block"],
             description: "Linear button tapped"
           )
     }
     
-    //Linear buttons: Tracking
-    "/cards/hybrid/dashboard/message"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+    //Dashboard Andes Messages
+    "/cards/hybrid/dashboard/pin"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/pin/message"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/pin/message/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
             values: ["blocked_pin"],
-            description: "Message button tapped"
+            description: "Message action tapped"
           )
     }
     
@@ -477,7 +478,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["research_form"],
-            description: "Feedback action tapped"
+            description: "Dasboard feedback in app action tapped"
           )
     }
 
@@ -492,7 +493,7 @@ tracks {
         )
     }
 
-    //Coachmark banner
+    //Dashboard Coachmark banner
     "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -503,7 +504,8 @@ tracks {
         id (
             required: true,
             type: PropertyType.String,
-            description: "coachmark identificator"
+            values: ["dashboard_virtual_coachmark", "dashboard_physical_coachmark"],
+            description: "coachmark id"
         )
      }
 
@@ -560,12 +562,6 @@ tracks {
             description: "Card initial status",
             inheritable:false
         )
-        has_money (
-            required: false,
-            type: PropertyType.Boolean,
-            description: "Indicate whether the user has money",
-            inheritable:false
-        )
         product_type (
 			required: false,
             type: PropertyType.String,
@@ -573,20 +569,21 @@ tracks {
             description: "Indicate card type",
             inheritable:false
         )
-        experimental_version (
-            required: false,
-            type: PropertyType.String,
-            values: ["experimental_a", "experimental_b"],
-            description: "Indicates experimental version",
-            inheritable:false
-        )
     }
     "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "additional_message_freeze", "close_modal"],
+            values: ["header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy"],
             description: "The action type tapped"
+        )
+    }
+    "/cards/hybrid/setup/virtual/card/modal/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary_button"],
+            description: "The action tapped"
         )
     }
 
@@ -935,7 +932,13 @@ tracks {
     // LIMITS
     // --------
     "/cards/hybrid/limits_setup"(platform: "/", type: TrackType.View) {
-        limits_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+        limits_status (
+            required:true,
+            type: PropertyType.String,
+            values: ["number_selector_atm" ,"message"],
+            description: "Current sections",
+            inheritable:false
+        )
     }
     "/cards/hybrid/limits_setup/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -1140,7 +1143,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["close", "next", "previous"],
-            description: "Button tapped"
+            description: "Coachmark action tapped"
         )
         step (
             required: true,
@@ -1150,7 +1153,8 @@ tracks {
         id (
             required: true,
             type: PropertyType.String,
-            description: "Coachmark identificator"
+            values: ["dashboard_virtual_coachmark", "dashboard_physical_coachmark"],
+            description: "Coachmark id"
         )
     }
     
