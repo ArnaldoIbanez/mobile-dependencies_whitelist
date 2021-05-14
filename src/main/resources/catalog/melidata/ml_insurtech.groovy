@@ -67,6 +67,13 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
     }
 
+    def congrats_payment = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.Numeric, description: "id of the payment")
+        payment_type_id(required: true, type: PropertyType.String, description: "payment type id used in the transaction")
+        transaction_amount(required: true, type: PropertyType.Numeric, description: "transaction amount paid")
+        status(required: true, type: PropertyType.String, description: "status of payment")
+    }
+
     // Web
     "/garex/checkout"(platform:"/web", type: TrackType.View) {
         item(required: true, type: PropertyType.Map(item_track_structure))
@@ -288,10 +295,10 @@ tracks {
     }
 
     "/insurtech/qpage_on/help"(platform:"/web", type: TrackType.Event, parentPropertiesInherited:false) {
-         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
-         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
-         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
-         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
     }
 
     "/insurtech/qpage_on/faq"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
@@ -329,11 +336,11 @@ tracks {
     }
 
     "/insurtech/qpage_off/select"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
-         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
-         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
-         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
-         order_id(required: true, type:  PropertyType.String, description: "Marketplace order id to quote item for insurtech products")
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        order_id(required: true, type:  PropertyType.String, description: "Marketplace order id to quote item for insurtech products")
     }
 
     "/insurtech/qpage_off/add"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
@@ -364,11 +371,11 @@ tracks {
     }
 
     "/insurtech/qpage_off/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
-         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
-         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
-         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
-         order_id(required: true, type:  PropertyType.String, description: "Marketplace order id to quote item for insurtech products")
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection is offered")
+        option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        order_id(required: true, type:  PropertyType.String, description: "Marketplace order id to quote item for insurtech products")
     }
 
     "/insurtech/qpage_off/faq"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
@@ -381,4 +388,25 @@ tracks {
     "/insurtech/qpage_off/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {}
 
     "/insurtech/qpage_off/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {}
+
+    "/insurtech/qpage_off/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        order_id(required: true, type: PropertyType.String, description: "order id that initiates postcompra flow")
+        product_id(required: true, type: PropertyType.String, description: "purchased protection product id")
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
+        payment(required: true, type: PropertyType.Map(congrats_payment), description: "payment information")
+    }
+
+    "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        order_id(required: true, type: PropertyType.String, description: "order id that initiates postcompra flow")
+        product_id(required: true, type: PropertyType.String, description: "purchased protection product id")
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
+        payment(required: true, type: PropertyType.Map(congrats_payment), description: "payment information")
+    }
+
+    "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        order_id(required: true, type: PropertyType.String, description: "order id that initiates postcompra flow")
+        product_id(required: true, type: PropertyType.String, description: "purchased protection product id")
+        item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
+        payment(required: true, type: PropertyType.Map(congrats_payment), description: "payment information")
+    }
 }
