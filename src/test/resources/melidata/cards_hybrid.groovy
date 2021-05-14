@@ -1959,6 +1959,16 @@ trackTests {
         }
         "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { }
     }
+
+        
+    // NFC-CONSTRAINT
+    
+    test("cards nfc constraint update") {
+        "/cards/nfc/constraint/update"(platform: "/", type: TrackType.Event) {
+           action = "send"
+           event = "TokenizationCompletedEvent"
+        }
+    }
     
     // NFC-SEMAPHORE
     
