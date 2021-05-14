@@ -455,17 +455,32 @@ trackTests {
             error_type = "document_form"
         }
         "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
             receiver_relationship = "HOLDER"
         }
         "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
             shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
         }
         "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
             shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
         }
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
         }
         "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal"(platform: "/mobile", type: TrackType.View) {
             shipments = ["123", "123"]
@@ -479,7 +494,7 @@ trackTests {
             driver_id = 124
             route_id = "123"
             vehicle_id = 123
-            delivery_type = "delivery_keyword"
+            delivery_type = "cart_group_keyword"
         }
         "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()

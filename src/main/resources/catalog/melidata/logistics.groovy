@@ -358,25 +358,18 @@ tracks {
 
     // Scoring LM
     "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
     }
     "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
-        shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id", inheritable: false)
-    }
-    "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
-        shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id", inheritable: false)
-    }
-    "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
-    }
-    "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal"(platform: "/mobile", type: TrackType.View) {
         shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id")
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
         route_id(required: true, type: PropertyType.String, description: "Specifies the route id")
         vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
-        delivery_type(required: true, type: PropertyType.String, description: "Specifies the delivery type", values: ["delivery_keyword", "cart_group_keyword"])
+        delivery_type(required: false, type: PropertyType.String, description: "Specifies the delivery type", values: ["delivery_keyword", "cart_group_keyword"])
     }
+    "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal/not_delivery"(platform: "/mobile", type: TrackType.Event) {}
 
     //Control Tower LM
