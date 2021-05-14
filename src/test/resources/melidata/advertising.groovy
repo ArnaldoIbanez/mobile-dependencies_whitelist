@@ -2241,7 +2241,6 @@ trackTests {
 
     test("Advertising Reports"){
         "/advertising/pads2/reports"(platform: "/", type: TrackType.View) {
-         //   {"mode":,"type":,"days":,"from":,"to":,"group_by":,"filters":}
             mode = "custom"
             type: "ads"
             days = "15_days"
