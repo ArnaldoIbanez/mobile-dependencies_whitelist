@@ -1888,7 +1888,7 @@ tracks {
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
         group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
-        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+        filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
     "/advertising/pads2/reports/range"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1902,11 +1902,11 @@ tracks {
     }
 
     "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+        filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
     "/advertising/pads2/reports/rows_warning"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
-        rows(required: true, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
+        rows(required: false, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
     }
 
     "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1916,8 +1916,8 @@ tracks {
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
         group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
-        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
-        rows(required: true, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
+        filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+        rows(required: false, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
     }
 
     "/advertising/pads2/reports/confirmation"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
@@ -1927,7 +1927,7 @@ tracks {
     }
 
     "/advertising/pads2/reports/download"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
-        status(required: true, type: PropertyType.String,  description: "Report download status", values: ['success', 'fail'])
+        status(required: false, type: PropertyType.String,  description: "Report download status", values: ['success', 'fail'])
     }
 
 }
