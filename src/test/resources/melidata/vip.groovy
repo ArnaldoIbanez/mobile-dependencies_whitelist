@@ -921,7 +921,7 @@ trackTests {
 
         "/vip/apparel/fit_as_expected"(platform: "/") {}
 
-        "/vip/apparel/fit_as_expected/viewed"(platform: "/", type: TrackType.Event) {
+        "/vip/apparel/fit_as_expected/opened"(platform: "/", type: TrackType.Event) {
             item_id = "MLA112341"
         }
     }
