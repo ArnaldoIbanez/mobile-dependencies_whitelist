@@ -176,6 +176,7 @@ tracks {
     "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/flash"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/scan/type_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/click"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.View) {

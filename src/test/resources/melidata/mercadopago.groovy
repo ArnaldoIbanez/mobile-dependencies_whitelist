@@ -2758,6 +2758,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/scan/type_qr"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/scan/click"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
