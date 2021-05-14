@@ -708,6 +708,8 @@ trackTests {
             sales_percentage_map()
         }
 
+        "/credits/merchant/administrator/inconsistency"(platform: "/mobile/android") {}
+
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
@@ -1773,6 +1775,26 @@ trackTests {
         "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
             error_type = "no_offer"
+        }
+        "/credits/administrator/inconsistency"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "not_found"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_first_attempt"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_second_attempt"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_three_or_more_attempts"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "unknown"
         }
 
         /******************************************
