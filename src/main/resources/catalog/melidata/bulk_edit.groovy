@@ -50,8 +50,8 @@ tracks {
     }
 
     "/seller_central/bulk/changes/price_mshops"(platform: "/", type: TrackType.Event) {
-        oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
-        newValue(required: true, type: PropertyType.String, description: "New value")
+        old_value(required: true, type: PropertyType.String, description: "Old value of the price cell")
+        new_value(required: true, type: PropertyType.String, description: "New value")
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
