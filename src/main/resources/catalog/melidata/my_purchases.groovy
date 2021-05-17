@@ -233,4 +233,8 @@ tracks {
         newPurchasesEventGroup
     }
 
+    "/my_purchases/detail/click_go_to_insurance"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
 }
