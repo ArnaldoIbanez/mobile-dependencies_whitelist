@@ -570,6 +570,7 @@ tracks {
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
     "/sell/list/license_plate"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/inscription_number"(platform: "/mobile", type: TrackType.View) {}
 
     //update flow
     "/sell/update" (platform: "/", isAbstract: true){
@@ -691,6 +692,7 @@ tracks {
     "/sell/update/statistics"(platform: "/", type: TrackType.View) {}
     "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/inscription_number"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
         item_id(required: true, description: "Item id")
