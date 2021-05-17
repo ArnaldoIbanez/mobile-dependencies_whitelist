@@ -6,6 +6,18 @@ def loyaltyExperimentsRegex = '(loyalty|wallet)/.*'
 
 metrics {
 
+    "loyalty.subscription.congrats"(description: "define what type of distribution of components to show in Summary suscriptions to see which one converts better", deprecation_date: "2021/06/20") {
+        startWith {
+            experiment("loyalty/subscription_summary")
+        }
+
+        countsOn {
+            condition {
+                path("/loyalty/partners/checkout/congrats")
+            }
+        }
+    }
+
     "loyalty.suscription.disneyplus.intention"(description: "define what type of plan to show in VPD to see which one converts better", deprecation_date: "2021/01/30") {
         startWith {
             experiment("loyalty/subscription_disneyplus")
