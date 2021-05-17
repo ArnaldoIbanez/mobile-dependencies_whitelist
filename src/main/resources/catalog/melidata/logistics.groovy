@@ -358,7 +358,7 @@ tracks {
 
     // Scoring LM
     "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
-        receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
     }
     "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
         shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id")
