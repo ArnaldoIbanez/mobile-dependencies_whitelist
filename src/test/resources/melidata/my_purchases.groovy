@@ -266,5 +266,9 @@ trackTests {
 			purchasesEventDataSet()
 		}
 
+		"/my_purchases/detail/click_pack_link_modal"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
 	}
 }
