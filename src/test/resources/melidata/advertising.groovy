@@ -2238,4 +2238,80 @@ trackTests {
             mode = "custom"
         }
     }
+
+    test("Advertising Reports"){
+        "/advertising/pads2/reports"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+            type: "ads"
+            days = "15_days"
+            from = "2021-02-02"
+            to = "2021-05-02"
+            group_by = "monthly"
+            filters = [
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
+                    sll: "true",
+                    date_created: "2020-07-01"
+            ]
+        }
+
+        "/advertising/pads2/reports/range"(platform: "/", type: TrackType.Event) {
+            days = "15_days"
+            from = "2021-02-02"
+            to = "2021-05-02"
+        }
+
+        "/advertising/pads2/reports/group"(platform: "/", type: TrackType.Event) {
+            group_by = "monthly"
+        }
+
+        "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event) {
+            filters = [
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
+                    sll: "true",
+                    date_created: "2020-07-01"
+            ]
+        }
+
+        "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            type: "ads"
+            days = "15_days"
+            from = "2021-02-02"
+            to = "2021-05-02"
+            group_by = "monthly"
+            filters = [
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
+                    sll: "true",
+                    date_created: "2020-07-01"
+            ]
+            rows = 9999
+        }
+
+        "/advertising/pads2/reports/rows_warning"(platform: "/", type: TrackType.Event) {
+            rows = 9999
+        }
+
+        "/advertising/pads2/reports/confirmation"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/reports/empty_state"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/reports/download"(platform: "/", type: TrackType.Event) {
+            status = "success"
+        }
+    }
+
 }
