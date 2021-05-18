@@ -531,8 +531,40 @@ tracks {
             type: PropertyType.String,
             values: ["freeze","unfreeze","physical_freeze","physical_unfreeze","change_limits","see_nip","block_card"],
             description: "Cards options tapped"
-          )
+        )
+        product_type (
+            required: false,
+            type: PropertyType.String,
+            description: "Card type"
+        )
     }
+    "/cards/mpcard/setup/options/tap/success"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["freeze","unfreeze","physical_freeze","physical_unfreeze","change_limits","see_nip","block_card"],
+            description: "Setup options operation status"
+        )
+        product_type (
+            required: false,
+            type: PropertyType.String,
+            description: "Card type"
+        )
+    }
+    "/cards/mpcard/setup/options/tap/failure"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["freeze","unfreeze","physical_freeze","physical_unfreeze","change_limits","see_nip","block_card"],
+            description: "Setup options operation status"
+        )
+        product_type (
+            required: false,
+            type: PropertyType.String,
+            description: "Card type"
+        )
+    }
+
     "/cards/mpcard/setup/options/message"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/setup/options/message/lock"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
@@ -566,7 +598,7 @@ tracks {
             description: "Card id"
         )
         context (
-            required: true,
+            required: false,
             type: PropertyType.String,
             values: ["cancellation", "creation"],
             description: "Type of operation: cancel or reissue",
@@ -579,6 +611,11 @@ tracks {
             type: PropertyType.String,
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
+        )
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id"
         )
     }
 
@@ -878,6 +915,18 @@ tracks {
             type: PropertyType.String,
             values: ["close", "add_money"],
             description: "action tap by the user in the challenge"
+        )
+    }
+
+    // Cards Helper
+    //--------------
+    "/cards/mpcard/card_helper"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/card_helper/extraction"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
         )
     }
 

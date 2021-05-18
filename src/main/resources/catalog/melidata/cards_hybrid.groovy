@@ -574,10 +574,12 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy"],
+            values: ["header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "credit_card_message_no_limit", "credit_card_message_blocked_account", "credit_message_card_paused"],
             description: "The action type tapped"
         )
     }
+    "/cards/hybrid/setup/virtual/card"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/card/modal"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/card/modal/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -717,7 +719,7 @@ tracks {
             inheritable: false
         )
         context (
-            required: true,
+            required: false,
             type: PropertyType.String,
             values: ["cancellation", "creation"],
             description: "Type of operation: cancel or reissue",
@@ -1270,7 +1272,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["blocked_pin"],
+            values: ["unblock_pin"],
             description: "Message button tapped"
         )
     }
