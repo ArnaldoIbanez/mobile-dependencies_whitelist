@@ -337,6 +337,8 @@ tracks {
         products_with_status
     }
 
+    "/credits/merchant/administrator/inconsistency"(platform:"/", type: TrackType.View) {}
+
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
@@ -372,6 +374,16 @@ tracks {
         products_group
     }
     "/credits/merchant/proactive_payment/amount_input"(platform: "/", type: TrackType.View) {
+        available_balance(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        max_value_to_pay(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
         products_with_status
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
@@ -1704,10 +1716,13 @@ tracks {
             type: PropertyType.Boolean,
         )
     }
+    "/credits/consumer/administrator_v2/details_button"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_uses_modal"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_how_to_use_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
@@ -1725,6 +1740,9 @@ tracks {
     "/credits/consumer/administrator_v2/debt_relief"(platform: "/mobile", isAbstract: true) {}
     "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Event PX Congrats Extra Component
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *       End: Consumers Administrator
@@ -1939,8 +1957,10 @@ tracks {
                 values: [
                     "no_offer",
                     "not_found",
-                    "invalid_offer",
                     "unknown",
+                    "invalid_offer_first_attempt",
+                    "invalid_offer_second_attempt",
+                    "invalid_offer_three_or_more_attempts",
                 ]
             )
         }

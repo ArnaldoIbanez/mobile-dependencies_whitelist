@@ -356,7 +356,7 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
-    "/wallet_home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/wallet_home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: true) {
         id(required: true, PropertyType.String, description: "the tab ID")
         quantity(required: true, PropertyType.String, description: "secondary actions quantity")
         is_showing_aware(required: true, type: PropertyType.Boolean, description: "If secondary actions is showing the aware")

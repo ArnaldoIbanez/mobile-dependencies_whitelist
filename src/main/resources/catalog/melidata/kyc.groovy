@@ -34,6 +34,12 @@ tracks {
         reason (required: true, type: PropertyType.String, description: "The error description")
     }
 
+    // tap on a component from a challenge
+    "/kyc/challenge/tap"(platform: "/", type: TrackType.Event) {
+        component (required: true, type: PropertyType.String, description: "The tapped component")
+        link (required: false, type: PropertyType.String, description: "An optional link open when the component is tapped")
+    }
+
     // Challenges
     "/kyc/challenge_pep"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_fatca"(platform: "/", type: TrackType.View) {}

@@ -1060,6 +1060,22 @@ trackTests {
     }
   }
 
+  test("seller central conversion price value updated"){
+    "/seller_central/modify/update_conversion_price"(platform: "/", type: TrackType.Event){
+      item_type = "product"
+      category_domain = "MLA-CELLPHONES"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      from = "1200"
+      to = "1500"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
   test("seller central quantity value updated"){
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event){
       item_type = "product"
@@ -1995,6 +2011,17 @@ trackTests {
     "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail message") {
+    "/seller_central/sales/detail/message"(platform: "/web", type: TrackType.Event) {}
+  }
+
+
+ test("seller central sales detail message action") {
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+      id = "action_id"
+    }
   }
 
   test("upload invoices view secondary actions") {
@@ -3915,7 +3942,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       promotion_duration = 17
     }
 
-    // TESTS FOR NEW PATHS
     "/seller_central/promotions/list"(platform: "/web", type: TrackType.View){
       original_promotion = []
       original_lightning = []
@@ -3936,7 +3962,11 @@ test("seller central confirm leave suggestion task - optin moderated") {
               involved_stock: 20,
               discount_delta: 0.05,
       ]
-      context: "CREATE"
+      context = "CREATE"
+    }
+
+    "/seller_central/promotions/list"(platform: "/web", type: TrackType.View){
+      origin = "mail"
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event){
@@ -4100,6 +4130,14 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/promotions/onboarding/action"(platform: "/", type: TrackType.Event) {
       action = "start"
     }
+  }
+
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
   }
 
   test("seller central listing action") {

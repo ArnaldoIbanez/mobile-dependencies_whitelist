@@ -708,6 +708,8 @@ trackTests {
             sales_percentage_map()
         }
 
+        "/credits/merchant/administrator/inconsistency"(platform: "/mobile/android") {}
+
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
@@ -756,6 +758,8 @@ trackTests {
         "/credits/merchant/proactive_payment/amount_input"(platform: "/web/desktop") {
             sales_percentage_on_time()
             category = 'regular'
+            available_balance = '32.32'
+            max_value_to_pay = '123.23'
         }
 
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
@@ -1586,6 +1590,7 @@ trackTests {
 
         //Events
 
+        "/credits/consumer/administrator_v2/details_button"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
             installments_qty = 3
@@ -1602,6 +1607,12 @@ trackTests {
         }
         "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_uses_modal"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_how_to_use_modal"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
         }
         "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
@@ -1639,6 +1650,11 @@ trackTests {
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/mobile", type: TrackType.Event) {
             status = true
+            dashboard_status = 'on_time'
+        }
+
+        //Event PX Congrats Extra Component
+        "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
         }
 
@@ -1759,6 +1775,23 @@ trackTests {
         "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
             error_type = "no_offer"
+        }
+        "/credits/merchant/administrator/inconsistency"(platform: "/", type: TrackType.View) {}
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_first_attempt"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_second_attempt"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_three_or_more_attempts"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "unknown"
         }
 
         /******************************************

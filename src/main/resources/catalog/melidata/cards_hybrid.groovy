@@ -15,6 +15,11 @@ tracks {
     //Abstract Path
     "/cards"(platform: "/", isAbstract: true) {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
+        flow_version (
+            required: false,
+            type: PropertyType.Numeric,
+            description: "This value represents the version iteration for the given flow",
+        )
      }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/physical"(platform: "/", isAbstract: true) { }
@@ -37,6 +42,7 @@ tracks {
     "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
     "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
     "/cards/nfc/semaphore"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/constraint"(platform: "/", isAbstract: true) { }
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
@@ -654,6 +660,11 @@ tracks {
           )
     }
 
+    // WHATSAPP BUTTON
+    "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {}
+
 
     // CARDS HUBS
     "/cards/hybrid/card_hub"(platform: "/", isAbstract: true) { }
@@ -688,6 +699,13 @@ tracks {
             description: "Card id",
             inheritable: false
         )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
+            inheritable: false
+        )
     }
     "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -700,6 +718,13 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Card id",
+            inheritable: false
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
             inheritable: false
         )
     }
@@ -843,7 +868,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"],
+            values: ["reissue_pause_card", "reissue", "reissue_change_pin", "reissue_activate_contactless", "reissue_continue", "reissue_exit"],
             description: "The action tapped"
         )
     }
@@ -1217,7 +1242,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["button_primary"],
+            values: ["button_primary", "button_secondary"],
             inheritable: false
         )
     }
@@ -1297,6 +1322,17 @@ tracks {
             description: "Semaphore Tap"
         )
     }
+    // Cards Helper
+    //--------------
+    "/cards/hybrid/card_helper"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/card_helper/extraction"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+    }
     
     // ENROLLMENT-HUB-NFC
     //-------------------
@@ -1353,7 +1389,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back","primary_button","secondary_button"],
+            values: ["back","primary_button","secondary_button","contextual_help","feedback"],
             description: "Action Tapped"
         )
     }
@@ -1480,6 +1516,17 @@ tracks {
             description: "Tokenization callback for nfc enrollment"
         )
     }
+
+    "/cards/nfc/enrollment/tokenization/messageprocessor"(platform: "/", type: TrackType.Event) {
+        information (
+                required: true,
+                type: PropertyType.String,
+                description: "Message processor information",
+                inheritable: false
+        )
+    }
+
+
     "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -1519,11 +1566,7 @@ tracks {
         reasons (
             required: true,
             type: PropertyType.String,
-            values: [
-                "payment is not allowed as SDK initialization is ongoing",
-                "payment is not allowed as SDK is not initialized"
-            ],
-            description: "Reasons that one tap payment failed with closed application"
+            description: "Error code of the payment tap pos error"
         )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
@@ -1912,6 +1955,24 @@ tracks {
     "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
     
     
+    // NFC-CONSTRAINTS
+    // -----------
+    
+    // NfcConstraintUpdate
+    
+    "/cards/nfc/constraint/update"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "Determinates if we are sending o receiving the event"
+        )
+        event (
+            required: true,
+            type: PropertyType.String,
+            description: "The event that changed"
+        )
+    }
+
     // NFC-SEMAPHORE
     // -----------
     
@@ -1938,7 +1999,7 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
-        is_nfc_card_active (
+        is_token_active (
             required: true,
             type: PropertyType.Boolean,
         )

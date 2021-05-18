@@ -260,6 +260,7 @@ tracks {
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
         whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
+        contract_available(required: false, type: PropertyType.Boolean)
     }
 
     "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
@@ -437,6 +438,14 @@ tracks {
          item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
+    "/vip/apparel"(platform: "/", parentPropertiesInherited: false, isAbstract:true) {}
+
+    "/vip/apparel/fit_as_expected"(platform: "/", parentPropertiesInherited: false, isAbstract:true) {}
+
+    "/vip/apparel/fit_as_expected/open"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
@@ -447,12 +456,16 @@ tracks {
         video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
                 description: "Video type of the item"
             )
+        item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"],
+                description: "Seller type: normal, car_dealer, etc")
     }
 
     "/vip/video_focus"(platform: "/mobile", parentPropertiesInherited: false) {
         video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO"],
                 description: "Video type of the item"
             )
+        item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"],
+                description: "Seller type: normal, car_dealer, etc")
     }
 
     "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
@@ -1507,5 +1520,11 @@ tracks {
     "/vip/print_file_pdf"(platform: "/", type: TrackType.Event) {
         item_seller_type(required: false, values: ['normal', 'real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
+
+    "/vip/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 
 }

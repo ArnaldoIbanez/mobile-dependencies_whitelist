@@ -584,6 +584,12 @@ trackTests {
         "/search/back_listing"(platform: "/") {
             defaultSearchInformation()
         }
+       "/search/map_link"(platform: "/mobile") {
+        }
+        "/search/search_map"(platform: "/mobile") {
+        }
+        "/search/back_listing"(platform: "/mobile") {
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }

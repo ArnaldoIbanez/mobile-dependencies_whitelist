@@ -15,6 +15,11 @@ tracks {
     //Abstract Path
     "/cards"(platform: "/", isAbstract: true) {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
+        flow_version (
+            required: false,
+            type: PropertyType.Numeric,
+            description: "This value represents the version iteration for the given flow",
+        )
      }
     "/cards/mpcard"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/physical"(platform: "/", isAbstract: true) { }
@@ -414,7 +419,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help"],
+            values: ["card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "close_modal", "header_help", "additional_message_freeze"],
             description: "Virtual card buttons tapped"
         )
     }
@@ -560,6 +565,13 @@ tracks {
             type: PropertyType.String,
             description: "Card id"
         )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancellation", "creation"],
+            description: "Type of operation: cancel or reissue",
+            inheritable: true
+        )
     }
     "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -672,7 +684,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["pause_card", "reissue", "change_pin", "activate_contactless", "continue", "exit"],
+            values: ["reissue_pause_card", "reissue", "reissue_change_pin", "reissue_show_nip", "reissue_activate_contactless", "reissue_continue", "reissue_exit"],
             description: "The action tapped"
         )
     }
@@ -773,8 +785,8 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header_help"],
-            description: "Help button tapped"
+            values: ["header_help", "back_button"],
+            description: "Help and Back button tapped"
         )
     }
     "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}

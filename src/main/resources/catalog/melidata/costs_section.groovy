@@ -228,4 +228,7 @@ tracks {
     "/pricing_section/psj/save/error" (platform: "/", type: TrackType.Event) {
         result_request_group
     }
+    "/pricing_section/psj_activity"(platform: "/mobile", type: TrackType.Event) {
+        caller(required: true, type: PropertyType.String, description: "The class where the deeplink is called")
+    }
 }

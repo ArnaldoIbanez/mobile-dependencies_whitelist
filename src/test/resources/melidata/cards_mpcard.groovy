@@ -516,6 +516,9 @@ trackTests {
             action = "additional_message"
         }
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message_freeze"
+        }
+        "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "close_modal"
         }
         "/cards/mpcard/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -655,14 +658,26 @@ trackTests {
     test("cards mpcard reissue virtual card ") {
         "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
+            context = "cancellation"
+        }
+        "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            context = "creation"
+        }
+        "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+            flow_version = 2
+            context = "creation"
         }
         "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "primary_button"
+            context = "cancellation"
         }
         "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "secondary_button"
+            context = "creation"
         }
 
         "/cards/mpcard/block_card/virtual/success"(platform:"/", type: TrackType.Event) { }
@@ -776,6 +791,9 @@ trackTests {
     test("cards mpcard nip screen") {
         "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
             action = "header_help"
+        }
+        "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
+            action = "back_button"
         }
     }
     test("cards mpcard nip, It_was_not_me link message tap") {
@@ -994,7 +1012,7 @@ trackTests {
         }
 
         "/cards/mpcard/block_card/physical/intermediate_onboarding/tap"(platform: "/", type: TrackType.Event) {
-            action = "pause_card"
+            action = "reissue_pause_card"
         }
     }
 

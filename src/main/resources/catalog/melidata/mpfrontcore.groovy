@@ -150,6 +150,22 @@ tracks {
     *         Tracks - Public Context         *
     ******************************************/
 
+    // MP Landing - Public Navigation
+    "/navigation"(platform: "/web", isAbstract: true) {}
+    "/navigation/navbar"(platform: "/web", isAbstract: true) {}
+    "/navigation/navbar/link"(platform: "/web", type: TrackType.Event) {
+        id(
+            required: true,
+            type: PropertyType.String,
+            description: "The link's identifier (e.g. digital-account, asset, credits, etc)"
+        )
+        hierarchy(
+            required: false,
+            type: PropertyType.String,
+            description: "The link's hierarchy position (e.g. header, l1, l2, l3, etc)"
+        )
+    }
+
     // MP Landing - Digital Wallet
     "/digital_wallet"(platform: "/", type: TrackType.View) {}
 
@@ -175,10 +191,17 @@ tracks {
     "/landing"(platform: "/", isAbstract: true) {}
 
     // MP Landing - Landing Home
-    "/landing/home"(platform: "/web") {}
+    "/landing/home"(platform: "/", type: TrackType.View) {}
+    "/landing/home/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+    }
 
     // MP Landing - Conta / Cuenta
-    "/landing/digital_account"(platform: "/") {}
+    "/landing/digital_account"(platform: "/", type: TrackType.View) {}
+    "/landing/digital_account/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+        type(required: true, description: 'Type of element clicked', type: PropertyType.String, values: ['cta', 'shortcut'])
+    }
 
     // MP Landing - Landing Sellers
     "/landing/sellers"(platform: "/") {}

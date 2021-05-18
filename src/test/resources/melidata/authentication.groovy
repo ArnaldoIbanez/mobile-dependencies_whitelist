@@ -855,6 +855,8 @@ trackTests {
                     "type": "transactional"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -874,6 +876,8 @@ trackTests {
                     "type": "non_transactional"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -892,6 +896,8 @@ trackTests {
                     "type": "other"
                 ]
                 config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -917,6 +923,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -930,6 +938,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -942,6 +952,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -955,6 +967,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -968,6 +982,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -980,6 +996,8 @@ trackTests {
                 enrollment_status = "disabled"
                 os_status = "basic_screenlock"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "disabled",
                         "transaction_custom": "0",
@@ -994,6 +1012,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1007,6 +1027,8 @@ trackTests {
                 os_status = "basic_screenlock"
                 dismissible = "disabled"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "disabled",
                         "transaction_custom": "0",
@@ -1021,6 +1043,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1035,6 +1059,8 @@ trackTests {
                 dismissible = "disabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1049,6 +1075,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1063,6 +1091,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1077,6 +1107,8 @@ trackTests {
                 dismissible = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "enabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1099,6 +1131,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1110,6 +1144,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1121,6 +1157,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1132,6 +1170,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1143,6 +1183,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1154,6 +1196,8 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "150",
                         "transaction": "disabled",
                         "opening_lock": "enabled",
                         "transaction_custom": "0",
@@ -1295,62 +1339,62 @@ trackTests {
 
 
         test("Reauth Native") {
-            //Operation Start
-            "/reauth/success"(platform: "/mobile/android", type: TrackType.Event) {
+            //Login Module
+            "/login/transactional/success"(platform: "/mobile/android", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "grant_code"
                 tracking_id = "1"
             }
 
-            "/reauth/success"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/login/transactional/success"(platform: "/mobile/ios", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "grant_code"
                 tracking_id = "1"
             }
 
-            "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/error"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 error = "server"
             }
 
-            "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/error"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 error = "server"
             }
 
-            "/reauth/challenge"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/challenge"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/challenge"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/login/transactional/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 errors = ["un error", "dos errores"]
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/login/transactional/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
                 authentication_id = "1"
                 challenge = "test1"
                 errors = ["un error", "dos errores"]
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
+            "/login/transactional/challenge/decline"(platform: "/mobile/android", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "test1_decline"
                 tracking_id = "1"
             }
 
-            "/reauth/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/login/transactional/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "test1_decline"
                 tracking_id = "1"
@@ -1392,6 +1436,7 @@ trackTests {
                 transaction_id = "1"
                 reauth_status = "created"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1402,6 +1447,7 @@ trackTests {
                 transaction_id = "2"
                 reauth_status = "created"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1413,6 +1459,7 @@ trackTests {
                 transaction_id = "3"
                 reauth_status = "created"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1424,6 +1471,7 @@ trackTests {
                 transaction_id = "4"
                 reauth_status = "created"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1433,6 +1481,7 @@ trackTests {
                 result = "success"
                 reauth_status = "not_needed"
                 screenlock_validated = true
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1442,6 +1491,7 @@ trackTests {
                 result = "success"
                 reauth_status = "not_needed"
                 screenlock_validated = true
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1452,6 +1502,7 @@ trackTests {
                 result = "success"
                 reauth_status = "not_needed"
                 screenlock_validated = true
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1462,6 +1513,7 @@ trackTests {
                 result = "success"
                 reauth_status = "not_needed"
                 screenlock_validated = true
+                elapsed_time = 1.0
             }
 
 
@@ -1474,6 +1526,7 @@ trackTests {
                 error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1484,6 +1537,7 @@ trackTests {
                 error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1495,6 +1549,7 @@ trackTests {
                 error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1506,6 +1561,7 @@ trackTests {
                 error = "Ups error :S"
                 reauth_status = "error"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             //Operation End - Cancel
@@ -1517,6 +1573,7 @@ trackTests {
                 reauth_status = "created"
                 transaction_id = "4"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1527,6 +1584,7 @@ trackTests {
                 reauth_status = "created"
                 transaction_id = "4"
                 screenlock_validated = false
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1536,6 +1594,7 @@ trackTests {
                 result = "cancel"
                 reauth_status = "not_needed"
                 screenlock_validated = true
+                elapsed_time = 1.0
             }
 
             "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1545,6 +1604,7 @@ trackTests {
                 result = "cancel"
                 reauth_status = "not_needed"
                 screenlock_validated = true
+                elapsed_time = 1.0
             }
             //Reauth Retry
             "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1591,29 +1651,6 @@ trackTests {
                 operation_id = "1"
                 flow_type = "payment"
                 amount = "10.0"
-            }
-        }
-      
-        test("Values Ignite") {
-            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
-                values_ignite = "{'authentication_session_site_first':'true','authentication_session_local_storage':'true'}"
-                values_list_compare = "{'La lista [MLU] contiene: MLU':'true','La lista [10] contiene: 10':'true'}"
-                site_to_compare = "MLU"
-                number_to_compare = "10"
-            }
-
-            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
-                values_ignite = ""
-                values_list_compare = ""
-                site_to_compare = ""
-                number_to_compare = ""
-            }
-
-            "/login/values_ignite_session"(platform: "/mobile", type: TrackType.Event) {
-                values_ignite = "{'authentication_session_site_first':'false','authentication_session_local_storage':'false'}"
-                values_list_compare = "{}"
-                site_to_compare = "MLU"
-                number_to_compare = "10"
             }
         }
     }

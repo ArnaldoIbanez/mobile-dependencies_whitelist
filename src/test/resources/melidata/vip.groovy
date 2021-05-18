@@ -588,6 +588,7 @@ trackTests {
             description_type = "plain_text"
             quantity_models = null
             domain_id = "MLC-APARTMENTS_FOR_RENT"
+            item_seller_type = "normal"
         }
 
         def tourOption = {
@@ -915,6 +916,10 @@ trackTests {
         "/vip/qadb/call-to-action"(platform: "/", {
             item_id = "MLA112341"
         })
+
+        "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA112341"
+        }
     }
 
     test("New Shipping calculator"){
@@ -1963,6 +1968,16 @@ trackTests {
     test("Test Official Store link"){
         "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
             official_store_id = 123
+        }
+    }
+
+    test("Vip back to top methods") {
+        "/vip/back_to_top/top"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB533657947"
+        }
+
+        "/vip/back_to_top"(platform: "/", type: TrackType.View) {
+            item_id = "MLB533657947"
         }
     }
 }

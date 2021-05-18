@@ -311,6 +311,42 @@ trackTests {
         "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {
             key_type = "evp"
         }
+        "/money_in/pix_keys/admin/carousel/swipe"(platform: "/", type: TrackType.Event) {
+            swipe_direction = "left"
+        }
+        "/money_in/pix_keys/admin/carousel/swipe"(platform: "/", type: TrackType.Event) {
+            swipe_direction = "right"
+        }
+        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+            key_type = "evp"
+        }
+        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+            key_type = "email"
+        }
+        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+            key_type = "telephone"
+        }
+        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+            key_type = "cpf"
+        }
+        "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+            key_type = "cnpj"
+        }
+        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+            key_type = "evp"
+        }
+        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+            key_type = "email"
+        }
+        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+            key_type = "telephone"
+        }
+        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+            key_type = "cpf"
+        }
+        "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+            key_type = "cnpj"
+        }
         "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
         "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {
@@ -558,6 +594,23 @@ trackTests {
         }
         "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){
             key_type = "success"
+        }
+
+        //Debin Merch engine
+        "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
+            key_type = "success"
+            audience = "all"
+            bu = "4"
+            bu_line = "7"
+            component_id = "cross_selling_congrats_debin_mp"
+            content_id = "id_contenido_test"
+            flow = "-1"
+            logic = "user_journey"
+            position = "0"
+            xp_id = "experiments"
+        }
+        "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
+            key_type = "error"
         }
 
         //Debin Search account

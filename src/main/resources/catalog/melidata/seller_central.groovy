@@ -845,6 +845,12 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_conversion_price"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
     /**
      * La idea es trackear en el snackbar informacion
      * del item original y algunos cambios que se produjeron.
@@ -1281,6 +1287,12 @@ tracks {
     "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/message"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/message/action"(platform: "/web", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
 
     "/seller_central/sales/fiscal_document"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
     "/seller_central/sales/fiscal_document/action"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
@@ -1800,6 +1812,7 @@ tracks {
         original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
         original_dod(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original deal_of_they_day promotion data")
         context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING", "CREATE_DOD"])
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
@@ -1920,6 +1933,10 @@ tracks {
         page(required: false, type: PropertyType.Numeric, description: "Page number")
         viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
     }
+
+    "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS SYI V4 - RealEstate
