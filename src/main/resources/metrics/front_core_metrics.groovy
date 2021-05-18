@@ -170,4 +170,15 @@ metrics {
     }
   }
 
+  "wallet_home.qr"(description: "Counts when an user taps the QR button in the Home") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/qr_fab")
+      }
+    }
+  }
 }
