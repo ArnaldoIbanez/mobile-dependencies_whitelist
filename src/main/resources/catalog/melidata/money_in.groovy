@@ -1,6 +1,7 @@
 package catalog.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -372,6 +373,20 @@ tracks {
          key_type(required:false, description:"status",values:["error"])
     }
     "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
+
+    //Debin Merch Engine
+    "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
+        key_type(required:true,type: PropertyType.String, description:"status", values:["success","error"])
+        audience(required:false,type: PropertyType.String, description:"indicates the audience")
+        bu(required:false,type: PropertyType.String, description:"Indicates the buisiness unit")
+        bu_line(required:false,type: PropertyType.String, description:"buisiness unit line")
+        component_id(required:false,type: PropertyType.String, description:"Id of the merch engine real state")
+        content_id(required:false,type: PropertyType.String, description:"id of the content")
+        flow(required:false,type: PropertyType.String, description:"flow of the merch engine")
+        logic(required:false,type: PropertyType.String, description:"logic of the merch engine")
+        position(required:false,type: PropertyType.String, description:"Position of the item")
+        xp_id(required:false,type: PropertyType.String, description:"id of the experiments")
+    }
 
     //Debin Search account
     "/money_in/debin/search"(platform:"/", type: TrackType.View){}

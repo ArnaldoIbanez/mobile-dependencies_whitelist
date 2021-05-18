@@ -337,6 +337,8 @@ tracks {
         products_with_status
     }
 
+    "/credits/merchant/administrator/inconsistency"(platform:"/", type: TrackType.View) {}
+
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
@@ -1955,8 +1957,10 @@ tracks {
                 values: [
                     "no_offer",
                     "not_found",
-                    "invalid_offer",
                     "unknown",
+                    "invalid_offer_first_attempt",
+                    "invalid_offer_second_attempt",
+                    "invalid_offer_three_or_more_attempts",
                 ]
             )
         }

@@ -42,6 +42,7 @@ tracks {
     "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
     "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
     "/cards/nfc/semaphore"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/constraint"(platform: "/", isAbstract: true) { }
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
@@ -1960,6 +1961,24 @@ tracks {
     "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
     
     
+    // NFC-CONSTRAINTS
+    // -----------
+    
+    // NfcConstraintUpdate
+    
+    "/cards/nfc/constraint/update"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "Determinates if we are sending o receiving the event"
+        )
+        event (
+            required: true,
+            type: PropertyType.String,
+            description: "The event that changed"
+        )
+    }
+
     // NFC-SEMAPHORE
     // -----------
     

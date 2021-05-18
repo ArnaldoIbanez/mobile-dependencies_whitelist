@@ -642,6 +642,7 @@ tracks {
         transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
         reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error"], description: "Identify 201, 204 o error status by api result workflow decide")
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }
 
     "/reauth/error/retry"(platform: "/mobile", type: TrackType.Event) {}

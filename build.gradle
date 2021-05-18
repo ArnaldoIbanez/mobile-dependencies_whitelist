@@ -83,7 +83,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac"]
+	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac","mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos"]
 }
 
 task uploadAll(type:JavaExec) {
@@ -95,7 +95,7 @@ task uploadAll(type:JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld",
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac"]
+	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -314,6 +314,18 @@ task testMonitoringAmlCxAcCatalog (dependsOn: 'classes', type: JavaExec) {
 	args = ["mlo-mon-aml-cx-ac"]
 }
 
+task testMonitoringFdaSCDSevereCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-scd-severe"]
+}
+
+task testMonitoringGrupodotArtProhibidos (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-grupodot-art-prohibidos"]
+}
+
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.MetricsTest'
 	classpath = sourceSets.main.runtimeClasspath
@@ -328,7 +340,7 @@ task uploadAllCatalog(type:JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac"]
+	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -545,6 +557,18 @@ task uploadMonitoringAmlCxAcCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-aml-cx-ac"]
+}
+
+task uploadMonitoringFdaSCDSevereCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-scd-severe"]
+}
+
+task uploadMonitoringGrupodotArtProhibidos(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-grupodot-art-prohibidos"]
 }
 
 task uploadMetrics(type:JavaExec) {
