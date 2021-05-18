@@ -67,8 +67,7 @@ tracks {
     "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
 
     // Congrats View
-    "/asset_management/congrats_success"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/congrats_success"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {}
     "/asset_management/congrats_error"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
@@ -104,8 +103,6 @@ tracks {
     // Opt-out
     "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/opt_out"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_stop_investing"(platform: "/web", type: TrackType.View) {}
 
     // Detail
     "/asset_management/investment_detail"(platform: "/", type: TrackType.View) {
@@ -124,15 +121,9 @@ tracks {
     "/asset_management/operations/detail"(platform: "/web") {}
 
     // Congrats
-    "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
-    "/asset_management/result_unavailable"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_invest_money"(platform: "/", type: TrackType.View) {}
-    "/asset_management/result_reports"(platform: "/", type: TrackType.View) {}
+    "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {
+        congratsName (required: false, type: PropertyType.String, description: "Description name")
+    }
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
