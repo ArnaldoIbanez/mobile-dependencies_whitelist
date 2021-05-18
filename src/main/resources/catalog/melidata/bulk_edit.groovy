@@ -55,6 +55,30 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
+    "/seller_central/bulk/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
+        listing_type(required: true, type: PropertyType.String, description: "Item listing type")
+    }
+
+    "/seller_central/bulk/massive_action/quantity"(platform: "/", type: TrackType.Event) {
+        quantity(required: true, type: PropertyType.Numeric, description: "Stock quantity added")
+    }
+
+    "/seller_central/bulk/massive_action/shipping_method"(platform: "/", type: TrackType.Event) {
+        operation_id(required: true, type: PropertyType.String, description: "Item shipping method")
+    }
+
+    "/seller_central/bulk/massive_action/syncro_price"(platform: "/", type: TrackType.Event) {
+        operation_id(required: true, type: PropertyType.String, description: "Item syncro price")
+    }
+
+    "/seller_central/bulk/massive_action/delete_inactive"(platform: "/", type: TrackType.Event) {
+        operation_id(required: true, type: PropertyType.String, description: "Delete inactives")
+    }
+
+    "/seller_central/bulk/massive_action/status"(platform: "/", type: TrackType.Event) {
+        operation_id(required: true, type: PropertyType.String, description: "Item status")
+    }
+
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }

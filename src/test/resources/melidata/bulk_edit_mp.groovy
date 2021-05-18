@@ -69,6 +69,42 @@ trackTests {
         }
     }
 
+    test("seller central bulk changes listing type mp") {
+        "/seller_central/bulk/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
+            listing_type = "gold_special"
+        }
+    }
+
+    test("seller central bulk changes quantity mp") {
+        "/seller_central/bulk/massive_action/quantity"(platform: "/", type: TrackType.Event) {
+            quantity = 20
+        }
+    }
+
+    test("seller central bulk changes shipping method mp") {
+        "/seller_central/bulk/massive_action/shipping_method"(platform: "/", type: TrackType.Event) {
+            operation_id = "ADD_SHIPPING"
+        }
+    }
+
+    test("seller central bulk changes syncro price mp") {
+        "/seller_central/bulk/massive_action/syncro_price"(platform: "/", type: TrackType.Event) {
+            operation_id = "YES"
+        }
+    }
+
+    test("seller central bulk changes delete inactivess mp") {
+       "/seller_central/bulk/massive_action/delete_inactive"(platform: "/", type: TrackType.Event) {
+            operation_id = "DELETE"
+        }
+    }
+
+   test("seller central bulk changes status mp") {
+       "/seller_central/bulk/massive_action/status"(platform: "/", type: TrackType.Event) {
+            operation_id = "ACTIVATE"
+        }
+    }
+
     test("seller central bulk shipping tooltip mp") {
         "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
             item_id = "MLB341920"
