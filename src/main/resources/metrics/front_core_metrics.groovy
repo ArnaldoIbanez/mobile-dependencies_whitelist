@@ -17,6 +17,7 @@ metrics {
              "/wallet_home/section/tap/shortcuts",
              "/wallet_home/section/tap/ads_top_banner",
              "/wallet_home/section/tap/cross_selling",
+             "/wallet_home/section/tap/benefits",
              "/wallet_home/section/tap/activities",
              "/wallet_home/section/tap/prepaid_banner",
              "/wallet_home/section/tap/credits",
@@ -89,6 +90,18 @@ metrics {
     countsOn {
       condition {
           path("/wallet_home/section/tap/cross_selling")
+      }
+    }
+  }
+
+  "wallet_home.benefits"(description: "Counts when an user taps the Benefits section in the Home") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+          path("/wallet_home/section/tap/benefits")
       }
     }
   }
