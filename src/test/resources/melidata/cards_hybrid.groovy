@@ -519,79 +519,48 @@ trackTests {
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "deprecated"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "new"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "on_creation"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "on_delivery"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "delivered"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "active"
-            has_money = true
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "freeze"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "blocked"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "inactive"
-            has_money = false
-        }
-        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef"
-            initial_status = "inactive"
-            has_money = false
-            experimental_version = "experimental_a"
-        }
-        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef"
-            initial_status = "inactive"
-            has_money = false
-            experimental_version = "experimental_b"
-        }
-        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef"
-            initial_status = "inactive"
-            product_type = "credit"
-            experimental_version = "experimental_a"
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "inactive"
             product_type = "prepaid"
-            has_money = true
-            experimental_version = "experimental_a"
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "inactive"
             product_type = "hybrid"
-            has_money = true
-            experimental_version = "experimental_a"
         }
     }
     test("cards hybrid setup virtual card taps tracking") {
@@ -859,7 +828,7 @@ trackTests {
             limits_status = "number_selector_atm"
         }
         "/cards/hybrid/limits_setup"(platform: "/", type: TrackType.View) {
-            limits_status = "[message]"
+            limits_status = "message"
         }
     }
     
@@ -1243,7 +1212,7 @@ trackTests {
     //OPTIONS Message
     test("cards hybrid options message tracking") {
         "/cards/hybrid/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
-            action = "blocked_pin"
+            action = "unblock_pin"
         }
     }
 
