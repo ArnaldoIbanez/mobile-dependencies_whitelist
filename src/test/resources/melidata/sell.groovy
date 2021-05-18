@@ -199,6 +199,13 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical="core"
         }
+        "/sell/upgrade/payment_experience"(platform: "/mobile") {
+            item_id = "MLA12345"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical="core"
+        }
         "/sell/sip_upgrade"(platform: "/mobile"){
             source = "section"
             vertical = "motors"
@@ -1034,6 +1041,17 @@ trackTests {
             sale_channels = ["mshops", "marketplace"]
         }
         "/sell/list/congrats/payment_pending"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+            user_shops_status = "none"
+            sale_channels = ["mshops", "marketplace"]
+            item_id = "MLA12345"
+            defaultCatalogFlowMobile()
+        }
+        "/sell/list/payment_experience"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
