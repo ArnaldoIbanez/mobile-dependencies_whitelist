@@ -69,6 +69,13 @@ trackTests {
         }
     }
 
+   test("seller central bulk changes price column") {
+        "/seller_central/bulk/massive_action/price"(platform: "/", type: TrackType.Event) {
+            value = 8
+            operation_id = "increase_price_value"
+        }
+    }
+
     test("seller central bulk changes listing type") {
         "/seller_central/bulk/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
             listing_type = "gold_special"
