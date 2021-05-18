@@ -60,7 +60,7 @@ tracks {
 
      "/seller_central/bulk/massive_action/price"(platform: "/", type: TrackType.Event) {
         value(required: true, type: PropertyType.Number, description: "Value of increment (number quantity or percetnage")
-        operation_id(required: true, type: PropertyType.String, description: "change applied in price"))
+        operation_id(required: true, type: PropertyType.String, description: "Change applied in price")
     }   
 
     "/seller_central/bulk/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
