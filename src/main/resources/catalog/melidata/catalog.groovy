@@ -254,7 +254,6 @@ catalog {
         include business, "point_receipts.groovy"
         include business, "disbursements_wu.groovy"
         include business, "point_buying_flow.groovy"
-        include business, "instore_kit_qr.groovy"
     }
 
     mercadoshops.each { business ->
