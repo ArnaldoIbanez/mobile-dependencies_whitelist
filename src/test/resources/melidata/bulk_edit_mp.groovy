@@ -63,8 +63,8 @@ trackTests {
 
       test("seller central bulk changes price mp column mshops") {
         "/seller_central/bulk/changes/price_mshops"(platform: "/", type: TrackType.Event) {
-            oldValue = "20"
-            newValue = "25"
+            old_value = "20"
+            new_value = "25"
             item_id = "MLB341920"
         }
     }
