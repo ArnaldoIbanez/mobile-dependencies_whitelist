@@ -13,6 +13,9 @@ tracks {
 
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
 
+
+    "/seller_central/bulk/massive_action"(platform: "/", isAbstract: true) {}
+
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/changes"(platform: "/", isAbstract: true) {}
