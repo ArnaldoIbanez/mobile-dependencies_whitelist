@@ -29,6 +29,8 @@ tracks {
     }
 
 
+    "/instore_hot_sale/error" (platform: "/mobile", type: TrackType.View) {}
+
     "/instore_hot_sale/congrats" (platform: "/mobile", type: TrackType.View) {
         result(required: true, inheritable: false, type: PropertyType.String, description: "The congrats result: success, error, or sold_out")
     }
