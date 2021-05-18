@@ -21,7 +21,8 @@ metrics {
              "/wallet_home/section/tap/activities",
              "/wallet_home/section/tap/prepaid_banner",
              "/wallet_home/section/tap/credits",
-             "/wallet_home/section/tap/discount_center"
+             "/wallet_home/section/tap/discount_center",
+             "/wallet_home/section/tap/qr_fab"
              )
       }
     }
@@ -170,4 +171,15 @@ metrics {
     }
   }
 
+  "wallet_home.qr"(description: "Counts when an user taps the QR button in the Home") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/qr_fab")
+      }
+    }
+  }
 }
