@@ -1084,6 +1084,12 @@ trackTests {
             latest_news_type= "merchants_growth_resellers_smart_launch"
             status= "read"
         }
+        "/notification_center/merchants_growth_sameday"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_type= "merchants_growth_sameday"
+            status= "read"
+        }        
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -4808,6 +4814,9 @@ trackTests {
         "/notification/merchants_growth_resellers_smart_launch"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_sameday"(platform: "/mobile") {
+            event_type = "open"
+        }        
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -6760,6 +6769,12 @@ trackTests {
             latest_news_type= "merchants_growth_resellers_smart_launch"
             status= "read"
         }
+        "/notification_center/merchants_growth_sameday"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_type= "merchants_growth_sameday"
+            status= "read"
+        }        
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -10669,6 +10684,9 @@ trackTests {
             event_type = "open"
         }
         "/notification/merchants_growth_resellers_smart_launch"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_sameday"(platform: "/mobile") {
             event_type = "open"
         }
 
