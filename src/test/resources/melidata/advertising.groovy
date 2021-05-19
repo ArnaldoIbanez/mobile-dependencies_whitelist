@@ -2242,7 +2242,7 @@ trackTests {
     test("Advertising Reports"){
         "/advertising/pads2/reports"(platform: "/", type: TrackType.View) {
             mode = "custom"
-            type: "ads"
+            type = "ads"
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
@@ -2282,7 +2282,7 @@ trackTests {
 
         "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"
-            type: "ads"
+            type = "ads"
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
