@@ -265,4 +265,27 @@ tracks {
       startTime (type: PropertyType.String, required: true, description: "Configured start time from a landing")
       endTime (type: PropertyType.String, required: true, description: "Configured end time from a landing")
     }
+
+    // MP Landing - Landing KIT QR
+    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1305") {
+        product (type: PropertyType.String, required: false, description: "Name of device, example: 'kit-standalone'")
+        currency (type: PropertyType.String, required: false, description: "Currency")
+        price (type: PropertyType.Numeric, required: false, description: "Price of device")
+        has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
+        coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
+        coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
+        discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
+        price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+
+    "/landing/qr_kit/buy"(platform: "/", type: TrackType.Event) {}
+
+    "/landing/qr_kit/component" (platform: "/", isAbstract: true, ) {
+        component_id(required: true, type: PropertyType.String, description: "Component's id")
+        component_type(required: true, type: PropertyType.String, values: ["button", "link"], description: "Component's type")
+        value(required: true, type: PropertyType.String, description: "Component's value")
+    }
+
+    "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {}
+
 }
