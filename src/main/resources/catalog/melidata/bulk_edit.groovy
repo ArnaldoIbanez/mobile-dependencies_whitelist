@@ -58,11 +58,6 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
-     "/seller_central/bulk/massive_action/price"(platform: "/", type: TrackType.Event) {
-        value(required: true, type: PropertyType.Number, description: "Value of increment (number quantity or percetnage")
-        operation_id(required: true, type: PropertyType.String, description: "Change applied in price")
-    }   
-
     "/seller_central/bulk/massive_action"(platform: "/", type: TrackType.Event) {
         column_id(required: true, type: PropertyType.String, description: "Column affected")
         operation_id(required: true, type: PropertyType.String, description: "Operation Id change")
