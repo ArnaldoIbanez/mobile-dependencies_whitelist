@@ -1400,6 +1400,18 @@ trackTests {
                 tracking_id = "1"
             }
 
+            "/login/transactional/challenge/submit"(platform: "/mobile/android", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_submit"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/submit"(platform: "/mobile/ios", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_submit"
+                tracking_id = "1"
+            }
+
             //Operation Start
             "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
