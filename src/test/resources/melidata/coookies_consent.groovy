@@ -48,6 +48,12 @@ trackTests {
             "/navigation/cookies_consent/accept_all"(platform: "/web/mobile", type: TrackType.Event) {
                 consent_type = consent_types.modal
             }
+            "/navigation/cookies_consent/accept_all"(platform: "/web/desktop", type: TrackType.Event) {
+                consent_type = consent_types.bottom
+            }
+            "/navigation/cookies_consent/accept_all"(platform: "/web/desktop", type: TrackType.Event) {
+                consent_type = consent_types.modal
+            }
         }
 
         test("navigation cookies-consent personalize event") {
@@ -55,6 +61,12 @@ trackTests {
                 consent_type = consent_types.bottom
             }
             "/navigation/cookies_consent/personalize"(platform: "/web/mobile", type: TrackType.Event) {
+                consent_type = consent_types.modal
+            }
+            "/navigation/cookies_consent/personalize"(platform: "/web/desktop", type: TrackType.Event) {
+                consent_type = consent_types.bottom
+            }
+            "/navigation/cookies_consent/personalize"(platform: "/web/desktop", type: TrackType.Event) {
                 consent_type = consent_types.modal
             }
         }
