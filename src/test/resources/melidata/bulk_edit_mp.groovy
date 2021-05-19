@@ -53,62 +53,10 @@ trackTests {
         }
     }
 
-    test("seller central bulk changes price mp") {
-        "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
-            oldValue = "20"
-            newValue = "25"
-            item_id = "MLB341920"
-        }
-    }
-
-      test("seller central bulk changes price mp column mshops") {
-        "/seller_central/bulk/changes/price_mshops"(platform: "/", type: TrackType.Event) {
-            old_value = "20"
-            new_value = "25"
-            item_id = "MLB341920"
-        }
-    }
-
-       test("seller central bulk changes price column mp") {
-        "/seller_central/bulk/massive_action/price"(platform: "/", type: TrackType.Event) {
-            value = 8
+     test("seller central bulk changes massive actions mp") {
+        "/seller_central/bulk/massive_action"(platform: "/", type: TrackType.Event) {
+            column_id = "price"
             operation_id = "increase_price_value"
-        }
-    }
-
-    test("seller central bulk changes listing type mp") {
-        "/seller_central/bulk/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
-            listing_type = "gold_special"
-        }
-    }
-
-    test("seller central bulk changes quantity mp") {
-        "/seller_central/bulk/massive_action/quantity"(platform: "/", type: TrackType.Event) {
-            quantity = 20
-        }
-    }
-
-    test("seller central bulk changes shipping method mp") {
-        "/seller_central/bulk/massive_action/shipping_method"(platform: "/", type: TrackType.Event) {
-            operation_id = "ADD_SHIPPING"
-        }
-    }
-
-    test("seller central bulk changes syncro price mp") {
-        "/seller_central/bulk/massive_action/syncro_price"(platform: "/", type: TrackType.Event) {
-            operation_id = "YES"
-        }
-    }
-
-    test("seller central bulk changes delete inactivess mp") {
-       "/seller_central/bulk/massive_action/delete_inactive"(platform: "/", type: TrackType.Event) {
-            operation_id = "DELETE"
-        }
-    }
-
-   test("seller central bulk changes status mp") {
-       "/seller_central/bulk/massive_action/status"(platform: "/", type: TrackType.Event) {
-            operation_id = "ACTIVATE"
         }
     }
 

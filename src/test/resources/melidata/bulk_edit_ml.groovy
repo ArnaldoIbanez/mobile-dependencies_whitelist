@@ -69,46 +69,10 @@ trackTests {
         }
     }
 
-   test("seller central bulk changes price column") {
-        "/seller_central/bulk/massive_action/price"(platform: "/", type: TrackType.Event) {
-            value = 8
+   test("seller central bulk changes massive actions") {
+        "/seller_central/bulk/massive_action"(platform: "/", type: TrackType.Event) {
+            column_id = "price"
             operation_id = "increase_price_value"
-        }
-    }
-
-    test("seller central bulk changes listing type") {
-        "/seller_central/bulk/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
-            listing_type = "gold_special"
-        }
-    }
-
-    test("seller central bulk changes quantity") {
-        "/seller_central/bulk/massive_action/quantity"(platform: "/", type: TrackType.Event) {
-            quantity = 20
-        }
-    }
-
-    test("seller central bulk changes shipping method") {
-        "/seller_central/bulk/massive_action/shipping_method"(platform: "/", type: TrackType.Event) {
-            operation_id = "ADD_SHIPPING"
-        }
-    }
-
-    test("seller central bulk changes syncro price") {
-        "/seller_central/bulk/massive_action/syncro_price"(platform: "/", type: TrackType.Event) {
-            operation_id = "YES"
-        }
-    }
-
-    test("seller central bulk changes delete inactivess") {
-       "/seller_central/bulk/massive_action/delete_inactive"(platform: "/", type: TrackType.Event) {
-            operation_id = "DELETE"
-        }
-    }
-
-   test("seller central bulk changes status") {
-       "/seller_central/bulk/massive_action/status"(platform: "/", type: TrackType.Event) {
-            operation_id = "ACTIVATE"
         }
     }
 
