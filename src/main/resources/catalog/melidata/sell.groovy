@@ -424,7 +424,10 @@ tracks {
     "/sell/list/sip/notification"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
-    "/sell/list/payment_experience"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/payment_experience"(platform: "/mobile", type: TrackType.View){
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+        catalogFlowMobile
+    }
     "/sell/list/location"(platform: "/", type: TrackType.View) {}
     "/sell/list/location_map"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/location_suggestion"(platform: "/", type: TrackType.View) {}
@@ -757,7 +760,9 @@ tracks {
     "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
 
-    "/sell/upgrade/payment_experience"(platform: "/mobile", type: TrackType.View){}
+    "/sell/upgrade/payment_experience"(platform: "/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
 
     "/sell/sip_upgrade"(platform: "/mobile", type: TrackType.Event){
         source(required: true, values: ["section"], description: "Upgrade intention source's", type: PropertyType.String)
