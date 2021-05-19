@@ -55,6 +55,21 @@ tracks {
     *         Tracks - Loggued Context        *
     ******************************************/
 
+    // MP Logged Navigation
+    "/navigation/sidebar"(platform: "/web", isAbstract: true) {}
+    "/navigation/sidebar/click"(platform: "/web", type: TrackType.Event) {
+        id(
+            required: true,
+            type: PropertyType.String,
+            description: "The link's identifier (e.g. digital-account, asset, credits, etc)"
+        )
+        hierarchy(
+            required: false,
+            type: PropertyType.String,
+            description: "The link's hierarchy position (e.g. header, l1, l2, l3, etc)"
+        )
+    }
+
     // MP Home
     "/mp_home"(platform: "/", type: TrackType.View) {
         userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])

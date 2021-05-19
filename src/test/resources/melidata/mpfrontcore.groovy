@@ -13,6 +13,13 @@ trackTests {
      * Tracks Tests - Loggued Context
      */
 
+    test("Navigation Sidebar") {
+        "/navigation/sidebar/click"(platform: "/web", type: TrackType.Event) {
+            id = "mgmreseller"
+            hierarchy = "L1"
+        }
+    }
+
     test("Mercadopago Home") {
         "/mp_home" (platform: "/", type: TrackType.View) {}
     }
