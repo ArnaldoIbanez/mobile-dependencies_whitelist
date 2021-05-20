@@ -13,6 +13,13 @@ trackTests {
      * Tracks Tests - Loggued Context
      */
 
+    test("Navigation Sidebar") {
+        "/navigation/sidebar/click"(platform: "/web", type: TrackType.Event) {
+            id = "mgmreseller"
+            hierarchy = "L1"
+        }
+    }
+
     test("Mercadopago Home") {
         "/mp_home" (platform: "/", type: TrackType.View) {}
     }
@@ -185,5 +192,28 @@ trackTests {
         startTime = "2020-05-17T00:00:00Z"
         endTime = "2020-06-30T00:00:00Z"
       }
+    }
+
+    test("MP Landing - Landing KIT QR") {
+        "/landing/qr_kit" (platform: "/", type: TrackType.View) {
+            product = "kit-qr-standalone"
+            currency = "ARS"
+            price = 500
+            discount = 401
+            price_with_discount = 99
+            has_coupon = true
+            coupon_code = "K97EN"
+            coupon_type = "default"
+        }
+
+         "/landing/qr_kit/buy" (platform: "/", type: TrackType.Event) {
+            product = "kit-qr-standalone"
+        }
+
+         "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {
+            component_id = "open_modal"
+            component_type = "button"
+            value = "Open Modal"
+        }
     }
 }

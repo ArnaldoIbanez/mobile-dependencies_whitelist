@@ -43,6 +43,12 @@ trackTests {
         }
     }
 
+    // Error
+
+    test("Hot sale error view") {
+        "/instore_hot_sale/error" (platform: "/mobile", type: TrackType.View) {}
+    }
+
     // Congrats
 
     test("Hot sale congrats view") {

@@ -11430,6 +11430,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_nip_change"(platform: "/mobile") {
+            news_id = "card_nip_change-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -11827,6 +11833,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_nip_change"(platform: "/mobile") {
+            news_id = "card_nip_change-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"

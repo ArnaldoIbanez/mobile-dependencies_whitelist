@@ -199,6 +199,13 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical="core"
         }
+        "/sell/upgrade/payment_experience"(platform: "/mobile") {
+            item_id = "MLA12345"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical="core"
+        }
         "/sell/sip_upgrade"(platform: "/mobile"){
             source = "section"
             vertical = "motors"
@@ -1044,6 +1051,17 @@ trackTests {
             item_id = "MLA12345"
             defaultCatalogFlowMobile()
         }
+        "/sell/list/payment_experience"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+            user_shops_status = "none"
+            sale_channels = ["mshops", "marketplace"]
+            item_id = "MLA12345"
+            defaultCatalogFlowMobile()
+        }
 
         "/sell/list/technical_specifications_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1340,6 +1358,15 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "motors"
+        }
+        "/sell/list/inscription_number"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "motors"
+            listing_type_id ="silver"
+            listing_type_free_available = false
         }
     }
 
@@ -2882,6 +2909,13 @@ trackTests {
             seller_profile = "NEWBIE"
         }
         "/sell/update/quotable_category_landing"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+
+        "/sell/update/inscription_number"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -4472,6 +4506,8 @@ trackTests {
             title_predicted = "test"
             has_free = true
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4823,6 +4859,8 @@ trackTests {
             seller_reputation = "green"
             item_type = "product"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4889,6 +4927,8 @@ trackTests {
             seller_reputation = "green"
             list_mode = "LIST"
             vertical = "core"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4903,6 +4943,8 @@ trackTests {
             list_mode = "LIST"
             vertical = "core"
             variations_id = [123423, 123123, 123123]
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4917,6 +4959,8 @@ trackTests {
             list_mode = "LIST"
             vertical = "core"
             variation_id = 123
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4931,6 +4975,8 @@ trackTests {
             list_mode = "LIST"
             vertical = "core"
             variation_id = null
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
@@ -4993,6 +5039,36 @@ trackTests {
 
     test("SYI v4 pictures confirm"){
         "/sell/item_data/pictures/confirm"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+
+    test("SYI v4 render pictures with validations"){
+        "/sell/item_data/pictures_with_validations/show"(platform: "web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+
+    test("SYI v4 render pictures with validations"){
+        "/sell/item_data/pictures_with_validations/confirm"(platform: "web/mobile", type: TrackType.Event){
             category_id = "MLA390784"
             category_path = ["MLA1", "MLA2", "MLA3"]
             seller_profile = "ADVANCED"
