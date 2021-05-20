@@ -372,7 +372,9 @@ trackTests {
       reputation = "4_light_green"
       card = [
         type: "RECOMMENDATION",
-        key: "LIGHTNING_OFFER"
+        key: "LIGHTNING_OFFER",
+        page: 1,
+        position: 3
       ]
       seller_experience = "ADVANCED"
     }
@@ -399,11 +401,13 @@ trackTests {
       cards = [
         [
           type: "RECOMMENDATION",
-          key: "LIGHTNING_OFFER"
+          key: "LIGHTNING_OFFER",
+          page: 2
         ],
         [
           type: "CONTENT",
-          key: "PB01"
+          key: "PB01",
+          page: 2
         ]
       ]
       seller_experience = "ADVANCED"
