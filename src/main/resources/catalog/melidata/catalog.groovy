@@ -112,6 +112,7 @@ catalog {
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
         include business, "credits_classifieds.groovy"
+        include business, "credits_vis.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "fulfillment.groovy"

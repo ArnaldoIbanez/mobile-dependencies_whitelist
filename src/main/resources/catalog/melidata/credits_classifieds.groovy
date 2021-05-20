@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1206"
+    initiative = "1315"
 
     propertyDefinitions {
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
@@ -23,6 +23,7 @@ tracks {
                 "INVALID",
                 "C2FREE_ITAU",
                 "PACC",
+                "CORBAN_ITAU",
             ]
         )
         bank(
