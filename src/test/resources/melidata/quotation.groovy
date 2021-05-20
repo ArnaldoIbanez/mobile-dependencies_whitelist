@@ -45,11 +45,27 @@ trackTests {
         }
     }
 
-    test("Quotation :: Show select models tracking event") {
+    test("Quotation :: Show select models tracking event old web vip") {
 
         "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
             item_id = "MLM2222222"
             source = "primary"
+        }
+    }
+
+    test("Quotation :: Show select models tracking event new vpp") {
+
+        "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "primary"
+            seller_id = 123456789
+            buying_mode= "classified"
+            category_path= ["MLA1540","MLA122258"]
+            item_condition = "new"
+            item_seller_type = "normal"
+            item_status = "active"
+            listing_type_id = "gold_premium"
+            deal_ids = []
         }
     }
 
