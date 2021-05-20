@@ -93,10 +93,17 @@ tracks {
     "/insurtech/protections/claims/execute/address"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
+
    "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         address_id(required: true, type: PropertyType.Numeric, description: "Id of the selected address")
     }
     "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/claims/execute/imei_lock_code"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+
+    "/insurtech/protections/claims/execute/imei_lock_code/confirm"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/execute/review"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
