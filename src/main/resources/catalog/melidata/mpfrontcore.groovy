@@ -68,6 +68,12 @@ tracks {
             type: PropertyType.String,
             description: "The link's hierarchy position (e.g. header, l1, l2, l3, etc)"
         )
+        user_profile(
+            required: false,
+            type: PropertyType.String,
+            description: "User profile type", 
+            values: ['newbie', 'collector', 'payer']
+        )
     }
 
     // MP Home

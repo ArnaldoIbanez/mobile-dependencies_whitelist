@@ -16,6 +16,7 @@ trackTests {
     test("Navigation Sidebar") {
         "/navigation/sidebar/click"(platform: "/web", type: TrackType.Event) {
             id = "mgmreseller"
+            user_profile = "payer"
             hierarchy = "L1"
         }
     }
