@@ -13,6 +13,9 @@ tracks {
 
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
 
+
+    "/seller_central/bulk/massive_action"(platform: "/", isAbstract: true) {}
+
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/changes"(platform: "/", isAbstract: true) {}
@@ -47,6 +50,17 @@ tracks {
         oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
         newValue(required: true, type: PropertyType.String, description: "New value")
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
+    }
+
+    "/seller_central/bulk/changes/price_mshops"(platform: "/", type: TrackType.Event) {
+        old_value(required: true, type: PropertyType.String, description: "Old value of the price cell")
+        new_value(required: true, type: PropertyType.String, description: "New value")
+        item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
+    }
+
+    "/seller_central/bulk/massive_action"(platform: "/", type: TrackType.Event) {
+        column_id(required: true, type: PropertyType.String, description: "Column affected")
+        operation_id(required: true, type: PropertyType.String, description: "Operation Id change")
     }
 
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
