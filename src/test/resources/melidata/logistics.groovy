@@ -456,7 +456,7 @@ trackTests {
             vehicle_id = 123
             receiver_relationship = "HOLDER"
         }
-        "//logistics/last_mile/deliver/holder_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/deliver/holder_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
             vehicle_id = 123
             driver_id = 124
             route_id = "123"
@@ -464,7 +464,7 @@ trackTests {
             checked_shipments = [123, 123]
             dismissed_shipments = [123, 123]
         }
-        "//logistics/last_mile/deliver/another_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/deliver/another_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
             vehicle_id = 123
             driver_id = 124
             route_id = "123"
