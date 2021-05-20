@@ -202,11 +202,11 @@ tracks {
 
     //Login Transactional
     "/login/transactional"(platform: "/mobile", isAbstract: true, initiative: 1127) {
-        authentication_id(type: PropertyType.String, required: true, description: "Reauthentication id Transaction")
+        authentication_id(type: PropertyType.String, required: true, description: "Authentication id Transaction")
     }
 
     "/login/transactional/success"(platform: "/mobile", type: TrackType.Event) {
-        challenge(type: PropertyType.String, required: true, description: "Reauthentication step")
+        challenge(type: PropertyType.String, required: true, description: "Transactional step")
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
     }
 
@@ -216,7 +216,7 @@ tracks {
     }
 
     "/login/transactional/challenge"(platform: "/mobile", type: TrackType.View) {
-        challenge(type: PropertyType.String, required: true, description: "Reauthentication Step")
+        challenge(type: PropertyType.String, required: true, description: "Transactional Step")
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
     }
 
@@ -225,9 +225,10 @@ tracks {
     }
 
     "/login/transactional/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
-        challenge(type: PropertyType.String, required: true, description: "Reauthentication Step")
         tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
     }
+
+    "/login/transactional/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
 
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}

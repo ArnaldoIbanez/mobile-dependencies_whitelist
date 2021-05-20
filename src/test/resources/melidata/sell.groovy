@@ -1341,6 +1341,15 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "motors"
         }
+        "/sell/list/inscription_number"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "motors"
+            listing_type_id ="silver"
+            listing_type_free_available = false
+        }
     }
 
     test("Native Sell List Real State flow steps") {
@@ -2882,6 +2891,13 @@ trackTests {
             seller_profile = "NEWBIE"
         }
         "/sell/update/quotable_category_landing"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+
+        "/sell/update/inscription_number"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
