@@ -784,6 +784,66 @@ tracks {
      *    End: Consumers Change Due Date FLow
      ******************************************/
 
+    /******************************************
+     *    Start: Consumers Early Repayments FLow
+     ******************************************/
+    "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
+        total_amount(
+            required: true,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: true,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: true,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: true,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+    "/credits/consumer/early_repayments/success"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/warning"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
+        total_amount(
+            required: true,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: true,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: true,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: true,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+     /******************************************
+     *    End: Consumers Early Repayments FLow
+     ******************************************/
+
+
      /******************************************
      *    Start: Self service
      ******************************************/

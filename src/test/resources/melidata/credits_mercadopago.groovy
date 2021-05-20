@@ -1720,6 +1720,31 @@ trackTests {
         ******************************************/
     }
 
+    test("Early Repayments for Consumer Credits users browsing by MP") {
+        /******************************************
+        *    Start: Consumers Early Repayments FLow
+        ******************************************/
+        "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
+            total_amount = 100
+            total_amount_with_discount = 100
+            total_discount = 0
+            installments_ids = [1111,2222,3333]
+        }
+
+        "/credits/consumer/early_repayments/success"(platform: "/", type: TrackType.View) {}
+        "/credits/consumer/early_repayments/error"(platform: "/", type: TrackType.View) {}
+        "/credits/consumer/early_repayments/warning"(platform: "/", type: TrackType.View) {}
+        "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
+            total_amount = 100
+            total_amount_with_discount = 100
+            total_discount = 0
+            installments_ids = [1111,2222,3333]
+        }
+        /******************************************
+        *    End: Consumers Early Repayments FLow
+        ******************************************/
+    }
+
     test("Self service from MercadoPago") {
         /******************************************
         *    Start: Self Service
