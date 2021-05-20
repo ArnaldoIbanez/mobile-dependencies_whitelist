@@ -789,22 +789,22 @@ tracks {
      ******************************************/
     "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
         total_amount(
-            required: true,
+            required: false,
             description: "total installments amount",
             type: PropertyType.Numeric
         )
         total_amount_with_discount(
-            required: true,
+            required: false,
             description: "total amount offerted to user",
             type: PropertyType.Numeric
         )
         total_discount(
-            required: true,
+            required: false,
             description: "Total discount",
             type: PropertyType.Numeric
         )
         installments_ids(
-            required: true,
+            required: false,
             description: "Array of Installments",
             type: PropertyType.ArrayList
         )
@@ -818,22 +818,22 @@ tracks {
 
     "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
         total_amount(
-            required: true,
+            required: false,
             description: "total installments amount",
             type: PropertyType.Numeric
         )
         total_amount_with_discount(
-            required: true,
+            required: false,
             description: "total amount offerted to user",
             type: PropertyType.Numeric
         )
         total_discount(
-            required: true,
+            required: false,
             description: "Total discount",
             type: PropertyType.Numeric
         )
         installments_ids(
-            required: true,
+            required: false,
             description: "Array of Installments",
             type: PropertyType.ArrayList
         )
