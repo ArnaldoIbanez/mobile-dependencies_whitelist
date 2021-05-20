@@ -13,7 +13,17 @@ trackTests {
     ******************************************/
 
     test("Balance") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {}
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            available: true
+            debts: true
+            retained: false
+            embargo_invested: false
+            invested: false
+            not_invested: false
+            release: false
+            shortcuts: ['money_in', 'money_out']
+            activities: false
+        }
     }
 
     test("Balance Calendar") {

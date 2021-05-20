@@ -2,7 +2,6 @@ package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
-
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -34,6 +33,17 @@ tracks {
         period_option(required: false, type: PropertyType.String, description: "In case of default period type, option selected")
         begin_date(required: true, type: PropertyType.String, description: "Start date of the selected period")
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
+
+        //Banking
+        available(required: true, type: PropertyType.Boolean, description: "Indicates if the user has money available")
+        debts(required: true, type: PropertyType.Boolean, description: "Indicates if user has debt card")
+        retained(required: false, type: PropertyType.Boolean, description: "Indicates if user has money retained")
+        embargo_invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money retained by embargo")
+        invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money invested")
+        not_invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money no money invested")
+        release(required: true, type: PropertyType.Boolean, description: "Indicates if user has money to release")
+        shortcuts(required: true, type: PropertyType.ArrayList, description: "Indicates the shortcuts available for the user")
+        activities(required: true, type: PropertyType.Boolean, description: "Indicates if user has money activities")
     }
 
     propertyGroups {
@@ -52,18 +62,20 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        bankingTrack (
+                available, debts, retained, embargo_invested, invested, not_invested, release, shortcuts, activities,
+        )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/balance"(platform: "/", type: TrackType.View) { bankingTrack }
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
     "/banking/debts"(platform: "/", type: TrackType.View) {}
-    "/banking/debts/detail"(platform: "/", type: TrackType.View) {}
 
     // Balance Events
     "/banking/balance/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
@@ -77,17 +89,6 @@ tracks {
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
-    "/banking/pnf/confirm"(platform: "/", type: TrackType.Event) {}
-    "/banking/pnf/congrats"(platform: "/", type: TrackType.Event) {
-        status( required: true, type: PropertyType.String , description: "Pnf congrats whether the screen was successful or not" )
-    }
-    "/banking/pnf/back"(platform: "/", type: TrackType.Event) {
-        action( require: true, type: PropertyType.String, description: "Identifies back action component")
-    }
-    "/banking/pnf/inprogress"(platform: "/", type: TrackType.View) {}
-    "/banking/pnf/error"(platform: "/", type: TrackType.View) {
-        page( require: true, type: PropertyType.String, description: "Identifies from which screen ends in error view")
-    }
 
     // Movements
     "/banking/movements"(platform: "/", type: TrackType.View) {}
@@ -115,26 +116,4 @@ tracks {
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { eventDataTrack }
-
-    // Vouchers
-    "/banking/vouchers"(platform: "/", type: TrackType.View) {}
-
-    // Vouchers - Benefits 
-    "/banking/vouchers/benefits"(platform: "/", isAbstract: true) {}
-    "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - Account switch
-    "/banking/vouchers/account-money"(platform: "/", isAbstract: true) {}
-    "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - Activities
-    "/banking/vouchers/activities"(platform: "/", isAbstract: true) {}
-    "/banking/vouchers/activities/row"(platform: "/", type: TrackType.Event) {}
-    "/banking/vouchers/activities/footer"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - MP Card
-    "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
-
-    // Vouchers - Help
-    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}   
 }
