@@ -1235,6 +1235,14 @@ trackTests {
             card_id = "cardId_goes_here"
         }
     }
+    test("cards hybrid helper extraction contingency") {
+        "/cards/hybrid/card_helper/extraction/contingency"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+        "/cards/hybrid/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
+        }
+    }
 
 
     // OPTIONS Semaphore

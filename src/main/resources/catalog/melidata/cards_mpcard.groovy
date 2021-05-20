@@ -929,6 +929,22 @@ tracks {
             inheritable:false
         )
     }
+    "/cards/mpcard/card_helper/extraction/contingency"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+    }
+    "/cards/mpcard/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back_button"],
+            description: "Action Tapped"
+        )
+    }
 
     // Request: Pending Challenge
     "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}

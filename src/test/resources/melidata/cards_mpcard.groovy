@@ -1201,4 +1201,12 @@ trackTests {
             card_id = "cardId_goes_here"
         }
     }
+    test("cards mlm helper extraction contingency") {
+        "/cards/mpcard/card_helper/extraction/contingency"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+        "/cards/mpcard/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
+        }
+    }
 }

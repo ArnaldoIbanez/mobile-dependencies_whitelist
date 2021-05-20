@@ -1339,6 +1339,22 @@ tracks {
             inheritable:false
         )
     }
+    "/cards/hybrid/card_helper/extraction/contingency"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+    }
+    "/cards/hybrid/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back_button"],
+            description: "Action Tapped"
+        )
+    }
     
     // ENROLLMENT-HUB-NFC
     //-------------------
