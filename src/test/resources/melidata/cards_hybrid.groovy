@@ -577,6 +577,11 @@ trackTests {
             action = "card_sec_code_copy"
         }
     }
+    test("cards hybrid setup virtual wsp button tap tracking") {
+        "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+            action = "action"
+        }
+    }
     test("cards hybrid setup virtual card taps tracking") {
         "/cards/hybrid/setup/virtual/card/modal/tap"(platform:"/", type: TrackType.Event) {
             action = "primary_button"

@@ -579,6 +579,15 @@ tracks {
             description: "The action type tapped"
         )
     }
+    "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: false,
+            type: PropertyType.String,
+            description: "The wsp button tapped"
+        )
+    }
     "/cards/hybrid/setup/virtual/card"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/card/modal"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/card/modal/tap"(platform:"/", type: TrackType.Event) {
