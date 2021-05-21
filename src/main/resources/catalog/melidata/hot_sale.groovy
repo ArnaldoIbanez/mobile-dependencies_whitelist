@@ -28,8 +28,11 @@ tracks {
         type(required: true, inheritable: false, type: PropertyType.String, description: "The call to action type")
     }
 
-
     "/instore_hot_sale/error" (platform: "/mobile", type: TrackType.View) {}
+
+    "/instore_hot_sale/error/cta" (platform: "/mobile", type: TrackType.Event) {
+        type(required: true, inheritable: false, type: PropertyType.String, description: "The call to action type")
+    }
 
     "/instore_hot_sale/congrats" (platform: "/mobile", type: TrackType.View) {
         result(required: true, inheritable: false, type: PropertyType.String, description: "The congrats result: success, error, or sold_out")
