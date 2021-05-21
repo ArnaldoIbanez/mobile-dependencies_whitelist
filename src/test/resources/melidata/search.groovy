@@ -251,6 +251,16 @@ trackTests {
             ]
         }
 
+        def filter_definition = {
+            [
+                    carousel_id: "GENDER",
+                    selected   : [
+                            name       : "Sin género",
+                            selected_id: "110461"
+                    ]
+            ]
+        }
+
         def action_definition = {
             action_id: "show_all"
             filter_id: "BRAND"
@@ -493,6 +503,10 @@ trackTests {
 
         "/search/category_carousel"(platform: "/mobile", type: TrackType.Event) {
             carousels = category_definition()
+        }
+
+        "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event) {
+            carousels = filter_definition()
         }
 
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
