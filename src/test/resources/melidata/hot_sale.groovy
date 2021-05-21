@@ -48,6 +48,11 @@ trackTests {
     test("Hot sale error view") {
         "/instore_hot_sale/error" (platform: "/mobile", type: TrackType.View) {}
     }
+    test("Hot sale error event cta") {
+        "/instore_hot_sale/error/cta" (platform: "/mobile", type: TrackType.Event) {
+            type = "exit"
+        }
+    }
 
     // Congrats
 
