@@ -661,7 +661,13 @@ trackTests {
             context = "cancellation"
         }
         "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
+            context = "cancellation"
+        }
+        "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
+            context = "creation"
+        }
+        "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
             context = "creation"
         }
         "/cards/mpcard/block_card/virtual"(platform:"/", type: TrackType.View) {
@@ -676,6 +682,14 @@ trackTests {
         }
         "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
+            action = "secondary_button"
+            context = "creation"
+        }
+        "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+            context = "cancellation"
+        }
+        "/cards/mpcard/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "secondary_button"
             context = "creation"
         }

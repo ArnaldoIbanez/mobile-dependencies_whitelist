@@ -694,7 +694,7 @@ tracks {
     "/cards/hybrid/block_card"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/block_card/virtual"(platform: "/", type: TrackType.View) {
         card_id (
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Card id",
             inheritable: false
@@ -715,7 +715,7 @@ tracks {
             description: "The action type tapped"
         )
         card_id (
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Card id",
             inheritable: false
