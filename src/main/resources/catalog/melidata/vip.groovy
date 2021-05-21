@@ -1165,6 +1165,47 @@ tracks {
     "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
     }
 
+    "/vip/new_shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
+        shipping_promises(required: true,  type: PropertyType.ArrayList,description: "Shipping Promises")
+        //Shipping Promises
+        //promise
+        //  "type": String,
+        //  "display": String,
+        //  "discount_type": String,
+        //  "free_shipping": boolean,
+        //  "shipping_preference": String,
+        //  "after_dispatch": boolean,
+        //  "min_days": int,
+        //  "max_days": int,
+        //  "list_cost": int,
+        //  "cost": int,
+        //  "shipping_method_type": string,
+        //  "estimated_delivery_time": {
+        //                            "type": String,
+        //                            "date": String,
+        //                            "shipping": int,
+        //                            "handling": int,
+        //                            "offset": {
+        //                                "shipping": int
+        //                            },
+        //                            "pay_before": string
+        //                        }
+
+    }
+
+    "/vip/new_shipping_calculator/show_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
+    "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
+    "/vip/new_shipping_calculator/cancel"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+    "/vip/new_shipping_calculator/cancel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+    }
+
     "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event) {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
         deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
