@@ -597,6 +597,66 @@ trackTests {
             action = "block_card"
         }
     }
+    test("cards mpcard setup options success taps") {
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "freeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_freeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "change_limits"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "see_nip"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "block_card"
+        }
+    }
+    test("cards mpcard setup options failure taps") {
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "freeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_freeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "change_limits"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "see_nip"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "block_card"
+        }
+    }
     test("cards mpcard setup options physical locked message") {
         "/cards/mpcard/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
             action = "unlock"
@@ -1146,6 +1206,21 @@ trackTests {
     test("Feedback Tap event"){
         "/cards/mpcard/tracking/feedback/tap"(platform:"/mobile", type: TrackType.Event) {
             action = "research_form"
+        }
+    }
+
+    //Cards Helper Extraction
+    test("cards mpcard helper extraction to show user physical card data") {
+        "/cards/mpcard/card_helper/extraction"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+    }
+    test("cards mlm helper extraction contingency") {
+        "/cards/mpcard/card_helper/extraction/contingency"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+        "/cards/mpcard/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
         }
     }
 }
