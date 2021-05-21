@@ -593,10 +593,9 @@ tracks {
     "/cards/mpcard/block_card"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/block_card/virtual"(platform: "/", type: TrackType.View) {
         card_id (
-            required: false,
+            required: true,
             type: PropertyType.String,
-            description: "Card id",
-            inheritable: true
+            description: "Card id"
         )
         context (
             required: false,
