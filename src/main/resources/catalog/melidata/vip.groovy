@@ -25,6 +25,7 @@ tracks {
         value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item value")
     }
 
+
     propertyDefinitions {
         // TODO, podemos hacerlo required? Hay casos donde un item no tengan price?
         price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
@@ -1165,34 +1166,40 @@ tracks {
     "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
     }
 
+    Object new_shipping_calc_offset_definition = objectSchemaDefinitions {
+        shipping(required: false, type: PropertyType.Numeric, description: "")
+    }
+
+    Object new_shipping_calc_estimated_delivery_time_definition  = objectSchemaDefinitions {
+        type(required: false, type: PropertyType.String, description: "")
+        date(required: false, type: PropertyType.String, description: "")
+        shipping(required: false, type: PropertyType.Numeric, description: "")
+        handling(required: false, type: PropertyType.Numeric, description: "")
+        offset(required: false, type: PropertyType.Map(new_shipping_calc_offset), description: "")
+        pay_before(required: false, type: PropertyType.String, description: "")
+        time_frame(requered: false, type: PropertyType.Map, description: "")
+    }
+
+    Object new_shipping_calculator_promises_definition  = objectSchemaDefinitions {
+        type(required: false, type: PropertyType.String, description: "Type of Promise Agency or Address")
+        display(required: false, type: PropertyType.String, description: "")
+        discount_type(required: false, type: PropertyType.String, description: "Type of Discount Loyal, Gap etc ")
+        free_shipping(required: false, type: PropertyType.Boolean, description: "")
+        shipping_preference(required: false, type: PropertyType.String, description: "")
+        after_dispatch(required: false, type: PropertyType.Boolean, description: "")
+        min_days(required: false, type: PropertyType.Numeric, description: "")
+        max_days(required: false, type: PropertyType.Numeric, description: "")
+        list_cost(required: false, type: PropertyType.Numeric, description: "")
+        cost(required: false, type: PropertyType.Numeric, description: "")
+        shipping_method_type(required: false, type: PropertyType.String, description: "")
+        estimated_delivery_time(required: true,  type: PropertyType.Map(new_shipping_calc_estimated_delivery_time),description: "Shipping Promises")
+    }
+
     "/vip/new_shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
-        shipping_promises(required: true,  type: PropertyType.ArrayList,description: "Shipping Promises")
-        //Shipping Promises
-        //promise
-        //  "type": String,
-        //  "display": String,
-        //  "discount_type": String,
-        //  "free_shipping": boolean,
-        //  "shipping_preference": String,
-        //  "after_dispatch": boolean,
-        //  "min_days": int,
-        //  "max_days": int,
-        //  "list_cost": int,
-        //  "cost": int,
-        //  "shipping_method_type": string,
-        //  "estimated_delivery_time": {
-        //                            "type": String,
-        //                            "date": String,
-        //                            "shipping": int,
-        //                            "handling": int,
-        //                            "offset": {
-        //                                "shipping": int
-        //                            },
-        //                            "pay_before": string
-        //                        }
-
+        shipping_promises(required: false, type: PropertyType.ArrayList(PropertyType.Map(new_shipping_calculator_promises)),
+                description: "")
     }
 
     "/vip/new_shipping_calculator/show_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
