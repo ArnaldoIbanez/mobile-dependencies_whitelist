@@ -1137,7 +1137,7 @@ trackTests {
             ]
         }
 
-        "/wallet_home/shortcuts_sheet/add" (platform: "/mobile", type: TrackType.Event {
+        "/wallet_home/shortcuts_sheet/add" (platform: "/mobile", type: TrackType.Event) {
             user_profile="newbie"
             group_id = "seller"
             enabled = true
@@ -1154,7 +1154,7 @@ trackTests {
             ]
         }
 
-        "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event {
+        "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
             user_profile="newbie"
             group_id = "seller"
             enabled = true
