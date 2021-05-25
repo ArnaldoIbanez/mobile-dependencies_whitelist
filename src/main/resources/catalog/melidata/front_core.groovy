@@ -677,10 +677,6 @@ tracks {
         from(required: false, type: PropertyType.String, values: ["modal", "sheet"], description: "How did user saved his shortcuts")
     }
 
-    "/wallet_home/shortcuts_sheet/modal/view" (platform: "/mobile", type: TrackType.View) {}
-
-    "/wallet_home/shortcuts_sheet/modal/dismiss" (platform: "/mobile", type: TrackType.Event) {}
-
     "/wallet_home/shortcuts_sheet/add" (platform: "/mobile", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, description: "The user profile", values: ["seller", "payer", "newbie"])
         group_id(required: true, type: PropertyType.String, description: "The component id of the item")
@@ -692,9 +688,10 @@ tracks {
         group_position(required: false, type: PropertyType.String, description: "The group position of the item")
         component_id(required: true, type: PropertyType.String, description: "Component ID")
         has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
-        metadata_user(required: true, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
         has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
     }
+
     "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
         user_profile(type: PropertyType.String, required: true, description: "The user profile", values: ["seller", "payer", "newbie"])
         group_id(required: true, type: PropertyType.String, description: "The component id of the item")
@@ -706,10 +703,13 @@ tracks {
         group_position(required: false, type: PropertyType.String, description: "The group position of the item")
         component_id(required: true, type: PropertyType.String, description: "Component ID")
         has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
-        metadata_user(required: true, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
         has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
     }
 
+    "/wallet_home/shortcuts_sheet/modal/view" (platform: "/mobile", type: TrackType.View) {}
+
+    "/wallet_home/shortcuts_sheet/modal/dismiss" (platform: "/mobile", type: TrackType.Event) {}
 
     /************************************/
     //  TRACKS CROSS SELL EXPERIMENTS   //
