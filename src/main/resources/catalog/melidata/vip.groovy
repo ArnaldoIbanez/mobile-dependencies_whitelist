@@ -689,6 +689,10 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
+    "/vip/item/mercado_credits_modal"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
     //  QUESTION
 
     "/vip/question"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
@@ -730,7 +734,7 @@ tracks {
 
     "/vip/questions/quick_access"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
-        type(required: true, type: PropertyType.String,values: ["payment", "returns", "shipping", "warranty"], description: "quick access type")
+        type(required: true, type: PropertyType.String,values: ["payment", "returns", "shipping", "warranty", "credits"], description: "quick access type")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         context(required: true, type: PropertyType.String, description: "Indicates if is qadb or questions", values:["/qadb","/questions"])
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
