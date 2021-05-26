@@ -182,6 +182,7 @@ catalog {
         include business, "global_selling.groovy"
         include business, "categories.groovy"
         include business, "category_landing.groovy"
+        include business, "cx_clicktocall.groovy"
     }
 
     mercadopago.each { business ->
@@ -302,7 +303,6 @@ catalog {
         include business, "traffic.groovy"
         include business, "vip.groovy"
         include business, "splinter.groovy"
-        include business, "cx_clicktocall.groovy"
     }
 
 }
