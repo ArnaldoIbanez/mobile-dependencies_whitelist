@@ -240,6 +240,7 @@ tracks {
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
+        filter_carousel_shown(required: false, description: 'filter carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
