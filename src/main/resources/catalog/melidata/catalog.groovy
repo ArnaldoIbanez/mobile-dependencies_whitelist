@@ -302,6 +302,7 @@ catalog {
         include business, "traffic.groovy"
         include business, "vip.groovy"
         include business, "splinter.groovy"
+        include business, "cx_clicktocall.groovy"
     }
 
 }
