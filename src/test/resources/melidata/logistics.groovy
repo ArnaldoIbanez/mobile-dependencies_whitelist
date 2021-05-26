@@ -838,6 +838,24 @@ trackTests {
             vehicle_id = 1234l
             logistic_type = "LM"
         }
+        "/logistics/custom_clearence/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+            logistic_type = "LM"
+        }
+        "/logistics/custom_clearence/unsuccessful"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+            logistic_type = "LM"
+        }
+        "/logistics/custom_clearence/successful"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+            logistic_type = "LM"
+        }
     }
 
 }

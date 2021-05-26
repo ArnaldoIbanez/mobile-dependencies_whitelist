@@ -573,4 +573,22 @@ tracks {
         vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
         logistic_type(required: false, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
     }
+    "/logistics/custom_clearence/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
+    "/logistics/custom_clearence/unsuccessful"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
+    "/logistics/custom_clearence/successful"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
 }
