@@ -9,6 +9,11 @@ tracks {
 
     initiative = "1155"
 
+    "/cx"(platform: "/web/desktop", isAbstract: true) {}
+    "/cx/c2c"(platform: "/web/desktop", isAbstract: true) {}
+    "/cx/c2c/console"(platform: "/web/desktop", isAbstract: true) {}
+    "/cx/c2c/console/twilio"(platform: "/web/desktop", isAbstract: true) {}
+    
     "/cx/c2c/console/twilio/errors"(platform: "/web/desktop", type: TrackType.Event) {
         error_code(type: PropertyType.String, description: "Twilio Error code")
         error_text(type: PropertyType.String, description: "Twilio Error text")

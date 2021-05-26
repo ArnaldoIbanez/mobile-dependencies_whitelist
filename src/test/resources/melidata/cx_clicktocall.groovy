@@ -8,10 +8,6 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Console errors") {
-        "/cx"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/cx/c2c"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/cx/c2c/console"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/cx/c2c/console/twilio"(platform: "/web/desktop", type: TrackType.Event) {}
         "/cx/c2c/console/twilio/errors"(platform: "/web/desktop", type: TrackType.Event) {
             error_code = "30006"
             error_text = "Error message"
