@@ -20,12 +20,15 @@ tracks {
 
     def propertyLocationExtraInfo  = objectSchemaDefinitions {
         flow(required: true, type: PropertyType.String, description: "payment flow")
+        context(required: false, type: PropertyType.String, values: propertyContextValues, description: "Context from where permission landing was called")
     }
 
     def propertyFiltersModal = objectSchemaDefinitions {
     	tag(required: false, type: PropertyType.String, description:  "tag of filter")
         value(required: false, type: PropertyType.String, description:  "value of filter")
     }
+
+    def propertyContextValues  = ["/instore", "/instore/map", "/instore/map/location_button"]
 
     /**
     * INSTORES Screen Tracks
@@ -187,7 +190,7 @@ tracks {
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
         new_session(required: false, PropertyType.Boolean, description: "indicates if a new session_id was created")
-        context(required: true, PropertyType.String, values: ["/instore", "/instore/map"])
+        context(required: true, PropertyType.String, values: propertyContextValues)
     }
 
     "/ask_device_permission/location"(platform: "/mobile", type: TrackType.View) {
