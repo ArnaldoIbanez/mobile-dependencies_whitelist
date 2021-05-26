@@ -707,6 +707,8 @@ tracks {
         has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
     }
 
+    "/wallet_home/shortcuts_sheet/modal" (platform: "/mobile", isAbstract: true) {}  
+
     "/wallet_home/shortcuts_sheet/modal/view" (platform: "/mobile", type: TrackType.View) {}
 
     "/wallet_home/shortcuts_sheet/modal/dismiss" (platform: "/mobile", type: TrackType.Event) {}
