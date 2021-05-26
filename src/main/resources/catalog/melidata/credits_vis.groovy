@@ -28,7 +28,7 @@ tracks {
                         "votorantim",
                 ]
         )
-        domain_id(required: true, type: PropertyType.String, description: "Id of the product")
+        domain_id(required: false, type: PropertyType.String, description: "Id of the product")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree", serverSide: true)
         city(required: false, type: PropertyType.String, description: "Item city name")
@@ -44,7 +44,7 @@ tracks {
                 ]
         )
         item_condition(required: false, type: PropertyType.String, description: "Indicates whether the item is new, used or refurbished", values: ["new", "used", "refurbished", "not_specified"])
-        item_id(required: true, type: PropertyType.Numeric, description: "Item id")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
         item_seller_type(required: false, type: PropertyType.String, description: "Seller type: normal, real_estate_user, etc", values: ["branch", "brand", "car_dealer", "franchise", "normal", "real_estate_agency"])
         map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "Map of items attributes")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
@@ -56,13 +56,13 @@ tracks {
                 bank,
                 category_id,
                 category_path,
-                domain_id,
                 item_id,
                 seller_id,
                 vertical
         )
         vis_credits_optional(
                 city,
+                domain_id,
                 flow_type,
                 item_condition,
                 item_seller_type,
