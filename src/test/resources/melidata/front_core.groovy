@@ -2299,6 +2299,33 @@ trackTests {
                 flow = "default"
             }
         }
+
+        test("Mercadopago Home Tap v3 - Prepaid Banner [${business}]") {
+            "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+
         test("Mercadopago Home Tap v3 - Benefits [${business}]") {
             "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
