@@ -9,7 +9,7 @@ tracks {
 
     initiative = "1155"
 
-    "/c2c/console/errors"(platform: "/web/desktop", type: TrackType.Event) {
+    "/cx/c2c/console/twilio/errors"(platform: "/web/desktop", type: TrackType.Event) {
         error_code(type: PropertyType.String, description: "Twilio Error code")
         error_text(type: PropertyType.String, description: "Twilio Error text")
         call_sid(type: PropertyType.String, description: "Twilio Call SID")

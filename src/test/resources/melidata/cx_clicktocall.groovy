@@ -8,7 +8,7 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Console errors") {
-        "/c2c/console/errors"(platform: "/web/desktop", type: TrackType.Event) {
+        "/cx/c2c/console/twilio/errors"(platform: "/web/desktop", type: TrackType.Event) {
             error_code = "30006",
             error_text = "Error message",
             call_sid = "CA123123XPTO",
