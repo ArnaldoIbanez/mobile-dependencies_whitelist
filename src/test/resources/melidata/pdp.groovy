@@ -530,6 +530,14 @@ trackTests {
             type = "payment"
             context = "/qadb"
         })
+
+        "/pdp/questions/quick_access"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "credits"
+            context = "/qadb"
+        })
     }
 
     //QADB call to action
