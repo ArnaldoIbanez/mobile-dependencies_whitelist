@@ -1160,13 +1160,6 @@ trackTests {
         "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
             cards = []
         }
-        "/cards/hybrid/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
-        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
-            action = "button_primary"
-        }
-        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
-            action = "button_secondary"
-        }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
             action = "reissue"
@@ -1231,6 +1224,17 @@ trackTests {
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "contactless_hybrid_contactless"
             action = "unfreeze"
+        }
+    }
+
+    //OPTIONS Empty State
+    test("cards hybrid options Empty State tracking") {
+        "/cards/hybrid/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
         }
     }
 

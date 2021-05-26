@@ -1262,7 +1262,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["button_primary", "button_secondary"],
+            values: ["primary_button", "secondary_button"],
             inheritable: false
         )
     }

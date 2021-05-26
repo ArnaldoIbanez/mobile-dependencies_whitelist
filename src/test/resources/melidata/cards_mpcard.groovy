@@ -567,6 +567,16 @@ trackTests {
     }
 
     /// SETUP OPTIONS
+    // Empty State
+    test("cards mpcard options Empty State tracking") {
+        "/cards/mpcard/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
+        "/cards/mpcard/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/mpcard/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
+        }
+    }
     test("cards mpcard setup options") {
         "/cards/mpcard/setup/options"(platform: "/", type: TrackType.View) {
             virtual_status = "active"
