@@ -2217,6 +2217,52 @@ trackTests {
         "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
             favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
+
+        "/wallet_home/shortcuts_sheet/add" (platform: "/mobile", type: TrackType.Event) {
+            user_profile="newbie"
+            group_id = "seller"
+            enabled = true
+            is_favorite = false
+            position = 3
+            has_aware = false
+            content_id = "business"
+            group_position = 6
+            component_id="user_survey"
+            has_label = true
+            has_ripple = false
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
+            user_profile="newbie"
+            group_id = "seller"
+            enabled = true
+            is_favorite = false
+            position = 3
+            has_aware = false
+            content_id = "business"
+            group_position = 6
+            component_id="user_survey"
+            has_label = true
+            has_ripple = false
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/modal/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/modal/view" (platform: "/mobile", type: TrackType.View) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
     }
 
     test("New Digital Wallet - Ukraine Lab") {
