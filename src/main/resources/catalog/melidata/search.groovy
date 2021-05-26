@@ -100,6 +100,11 @@ tracks {
         selected(type: PropertyType.Map(selected_definition), required: false)
     }
 
+    def filter_definition = objectSchemaDefinitions {
+        carousel_id(type: PropertyType.String, required: true)
+        selected(type: PropertyType.Map(selected_definition), required: false)
+    }
+
     def selected_definition = objectSchemaDefinitions {
         name(required:true, PropertyType.String)
         selected_id(required:true, PropertyType.String)
@@ -349,6 +354,10 @@ tracks {
 
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
+    }
+
+    "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        carousels(required:true, PropertyType.ArrayList(PropertyType.Map(filter_definition)))
     }
 
     "/search/input/back"(platform: "/mobile") {}
