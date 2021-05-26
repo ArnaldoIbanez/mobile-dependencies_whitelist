@@ -123,4 +123,10 @@ tracks {
     }
     "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/execute/franchise/cancel"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/claims/execute/wipe_data"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+    "/insurtech/protections/claims/execute/wipe_data/confirm"(platform:"/", type: TrackType.Event) {}
+
 }
