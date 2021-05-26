@@ -228,8 +228,8 @@ tracks {
     "/asset_management/kyc_onboarding/show_more"(platform: "/", type: TrackType.Event) {}
 
     //Redirect onbaording mobile
-    "/asset_management/redirect_onboarding"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/redirect_onboarding/play_store"(platform: "/web", type: TrackType.Event) {}
-    "/asset_management/redirect_onboarding/app_store"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/kyc_web_blocker"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/kyc_web_blocker/play_store"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/kyc_web_blocker/app_store"(platform: "/web", type: TrackType.Event) {}
 
 }

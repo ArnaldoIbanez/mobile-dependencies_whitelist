@@ -491,6 +491,9 @@ tracks {
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
         display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
+        stored_address(required: false, inheritable: false, PropertyType.Boolean, description: "True if the location from the deeplink is an stored address")
+        location_permission_enabled(required: false, PropertyType.Boolean)
+        device_gps_enabled(required: false, PropertyType.Boolean)
     }
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
@@ -506,7 +509,9 @@ tracks {
         store_id(required: true, PropertyType.String, description: "the store's id")
         store_location(required: true, PropertyType.String, description: "the stores lat and long")
     }
-    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/map/locate_by_gps"(platform: "/mobile", type: TrackType.Event) {
+        has_permission(required: false, inheritable: false, PropertyType.Boolean, description: "true if the app has permissions before the user tapped on the location button")
+    }
     "/instore/map/search_in_this_area"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")

@@ -336,6 +336,29 @@ tracks {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
     }
+    "/logistics/last_mile/deliver/deliverable_selection_modal"(platform: "/mobile", type: TrackType.View) {
+        shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id to deliver", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+    }
+    "/logistics/last_mile/deliver/holder_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+        checked_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id checked to deliver", inheritable: false)
+        dismissed_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id dismissed to deliver", inheritable: false)
+    }
+    "/logistics/last_mile/deliver/another_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+        checked_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id checked to deliver", inheritable: false)
+        dismissed_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id dismissed to deliver", inheritable: false)
+    }
     "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)

@@ -48,6 +48,11 @@ trackTests {
     test("Hot sale error view") {
         "/instore_hot_sale/error" (platform: "/mobile", type: TrackType.View) {}
     }
+    test("Hot sale error event cta") {
+        "/instore_hot_sale/error/cta" (platform: "/mobile", type: TrackType.Event) {
+            type = "exit"
+        }
+    }
 
     // Congrats
 
@@ -105,13 +110,19 @@ trackTests {
     // Discounts
 
     test("Hot sale discounts view") {
-        "/instore_hot_sale/discounts" (platform: "/mobile", type: TrackType.View) {
-            discount_mcdonalds_enabled = true
-            discount_ragazzo_enabled = true
-            discount_habibs_enabled = false
-        }
+        "/instore_hot_sale/discounts" (platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("Hot sale discounts cupon_status event") {
+        "/instore_hot_sale/discounts/cupon_status" (platform: "/mobile", type: TrackType.Event) {
+            used_campaigns_status = [
+                [brand_name = "Starbucks", cupon_status = false],
+                [brand_name = "Burger King", cupon_status = false],
+                [brand_name = "Domino’s", cupon_status = true],
+                [brand_name = "Benavides", cupon_status = true],
+            ]
+        }
+    }
     test("Hot sale discounts back event") {
         "/instore_hot_sale/discounts/back" (platform: "/mobile", type: TrackType.Event) {}
     }

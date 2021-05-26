@@ -16,6 +16,7 @@ trackTests {
     test("Navigation Sidebar") {
         "/navigation/sidebar/click"(platform: "/web", type: TrackType.Event) {
             id = "mgmreseller"
+            user_profile = "payer"
             hierarchy = "L1"
         }
     }
@@ -62,6 +63,14 @@ trackTests {
 
     test("Mercadopago Profile") {
         "/profile" (platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Activities Detail") {
+        "/activity/detail" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Activities Detail Component Not Parsed") {
+        "/activity/detail/component_not_parsed" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Activities List") {

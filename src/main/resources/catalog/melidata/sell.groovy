@@ -64,16 +64,16 @@ tracks {
         valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
     }
 
-    def debug_model_map = objectSchemaDefinitions { 
-              model_name(type: PropertyType.String, required: true, description: "") 
-              score(type: PropertyType.Numeric, required: true, description: "") 
-    } 
-
-    def debug_domain_discovery_map = objectSchemaDefinitions { 
-              debug_model_name(type: PropertyType.Map(debug_model_map), 
-              required: true, description: "") 
+    def debug_model_map = objectSchemaDefinitions {
+              model_name(type: PropertyType.String, required: true, description: "")
+              score(type: PropertyType.Numeric, required: true, description: "")
     }
-    
+
+    def debug_domain_discovery_map = objectSchemaDefinitions {
+              debug_model_name(type: PropertyType.Map(debug_model_map),
+              required: true, description: "")
+    }
+
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         domain_id(required: false, type: PropertyType.String, description: "Item's category domain id")
@@ -111,8 +111,8 @@ tracks {
         accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
         debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
-        user_shops_status(required: true, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none"])
-        sales_channels(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Selected sales channels")
+        user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none"])
+        sales_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Selected sales channels")
     }
 
     propertyGroups {
@@ -424,6 +424,10 @@ tracks {
     "/sell/list/sip/notification"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/payment_experience"(platform: "/mobile", type: TrackType.View){
+        item_id(required: true, description: "Item id", type: PropertyType.String)
+        catalogFlowMobile
+    }
     "/sell/list/location"(platform: "/", type: TrackType.View) {}
     "/sell/list/location_map"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/location_suggestion"(platform: "/", type: TrackType.View) {}
@@ -758,6 +762,10 @@ tracks {
     "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
 
+    "/sell/upgrade/payment_experience"(platform: "/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+
     "/sell/sip_upgrade"(platform: "/mobile", type: TrackType.Event){
         source(required: true, values: ["section"], description: "Upgrade intention source's", type: PropertyType.String)
         vertical(required: true, values: ["core", "motors", "realEstate", "services"], description: "Item Vertical: core/service/motor/realEstate/etc...")
@@ -851,11 +859,11 @@ tracks {
         sellGroup
     }
 
-    "/sell/item_data/category/default_product_link"(isAbstract: true) {} 
+    "/sell/item_data/category/default_product_link"(isAbstract: true) {}
     "/sell/item_data/category/default_product_link/show"(platform: "/web", type: TrackType.Event) {
         sellGroup
     }
-    
+
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
@@ -968,7 +976,7 @@ tracks {
         flow_decision(required: true, type: PropertyType.Boolean, description: "Flow decision - true if is catalog")
         catalog_forced(required: true, type: PropertyType.Boolean, description: "Indicates if the flow decision card is forcing catalog")
     }
-    
+
     "/sell/item_data/catalog_optional"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/catalog_optional/show"(platform: "/web", type: TrackType.Event) {
         sellGroup
