@@ -570,12 +570,18 @@ tracks {
             description: "Indicate card type",
             inheritable:false
         )
+        has_money (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicate whether the user has money",
+            inheritable:false
+        )
     }
     "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "credit_card_message_no_limit", "credit_card_message_blocked_account", "credit_message_card_paused"],
+            values: ["header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "credit_card_message_no_limit", "credit_card_message_blocked_account", "credit_message_card_paused", "additional_message_freeze"],
             description: "The action type tapped"
         )
     }
@@ -708,7 +714,7 @@ tracks {
             inheritable: false
         )
         context (
-            required: true,
+            required: false,
             type: PropertyType.String,
             values: ["cancellation", "creation"],
             description: "Type of operation: cancel or reissue",
@@ -947,7 +953,6 @@ tracks {
         limits_status (
             required:true,
             type: PropertyType.String,
-            values: ["number_selector_atm" ,"message"],
             description: "Current sections",
             inheritable:false
         )
@@ -1165,7 +1170,7 @@ tracks {
         id (
             required: true,
             type: PropertyType.String,
-            values: ["dashboard_virtual_coachmark", "dashboard_physical_coachmark"],
+            values: ["dashboard_virtual_coachmark", "dashboard_physical_coachmark", "setup_virtual_debit_coachmark"],
             description: "Coachmark id"
         )
     }

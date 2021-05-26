@@ -562,6 +562,18 @@ trackTests {
             initial_status = "inactive"
             product_type = "hybrid"
         }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "hybrid"
+            has_money = true
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "hybrid"
+            has_money = false
+        }
     }
     test("cards hybrid setup virtual card taps tracking") {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -575,6 +587,9 @@ trackTests {
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "card_sec_code_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message_freeze"
         }
     }
     test("cards hybrid setup virtual wsp button tap tracking") {
@@ -1116,6 +1131,11 @@ trackTests {
             action = "previous"
             step = 2
             id = "dashboard_virtual_coachmark"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 3
+            id = "setup_virtual_debit_coachmark"
         }
     }
     
