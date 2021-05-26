@@ -644,6 +644,10 @@ tracks {
         walletHomeMerchEngineFields
     }
 
+    "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomeMerchEngineFields
+    }
+
     "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }

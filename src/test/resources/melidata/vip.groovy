@@ -913,6 +913,14 @@ trackTests {
             vip_version = "new"
         }
 
+        "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "credits"
+            context = "/qadb"
+            vip_version = "new"
+        }
+
         "/vip/qadb/call-to-action"(platform: "/", {
             item_id = "MLA112341"
         })
@@ -1816,6 +1824,16 @@ trackTests {
         }
 
         "/vip/item/free_return"(platform: "/", type: TrackType.View) {
+            properties()
+        }
+    }
+
+    test("VIP item mercado credits"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/item/mercado_credits_modal"(platform: "/", type: TrackType.View) {
             properties()
         }
     }
