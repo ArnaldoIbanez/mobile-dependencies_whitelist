@@ -123,9 +123,7 @@ trackTests {
             year = "2018"
             quarter = "4"
         }
-        "/asset_management/investment_report"(platform: "/web") {
-            year = "2018"
-        }
+        "/asset_management/investment_report"(platform: "/web") {}
 
         // Operations
         "/asset_management/operations"(platform: "/mobile") {} // new name
@@ -356,9 +354,7 @@ trackTests {
             year = "2018"
             quarter = "4"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
-            year = "2018"
-        }
+        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {}
 
         // Operations
         "/asset_management/operations"(platform: "/mobile", business: "mercadolibre") {} // new name
