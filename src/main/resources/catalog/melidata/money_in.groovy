@@ -328,7 +328,7 @@ tracks {
     //Debin Hub
     "/money_in/debin/hub"(platform:"/", type: TrackType.View){}
     "/money_in/debin/hub/select"(platform:"/",type: TrackType.Event){
-        key_type(required:false, description: "indicate the source of the debin")
+        account_id(required:false, description: "indicate the source of the debin")
     }
     "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
     "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
@@ -342,13 +342,13 @@ tracks {
     //Debin Calculator
     "/money_in/debin/calculator"(platform:"/", type: TrackType.View){}
     "/money_in/debin/calculator/continue"(platform:"/", type: TrackType.Event){
-        key_type(required:false, description: "indicate the amount of the debin")
+        amount(required:false, description: "indicate the amount of the debin")
     }
     "/money_in/debin/calculator/preset"(platform:"/", type: TrackType.Event){
-        key_type(required:false, description: "indicate the amount of the preset")
+        amount(required:false, description: "indicate the amount of the preset")
     }
     "/money_in/debin/calculator/message"(platform:"/", type: TrackType.Event){
-        key_type(required:false, description: "indicate the error message")
+        message(required:false, description: "indicate the error message")
     }
 
     //Debin RyC
@@ -363,20 +363,20 @@ tracks {
 
     //Debin Congrats
     "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
-        key_type(required:true, description:"status",values:["success", "pending", "error"])
+        status(required:true, description:"status",values:["success", "pending", "error"])
         error_type(required:false, description:"indicates the error of the debin")
     }
     "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
-         key_type(required:false, description:"status",values:["success", "pending", "error"])
+         status(required:false, description:"status",values:["success", "pending", "error"])
     }
     "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
-         key_type(required:false, description:"status",values:["error"])
+         status(required:false, description:"status",values:["error"])
     }
     "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
 
     //Debin Merch Engine
     "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
-        key_type(required:true,type: PropertyType.String, description:"status", values:["success","error"])
+        status(required:true,type: PropertyType.String, description:"merch engine status", values:["success","error"])
         audience(required:false,type: PropertyType.String, description:"indicates the audience")
         bu(required:false,type: PropertyType.String, description:"Indicates the buisiness unit")
         bu_line(required:false,type: PropertyType.String, description:"buisiness unit line")
@@ -393,7 +393,7 @@ tracks {
     "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/continue"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
-        key_type(required:true, description:"indicates the result of the search")
+        result_status(required:true, description:"indicates the result of the search")
     }
     "/money_in/debin/search/success/continue"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/generic_error/retry"(platform:"/", type: TrackType.Event){}
@@ -401,7 +401,7 @@ tracks {
     "/money_in/debin/search/ownership_error/go_home"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/ownership_error/edit_account"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
-        key_type(required:false, description:"indicates the tye of the bottom-sheet")
+        bs_type(required:false, description:"indicates the tye of the bottom-sheet")
     }
 
     //Money In Error View - Enchufe
