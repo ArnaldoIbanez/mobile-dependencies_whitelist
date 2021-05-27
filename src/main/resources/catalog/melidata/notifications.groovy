@@ -2761,7 +2761,7 @@ tracks {
     "/notification/card_nip_second_try"(platform: "/mobile") {}
     "/notification/card_nip_nip_block"(platform: "/mobile") {}
     "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {}
-    "/notification/card_nip_change"(platform: "/mobile") {}
+    "/notification/card_nip_set_nip"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}
