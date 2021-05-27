@@ -2312,6 +2312,35 @@ trackTests {
         "/advertising/pads2/reports/download"(platform: "/", type: TrackType.Event) {
             status = "success"
         }
+
+        "/advertising/pads2/reports/delete_text_filter"(platform: "/", type: TrackType.Event) {
+            text_filter = "campaign 123"
+        }
+
+        "/advertising/pads2/reports/return_manager"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            campaign_id = 123
+            status = "active"
+        }
+
+        "/advertising/pads2/manager/report"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+            campaign_id = 123
+            status = "active"
+            filters = [
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
+                    sll: "true",
+                    date_created: "2020-07-01"
+            ]
+            days = "15_days"
+            from = "2021-02-02"
+            to = "2021-05-02"
+
+        }
     }
 
 }
