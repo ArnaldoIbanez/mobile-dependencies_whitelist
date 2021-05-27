@@ -721,7 +721,6 @@ trackTests {
 
         "/vip/sizechart/preview"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
-            referer = "vip"
         }
 
         "/vip/show_sizechart_reviews"(platform: "/", type: TrackType.Event) {
