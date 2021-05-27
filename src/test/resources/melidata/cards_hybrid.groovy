@@ -1906,6 +1906,13 @@ trackTests {
         }
     }
 
+    // NFC-DEVICE-CVM
+    test("cards hybrid nfc device cvm information") {
+        "/cards/nfc/enrollment/devicecvm"(platform:"/", type: TrackType.Event) {
+            information = "device cdcvm initialized"
+        }
+    }
+
     test("cards hybrid nfc feature ignite status") {
         "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
             value = true
