@@ -16,6 +16,10 @@ tracks {
 
     "/vendor_central/summary/hub"(platform: "/web", type: TrackType.View) {}
 
+    "/vendor_central/summary/discount"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor central BULK Offering offline editor
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -32,6 +36,9 @@ tracks {
         items(required: true, type: PropertyType.Numeric, description: "Amount of downloaded items")
         filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
         categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied categories")
+        type(required: true, type: PropertyType.String, description: "Selected type of excel editing process")
+        selected_columns(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of selected sheet columns to edit")
+        branches(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied branches")
     }
 
     "/vendor_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {
@@ -39,7 +46,7 @@ tracks {
     }
 
     "/vendor_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["SUCCESS","WARNING"])
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -67,6 +74,86 @@ tracks {
         most_used(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from most used section")
         search_list(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from search section")
         modal(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from modal")
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Purchase order listing
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/vendor_central/inbound"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/inbound/listing"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Contra COGS
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/contra_cogs"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/contra_cogs/list"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
+        filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the filters ids applied to the search")
+        sorts(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the sorts ids applied the search")
+        search_terms(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the search terms applied for the search")
+        task(required: false, type: PropertyType.String, description: "this property describes the task id applied for the search")
+    }
+
+    "/vendor_central/contra_cogs/listing"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Invoices
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/invoices"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
+
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Inbound creator
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/inbound-shipment"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/inbound-shipment/creator"(platform: "/web",  type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/congrats"(platform: "/web", type: TrackType.View) {}
+
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Fiscal Documents Template Mappings
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/fiscal_documents"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/fiscal_documents/template_mappings"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/fiscal_documents/template_mappings/delete"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/get"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/modify"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+        template_id(required: false, type: PropertyType.String, description: "this property indicates the template id")
+        is_valid_template(required: false, type: PropertyType.Boolean, description: "this property indicates if the template is valid")
+    }
+
+    "/vendor_central/fiscal_documents/template_mappings/save"(platform: "/web", type: TrackType.Event) {
+        entity(required: true, type: PropertyType.String, description: "this property indicates the entity")
+        is_valid_entity(required: true, type: PropertyType.Boolean, description: "this property indicates if the entity is valid")
+        template_id(required: false, type: PropertyType.String, description: "this property indicates the template id")
+        is_valid_template(required: false, type: PropertyType.Boolean, description: "this property indicates if the template is valid")
     }
 
 }

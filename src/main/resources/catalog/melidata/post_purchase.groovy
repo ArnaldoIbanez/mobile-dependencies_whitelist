@@ -27,4 +27,7 @@ tracks {
         resolution(required: false, type: PropertyType.String, description: 'kind of operation', values:['return_product', 'change_product'])
     }
 
+    "/post_purchase/kyc_onboarding"(platform: "/", type: TrackType.View) { }
+    "/post_purchase/kyc_onboarding/validate"(platform: "/", type: TrackType.Event) { }
+    "/post_purchase/kyc_onboarding/back"(platform: "/", type: TrackType.Event) { }
 }
