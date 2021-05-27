@@ -565,6 +565,16 @@ tracks {
         )
     }
 
+    "/cards/mpcard/setup/options/empty_state"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/setup/options/empty_state/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary_button", "secondary_button"],
+            inheritable: false
+        )
+    }
+
     "/cards/mpcard/setup/options/message"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/setup/options/message/lock"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
