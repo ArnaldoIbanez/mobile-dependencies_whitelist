@@ -2091,256 +2091,256 @@ trackTests {
     // ENROLLMENT DIGITALIZE CARD
     test("cards hybrid nfc enrollment digitalize card") {
         "/cards/nfc/enrollment/digitize_card"(platform:"/", type:TrackType.Event) {
-            action = "digitalize_card_service_success"
+            action = "digitize_card_service_success"
         }
         "/cards/nfc/enrollment/digitize_card"(platform:"/", type:TrackType.Event) {
-            action = "digitalize_card_result"
+            action = "digitize_card_result"
             result = "SUCCESS"
         }
         "/cards/nfc/enrollment/digitize_card"(platform:"/", type:TrackType.Event) {
-            action = "digitalize_card_result"
+            action = "digitize_card_result"
             result = "FAILURE"
         }
         "/cards/nfc/enrollment/digitize_card"(platform:"/", type:TrackType.Event) {
-            action = "digitalize_card_result"
+            action = "digitize_card_result"
             result = "CAN_NOT_PROCEED"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "no_internet"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "connection_timeout"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "communication_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "server_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "internal_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "fpan_not_eligible"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unknown_bin"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unknown_card_product"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "card_product_not_supported"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "incorrect_cvv"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "card_already_provisioned_in_wallet"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "device_not_eligible"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "resource_not_found"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "incorrect_authentication_token"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "card_provisioning_count_exceeded"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unkonown_idv_method"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "provisioning_not_allowed"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "incorrect_otp"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "no_internet"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "incorrect_otp_max_try_exceeded"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "otp_expired"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "idv_method_not_available"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unexpected_internal_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "external_system_unavailable"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unknown_wallet_provider_id"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unknown_wallet_id"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unknown_digital_card_id"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "card_state_does_not_allow_requested_operation"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "operation_already_ongoing"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "operation_failed"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unknown_device_id"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "missing_required_parameter"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "unknown_issuer_id"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "no_tnc_resource_id"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "invalid_tnc_data_type"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "securestorage_write_config_data_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "securestorage_wipe_all_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "context_missing_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "web_3ds_authentication_failed"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "web_3ds_data_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "invalid_card_data"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "no_card_meta_data"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "card_meta_data_json_error"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "no_card_data"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "invalid_asset_type"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "invalid_asset_version"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "asset_not_available"
             error_message = "Error sdk"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
-            action = "digitalize_card_service_error"
+            action = "digitize_card_service_error"
             error_code = "blocked_secure_wallet_enrollment_required"
             error_message = "Error sdk"
         }

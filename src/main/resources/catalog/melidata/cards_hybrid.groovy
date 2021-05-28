@@ -1679,7 +1679,8 @@ tracks {
         result (
             required: true,
             type: PropertyType.String,
-            values: ["SDKInitializerWorker NFC SDK service is initialized"]
+            values: ["SDKInitializerWorker NFC SDK service is initialized"],
+            description: "Check if nfc sdk is initialized"
         )
     }
 
@@ -1687,7 +1688,8 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values:["sdk_worker_initialized_error", "sdk_worker_initialized_success"]
+            values:["sdk_worker_initialized_error", "sdk_worker_initialized_success"],
+            description: "Type of sdk worker initiaze values"
         )
         error_message (
             required: true,
@@ -1700,7 +1702,8 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values:["sdk_init_attempts", "worker_max_attempts"]
+            values:["sdk_init_attempts", "worker_max_attempts"],
+            description: "Type sdk init and max attempts"
         )
         result (
             required: true,
@@ -1724,7 +1727,8 @@ tracks {
                 'json_parsing_error',
                 'wse_request_error',
                 'wse_download_error',
-            ]
+            ],
+            description: "Type of sdk errors code"
         )
     }
 
@@ -1764,13 +1768,15 @@ tracks {
                 'invalid_replenish_missing_payment',
                 'asm_error',
                 'invalid_digitalcardid',
-            ]
+            ],
+            description: "Type of sdk errors code"
         )
 
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"]
+            values:["error_message"],
+            description: "Type of sdk error message"
         )
     }
 
@@ -1778,7 +1784,8 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["device_enrollment_success", "device_enrollment_error"]
+            values: ["device_enrollment_success", "device_enrollment_error"],
+            description: "Type of device enrollment values"
         )
 
         error_code (
@@ -1808,13 +1815,15 @@ tracks {
                 'invalid_replenish_missing_payment',
                 'asm_error',
                 'invalid_digitalcardid',
-            ]
+            ],
+            description: "Type of sdk errors code"
         )
 
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"]
+            values:["error_message"],
+            description: "Type of sdk error message"
         )
     }
 
@@ -1826,7 +1835,8 @@ tracks {
                      "check_card_eligibility_service_error",
                      "check_card_eligibility_error_result",
                      "card_info_error",
-                     "check_card_eligibility_result"]
+                     "check_card_eligibility_result"],
+            description: "Type of check card eligibility values"
         )
 
         result (
@@ -1836,13 +1846,15 @@ tracks {
                      "FAILURE_DEFAULT",
                      "FAILURE_API_ERROR",
                      "PARTIAL_ENROLLMENT",
-                     "BLOCKED_WSE_REQUIRED"]
+                     "BLOCKED_WSE_REQUIRED"],
+            description: "Type of check card eligibility result values"
         )
 
         information (
             type: PropertyType.String,
             required: true,
-            values: ["EnrollmentWorker error: cardInfo is null"]
+            values: ["EnrollmentWorker error: cardInfo is null"],
+            description: "Card info is null delete card problem"
         )
 
         error_code (
@@ -1898,13 +1910,15 @@ tracks {
                 'invalid_asset_version',
                 'asset_not_available',
                 'blocked_secure_wallet_enrollment_required',
-            ]
+            ],
+            description: "Type of sdk errors code"
         )
 
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"]
+            values:["error_message"],
+            description: "Type of sdk error message"
         )
     }
 
@@ -1912,15 +1926,17 @@ tracks {
         action (
             type: PropertyType.String,
             required: true,
-            values: ["digitalize_card_result",
-                     "digitalize_card_service_error",
-                     "digitalize_card_service_success"]
+            values: ["digitize_card_result",
+                     "digitize_card_service_error",
+                     "digitize_card_service_success"],
+            description: "Type of digitize card values"
         )
 
         result (
             type: PropertyType.String,
             required: true,
-            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED"]
+            values: ["SUCCESS", "FAILURE", "CAN_NOT_PROCEED"],
+            description: "Type of digitize card result values"
         )
 
         error_code (
@@ -1976,13 +1992,15 @@ tracks {
                 'invalid_asset_version',
                 'asset_not_available',
                 'blocked_secure_wallet_enrollment_required',
-            ]
+            ],
+            description: "Type of sdk errors code"
         )
 
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"]
+            values:["error_message"],
+            description: "Type of sdk error message"
         )
     }
 
@@ -1996,7 +2014,8 @@ tracks {
                      "delete_card_error",
                      "delete_card_push_received_success",
                      "delete_card_push_error",
-                     "delete_card_service_success"]
+                     "delete_card_service_success"],
+            description: "Type of delete card values for partial enrollment"
         )
 
         result (
@@ -2005,7 +2024,8 @@ tracks {
             values: ["SUCCESS",
                      "UNKNOWN_DIGITAL_CARD_ID",
                      "FAILURE",
-                     "CONNECTION_ERROR"]
+                     "CONNECTION_ERROR"],
+            description: "Type of delete card result values for partial enrollment"
         )
 
         information (
@@ -2066,13 +2086,15 @@ tracks {
                       'invalid_asset_type',
                       'invalid_asset_version',
                       'asset_not_available',
-                      'blocked_secure_wallet_enrollment_required']
+                      'blocked_secure_wallet_enrollment_required'],
+            description: "Type of sdk errors code"
         )
 
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"]
+            values:["error_message"],
+            description: "Type of sdk error message"
         )
     }
 
