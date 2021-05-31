@@ -1149,7 +1149,7 @@ trackTests {
             component_id="user_survey"
             has_label = true
             has_ripple = false
-            from="section"
+            from = "sheet"
             metadata_user:[
                 type: "payer"
             ]
@@ -1167,7 +1167,7 @@ trackTests {
             component_id="user_survey"
             has_label = true
             has_ripple = false
-            from="section"
+            from = "sheet"
             metadata_user:[
                 type: "payer"
             ]
