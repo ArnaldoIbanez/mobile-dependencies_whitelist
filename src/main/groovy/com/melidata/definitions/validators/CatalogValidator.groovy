@@ -24,7 +24,11 @@ class CatalogValidator {
                 runOk = false
             }
         }
-        out.afterRun(catalog)
+        try {
+            out.afterRun(catalog)
+        } catch(Exception e) {
+            runOk = false
+        }
         runOk = runOk && InitiativeValidate.checkCoverage()
         return runOk
     }

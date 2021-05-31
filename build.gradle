@@ -63,14 +63,13 @@ jacocoTestReport {
 		html.enabled false
 	}
 	afterEvaluate {
-		classDirectories = files(classDirectories.files.collect {
-			fileTree(dir: it,
-					exclude: ['**/*'])
-		})
+		getClassDirectories().setFrom(files(classDirectories.files.collect {
+			fileTree(dir: it, exclude: ['com/ml/melidata/catalog/**/*'])
+		}))
 	}
 }
 
-task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
+task coverage (dependsOn:[":test",":jacocoTestReport"]) {
 	println("Coverage, check: ${buildDir}/jacocoHtml")
 }
 
