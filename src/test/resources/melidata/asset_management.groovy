@@ -107,23 +107,23 @@ trackTests {
 
         "/asset_management/landing"(platform: "/web") {}
         "/asset_management/invest"(platform: "/web") {}
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "1"
         }
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "2"
         }
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "3"
         }
-        "/asset_management/investment_report"(platform: "/web") {
+        "/asset_management/investment_report"(platform: "/") {
             year = "2018"
             quarter = "4"
         }
-        "/asset_management/investment_report"(platform: "/web") {}
+        "/asset_management/investment_report"(platform: "/") {}
 
         // Operations
         "/asset_management/operations"(platform: "/mobile") {} // new name
@@ -338,23 +338,23 @@ trackTests {
 
         "/asset_management/landing"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/invest"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "1"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "2"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "3"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {
             year = "2018"
             quarter = "4"
         }
-        "/asset_management/investment_report"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/investment_report"(platform: "/", business: "mercadolibre") {}
 
         // Operations
         "/asset_management/operations"(platform: "/mobile", business: "mercadolibre") {} // new name
