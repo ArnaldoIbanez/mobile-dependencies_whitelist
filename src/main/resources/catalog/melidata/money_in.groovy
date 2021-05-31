@@ -404,6 +404,33 @@ tracks {
         bs_type(required:false, description:"indicates the tye of the bottom-sheet")
     }
 
+    "/money_in/td_calculator"(platform:"/", isAbstract: true){}
+    "/money_in/debin/calculator"(platform:"/", isAbstract: true){}
+
+    //Cap TD Calculator (debit to debin)
+    "/money_in/td_calculator/debin_modal"(platform:"/", isAbstract: true){}
+    "/money_in/td_calculator/debin_modal"(platform:"/", type: TrackType.View){}
+    "/money_in/td_calculator/debin_modal/go_to_debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/td_calculator/debin_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
+    //Cap TD WEB (debit to debin)
+    "/account_fund/cvu"(platform:"/", type: TrackType.View){}
+    "/account_fund/amount/warning/go_to_cvu"(platform:"/", type: TrackType.Event){}
+    "/account_fund/amount/warning/edit_amount"(platform:"/", type: TrackType.Event){}
+    "/account_fund/cvu/donwload_app"(platform:"/", type: TrackType.Event){}
+
+    //Cap TD Calculator (debit to cvu)
+    "/money_in/td_calculator/cvu_modal"(platform:"/", isAbstract: true){}
+    "/money_in/td_calculator/cvu_modal"(platform:"/", type: TrackType.View){}
+    "/money_in/td_calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
+    "/money_in/td_calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
+    //Cap TD Calculator (debin to cvu)
+    "/money_in/debin/calculator/cvu_modal"(platform:"/", isAbstract: true){}
+    "/money_in/debin/calculator/cvu_modal"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
     //Money In Error View - Enchufe
     "/money_in/error_view"(platform: "/", type: TrackType.View) {}
 }
