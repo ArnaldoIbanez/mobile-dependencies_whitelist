@@ -26,6 +26,7 @@ tracks {
                         "bradesco",
                         "itau",
                         "votorantim",
+                        "not_specified",
                 ]
         )
         domain_id(required: false, type: PropertyType.String, description: "Id of the product")
