@@ -182,6 +182,7 @@ catalog {
         include business, "global_selling.groovy"
         include business, "categories.groovy"
         include business, "category_landing.groovy"
+        include business, "cx_clicktocall.groovy"
     }
 
     mercadopago.each { business ->
