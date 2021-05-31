@@ -64,7 +64,7 @@ jacocoTestReport {
 	}
 	afterEvaluate {
 		getClassDirectories().setFrom(files(classDirectories.files.collect {
-			fileTree(dir: it, exclude: ['com/ml/melidata/catalog/**/*'])
+			fileTree(dir: it, exclude: ['com/melidata/definitions/**/*'])
 		}))
 	}
 }
