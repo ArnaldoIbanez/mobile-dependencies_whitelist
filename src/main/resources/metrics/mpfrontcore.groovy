@@ -12,7 +12,6 @@ metrics {
 	  countsOn {
 	  	condition {
 	  		path("/landing/digital_account/click")
-
         and(
           equals("event_data.id", "sticky-button-register")
         )
@@ -28,7 +27,6 @@ metrics {
 	  countsOn {
 	  	condition {
 	  		path("/landing/home/click")
-
         and(
           equals("event_data.id", "sticky-button-register")
         )
