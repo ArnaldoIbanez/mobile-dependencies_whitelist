@@ -436,10 +436,7 @@ trackTests {
             packs_amount = 3
         }
         "/logistics/last_mile/transloading_congrats/success/pull_to_refresh"(platform: "/mobile", type: TrackType.View) {
-            route_id = "123"
-            driver_id = "222"
             target_route = "321"
-            packs_amount = 3
         }
         "/logistics/last_mile/transloading_congrats/fail"(platform: "/mobile", type: TrackType.View) {
             route_id = "123"
@@ -448,10 +445,7 @@ trackTests {
             packs_amount = 2
         }
         "/logistics/last_mile/transloading_congrats/fail/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
-            route_id = "123"
-            driver_id = "222"
             target_route = "321"
-            packs_amount = 2
         }
         "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
             driver_id = "123"
