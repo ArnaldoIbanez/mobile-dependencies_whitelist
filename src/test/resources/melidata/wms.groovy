@@ -1035,5 +1035,37 @@ trackTests {
             warehouse_id = "BRTW01"
             task_id = 1234
         }
+
+        "/wms/area_count/confirmation"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/confirmation/start_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item/reset_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            navigate_to_home = true
+        }
+        "/wms/area_count/scan_inventory"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/scan_inventory/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/scan_inventory/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/scan_shelf"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
     }
 }
