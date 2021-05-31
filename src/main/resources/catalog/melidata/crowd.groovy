@@ -166,7 +166,7 @@ tracks
             }
 
             //Tracks lib flux
-            "flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
+            "/flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
                 user_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
