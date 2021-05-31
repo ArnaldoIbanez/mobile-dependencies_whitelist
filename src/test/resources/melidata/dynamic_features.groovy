@@ -36,9 +36,9 @@ trackTests {
 		}
     }
 
-        defaultBusiness = "mercadopago"
+    defaultBusiness = "mercadopago"
 
-test("Dynamic features track - MP") {
+    test("Dynamic features track - MP") {
 
 	    // Dynamic Features Events
 	    "/dynamyc_features/downloaded"(platform: "/mobile", type: TrackType.Event) {
