@@ -80,6 +80,7 @@ catalog {
         include business, "traffic.groovy"
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
+        include business, "dynamic_features.groovy"
         include business, "payers_growth.groovy"
         include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
@@ -182,6 +183,7 @@ catalog {
         include business, "global_selling.groovy"
         include business, "categories.groovy"
         include business, "category_landing.groovy"
+        include business, "cx_clicktocall.groovy"
     }
 
     mercadopago.each { business ->
