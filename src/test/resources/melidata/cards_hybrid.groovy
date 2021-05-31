@@ -1423,7 +1423,7 @@ trackTests {
             result = "EnrollmentWorker: User has not token.. Process checkCardEligibility..."
         }
         "/cards/nfc/enrollment/tokenization"(platform:"/", type: TrackType.Event) {
-            action = "success_enrollment_token_provisioned"
+            action = "enrollment_token_provisioned_success"
             result = "tokenization completed token provisioned"
         }
         "/cards/nfc/enrollment/tokenization"(platform:"/", type: TrackType.Event) {
@@ -1475,44 +1475,47 @@ trackTests {
         }
     }
 
-    test("cards hybrid nfc enrollment token provisioned time") {
-        "/cards/nfc/enrollment/tokenization/waiting_time/token_provisioned"(platform:"/", type: TrackType.Event) {
-            action = "sucess_enrollment_total_time"
-            result = 15677
+    test("cards hybrid nfc enrollment token provisioned") {
+        "/cards/nfc/enrollment/token_provisioned"(platform:"/", type: TrackType.Event) {
+            action = "enrollment_token_provisioned_success"
+            information = "tokenization completed token provisioned"
         }
-        "/cards/nfc/enrollment/tokenization/waiting_time/token_provisioned"(platform:"/", type: TrackType.Event) {
-            action = "enrollment_success_push_received_time"
+    }
+
+    test("cards hybrid nfc enrollment token provisioned time") {
+        "/cards/nfc/enrollment/token_provisioned/waiting_time"(platform:"/", type: TrackType.Event) {
+            action = "enrollment_sync_success_push_received_time"
             result = 10421
         }
     }
 
     test("cards hybrid nfc enrollment token provisioned attempts") {
-        "/cards/nfc/enrollment/tokenization/waiting_time/token_provisioned/attempts"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/enrollment/token_provisioned/waiting_time/attempts"(platform:"/", type:TrackType.Event) {
             action = "token_provisioned_attempts"
             result = 1
         }
     }
 
     test("cards hybrid nfc enrollment worker fetch data") {
-        "/cards/nfc/enrollment/worker/fetch_card_data"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/fetch_card_data/worker"(platform:"/", type: TrackType.Event) {
             action = "fetch_data_success"
         }
-        "/cards/nfc/enrollment/worker/fetch_card_data"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/fetch_card_data/worker"(platform:"/", type: TrackType.Event) {
             action = "fetch_data_error"
             information = "fetchTokenizationDataWorker error"
         }
-        "/cards/nfc/enrollment/worker/fetch_card_data"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/fetch_card_data/worker"(platform:"/", type: TrackType.Event) {
             action = "fetch_data_http_error"
             information = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
         }
     }
 
     test("cards hybrid nfc enrollment worker fetch data attempts") {
-        "/cards/nfc/enrollment/worker/fetch_card_data/attempts"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/fetch_card_data/worker/attempts"(platform:"/", type: TrackType.Event) {
             action = "fetch_tokenize_worker_attempts"
             result = 1
         }
-        "/cards/nfc/enrollment/fetch_card_data/attempts"(platform:"/", type: TrackType.Event) {
+        "/cards/nfc/enrollment/fetch_card_data/worker/attempts"(platform:"/", type: TrackType.Event) {
             action = "worker_max_attempts"
             result = 3
         }
@@ -1592,107 +1595,107 @@ trackTests {
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "common_comm_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "common_server_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "enrollment_wrong_credentials"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "enrollment_credential_expired"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "enrollment_try_limit_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "card_activation_mobile_pin_invalid_length"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "card_activation_mobile_pin_mismatch"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "change_pin_reentry_mismatch"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "common_comm_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "change_pin_card_not_active"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "change_pin_card_not_exist"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/worker/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "card_not_enrolled"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "card_state_unknown"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "replenishment_not_allowed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "sdk_internal_component_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "enrollment_wrong_activation_code"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "enrollment_blocked_secure_wallet_enrollment_required"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "replenishment_blocked_secure_wallet_enrollment_required"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "invalid_replenish_missing_payment"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "asm_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", type: TrackType.Event) {
             action = "replenish_payment_keys_error"
             error_code = "invalid_digitalcardid"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
     }
 
@@ -1704,117 +1707,117 @@ trackTests {
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "common_no_internet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "common_comm_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "common_server_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "enrollment_wrong_credentials"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "enrollment_try_limit_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "card_activation_activation_code_entry_canceled"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "card_activation_mobile_pin_invalid_length"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "card_activation_mobile_pin_mismatch"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "change_pin_reentry_mismatch"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "change_pin_card_not_active"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "change_pin_card_not_exist"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "re_enrollment_required"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "card_not_enrolled"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "card_state_unknown"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "card_state_unknown"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "replenishment_not_allowed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "sdk_internal_component_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "enrollment_wrong_activation_code"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "enrollment_blocked_secure_wallet_enrollment_required"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "replenishment_blocked_secure_wallet_enrollment_required"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "invalid_replenish_missing_payment"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "asm_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/device_enrollment"(platform: "/", type: TrackType.Event) {
             action = "device_enrollment_error"
             error_code = "invalid_digitalcardid"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
     }
 
@@ -1850,241 +1853,242 @@ trackTests {
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "no_internet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "connection_timeout"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "communication_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "server_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "internal_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "fpan_not_eligible"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unknown_bin"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unknown_card_product"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "card_product_not_supported"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "incorrect_cvv"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "card_already_provisioned_in_wallet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "device_not_eligible"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "resource_not_found"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "incorrect_authentication_token"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "card_provisioning_count_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unkonown_idv_method"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "provisioning_not_allowed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "incorrect_otp"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "no_internet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "incorrect_otp_max_try_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "otp_expired"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "idv_method_not_available"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unexpected_internal_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "external_system_unavailable"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unknown_wallet_provider_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unknown_wallet_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unknown_digital_card_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "card_state_does_not_allow_requested_operation"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "operation_already_ongoing"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "operation_failed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unknown_device_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "missing_required_parameter"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "unknown_issuer_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "no_tnc_resource_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "invalid_tnc_data_type"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "securestorage_write_config_data_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "securestorage_wipe_all_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "context_missing_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "web_3ds_authentication_failed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "web_3ds_data_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "invalid_card_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "no_card_meta_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "card_meta_data_json_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "no_card_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "invalid_asset_type"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "invalid_asset_version"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "asset_not_available"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "blocked_secure_wallet_enrollment_required"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
     }
 
@@ -2108,241 +2112,242 @@ trackTests {
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "no_internet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "connection_timeout"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "communication_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "server_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "internal_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "fpan_not_eligible"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unknown_bin"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unknown_card_product"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "card_product_not_supported"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "incorrect_cvv"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "card_already_provisioned_in_wallet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "device_not_eligible"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "resource_not_found"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "incorrect_authentication_token"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "card_provisioning_count_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unkonown_idv_method"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "provisioning_not_allowed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "incorrect_otp"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "no_internet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "incorrect_otp_max_try_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "otp_expired"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "idv_method_not_available"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unexpected_internal_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "external_system_unavailable"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unknown_wallet_provider_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unknown_wallet_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unknown_digital_card_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "card_state_does_not_allow_requested_operation"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "operation_already_ongoing"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "operation_failed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unknown_device_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "missing_required_parameter"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "unknown_issuer_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "no_tnc_resource_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "invalid_tnc_data_type"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "securestorage_write_config_data_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "securestorage_wipe_all_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "context_missing_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "web_3ds_authentication_failed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "web_3ds_data_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "invalid_card_data"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "no_card_meta_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "card_meta_data_json_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "no_card_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "invalid_asset_type"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "invalid_asset_version"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "asset_not_available"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/digitize_card"(platform: "/", type: TrackType.Event) {
             action = "digitize_card_service_error"
             error_code = "blocked_secure_wallet_enrollment_required"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
     }
 
@@ -2377,312 +2382,242 @@ trackTests {
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "no_internet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "connection_timeout"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "communication_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "server_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "internal_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "fpan_not_eligible"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unknown_bin"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unknown_card_product"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "card_product_not_supported"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "incorrect_cvv"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "card_already_provisioned_in_wallet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "device_not_eligible"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "resource_not_found"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "incorrect_authentication_token"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "card_provisioning_count_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unkonown_idv_method"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "provisioning_not_allowed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "incorrect_otp"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "no_internet"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "incorrect_otp_max_try_exceeded"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "otp_expired"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "idv_method_not_available"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unexpected_internal_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "external_system_unavailable"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unknown_wallet_provider_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unknown_wallet_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unknown_digital_card_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "card_state_does_not_allow_requested_operation"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "operation_already_ongoing"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "operation_failed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unknown_device_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "missing_required_parameter"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "unknown_issuer_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "no_tnc_resource_id"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "invalid_tnc_data_type"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "securestorage_write_config_data_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "securestorage_wipe_all_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "context_missing_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "web_3ds_authentication_failed"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "web_3ds_data_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "invalid_card_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "no_card_meta_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "card_meta_data_json_error"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "no_card_data"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "invalid_asset_type"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "invalid_asset_version"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "asset_not_available"
-            error_message = "Error sdk"
+            error_message = "error_message"
         }
         "/cards/nfc/enrollment/partial_enrollment"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "blocked_secure_wallet_enrollment_required"
-            error_message = "Error sdk"
-        }
-    }
-
-
-    
-    // NFC Tokenization Status
-    test("cards hybrid nfc enrollment tokenization") {
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "success_enrollment"
-            result = "tokenization completed event"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "missing enrollment push notification"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "cardInfo error"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "checkCardEligibility error"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "partial enrollment CardDeleteResult UNKNOWN_DIGITAL_CARD_ID"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "partial enrollment CardDeleteResult error"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "partial enrollment deleteCard DELETE_RETRIES exceeded"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "partial enrollment deleteCard error"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "digitize error"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "error_enrollment"
-            result = "fetchTokenizationDataWorker error"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "success_callback"
-            result = "checkCardEligibility success"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "success_callback"
-            result = "checkCardEligibility partial enrollment"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "success_callback"
-            result = "partial enrollment CardDeleteResult success"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "success_callback"
-            result = "digitize success"
-        }
-        "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
-            action = "success_callback"
-            result = "fetchTokenizationDataWorker success"
+            error_message = "error_message"
         }
     }
 

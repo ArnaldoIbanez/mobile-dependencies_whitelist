@@ -35,9 +35,10 @@ tracks {
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization/waiting_time"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/enrollment/tokenization/waiting_time/token_provisioned"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/worker"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/enrollment/worker/fetch_card_data"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/token_provisioned"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/token_provisioned/waiting_time"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/fetch_card_data/worker"(platform: "/", isAbstract: true) { }
     "/cards/nfc/configuration"(platform: "/", isAbstract: true) { }
     "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
@@ -1600,8 +1601,23 @@ tracks {
         )
     }
 
+    "/cards/nfc/enrollment/token_provisioned"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["enrollment_token_provisioned_success"],
+            description: "Enrollment token was provisioned"
+        )
+        information (
+            required: true,
+            type: PropertyType.String,
+            values:["tokenization completed token provisioned"],
+            description: "Tokenization completed token provisioned"
+        )
+    }
 
-    "/cards/nfc/enrollment/tokenization/waiting_time/token_provisioned"(platform:"/", type: TrackType.Event) {
+
+    "/cards/nfc/enrollment/token_provisioned/waiting_time"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -1615,7 +1631,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/enrollment/tokenization/waiting_time/token_provisioned/attempts"(platform:"/", type: TrackType.Event) {
+    "/cards/nfc/enrollment/token_provisioned/waiting_time/attempts"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -1629,7 +1645,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/enrollment/worker/fetch_card_data"(platform:"/", type: TrackType.Event) {
+    "/cards/nfc/enrollment/fetch_card_data/worker"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -1645,7 +1661,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/enrollment/worker/fetch_card_data/attempts"(platform:"/", type: TrackType.Event) {
+    "/cards/nfc/enrollment/fetch_card_data/worker/attempts"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -2248,27 +2264,7 @@ tracks {
             description: "Finish button tapped"
         )
     }
-    
-    
-    // NFC-TOKENIZATION-USER-WAIT-TIME
-    // -------------------------------
-    
-    "/cards/nfc/enrollment/tokenization/waiting_time"(platform: "/", type: TrackType.Event) {
-        time_millis (
-            required: true,
-            type: PropertyType.Numeric,
-            description: "Waiting time in milliseconds"
-        )
-        result (
-            required: true,
-            type: PropertyType.String,
-            values: [
-                'enrollment_error',
-                'success'
-            ]
-        )
-    }
-    
+
     // NFC-FEATURE-IGNITE-STATUS
     // ----------------------
     
