@@ -1,7 +1,7 @@
 package com.melidata.definitions.uploaders
 
-import com.melidata.definitions.manager.S3Controller
 import com.google.gson.GsonBuilder
+import com.ml.melidata.manager.S3Controller
 
 class WhitelistPathUploader {
 
@@ -11,18 +11,13 @@ class WhitelistPathUploader {
     def pathWhitelistDir
     def S3Controller s3Controller
 
-    def WhitelistPathUploader(pathWhitelistDir, s3Bucket, accessKey, secretKey) {
+    def WhitelistPathUploader(pathWhitelistDir) {
         this.pathWhitelistDir = pathWhitelistDir
-        s3Controller = new S3Controller(s3Bucket, accessKey, secretKey)
     }
 
     def static void main(String[] args) {
         def pathWhitelistDir = "./src/main/resources/whitelist/"
-        def s3Bucket = "melidata-api-whitelist"
-        def accessKey = "AKIAJ4K4ZOXUNJLTL4NQ"
-        def secretKey = "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"
-
-        new WhitelistPathUploader(pathWhitelistDir,s3Bucket,accessKey,secretKey).upload();
+        new WhitelistPathUploader(pathWhitelistDir).upload();
     }
 
     def upload() {
@@ -40,8 +35,8 @@ class WhitelistPathUploader {
         println("Uploading ${FILE_NAME}")
 
 
-        s3Controller.saveFile( FILE_NAME, json, JSON_CONTENT)
-        s3Controller.saveFile(versionedName, json, JSON_CONTENT)
+        s3Controller.saveFile( "melidata-api-whitelist", FILE_NAME, json, JSON_CONTENT)
+        s3Controller.saveFile("melidata-api-whitelist", versionedName, json, JSON_CONTENT)
 
         println("Finish")
     }

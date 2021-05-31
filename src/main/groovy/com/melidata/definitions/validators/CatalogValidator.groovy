@@ -3,6 +3,7 @@ package com.melidata.definitions.validators
 import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import groovy.transform.Synchronized
 /**
  * Created by apetalas on 20/11/14.
@@ -12,6 +13,7 @@ class CatalogValidator {
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         def runOk = true
         out.beforeRun(catalog, tests)
+        InitiativeAPI.initializeApplications(true)
         tests?.each { singleTest ->
             println( "Running test: ${singleTest.name}")
 

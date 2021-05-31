@@ -1,6 +1,6 @@
 package com.melidata.definitions.validators
 
-import com.ml.melidata.catalog.DslUtils
+import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 
 class InitiativeValidate {

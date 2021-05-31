@@ -130,13 +130,6 @@ import com.amazonaws.services.s3.model.analytics.AnalyticsConfiguration
 import com.amazonaws.services.s3.model.inventory.InventoryConfiguration
 import com.amazonaws.services.s3.model.metrics.MetricsConfiguration
 import com.amazonaws.services.s3.waiters.AmazonS3Waiters
-import com.melidata.definitions.manager.CatalogHandler
-import com.ml.melidata.catalog.tree.TrackValidationResponse
-import org.junit.Test
-
-import static org.junit.Assert.assertEquals
-import static org.junit.Assert.assertNotNull
-import static org.junit.Assert.assertTrue
 
 /**
  * Created by mtencer on 22/03/16.
