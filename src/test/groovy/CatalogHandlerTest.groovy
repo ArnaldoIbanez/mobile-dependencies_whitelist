@@ -192,7 +192,7 @@ class CatalogHandlerTest {
         TrackValidationResponse response = handler.getCatalog().validate(new com.ml.melidata.Track("/path1", com.ml.melidata.TrackType.View, "/prueba", "prueba_business"))
         assertTrue(response.status)
     }
-*/
+
     public class S3ClientMock implements AmazonS3 {
 
         def ObjectListing list
@@ -989,5 +989,5 @@ class CatalogHandlerTest {
             return null
         }
     }
-
+*/
 }
