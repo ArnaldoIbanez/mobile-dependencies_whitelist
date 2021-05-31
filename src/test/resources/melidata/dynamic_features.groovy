@@ -32,4 +32,5 @@ trackTests {
             module_name = "module_dynamic"
             old_deeplink = "meli://old_deeplink"
 		}
+    }
 }
