@@ -13,7 +13,7 @@ class CatalogValidator {
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         def runOk = true
         out.beforeRun(catalog, tests)
-        InitiativeAPI.initializeApplications(true)
+        InitiativeAPI.initializeApplications(false)
         tests?.each { singleTest ->
             println( "Running test: ${singleTest.name}")
 
