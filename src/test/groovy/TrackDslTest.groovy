@@ -19,7 +19,7 @@ class TrackDslTest {
     @Before void BuildCatalogTest(){
         this.catalog = catalog {
 
-            defaultBusiness = "mercadolibre"
+            defaultBusinesses = ["mercadolibre"]
 
             /**
              * All available platfrom
