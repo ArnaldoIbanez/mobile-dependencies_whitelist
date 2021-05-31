@@ -14,22 +14,22 @@ trackTests {
 
 	    // Dynamic Features Events
 	    "/dynamyc_features/downloaded"(platform: "/mobile", type: TrackType.Event) {
-            module_name = "module_dynamic",
-            new_deeplink = "meli://new_deeplink",
+            module_name = "module_dynamic"
+            new_deeplink = "meli://new_deeplink"
             old_deeplink = "meli://old_deeplink"
 		}
 
 		"/dynamyc_features/failed"(platform: "/mobile", type: TrackType.Event) {
-            module_name = "module_dynamic",
+            module_name = "module_dynamic"
             old_deeplink = "meli://old_deeplink"
 		}
         "/dynamyc_features/launched"(platform: "/mobile", type: TrackType.Event) {
-            module_name = "module_dynamic",
-            new_deeplink = "meli://new_deeplink",
+            module_name = "module_dynamic"
+            new_deeplink = "meli://new_deeplink"
             old_deeplink = "meli://old_deeplink"
 		}    
         "/dynamyc_features/canceled"(platform: "/mobile", type: TrackType.Event) {
-            module_name = "module_dynamic",
+            module_name = "module_dynamic"
             old_deeplink = "meli://old_deeplink"
 		}
 }
