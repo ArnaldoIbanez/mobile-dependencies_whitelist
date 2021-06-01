@@ -23,15 +23,15 @@ metrics {
     startWith {
       experiment("home/stickyButton")
     }
-
-	  countsOn {
-	  	condition {
-	  		path("/landing/home/click")
+  
+    countsOn {
+      condition {
+        path("/landing/home/click")
         and(
           equals("event_data.id", "sticky-button-register")
         )
-	  	}
-	  }
+      }
+    }
   }
 
 }
