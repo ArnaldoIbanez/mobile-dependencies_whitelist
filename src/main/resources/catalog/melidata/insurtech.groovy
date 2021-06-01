@@ -147,11 +147,7 @@ tracks {
     "/insurtech/protections/claims/execute/document/request"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
-    "/insurtech/protections/claims/execute/document/request/select_continue"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-    product_data(required: true, type: PropertyType.Map(product), description: "Product data")
-    }
-    "/insurtech/protections/claims/execute/document/request/select_police_report"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-    product_data(required: true, type: PropertyType.Map(product), description: "Product data")
-    }
+    "/insurtech/protections/claims/execute/document/request/select_continue"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/document/request/select_police_report"(platform:"/", type: TrackType.Event) {}
 
 }
