@@ -67,6 +67,11 @@ tracks {
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
     }
 
+    "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+        migration_is_ok(type: PropertyType.Boolean, required: true, description: "Migration was ok")
+        keepnite_remove_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if ignite is on")    
+    }
+
     "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
 
     "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}

@@ -1337,6 +1337,27 @@ trackTests {
             }
         }
 
+        test("Migrate Session") {
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = true
+                keepnite_remove_is_on = true
+            }
+
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = false
+                keepnite_remove_is_on = false
+            }
+
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = true
+                keepnite_remove_is_on = false
+            }
+
+            "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+                migration_is_ok = false
+                keepnite_remove_is_on = true
+            }
+        }
 
         test("Reauth Native") {
             //Login Module
