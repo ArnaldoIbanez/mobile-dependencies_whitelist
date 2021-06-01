@@ -8,15 +8,15 @@ metrics {
     startWith {
       experiment("digital_account/stickyButton")
     }
-
-	  countsOn {
-	  	condition {
-	  		path("/landing/digital_account/click")
+  
+    countsOn {
+      condition {
+        path("/landing/digital_account/click")
         and(
           equals("event_data.id", "sticky-button-register")
         )
-	  	}
-	  }
+      }
+    }
   }
 
   "home/app_download_button"(description: "define if to show the download app button or not", deprecation_date:"2021/07/01") {
