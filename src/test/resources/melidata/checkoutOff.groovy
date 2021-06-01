@@ -198,6 +198,14 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -379,6 +387,14 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -694,6 +710,14 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -875,6 +899,14 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 

@@ -194,9 +194,15 @@ tracks {
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
 
+    //Paypal Views
     "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
 
+    //Open Sea Views
+    "/checkout_off/payment/opensea_credits_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/opensea_credits_redirect"(platform: "/", type: TrackType.View) {}
+
+    //One Click Views
     "/checkout_off/payment/one_click_redirect"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/one_click_processing"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/one_click_return"(platform: "/", type: TrackType.View) {}
