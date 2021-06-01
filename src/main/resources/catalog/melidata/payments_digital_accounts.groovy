@@ -13,6 +13,17 @@ tracks {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
+    //inner properties definitions
+    def row_definition = objectSchemaDefinitions {
+        rows(type: PropertyType.Numeric)
+    }
+
+    def component_definition = objectSchemaDefinitions {
+        component_id(required: true, type: PropertyType.Numeric)
+        content_id(required: true, type: PropertyType.ArrayList(PropertyType.String))
+        event_data(type: PropertyType.Map(row_definition))
+    }
+
     //Definitions
     propertyDefinitions {
         // Global variables
@@ -34,6 +45,17 @@ tracks {
         period_option(required: false, type: PropertyType.String, description: "In case of default period type, option selected")
         begin_date(required: true, type: PropertyType.String, description: "Start date of the selected period")
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
+
+        // Components
+        my_money_shortcuts_button(type: PropertyType,Map(component_definition))
+        my_money_available(type: PropertyType,Map(component_definition))
+        my_money_shortcuts_rows(type: PropertyType.Map(component_definition))
+        my_money_dynamics_actions(type: PropertyType.Map(component_definition))
+        my_money_retained(type: PropertyType.Map(component_definition))
+        my_money_available_tab(type: PropertyType.Map(component_definition))
+        my_money_activities(type: PropertyType.Map(component_definition))
+        my_money_tabs(type: PropertyType.Map(component_definition))
+        my_money_balance(type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -52,13 +74,17 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        componentsViews (
+                my_money_shortcuts_button, my_money_available, my_money_shortcuts_rows, my_money_dynamics_actions,
+                my_money_retained, my_money_available_tab, my_money_activities, my_money_tabs, my_money_balance
+        )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
@@ -119,7 +145,7 @@ tracks {
     // Vouchers
     "/banking/vouchers"(platform: "/", type: TrackType.View) {}
 
-    // Vouchers - Benefits 
+    // Vouchers - Benefits
     "/banking/vouchers/benefits"(platform: "/", isAbstract: true) {}
     "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
 
@@ -136,5 +162,5 @@ tracks {
     "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
 
     // Vouchers - Help
-    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}   
+    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
 }
