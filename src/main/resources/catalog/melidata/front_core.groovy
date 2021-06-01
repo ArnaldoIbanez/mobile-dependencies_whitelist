@@ -694,6 +694,7 @@ tracks {
         has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
         has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
+        from(required: false, type: PropertyType.String, values: ["section", "sheet"], description: "How the user add their shortcut")
     }
 
     "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
@@ -709,6 +710,7 @@ tracks {
         has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
         has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
+        from(required: false, type: PropertyType.String, values: ["section", "sheet"], description: "How the user removed their shortcut")
     }
 
     "/wallet_home/shortcuts_sheet/modal" (platform: "/mobile", isAbstract: true) {}  
