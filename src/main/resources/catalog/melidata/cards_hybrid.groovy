@@ -1966,7 +1966,7 @@ tracks {
     // -------------------------------
     
     "/cards/nfc/enrollment/devicecvm"(platform: "/", type: TrackType.Event) {
-        information (
+        status (
             required: true,
             type: PropertyType.String,
             description: "Device cvm status information"

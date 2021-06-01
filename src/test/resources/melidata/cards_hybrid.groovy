@@ -1909,7 +1909,7 @@ trackTests {
     // NFC-DEVICE-CVM
     test("cards hybrid nfc device cvm information") {
         "/cards/nfc/enrollment/devicecvm"(platform:"/", type: TrackType.Event) {
-            information = "device cdcvm initialized"
+            status = "device cdcvm initialized"
         }
     }
 
