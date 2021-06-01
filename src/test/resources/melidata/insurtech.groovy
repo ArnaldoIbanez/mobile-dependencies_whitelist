@@ -2595,6 +2595,33 @@ trackTests {
                 ]
             }
 
+            "/insurtech/protections/claims/execute/document/request"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/document/request/select_continue"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/document/request/select_police_report"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
             // INSURTECH Webview
             "/insurtech/webview/generic-error"(platform:"/mobile", type: TrackType.Event) {
                 deeplink = "mercadopago://insurtech/webview?url=https%3A%2F%2Fmercadopago.com.br%2Fprotections%2Froda%2Fqpage&toolbar=true"
