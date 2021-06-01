@@ -1961,6 +1961,17 @@ tracks {
             ]
         )
     }
+
+    // NFC-DEVICE-CVM
+    // -------------------------------
+    
+    "/cards/nfc/enrollment/devicecvm"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            description: "Device cvm status information"
+        )
+    }
     
     // NFC-FEATURE-IGNITE-STATUS
     // ----------------------
