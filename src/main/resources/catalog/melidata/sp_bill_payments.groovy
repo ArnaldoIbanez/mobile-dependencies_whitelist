@@ -315,4 +315,11 @@ tracks {
     "/bill_payments/schedule_payment/retry/pay"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
+    //datail
+    "/bill_payments/detail"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/detail/money_in"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/detail/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/detail/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/detail/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
 }
