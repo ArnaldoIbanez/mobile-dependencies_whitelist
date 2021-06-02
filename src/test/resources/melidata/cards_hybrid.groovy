@@ -1137,6 +1137,11 @@ trackTests {
             step = 3
             id = "setup_virtual_debit_coachmark"
         }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 3
+            id = "setup_virtual_credit_coachmark"
+        }
     }
     
     //OPTIONS
