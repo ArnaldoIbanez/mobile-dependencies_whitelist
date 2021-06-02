@@ -137,7 +137,10 @@ tracks {
         warehouse_id(required: false, type: PropertyType.String,
                 description: "Id of the warehouse to track")
     }
-    "/wms/login_successful"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/login_successful"(platform: "/mobile/android", type: TrackType.Event) {
+        serial_number(required: true, type: PropertyType.String, description: "serial number")
+        user_nickname(required: true, type: PropertyType.String, description: "user nickname")
+    }
     "/wms/logout_successful"(platform: "/mobile/android", type: TrackType.Event) {}
 
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
