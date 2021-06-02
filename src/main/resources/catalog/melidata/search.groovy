@@ -129,8 +129,8 @@ tracks {
     }
 
     def original_search_filter_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true, description: "original search filter id applied")
-        value(type: PropertyType.String, required: true, description: "original search filter value applied")
+        filter_id(type: PropertyType.String, required: true, description: "original search filter id applied")
+        filter_value(type: PropertyType.String, required: true, description: "original search filter value applied")
     }
 
     //SEARCH FLOW
