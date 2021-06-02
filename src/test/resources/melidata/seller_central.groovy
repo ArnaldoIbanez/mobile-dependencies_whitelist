@@ -2201,6 +2201,228 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central METRICS MY ATTENTION SECTION
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  // Summary Page
+
+  test("metrics my attention summary section view for web") {
+    "/seller_central/metrics/attention/summary"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      default_selected_period = "lastTwoMonth"
+    }
+  }
+
+  test("metrics my attention summary section view for web mobile") {
+    "/seller_central/metrics/attention/summary"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention summary section view for mobile") {
+    "/seller_central/metrics/attention/summary"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention summary help button click track for web") {
+    "/seller_central/metrics/attention/summary/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "main_problems"
+    }
+  }
+
+  test("metrics my attention summary open filter modal track for web") {
+    "/seller_central/metrics/attention/summary/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention summary apply filters track for web") {
+    "/seller_central/metrics/attention/summary/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      filters = ["FILTER1", "FILTER2"]
+      toggle_reputation = true
+    }
+  }
+
+  test("metrics my attention summary toggle reputation track for web") {
+    "/seller_central/metrics/attention/summary/toggle_reputation"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      toggle_reputation = false
+    }
+  }
+
+  test("metrics my attention summary selected period track for web") {
+    "/seller_central/metrics/attention/summary/selected_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      selected_period = "custom"
+    }
+  }
+
+  test("metrics my attention summary personalized period track for web") {
+    "/seller_central/metrics/attention/summary/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
+  // Details page
+
+  test("metrics my attention details section view for web") {
+    "/seller_central/metrics/attention/details"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      default_selected_period = "lastTwoMonth"
+    }
+  }
+
+  test("metrics my attention details section view for web mobile") {
+    "/seller_central/metrics/attention/details"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention details section view for mobile") {
+    "/seller_central/metrics/attention/details"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention details help button click track for web") {
+    "/seller_central/metrics/attention/details/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention details open filter modal track for web") {
+    "/seller_central/metrics/attention/details/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention details apply filters track for web") {
+    "/seller_central/metrics/attention/details/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      filters = ["FILTER1", "FILTER2"]
+      toggle_reputation = true
+    }
+  }
+
+  test("metrics my attention details toggle reputation track for web") {
+    "/seller_central/metrics/attention/details/toggle_reputation"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      toggle_reputation = false
+    }
+  }
+
+  test("metrics my attention details selected period track for web") {
+    "/seller_central/metrics/attention/details/selected_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      selected_period = "custom"
+    }
+  }
+
+  test("metrics my attention details personalized period track for web") {
+    "/seller_central/metrics/attention/details/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
+  test("metrics my attention details top 30 sort type track for web") {
+    "/seller_central/metrics/attention/details/top_sort"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      sort_type = "problems"
+    }
+  }
+
+  test("metrics my attention details top 30 action track for web") {
+    "/seller_central/metrics/attention/details/top_actions"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      action_type = "sales"
+    }
+  }
+
+  test("metrics my attention details total problems track for web") {
+    "/seller_central/metrics/attention/details/show_problems"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      problems = ["ID_PROBLEM_1", "ID_PROBLEM_2"]
+    }
+  }
+
+  test("metrics my attention details selected filter problem track for web") {
+    "/seller_central/metrics/attention/details/selected_problem"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      selected_problem = "ID_PROBLEM_1"
+      problem_type = "L1"
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 

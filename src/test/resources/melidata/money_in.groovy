@@ -536,7 +536,7 @@ trackTests {
         //Debin Hub
         "/money_in/debin/hub"(platform:"/", type: TrackType.View){}
         "/money_in/debin/hub/select"(platform:"/",type: TrackType.Event){
-            key_type = "111111111111111111121"
+            account_id = "111111111111111111121"
         }
         "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
         "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
@@ -550,13 +550,13 @@ trackTests {
         //Debin Calculator
         "/money_in/debin/calculator"(platform:"/", type: TrackType.View){}
         "/money_in/debin/calculator/continue"(platform:"/", type: TrackType.Event){
-            key_type = "124.33"
+            amount = "124.33"
         }   
         "/money_in/debin/calculator/preset"(platform:"/", type: TrackType.Event){
-            key_type = "500"
+            amount = "500"
         }
         "/money_in/debin/calculator/message"(platform:"/", type: TrackType.Event){
-            key_type = "Ingresa un monto mayor a: "
+            message = "Ingresa un monto mayor a: "
         }
 
         //Debin RyC
@@ -571,34 +571,34 @@ trackTests {
 
         //Debin Congrats
         "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
-            key_type = "success"
+            status = "success"
         }
         "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
-            key_type = "pending"
+            status = "pending"
         }
         "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
-            key_type = "error"
+            status = "error"
             error_type = "coelsa"
         }
         "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
-            key_type = "success"
+            status = "success"
         }
         "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
-            key_type = "pending"
+            status = "pending"
         }
         "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
-            key_type = "error"
+            status = "error"
         }
         "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
-            key_type = "error"        
+            status = "error"        
         }
         "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){
-            key_type = "success"
+            status = "success"
         }
 
         //Debin Merch engine
         "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
-            key_type = "success"
+            status = "success"
             audience = "all"
             bu = "4"
             bu_line = "7"
@@ -610,7 +610,7 @@ trackTests {
             xp_id = "experiments"
         }
         "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
-            key_type = "error"
+            status = "error"
         }
 
         //Debin Search account
@@ -618,13 +618,13 @@ trackTests {
         "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/search/continue"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
-            key_type = "success"
+            result_status = "success"
         }
         "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
-            key_type = "owner_error"
+            result_status = "owner_error"
         }
         "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
-            key_type = "error"
+            result_status = "error"
         }
         "/money_in/debin/search/success/continue"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/search/generic_error/retry"(platform:"/", type: TrackType.Event){}
@@ -632,14 +632,35 @@ trackTests {
         "/money_in/debin/search/ownership_error/go_home"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/search/ownership_error/edit_account"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
-            key_type = "success"
+            bs_type = "success"
         }
         "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
-            key_type = "owner_error"
+            bs_type = "owner_error"
         }
         "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
-            key_type = "error"
+            bs_type = "error"
         }
+
+        //Cap TD Calculator (debit to debin)
+        "/money_in/td_calculator/debin_modal"(platform:"/", type: TrackType.View){}
+        "/money_in/td_calculator/debin_modal/go_to_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/td_calculator/debin_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
+        //Cap TD WEB (debit to debin)
+        "/account_fund/cvu"(platform:"/", type: TrackType.View){}
+        "/account_fund/amount/warning/go_to_cvu"(platform:"/", type: TrackType.Event){}
+        "/account_fund/amount/warning/edit_amount"(platform:"/", type: TrackType.Event){}
+        "/account_fund/cvu/donwload_app"(platform:"/", type: TrackType.Event){}
+
+        //Cap TD Calculator (debit to cvu)
+        "/money_in/td_calculator/cvu_modal"(platform:"/", type: TrackType.View){}
+        "/money_in/td_calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
+        "/money_in/td_calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
+        //Cap TD Calculator (debin to cvu)
+        "/money_in/debin/calculator/cvu_modal"(platform:"/", type: TrackType.View){}
+        "/money_in/debin/calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
         
         //Money In Error View - Enchufe
         "/money_in/error_view"(platform: "/", type: TrackType.View) {}

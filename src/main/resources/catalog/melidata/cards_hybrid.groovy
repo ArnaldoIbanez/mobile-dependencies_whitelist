@@ -578,12 +578,18 @@ tracks {
             description: "Indicate card type",
             inheritable:false
         )
+        has_money (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicate whether the user has money",
+            inheritable:false
+        )
     }
     "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "credit_card_message_no_limit", "credit_card_message_blocked_account", "credit_message_card_paused"],
+            values: ["header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "credit_card_message_no_limit", "credit_card_message_blocked_account", "credit_message_card_paused", "additional_message_freeze"],
             description: "The action type tapped"
         )
     }
@@ -716,7 +722,7 @@ tracks {
             inheritable: false
         )
         context (
-            required: true,
+            required: false,
             type: PropertyType.String,
             values: ["cancellation", "creation"],
             description: "Type of operation: cancel or reissue",
@@ -955,7 +961,6 @@ tracks {
         limits_status (
             required:true,
             type: PropertyType.String,
-            values: ["number_selector_atm" ,"message"],
             description: "Current sections",
             inheritable:false
         )
@@ -1173,7 +1178,7 @@ tracks {
         id (
             required: true,
             type: PropertyType.String,
-            values: ["dashboard_virtual_coachmark", "dashboard_physical_coachmark"],
+            values: ["dashboard_virtual_coachmark", "dashboard_physical_coachmark", "setup_virtual_debit_coachmark"],
             description: "Coachmark id"
         )
     }
@@ -1265,7 +1270,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["button_primary", "button_secondary"],
+            values: ["primary_button", "secondary_button"],
             inheritable: false
         )
     }
@@ -2380,11 +2385,11 @@ tracks {
             description: "Add money tapped"
         )
     }
-    
+
     // Nfc Payments User Without Money
-    
+
     "/cards/nfc/payment/without_money"(platform: "/", type: TrackType.View) {}
-    
+
     "/cards/nfc/payment/without_money/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -2392,9 +2397,9 @@ tracks {
             description: "Button Pressed"
         )
     }
-    
+
     // NFC Payments Congrats
-    
+
     "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
         status (
             required: true,
@@ -2413,7 +2418,7 @@ tracks {
             description: "Deeplink"
         )
     }
-    
+
     "/cards/nfc/payments/congrats/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -2427,9 +2432,9 @@ tracks {
             description: "Congrats Type"
         )
     }
-    
+
     "/cards/nfc/acquisition/congrats"(platform: "/", type: TrackType.View) {}
-    
+
     "/cards/nfc/acquisition/congrats/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -2451,13 +2456,13 @@ tracks {
     "/cards/nfc/congrats/invalid_pin"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/congrats/generic_tap_pos_error"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/congrats/generic_error"(platform: "/", type: TrackType.View) {}
-    
+
     // NFC - Congrats
-    
+
     "/cards/nfc/congrats/create_nfc_card_error"(platform: "/", type: TrackType.View) {}
-    
+
     // NFC - Feature
-    
+
     "/cards/nfc/feature/availability"(platform: "/", type: TrackType.Event) {}
 
     // NFC-INFORMATIVE-SCREEN
@@ -2478,6 +2483,17 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Finish button tapped"
+        )
+    }
+
+    // NFC-DEVICE-CVM
+    // -------------------------------
+
+    "/cards/nfc/enrollment/devicecvm"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            description: "Device cvm status information"
         )
     }
 

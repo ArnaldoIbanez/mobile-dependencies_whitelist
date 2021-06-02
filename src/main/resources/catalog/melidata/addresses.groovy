@@ -16,6 +16,7 @@ tracks {
     // VIEWS
     "/addresses"(platform: "/", isAbstract: true) {
         context(required: false, description: "The client which is using the addresses flow", values: ["MY_ML","PM"], type: PropertyType.String)
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
     "/addresses/input_address"(platform: "/", type: TrackType.View) {

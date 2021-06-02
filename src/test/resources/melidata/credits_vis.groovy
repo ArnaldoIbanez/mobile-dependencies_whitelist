@@ -13,14 +13,14 @@ trackTests {
             bank = "votorantim"
             category_id = "MLB1744"
             category_path = ["MLB1743", "MLB1744"]
-            domain_id = "MLB-CARS_AND_VANS"
-            item_id = 86829767
+            item_id = "MLB1445621120"
             seller_id = 167086843
             vertical = "motors"
         }
 
         def optionals = {
             city = "Santo André"
+            domain_id = "MLB-CARS_AND_VANS"
             flow_type = "INVALID"
             map_item_attributes = [
                     [ attribute_id:"BRAND", value_id:"60297", value_name:"Toyota"],

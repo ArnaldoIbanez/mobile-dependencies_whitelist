@@ -138,8 +138,8 @@ tracks {
     "/asset_management/invest"(platform: "/web", type: TrackType.View) {}
 
     // Investment report
-    "/asset_management/investment_report"(platform: "/web", type: TrackType.Event) {
-        year (required: true, type: PropertyType.String, description: "The year of earnings requested")
+    "/asset_management/investment_report"(platform: "/", type: TrackType.Event) {
+        year (required: false, type: PropertyType.String, description: "The year of earnings requested")
         quarter (required: false, type: PropertyType.String, values: ["1", "2", "3", "4"], description: "The requested quarter of the year, if chosen")
     }
 
@@ -232,4 +232,7 @@ tracks {
     "/asset_management/kyc_web_blocker/play_store"(platform: "/web", type: TrackType.Event) {}
     "/asset_management/kyc_web_blocker/app_store"(platform: "/web", type: TrackType.Event) {}
 
+
+    //Loading GBM
+    "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
 }
