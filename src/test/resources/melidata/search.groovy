@@ -86,6 +86,10 @@ trackTests {
             nextday: ["MLA12345645"]
     ]
 
+    def originalSearchFilterInfo = [
+            filter_id  : "cpg",
+            filter_value: "yes",
+    ]
 
     test("Search core tracking") {
 
@@ -138,6 +142,7 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            original_search_filter: originalSearchFilterInfo
         }
 
         def defaultWebTrack = {
