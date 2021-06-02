@@ -232,4 +232,7 @@ tracks {
     "/asset_management/kyc_web_blocker/play_store"(platform: "/web", type: TrackType.Event) {}
     "/asset_management/kyc_web_blocker/app_store"(platform: "/web", type: TrackType.Event) {}
 
+
+    //Loading GBM
+    "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
 }
