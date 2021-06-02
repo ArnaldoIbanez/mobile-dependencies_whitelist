@@ -3052,6 +3052,27 @@ trackTests {
             mandatory()
         }
 
+        // detail
+        "/bill_payments/detail"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/detail/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
     }
 
     test("Fund account") {
