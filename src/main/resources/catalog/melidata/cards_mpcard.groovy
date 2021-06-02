@@ -603,7 +603,7 @@ tracks {
     "/cards/mpcard/block_card"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/block_card/virtual"(platform: "/", type: TrackType.View) {
         card_id (
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Card id"
         )
@@ -623,7 +623,7 @@ tracks {
             description: "The action type tapped"
         )
         card_id (
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Card id"
         )
