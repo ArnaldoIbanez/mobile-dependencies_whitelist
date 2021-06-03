@@ -1898,7 +1898,7 @@ tracks {
     }
 
     "/advertising/pads2/reports/group"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total', 'daily', 'weekly'])
     }
 
     "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
