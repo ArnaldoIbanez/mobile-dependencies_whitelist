@@ -1895,7 +1895,7 @@ tracks {
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
-        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total', 'daily', 'weekly'])
         filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
@@ -1923,7 +1923,7 @@ tracks {
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
-        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total', 'daily', 'weekly'])
         filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
         rows(required: false, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
     }
