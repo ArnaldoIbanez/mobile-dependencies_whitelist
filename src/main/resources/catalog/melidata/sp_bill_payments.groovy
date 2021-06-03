@@ -346,8 +346,8 @@ tracks {
 
     // input
     "/bill_payments/input"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/input/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/input/automatic_debit/continue"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/input/automatic_debit/helper"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input/helper"(platform: "/mobile", type: TrackType.Event) {}
 
 }
