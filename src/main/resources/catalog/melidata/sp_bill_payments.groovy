@@ -350,4 +350,9 @@ tracks {
     "/bill_payments/input/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/input/helper"(platform: "/mobile", type: TrackType.Event) {}
 
+    // congrats
+    "/bill_payments/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 }

@@ -3090,6 +3090,23 @@ trackTests {
             mandatory()
         }
 
+        // congrats
+        "/bill_payments/congrats"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
     }
 
     test("Fund account") {
