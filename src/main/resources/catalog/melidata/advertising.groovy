@@ -22,6 +22,14 @@ tracks {
         items_id(required:true, description: "Items ids")
     }
 
+    "/advertising/communications"(platform: "/", isAbstract: true) {}
+
+    "/advertising/communications"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "type of communication action", values: ['show', 'click'])
+        placement(required: true, type: PropertyType.String, description: "communication placement")
+        communications(required: true, type: PropertyType.ArrayList, description: "Array of communications available for placement")
+    }
+
     "/advertising/pads2"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/manager/card"(platform: "/", isAbstract: true) {}
