@@ -201,11 +201,11 @@ trackTests {
     }
 
     test("Motors home popup accept"){
-        "/home/category/motors/popup-meli-accept"(platform: "/", type: TrackType.Event) {}
+        "/home/category/motors/popup-meli/accept"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Motors home popup deny"){
-        "/home/category/motors/popup-meli-deny"(platform: "/", type: TrackType.Event) {}
+        "/home/category/motors/popup-meli/deny"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Home Server Side") {

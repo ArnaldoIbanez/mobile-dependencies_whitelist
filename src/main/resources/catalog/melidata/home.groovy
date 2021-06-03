@@ -149,8 +149,8 @@ tracks {
 
     // Motors popup view
     "/home/category/motors/popup-meli"(platform: "/", type: TrackType.View, parentPropertiesInherited:false) {}
-    "/home/category/motors/popup-meli-accept"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-    "/home/category/motors/popup-meli-deny"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+    "/home/category/motors/popup-meli/accept"(platform: "/", type: TrackType.Event) {}
+    "/home/category/motors/popup-meli/deny"(platform: "/", type: TrackType.Event) {}
 
      // RealEstate Portal Inmobiliario Sections
     "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
