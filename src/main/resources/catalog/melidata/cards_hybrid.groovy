@@ -1777,13 +1777,12 @@ tracks {
             description: "Type of sdk init errors"
         )
 
-        error_message(
-                type: PropertyType.String,
-                required: true,
-                values:["error_message"],
-                inheritable: false,
-                description: "Type of sdk error message"
-            )
+        from(
+            required: true,
+            type: PropertyType.String,
+            inheritable: false,
+            description: "Context from where its sended"
+        )
     }
 
     "/cards/nfc/core/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {

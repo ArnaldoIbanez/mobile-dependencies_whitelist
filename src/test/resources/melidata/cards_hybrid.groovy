@@ -1572,47 +1572,47 @@ trackTests {
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "sdk_initializing_in_progress"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "sdk_initialized"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "intenal_component_error"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "storage_component_error"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "invalid_previous_version"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "sdk_init_failed"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "asm_migration_error"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "asdm_init_error"
-            error_message = "error_message"
+            from = "Context"
         }
         "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "key_store_innaccessible"
-            error_message = "error_message"
+            from = "Context"
         }
     }
 
