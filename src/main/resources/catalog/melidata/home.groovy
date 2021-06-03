@@ -148,15 +148,9 @@ tracks {
     "/home/navigation"(platform: "/", type: TrackType.View) {}
 
     // Motors popup view
-    "/home/category/motors/popup-meli-show"(platform: "/", type: TrackType.View) {
-        site_id(required: true, type: PropertyType.String, description: "Site of show popup")
-    }
-    "/home/category/motors/popup-meli-accept"(platform: "/", type: TrackType.Event) {
-        site_id(required: true, type: PropertyType.String, description: "Site of accept popup")
-    }
-    "/home/category/motors/popup-meli-deny"(platform: "/", type: TrackType.Event) {
-        site_id(required: true, type: PropertyType.String, description: "Site of deny popup")
-    }
+    "/home/category/motors/popup-meli"(platform: "/", type: TrackType.View, parentPropertiesInherited:false) {}
+    "/home/category/motors/popup-meli-accept"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+    "/home/category/motors/popup-meli-deny"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
 
      // RealEstate Portal Inmobiliario Sections
     "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
