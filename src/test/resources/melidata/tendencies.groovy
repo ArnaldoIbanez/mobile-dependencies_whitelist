@@ -220,7 +220,7 @@ trackTests {
             ]
         }
 
-        "/promotions"(platform:"/web/desktop", type: TrackType.Event, {
+        "/tendencies"(platform:"/web/desktop", type: TrackType.Event, {
             general()
         })
     }
