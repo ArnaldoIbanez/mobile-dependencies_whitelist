@@ -46,6 +46,7 @@ tracks {
     "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/start_secure_enrollment"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/core/mobile_gateway"(platform: "/", isAbstract: true) { }
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
     "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
     "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
@@ -1778,6 +1779,47 @@ tracks {
         )
 
         from(
+            required: true,
+            type: PropertyType.String,
+            inheritable: false,
+            description: "Context from where its sended"
+        )
+    }
+
+    "/cards/nfc/core/on_start_command"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["sdk_on_start_command"],
+            description: "Context from where its sended"
+        )
+    }
+
+    "/cards/nfc/core/mobile_gateway/success"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["sdk_mobile_gateway_success"],
+            description: "Mobile gateway service success"
+        )
+    }
+
+    "/cards/nfc/core/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["sdk_mg_config_storage_error", "sdk_mg_config_error"],
+            description: "Context from where its sended"
+        )
+        error_message (
+            required: true,
+            type: PropertyType.String,
+            values: ["MGStorageConfigurationException: error",
+                     "MGConfigurationException: error"],
+            inheritable: false,
+            description: "Check nfc worker initialized"
+        )
+        from (
             required: true,
             type: PropertyType.String,
             inheritable: false,

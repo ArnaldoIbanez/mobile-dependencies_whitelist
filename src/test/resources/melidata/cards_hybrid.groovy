@@ -1616,6 +1616,31 @@ trackTests {
         }
     }
 
+    test("cards hybrid nfc sdk start command service") {
+        "/cards/nfc/core/on_start_command"(platform: "/", type: TrackType.Event) {
+            action = "sdk_on_start_command"
+        }
+    }
+
+    test("cards hybrid nfc mobile gateway service init success") {
+        "/cards/nfc/core/mobile_gateway/success"(platform: "/", type: TrackType.Event) {
+            action = "sdk_mobile_gateway_success"
+        }
+    }
+
+    test("cards hybrid nfc mobile gateway service init error") {
+        "/cards/nfc/core/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
+            action = "sdk_mg_config_storage_error"
+            error_message = "MGStorageConfigurationException: error"
+            from = "Context"
+        }
+        "/cards/nfc/core/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
+            action = "sdk_mg_config_error"
+            error_message = "MGConfigurationException: error"
+            from = "Context"
+        }
+    }
+
     test("cards hybrid nfc sdk not initialize error") {
         "/cards/nfc/core/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
             from = "EnrollmentWorker"
