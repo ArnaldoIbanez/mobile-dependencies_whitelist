@@ -344,4 +344,10 @@ tracks {
     "/bill_payments/detail/receipt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/detail/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
+    // input
+    "/bill_payments/input"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/input/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input/automatic_debit/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input/automatic_debit/helper"(platform: "/mobile", type: TrackType.Event) {}
+
 }

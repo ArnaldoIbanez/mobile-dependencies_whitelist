@@ -3073,6 +3073,23 @@ trackTests {
             mandatory()
         }
 
+        // input
+        "/bill_payments/input"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/automatic_debit/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/automatic_debit/helper"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
     }
 
     test("Fund account") {
