@@ -197,15 +197,15 @@ trackTests {
     }
 
     test("Motors home popup show"){
-        "/home/category/motors/popup-meli"(platform: "/", type: TrackType.View) {}
+        "/home/category/motors/popup_meli"(platform: "/", type: TrackType.View) {}
     }
 
     test("Motors home popup accept"){
-        "/home/category/motors/popup-meli/accept"(platform: "/", type: TrackType.Event) {}
+        "/home/category/motors/popup_meli/accept"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Motors home popup deny"){
-        "/home/category/motors/popup-meli/deny"(platform: "/", type: TrackType.Event) {}
+        "/home/category/motors/popup_meli/deny"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Home Server Side") {
