@@ -196,6 +196,24 @@ trackTests {
 
     }
 
+    test("Motors home popup show"){
+        "/home/category/motors/popup-meli-show"(platform: "/", type: TrackType.View) {
+            site_id = 'MLV'
+        }
+    }
+
+    test("Motors home popup accept"){
+        "/home/category/motors/popup-meli-accept"(platform: "/", type: TrackType.Event) {
+            site_id = 'MLV'
+        }
+    }
+
+    test("Motors home popup deny"){
+        "/home/category/motors/popup-meli-deny"(platform: "/", type: TrackType.Event) {
+            site_id = 'MLV'
+        }
+    }
+
     test("Home Server Side") {
         def dataSet = {
             component_count = 25
