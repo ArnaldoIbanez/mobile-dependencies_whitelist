@@ -47,6 +47,8 @@ catalog {
 
     def mercadoenvios = ["mercadoenvios"]
 
+    def mercadoads = ["mercadoads"]
+
     def extra_marketplace = [
             "tucarro",
             "tumoto",
@@ -78,6 +80,7 @@ catalog {
         include business, "traffic.groovy"
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
+        include business, "dynamic_features.groovy"
         include business, "payers_growth.groovy"
         include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
@@ -86,8 +89,14 @@ catalog {
         include business, "card_form.groovy"
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
+        include business, "cookie_disclaimer.groovy"
+        include business, "cookies_consent.groovy"
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
+        include business, "addresses.groovy"
+        include business, "bulk_publish.groovy"
+        include business, "bulk_edit.groovy"
+        include business, "pdf_viewer.groovy"
     }
 
     mercadolibre.each { business ->
@@ -99,10 +108,12 @@ catalog {
         include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "compatibilities.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
         include business, "credits_classifieds.groovy"
+        include business, "credits_vis.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "fulfillment.groovy"
@@ -134,6 +145,7 @@ catalog {
         include business, "advertising.groovy"
         include business, "classifieds_landings.groovy"
         include business, "instore.groovy"
+        include business, "discount_center_touchpoints.groovy"
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
@@ -145,7 +157,7 @@ catalog {
         include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
-        include business, "myaccount_billing.groovy"
+        include business, "billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
@@ -170,6 +182,8 @@ catalog {
         include business, "whatsapp.groovy"
         include business, "global_selling.groovy"
         include business, "categories.groovy"
+        include business, "category_landing.groovy"
+        include business, "cx_clicktocall.groovy"
     }
 
     mercadopago.each { business ->
@@ -212,12 +226,14 @@ catalog {
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
+        include business, "discount_center_touchpoints.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
         include business, "sp_prepaid.groovy"
         include business, "tools_for_sellers.groovy"
         include business, "mp_growth.groovy"
+        include business, "pog_comm.groovy"
         include business, "point_payment.groovy"
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
@@ -227,9 +243,21 @@ catalog {
         include business, "mp_insurtech.groovy"
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
+        include business, "costs_section.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
+        include business, "hot_sale.groovy"
+        include business, "business_config.groovy"
+        include business, "qr_journey.groovy"
+        include business, "fees_installments.groovy"
+        include business, "point_devices.groovy"
+        include business, "proximity_marketplace.groovy"
+        include business, "my_business_challenges.groovy"
+        include business, "point_receipts.groovy"
+        include business, "disbursements_wu.groovy"
+        include business, "point_buying_flow.groovy"
     }
 
     mercadoshops.each { business ->
@@ -237,11 +265,17 @@ catalog {
         include business, "notifications_mshops.groovy"
     }
 
+    mercadoads.each { business ->
+        include business, "advertising.groovy"
+    }
+
     mercadoenvios.each { business ->
         include business, "flex.groovy"
         include business, "full.groovy"
         include business, "wms.groovy"
         include business, "logistics.groovy"
+        include business, "drivers_app.groovy"
+        include business, "crowd.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
     }
@@ -255,7 +289,7 @@ catalog {
         include business, "email.groovy"
         include business, "home.groovy"
         include business, "myml.groovy"
-        include business, "myaccount_billing.groovy"
+        include business, "billing.groovy"
         include business, "download_app.groovy"
         include business, "official_stores.groovy"
         include business, "qadb.groovy"

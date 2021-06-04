@@ -7,12 +7,12 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    def offer_data_scoring_a = [
-        scoring: "A"
+    def account_rating_a = [
+        rating: "A"
     ]
 
-    def offer_data_scoring_b = [
-        scoring: "B"
+    def account_rating_b = [
+            rating: "B"
     ]
 
     def amount_input_data = [
@@ -56,56 +56,64 @@ trackTests {
             overdue_days: 15,
     ]
 
+    def reasons_data = ["A anuidade é muito alta", "O limite é muito baixo"]
+
+    def other_reason_data = "A anuidade é muito alta"
+
+    def disable_option_data_a = "one_payment"
+
+    def disable_option_data_b = "monthly_payment"
+
     test("Credits Credit Card - Payment tests") {
         /***********************************************
          *       Start: Credit Card Payment
          ***********************************************/
         //Hub
         "/credits/credit_card/payment/hub"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             statement_status = "closed"
         }
 
-        "/credits/credit_card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/payment/hub/total_payment_action"(platform: "/", type: TrackType.Event) {
             amount = 100.5
         }
 
         //Payment plan
-        "/credits/credit_card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+        "/credits/credit_card/payment/hub/payment_plan_selection"(platform: "/", type: TrackType.View) {
+            account = account_rating_b
             statement_status = "open"
         }
 
         //Amount input
         "/credits/credit_card/payment/amount_input"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             statement_status = "open"
         }
 
         //Summary
         "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
         }
 
         "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             statement_status = "closed"
             payment_option = "payment_plan"
             payment_plan = payment_plan_data
         }
 
-        "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
-            offer = offer_data_scoring_a
+        "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
+            account = account_rating_a
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
         }
 
-        "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
-            offer = offer_data_scoring_b
+        "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
+            account = account_rating_b
             statement_status = "closed"
             payment_option = "payment_plan"
             payment_plan = payment_plan_data
@@ -123,24 +131,33 @@ trackTests {
         def congrats_approved_status = "approved"
         def congrats_pending_status = "pending"
         def congrats_rejected_status = "rejected"
+        def stop_page_no_proposal = "no_proposal_match"
+        def stop_page_invalid_proposal = "invalid_proposal_status"
+        def stop_page_already_active = "user_has_active_account"
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            proposal = account_rating_b
             is_card_active = true
             page = 1
         }
 
+        "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
+            proposal = account_rating_b
+            is_card_active = true
+            page = 2
+        }
+
         // Payment due date selection
         "/credits/credit_card/upgrade/payment_due_date_selection"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            proposal = account_rating_b
             is_card_active = true
             buckets = [1, 15, 25]
         }
 
         // Summary
         "/credits/credit_card/upgrade/summary"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            proposal = account_rating_b
             is_card_active = true
             bucket = 15
             limit = 2000
@@ -153,19 +170,19 @@ trackTests {
 
         // Congrats
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            proposal = account_rating_b
             is_card_active = true
             status = congrats_approved_status
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            proposal = account_rating_a
             is_card_active = true
             status = congrats_pending_status
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            proposal = account_rating_b
             is_card_active = true
             status = congrats_rejected_status
         }
@@ -177,6 +194,19 @@ trackTests {
         // Error
         "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
             reason = "Network error"
+        }
+
+        // Stop page
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_no_proposal
+        }
+
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_invalid_proposal
+        }
+
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_already_active
         }
 
         /*********************************************
@@ -198,7 +228,7 @@ trackTests {
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
-            statement_status = "closed"
+            statement_status = statement_closed_status
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
@@ -611,52 +641,128 @@ trackTests {
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            available_limit = 900
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            available_limit = 900
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            available_limit = 900
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            available_limit = 500
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            available_limit = 300
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            available_limit = 4000
+            total_limit = 5000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            available_limit = 1500
+            total_limit = 2000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            available_limit = 900
+            total_limit = 1000
         }
-
+    }
         /*********************************************
          *       End: Credit Card Dashboard
          *********************************************/
-    }
+
+        test("Credits Credit Card - Disable tests") {
+            /***********************************************
+             *       Start: Credit Card Disable
+             ***********************************************/
+
+            //Separator
+            "/credits/credit_card/disable/separator"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Hub
+            "/credits/credit_card/disable/hub"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Reason Selection
+            "/credits/credit_card/disable/reasons"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Confirmation modal
+            "/credits/credit_card/disable/modal"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+            }
+
+            //Summary
+            "/credits/credit_card/disable/summary"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+                disable_option = disable_option_data_a
+            }
+
+            "/credits/credit_card/disable/summary"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+                disable_option = disable_option_data_b
+            }
+
+            //Congrats
+            "/credits/credit_card/disable/congrats"(platform: "/", type: TrackType.View) {
+                account = account_rating_a
+                disable_option = disable_option_data_b
+                reasons = reasons_data
+                other_reason = other_reason_data
+            }
+            /***********************************************
+             *       End: Credit Card Disable
+             ***********************************************/
+        }
+
+        test("Credits Credit Card - Landings tests") {
+            /***********************************************
+             *       Start: Credit Card Landings
+             ***********************************************/
+
+            // Generic Stop Page
+            "/credits/credit_card/landing/generic"(platform: "/web", type: TrackType.View) {}
+
+            /***********************************************
+             *       End: Credit Card Landings
+             ***********************************************/
+        }
 }

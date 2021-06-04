@@ -7,7 +7,15 @@ import com.ml.melidata.TrackType
 tracks {
     initiative = '1127'
 
-    "/liveness"(platform: "/", isAbstract: true) {}
+    "/liveness"(platform: "/mobile", isAbstract: true) {
+        transaction_id(type: PropertyType.String, required: false, description: "Transaction id for user identifier")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
+    }
+
+    "/liveness"(platform: "/web", isAbstract: true) {
+        transaction_id(type: PropertyType.String, required: true, description: "Transaction id for user identifier")
+        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
+    }
 
     "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
@@ -17,15 +25,20 @@ tracks {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
+    "/liveness/validation"(platform: "/", type: TrackType.Event) {
+        params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
+    }
+
     "/liveness/initialization"(platform: "/", type: TrackType.Event) {
         initialization_result(type: PropertyType.Boolean, required: true, description: "Result of initialization")
         initialization_status(type: PropertyType.Numeric, required: true, description: "Status of initialization")
         initialization_description(type: PropertyType.String, required: true, description: "Description of initialization")
     }
 
-    "/liveness/challenge_time"(platform: "/", type: TrackType.Event) {
+    "/liveness/challenge"(platform: "/", type: TrackType.Event) {
         time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
         challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
+        challenge_result_description(type: PropertyType.String, required: true, description: "Description of validation")
     }
 
     "/liveness/result"(platform: "/", type: TrackType.Event) {
@@ -51,11 +64,18 @@ tracks {
         error_cause(type: PropertyType.String, required: true, description: "Error cause")
     }
 
+    "/liveness/action"(platform: "/", type: TrackType.Event) {
+        type(type: PropertyType.String, required: true, values: [
+                "close",
+                "back",
+                "start_liveness",
+                "redirect"
+        ], description: "Type of actions")
+    }
+
     "/liveness/landing"(platform: "/", type: TrackType.View) {}
 
-    "/liveness/fallback"(platform: "/", type: TrackType.View) {
-        type(type: PropertyType.String, required: true, values: ["timeout", "cancel"], description: "Type of fallback")
-    }
+    "/liveness/fallback"(platform: "/", type: TrackType.View) {}
 
     "/liveness/unsupported"(platform: "/", type: TrackType.View) {}
 }

@@ -1,8 +1,6 @@
 {
   "path": [
     "/free_navigation",
-    "/free_navigation_dialog",
-    "/free_navigation_notification",
     "/memory_warning",
     "/vip",
     "/pdp",
@@ -19,10 +17,7 @@
     "/cart/checkout/congrats",
     "/recommendations/print",
     "/questions/ask/post",
-    "/questions/qadb/show",
-    "/questions/qadb/input_focus",
     "/questions/qadb/search",
-    "/pdp/qadb/call-to-action",
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",

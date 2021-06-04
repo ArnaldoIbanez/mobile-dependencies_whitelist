@@ -433,4 +433,30 @@ metrics {
       }
     }
   }
+
+  "payment.installments"(description: "Counts when a user pay with installments > 1", compute_payment: true, deprecation_date:"2021/06/30") {
+    startWith {
+      experiment("px_nativo/highlight_installments")
+    }
+
+    countsOn {
+      condition {
+        path("/px_checkout/result/success")
+        notEquals("event_data.extra_info.selected_installment.quantity", "1")
+      }
+    }
+  }
+
+  "payment_intent.installments"(description: "Counts when a user confirm pay with installments > 1", compute_payment: true, deprecation_date:"2021/06/30") {
+    startWith {
+      experiment("px_nativo/highlight_installments")
+    }
+
+    countsOn {
+      condition {
+        path("/px_checkout/review/confirm")
+        notEquals("event_data.extra_info.selected_installment.quantity", "1")
+      }
+    }
+  }
 }

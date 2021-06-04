@@ -163,6 +163,11 @@ trackTests {
             warehouse_id = "BRWT01"
         }
 
+        "/wms/sorter/scan_origin"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
         "/wms/put_away/scan_product/cancel"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -497,6 +502,8 @@ trackTests {
         "/wms/login_successful"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
+            serial_number = "123456"
+            user_nickname = "user_teste"
         }
         "/wms/logout_successful"(platform: "/mobile/android") {
             trackData()

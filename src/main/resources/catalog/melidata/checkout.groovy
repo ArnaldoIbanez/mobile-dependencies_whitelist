@@ -29,6 +29,11 @@ tracks {
         currency_id(required: true, type: PropertyType.String)
     }
 
+    def coordinatesStructure = objectSchemaDefinitions {
+      latitude(required: true, type: PropertyType.String)
+      longitude(required: true, type: PropertyType.String)
+    }
+
     //CHECKOUT FLOW
 
     "/checkout"(platform: "/") {
@@ -1143,67 +1148,241 @@ tracks {
     "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/submit"(platform:"/", type: TrackType.Event) {
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/map"(platform:"/", type: TrackType.View, isAbstract: true) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event) {
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
     // Event
+    "/checkout/shipping/input_address/unknown_zip_code"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/unknown_zip_code_back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/unknown_zip_code_submit"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
     "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the name track the name value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_name track the street_name value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/city"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery track the delivery value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/delivery_instructions"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery_instructions")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery_instructions track the delivery_instructions value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/telephone_input"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the telephone_input")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the additional info")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the additional info track the additional info value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the internal number")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
     "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the caixa postal number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the caixa postal number track the caixa postal number value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
-    "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+
+    "/checkout/shipping/input_address/error_name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the name track the name value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_street_name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_name track the street_name value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_zip_code"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_state"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the state")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the state track the state value")
+    }
+    "/checkout/shipping/input_address/error_city"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_colony"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_intersection"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the intersection")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the intersection track the intersection value")
+    }
+    "/checkout/shipping/input_address/error_street_number"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_street_type"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_type")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_type track the street_type value")
+    }
+    "/checkout/shipping/input_address/error_delivery"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery track the delivery value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_delivery_instructions"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery_instructions")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery_instructions track the delivery_instructions value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_phone"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_additional_info"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the additional info")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the additional info track the additional info value")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_internal_number"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the internal number")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/error_caixa_postal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the caixa postal number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the caixa postal number track the caixa postal number value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/map/error_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the map step")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the map step track the map coordiantes value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
+    "/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        written(required: true, type: PropertyType.String, description: "The written text before selecting a street suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a street suggestion")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
 
-    "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event) {}
+    "/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        written(required: true, type: PropertyType.String, description: "The written text before selecting a phone suggestion")
+        final_text(required: true, type: PropertyType.String, description: "The final text after selecting a phone suggestion")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that are shown after opening the replace zip codes modal")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        count(required: true, type: PropertyType.Numeric, description: "The count of zip codes that were shown on the replace zip codes modal")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        suggested(required: true, type: PropertyType.Map(coordinatesStructure), description: "The suggested coordinates where we positioned the user on the map")
+        final_coordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        start_loading(required: true, type: PropertyType.String, description: "The datetime when the map started loading")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event) {
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
 
 
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
@@ -1427,4 +1606,57 @@ tracks {
     }
     "/checkout_recovery/error"(platform: "/", type: TrackType.View) {}
     "/checkout_recovery/notfound"(platform: "/", type: TrackType.View) {}
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Inicio mobile platform onetap
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/checkout/onetap"(platform: "/mobile", isAbstract: true) {}
+
+    //Billing info
+    "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
+
+    //Congrats tracks
+    "/checkout/onetap/congrats"(platform: "/mobile", type: TrackType.View) {
+        purchase_id(required: false, type: PropertyType.Numeric, description: "Identifier purchase")
+    }
+
+    //ERROR
+    "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}
+
+    //LOADING
+    "/checkout/onetap/loading"(platform: "/mobile", type: TrackType.View) {}
+
+    //MAIN
+    "/checkout/onetap/main"(platform: "/mobile", type: TrackType.View) {}
+
+    //ScreenLock
+    "/checkout/onetap/screenlock"(platform: "/mobile", type: TrackType.View) {}
+
+    //SHIPPING
+    "/checkout/onetap/shipping"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
+
+    //PAYMENT
+    "/checkout/onetap/payment"(platform: "/mobile", isAbstract: true) {}
+    "/checkout/onetap/payment/input_card"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/onetap/payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Fin mobile platform onetap
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    // Inicio mobile platform split
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/checkout/payment/split_payment"(platform: "/", isAbstract: true) {
+    }
+    "/checkout/payment/split_payment/input_amount"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/split_payment/input_amount/error"(platform: "/mobile", type: TrackType.Event) {}
+    "/checkout/payment/split_payment/select_type"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/split_payment/select_installments"(platform: "/mobile", type: TrackType.View) {}
+    "/checkout/payment/split_payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+
 }

@@ -55,8 +55,34 @@ tracks {
     *         Tracks - Loggued Context        *
     ******************************************/
 
+    // MP Logged Navigation
+    "/navigation/sidebar"(platform: "/web", isAbstract: true) {}
+    "/navigation/sidebar/click"(platform: "/web", type: TrackType.Event) {
+        id(
+            required: true,
+            type: PropertyType.String,
+            description: "The link's identifier (e.g. digital-account, asset, credits, etc)"
+        )
+        hierarchy(
+            required: false,
+            type: PropertyType.String,
+            description: "The link's hierarchy position (e.g. header, l1, l2, l3, etc)"
+        )
+        user_profile(
+            required: false,
+            type: PropertyType.String,
+            description: "User profile type", 
+            values: ['newbie', 'collector', 'payer']
+        )
+    }
+
     // MP Home
     "/mp_home"(platform: "/", type: TrackType.View) {
+        userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+    }
+
+    // MP Home regret
+    "/mp_home/regret"(platform: "/", type: TrackType.View) {
         userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
     }
 
@@ -86,20 +112,37 @@ tracks {
     "/mp_home/sections/oneshotmodal/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
 
+    //MP Home - Shortcuts
+    "/mp_home/sections/shortcuts"(platform:"/", type: TrackType.Event) {
+        shortcut_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        section_id (type: PropertyType.String, required: true, description: "ID from section")
+        bu_team (type: PropertyType.String, required: true, description: "The business unit team")
+        action (type: PropertyType.String, required: true, description: "The executed action")
+        destination (type: PropertyType.String, required: true, description: "Link to execute")
+    }
+
     // MP Profile
     "/profile"(platform: "/", type: TrackType.View) {}
+
+    // MP Activities - Details - Mobile
+    "/activity"(platform: "/mobile", isAbstract: true) {}
+    "/activity/detail"(platform: "/mobile", type: TrackType.View) {}
+    "/activity/detail/component_not_parsed"(platform: "/mobile", type: TrackType.Event) {}
+
+    // MP Activities - Balance - Mobile
+    "/activities"(platform: "/mobile", isAbstract: true) {}
 
     // MP Activities
     "/listing"(platform: "/", isAbstract: true) {}
     "/listing/activities"(platform: "/web", type: TrackType.View) {}
     "/listing/gateway"(platform: "/web", type: TrackType.View) {}
 
-    // MP Activities - Details/Shipping
+    // MP Activities - Details/Shipping - Web
     "/activity"(platform: "/web", isAbstract: true) {}
     "/activity/detail"(platform: "/web", type: TrackType.View) {}
     "/activity/detail/shipping"(platform: "/web", type: TrackType.View) {}
 
-    // MP Activities - Balance/Advances
+    // MP Activities - Balance/Advances - Web
     "/activities"(platform: "/web", isAbstract: true) {}
 
     // MP Activities - Export
@@ -136,6 +179,22 @@ tracks {
     *         Tracks - Public Context         *
     ******************************************/
 
+    // MP Landing - Public Navigation
+    "/navigation"(platform: "/web", isAbstract: true) {}
+    "/navigation/navbar"(platform: "/web", isAbstract: true) {}
+    "/navigation/navbar/link"(platform: "/web", type: TrackType.Event) {
+        id(
+            required: true,
+            type: PropertyType.String,
+            description: "The link's identifier (e.g. digital-account, asset, credits, etc)"
+        )
+        hierarchy(
+            required: false,
+            type: PropertyType.String,
+            description: "The link's hierarchy position (e.g. header, l1, l2, l3, etc)"
+        )
+    }
+
     // MP Landing - Digital Wallet
     "/digital_wallet"(platform: "/", type: TrackType.View) {}
 
@@ -161,10 +220,17 @@ tracks {
     "/landing"(platform: "/", isAbstract: true) {}
 
     // MP Landing - Landing Home
-    "/landing/home"(platform: "/web") {}
+    "/landing/home"(platform: "/", type: TrackType.View) {}
+    "/landing/home/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+    }
 
     // MP Landing - Conta / Cuenta
-    "/landing/digital_account"(platform: "/") {}
+    "/landing/digital_account"(platform: "/", type: TrackType.View) {}
+    "/landing/digital_account/click"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "ID from clicked element", type: PropertyType.String)
+        type(required: true, description: 'Type of element clicked', type: PropertyType.String, values: ['cta', 'shortcut'])
+    }
 
     // MP Landing - Landing Sellers
     "/landing/sellers"(platform: "/") {}
@@ -213,4 +279,27 @@ tracks {
       startTime (type: PropertyType.String, required: true, description: "Configured start time from a landing")
       endTime (type: PropertyType.String, required: true, description: "Configured end time from a landing")
     }
+
+    // MP Landing - Landing KIT QR
+    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1305") {
+        product (type: PropertyType.String, required: false, description: "Name of device, example: 'kit-standalone'")
+        currency (type: PropertyType.String, required: false, description: "Currency")
+        price (type: PropertyType.Numeric, required: false, description: "Price of device")
+        has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
+        coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
+        coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
+        discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
+        price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+
+    "/landing/qr_kit/buy"(platform: "/", type: TrackType.Event) {}
+
+    "/landing/qr_kit/component" (platform: "/", isAbstract: true, ) {
+        component_id(required: true, type: PropertyType.String, description: "Component's id")
+        component_type(required: true, type: PropertyType.String, values: ["button", "link"], description: "Component's type")
+        value(required: true, type: PropertyType.String, description: "Component's value")
+    }
+
+    "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {}
+
 }

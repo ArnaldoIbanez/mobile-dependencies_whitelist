@@ -1,6 +1,7 @@
 package catalog.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -40,6 +41,8 @@ tracks {
         amount (required:true, description: "Continue amount entered")
     }
 
+    "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {}
+    
     //Checkout PX
     "/money_in/px"(platform: "/", isAbstract: true) {}
 
@@ -86,7 +89,7 @@ tracks {
     "/money_in/ted/account"(platform: "/", type: TrackType.View) {}
 
     "/money_in/ted/account/copy"(platform: "/", type: TrackType.Event) {
-        text (required:true, description: "Ted account coppied text", values: ["account", "name", "id_number"])
+        text (required:true, description: "Ted account coppied text", values: ["account", "name", "id_number", "bank_name", "agency_number"])
     }
 
     "/money_in/ted/account/share"(platform: "/", type: TrackType.Event) {}
@@ -174,6 +177,21 @@ tracks {
         type (required:true, description: "Back ticket selected", values: ["paycash", "oxxo"])
     }
 
+    //Ticket Cashin MLB - Congrats
+    "/money_in/cash/congrats"(platform: "/", type: TrackType.View) {
+        type (required:false, description: "congrats type")
+        payment_method (required:true, description: "Payment method selected in congrats")
+    }
+    "/money_in/cash/copy_code"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on copy code")
+    }
+    "/money_in/cash/view_ticket"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on view ticket")
+    }
+    "/money_in/cash/go_home"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on go to tome")
+    }
+    
     // Oxxo Tickets - Disuassive Modal 
     "/money_in/cash/location"(platform:"/", isAbstract:true){}
     "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
@@ -184,7 +202,18 @@ tracks {
     "/money_in/cash/ifpe_cap_exceeded"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
     "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
-
+    
+    // Ticket Cashin MLB - review and confirm
+    "/money_in/cash/review_and_confirm"(platform: "/", type: TrackType.View) {
+        payment_method (required:true, description: "Payment method selected on ryc")
+    }
+    "/money_in/cash/review_and_confirm/create"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on ryc creation")
+    }
+    "/money_in/cash/review_and_confirm/edit_amount"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Payment method selected on ryc edition")
+    }
+    
     //PIX keys - Congrats
     "/money_in/pix_keys"(platform:"/", isAbstract:true){}
     "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
@@ -210,6 +239,16 @@ tracks {
     "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
     }
+    "/money_in/pix_keys/admin/carousel"(platform:"/", isAbstract: true){}
+    "/money_in/pix_keys/admin/carousel/add_key"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/admin/carousel/swipe"(platform: "/", type: TrackType.Event) {
+        swipe_direction (required:false, description: "carousel swipe direction", values: ["left", "right"])
+    }
+    "/money_in/pix_keys/key_detail/share_key"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
     "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
@@ -231,6 +270,18 @@ tracks {
         claim_role (required:false, description: "claim role", values: ["claimer", "donor"])
         claim_type (required:false, description: "Request type", values: ["ownership", "portability"])
         claim_status (required:false, description: "Claim status", values: ["Completed", "Canceled", "waiting_resolution"])
+    }
+    "/money_in/pix_keys/delete_confirm/continue"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/delete_confirm"(platform: "/", type: TrackType.View) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/delete_confirm/cancel"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/cpf_confirm"(platform: "/", type: TrackType.View) {
+        key_value_from_profile (required:false, description: "Indicate if the key is loaded from vault")
     }
 
 
@@ -259,10 +310,127 @@ tracks {
 
     //PIX QR
     "/money_in/pix/qr"(platform:"/", type: TrackType.View){}
+    "/money_in/pix/qr/share"(platform: "/", type: TrackType.Event){}
     "/money_in/pix/qr/setup"(platform: "/", type: TrackType.Event){}
 
     //PIX Setup QR
     "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
     "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
 
+    //Debin
+    "/money_in/debin"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/generic_error"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/ownership_error"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/success"(platform:"/", isAbstract: true){}
+    "/money_in/debin/search/dismiss"(platform:"/", isAbstract: true){}
+
+    //Debin Hub
+    "/money_in/debin/hub"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/hub/select"(platform:"/",type: TrackType.Event){
+        account_id(required:false, description: "indicate the source of the debin")
+    }
+    "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
+
+    //Debin Onboarding
+    "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/onboarding/debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/onboarding/know_more"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/onboarding/exit"(platform:"/", type: TrackType.Event){}
+
+    //Debin Calculator
+    "/money_in/debin/calculator"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/calculator/continue"(platform:"/", type: TrackType.Event){
+        amount(required:false, description: "indicate the amount of the debin")
+    }
+    "/money_in/debin/calculator/preset"(platform:"/", type: TrackType.Event){
+        amount(required:false, description: "indicate the amount of the preset")
+    }
+    "/money_in/debin/calculator/message"(platform:"/", type: TrackType.Event){
+        message(required:false, description: "indicate the error message")
+    }
+
+    //Debin RyC
+    "/money_in/debin/ryc"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/ryc/edit_amount"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+
+    //Debin Processing
+    "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
+
+    //Debin Congrats
+    "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
+        status(required:true, description:"status",values:["success", "pending", "error"])
+        error_type(required:false, description:"indicates the error of the debin")
+    }
+    "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
+         status(required:false, description:"status",values:["success", "pending", "error"])
+    }
+    "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
+         status(required:false, description:"status",values:["error"])
+    }
+    "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
+
+    //Debin Merch Engine
+    "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
+        status(required:true,type: PropertyType.String, description:"merch engine status", values:["success","error"])
+        audience(required:false,type: PropertyType.String, description:"indicates the audience")
+        bu(required:false,type: PropertyType.String, description:"Indicates the buisiness unit")
+        bu_line(required:false,type: PropertyType.String, description:"buisiness unit line")
+        component_id(required:false,type: PropertyType.String, description:"Id of the merch engine real state")
+        content_id(required:false,type: PropertyType.String, description:"id of the content")
+        flow(required:false,type: PropertyType.String, description:"flow of the merch engine")
+        logic(required:false,type: PropertyType.String, description:"logic of the merch engine")
+        position(required:false,type: PropertyType.String, description:"Position of the item")
+        xp_id(required:false,type: PropertyType.String, description:"id of the experiments")
+    }
+
+    //Debin Search account
+    "/money_in/debin/search"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/continue"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/result"(platform:"/", type: TrackType.Event){
+        result_status(required:true, description:"indicates the result of the search")
+    }
+    "/money_in/debin/search/success/continue"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/generic_error/retry"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/generic_error/go_home"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/ownership_error/go_home"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/ownership_error/edit_account"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/search/dismiss/bottom_sheet"(platform:"/", type: TrackType.Event){
+        bs_type(required:false, description:"indicates the tye of the bottom-sheet")
+    }
+
+    "/money_in/td_calculator"(platform:"/", isAbstract: true){}
+    "/money_in/debin/calculator"(platform:"/", isAbstract: true){}
+
+    //Cap TD Calculator (debit to debin)
+    "/money_in/td_calculator/debin_modal"(platform:"/", isAbstract: true){}
+    "/money_in/td_calculator/debin_modal"(platform:"/", type: TrackType.View){}
+    "/money_in/td_calculator/debin_modal/go_to_debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/td_calculator/debin_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
+    //Cap TD WEB (debit to debin)
+    "/account_fund/cvu"(platform:"/", type: TrackType.View){}
+    "/account_fund/amount/warning/go_to_cvu"(platform:"/", type: TrackType.Event){}
+    "/account_fund/amount/warning/edit_amount"(platform:"/", type: TrackType.Event){}
+    "/account_fund/cvu/donwload_app"(platform:"/", type: TrackType.Event){}
+
+    //Cap TD Calculator (debit to cvu)
+    "/money_in/td_calculator/cvu_modal"(platform:"/", isAbstract: true){}
+    "/money_in/td_calculator/cvu_modal"(platform:"/", type: TrackType.View){}
+    "/money_in/td_calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
+    "/money_in/td_calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
+    //Cap TD Calculator (debin to cvu)
+    "/money_in/debin/calculator/cvu_modal"(platform:"/", isAbstract: true){}
+    "/money_in/debin/calculator/cvu_modal"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
+
+    //Money In Error View - Enchufe
+    "/money_in/error_view"(platform: "/", type: TrackType.View) {}
 }
