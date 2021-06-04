@@ -274,6 +274,13 @@ tracks {
     "/bill_payments/shopping"(platform: "/mobile") {}
     "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/bill_payments/checkout"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/checkout/utility/error"(platform: "/mobile") {}
+    "/bill_payments/checkout/lazy_init/run"(platform: "/mobile") {}
+    "/bill_payments/checkout/lazy_init/success"(platform: "/mobile") {}
+    "/bill_payments/checkout/lazy_init/error"(platform: "/mobile") {}
+    "/bill_payments/checkout/lazy_init/cancel"(platform: "/mobile") {}
+
     // congrats success
     "/bill_payments/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success"(platform: "/mobile", type: TrackType.View) {}
