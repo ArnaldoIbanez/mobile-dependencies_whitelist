@@ -34,6 +34,7 @@ tracks {
     "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/tokenization/wipe_data"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/token_provisioned"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/fetch_card_data"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/check_card_eligibility"(platform: "/", isAbstract: true) { }
@@ -1605,6 +1606,24 @@ tracks {
         )
     }
 
+    "/cards/nfc/enrollment/tokenization/wipe_data/success"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["wipe_data_success"],
+            description: "Wipe data result success"
+        )
+    }
+
+    "/cards/nfc/enrollment/tokenization/wipe_data/error"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["wipe_data_error"],
+            description: "Wipe data result error"
+        )
+    }
+
     "/cards/nfc/enrollment/tokenization/error"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -1791,7 +1810,16 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["sdk_on_start_command"],
-            description: "Context from where its sended"
+            description: "Sdk on start command"
+        )
+    }
+
+    "/cards/nfc/core/life_cycle"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["sdk_init_life_cycle"],
+            description: "Sdk init life cycle callback"
         )
     }
 

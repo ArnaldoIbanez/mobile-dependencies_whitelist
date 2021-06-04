@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -1476,6 +1477,18 @@ trackTests {
         }
     }
 
+    test("cards hybrid nfc enrollment tokenization wipe data success") {
+        "/cards/nfc/enrollment/tokenization/wipe_data/success"(platform:"/", type:TrackType.Event) {
+            action = "wipe_data_success"
+        }
+    }
+
+    test("cards hybrid nfc enrollment tokenization wipe data error") {
+        "/cards/nfc/enrollment/tokenization/wipe_data/error"(platform:"/", type:TrackType.Event) {
+            action = "wipe_data_error"
+        }
+    }
+
     test("cards hybrid nfc enrollment tokenization error") {
         "/cards/nfc/enrollment/tokenization/error"(platform:"/", type: TrackType.Event) {
             action = "missing_enrollment_notification"
@@ -1619,6 +1632,12 @@ trackTests {
     test("cards hybrid nfc sdk start command service") {
         "/cards/nfc/core/on_start_command"(platform: "/", type: TrackType.Event) {
             action = "sdk_on_start_command"
+        }
+    }
+
+    test("cards hybrid nfc sdk life cycle callback") {
+        "/cards/nfc/core/life_cycle"(platform: "/", type: TrackType.Event) {
+            action = "sdk_init_life_cycle"
         }
     }
 
