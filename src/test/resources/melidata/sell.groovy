@@ -399,7 +399,6 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
-            defaultCatalogFlowMobile()
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
         }
@@ -409,7 +408,6 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
-            defaultCatalogFlowMobile()
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
         }
@@ -419,7 +417,6 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
-            defaultCatalogFlowMobile()
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
         }
@@ -429,7 +426,6 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
-            defaultCatalogFlowMobile()
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
         }
