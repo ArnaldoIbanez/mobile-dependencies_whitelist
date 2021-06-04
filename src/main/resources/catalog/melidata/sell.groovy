@@ -367,6 +367,8 @@ tracks {
     "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){
         catalogFlowMobile
     }
+    "/sell/list/draft/goldlist_landing"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/prohibited_item_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
         catalogFlowMobile
@@ -445,6 +447,8 @@ tracks {
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
+    "/sell/list/goldlist_landing"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/prohibited_item_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
         catalogFlowMobile
