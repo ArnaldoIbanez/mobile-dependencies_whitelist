@@ -4131,7 +4131,7 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            scenario = "auto_enroll"
+            scenario = "blocker_enroll"
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
