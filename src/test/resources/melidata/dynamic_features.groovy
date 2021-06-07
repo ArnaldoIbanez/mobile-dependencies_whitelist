@@ -60,6 +60,7 @@ trackTests {
 
 		"/dynamic_features/failed"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
+            dynamic_module_size = "500k"
             static_deeplink = "meli://old_deeplink"
 		}
         "/dynamic_features/launched"(platform: "/mobile", type: TrackType.Event) {
