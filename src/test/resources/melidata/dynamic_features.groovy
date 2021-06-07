@@ -17,22 +17,22 @@ trackTests {
 	    // Dynamic Features Events
 	    "/dynamic_features/downloaded"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            new_deeplink = "meli://new_deeplink"
-            old_deeplink = "meli://old_deeplink"
+            dynamic_deeplink = "meli://new_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}
 
 		"/dynamic_features/failed"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            old_deeplink = "meli://old_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}
         "/dynamic_features/launched"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            new_deeplink = "meli://new_deeplink"
-            old_deeplink = "meli://old_deeplink"
+            dynamic_deeplink = "meli://new_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}    
         "/dynamic_features/canceled"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            old_deeplink = "meli://old_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}
     }
 
@@ -43,22 +43,22 @@ trackTests {
 	    // Dynamic Features Events
 	    "/dynamic_features/downloaded"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            new_deeplink = "meli://new_deeplink"
-            old_deeplink = "meli://old_deeplink"
+            dynamic_deeplink = "meli://new_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}
 
 		"/dynamic_features/failed"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            old_deeplink = "meli://old_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}
         "/dynamic_features/launched"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            new_deeplink = "meli://new_deeplink"
-            old_deeplink = "meli://old_deeplink"
+            dynamic_deeplink = "meli://new_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}    
         "/dynamic_features/canceled"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
-            old_deeplink = "meli://old_deeplink"
+            static_deeplink = "meli://old_deeplink"
 		}
     }
 }
