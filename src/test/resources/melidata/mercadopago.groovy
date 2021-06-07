@@ -2871,6 +2871,30 @@ trackTests {
             mandatory()
             result_status = "rejected"
         }
+        "/bill_payments/checkout"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/run"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/success"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/cancel"(platform: "/mobile") {
+            mandatory()
+        }
         "/bill_payments/fee"(platform: "/mobile") {
             mandatory()
         }
