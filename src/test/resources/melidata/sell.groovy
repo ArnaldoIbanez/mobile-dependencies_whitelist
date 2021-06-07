@@ -2511,6 +2511,44 @@ trackTests {
             sale_channels = ["mshops", "marketplace"]
             rebate_status = "not_boosted"
         }
+        "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+            buybox_status = "sharing_first_place"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            user_shops_status = "none"
+            sale_channels = ["mshops", "marketplace"]
+            rebate_status = "not_boosted"
+        }
+        "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "sharing_first_place"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            user_shops_status = "none"
+            sale_channels = ["mshops", "marketplace"]
+            rebate_status = "not_boosted"
+        }
+        "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            boost_id = "same_day_shipping"
+            boost_status = "opportunity"
+            buybox_status = "sharing_first_place"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            user_shops_status = "none"
+            sale_channels = ["mshops", "marketplace"]
+            rebate_status = "not_boosted"
+        }
         "/sell/update/sip/rebate/action"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA123456"
             buybox_status = "winning"
@@ -2525,6 +2563,21 @@ trackTests {
         "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA123456"
             buybox_status = "losing_by_price"
+            has_selected_pictures = false
+            is_catalog_boost = true
+            is_catalog_listing = true
+            is_item_inactive_moderated = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            user_shops_status = "none"
+            sale_channels = ["mshops", "marketplace"]
+            rebate_status = "boosted"
+        }
+        "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+            buybox_status = "sharing_first_place"
             has_selected_pictures = false
             is_catalog_boost = true
             is_catalog_listing = true
