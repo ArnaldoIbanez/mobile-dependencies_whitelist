@@ -274,5 +274,36 @@ trackTests {
 			purchasesEventDataSet()
 		}
 
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+		// TEST TRACKS MY PURCHASES REFUND DETAIL
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		"/my_purchases/refund_detail"(platform:"/", type: TrackType.View) {
+		}
+
+		"/my_purchases/refund_detail/show_action"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/show_help"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/show_faq"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/click_action"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/click_help"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/click_faq"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
 	}
 }
