@@ -1537,7 +1537,6 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["enrollment_worker_success"],
-            inheritable:false,
             description: "Enrollment worker success"
         )
     }
