@@ -1499,11 +1499,11 @@ trackTests {
     test("cards hybrid nfc enrollment time process") {
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 3
-            action = "start_tokenization"
+            action = "user_waiting_start_time_avaible_feature"
         }
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 2
-            action = "finish_tokenization"
+            action = "user_waiting_finish_time_avaible_feature"
         }
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 1
@@ -1530,7 +1530,7 @@ trackTests {
     }
 
     test("cards hybrid nfc enrollment token provisioned attempts") {
-        "/cards/nfc/enrollment/token_provisioned/waiting_time/attempts"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/enrollment/token_provisioned/attempts"(platform:"/", type:TrackType.Event) {
             action = "token_provisioned_attempts"
             result = 1
         }
@@ -1569,91 +1569,98 @@ trackTests {
 
     // CORE-NFC
 
-    test("cards hybrid nfc sdk initialize success") {
-        "/cards/nfc/core/success"(platform: "/", type: TrackType.Event) {
+    test("cards hybrid nfc sdk initialize complete") {
+        "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
+            action = "sdk_init_complete"
+        }
+    }
+
+    test("cards hybrid nfc sdk initialized status") {
+        "/cards/nfc/core/service/check_initialized_status"(platform: "/", type: TrackType.Event) {
             action = "sdk_is_initialized"
         }
-        "/cards/nfc/core/success"(platform: "/", type: TrackType.Event) {
+    }
+
+    test("cards hybrid nfc sdk initialize before enrollment success") {
+        "/cards/nfc/core/service/initializer/before_enrollment/success"(platform: "/", type: TrackType.Event) {
             action = "sdk_initialized_success_before_enrollment"
         }
-        "/cards/nfc/core/success"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initialize_completed"
+    }
+
+    test("cards hybrid nfc sdk initialize before enrollment error") {
+        "/cards/nfc/core/service/initializer/before_enrollment/error"(platform: "/", type: TrackType.Event) {
+            action = "sdk_initialized_error_before_enrollment"
+            error_message = "NFC SDK service was not initialized. Initializing before enrollment error"
         }
     }
 
     test("cards hybrid nfc sdk initialize error") {
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "sdk_initializing_in_progress"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "sdk_initialized"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "intenal_component_error"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "storage_component_error"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "invalid_previous_version"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "sdk_init_failed"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "asm_migration_error"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "asdm_init_error"
             from = "Context"
         }
-        "/cards/nfc/core/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
             error_code = "key_store_innaccessible"
             from = "Context"
         }
     }
 
-    test("cards hybrid nfc sdk start command service") {
-        "/cards/nfc/core/on_start_command"(platform: "/", type: TrackType.Event) {
-            action = "sdk_on_start_command"
-        }
-    }
-
     test("cards hybrid nfc sdk life cycle callback") {
-        "/cards/nfc/core/life_cycle"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/life_cycle"(platform: "/", type: TrackType.Event) {
             action = "sdk_init_life_cycle"
         }
     }
 
     test("cards hybrid nfc mobile gateway service init success") {
-        "/cards/nfc/core/mobile_gateway/success"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/mobile_gateway/success"(platform: "/", type: TrackType.Event) {
             action = "sdk_mobile_gateway_success"
         }
     }
 
     test("cards hybrid nfc mobile gateway service init error") {
-        "/cards/nfc/core/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_mg_config_storage_error"
             error_message = "MGStorageConfigurationException: error"
             from = "Context"
         }
-        "/cards/nfc/core/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_mg_config_error"
             error_message = "MGConfigurationException: error"
             from = "Context"
@@ -1661,27 +1668,20 @@ trackTests {
     }
 
     test("cards hybrid nfc sdk not initialize error") {
-        "/cards/nfc/core/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
             from = "EnrollmentWorker"
         }
     }
 
-    test("cards hybrid nfc sdk not initialize before enrollment error") {
-        "/cards/nfc/core/error/sdk_worker_error_before_enrollment"(platform: "/", type: TrackType.Event) {
-            error_message = "NFC SDK service was not initialized. Initializing before enrollment error"
-        }
-    }
-
-
     test("cards hybrid nfc sdk worker initialize attempts") {
-        "/cards/nfc/core/attempts"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/initializer/attempts"(platform: "/", type: TrackType.Event) {
             action = "sdk_init_attempts"
             result = 1
         }
     }
 
     test("cards hybrid nfc sdk worker initialize max attempts") {
-        "/cards/nfc/core/attempts/error"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/initializer/attempts/error"(platform: "/", type: TrackType.Event) {
             action = "worker_max_attempts"
             result = 3
         }
@@ -1690,53 +1690,53 @@ trackTests {
     // START SECURE ENROLLMENT
 
     test("cards hybrid nfc core start secure enrollment success") {
-        "/cards/nfc/core/start_secure_enrollment/success"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/success"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_success"
         }
     }
 
     test("cards hybrid nfc core start secure enrollment error") {
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "wse_internal_error"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "common_no_internet"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "common_comm_error"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "common_server_error"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "re_enrollment_required"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "wse_storage_access_error"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "json_parsing_error"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "wse_request_error"
             error_message = "error_message"
         }
-        "/cards/nfc/core/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
+        "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
             error_code = "wse_download_error"
             error_message = "error_message"
