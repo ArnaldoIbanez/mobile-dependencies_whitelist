@@ -35,6 +35,7 @@ trackTests {
             app_candidate = true
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
         }
 
         def launchingDefaultProperties = {
@@ -546,6 +547,7 @@ trackTests {
             app_candidate = true
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
         }
 
         def launchingDefaultProperties = {
@@ -587,7 +589,7 @@ trackTests {
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
-            payment_id = "5408994392"        
+            payment_id = "5408994392"
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00

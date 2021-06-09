@@ -37,6 +37,7 @@ tracks {
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
+        visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
     }
 
     // EVENTS
@@ -143,6 +144,7 @@ tracks {
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
+        visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
     }
 
     // For this path, none is required
