@@ -1309,7 +1309,7 @@ tracks {
     "/myml/invoices/opt_in/cst-devolution/button"(platform: "/", isAbstract: true) {}
     "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/") {}
 
-    "/myml/download_invoice_preference"(platform: "/", , type: TrackType.Event) {}
+    "/myml/download_invoice_preference"(platform: "/", type: TrackType.Event) {}
 
 
     //:::: SELLER - INVOICES
@@ -1543,6 +1543,11 @@ tracks {
     //TRACKS MYML MYContact Section
     "/myml/mycontact" (type: TrackType.View, isAbstract: true) {}
     "/myml/mycontact/main" (type: TrackType.View) {}
+    "/myml/mycontact/export" (type: TrackType.Event) {
+        questions_filter(required: false, type: PropertyType.String, description: 'Questions filter applied value')
+        last(required: false, type: PropertyType.String, description: 'Last filter applied value')
+        items_filter(required: false, type: PropertyType.String, description: 'Items filter applied value')
+    }
 
     // TRACKS MYML Invoice Detail
     "/myml/invoices/detail"(platform: "/", type: TrackType.View) {}
