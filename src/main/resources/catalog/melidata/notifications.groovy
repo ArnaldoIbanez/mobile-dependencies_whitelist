@@ -2637,6 +2637,7 @@ tracks {
     "/notification/cancellations_warning_seller_too_many"(platform: "/") {}
     "/notification/cancellations_notice_delayed_reimbursement"(platform: "/") {}
     "/notification/cancellations_notice_cancelled_purchase"(platform: "/") {}
+    "/notification/cancellations_notice_cancelled_purchase_proximity"(platform: "/mobile") {}
 
     "/notification/seller_journey_congrats"(platform: "/mobile"){
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")

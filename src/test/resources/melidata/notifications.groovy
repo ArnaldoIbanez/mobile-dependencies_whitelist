@@ -2312,6 +2312,9 @@ trackTests {
         "/notification/cancellations_notice_cancelled_purchase"(platform: "/mobile") {
             event_type = "shown"
         }
+        "/notification/cancellations_notice_cancelled_purchase_proximity"(platform: "/mobile") {
+            event_type = "shown"
+        }
 
         "/notification/coverages_compensation_complainant"(platform: "/mobile") {
             event_type = "shown"
@@ -11709,6 +11712,9 @@ trackTests {
             event_type = "open"
         }
         "/notification/cancellations_notice_cancelled_purchase"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/cancellations_notice_cancelled_purchase_proximity"(platform: "/mobile") {
             event_type = "open"
         }
 
