@@ -199,6 +199,12 @@ trackTests {
     }
   }
 
+  test("seller central listing hotjar survey") {
+    "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
+      hotjar_survey = "1"
+    }
+  }
+
   test("seller central advertising") {
     "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
       action = "show"
@@ -4522,6 +4528,12 @@ test("seller central confirm leave suggestion task - optin moderated") {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_date_action = "2020-11-08T10:30:00"
+    }
+  }
+
+  test("seller central questions hotjar survey") {
+    "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
+      hotjar_survey = "1"
     }
   }
 

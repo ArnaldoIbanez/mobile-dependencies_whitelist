@@ -634,6 +634,9 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
+    "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
+    }
 
     //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
@@ -2092,6 +2095,10 @@ tracks {
 
     "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
+    }
+
+    "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
     }
 
 
