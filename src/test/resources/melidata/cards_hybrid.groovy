@@ -1460,7 +1460,7 @@ trackTests {
 
     test("cards hybrid nfc enrollment worker tokenization time") {
         "/cards/nfc/enrollment/time"(platform:"/", type: TrackType.Event) {
-            action = "enrollment_worker_success_time"
+            action = "enrollment_worker_async_success_time"
             result = 16511
         }
     }
@@ -1489,14 +1489,7 @@ trackTests {
         }
     }
 
-    test("cards hybrid nfc enrollment tokenization error") {
-        "/cards/nfc/enrollment/tokenization/error"(platform:"/", type: TrackType.Event) {
-            action = "missing_enrollment_notification"
-            result = "missing enrollment push notification"
-        }
-    }
-
-    test("cards hybrid nfc enrollment time process") {
+    test("cards hybrid nfc tokenization time process") {
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 3
             action = "user_waiting_start_time_avaible_feature"
@@ -1506,32 +1499,43 @@ trackTests {
             action = "user_waiting_finish_time_avaible_feature"
         }
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
-            time_millis = 1
-            action = "tokenization_error"
-        }
-        "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 10567
-            action = "tokenization_total_time"
+            action = "tokenization_success_total_time"
         }
     }
 
-    test("cards hybrid nfc enrollment token provisioned success") {
-        "/cards/nfc/enrollment/token_provisioned/success"(platform:"/", type: TrackType.Event) {
-            action = "enrollment_token_provisioned_success"
+    test("cards hybrid nfc tokenization stop error time process") {
+        "/cards/nfc/enrollment/tokenization/waiting_time/error"(platform:"/", type: TrackType.Event) {
+            time_millis = 1
+            action = "tokenization_error"
+        }
+    }
+
+    test("cards hybrid nfc enrollment new card push received success") {
+        "/cards/nfc/enrollment/tokenization/new_card_push/success"(platform:"/", type: TrackType.Event) {
+            action = "new_card_push_received_success"
             information = "tokenization completed token provisioned"
         }
     }
 
+    test("cards hybrid nfc enrollment new card push received success") {
+        "/cards/nfc/enrollment/tokenization/new_card_push/error"(platform:"/", type: TrackType.Event) {
+            action = "missing_new_card_push_notification"
+            result = "missing enrollment push notification"
+        }
+    }
+
+
     test("cards hybrid nfc enrollment token provisioned time") {
-        "/cards/nfc/enrollment/token_provisioned/waiting_time"(platform:"/", type: TrackType.Event) {
-            action = "enrollment_sync_success_push_received_time"
+        "/cards/nfc/enrollment/tokenization/new_card_push/waiting_time"(platform:"/", type: TrackType.Event) {
+            action = "push_provisioned_delay_time"
             result = 10421
         }
     }
 
     test("cards hybrid nfc enrollment token provisioned attempts") {
-        "/cards/nfc/enrollment/token_provisioned/attempts"(platform:"/", type:TrackType.Event) {
-            action = "token_provisioned_attempts"
+        "/cards/nfc/enrollment/tokenization/new_card_push/attempts"(platform:"/", type:TrackType.Event) {
+            action = "new_card_push_attempts"
             result = 1
         }
     }
@@ -2013,11 +2017,11 @@ trackTests {
             result = "PARTIAL_ENROLLMENT"
         }
         "/cards/nfc/enrollment/check_card_eligibility/result"(platform: "/", type: TrackType.Event) {
-            action = "check_card_eligibility_result_error"
+            action = "check_card_eligibility_result"
             result = "FAILURE_API_ERROR"
         }
         "/cards/nfc/enrollment/check_card_eligibility/result"(platform: "/", type: TrackType.Event) {
-            action = "check_card_eligibility_result_error"
+            action = "check_card_eligibility_result"
             result = "FAILURE_DEFAULT"
         }
     }
@@ -2535,45 +2539,38 @@ trackTests {
 
     test("cards hybrid enrollment partial enrollment success") {
         "/cards/nfc/enrollment/partial_enrollment/success"(platform: "/", type: TrackType.Event) {
-            action = "delete_card_service_success"
-        }
-    }
-
-    test("cards hybrid enrollment partial enrollment result") {
-        "/cards/nfc/enrollment/partial_enrollment/result"(platform:"/", type:TrackType.Event) {
-            action = "delete_card_result"
-            result = "SUCCESS"
-        }
-        "/cards/nfc/enrollment/partial_enrollment/result"(platform:"/", type:TrackType.Event) {
-            action = "delete_card_result"
-            result = "FAILURE"
-        }
-        "/cards/nfc/enrollment/partial_enrollment/result"(platform:"/", type:TrackType.Event) {
-            action = "delete_card_result"
-            result = "UNKNOWN_DIGITAL_CARD_ID"
-        }
-        "/cards/nfc/enrollment/partial_enrollment/result"(platform:"/", type:TrackType.Event) {
-            action = "delete_card_result"
-            result = "CONNECTION_ERROR"
-        }
-    }
-
-    test("cards hybrid enrollment partial enrollment delete card push success") {
-        "/cards/nfc/enrollment/partial_enrollment/delete_push/success"(platform: "/", type: TrackType.Event) {
             action = "delete_card_push_received_success"
         }
     }
 
-    test("cards hybrid enrollment partial enrollment delete card push error") {
-        "/cards/nfc/enrollment/partial_enrollment/delete_push/error"(platform: "/", type: TrackType.Event) {
-            action = "delete_card_push_error"
-            information = "PartialEnrollment: Token delete event push error!"
+    test("cards hybrid enrollment partial enrollment result") {
+        "/cards/nfc/enrollment/partial_enrollment/delete_card_result"(platform:"/", type:TrackType.Event) {
+            action = "delete_card_result"
+            result = "SUCCESS"
+        }
+        "/cards/nfc/enrollment/partial_enrollment/delete_card_result"(platform:"/", type:TrackType.Event) {
+            action = "delete_card_result"
+            result = "FAILURE"
+        }
+        "/cards/nfc/enrollment/partial_enrollment/delete_card_result"(platform:"/", type:TrackType.Event) {
+            action = "delete_card_result"
+            result = "UNKNOWN_DIGITAL_CARD_ID"
+        }
+        "/cards/nfc/enrollment/partial_enrollment/delete_card_result"(platform:"/", type:TrackType.Event) {
+            action = "delete_card_result"
+            result = "CONNECTION_ERROR"
         }
     }
 
     test("cards hybrid enrollment partial enrollment delete card failed") {
         "/cards/nfc/enrollment/partial_enrollment/error/delete_card_failed"(platform: "/", type: TrackType.Event) {
             information = "Error: cardId for user is null"
+        }
+    }
+
+    test("cards hybrid enrollment partial enrollment delete card failed") {
+        "/cards/nfc/enrollment/partial_enrollment/error/delete_card_push_error"(platform: "/", type: TrackType.Event) {
+            information = "PartialEnrollment: Token delete event push error!"
         }
     }
 
