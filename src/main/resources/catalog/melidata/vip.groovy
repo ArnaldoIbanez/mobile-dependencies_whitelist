@@ -1044,6 +1044,9 @@ tracks {
                 description: "Indicates if the item has attributes highlighted sale specification")
     }
 
+    "/vip/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {
+    }
+
     "/vip/technical_specs/see_more"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")

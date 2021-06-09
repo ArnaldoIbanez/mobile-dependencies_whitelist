@@ -857,6 +857,14 @@ trackTests {
             has_highlighted_sale_specs=false
         }
 
+        "/vip/technical_specs/show"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            vertical = "core"
+            vip_version = "new"
+            has_good_price = false
+            has_highlighted_sale_specs=false
+        }
+
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
             item_id = "MLA213512313"
             vertical = "motors"
