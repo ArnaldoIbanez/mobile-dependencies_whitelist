@@ -1428,6 +1428,7 @@ trackTests {
                             date = "2021-05-20T03:00:00Z"
                             shipping = 0
                             handling = 0
+                            schedule = 0
                             offset = {
                                 shipping = 0
                             }
