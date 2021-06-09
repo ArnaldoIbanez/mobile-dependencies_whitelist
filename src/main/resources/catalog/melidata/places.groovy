@@ -155,6 +155,11 @@ tracks {
                 description: "ID of place (agency) user operates in.")
     }
 
+    "/places/operations/home"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
     "/places/operations/unified_scan_step"(platform: "/web", type: TrackType.View) {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
@@ -196,6 +201,13 @@ tracks {
     }
 
     "/places/operations/error_step_inbound"(platform: "/web", type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/geolocation_error"(platform: "/web", type: TrackType.Event) {
+        geolocation_error_message(required: true, type: PropertyType.String,
+                description: "Specifies the error occurred when trying to get geolocation.")
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
     }
