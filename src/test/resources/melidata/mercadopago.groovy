@@ -1412,12 +1412,30 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "fcu"
+            reason = "user_in_whitelist"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "network_request_failed"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "user_not_in_whitelist"
+        }
         "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
             flow_origin = 'point'
         }
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "debit_card"
+        }
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "credit_card"
+        }
         "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
@@ -1425,7 +1443,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
@@ -1440,7 +1458,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
