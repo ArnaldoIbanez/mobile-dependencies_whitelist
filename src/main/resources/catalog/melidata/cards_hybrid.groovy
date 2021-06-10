@@ -1873,7 +1873,6 @@ tracks {
         from (
             required: true,
             type: PropertyType.String,
-            inheritable: false,
             description: "Context from where its sended"
         )
     }
@@ -1882,16 +1881,19 @@ tracks {
         from(
             required: true,
             type: PropertyType.String,
-            inheritable: false,
             description: "Context from where its sended"
         )
     }
 
     "/cards/nfc/core/service/error/sdk_initialized_error_before_enrollment"(platform: "/", type: TrackType.Event) {
+        error_message (
+            required: true,
+            type: PropertyType.String,
+            description: "Message with error code and message"
+        )
         from(
             required: true,
             type: PropertyType.String,
-            inheritable: false,
             description: "Context from where its sended"
         )
     }

@@ -1675,6 +1675,7 @@ trackTests {
 
     test("cards hybrid nfc sdk not initialize error") {
         "/cards/nfc/core/service/error/sdk_initialized_error_before_enrollment"(platform: "/", type: TrackType.Event) {
+            error_message = "The error was: error_code + error message"
             from = "SDKInitializerWorker"
         }
     }
