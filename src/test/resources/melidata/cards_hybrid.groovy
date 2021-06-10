@@ -1577,24 +1577,14 @@ trackTests {
         "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
             action = "sdk_init_complete"
         }
-    }
-
-    test("cards hybrid nfc sdk initialized status") {
-        "/cards/nfc/core/service/check_initialized_status"(platform: "/", type: TrackType.Event) {
-            action = "sdk_is_initialized"
-        }
-    }
-
-    test("cards hybrid nfc sdk initialize before enrollment success") {
-        "/cards/nfc/core/service/initializer/before_enrollment/success"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
             action = "sdk_initialized_success_before_enrollment"
         }
     }
 
-    test("cards hybrid nfc sdk initialize before enrollment error") {
-        "/cards/nfc/core/service/initializer/before_enrollment/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initialized_error_before_enrollment"
-            error_message = "NFC SDK service was not initialized. Initializing before enrollment error"
+    test("cards hybrid nfc sdk initialize complete") {
+        "/cards/nfc/core/service/success/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
+            action = "sdk_is_initialized"
         }
     }
 
@@ -1647,7 +1637,7 @@ trackTests {
     }
 
     test("cards hybrid nfc sdk life cycle callback") {
-        "/cards/nfc/core/service/life_cycle"(platform: "/", type: TrackType.Event) {
+        "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) {
             action = "sdk_init_life_cycle"
         }
     }
@@ -1674,6 +1664,18 @@ trackTests {
     test("cards hybrid nfc sdk not initialize error") {
         "/cards/nfc/core/service/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
             from = "EnrollmentWorker"
+        }
+    }
+
+    test("cards hybrid nfc sdk not initialize error") {
+        "/cards/nfc/core/service/error/sdk_initialization_enrollment_worker_error"(platform: "/", type: TrackType.Event) {
+            from = "EnrollmentWorker"
+        }
+    }
+
+    test("cards hybrid nfc sdk not initialize error") {
+        "/cards/nfc/core/service/error/sdk_initialized_error_before_enrollment"(platform: "/", type: TrackType.Event) {
+            from = "SDKInitializerWorker"
         }
     }
 

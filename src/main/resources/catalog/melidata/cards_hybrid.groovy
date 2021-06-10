@@ -47,7 +47,6 @@ tracks {
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/initializer"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/core/service/initializer/before_enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/start_secure_enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/mobile_gateway"(platform: "/", isAbstract: true) { }
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
@@ -1779,42 +1778,20 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["sdk_init_complete"],
+            inheritable: false,
+            values: ["sdk_init_complete",
+                     "sdk_initialized_success_before_enrollment"],
             description: "Check if nfc sdk is initialized complete"
         )
     }
 
-    "/cards/nfc/core/service/check_initialized_status"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/service/success/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["sdk_is_initialized"],
-            description: "Check if nfc sdk is initialized"
-        )
-    }
-
-    "/cards/nfc/core/service/initializer/before_enrollment/success"(platform: "/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["sdk_initialized_success_before_enrollment"],
-            description: "Check if nfc sdk is initialized before enrollment success"
-        )
-    }
-
-    "/cards/nfc/core/service/initializer/before_enrollment/error"(platform: "/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["sdk_initialized_error_before_enrollment"],
-            description: "Check if nfc sdk is initialized before enrollment error"
-        )
-        error_message (
-            required: true,
-            type: PropertyType.String,
-            values: ["NFC SDK service was not initialized. Initializing before enrollment error"],
             inheritable: false,
-            description: "Check nfc service initialized with error"
+            values: ["sdk_is_initialized"],
+            description: "Check if nfc sdk is initialized complete"
         )
     }
 
@@ -1851,7 +1828,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/core/service/life_cycle"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -1894,6 +1871,24 @@ tracks {
 
     "/cards/nfc/core/service/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
         from (
+            required: true,
+            type: PropertyType.String,
+            inheritable: false,
+            description: "Context from where its sended"
+        )
+    }
+
+    "/cards/nfc/core/service/error/sdk_initialization_enrollment_worker_error"(platform: "/", type: TrackType.Event) {
+        from(
+            required: true,
+            type: PropertyType.String,
+            inheritable: false,
+            description: "Context from where its sended"
+        )
+    }
+
+    "/cards/nfc/core/service/error/sdk_initialized_error_before_enrollment"(platform: "/", type: TrackType.Event) {
+        from(
             required: true,
             type: PropertyType.String,
             inheritable: false,
