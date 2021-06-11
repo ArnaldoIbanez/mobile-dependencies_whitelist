@@ -181,9 +181,24 @@ trackTests {
     "/vendor_central/inbound-shipment/creator/congrats"(platform: "/web", type: TrackType.View) {}
   }
 
-
   test("Vendor Central inbound creator view") {
     "/vendor_central/inbound-shipment/creator"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator error") {
+    "/vendor_central/inbound-shipment/creator/error"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator view") {
+    "/vendor_central/inbound-shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator upload congrats") {
+    "/vendor_central/inbound-shipment/creator/upload/congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator upload error") {
+    "/vendor_central/inbound-shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
   }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
