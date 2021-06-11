@@ -2054,14 +2054,6 @@ tracks {
             required: true,
             type: PropertyType.Boolean,
         )
-        is_restrictive (
-            required: true,
-            type: PropertyType.Boolean,
-        )
-        is_tap_n_pay_admitted_to_pay (
-            required: true,
-            type: PropertyType.Boolean,
-        )
         is_default_card (
             required: true,
             typement: PropertyType.Boolean,
