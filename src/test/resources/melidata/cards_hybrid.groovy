@@ -1573,6 +1573,10 @@ trackTests {
 
     // CORE-NFC
 
+    test("cards hybrid nfc sdk initialize start") {
+        "/cards/nfc/core/service/start"(platform:"/", type: TrackType.Event) { }
+    }
+
     test("cards hybrid nfc sdk initialize complete") {
         "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
             action = "sdk_init_complete"

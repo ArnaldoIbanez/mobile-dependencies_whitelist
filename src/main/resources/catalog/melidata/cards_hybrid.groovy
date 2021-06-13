@@ -1774,6 +1774,8 @@ tracks {
 
     // CORE-NFC
 
+    "/cards/nfc/core/service/start"(platform: "/", type: TrackType.Event) { }
+
     "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
