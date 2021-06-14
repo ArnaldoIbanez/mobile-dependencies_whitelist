@@ -5738,6 +5738,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/card_wallet_resume_token"(platform: "/mobile") {
+            news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -11329,6 +11334,12 @@ trackTests {
         "/notification/insurtech_imei_activation"(platform: "/mobile") {
             news_id = "insurtech_imei_activation_123"
             event_type = "open"
+        }
+
+        "/notification/card_wallet_resume_token"(platform: "/mobile") {
+            news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
         }
     }
 
