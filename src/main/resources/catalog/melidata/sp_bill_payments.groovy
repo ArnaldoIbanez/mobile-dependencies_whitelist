@@ -313,6 +313,8 @@ tracks {
     "/bill_payments/schedule_payment/create/dialog"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/create/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/create/confirm"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/bill_payments/schedule_payment/create/pix"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/schedule_payment/create/pix/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/schedule_payment/create/pix/confirm"(platform: "/mobile", type: TrackType.Event) {}
 
