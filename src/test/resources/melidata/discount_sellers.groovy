@@ -24,7 +24,7 @@ trackTests {
             session_id = "1"
             form_model = "{modelo}"
             mcc = "1234"
-            melicapaign_id = "1"
+            melicampaign_id = "1"
             origin = "push"
             clone_campaign_id = "1"
             tooltip = "Budget"
@@ -692,20 +692,20 @@ trackTests {
         }
     }
     test("Home sellers - template-details") {
-        "/discount_sellers/v2/landing" (platform: "/", type: TrackType.Event) {
+        "/discount_sellers/v2/landings" (platform: "/", type: TrackType.Event) {
             session_id = "qowejqboej1b11klasdsjal"
             type = "sold_out"
         }
     }
     test("Home sellers - template-details") {
-        "/discount_sellers/v2/landing" (platform: "/", type: TrackType.Event) {
+        "/discount_sellers/v2/landings" (platform: "/", type: TrackType.Event) {
             session_id = "qowejqboej1b11klasdsjal"
             type = "melicampaign_soldout"
             melicampaign_id = "qwerty-12313-qwaaa"
         }
     }
     test("Home sellers - template-details") {
-        "/discount_sellers/v2/landing/tap" (platform: "/", type: TrackType.Event) {
+        "/discount_sellers/v2/landings/cta" (platform: "/", type: TrackType.Event) {
             session_id = "qowejqboej1b11klasdsjal"
             action = "create_custom_campaign"
             melicampaign_id = "qwerty-12313-qwaaa"
