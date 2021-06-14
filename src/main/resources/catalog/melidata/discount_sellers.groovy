@@ -354,12 +354,12 @@ tracks {
          action (type: PropertyType.String, values:['close', 'admin'], description: "button taped in modal")
     }
 
-    "/discount_sellers/v2/landing" (platform: "/", type: TrackType.View) {
+    "/discount_sellers/v2/landings" (platform: "/", type: TrackType.View) {
          type (type: PropertyType.String, description: "button taped in modal")
          melicampaign_id (type: PropertyType.String, required: false , description: "Id of melicampaign")
     }
     
-    "/discount_sellers/v2/landing/tap" (platform: "/", type: TrackType.Event) {
+    "/discount_sellers/v2/landings/cta" (platform: "/", type: TrackType.Event) {
          action (type: PropertyType.String, description: "button taped in melicampaign landing")
     }
 
