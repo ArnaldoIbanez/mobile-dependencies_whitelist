@@ -3008,5 +3008,7 @@ tracks {
 
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
-
+    
+    // Abandoned Cart
+    "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
 }
