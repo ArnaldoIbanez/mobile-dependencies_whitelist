@@ -166,6 +166,36 @@ trackTests {
             action = "header_help"
         }
     }
+    // DASHBOARD Physical Unlock
+    test("cards mpcard dashboard physical unlock") {
+        "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
+            action = "success"
+        }
+        "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
+            action = "error"
+        }
+        "/cards/mpcard/dashboard/message/lock/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock"
+        }
+        "/cards/mpcard/dashboard/message/lock/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+    }
+
+    // DASHBOARD IFPE
+    test("cards mpcard dashboard IFPE") {
+        "/cards/mpcard/dashboard/ifpe_message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_conversion"
+        }
+    }
+    test("cards mpcard dashboard IFPE Modal") {
+        "/cards/mpcard/dashboard/ifpe_modal/tap"(platform:"/", type: TrackType.Event) {
+            action = "confirm"
+        }
+        "/cards/mpcard/dashboard/ifpe_modal/tap"(platform:"/", type: TrackType.Event) {
+            action = "dismiss"
+        }
+    }
     
     //Mini card: Tracking
     test("cards mpcard dashboard mini card tracking") {
@@ -604,7 +634,7 @@ trackTests {
             action = "see_nip"
         }
         "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
-            action = "block_card"
+            action = "reissue"
         }
     }
     test("cards mpcard setup options success taps") {
@@ -863,12 +893,42 @@ trackTests {
             action = "header_help"
         }
         "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
-            action = "back_button"
+            action = "header_back_button"
+        }
+        "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
+            action = "change_nip"
         }
     }
     test("cards mpcard nip, It_was_not_me link message tap") {
         "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
+        }
+    }
+    test("cards mpcard nip onboarding") {
+        "/cards/mpcard/nip/onboarding"(platform:"/", type: TrackType.View) { }
+        "/cards/mpcard/nip/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_nip"
+        }
+        "/cards/mpcard/nip/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "keep_actual"
+        }
+        "/cards/mpcard/nip/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+    }
+    test("cards mpcard nip change nip") {
+        "/cards/mpcard/change_nip"(platform:"/", type: TrackType.View) { }
+        "/cards/mpcard/change_nip/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_nip"
+        }
+    }
+    test("cards mpcard nip change nip congrats") {
+        "/cards/mpcard/change_nip/congrats"(platform:"/", type: TrackType.View) { }
+        "/cards/mpcard/change_nip/congrats/tap"(platform:"/", type: TrackType.Event) {
+            action = "understand"
+        }
+        "/cards/mpcard/change_nip/congrats/tap"(platform:"/", type: TrackType.Event) {
+            action = "atm_away"
         }
     }
     
