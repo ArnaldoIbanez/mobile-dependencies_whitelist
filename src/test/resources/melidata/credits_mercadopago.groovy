@@ -708,7 +708,19 @@ trackTests {
             sales_percentage_map()
         }
 
-        "/credits/merchant/administrator/inconsistency"(platform: "/mobile/android") {}
+        "/credits/merchant/administrator/inconsistency"(platform: "/mobile/android") {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map()
+            ]
+            promise = 'create_promise'
+            accesses = 'open_market'
+            reason = 'communications_library'
+            from = 'enrollment'
+            additional_info = 'credit_line_taken'
+        }
 
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
@@ -1802,7 +1814,6 @@ trackTests {
             user_type = "merchant"
             error_type = "no_offer"
         }
-        "/credits/merchant/administrator/inconsistency"(platform: "/", type: TrackType.View) {}
         "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
             error_type = "invalid_offer_first_attempt"
