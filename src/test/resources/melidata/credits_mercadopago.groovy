@@ -859,17 +859,20 @@ trackTests {
         }
         "/credits/merchant/early_repayment"(platform: "/web/desktop") {
             account_money = 'insufficient'
+            payment_type = 'total'
             fixed_term()
         }
 
         "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {
             fixed_term()
+            payment_type = 'total'
         }
 
         "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {}
         "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {
             fixed_term()
+            payment_type = 'total'
         }
 
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
@@ -877,6 +880,7 @@ trackTests {
         }
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
             reason = 'early_repayment_error'
+            payment_type = 'total'
             fixed_term()
         }
     }

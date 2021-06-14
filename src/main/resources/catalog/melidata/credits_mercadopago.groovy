@@ -474,13 +474,40 @@ tracks {
             ],
             inheritable: false
         )
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
         products_group
     }
     "/credits/merchant/early_repayment/congrats"(platform: "/", type: TrackType.View) {
         products_group
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
     }
     "/credits/merchant/early_repayment/active_early_repayment"(platform: "/", type: TrackType.View) {
         products_group
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
     }
     "/credits/merchant/early_repayment/error"(platform: "/", type: TrackType.View) {
         reason(
@@ -489,6 +516,15 @@ tracks {
             inheritable: false
         )
         products_group
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
     }
 
     /******************************************
