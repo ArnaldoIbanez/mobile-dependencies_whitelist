@@ -2104,7 +2104,18 @@ tracks {
                     "invalid_offer_three_or_more_attempts",
                 ]
             )
-        }
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer, mix or no credit)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix",
+                "no_credit"
+            ]
+        )
+    }
      /******************************************
      *    End: Self service
      ******************************************/

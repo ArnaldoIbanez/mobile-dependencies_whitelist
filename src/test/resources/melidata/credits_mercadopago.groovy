@@ -1834,6 +1834,10 @@ trackTests {
             user_type = "merchant"
             error_type = "unknown"
         }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "no_credit"
+            error_type = "no_offer"
+        }
 
         /******************************************
         *    End: Self Service
