@@ -185,6 +185,29 @@ tracks {
                 description: "Indicates if seller has checked by kyc in level 5 or above")
         points_interest_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has points of interest available")
+        bank(
+                required: false,
+                type: PropertyType.String,
+                description: "bank identifier in vis items with available credits",
+                values: [
+                        "Amicar",
+                        "Autofin",
+                        "Banco do Brasil",
+                        "Bbva",
+                        "Bradesco",
+                        "Caixa",
+                        "Credihome",
+                        "Credimejora",
+                        "Daycoval",
+                        "Finaer",
+                        "Itau",
+                        "not specified",
+                        "null",
+                        "Santander",
+                        "Scotiabank",
+                        "Votorantim",
+                ]
+        )
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
