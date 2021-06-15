@@ -46,6 +46,7 @@ tracks {
     "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/core/service/error"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/initializer"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/start_secure_enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/mobile_gateway"(platform: "/", isAbstract: true) { }
@@ -1778,30 +1779,24 @@ tracks {
 
     "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
         action (
-            required: true,
+            required: false,
             type: PropertyType.String,
-            inheritable: false,
-            values: ["sdk_init_complete",
-                     "sdk_initialized_success_before_enrollment"],
-            description: "Check if nfc sdk is initialized complete"
+            description: "Check is nfc service is success"
         )
     }
 
     "/cards/nfc/core/service/success/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
         action (
-            required: true,
+            required: false,
             type: PropertyType.String,
-            inheritable: false,
-            values: ["sdk_is_initialized"],
             description: "Check if nfc sdk is initialized complete"
         )
     }
 
     "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
         action (
-            required: true,
+            required: false,
             type: PropertyType.String,
-            values: ["sdk_initalize_error"],
             inheritable: false,
             description: "Nfc sdk is initialized error"
         )
@@ -1810,15 +1805,6 @@ tracks {
             required: true,
             type: PropertyType.String,
             inheritable: false,
-            values: ['sdk_initializing_in_progress',
-                     'sdk_initialized',
-                     'intenal_component_error',
-                     'storage_component_error',
-                     'invalid_previous_version',
-                     'sdk_init_failed',
-                     'asm_migration_error',
-                     'asdm_init_error',
-                     'key_store_innaccessible'],
             description: "Type of sdk init errors"
         )
 
@@ -1832,42 +1818,9 @@ tracks {
 
     "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) {
         action (
-            required: true,
+            required: false,
             type: PropertyType.String,
-            values: ["sdk_init_life_cycle"],
             description: "Sdk init life cycle callback"
-        )
-    }
-
-    "/cards/nfc/core/service/mobile_gateway/success"(platform: "/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["sdk_mobile_gateway_success"],
-            description: "Mobile gateway service success"
-        )
-    }
-
-    "/cards/nfc/core/service/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["sdk_mg_config_storage_error", "sdk_mg_config_error"],
-            description: "Context from where its sended"
-        )
-        error_message (
-            required: true,
-            type: PropertyType.String,
-            values: ["MGStorageConfigurationException: error",
-                     "MGConfigurationException: error"],
-            inheritable: false,
-            description: "Check nfc worker initialized"
-        )
-        from (
-            required: true,
-            type: PropertyType.String,
-            inheritable: false,
-            description: "Context from where its sended"
         )
     }
 

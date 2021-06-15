@@ -1595,47 +1595,7 @@ trackTests {
     test("cards hybrid nfc sdk initialize error") {
         "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
             action = "sdk_initalize_error"
-            error_code = "sdk_initializing_in_progress"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "sdk_initialized"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "intenal_component_error"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "storage_component_error"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "invalid_previous_version"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "sdk_init_failed"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "asm_migration_error"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "asdm_init_error"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_initalize_error"
-            error_code = "key_store_innaccessible"
+            error_code = "sdk_error_code"
             from = "Context"
         }
     }
@@ -1643,25 +1603,6 @@ trackTests {
     test("cards hybrid nfc sdk life cycle callback") {
         "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) {
             action = "sdk_init_life_cycle"
-        }
-    }
-
-    test("cards hybrid nfc mobile gateway service init success") {
-        "/cards/nfc/core/service/mobile_gateway/success"(platform: "/", type: TrackType.Event) {
-            action = "sdk_mobile_gateway_success"
-        }
-    }
-
-    test("cards hybrid nfc mobile gateway service init error") {
-        "/cards/nfc/core/service/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_mg_config_storage_error"
-            error_message = "MGStorageConfigurationException: error"
-            from = "Context"
-        }
-        "/cards/nfc/core/service/mobile_gateway/error"(platform: "/", type: TrackType.Event) {
-            action = "sdk_mg_config_error"
-            error_message = "MGConfigurationException: error"
-            from = "Context"
         }
     }
 
