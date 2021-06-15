@@ -46,6 +46,7 @@ tracks {
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
