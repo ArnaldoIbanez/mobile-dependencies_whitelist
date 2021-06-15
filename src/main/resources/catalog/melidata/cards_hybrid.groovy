@@ -1988,7 +1988,7 @@ tracks {
     // ----------------------
     
     // NfcInitializationServiceInitialized
-    "/cards/nfc/core/service"(platform: "/", type: TrackType.Event) { }
+    "/cards/nfc/core/service/start"(platform: "/", type: TrackType.Event) { }
 
     "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) { 
         error_code (
@@ -1996,11 +1996,29 @@ tracks {
             type: PropertyType.String,
             description: "Error code for nfc service initialization"
         )
+        from (
+            required: true,
+            type: PropertyType.String,
+            description: "Where did this error come from"
+        )
     }
 
     // NfcInitializationServiceSucess
-    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
-    
+    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "The service action that succeed"
+        )
+     }
+
+    "/cards/nfc/core/service/success/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
+        action (
+            required: false,
+            type: PropertyType.String,
+            description: "The service action that was previously initialized"
+        )
+     }
     
     // NFC-CONSTRAINTS
     // -----------
