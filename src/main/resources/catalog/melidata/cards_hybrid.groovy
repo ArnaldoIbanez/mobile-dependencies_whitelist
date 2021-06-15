@@ -49,7 +49,6 @@ tracks {
     "/cards/nfc/core/service/error"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/initializer"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/start_secure_enrollment"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/core/service/mobile_gateway"(platform: "/", isAbstract: true) { }
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
     "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
     "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
