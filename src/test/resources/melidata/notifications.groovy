@@ -5738,7 +5738,27 @@ trackTests {
             event_type = "open"
         }
 
-         "/notification/abandoned_cart_buyer"(platform: "/mobile") {
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
+            event_type = "open"
+        }
+
+        "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
 
@@ -11337,6 +11357,26 @@ trackTests {
 
         "/notification/insurtech_imei_activation"(platform: "/mobile") {
             news_id = "insurtech_imei_activation_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
             event_type = "open"
         }
          
