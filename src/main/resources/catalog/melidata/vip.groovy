@@ -198,6 +198,7 @@ tracks {
                         "Caixa",
                         "Credihome",
                         "Credimejora",
+                        "Creditel",
                         "Daycoval",
                         "Finaer",
                         "Itau",
