@@ -100,6 +100,11 @@ tracks {
         selected(type: PropertyType.Map(selected_definition), required: false)
     }
 
+    def filter_definition = objectSchemaDefinitions {
+        carousel_id(type: PropertyType.String, required: true)
+        selected(type: PropertyType.Map(selected_definition), required: false)
+    }
+
     def selected_definition = objectSchemaDefinitions {
         name(required:true, PropertyType.String)
         selected_id(required:true, PropertyType.String)
@@ -121,6 +126,11 @@ tracks {
         type(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         values_quantity(type: PropertyType.Numeric, required: true)
+    }
+
+    def original_search_filter_definition = objectSchemaDefinitions {
+        filter_id(type: PropertyType.String, required: true, description: "original search filter id applied")
+        filter_value(type: PropertyType.String, required: true, description: "original search filter value applied")
     }
 
     //SEARCH FLOW
@@ -152,7 +162,7 @@ tracks {
         best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
         highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
-
+        original_search_filter(required: false, description: 'original search filter (a fallback search may be performed with certain filters unapplied in case of zero results)', type: PropertyType.Map(original_search_filter_definition))
 
         //Tracks from Search Backend:
         backend_data(required: false)
@@ -235,6 +245,7 @@ tracks {
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
+        filter_carousel_shown(required: false, description: 'filter carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -349,6 +360,10 @@ tracks {
 
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
+    }
+
+    "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        carousels(required:true, PropertyType.ArrayList(PropertyType.Map(filter_definition)))
     }
 
     "/search/input/back"(platform: "/mobile") {}

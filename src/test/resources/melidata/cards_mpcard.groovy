@@ -166,6 +166,36 @@ trackTests {
             action = "header_help"
         }
     }
+    // DASHBOARD Physical Unlock
+    test("cards mpcard dashboard physical unlock") {
+        "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
+            action = "success"
+        }
+        "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
+            action = "error"
+        }
+        "/cards/mpcard/dashboard/message/lock/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock"
+        }
+        "/cards/mpcard/dashboard/message/lock/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+    }
+
+    // DASHBOARD IFPE
+    test("cards mpcard dashboard IFPE") {
+        "/cards/mpcard/dashboard/ifpe_message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_conversion"
+        }
+    }
+    test("cards mpcard dashboard IFPE Modal") {
+        "/cards/mpcard/dashboard/ifpe_modal/tap"(platform:"/", type: TrackType.Event) {
+            action = "confirm"
+        }
+        "/cards/mpcard/dashboard/ifpe_modal/tap"(platform:"/", type: TrackType.Event) {
+            action = "dismiss"
+        }
+    }
     
     //Mini card: Tracking
     test("cards mpcard dashboard mini card tracking") {
@@ -567,6 +597,16 @@ trackTests {
     }
 
     /// SETUP OPTIONS
+    // Empty State
+    test("cards mpcard options Empty State tracking") {
+        "/cards/mpcard/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
+        "/cards/mpcard/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/mpcard/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
+        }
+    }
     test("cards mpcard setup options") {
         "/cards/mpcard/setup/options"(platform: "/", type: TrackType.View) {
             virtual_status = "active"
@@ -594,7 +634,67 @@ trackTests {
             action = "see_nip"
         }
         "/cards/mpcard/setup/options/tap"(platform:"/", type: TrackType.Event) {
-            action = "block_card"
+            action = "reissue"
+        }
+    }
+    test("cards mpcard setup options success taps") {
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "freeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_freeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "change_limits"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "see_nip"
+        }
+        "/cards/mpcard/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "block_card"
+        }
+    }
+    test("cards mpcard setup options failure taps") {
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "freeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_freeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "physical_unfreeze"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "change_limits"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "see_nip"
+        }
+        "/cards/mpcard/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+                product_type = "chip_prepaid"
+                action = "block_card"
         }
     }
     test("cards mpcard setup options physical locked message") {
@@ -793,12 +893,42 @@ trackTests {
             action = "header_help"
         }
         "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
-            action = "back_button"
+            action = "header_back_button"
+        }
+        "/cards/mpcard/nip/physical/tap"(platform: "/", type: TrackType.Event) {
+            action = "change_nip"
         }
     }
     test("cards mpcard nip, It_was_not_me link message tap") {
         "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
+        }
+    }
+    test("cards mpcard nip onboarding") {
+        "/cards/mpcard/nip/onboarding"(platform:"/", type: TrackType.View) { }
+        "/cards/mpcard/nip/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_nip"
+        }
+        "/cards/mpcard/nip/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "keep_actual"
+        }
+        "/cards/mpcard/nip/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+    }
+    test("cards mpcard nip change nip") {
+        "/cards/mpcard/change_nip"(platform:"/", type: TrackType.View) { }
+        "/cards/mpcard/change_nip/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_nip"
+        }
+    }
+    test("cards mpcard nip change nip congrats") {
+        "/cards/mpcard/change_nip/congrats"(platform:"/", type: TrackType.View) { }
+        "/cards/mpcard/change_nip/congrats/tap"(platform:"/", type: TrackType.Event) {
+            action = "understand"
+        }
+        "/cards/mpcard/change_nip/congrats/tap"(platform:"/", type: TrackType.Event) {
+            action = "atm_away"
         }
     }
     
@@ -1132,6 +1262,21 @@ trackTests {
     test("Feedback Tap event"){
         "/cards/mpcard/tracking/feedback/tap"(platform:"/mobile", type: TrackType.Event) {
             action = "research_form"
+        }
+    }
+
+    //Cards Helper Extraction
+    test("cards mpcard helper extraction to show user physical card data") {
+        "/cards/mpcard/card_helper/extraction"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+    }
+    test("cards mlm helper extraction contingency") {
+        "/cards/mpcard/card_helper/extraction/contingency"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+        "/cards/mpcard/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
         }
     }
 }

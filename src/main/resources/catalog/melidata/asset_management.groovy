@@ -67,8 +67,7 @@ tracks {
     "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
 
     // Congrats View
-    "/asset_management/congrats_success"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/congrats_success"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {}
     "/asset_management/congrats_error"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
@@ -104,8 +103,6 @@ tracks {
     // Opt-out
     "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/opt_out"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_stop_investing"(platform: "/web", type: TrackType.View) {}
 
     // Detail
     "/asset_management/investment_detail"(platform: "/", type: TrackType.View) {
@@ -124,15 +121,9 @@ tracks {
     "/asset_management/operations/detail"(platform: "/web") {}
 
     // Congrats
-    "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
-    "/asset_management/result_unavailable"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_invest_money"(platform: "/", type: TrackType.View) {}
-    "/asset_management/result_reports"(platform: "/", type: TrackType.View) {}
+    "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {
+        congratsName (required: false, type: PropertyType.String, description: "Description name")
+    }
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
@@ -147,8 +138,8 @@ tracks {
     "/asset_management/invest"(platform: "/web", type: TrackType.View) {}
 
     // Investment report
-    "/asset_management/investment_report"(platform: "/web", type: TrackType.Event) {
-        year (required: true, type: PropertyType.String, description: "The year of earnings requested")
+    "/asset_management/investment_report"(platform: "/", type: TrackType.Event) {
+        year (required: false, type: PropertyType.String, description: "The year of earnings requested")
         quarter (required: false, type: PropertyType.String, values: ["1", "2", "3", "4"], description: "The requested quarter of the year, if chosen")
     }
 
@@ -237,8 +228,11 @@ tracks {
     "/asset_management/kyc_onboarding/show_more"(platform: "/", type: TrackType.Event) {}
 
     //Redirect onbaording mobile
-    "/asset_management/redirect_onboarding"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/redirect_onboarding/play_store"(platform: "/web", type: TrackType.Event) {}
-    "/asset_management/redirect_onboarding/app_store"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/kyc_web_blocker"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/kyc_web_blocker/play_store"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/kyc_web_blocker/app_store"(platform: "/web", type: TrackType.Event) {}
 
+
+    //Loading GBM
+    "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
 }

@@ -1084,6 +1084,12 @@ trackTests {
             latest_news_type= "merchants_growth_resellers_smart_launch"
             status= "read"
         }
+        "/notification_center/merchants_growth_sameday"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_type= "merchants_growth_sameday"
+            status= "read"
+        }        
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -1745,6 +1751,14 @@ trackTests {
             latest_news_type= "single_player_transport_fail_mp"
             latest_news_id= "single_player_transport_fail_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_prepaid_toll_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_prepaid_toll_success_mp"
+            latest_news_id= "single_player_prepaid_toll_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_prepaid_toll_fail_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_prepaid_toll_fail_mp"
+            latest_news_id= "single_player_prepaid_toll_fail_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_antenna_success_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_antenna_success_mp"
             latest_news_id= "single_player_antenna_success_mp-143816022-MLB1013046714"
@@ -1793,6 +1807,10 @@ trackTests {
         "/notification_center/single_player_payg_blocked_device_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_payg_blocked_device_mp"
             latest_news_id= "single_player_payg_blocked_device_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_cashback_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_cashback_device_mp"
+            latest_news_id= "single_player_payg_cashback_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_scheduled_payment_utility"
@@ -2292,6 +2310,9 @@ trackTests {
             event_type = "shown"
         }
         "/notification/cancellations_notice_cancelled_purchase"(platform: "/mobile") {
+            event_type = "shown"
+        }
+        "/notification/cancellations_notice_cancelled_purchase_proximity"(platform: "/mobile") {
             event_type = "shown"
         }
 
@@ -4808,6 +4829,9 @@ trackTests {
         "/notification/merchants_growth_resellers_smart_launch"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_sameday"(platform: "/mobile") {
+            event_type = "open"
+        }        
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -5556,6 +5580,14 @@ trackTests {
             news_id = "single_player_transport_fail_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_prepaid_toll_success_mp"(platform: "/mobile") {
+            news_id = "single_player_prepaid_toll_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_prepaid_toll_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_prepaid_toll_fail_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_antenna_fail_mp"(platform: "/mobile") {
             news_id = "single_player_antenna_fail_mp_123"
             event_type = "open"
@@ -5607,6 +5639,10 @@ trackTests {
         }
         "/notification/single_player_payg_blocked_device_mp"(platform: "/mobile") {
             news_id = "single_player_payg_blocked_device_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_cashback_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_cashback_mp_123"
             event_type = "open"
         }
         "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {
@@ -5702,6 +5738,15 @@ trackTests {
             event_type = "open"
         }
 
+         "/notification/abandoned_cart_buyer"(platform: "/mobile") {
+            event_type = "open"
+        }
+
+        "/notification/card_wallet_resume_token"(platform: "/mobile") {
+            news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -6760,6 +6805,12 @@ trackTests {
             latest_news_type= "merchants_growth_resellers_smart_launch"
             status= "read"
         }
+        "/notification_center/merchants_growth_sameday"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_id= "merchants_growth_sameday-186785675-76283123"
+            latest_news_type= "merchants_growth_sameday"
+            status= "read"
+        }        
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -7318,6 +7369,14 @@ trackTests {
             latest_news_type= "single_player_transport_fail_mp"
             latest_news_id= "single_player_transport_fail_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_prepaid_toll_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_prepaid_toll_success_mp"
+            latest_news_id= "single_player_prepaid_toll_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_prepaid_toll_fail_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_prepaid_toll_fail_mp"
+            latest_news_id= "single_player_prepaid_toll_fail_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_antenna_success_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_antenna_success_mp"
             latest_news_id= "single_player_antenna_success_mp-143816022-MLB1013046714"
@@ -7365,6 +7424,10 @@ trackTests {
         "/notification_center/single_player_payg_blocked_device_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_payg_blocked_device_mp"
             latest_news_id= "single_player_payg_blocked_device_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_cashback_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_cashback_mp"
+            latest_news_id= "single_player_payg_cashback_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_scheduled_payment_utility"
@@ -8866,6 +8929,14 @@ trackTests {
             news_id = "single_player_transport_fail_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_prepaid_toll_success_mp"(platform: "/mobile") {
+            news_id = "single_player_prepaid_toll_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_prepaid_toll_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_prepaid_toll_fail_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_antenna_fail_mp"(platform: "/mobile") {
             news_id = "single_player_antenna_fail_mp_123"
             event_type = "open"
@@ -8912,6 +8983,10 @@ trackTests {
         }
         "/notification/single_player_payg_blocked_device_mp"(platform: "/mobile") {
             news_id = "single_player_payg_blocked_device_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_cashback_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_cashback_mp_123"
             event_type = "open"
         }
         "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {
@@ -10671,6 +10746,9 @@ trackTests {
         "/notification/merchants_growth_resellers_smart_launch"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_sameday"(platform: "/mobile") {
+            event_type = "open"
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -11261,6 +11339,16 @@ trackTests {
             news_id = "insurtech_imei_activation_123"
             event_type = "open"
         }
+         
+        "/notification/abandoned_cart_buyer"(platform: "/mobile") {
+            event_type = "open"
+        }
+      
+        "/notification/card_wallet_resume_token"(platform: "/mobile") {
+            news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
+            event_type = "auto_dismiss"
+            notification_type = "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -11426,6 +11514,12 @@ trackTests {
 
         "/notification/card_nip_nip_block"(platform: "/mobile") {
             news_id = "card_nip_nip_block-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_set_nip"(platform: "/mobile") {
+            news_id = "card_nip_set_nip-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -11639,6 +11733,9 @@ trackTests {
         "/notification/cancellations_notice_cancelled_purchase"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/cancellations_notice_cancelled_purchase_proximity"(platform: "/mobile") {
+            event_type = "open"
+        }
 
          "/notification/coverages_compensation_complainant"(platform: "/mobile") {
              event_type = "open"
@@ -11827,6 +11924,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_nip_set_nip"(platform: "/mobile") {
+            news_id = "card_nip_set_nip-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"

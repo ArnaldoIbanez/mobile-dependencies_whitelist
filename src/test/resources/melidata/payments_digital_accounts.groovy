@@ -27,6 +27,10 @@ trackTests {
     test("Balance Cerc") {
         "/banking/cerc"(platform: "/", type: TrackType.View) {}
     }
+    
+    test("Balance Cerc Optin") {
+        "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
+    }
 
     test("Balance Debts") {
         "/banking/debts"(platform: "/", type: TrackType.View) {}
@@ -59,6 +63,12 @@ trackTests {
             action_id = 'test'
         }
         "/banking/balance/debts"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/cerc"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
     }

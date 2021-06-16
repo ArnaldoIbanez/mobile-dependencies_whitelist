@@ -1066,7 +1066,7 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
-                scenario = "auto_enroll"
+                scenario = "blocker_enrolled"
             }
 
             "/screenlock/security_blocker/configure"(platform: "/mobile/android", type: TrackType.Event) {
@@ -1397,6 +1397,18 @@ trackTests {
             "/login/transactional/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
                 authentication_id = "1"
                 challenge = "test1_decline"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/submit"(platform: "/mobile/android", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_submit"
+                tracking_id = "1"
+            }
+
+            "/login/transactional/challenge/submit"(platform: "/mobile/ios", type: TrackType.Event) {
+                authentication_id = "1"
+                challenge = "test1_submit"
                 tracking_id = "1"
             }
 

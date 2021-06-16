@@ -83,7 +83,8 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac","mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos"]
+	"mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac","mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
+	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados"]
 }
 
 task uploadAll(type:JavaExec) {
@@ -95,7 +96,8 @@ task uploadAll(type:JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld",
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos"]
+	"mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
+	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -296,12 +298,6 @@ task testMonitoringcloudeconomicsEcusCatalog (dependsOn: 'classes', type: JavaEx
 	args = ["mlo-mon-cloudeconomics-ecus-fda"]
 }
 
-task testMonitoringWagnerDeployLoadCatalog (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.CatalogTest'
-	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-wagner-deploy-load"]
-}
-
 task testMonitoringAdvertisingPadsAmlCatalog (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
@@ -326,6 +322,30 @@ task testMonitoringGrupodotArtProhibidos (dependsOn: 'classes', type: JavaExec) 
 	args = ["mlo-mon-grupodot-art-prohibidos"]
 }
 
+task testMonitoringModelBhvMlmEo (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-model-bhv-mlm-eo"]
+}
+
+task testMonitoringFdaCatalogSimilarity (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-catalog-similarity"]
+}
+
+task testMonitoringBhvNegativizados (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-bhv-negativizados"]
+}
+
+task testMonitoringBhvNoNegativizados (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-bhv-no-negativizados"]
+}
+
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.MetricsTest'
 	classpath = sourceSets.main.runtimeClasspath
@@ -340,7 +360,8 @@ task uploadAllCatalog(type:JavaExec) {
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-wagner-deploy-load", "mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos"]
+	"mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
+	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -541,12 +562,6 @@ task uploadMonitoringCloudeconomicsEcusCatalog(type: JavaExec) {
 	args = ["mlo-mon-cloudeconomics-ecus-fda"]
 }
 
-task uploadMonitoringWagnerDeployLoadCatalog(type: JavaExec) {
-	main = 'com.melidata.definitions.uploaders.CatalogUploader'
-	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-wagner-deploy-load"]
-}
-
 task uploadMonitoringAdvertisingPadsAmlCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
@@ -569,6 +584,30 @@ task uploadMonitoringGrupodotArtProhibidos(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-grupodot-art-prohibidos"]
+}
+
+task uploadMonitoringModelBhvMlmEo(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-model-bhv-mlm-eo"]
+}
+
+task uploadMonitoringFdaCatalogSimilarity(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-fda-catalog-similarity"]
+}
+
+task uploadMonitoringBhvNegativizados(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-bhv-negativizados"]
+}
+
+task uploadMonitoringBhvNoNegativizados(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-bhv-no-negativizados"]
 }
 
 task uploadMetrics(type:JavaExec) {

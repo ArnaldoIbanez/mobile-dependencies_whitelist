@@ -1412,12 +1412,30 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "fcu"
+            reason = "user_in_whitelist"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "network_request_failed"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "user_not_in_whitelist"
+        }
         "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
             flow_origin = 'point'
         }
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "debit_card"
+        }
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "credit_card"
+        }
         "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
@@ -1425,7 +1443,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
@@ -1440,7 +1458,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
@@ -2871,6 +2889,30 @@ trackTests {
             mandatory()
             result_status = "rejected"
         }
+        "/bill_payments/checkout"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/run"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/success"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/cancel"(platform: "/mobile") {
+            mandatory()
+        }
         "/bill_payments/fee"(platform: "/mobile") {
             mandatory()
         }
@@ -3049,6 +3091,61 @@ trackTests {
         }
 
         "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // detail
+        "/bill_payments/detail"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/detail/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // input
+        "/bill_payments/input"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/helper"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrats
+        "/bill_payments/congrats"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -4076,7 +4173,7 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            scenario = "auto_enroll"
+            scenario = "blocker_enrolled"
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
@@ -5277,6 +5374,18 @@ trackTests {
         "/login/transactional/challenge/decline"(platform: "/mobile/ios", type: TrackType.Event) {
             authentication_id = "1"
             challenge = "test1_decline"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge/submit"(platform: "/mobile/android", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "test1_submit"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge/submit"(platform: "/mobile/ios", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "test1_submit"
             tracking_id = "1"
         }
 

@@ -140,6 +140,10 @@ tracks {
     def sellerCoachCard = objectSchemaDefinitions {
         type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['RECOMMENDATION', 'CONTENT', 'TASK'])
         key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
+        page(required: false, type: PropertyType.Numeric, description: "Number of page where the card is shown")
+        position(required: false, type: PropertyType.Numeric, description: "Position of the card (relative to the page)")
+        item_id(required: false, type: PropertyType.String, description: "Id of the listing featured in this recommendation")
+        rules_applied(required: true, type: PropertyType.String, description: "Type of rules applied to show this card", values: ['hard', 'soft', 'none'])
     }
 
     def picture_info_map = objectSchemaDefinitions {
@@ -632,6 +636,9 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
+    "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
+    }
 
     //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
@@ -1356,6 +1363,112 @@ tracks {
         period_type(required: true, type: PropertyType.String, description: "Period type")
     }
 
+    // METRICS MY ATTENTION SECTION
+
+    "/seller_central/metrics/attention"(platform: "/web", isAbstract: true) {}
+
+    // Page Summary - My Attention
+
+    "/seller_central/metrics/attention/summary"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        default_selected_period(required: false, type: PropertyType.String, description: "Seller's default reputation period")
+    }
+
+    "/seller_central/metrics/attention/summary"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/summary"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/summary/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        section_name(required: true, type: PropertyType.String, description: "Section where the button is placed")
+    }
+
+    "/seller_central/metrics/attention/summary/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/summary/apply_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        filters(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/summary/toggle_reputation"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/summary/selected_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        selected_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/summary/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
+    // Page Details - My Attention
+
+    "/seller_central/metrics/attention/details"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        default_selected_period(required: false, type: PropertyType.String, description: "Seller's default reputation period")
+    }
+
+    "/seller_central/metrics/attention/details"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/details"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/details/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/details/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/details/apply_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        filters(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/details/toggle_reputation"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/details/selected_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        selected_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/details/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
+    "/seller_central/metrics/attention/details/top_sort"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sort_type(required: true, type: PropertyType.String, description: "Sort option selected")
+    }
+
+    "/seller_central/metrics/attention/details/top_actions"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        action_type(required: true, type: PropertyType.String, description: "Product action selected")
+    }
+
+    "/seller_central/metrics/attention/details/show_problems"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        problems(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of showed problems")
+    }
+
+    "/seller_central/metrics/attention/details/selected_problem"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        selected_problem(required: true, type: PropertyType.String, description: "Problem selected ID")
+        problem_type(required: true, type: PropertyType.String, description: "Problem type", values: ["L1", "L2"])
+    }
+
     // CATALOG OPTIN SECTION
 
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
@@ -1984,6 +2097,10 @@ tracks {
 
     "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
+    }
+
+    "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
     }
 
 

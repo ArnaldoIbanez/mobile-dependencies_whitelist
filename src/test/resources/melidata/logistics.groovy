@@ -449,27 +449,75 @@ trackTests {
             shipment_id = "222"
             receiver_relationship = "HOLDER"
         }
+        "/logistics/last_mile/deliver/deliverable_selection_modal"(platform: "/mobile", type: TrackType.View) {
+            shipments = [123, 123]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            receiver_relationship = "HOLDER"
+        }
+        "/logistics/last_mile/deliver/holder_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+            vehicle_id = 123
+            driver_id = 124
+            route_id = "123"
+            receiver_relationship = "HOLDER"
+            checked_shipments = [123, 123]
+            dismissed_shipments = [123, 123]
+        }
+        "/logistics/last_mile/deliver/another_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+            vehicle_id = 123
+            driver_id = 124
+            route_id = "123"
+            receiver_relationship = "HOLDER"
+            checked_shipments = [123, 123]
+            dismissed_shipments = [123, 123]
+        }
         "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
             driver_id = "123"
             shipment_id = "222"
             error_type = "document_form"
         }
         "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
             receiver_relationship = "HOLDER"
         }
         "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
         }
         "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
         }
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
-            shipment_id = "222"
-        }
-        "/logistics/last_mile/package/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
             driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
+        }
+        "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal"(platform: "/mobile", type: TrackType.View) {
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
+        }
+        "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "cart_group_keyword"
         }
         "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -810,6 +858,24 @@ trackTests {
             route_id = "1234"
         }
         "/logistics/covid19_warning_modal"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+            logistic_type = "LM"
+        }
+        "/logistics/custom_clearence/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+            logistic_type = "LM"
+        }
+        "/logistics/custom_clearence/unsuccessful"(platform: "/mobile", type: TrackType.View) {
+            route_id = "1234"
+            driver_id = 1234l
+            vehicle_id = 1234l
+            logistic_type = "LM"
+        }
+        "/logistics/custom_clearence/successful"(platform: "/mobile", type: TrackType.View) {
             route_id = "1234"
             driver_id = 1234l
             vehicle_id = 1234l

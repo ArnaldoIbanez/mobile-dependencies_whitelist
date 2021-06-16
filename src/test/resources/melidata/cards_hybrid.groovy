@@ -199,23 +199,18 @@ trackTests {
     //Mini card: Tracking
     test("cards hybrid dashboard mini card tracking") {
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "physical_delivered"
+            action = "options"
         }
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "hybrid_active"
+            action = "card_data"
         }
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "debit_active"
+            action = "kyc_compliance"
         }
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "physical_inactive"
+            action = "kyc_not_compliance"
         }
-        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "user_need_challenge"
-        }
-        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "virtual_only"
-        }
+
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tracking_pending"
         }
@@ -236,18 +231,6 @@ trackTests {
         }
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tracking_shipped"
-        }
-        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "options"
-        }
-        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "card_data"
-        }
-        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "kyc_compliance"
-        }
-        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
-            action = "kyc_not_compliance"
         }
     }
     
@@ -311,6 +294,15 @@ trackTests {
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "hybrid_active"
         }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_active"
+        }
     }
     
     //Flap card: Tracking
@@ -334,9 +326,6 @@ trackTests {
         "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
             action = "money_in"
         }
-        "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
-            action = "account_info_modal"
-        }
     }
     
     //Linear buttons: Tracking
@@ -345,19 +334,13 @@ trackTests {
             action = "help"
         }
         "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
-            action = "call"
-        }
-        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
             action = "block"
-        }
-        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
-            action = "contact"
         }
     }
     
     //Message: Tracking
     test("cards hybrid dashboard message") {
-        "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/dashboard/pin/message/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
         }
     }
@@ -425,11 +408,11 @@ trackTests {
     test("cards hybrid dashboard coachmark banner"){
         "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
             action = "close"
-            id = "dashboard_virtual"
+            id = "dashboard_virtual_coachmark"
         }
         "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
             action = "tap"
-            id = "dashboard_virtual"
+            id = "dashboard_physical_coachmark"
         }
     }
 
@@ -545,97 +528,63 @@ trackTests {
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "deprecated"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "new"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "on_creation"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "on_delivery"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "delivered"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "active"
-            has_money = true
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "freeze"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "blocked"
-            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "inactive"
-            has_money = false
-        }
-        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef"
-            initial_status = "inactive"
-            has_money = false
-            experimental_version = "experimental_a"
-        }
-        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef"
-            initial_status = "inactive"
-            has_money = false
-            experimental_version = "experimental_b"
-        }
-        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef"
-            initial_status = "inactive"
-            product_type = "credit"
-            experimental_version = "experimental_a"
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "inactive"
             product_type = "prepaid"
-            has_money = true
-            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "hybrid"
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "inactive"
             product_type = "hybrid"
             has_money = true
-            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "hybrid"
+            has_money = false
         }
     }
     test("cards hybrid setup virtual card taps tracking") {
-        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "reissue"
-        }
-        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "freeze"
-        }
-        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "unfreeze"
-        }
-        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "card_unfreeze"
-        }
-        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "copy"
-        }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
         }
@@ -649,15 +598,18 @@ trackTests {
             action = "card_sec_code_copy"
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "additional_message"
-        }
-        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "additional_message_freeze"
         }
-         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "close_modal"
+    }
+    test("cards hybrid setup virtual wsp button tap tracking") {
+        "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+            action = "action"
         }
-        
+    }
+    test("cards hybrid setup virtual card taps tracking") {
+        "/cards/hybrid/setup/virtual/card/modal/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
     }
 
     //Highlighted Row
@@ -902,7 +854,10 @@ trackTests {
     // --------
     test("cards hybrid limits") {
         "/cards/hybrid/limits_setup"(platform: "/", type: TrackType.View) {
-            limits_status = "[number_selector_atm, message]"
+            limits_status = "number_selector_atm"
+        }
+        "/cards/hybrid/limits_setup"(platform: "/", type: TrackType.View) {
+            limits_status = "message"
         }
     }
     
@@ -1174,17 +1129,27 @@ trackTests {
         "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
             action = "close"
             step = 1
-            id = "dashboard_virtual"
+            id = "dashboard_virtual_coachmark"
         }
         "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
             action = "next"
             step = 2
-            id = "dashboard_virtual"
+            id = "dashboard_physical_coachmark"
         }
         "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
             action = "previous"
             step = 2
-            id = "dashboard_physical"
+            id = "dashboard_virtual_coachmark"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 3
+            id = "setup_virtual_debit_coachmark"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 3
+            id = "setup_virtual_credit_coachmark"
         }
     }
     
@@ -1208,13 +1173,6 @@ trackTests {
         }
         "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
             cards = []
-        }
-        "/cards/hybrid/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
-        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
-            action = "button_primary"
-        }
-        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
-            action = "button_secondary"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
@@ -1283,10 +1241,21 @@ trackTests {
         }
     }
 
+    //OPTIONS Empty State
+    test("cards hybrid options Empty State tracking") {
+        "/cards/hybrid/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
+        }
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "secondary_button"
+        }
+    }
+
     //OPTIONS Message
     test("cards hybrid options message tracking") {
         "/cards/hybrid/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
-            action = "blocked_pin"
+            action = "unblock_pin"
         }
     }
 
@@ -1307,6 +1276,14 @@ trackTests {
     test("cards hybrid helper extraction to show user physical card data") {
         "/cards/hybrid/card_helper/extraction"(platform:"/", type: TrackType.View) {
             card_id = "cardId_goes_here"
+        }
+    }
+    test("cards hybrid helper extraction contingency") {
+        "/cards/hybrid/card_helper/extraction/contingency"(platform:"/", type: TrackType.View) {
+            card_id = "cardId_goes_here"
+        }
+        "/cards/hybrid/card_helper/extraction/contingency/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
         }
     }
 
@@ -1940,6 +1917,13 @@ trackTests {
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.View) {
             time_millis = 0
             result= "success"
+        }
+    }
+
+    // NFC-DEVICE-CVM
+    test("cards hybrid nfc device cvm information") {
+        "/cards/nfc/enrollment/devicecvm"(platform:"/", type: TrackType.Event) {
+            status = "device cdcvm initialized"
         }
     }
 
