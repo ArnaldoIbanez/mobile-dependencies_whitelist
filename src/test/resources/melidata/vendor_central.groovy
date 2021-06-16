@@ -177,16 +177,15 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Vendor Central Inbound creator
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-  test("Vendor Central inbound creator congrats") {
-    "/vendor_central/inbound-shipment/creator/congrats"(platform: "/web", type: TrackType.View) {}
-  }
-
   test("Vendor Central inbound creator view") {
-    "/vendor_central/inbound-shipment/creator"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound-shipment/creator/download"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("Vendor Central inbound creator congrats") {
+    "/vendor_central/inbound-shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
+  }
   test("Vendor Central inbound creator error") {
-    "/vendor_central/inbound-shipment/creator/error"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound-shipment/creator/download/error"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator view") {
