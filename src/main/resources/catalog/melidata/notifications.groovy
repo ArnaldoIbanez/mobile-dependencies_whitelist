@@ -1855,6 +1855,18 @@ tracks {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
 
+    //Same day
+
+    "/notification/shipping_shipped_same_day"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_soon_deliver_same_day"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_rts_in_packing_list"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
       //Seller questions
       "/notification/questions_new"(platform: "/") {
           question_id(required: true, type: PropertyType.Numeric)
