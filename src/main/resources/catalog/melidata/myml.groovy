@@ -1573,4 +1573,8 @@ tracks {
     "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
+
+    //MYML - MARKETPLACE VIS
+    "/myml/marketplace"(platform: "/", isAbstract: true) {}
+    "/myml/marketplace/subscription"(platform: "/", type: TrackType.Event) {}
 }
