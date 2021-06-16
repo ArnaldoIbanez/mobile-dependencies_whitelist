@@ -148,6 +148,8 @@ tracks {
 
     "/vendor_central/inbound-shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
 
+    "/vendor_central/inbound-shipment/creator/upload/set/email"(platform: "/web", type: TrackType.View) {}
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central Fiscal Documents Template Mappings

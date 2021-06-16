@@ -200,6 +200,10 @@ trackTests {
     "/vendor_central/inbound-shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("Vendor Central inbound creator upload congrats email") {
+    "/vendor_central/inbound-shipment/creator/upload/set/email"(platform: "/web", type: TrackType.View) {}
+  }
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS Vendor Central Fiscal Documents Template Mappings
 //------------------------------------------------------------------------------------------------------------------------------------------------------
