@@ -177,9 +177,6 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Vendor Central Inbound creator
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-  test("Vendor Central inbound creator view") {
-    "/vendor_central/inbound-shipment/creator"(platform: "/web", type: TrackType.View) {}
-  }
 
   test("Vendor Central inbound creator view") {
     "/vendor_central/inbound-shipment/creator/download"(platform: "/web", type: TrackType.View) {}
