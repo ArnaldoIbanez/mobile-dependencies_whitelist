@@ -1659,6 +1659,15 @@ trackTests {
             dashboard_status = 'on_time'
         }
 
+        //Onboarding view
+        "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {
+
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+
         /******************************************
             *       End: Consumers Admin Detail
         ******************************************/
