@@ -151,6 +151,9 @@ trackTests {
             id = "digital-account"
             hierarchy = "header"
         }
+        "/navigation/footer/link"(platform: "/web", type: TrackType.Event) {
+            id = "digital-account"
+        }
     }
 
     test("Digital Wallet") {
