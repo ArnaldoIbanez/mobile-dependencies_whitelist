@@ -46,7 +46,6 @@ tracks {
     "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/core/service/error"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/initializer"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/start_secure_enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
@@ -1774,7 +1773,13 @@ tracks {
 
     // CORE-NFC
 
-    "/cards/nfc/core/service/start"(platform: "/", type: TrackType.Event) { }
+    "/cards/nfc/core/service/start"(platform: "/", type: TrackType.Event) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            description: "Check if nfc sdk is already initialized!"
+        )
+    }
 
     "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
         action (
@@ -1784,11 +1789,11 @@ tracks {
         )
     }
 
-    "/cards/nfc/core/service/success/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
-        action (
-            required: false,
+    "/cards/nfc/core/service/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
+        context (
+            required: true,
             type: PropertyType.String,
-            description: "Check if nfc sdk is initialized complete"
+            description: "Check if nfc sdk is already initialized!"
         )
     }
 
@@ -1796,56 +1801,32 @@ tracks {
         action (
             required: false,
             type: PropertyType.String,
-            inheritable: false,
             description: "Nfc sdk is initialized error"
         )
 
         error_code (
-            required: true,
+            required: false,
             type: PropertyType.String,
-            inheritable: false,
             description: "Type of sdk init errors"
         )
 
-        from(
-            required: true,
-            type: PropertyType.String,
-            inheritable: false,
-            description: "Context from where its sended"
-        )
-    }
-
-    "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) {
-        action (
+        error_message(
             required: false,
             type: PropertyType.String,
-            description: "Sdk init life cycle callback"
+            description: "Error message sdk init"
+        )
+
+        from(
+            required: true,
+            type: PropertyType.String,
+            description: "Context from where its sended"
         )
     }
 
-    "/cards/nfc/core/service/error/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) { }
+
+    "/cards/nfc/core/service/sdk_not_initialized"(platform: "/", type: TrackType.Event) {
         from (
-            required: true,
-            type: PropertyType.String,
-            description: "Context from where its sended"
-        )
-    }
-
-    "/cards/nfc/core/service/error/sdk_initialization_enrollment_worker_error"(platform: "/", type: TrackType.Event) {
-        from(
-            required: true,
-            type: PropertyType.String,
-            description: "Context from where its sended"
-        )
-    }
-
-    "/cards/nfc/core/service/error/sdk_initialized_error_before_enrollment"(platform: "/", type: TrackType.Event) {
-        error_message (
-            required: true,
-            type: PropertyType.String,
-            description: "Message with error code and message"
-        )
-        from(
             required: true,
             type: PropertyType.String,
             description: "Context from where its sended"
