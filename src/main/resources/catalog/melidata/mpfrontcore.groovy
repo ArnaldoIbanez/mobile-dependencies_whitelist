@@ -194,6 +194,7 @@ tracks {
             description: "The link's hierarchy position (e.g. header, l1, l2, l3, etc)"
         )
     }
+    "/navigation/footer"(platform: "/web", isAbstract: true) {}
     "/navigation/footer/link"(platform: "/web", type: TrackType.Event) {
         id(
             required: true,
