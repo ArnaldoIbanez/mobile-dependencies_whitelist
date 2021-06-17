@@ -13,7 +13,9 @@ class CatalogValidator {
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         def runOk = true
         out.beforeRun(catalog, tests)
-        InitiativeAPI.initializeApplications(false)
+        if(!InitiativeAPI.getInstance().initiatives) {
+            InitiativeAPI.getInstance().run()
+        }
         tests?.each { singleTest ->
             println( "Running test: ${singleTest.name}")
 
@@ -41,7 +43,7 @@ class CatalogValidator {
             def testsScript = new ArrayList<Script>()
             pathTests.each { testsScript.add(getScriptFromFile(it)) }
 
-            println("Building catalog....")
+            println("Building catalog ${catalogName}....")
             def catalog = runScript(catalogScript)
             println("Ready")
 
