@@ -131,6 +131,9 @@ trackTests {
         def congrats_approved_status = "approved"
         def congrats_pending_status = "pending"
         def congrats_rejected_status = "rejected"
+        def congrats_status_linked = "linked_card"
+        def congrats_status_not_linked = "not_linked_card"
+        def congrats_status_not_requested = "physical_not_requested"
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
         def stop_page_already_active = "user_has_active_account"
@@ -173,23 +176,70 @@ trackTests {
             proposal = account_rating_b
             is_card_active = true
             status = congrats_approved_status
+            congrats_status = congrats_status_linked
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_b
+            is_card_active = true
+            status = congrats_approved_status
+            congrats_status = congrats_status_not_linked
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_b
+            is_card_active = true
+            status = congrats_approved_status
+            congrats_status = congrats_status_not_requested
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
             proposal = account_rating_a
             is_card_active = true
             status = congrats_pending_status
+            congrats_status = congrats_status_linked
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            proposal = account_rating_b
+            proposal = account_rating_a
+            is_card_active = true
+            status = congrats_pending_status
+            congrats_status = congrats_status_not_linked
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_a
+            is_card_active = true
+            status = congrats_pending_status
+            congrats_status = congrats_status_not_requested
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_a
             is_card_active = true
             status = congrats_rejected_status
+            congrats_status = congrats_status_not_requested
         }
 
         "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
 
         "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event) {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event) {
+            status = congrats_pending_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event) {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event) {
+            status = congrats_pending_status
+        }
 
         // Error
         "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {

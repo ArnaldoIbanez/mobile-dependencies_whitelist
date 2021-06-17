@@ -291,11 +291,45 @@ tracks {
                 "rejected"
             ]
         )
+        congrats_status(
+                description: "Status for the congrats's view",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "linked_card",
+                        "not_linked_card",
+                        "physical_not_requested"
+                ]
+        )
     }
 
     "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from the physical card request",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from the physical card unlock",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
 
     // Error
     "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
