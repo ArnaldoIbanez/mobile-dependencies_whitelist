@@ -142,6 +142,8 @@ tracks {
         key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
         page(required: false, type: PropertyType.Numeric, description: "Number of page where the card is shown")
         position(required: false, type: PropertyType.Numeric, description: "Position of the card (relative to the page)")
+        item_id(required: false, type: PropertyType.String, description: "Id of the listing featured in this recommendation")
+        rules_applied(required: true, type: PropertyType.String, description: "Type of rules applied to show this card", values: ['hard', 'soft', 'none'])
     }
 
     def picture_info_map = objectSchemaDefinitions {
@@ -634,6 +636,9 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
+    "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
+    }
 
     //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
@@ -2092,6 +2097,10 @@ tracks {
 
     "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
+    }
+
+    "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
     }
 
 

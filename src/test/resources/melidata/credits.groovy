@@ -130,6 +130,38 @@ trackTests {
          *       End: Consumers Integrated Flow
          *********************************************/
 
+         /***********************************************
+         *       Start: Consumers Pre Approved Flow
+         ***********************************************/
+        //Pre Approved Flow - Start
+
+        //Page view
+        "/credits/consumer/opensea/pre_approved_flow/start"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            source = 'on'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/start"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            source = 'off'
+        }
+
+        //Events
+        "/credits/consumer/opensea/pre_approved_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event, business:"mercadolibre") {
+            source = 'on'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event, business:"mercadopago") {
+            source = 'off'
+        }
+         "/credits/consumer/opensea/pre_approved_flow/start/application_cancel"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            source = 'on'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/start/application_cancel"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            source = 'off'
+        }
+
+        /*********************************************
+         *       End: Consumers Pre Approved Flow
+         *********************************************/
+
+
         /******************************************
          *    Start: Consumers Opensea Integrations
          ******************************************/

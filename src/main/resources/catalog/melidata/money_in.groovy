@@ -432,5 +432,8 @@ tracks {
     "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
 
     //Money In Error View - Enchufe
-    "/money_in/error_view"(platform: "/", type: TrackType.View) {}
+    "/money_in/error_view"(platform: "/", type: TrackType.View) {
+        error (required:false, description: "Indicate the error type thats been shown")
+        view (required:false, description: "Indicate the view where the error happened")
+    }
 }

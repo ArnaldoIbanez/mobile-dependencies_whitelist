@@ -294,6 +294,15 @@ trackTests {
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "hybrid_active"
         }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_active"
+        }
     }
     
     //Flap card: Tracking
@@ -1137,6 +1146,11 @@ trackTests {
             step = 3
             id = "setup_virtual_debit_coachmark"
         }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 3
+            id = "setup_virtual_credit_coachmark"
+        }
     }
     
     //OPTIONS
@@ -1903,6 +1917,13 @@ trackTests {
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.View) {
             time_millis = 0
             result= "success"
+        }
+    }
+
+    // NFC-DEVICE-CVM
+    test("cards hybrid nfc device cvm information") {
+        "/cards/nfc/enrollment/devicecvm"(platform:"/", type: TrackType.Event) {
+            status = "device cdcvm initialized"
         }
     }
 

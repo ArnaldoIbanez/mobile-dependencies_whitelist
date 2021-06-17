@@ -523,5 +523,11 @@ trackTests {
         "/asset_management/kyc_web_blocker"(platform: "/web",  business: "mercadolibre") {}
         "/asset_management/kyc_web_blocker/play_store"(platform: "/web",  business: "mercadolibre") {}
         "/asset_management/kyc_web_blocker/app_store"(platform: "/web",  business: "mercadolibre") {}
+
+
+        //Loading gbm
+        "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
+        "/asset_management/loading_gbm"(platform: "/", business: "mercadolibre") {}
+
     }
 }

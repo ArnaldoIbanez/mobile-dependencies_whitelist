@@ -85,6 +85,24 @@ tracks {
 
     "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------ 
+    // TRACKS Vendor Central Branches
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/branches"(platform: "/", isAbstract: true) {}
+    
+    "/vendor_central/branches/listing"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/branches/detail"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/branches/create"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/branches/accounts"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/branches/congrats"(platform: "/web", type: TrackType.Event) {
+      collaborators_updated(required: true, type: PropertyType.Boolean, description: "this property describes what is shown on the congrats page")
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central Contra COGS
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -111,7 +129,6 @@ tracks {
     "/vendor_central/invoices"(platform: "/", isAbstract: true) {}
 
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
-
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central Inbound creator

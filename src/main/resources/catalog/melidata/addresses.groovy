@@ -16,10 +16,11 @@ tracks {
     // VIEWS
     "/addresses"(platform: "/", isAbstract: true) {
         context(required: false, description: "The client which is using the addresses flow", values: ["MY_ML","PM"], type: PropertyType.String)
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
     "/addresses/input_address"(platform: "/", type: TrackType.View) {
-        editing_address(required: false, description: "The address that the user is editing or null if it's a new address", type: PropertyType.Numeric)
+        address_id(required: false, description: "The address that the user is editing or null if it's a new address", type: PropertyType.Numeric)
     }
 
     "/addresses/input_address/map"(platform:"/", type: TrackType.View) {}

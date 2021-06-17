@@ -367,6 +367,8 @@ tracks {
     "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){
         catalogFlowMobile
     }
+    "/sell/list/draft/goldlist_landing"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/prohibited_item_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
         catalogFlowMobile
@@ -445,6 +447,8 @@ tracks {
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
+    "/sell/list/goldlist_landing"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/prohibited_item_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
         catalogFlowMobile
@@ -580,7 +584,7 @@ tracks {
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
         is_catalog_listing(required: false, description: "If core item is a catalog listing", type: PropertyType.Boolean)
-        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type"])
+        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type", "sharing_first_place"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {

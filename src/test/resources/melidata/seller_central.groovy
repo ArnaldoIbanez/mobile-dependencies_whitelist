@@ -199,6 +199,12 @@ trackTests {
     }
   }
 
+  test("seller central listing hotjar survey") {
+    "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
+      hotjar_survey = "1"
+    }
+  }
+
   test("seller central advertising") {
     "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
       action = "show"
@@ -374,7 +380,9 @@ trackTests {
         type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER",
         page: 1,
-        position: 3
+        position: 3,
+        item_id: "15415445414",
+        rules_applied: "none"
       ]
       seller_experience = "ADVANCED"
     }
@@ -387,7 +395,9 @@ trackTests {
       reputation = "4_light_green"
       card = [
         type: "RECOMMENDATION",
-        key: "LIGHTNING_OFFER"
+        key: "LIGHTNING_OFFER",
+        item_id: "15415445414",
+        rules_applied: "none"
       ]
       seller_experience = "ADVANCED"
     }
@@ -395,19 +405,21 @@ trackTests {
 
   test("Seller coach cards view") {
     "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
-      segment = "perfect_launch"
+      segment = "none"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       cards = [
         [
-          type: "RECOMMENDATION",
-          key: "LIGHTNING_OFFER",
-          page: 2
+          type: "CONTENT",
+          key: "PB02",
+          page: 2,
+          rules_applied: "hard"
         ],
         [
           type: "CONTENT",
           key: "PB01",
-          page: 2
+          page: 2,
+          rules_applied: "soft"
         ]
       ]
       seller_experience = "ADVANCED"
@@ -4522,6 +4534,12 @@ test("seller central confirm leave suggestion task - optin moderated") {
       seller_profile = "NEWBIE"
       seller_segment = "MEDIUM_SELLERS_III"
       question_date_action = "2020-11-08T10:30:00"
+    }
+  }
+
+  test("seller central questions hotjar survey") {
+    "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
+      hotjar_survey = "1"
     }
   }
 
