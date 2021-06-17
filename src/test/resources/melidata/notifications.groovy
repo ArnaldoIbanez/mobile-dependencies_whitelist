@@ -12072,17 +12072,14 @@ trackTests {
         "/notification/registration_under_age_authorized"(platform: "/mobile") {
             news_id = "registration_under_age_authorized-123"
             event_type = "shown"
-            notification_type= "registration_under_age_authorized"
         }
         "/notification/registration_under_age_rejected"(platform: "/mobile") {
             news_id = "registration_under_age_rejected-123"
             event_type = "shown"
-            notification_type= "registration_under_age_rejected"
         }
         "/notification/registry_recovery"(platform: "/mobile") {
             news_id = "registry_recovery-123"
             event_type = "shown"
-            notification_type= "registry_recovery"
         }
     }
 
