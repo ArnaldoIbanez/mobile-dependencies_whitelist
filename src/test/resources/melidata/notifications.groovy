@@ -5747,6 +5747,20 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
         }
+
+        //Registration
+        "/notification/registration_under_age_authorized"(platform: "/mobile") {
+            news_id = "registration_under_age_authorized-123"
+            event_type = "shown"
+        }
+        "/notification/registration_under_age_rejected"(platform: "/mobile") {
+            news_id = "registration_under_age_rejected-123"
+            event_type = "shown"
+        }
+        "/notification/registry_recovery"(platform: "/mobile") {
+            news_id = "registry_recovery-123"
+            event_type = "shown"
+        }
     }
 
     defaultBusiness = "mercadopago"
