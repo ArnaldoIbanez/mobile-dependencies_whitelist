@@ -3011,4 +3011,9 @@ tracks {
     
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
+
+    //Registration
+    "/notification/registration_under_age_authorized"(platform: "/mobile") {}
+    "/notification/registration_under_age_rejected"(platform: "/mobile") {}
+    "/notification/registry_recovery"(platform: "/mobile") {}
 }
