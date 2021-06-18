@@ -5738,6 +5738,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_purchase"(platform: "/") {
+            latest_news_type= "insurtech_purchase"
+            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_purchase"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -11337,6 +11347,16 @@ trackTests {
 
         "/notification/insurtech_imei_activation"(platform: "/mobile") {
             news_id = "insurtech_imei_activation_123"
+            event_type = "open"
+        }
+        
+        "/notification_center/insurtech_purchase"(platform: "/") {
+            latest_news_type= "insurtech_purchase"
+            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_purchase"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
             event_type = "open"
         }
          
