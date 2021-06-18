@@ -23,6 +23,7 @@ trackTests {
                 bu_line = "26"
                 flow = "-1"
                 logic = "campaign"
+                campaign_id = "2345"
                 position = 2
             }
         }
