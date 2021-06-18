@@ -158,7 +158,6 @@ tracks {
         reputation_level(required: false, type: PropertyType.String,
                 values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"],
                 description: "Seller's reputation level")
-        available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
 
         // VIS FIELDS
         reservation_price(required: false, description: "Price of the reservation")
@@ -186,6 +185,31 @@ tracks {
                 description: "Indicates if seller has checked by kyc in level 5 or above")
         points_interest_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has points of interest available")
+        available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
+        bank(
+                required: false,
+                type: PropertyType.String,
+                description: "bank identifier in vis items with available credits",
+                values: [
+                        "Amicar",
+                        "Autofin",
+                        "Banco do Brasil",
+                        "Bbva",
+                        "Bradesco",
+                        "Caixa",
+                        "Credihome",
+                        "Credimejora",
+                        "Creditel",
+                        "Daycoval",
+                        "Finaer",
+                        "Itau",
+                        "not specified",
+                        "null",
+                        "Santander",
+                        "Scotiabank",
+                        "Votorantim",
+                ]
+        )
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")

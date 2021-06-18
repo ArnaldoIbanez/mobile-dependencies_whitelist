@@ -134,12 +134,14 @@ trackTests {
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
         def stop_page_already_active = "user_has_active_account"
+        def hybrid_dashboard_source = "hybrid-dashboard"
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
             proposal = account_rating_b
             is_card_active = true
             page = 1
+            from = hybrid_dashboard_source
         }
 
         "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
