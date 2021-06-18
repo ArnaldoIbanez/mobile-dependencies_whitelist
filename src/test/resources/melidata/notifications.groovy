@@ -14,7 +14,6 @@ trackTests {
             enable = false
             registration_id = "dH2soSpvhwM:APA91bFwZmJy-wXP7DRLm_458FqPF9n8zbm7uVjixKUOHOS8FQ7QN-qSbWS_DrKYDiXyLzGE2giqzVf90fwyjNy4dkgi6hR_W_fv6JvnQo6B5AQ4BOX21g8wx0cLSrcJswrof5U3f"
         }
-
         "/notification_center/screen"(platform: "/", type: TrackType.View){}
         "/notification_center/config"(platform: "/mobile", type: TrackType.View){}
         "/notification_center"(platform: "/mobile"){}
@@ -2617,7 +2616,6 @@ trackTests {
             news_id = "me_flex-optin_reminder-315571651"
             event_type = "sent"
         }
-
         "/notification/moderations_item_to_patch"(platform: "/mobile"){
             news_id = "moderations-item_to_patch-MLB1029865869-104215143"
             event_type = "discarded"
@@ -4133,6 +4131,26 @@ trackTests {
         "/notification/driver_logistics_retry_delivery"(platform: "/mobile"){
             news_id= "123"
             event_type= "open"
+        }
+        "/notification/driver_logistics_allocated_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_deassigned_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_driver_with_route"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_modified_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_resend_allocated_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
         }
 
         "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
@@ -5756,6 +5774,20 @@ trackTests {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        //Registration
+        "/notification/registration_under_age_authorized"(platform: "/mobile") {
+            news_id = "registration_under_age_authorized-123"
+            event_type = "shown"
+        }
+        "/notification/registration_under_age_rejected"(platform: "/mobile") {
+            news_id = "registration_under_age_rejected-123"
+            event_type = "shown"
+        }
+        "/notification/registry_recovery"(platform: "/mobile") {
+            news_id = "registry_recovery-123"
+            event_type = "shown"
         }
     }
 
@@ -10136,7 +10168,26 @@ trackTests {
             news_id= "123"
             event_type= "open"
         }
-
+        "/notification/driver_logistics_allocated_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_deassigned_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_driver_with_route"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_modified_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/driver_logistics_resend_allocated_dock"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
         "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -12087,6 +12138,19 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-    }
 
+        //Registration
+        "/notification/registration_under_age_authorized"(platform: "/mobile") {
+            news_id = "registration_under_age_authorized-123"
+            event_type = "shown"
+        }
+        "/notification/registration_under_age_rejected"(platform: "/mobile") {
+            news_id = "registration_under_age_rejected-123"
+            event_type = "shown"
+        }
+        "/notification/registry_recovery"(platform: "/mobile") {
+            news_id = "registry_recovery-123"
+            event_type = "shown"
+        }
+    }
 }
