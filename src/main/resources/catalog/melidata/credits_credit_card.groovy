@@ -241,9 +241,18 @@ tracks {
     "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
         upgrade_info
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
+        from(
+                description: "Indicates where the onboarding flow was accessed from",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "hybrid-dashboard",
+                        "unknown"
+                ]
+        )
     }
 
-    "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         upgrade_info
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
     }

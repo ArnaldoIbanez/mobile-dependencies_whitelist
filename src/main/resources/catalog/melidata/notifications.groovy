@@ -14,7 +14,6 @@ tracks {
     */
     "/notification_center/screen"(platform: "/", type: TrackType.View) {
     }
-
     "/notification_center/config"(platform: "/mobile", type: TrackType.View) {
     }
     "/notification_center"(platform: "/", type: TrackType.Event) {
@@ -1669,6 +1668,11 @@ tracks {
     "/notification/driver_logistics_changed_address"(platform: "/") {}
     "/notification/driver_logistics_retry_collect"(platform: "/") {}
     "/notification/driver_logistics_retry_delivery"(platform: "/") {}
+    "/notification/driver_logistics_allocated_dock"(platform: "/") {}
+    "/notification/driver_logistics_deassigned_dock"(platform: "/") {}
+    "/notification/driver_logistics_driver_with_route"(platform: "/") {}
+    "/notification/driver_logistics_modified_dock"(platform: "/") {}
+    "/notification/driver_logistics_resend_allocated_dock"(platform: "/") {}
 
       "/notification/instore_discover_activities"(platform: "/") {}
     "/notification/instore_buyer_qr"(platform: "/") {}
@@ -3008,7 +3012,8 @@ tracks {
 
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
-    
+
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
+
 }

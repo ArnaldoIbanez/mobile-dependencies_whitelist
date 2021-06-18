@@ -336,5 +336,9 @@ trackTests {
         error = "Error 404"
         view = "Transfer Dashboard"
       }
+
+      //Digital Accounts Components
+      "/da_base_activity"(platform: "/", type: TrackType.View) {}
+      "/da_base_activity/error_view"(platform: "/", type: TrackType.View) {}
     }
 }
