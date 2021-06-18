@@ -64,7 +64,7 @@ tracks {
         account_total_amount(
             description: "The user total debt",
             type: PropertyType.Numeric,
-            required: true
+            required: false
         )
     }
 

@@ -22,6 +22,13 @@ trackTests {
         account_total_amount: 300
     ]
 
+    def amount_input_without_total_amount_data = [
+            amount: 100,
+            statement_min_amount: 10,
+            statement_max_amount: 100,
+            account_total_amount: null
+    ]
+
     def payment_plan_data = [
         payment_plan_number: 6,
         min_payment_plan: 3,
@@ -99,6 +106,13 @@ trackTests {
         }
 
         "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
+            account = account_rating_a
+            statement_status = "closed"
+            payment_option = "total"
+            amount_input = amount_input_without_total_amount_data
+        }
+
+        "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
             account = account_rating_b
             statement_status = "closed"
             payment_option = "payment_plan"
@@ -110,6 +124,13 @@ trackTests {
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
+        }
+
+        "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
+            account = account_rating_a
+            statement_status = "closed"
+            payment_option = "total"
+            amount_input = amount_input_without_total_amount_data
         }
 
         "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
