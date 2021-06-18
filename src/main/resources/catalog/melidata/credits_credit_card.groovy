@@ -345,7 +345,8 @@ tracks {
                 values: [
                         "no_proposal_match",
                         "invalid_proposal_status",
-                        "user_has_active_account"
+                        "user_has_active_account",
+                        "kyc_not_compliant"
                 ]
         )
     }

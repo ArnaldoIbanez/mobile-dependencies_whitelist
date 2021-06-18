@@ -137,6 +137,7 @@ trackTests {
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
         def stop_page_already_active = "user_has_active_account"
+        def stop_page_kyc_not_compliant= "kyc_not_compliant"
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
@@ -257,6 +258,10 @@ trackTests {
 
         "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
             reason = stop_page_already_active
+        }
+
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_kyc_not_compliant
         }
 
         /*********************************************
