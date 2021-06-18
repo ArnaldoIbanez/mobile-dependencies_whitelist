@@ -202,7 +202,7 @@ trackTests {
   }
 
   test("Vendor Central inbound creator upload congrats email") {
-    "/vendor_central/inbound-shipment/creator/upload/set/email"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound-shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
   }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
