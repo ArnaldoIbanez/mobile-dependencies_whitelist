@@ -1936,12 +1936,6 @@ trackTests {
         }
     }
 
-    test("cards hybrid enrollment check card eligibility info card failed") {
-        "/cards/nfc/enrollment/check_card_eligibility/error/card_info_failed"(platform: "/", type: TrackType.Event) {
-            information = "EnrollmentWorker error: cardInfo is null"
-        }
-    }
-
     test("cards hybrid enrollment check card eligibility result") {
         "/cards/nfc/enrollment/check_card_eligibility/result"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_result"
@@ -1966,6 +1960,10 @@ trackTests {
     }
 
     test("cards hybrid enrollment check card eligibility error") {
+        "/cards/nfc/enrollment/check_card_eligibility/error"(platform: "/", type: TrackType.Event) {
+            action = "card_info_failed"
+            error_message = "EnrollmentWorker error: cardInfo is null"
+        }
         "/cards/nfc/enrollment/check_card_eligibility/error"(platform: "/", type: TrackType.Event) {
             action = "check_card_eligibility_service_error"
             error_code = "no_internet"
@@ -2501,19 +2499,15 @@ trackTests {
         }
     }
 
-    test("cards hybrid enrollment partial enrollment delete card failed") {
-        "/cards/nfc/enrollment/partial_enrollment/error/delete_card_failed"(platform: "/", type: TrackType.Event) {
-            information = "Error: cardId for user is null"
-        }
-    }
-
-    test("cards hybrid enrollment partial enrollment delete card failed") {
-        "/cards/nfc/enrollment/partial_enrollment/error/delete_card_push_error"(platform: "/", type: TrackType.Event) {
-            information = "PartialEnrollment: Token delete event push error!"
-        }
-    }
-
     test("cards hybrid enrollment partial enrollment error") {
+        "/cards/nfc/enrollment/partial_enrollment/error"(platform: "/", type: TrackType.Event) {
+            action = "delete_card_failed"
+            error_message = "Error: cardId for user is null"
+        }
+        "/cards/nfc/enrollment/partial_enrollment/error"(platform: "/", type: TrackType.Event) {
+            action = "delete_card_push_error"
+            error_message = "PartialEnrollment: Token delete event push error!"
+        }
         "/cards/nfc/enrollment/partial_enrollment/error"(platform: "/", type: TrackType.Event) {
             action = "delete_card_service_error"
             error_code = "no_internet"

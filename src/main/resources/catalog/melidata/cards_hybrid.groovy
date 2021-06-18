@@ -2026,15 +2026,6 @@ tracks {
         )
     }
 
-    "/cards/nfc/enrollment/check_card_eligibility/error/card_info_failed"(platform: "/", type: TrackType.Event) {
-        information (
-            required: true,
-            type: PropertyType.String,
-            values:["EnrollmentWorker error: cardInfo is null"],
-            description: "Check card info value"
-        )
-    }
-
     "/cards/nfc/enrollment/check_card_eligibility/result"(platform: "/", type: TrackType.Event) {
         action (
             type: PropertyType.String,
@@ -2058,15 +2049,13 @@ tracks {
         action (
             type: PropertyType.String,
             required: true,
-            inheritable: false,
-            values: ["check_card_eligibility_service_error"],
+            values: ["check_card_eligibility_service_error", "card_info_failed"],
             description: "Type of check card eligibility error values"
         )
 
         error_code (
             type: PropertyType.String,
-            required: true,
-            inheritable: false,
+            required: false,
             values: [
                 'no_internet',
                 'connection_timeout',
@@ -2124,9 +2113,7 @@ tracks {
         error_message(
             type: PropertyType.String,
             required: true,
-            inheritable: false,
-            values:["error_message"],
-            description: "Type of sdk error message"
+            description: "Error message description"
         )
     }
 
@@ -2254,37 +2241,19 @@ tracks {
         )
     }
 
-    "/cards/nfc/enrollment/partial_enrollment/error/delete_card_failed"(platform: "/", type: TrackType.Event) {
-        information (
-            type: PropertyType.String,
-            required: true,
-            values: ["Error: cardId for user is null"],
-            description: "Try delete card id for user is null"
-        )
-    }
-
-    "/cards/nfc/enrollment/partial_enrollment/error/delete_card_push_error"(platform: "/", type: TrackType.Event) {
-        information (
-            type: PropertyType.String,
-            required: true,
-            values: ["PartialEnrollment: Token delete event push error!"],
-            description: "Delete push lost"
-        )
-    }
-
     "/cards/nfc/enrollment/partial_enrollment/error"(platform: "/", type: TrackType.Event) {
         action (
             type: PropertyType.String,
             required: true,
-            inheritable: false,
-            values: ["delete_card_service_error"],
+            values: ["delete_card_service_error",
+                     "delete_card_failed",
+                     "delete_card_push_error"],
             description: "Type of delete card values for partial enrollment"
         )
 
         error_code (
             type: PropertyType.String,
-            required: true,
-            inheritable: false,
+            required: false,
             values: [ 'no_internet',
                       'connection_timeout',
                       'communication_error',
@@ -2340,9 +2309,7 @@ tracks {
         error_message(
             type: PropertyType.String,
             required: true,
-            inheritable: false,
-            values:["error_message"],
-            description: "Type of sdk error message"
+            description: "Error message description"
         )
     }
 
