@@ -101,6 +101,7 @@ tracks {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
         kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
+        error_id(required: false, type: PropertyType.String, description: "Kyc on screen error id")
     }
 
     "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
