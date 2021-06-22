@@ -14,7 +14,6 @@ tracks {
     */
     "/notification_center/screen"(platform: "/", type: TrackType.View) {
     }
-
     "/notification_center/config"(platform: "/mobile", type: TrackType.View) {
     }
     "/notification_center"(platform: "/", type: TrackType.Event) {
@@ -1459,7 +1458,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-
+    "/notification_center/insurtech_purchase"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 
 
       /**
@@ -1669,6 +1671,11 @@ tracks {
     "/notification/driver_logistics_changed_address"(platform: "/") {}
     "/notification/driver_logistics_retry_collect"(platform: "/") {}
     "/notification/driver_logistics_retry_delivery"(platform: "/") {}
+    "/notification/driver_logistics_allocated_dock"(platform: "/") {}
+    "/notification/driver_logistics_deassigned_dock"(platform: "/") {}
+    "/notification/driver_logistics_driver_with_route"(platform: "/") {}
+    "/notification/driver_logistics_modified_dock"(platform: "/") {}
+    "/notification/driver_logistics_resend_allocated_dock"(platform: "/") {}
 
       "/notification/instore_discover_activities"(platform: "/") {}
     "/notification/instore_buyer_qr"(platform: "/") {}
@@ -3008,7 +3015,13 @@ tracks {
 
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
-    
+    "/notification/insurtech_purchase"(platform: "/mobile") {}
+
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
+
+    //Registration
+    "/notification/registration_under_age_authorized"(platform: "/mobile") {}
+    "/notification/registration_under_age_rejected"(platform: "/mobile") {}
+    "/notification/registry_recovery"(platform: "/mobile") {}
 }
