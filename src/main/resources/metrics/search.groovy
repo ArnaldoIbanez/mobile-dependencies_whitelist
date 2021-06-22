@@ -3,7 +3,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-    "applied_filters"(description: "Applied filters") {
+    "search.applied_filters"(description: "Applied filters") {
         startWith {
             experiment(regex(".*filters.*"))
         }
