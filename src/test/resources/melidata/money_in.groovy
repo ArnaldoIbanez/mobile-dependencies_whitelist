@@ -21,6 +21,8 @@ trackTests {
              payment_method = "ted"
          }
 
+         "/money_in/payment_methods/my_cvu"(platform: "/",type: TrackType.Event){}
+
         "/money_in/payment_methods/help"(platform: "/", type: TrackType.Event) {}
 
         //Calculator
@@ -540,6 +542,7 @@ trackTests {
         }
         "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
         "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
+        "/money_in/debin/hub/my_cvu"(platform:"/",type: TrackType.Event){}
 
         //Debin Onboarding
         "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
