@@ -183,6 +183,7 @@ trackTests {
             model_id = "documentation"
         }
 
+        "/kyc/iv/object_detection"(platform: "/mobile/android")  {}
         "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
             success = true
             model_name = "test"
@@ -267,6 +268,7 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection"(platform: "/mobile/ios")  {}
         "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
             success = true
             model_name = "test"
@@ -711,6 +713,7 @@ trackTests {
             ]
         }
 
+        "/kyc/iv/object_detection"(platform: "/mobile/android")  {}
         "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
             success = true
             model_name = "test"
@@ -823,6 +826,7 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection"(platform: "/mobile/ios")  {}
         "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
             success = true
             model_name = "test"
