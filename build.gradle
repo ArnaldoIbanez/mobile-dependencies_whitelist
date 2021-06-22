@@ -80,7 +80,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
 	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
 	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
-    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios"]
+    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-brand-detector-serving"]
 }
 
 task uploadAll(type:JavaExec) {
@@ -90,7 +90,7 @@ task uploadAll(type:JavaExec) {
 	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
 	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
-    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios"]
+    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-brand-detector-serving"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -237,6 +237,12 @@ task testMonitoringFdaFraudMercadoenviosCatalog (dependsOn: 'classes', type: Jav
 	args = ["mlo-mon-fda-fraud-mercadoenvios"]
 }
 
+task testMonitoringBrandDetectorServingCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-brand-detector-serving"]
+}
+
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.MetricsTest'
 	classpath = sourceSets.main.runtimeClasspath
@@ -249,7 +255,7 @@ task uploadAllCatalog(type:JavaExec) {
 	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
 	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
-    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios"]
+    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-brand-detector-serving"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -394,6 +400,12 @@ task uploadMonitoringFdaFraudMercadoenviosCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-fda-fraud-mercadoenvios"]
+}
+
+task uploadMonitoringBrandDetectorServingCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-brand-detector-serving"]
 }
 
 task uploadMetrics(type:JavaExec) {
