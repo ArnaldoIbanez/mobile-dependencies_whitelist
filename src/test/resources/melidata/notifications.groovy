@@ -11439,6 +11439,7 @@ trackTests {
         "/notification/insurtech_cancellation"(platform: "/mobile") {
             news_id = "insurtech_cancellation_123"
             event_type = "open"
+        }
         
         "/notification_center/insurtech_purchase"(platform: "/") {
             latest_news_type= "insurtech_purchase"
