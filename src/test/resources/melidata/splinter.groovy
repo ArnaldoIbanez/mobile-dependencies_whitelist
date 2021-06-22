@@ -15,11 +15,11 @@ trackTests {
       "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
       }
-      
+
   }
 
     // pageviews
-      
+
   test("splinter landings - deals") {
     "/splinter/landing/all/deals" (platform: "/",  type: TrackType.View) {
           deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
@@ -308,6 +308,7 @@ trackTests {
       category = "landings"
       action = "test-landings"
       label = "button_4_ver_mas"
+      filters = { deal_id = "MLA4312" }
     }
   }
 
@@ -316,6 +317,7 @@ trackTests {
       category = "landings"
       action = "test-landings"
       label = "button_4_ver_mas"
+      filters = { deal_id = "MLA4312" }
     }
   }
 

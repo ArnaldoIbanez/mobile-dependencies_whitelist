@@ -324,6 +324,7 @@ trackTests {
             dataSet()
             edit_flow = false
         }
+        "/cart/checkout/shipping/input_address/submit"(platform:"/", type: TrackType.Event) {}
         "/cart/checkout/shipping/input_address/map"(platform:"/mobile") {
             dataSet()
             edit_flow = false
@@ -332,7 +333,11 @@ trackTests {
             dataSet()
             edit_flow = false
         }
+        "/cart/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event) {}
         // Event
+        "/cart/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}
+        "/cart/checkout/shipping/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {}
+        "/cart/checkout/shipping/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {}
         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             value = "na"
@@ -513,7 +518,7 @@ trackTests {
             ]
             recovery_flow=true
         }
-        "/cart/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event) {
+        "/cart/checkout/shipping/input_address/map/error_map"(platform: "/", type: TrackType.Event) {
             label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             value = ""
             items = [
@@ -583,6 +588,148 @@ trackTests {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
         }
+        "/cart/checkout/shipping/input_address/error_name"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = "na"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_street_name"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = "123456"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_zip_code"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = "123"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_state"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_city"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_colony"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_intersection"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/error_street_number"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/error_street_type"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/error_delivery"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_delivery_instructions"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_phone"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_additional_info"(platform: "/", type: TrackType.Event) {
+            label = "Revisa este dato"
+            value = "!*"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/error_internal_number"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/error_caixa_postal_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            value = "aaa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+
+        "/cart/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
+            written = "sug"
+            final_text = "suggested street"
+        }
+
+        "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
+            written = "123"
+            final_text = "12345678"
+            session_id = "1234567"
+        }
+
+        "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 10.0
+        }
+
+        "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 2.0
+            session_id = "1234567"
+        }
+
+        "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
+            suggested = [
+                "latitude": "12.12",
+                "longitude": "42.42"
+            ]
+            final_coordinates = [
+                "latitude": "12.13",
+                "longitude": "42.40"
+            ]
+        }
+        "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
+        "/cart/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
+        "/cart/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
+            start_loading = "2021-02-24 12:12:12"
+         }
 
         // First Visit
         // Page

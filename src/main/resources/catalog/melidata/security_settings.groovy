@@ -13,18 +13,23 @@ tracks {
 
     "/security_settings"(platform: "/", type: TrackType.View) {
         registered_by_phone(type: PropertyType.Boolean, required: false, description: "User is or not V3", inheritable:false)
+        two_factor_enabled(type: PropertyType.Boolean, required: false, description: "User has or not enabled two factor authentication", inheritable:false)
     }
 
     "/security_settings/action"(platform: "/", type: TrackType.Event) {
         registered_by_phone(type: PropertyType.Boolean, required: true, description: "User is or not V3")
+        two_factor_enabled(type: PropertyType.Boolean, required: false, description: "User has or not enabled two factor authentication", inheritable:false)
         event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a cell or card")
         target(type: PropertyType.String, required: true, values: ["nickname", "email", "password", "secondFactor", "devices", "connectedApps", "phone", "appSecurity"], description: "Name of cell that was clicked")
     }
 
     "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 
-    "/security_settings/2fa/switch"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values: ["opted_in", "opted_out"], description: "The user interacted with the two-factor authentication switch")
+    "/security_settings/2fa/change"(platform: "/", type: TrackType.Event) {
+        event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in Two Factor Authentication page")
+        action(type: PropertyType.String, required: true, values: ["add", "delete", "modify"], description: "Actions that can be clicked on each 2fa")
+        method(type: PropertyType.String, required: true, values: ["authy", "totp", "phoneValidation", "deviceAuthorization"], description: "Methods accepted as 2fa")
+        registered_by_phone(type: PropertyType.Boolean, required: false, description: "Registered by phone user or legacy user")
     }
 
     // Devices Admin
@@ -32,6 +37,7 @@ tracks {
 
     "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in the Devices Admin page")
+        unlink_type(type: PropertyType.String, required: true, values: ["single", "all"], description: "Whether the user is unlinking one or all devices")
         target(type: PropertyType.String, required: true, values: ["unlink_button", "confirm_unlink_button"], description: "Button clicked by the user in the Devices Admin page")
     }
 
@@ -50,6 +56,8 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction_granularity_option(required: true, type: PropertyType.String, values: ["always", "daily_amount"], description: "Granularity option selected by user")
+        transaction_accumulated_amount(required: true, type: PropertyType.String, description: "User tx accumulated amount")
         transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
         opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }

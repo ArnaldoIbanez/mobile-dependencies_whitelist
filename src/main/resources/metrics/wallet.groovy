@@ -434,21 +434,28 @@ metrics {
     }
   }
 
-  "payment.installments"(description: "Counts when a user pay with installments > 1", compute_payment: true) {
+  "payment_intent.first_payment_method"(description: "Counts when a user confirms pay with first suggested payment method", compute_payment: true) {
     startWith {
-      experiment("px_nativo/highlight_installments")
+      experiment("px_nativo/payment_method_recommendation")
     }
 
     countsOn {
       condition {
-        path("/px_checkout/result/success")
-        and(
-          notEquals("event_data.extra_info.payer_cost.installments", "1"),
-          or(
-            equals("event_data.payment_method_type", "credit_card"),
-            equals("event_data.payment_method_type", "consumer_credits")
-          )
-        )
+        path("/px_checkout/review/confirm")
+        equals("event_data.payment_method_selected_index", 0)
+      }
+    }
+  }
+
+  "payment_intent.second_payment_method"(description: "Counts when a user confirms pay with second suggested payment method", compute_payment: true) {
+    startWith {
+      experiment("px_nativo/payment_method_recommendation")
+    }
+
+    countsOn {
+      condition {
+        path("/px_checkout/review/confirm")
+        equals("event_data.payment_method_selected_index", 1)
       }
     }
   }

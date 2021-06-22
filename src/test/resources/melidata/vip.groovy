@@ -48,6 +48,7 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             has_good_price = true
+            has_highlighted_sale_specs=true
             price_comparison_position =  0.75
             catalog_market_price =  37855
             whatsapp_available = "false"
@@ -62,6 +63,7 @@ trackTests {
             vip_version = "new"
             best_seller_position = 5
             highlights = [
+                "id": "id_highlight",
                 "best_seller_position": 5,
                 "melichoice_domain": "CELLPHONES",
                 "melichoice_origin": "killer",
@@ -69,6 +71,9 @@ trackTests {
             ]
             has_seller_level_kyc = true
             seller_type = 'normal'
+            apparel = [
+                    "has_size_chart": true
+            ]
         }
 
         Object items_attributes = {
@@ -179,6 +184,7 @@ trackTests {
             deal_ids = []
             item_condition= "new"
             has_good_price= true
+            has_highlighted_sale_specs=true
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -229,6 +235,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_premium"
             has_good_price = false
+            has_highlighted_sale_specs=false
             seller_id = 210183916
         })
 
@@ -403,6 +410,7 @@ trackTests {
             unregistered_contact= false
             unregistered_contact_context= false
             has_good_price= false
+            has_highlighted_sale_specs=false
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -580,6 +588,7 @@ trackTests {
             description_type = "plain_text"
             quantity_models = null
             domain_id = "MLC-APARTMENTS_FOR_RENT"
+            item_seller_type = "normal"
         }
 
         def tourOption = {
@@ -597,15 +606,22 @@ trackTests {
             video_type = "NONE"
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             tourOption()
         }
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             videoOption()
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "TOUR360"
+        }
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIDEO"
         }
     }
 
@@ -696,9 +712,14 @@ trackTests {
 
         "/vip/sizechart"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
+            referer = "vip"
         }
 
         "/vip/sizechart/tutorial"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA533657947"
+        }
+
+        "/vip/sizechart/preview"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
         }
 
@@ -814,7 +835,7 @@ trackTests {
         "/vip/similar_vehicles"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
-        
+
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
 
@@ -825,6 +846,7 @@ trackTests {
         "/vip/show_all_description"(platform: "/", type: TrackType.Event){
             item_id = "MLA213512313"
             has_good_price = true
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs"(platform: "/web", type: TrackType.View){
@@ -832,6 +854,15 @@ trackTests {
             vertical = "core"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
+        }
+
+        "/vip/technical_specs/show"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            vertical = "core"
+            vip_version = "new"
+            has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -846,6 +877,7 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -860,12 +892,14 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -880,6 +914,7 @@ trackTests {
             catalog_product_id="MLA123456"
             vip_version = "new"
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -890,9 +925,21 @@ trackTests {
             vip_version = "new"
         }
 
+        "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "credits"
+            context = "/qadb"
+            vip_version = "new"
+        }
+
         "/vip/qadb/call-to-action"(platform: "/", {
             item_id = "MLA112341"
         })
+
+        "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA112341"
+        }
     }
 
     test("New Shipping calculator"){
@@ -977,7 +1024,7 @@ trackTests {
             otherShipping
         ]
         }
-    
+
     }
 
     test("VIP Web Classifieds services track click on link to landing_services") {
@@ -1146,8 +1193,8 @@ trackTests {
             variationInformation()
             shipping_pay_before = false
         }
-        
-        def shipping_method = { 
+
+        def shipping_method = {
             shipping_method = {
                 id = 531332827
                 name = "Retiro en Correo Argentino"
@@ -1168,7 +1215,7 @@ trackTests {
                         date =  "2018-12-10T00:00:00.000-03:00"
                         shipping = 48
                     }
-                }      
+                }
             }
         }
 
@@ -1326,10 +1373,10 @@ trackTests {
             model()
             shipping_method()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
              model()
         }
@@ -1347,15 +1394,15 @@ trackTests {
         "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
-        
-        
+
+
         //Apps
         "/vip/shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
             model()
@@ -1369,12 +1416,89 @@ trackTests {
         "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
 
-    
+
         "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-                
+
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
+        }
+    }
+
+    test("VIP NEW Shipping Calculator"){
+
+        def shipping_promises = {
+            item_id = "MLU474386325"
+            quantity = 1
+            shipping_promises = [
+                    {
+                        type = "address"
+                        display = "recommended"
+                        discount_type = "ratio"
+                        free_shipping = true
+                        shipping_preference = "Rápido a domicilio"
+                        after_dispatch = false
+                        min_days = 0
+                        max_days = 0
+                        list_cost = 199
+                        cost = 0
+                        shipping_method_type = "super_express"
+                        estimated_delivery_time = {
+                            type = "known"
+                            date = "2021-05-20T03:00:00Z"
+                            shipping = 0
+                            handling = 0
+                            schedule = 0
+                            offset = {
+                                shipping = 0
+                            }
+                            time_frame = {}
+                            pay_before = "2021-05-20T19:00:00Z"
+                        }
+                    }
+            ]
+        }
+
+
+        "/vip/new_shipping_calculator"(platform: "/", type: TrackType.View) {
+            shipping_promises()
+            item_id = "MLA533657947"
+            quantity = 1
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/vip/new_shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+        }
+
+
+        "/vip/new_shipping_calculator"(platform: "/web/desktop", type: TrackType.View) {
+            shipping_promises()
+        }
+
+        "/vip/new_shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
+
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+        }
+
+        //Apps
+        "/vip/new_shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
+            shipping_promises()
+            item_id = "MLA533657947"
+            quantity = 1
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+
+
+        "/vip/new_shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+
+        "/vip/new_shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
         }
     }
 
@@ -1555,7 +1679,7 @@ trackTests {
             vip_version = "new"
         }
     }
-	
+
     test("VIP prevent stock question for mobile") {
         "/vip/question/ask/prevent_stock"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA792156560"
@@ -1635,14 +1759,17 @@ trackTests {
         }
 
         "/vip/classi_credits_onboard"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/ok"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/close"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
     }
@@ -1790,6 +1917,16 @@ trackTests {
         }
     }
 
+    test("VIP item mercado credits"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/item/mercado_credits_modal"(platform: "/", type: TrackType.View) {
+            properties()
+        }
+    }
+
     // Server side
 
     test("VIP Server side tracking"){
@@ -1882,6 +2019,7 @@ trackTests {
             buying_mode = "classified"
             deal_ids = []
             points_interest_available = true
+            item_seller_type = "normal"
         }
 
         "/vip/points_of_interest/transport"(platform: "/web/desktop", type: TrackType.Event) {
@@ -1914,7 +2052,39 @@ trackTests {
         "/vip/points_of_interest/health"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
+        "/vip/points_of_interest/link_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+    }
 
+    test("Test Official Store link"){
+        "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            official_store_id = 123
+        }
+    }
 
+    test("Vip back to top methods") {
+        "/vip/back_to_top/top"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB533657947"
+        }
+
+        "/vip/back_to_top"(platform: "/", type: TrackType.View) {
+            item_id = "MLB533657947"
+        }
     }
 }

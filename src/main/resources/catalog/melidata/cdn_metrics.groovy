@@ -16,6 +16,6 @@ tracks {
         duration(required: true, type: PropertyType.Numeric, description: "Time used to download the resource ")
         cdnProvider(required: true, type: PropertyType.String, description: "Name of cdn provider")
         cacheStatus(required: true, type: PropertyType.String, description: "Cache type of response")
-        connection(required: true, type: PropertyType.String, description: "Type of network connection")
+        connection(required: false, type: PropertyType.String, description: "Type of network connection")
     }
 }

@@ -74,16 +74,16 @@ trackTests {
             * MGM SELLER TRACKS *
             *************************/
 
-            "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
-            "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
+            "/mgm_seller/referal" (platform: "/", type: TrackType.View) {}
+            "/mgm_seller/dashboard" (platform: "/", type: TrackType.View) {}
 
-            "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
+            "/mgm_seller/referal/tap" (platform: "/", type: TrackType.Event) {
                 media = "whatsapp"
                 device= "Point Mini"
                 link= "dashboard"
             }
 
-            "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
+            "/mgm_seller/referal/swipe" (platform: "/", type: TrackType.Event) {}
 
             /*************************
             * MGM PAYER TRACKS v3  *
@@ -168,18 +168,21 @@ trackTests {
 
             "/mgm/v3/error"(platform: "/mobile", type: TrackType.View) {
                     program_id = "mla_payers"
-                    reason = "kyc_invitado"
+                    reason = "kyc_guest"
+                    from = "modals_engine"
             }
 
             "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {
                     program_id = "mla_payers"
-                    reason = "kyc_invitado"
+                    reason = "kyc_guest"
+                    from = "modals_engine"
             }
 
             "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
                     program_id = "mla_payers"
-                    reason = "kyc_invitado"
+                    reason = "kyc_guest"
                     link = "meli://coupon/input"
+                    from = "modals_engine"
             }
         }
     }
