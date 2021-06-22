@@ -126,6 +126,7 @@ tracks {
         type(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         values_quantity(type: PropertyType.Numeric, required: true)
+        enhanced_position(type: PropertyType.Numeric, required: false)
     }
 
     def original_search_filter_definition = objectSchemaDefinitions {
