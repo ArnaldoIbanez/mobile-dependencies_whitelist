@@ -717,8 +717,8 @@ trackTests {
             time = 141231
         }
         "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
-            validation = "aspect_ratio"
-            value = "1.3"
+            validation = "confidence"
+            value = "0.54"
         }
         "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
             error = "error al descargar"
@@ -829,8 +829,8 @@ trackTests {
             time = 141231
         }
         "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
-            validation = "aspect_ratio"
-            value = "1.3"
+            validation = "label_check"
+            value = "other"
         }
         "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
             error = "error al descargar"
