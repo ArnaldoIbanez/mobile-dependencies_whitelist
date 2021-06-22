@@ -84,7 +84,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
 	"mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac","mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
-	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados"]
+	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving"]
 }
 
 task uploadAll(type:JavaExec) {
@@ -97,7 +97,7 @@ task uploadAll(type:JavaExec) {
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld",
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
 	"mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
-	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados"]
+	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -346,6 +346,12 @@ task testMonitoringBhvNoNegativizados (dependsOn: 'classes', type: JavaExec) {
 	args = ["mlo-mon-bhv-no-negativizados"]
 }
 
+task testMonitoringBrandDetectorServingCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-brand-detector-serving"]
+}
+
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.MetricsTest'
 	classpath = sourceSets.main.runtimeClasspath
@@ -361,7 +367,7 @@ task uploadAllCatalog(type:JavaExec) {
     "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
 	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
 	"mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac", "mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
-	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados"]
+	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -608,6 +614,12 @@ task uploadMonitoringBhvNoNegativizados(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-bhv-no-negativizados"]
+}
+
+task uploadMonitoringBrandDetectorServingCatalog(type: JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-brand-detector-serving"]
 }
 
 task uploadMetrics(type:JavaExec) {
