@@ -1965,6 +1965,8 @@ trackTests {
             is_token_ready = true
             is_token_active = true
             is_default_tap_n_pay = true
+            is_restrictive = true
+            is_tap_n_pay_admitted_to_pay = true
             is_default_card = true
             is_nfc_activated = true
             are_payment_keys_avaliable = true
@@ -1977,6 +1979,8 @@ trackTests {
             is_token_ready = false
             is_token_active = false
             is_default_tap_n_pay = false
+            is_restrictive = false
+            is_tap_n_pay_admitted_to_pay = false
             is_default_card = false
             is_nfc_activated = false
             are_payment_keys_avaliable = false

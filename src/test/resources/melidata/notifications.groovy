@@ -5756,6 +5756,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_purchase"(platform: "/") {
+            latest_news_type= "insurtech_purchase"
+            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_purchase"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -5764,6 +5774,20 @@ trackTests {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        //Registration
+        "/notification/registration_under_age_authorized"(platform: "/mobile") {
+            news_id = "registration_under_age_authorized-123"
+            event_type = "shown"
+        }
+        "/notification/registration_under_age_rejected"(platform: "/mobile") {
+            news_id = "registration_under_age_rejected-123"
+            event_type = "shown"
+        }
+        "/notification/registry_recovery"(platform: "/mobile") {
+            news_id = "registry_recovery-123"
+            event_type = "shown"
         }
 
         "/notification_center/insurtech_imei_cancellation_advice"(platform: "/") {
@@ -11386,6 +11410,16 @@ trackTests {
             news_id = "insurtech_imei_activation_123"
             event_type = "open"
         }
+        
+        "/notification_center/insurtech_purchase"(platform: "/") {
+            latest_news_type= "insurtech_purchase"
+            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_purchase"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            event_type = "open"
+        }
          
         "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
@@ -12123,6 +12157,20 @@ trackTests {
             news_id = "card_wallet_insufficient_account_balance-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+
+        //Registration
+        "/notification/registration_under_age_authorized"(platform: "/mobile") {
+            news_id = "registration_under_age_authorized-123"
+            event_type = "shown"
+        }
+        "/notification/registration_under_age_rejected"(platform: "/mobile") {
+            news_id = "registration_under_age_rejected-123"
+            event_type = "shown"
+        }
+        "/notification/registry_recovery"(platform: "/mobile") {
+            news_id = "registry_recovery-123"
+            event_type = "shown"
         }
     }
 }

@@ -781,7 +781,7 @@ tracks {
         unregistered_contact_context(required: true, type: PropertyType.Boolean,
                 description: "User is unregister after returning from email")
         event_source(required: true, type: PropertyType.String,
-                values: ["vip", "technicalSpecs", "description"],
+                values: ["vip", "technicalSpecs", "description", "button"],
                 description: "source of the event")
         source(required: false, description: "Source of the referred")
         item_seller_type(required: false, type: PropertyType.String,
@@ -1259,6 +1259,7 @@ tracks {
                 type: PropertyType.Boolean,
                 description: "Item's catalog listing"
         )
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/quote_demand_intention_lower"(platform: "/", type: TrackType.Event) {
@@ -1268,6 +1269,7 @@ tracks {
                 values: ["vip", "description", "technicalSpecs", "form"],
                 description: "Section where it's coming from"
         )
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event) {
@@ -1276,6 +1278,11 @@ tracks {
         from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form"],
                 description: "Section where it's coming from"
+        )
+        catalog_listing(
+                required: false,
+                type: PropertyType.Boolean,
+                description: "Item's catalog listing"
         )
     }
 
