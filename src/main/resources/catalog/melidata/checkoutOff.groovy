@@ -56,6 +56,7 @@ tracks {
         operation_type(required: false, description: "Operation type, e.g: 'regular_payment'", type: PropertyType.String, values: ["regular_payment", "account_fund", "money_transfer", "pos_payment", "payment_addition"])
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
+        flow_context(required: false, description: "Information about current flow's status, e.g: 'no_sniffing'", type: PropertyType.String)
     }
 
     // Login

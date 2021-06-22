@@ -629,7 +629,7 @@ tracks {
     "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
-        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment", "withdraw"], description: "Operation type")
         amount(type: PropertyType.String, required: false, description: "amount of the operation")
     }
 
