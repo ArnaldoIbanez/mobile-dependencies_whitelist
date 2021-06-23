@@ -5756,6 +5756,26 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
+            event_type = "open"
+        }
+
         "/notification_center/insurtech_purchase"(platform: "/") {
             latest_news_type= "insurtech_purchase"
             latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
@@ -11408,6 +11428,26 @@ trackTests {
 
         "/notification/insurtech_imei_activation"(platform: "/mobile") {
             news_id = "insurtech_imei_activation_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
             event_type = "open"
         }
         
