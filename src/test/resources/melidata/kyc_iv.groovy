@@ -547,6 +547,17 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/documentation/error"(platform: "/web/desktop") {
+            error_type = "business"
+            error_message = "La foto estaba cortada"
+            transaction_user_id = 109479273
+            flow = "flow_doc"
+        }
+
+        "/kyc/iv/documentation/cross_acceptance"(platform: "/web/desktop") {
+            flow = "flow_doc"
+        }
+
         "/kyc/iv/documentation/uploader_click"(platform: "/") {
             flow = "flow_doc"
             transaction_user_id = 109479273
@@ -1079,6 +1090,17 @@ trackTests {
             flow = "flow_doc"
             option = "continue_from_desktop"
             transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/error"(platform: "/web/desktop") {
+            error_type = "business"
+            error_message = "La foto estaba cortada"
+            transaction_user_id = 109479273
+            flow = "flow_doc"
+        }
+
+        "/kyc/iv/documentation/cross_acceptance"(platform: "/web/desktop") {
+            flow = "flow_doc"
         }
 
         "/kyc/iv/documentation/uploader_click"(platform: "/") {
