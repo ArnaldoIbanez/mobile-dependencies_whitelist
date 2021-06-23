@@ -208,6 +208,8 @@ tracks {
         portal_content_destination_url
     }
 
+    "/portal/action"(platform: "/", isAbstract:  true) {}
+
     "/portal/action/click"(platform: "/", type: TrackType.Event) {
         portal_content_destination_url
     }
