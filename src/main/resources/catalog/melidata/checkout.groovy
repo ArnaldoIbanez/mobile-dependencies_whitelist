@@ -1618,11 +1618,6 @@ tracks {
     //Billing info
     "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
 
-    //Congrats tracks
-    "/checkout/onetap/congrats"(platform: "/mobile", type: TrackType.View) {
-        purchase_id(required: false, type: PropertyType.Numeric, description: "Identifier purchase")
-    }
-
     //ERROR
     "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}
 
