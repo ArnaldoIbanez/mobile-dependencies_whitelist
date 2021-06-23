@@ -352,17 +352,14 @@ trackTests {
        "/pix/home/pay"(platform: "/", type: TrackType.Event) {}
 
        //Home Pix MLB - Keys
-       "/pix/home/keys"(platform: "/", isAbstract: true) {}
        "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
        "/pix/home/keys/share"(platform: "/", type: TrackType.Event) {}
        "/pix/home/keys/new"(platform: "/", type: TrackType.Event) {}
 
        //Home Pix MLB - Cadastrar Keys
-       "/pix/home/banner"(platform: "/", isAbstract: true) {}
        "/pix/home/banner/new_key"(platform: "/", type: TrackType.Event) {}
 
        //Home Pix MLB - Help Button
-       "/pix/home/additional_list"(platform: "/", isAbstract: true) {}
        "/pix/home/additional_list/faq"(platform: "/", type: TrackType.Event) {}
 
        //Home Pix MLB - Bottom Sheet
