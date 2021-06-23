@@ -312,6 +312,11 @@ tracks {
         segment
     }
 
+    "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        step_information
+        view_time
+    }
+
 
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
