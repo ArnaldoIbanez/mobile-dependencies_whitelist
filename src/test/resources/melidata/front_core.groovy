@@ -871,6 +871,18 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - BANKING v2 Open Banking") {
+        "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://cards-list/list?from=home_mp"
+            section_id="banking_v2-open_banking_accounts"
+            component_id="open_banking_accounts"
+            quantity=1
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
+
     test("Mercadopago Home Tap v3 - BANKING v2 balance") {
         "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://balance"
@@ -2025,6 +2037,15 @@ trackTests {
             content_id="Actions"
             position=3
             enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Open Banking") {
+        "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://cards-list/list?from=home_mp"
+            section_id="banking_v2-open_banking_accounts"
+            component_id="open_banking_accounts"
+            quantity=1
         }
     }
 
