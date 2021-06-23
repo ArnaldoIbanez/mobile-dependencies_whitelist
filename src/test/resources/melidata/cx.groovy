@@ -69,6 +69,9 @@ trackTests {
             portal_source_id = 1627
             portal_content_id = 1
         }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_destination_url = "/ayuda/637"
+        }
     }
 
     test("Support Widget") {
