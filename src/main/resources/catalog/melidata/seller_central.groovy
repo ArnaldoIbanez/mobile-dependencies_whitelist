@@ -1408,6 +1408,10 @@ tracks {
         days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
     }
 
+    "/seller_central/metrics/attention/summary/open_onboarding"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
     // Page Details - My Attention
 
     "/seller_central/metrics/attention/details"(platform: "/web", type: TrackType.View) {
