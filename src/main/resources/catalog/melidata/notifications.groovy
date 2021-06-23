@@ -1098,10 +1098,6 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-    "/notification_center/card_correios_strike"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
     "/notification_center/card_flow_incentive"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2737,7 +2733,6 @@ tracks {
 
     //Hybrid
     "/notification/card_request_challenge_pending"(platform: "/mobile") {}
-    "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_first_day"(platform: "/") {}
     "/notification/card_first_use_incentive_fourteenth_day"(platform: "/") {}
     "/notification/card_first_use_incentive_seventh_day"(platform: "/") {}
@@ -2766,7 +2761,10 @@ tracks {
     "/notification/card_kyc_data_completed_prepaid_acquisition_second"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_prepaid_acquisition_third"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_virtual_acquisition"(platform: "/mobile") {}
-    "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_owner"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_point"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_somewhere"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_known_person"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {
         has_money(required: true, type: PropertyType.Boolean)
     }

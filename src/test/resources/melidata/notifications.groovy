@@ -1417,12 +1417,6 @@ trackTests {
             latest_news_type= "card_request_challenge-pending"
             status= "read"
         }
-        "/notification_center/card_correios_strike"(platform: "/mobile"){
-            newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_type= "card_correios_strike-delayed"
-            status= "read"
-        }
         "/notification_center/card_flow_incentive"(platform: "/mobile"){
             newsgroup_id= "card_flow_incentive-186785675-76283123"
             latest_news_id= "card_flow_incentive-186785675-76283123"
@@ -1526,9 +1520,27 @@ trackTests {
             status= "read"
         }
         "/notification_center/card_unlock_incentive"(platform: "/mobile"){
-            newsgroup_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_type= "card_unlock_incentive-zero_day"
+            newsgroup_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_owner"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_point"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_somewhere"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_known_person"
             status= "read"
         }
         "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
@@ -5300,18 +5312,26 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification/card_correios_strike_delayed"(platform: "/mobile") {
-            news_id = "card_correios_strike_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+        "/notification/card_unlock_incentive_zero_day_owner"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_owner-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
-        "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_zero_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+        "/notification/card_unlock_incentive_zero_day_somewhere"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_somewhere-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
+        "/notification/card_unlock_incentive_zero_day_point"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_point-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_unlock_incentive_zero_day_known_person"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_known_person-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
         "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_second_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -7203,12 +7223,6 @@ trackTests {
             latest_news_type= "card_request_challenge-pending"
             status= "read"
         }
-        "/notification_center/card_correios_strike"(platform: "/mobile"){
-            newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_type= "card_correios_strike-delayed"
-            status= "read"
-        }
         "/notification_center/card_flow_incentive"(platform: "/mobile"){
             newsgroup_id= "card_flow_incentive-186785675-76283123"
             latest_news_id= "card_flow_incentive-186785675-76283123"
@@ -7312,9 +7326,27 @@ trackTests {
             status= "read"
         }
         "/notification_center/card_unlock_incentive"(platform: "/mobile"){
-            newsgroup_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_type= "card_unlock_incentive-zero_day"
+            newsgroup_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_owner"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_somewhere"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_point"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_known_person"
             status= "read"
         }
         "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
@@ -11104,11 +11136,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification/card_correios_strike_delayed"(platform: "/mobile"){
-            news_id= "card_correios_strike_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
+
         "/notification/card_kyc_data_completed_virtual"(platform: "/mobile"){
             news_id= "card_kyc_data_completed_virtual-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -11149,12 +11177,26 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_zero_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+        "/notification/card_unlock_incentive_zero_day_owner"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_owner-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
+        "/notification/card_unlock_incentive_zero_day_somewhere"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_somewhere-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_unlock_incentive_zero_day_point"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_point-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_unlock_incentive_zero_day_known_person"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_known_person-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
         "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_second_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
