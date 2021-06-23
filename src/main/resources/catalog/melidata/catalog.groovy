@@ -264,6 +264,7 @@ catalog {
     mercadoshops.each { business ->
         include business, "authentication.groovy"
         include business, "notifications_mshops.groovy"
+        include business, "landing_mshops.groovy"
     }
 
     mercadoads.each { business ->
