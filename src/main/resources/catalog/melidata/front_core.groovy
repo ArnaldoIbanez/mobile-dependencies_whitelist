@@ -534,6 +534,10 @@ tracks {
         position(type: PropertyType.Numeric, required: true, description: "The position in the section")
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
+
+    "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+        quantity(type: PropertyType.Numeric, required: true, description: "The number of user accounts")
+    }
     
     "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
         hidden(required: true, type: PropertyType.Boolean, description: "hidden status")

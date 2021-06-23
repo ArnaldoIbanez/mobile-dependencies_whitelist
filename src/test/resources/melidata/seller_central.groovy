@@ -97,7 +97,12 @@ trackTests {
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
   }
 
-
+  test("seller central listing sort") {
+    "/seller_central/listings/sort"(platform: "/", type: TrackType.Event) {
+      id = "stock_remaining_weeks_asc"
+      view_id = "fulfillment"
+    }
+  }
 
   test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}

@@ -573,6 +573,12 @@ tracks {
         checked_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of filters applied")
     }
 
+    "/seller_central/listings/sort"(platform: "/") {
+        id(required: true, type: PropertyType.String, description: "Index of sort applied")
+        view_id(required: true, type: PropertyType.String, description: "View where the event has been called")
+
+    }
+
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }

@@ -5809,6 +5809,16 @@ trackTests {
             news_id = "registry_recovery-123"
             event_type = "shown"
         }
+
+        "/notification_center/insurtech_imei_cancellation_advice"(platform: "/") {
+            latest_news_type= "insurtech_imei_cancellation_advice"
+            latest_news_id= "insurtech_imei_cancellation_advice-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {
+            news_id = "insurtech_imei_cancellation_advice_123"
+            event_type = "open"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -11459,6 +11469,16 @@ trackTests {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        "/notification_center/insurtech_imei_cancellation_advice"(platform: "/") {
+            latest_news_type= "insurtech_imei_cancellation_advice"
+            latest_news_id= "insurtech_imei_cancellation_advice-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {
+            news_id = "insurtech_imei_cancellation_advice_123"
+            event_type = "open"
         }
     }
 
