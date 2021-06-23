@@ -2368,6 +2368,35 @@ trackTests {
             }
         }
 
+        test("Mercadopago Home Tap v3 - Advertising [${business}]") {
+            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_item1"
+                section_id = "advertising"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+                criticality = 1
+                from = "section"
+            }
+            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_payers_recharge_sube_mp"
+                section_id = "advertising"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+                criticality = 1
+                from = "section"
+            }
+        }
+
         test("Mercadopago Home Tap v3 - Prepaid Banner [${business}]") {
             "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
