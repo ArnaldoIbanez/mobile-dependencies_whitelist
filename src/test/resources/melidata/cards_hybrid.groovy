@@ -2006,5 +2006,14 @@ trackTests {
             default_app = 'not_default'
         }
     }
+    
+    // NFC_ONDEMAND_ENROLLMENT
+    test("cards hybrid nfc on demand enrollment") {
+        "/cards/nfc/enrollment/ondemand"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
+            error_message = "Empty nfc_command userId"
+        }
+    }
 
 }

@@ -310,4 +310,10 @@ tracks {
         view (required:false, description: "Indicate the view where the error happened")
     }
 
+    //Digital Accounts Components
+    "/da_base_activity"(platform: "/", isAbstract: true) {}
+    "/da_base_activity/error_view"(platform: "/", type: TrackType.View) {
+        error (required:false, description: "Indicate the error type thats been shown")
+        view (required:false, description: "Indicate the view where the error happened")
+    }
 }

@@ -97,7 +97,12 @@ trackTests {
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
   }
 
-
+  test("seller central listing sort") {
+    "/seller_central/listings/sort"(platform: "/", type: TrackType.Event) {
+      id = "stock_remaining_weeks_asc"
+      view_id = "fulfillment"
+    }
+  }
 
   test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -380,7 +385,9 @@ trackTests {
         type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER",
         page: 1,
-        position: 3
+        position: 3,
+        item_id: "15415445414",
+        rules_applied: "none"
       ]
       seller_experience = "ADVANCED"
     }
@@ -393,7 +400,9 @@ trackTests {
       reputation = "4_light_green"
       card = [
         type: "RECOMMENDATION",
-        key: "LIGHTNING_OFFER"
+        key: "LIGHTNING_OFFER",
+        item_id: "15415445414",
+        rules_applied: "none"
       ]
       seller_experience = "ADVANCED"
     }
@@ -401,19 +410,21 @@ trackTests {
 
   test("Seller coach cards view") {
     "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
-      segment = "perfect_launch"
+      segment = "none"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       cards = [
         [
-          type: "RECOMMENDATION",
-          key: "LIGHTNING_OFFER",
-          page: 2
+          type: "CONTENT",
+          key: "PB02",
+          page: 2,
+          rules_applied: "hard"
         ],
         [
           type: "CONTENT",
           key: "PB01",
-          page: 2
+          page: 2,
+          rules_applied: "soft"
         ]
       ]
       seller_experience = "ADVANCED"
@@ -4370,6 +4381,97 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central listing secondary_actions") {
     "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central promotions massive editor") {
+    "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions massive editor") {
+    "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions massive editor open") {
+    "/seller_central/promotions/massive/editor/open"(platform: "/", type: TrackType.Event) {
+      items = "10"
+      type = "lightning"
+      useFilters = true
+    }
+  }
+
+  test("seller central promotions massive editor confirm") {
+    "/seller_central/promotions/massive/editor/confirm"(platform: "/", type: TrackType.Event) {
+      items = "10"
+      type = "lightning"
+      useFilters = true
+      deleted = "2"
+    }
+  }
+
+  test("seller central promotions massive editor cancel") {
+    "/seller_central/promotions/massive/editor/cancel"(platform: "/", type: TrackType.Event) {
+      items = "10"
+      type = "lightning"
+      useFilters = true
+      deleted = "2"
+    }
+  }
+
+  test("seller central promotions massive editor delete") {
+    "/seller_central/promotions/massive/editor/delete"(platform: "/", type: TrackType.Event) {
+      items = "10"
+      type = "lightning"
+      useFilters = true
+    }
+  }
+
+  test("seller central promotions massive editor toolbar") {
+    "/seller_central/promotions/massive/editor/toolbar"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions massive editor toolbar checkbox") {
+    "/seller_central/promotions/massive/editor/toolbar/checkbox"(platform: "/", type: TrackType.Event) {
+      action = "select"
+    }
+  }
+
+  test("seller central promotions massive editor modal") {
+    "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions massive editor modal add") {
+    "/seller_central/promotions/massive/modal/add"(platform: "/", type: TrackType.Event) {
+      origin = "mail"
+    }
+  }
+
+  test("seller central promotions massive editor modal delete") {
+    "/seller_central/promotions/massive/modal/delete"(platform: "/", type: TrackType.Event) {
+      origin = "mail"
+    }
+  }
+
+  test("seller central promotions widget") {
+    "/seller_central/promotions/widget"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions widget header") {
+    "/seller_central/promotions/widget/header"(platform: "/", type: TrackType.Event) {
+      collapsed = true
+    }
+  }
+
+  test("seller central promotions widget dismiss") {
+    "/seller_central/promotions/widget/dismiss"(platform: "/", type: TrackType.Event) {
+      batch_id = "123"
+    }
+  }
+
+  test("seller central promotions widget close") {
+    "/seller_central/promotions/widget/close"(platform: "/", type: TrackType.Event) {
+      processing = false
+      batch_ids = ["123", "1234"]
+    }
   }
 
   test("seller central listing action") {

@@ -454,6 +454,19 @@ tracks {
     }
 
 
+    // Check Accreditation information
+    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
+        view_time
+    }
+
+    "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/check_accreditation_information/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
     // Carousel
     "/single_player/prepaid/carousel"(platform: "/mobile", type: TrackType.View) {}
 
