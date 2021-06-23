@@ -816,6 +816,35 @@ trackTests {
                 client_type = "web"
             }
 
+            "/authenticators/email_validation/enter_code/open_email_app"(platform: "/mobile/android", type: TrackType.Event) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                packages = ["com.emailAppPackage1.android", "com.emailAppPackage2.android"]
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link"(platform: "/mobile/android", type: TrackType.Event) {
+                flow = "registration_v3"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "web"
+                cause = "opened_with_browser"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "web"
+                cause = "incorrect_code"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                cause = "native_not_listening"
+            }
+
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
                 flow = "login"
                 client_type = "web"
