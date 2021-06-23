@@ -1777,7 +1777,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            description: "Check if nfc sdk is already initialized!"
+            description: "Check if nfc sdk start service!"
         )
     }
 
@@ -2209,7 +2209,6 @@ tracks {
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"],
             description: "Type of sdk error message"
         )
     }
