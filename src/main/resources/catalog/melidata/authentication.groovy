@@ -135,6 +135,8 @@ tracks {
 
     "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
+    "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
+
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/phone_validation/rechallenge"(platform: "/mobile", type: TrackType.Event) {}
