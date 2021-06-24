@@ -70,7 +70,11 @@ trackTests {
             portal_content_id = 1
         }
         "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
             portal_content_destination_url = "/ayuda/637"
+        }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
         }
     }
 
