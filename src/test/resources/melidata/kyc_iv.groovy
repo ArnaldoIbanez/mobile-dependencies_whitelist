@@ -182,6 +182,20 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "ok"
+            value = "detection OK"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
+            error = "error al descargar"
+        }
+
         "/kyc/iv/activity/custom_camera/error"(platform: "/mobile/android")  {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -253,6 +267,18 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
+            error = "error al descargar"
+        }
 
         "/kyc/iv/unsupported_deeplink"(platform: "/mobile") {
             unsupported_deeplink = "meli://unsupported_deeplink"
@@ -685,6 +711,19 @@ trackTests {
             ]
         }
 
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "confidence"
+            value = "0.54"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
+            error = "error al descargar"
+        }
+
         "/kyc/iv/activity/check_step"(platform: "/mobile/android") {}
         "/kyc/iv/activity/landing"(platform: "/mobile/android") {}
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/android") {}
@@ -784,6 +823,18 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "label_check"
+            value = "other"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
+            error = "error al descargar"
+        }
 
         "/kyc/iv/unsupported_deeplink"(platform: "/mobile") {
             unsupported_deeplink = "meli://unsupported_deeplink"

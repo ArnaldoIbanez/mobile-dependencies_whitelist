@@ -5756,6 +5756,26 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
+            event_type = "open"
+        }
+
         "/notification_center/insurtech_purchase"(platform: "/") {
             latest_news_type= "insurtech_purchase"
             latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
@@ -5788,6 +5808,16 @@ trackTests {
         "/notification/registry_recovery"(platform: "/mobile") {
             news_id = "registry_recovery-123"
             event_type = "shown"
+        }
+
+        "/notification_center/insurtech_imei_cancellation_advice"(platform: "/") {
+            latest_news_type= "insurtech_imei_cancellation_advice"
+            latest_news_id= "insurtech_imei_cancellation_advice-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {
+            news_id = "insurtech_imei_cancellation_advice_123"
+            event_type = "open"
         }
     }
 
@@ -11400,6 +11430,26 @@ trackTests {
             news_id = "insurtech_imei_activation_123"
             event_type = "open"
         }
+
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
+            event_type = "open"
+        }
         
         "/notification_center/insurtech_purchase"(platform: "/") {
             latest_news_type= "insurtech_purchase"
@@ -11419,6 +11469,16 @@ trackTests {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        "/notification_center/insurtech_imei_cancellation_advice"(platform: "/") {
+            latest_news_type= "insurtech_imei_cancellation_advice"
+            latest_news_id= "insurtech_imei_cancellation_advice-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {
+            news_id = "insurtech_imei_cancellation_advice_123"
+            event_type = "open"
         }
     }
 
