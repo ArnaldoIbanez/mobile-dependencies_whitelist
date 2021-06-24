@@ -381,6 +381,13 @@ trackTests {
             portal_source_id = 1628
             portal_delayed_pack_id = 12345678
         }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+            portal_content_destination_url = "/ayuda/637"
+        }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+        }
     }
 
 
