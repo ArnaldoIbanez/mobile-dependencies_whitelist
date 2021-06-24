@@ -157,8 +157,7 @@ trackTests {
         }
         "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
             challenge = "email_or_nickname_or_phone"
-            tracking_id = "123",
-            source = "default"
+            tracking_id = "123"
         }
         "/login/auth/challenge/decline"(platform: "/web", type: TrackType.View) {
             challenge = "pass"
