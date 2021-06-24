@@ -14,10 +14,10 @@ tracks {
         discount_code (type: PropertyType.String, required: true, description: "Discount code")
         is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
         e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
-        bu: (type: PropertyType.String, required: false, description: "business unit")
-        ch: (type: PropertyType.String, required: false, description: "sales channel")
-        camp: (type: PropertyType.String, required: false, description: "campaign")
-        strategy: (type: PropertyType.String, required: false, description: "strategy")
+        bu (type: PropertyType.String, required: false, description: "business unit")
+        ch (type: PropertyType.String, required: false, description: "sales channel")
+        camp (type: PropertyType.String, required: false, description: "campaign")
+        strategy (type: PropertyType.String, required: false, description: "strategy")
     }
 
     propertyGroups {
