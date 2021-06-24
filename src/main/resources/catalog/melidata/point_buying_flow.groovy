@@ -125,7 +125,8 @@ tracks {
         product_id (type: PropertyType.String, required: false, description: "Product identifier")
         product (type: PropertyType.String, required: false, description: "Product Name")
         coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic")
-        paymentStatus (type: PropertyType.String, required: false, description: "Payment status")
+        paymentStatus (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        paymentStatusDetail (type: PropertyType.String, required: false, description: "Payment Status Detail")
     }
 
 }

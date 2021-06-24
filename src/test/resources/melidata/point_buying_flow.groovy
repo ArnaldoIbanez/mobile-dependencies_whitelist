@@ -335,6 +335,7 @@ trackTests {
           coupon_type = "mgm"
           product_id = "11"
           paymentStatus = "rejected"
+          paymentStatusDetail = "cc_rejected_call_for_authorize"
         }
     }
 }
