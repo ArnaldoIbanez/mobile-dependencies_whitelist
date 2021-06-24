@@ -800,10 +800,23 @@ trackTests {
                 client_type = "mobile"
             }
 
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                social_option = "Google"
+            }
+
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
                 flow = "registration"
                 client_type = "mobile"
                 validation_status = "success"
+            }
+
+            "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
+                validation_status = "success"
+                social_option = "Google"
             }
 
             "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {

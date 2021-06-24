@@ -520,7 +520,9 @@ tracks {
         validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address", "invalidEmail"], description: "Email submition status by response")
     }
 
-    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+      social_option(PropertyType.String, required: false, values: ["Google", "Microsoft"], description: "Social option displayed prior to this view")
+    }
 
     "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
         validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
