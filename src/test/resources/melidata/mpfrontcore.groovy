@@ -13,6 +13,14 @@ trackTests {
      * Tracks Tests - Loggued Context
      */
 
+    test("Navigation Sidebar") {
+        "/navigation/sidebar/click"(platform: "/web", type: TrackType.Event) {
+            id = "mgmreseller"
+            user_profile = "payer"
+            hierarchy = "L1"
+        }
+    }
+
     test("Mercadopago Home") {
         "/mp_home" (platform: "/", type: TrackType.View) {}
     }
@@ -55,6 +63,14 @@ trackTests {
 
     test("Mercadopago Profile") {
         "/profile" (platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Activities Detail") {
+        "/activity/detail" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Activities Detail Component Not Parsed") {
+        "/activity/detail/component_not_parsed" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Mercadopago Activities List") {
@@ -130,6 +146,16 @@ trackTests {
     /**
      * Tracks Tests - Public Context
      */
+    test("Public Navigation") {
+        "/navigation/navbar/link"(platform: "/web", type: TrackType.Event) {
+            id = "digital-account"
+            hierarchy = "header"
+        }
+        "/navigation/footer/link"(platform: "/web", type: TrackType.Event) {
+            id = "digital-account"
+        }
+    }
+
     test("Digital Wallet") {
         "/digital_wallet"(platform: "/", type: TrackType.View) {}
         "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
@@ -148,7 +174,11 @@ trackTests {
     }
 
     test("Mercadopago Landing Cuenta / Conta") {
-        "/landing/digital_account" (platform: "/") {}
+        "/landing/digital_account" (platform: "/", type: TrackType.View) {}
+        "/landing/digital_account/click" (platform: "/", type: TrackType.Event) {
+            id = "payments-shortcut"
+            type = 'shortcut'
+        }
     }
 
     test("Business Site") {
@@ -174,5 +204,28 @@ trackTests {
         startTime = "2020-05-17T00:00:00Z"
         endTime = "2020-06-30T00:00:00Z"
       }
+    }
+
+    test("MP Landing - Landing KIT QR") {
+        "/landing/qr_kit" (platform: "/", type: TrackType.View) {
+            product = "kit-qr-standalone"
+            currency = "ARS"
+            price = 500
+            discount = 401
+            price_with_discount = 99
+            has_coupon = true
+            coupon_code = "K97EN"
+            coupon_type = "default"
+        }
+
+         "/landing/qr_kit/buy" (platform: "/", type: TrackType.Event) {
+            product = "kit-qr-standalone"
+        }
+
+         "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {
+            component_id = "open_modal"
+            component_type = "button"
+            value = "Open Modal"
+        }
     }
 }

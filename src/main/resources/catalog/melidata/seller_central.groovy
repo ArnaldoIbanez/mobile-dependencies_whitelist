@@ -140,6 +140,10 @@ tracks {
     def sellerCoachCard = objectSchemaDefinitions {
         type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['RECOMMENDATION', 'CONTENT', 'TASK'])
         key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
+        page(required: false, type: PropertyType.Numeric, description: "Number of page where the card is shown")
+        position(required: false, type: PropertyType.Numeric, description: "Position of the card (relative to the page)")
+        item_id(required: false, type: PropertyType.String, description: "Id of the listing featured in this recommendation")
+        rules_applied(required: true, type: PropertyType.String, description: "Type of rules applied to show this card", values: ['hard', 'soft', 'none'])
     }
 
     def picture_info_map = objectSchemaDefinitions {
@@ -569,6 +573,12 @@ tracks {
         checked_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of filters applied")
     }
 
+    "/seller_central/listings/sort"(platform: "/") {
+        id(required: true, type: PropertyType.String, description: "Index of sort applied")
+        view_id(required: true, type: PropertyType.String, description: "View where the event has been called")
+
+    }
+
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
@@ -632,6 +642,9 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
+    "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
+    }
 
     //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
@@ -1356,6 +1369,112 @@ tracks {
         period_type(required: true, type: PropertyType.String, description: "Period type")
     }
 
+    // METRICS MY ATTENTION SECTION
+
+    "/seller_central/metrics/attention"(platform: "/web", isAbstract: true) {}
+
+    // Page Summary - My Attention
+
+    "/seller_central/metrics/attention/summary"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        default_selected_period(required: false, type: PropertyType.String, description: "Seller's default reputation period")
+    }
+
+    "/seller_central/metrics/attention/summary"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/summary"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/summary/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        section_name(required: true, type: PropertyType.String, description: "Section where the button is placed")
+    }
+
+    "/seller_central/metrics/attention/summary/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/summary/apply_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        filters(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/summary/toggle_reputation"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/summary/selected_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        selected_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/summary/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
+    // Page Details - My Attention
+
+    "/seller_central/metrics/attention/details"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        default_selected_period(required: false, type: PropertyType.String, description: "Seller's default reputation period")
+    }
+
+    "/seller_central/metrics/attention/details"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/details"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/details/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/details/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/details/apply_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        filters(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/details/toggle_reputation"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        toggle_reputation(required: true, type: PropertyType.Boolean, description: "Reputation switch status")
+    }
+
+    "/seller_central/metrics/attention/details/selected_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        selected_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/details/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
+    "/seller_central/metrics/attention/details/top_sort"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sort_type(required: true, type: PropertyType.String, description: "Sort option selected")
+    }
+
+    "/seller_central/metrics/attention/details/top_actions"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        action_type(required: true, type: PropertyType.String, description: "Product action selected")
+    }
+
+    "/seller_central/metrics/attention/details/show_problems"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        problems(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of showed problems")
+    }
+
+    "/seller_central/metrics/attention/details/selected_problem"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        selected_problem(required: true, type: PropertyType.String, description: "Problem selected ID")
+        problem_type(required: true, type: PropertyType.String, description: "Problem type", values: ["L1", "L2"])
+    }
+
     // CATALOG OPTIN SECTION
 
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
@@ -1812,6 +1931,7 @@ tracks {
         original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
         original_dod(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original deal_of_they_day promotion data")
         context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING", "CREATE_DOD"])
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
@@ -1937,6 +2057,67 @@ tracks {
 
     "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
 
+    "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor/open"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+    }
+
+    "/seller_central/promotions/massive/editor/confirm"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
+    }
+
+    "/seller_central/promotions/massive/editor/cancel"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
+    }
+
+    "/seller_central/promotions/massive/editor/delete"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+    }
+
+    "/seller_central/promotions/massive/editor/toolbar"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor/toolbar/checkbox"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Toolbar checkbox action", values: ["select", "unselect"])
+    }
+
+    "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/modal/add"(platform: "/", type: TrackType.Event) {
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+    }
+
+    "/seller_central/promotions/massive/modal/delete"(platform: "/", type: TrackType.Event) {
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+    }
+
+    "/seller_central/promotions/widget"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/widget/header"(platform: "/", type: TrackType.Event) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "If widget is collapsed")
+    }
+
+    "/seller_central/promotions/widget/dismiss"(platform: "/", type: TrackType.Event) {
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch to delete from widget")
+    }
+
+    "/seller_central/promotions/widget/close"(platform: "/", type: TrackType.Event) {
+        processing(required: false, type: PropertyType.Boolean, description: "If widget is closed with processing batches")
+        batch_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Ids of batches to delete from widget")
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS SYI V4 - RealEstate
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1983,6 +2164,10 @@ tracks {
 
     "/seller_central/questions/modal_advice"(platform: "/", type: TrackType.Event) {
         sellerCentralModalQuestionsGroup
+    }
+
+    "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
+        hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
     }
 
 

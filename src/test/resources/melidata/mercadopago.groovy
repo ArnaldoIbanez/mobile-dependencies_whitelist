@@ -513,6 +513,10 @@ trackTests {
         }
     }
 
+    test("Landing cuenta") {
+        "/landing/digital_account" (platform: "/web") {}
+    }
+
     test("Landing mercadopago sellers") {
         "/landing/sellers" (platform: "/web") {}
     }
@@ -1408,12 +1412,30 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "fcu"
+            reason = "user_in_whitelist"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "network_request_failed"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "user_not_in_whitelist"
+        }
         "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
             flow_origin = 'point'
         }
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "debit_card"
+        }
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "credit_card"
+        }
         "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
@@ -1421,7 +1443,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
@@ -1436,7 +1458,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
@@ -1499,6 +1521,20 @@ trackTests {
         "/point_payment/bank_detail"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/pairing_ftu"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_network_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_generic_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/qr_timeout_error"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/show_cancel_modal"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/new_payment/qr/cancel_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/cancel_continue"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/try_again"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/cancel"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/payment_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/point_payment/new_payment/qr/show_code"(platform: "/mobile", type: TrackType.Event) {
+            kind = "PIX"
+            order_id = "3f04ad3f-4648-4b4a-890f-686354e07d07"
+        }
         "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/new_payment/pix"(platform: "/mobile", type: TrackType.View) {}
@@ -2740,6 +2776,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/scan/type_qr"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/scan/click"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2848,6 +2888,30 @@ trackTests {
         "/bill_payments/px_result"(platform: "/mobile") {
             mandatory()
             result_status = "rejected"
+        }
+        "/bill_payments/checkout"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/run"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/success"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/cancel"(platform: "/mobile") {
+            mandatory()
         }
         "/bill_payments/fee"(platform: "/mobile") {
             mandatory()
@@ -3027,6 +3091,61 @@ trackTests {
         }
 
         "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // detail
+        "/bill_payments/detail"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/detail/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // input
+        "/bill_payments/input"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/helper"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrats
+        "/bill_payments/congrats"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -3907,6 +4026,8 @@ trackTests {
                 "type": "transactional"
             ]
             config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -3926,6 +4047,8 @@ trackTests {
                 "type": "non_transactional"
             ]
             config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -3944,6 +4067,8 @@ trackTests {
                 "type": "other"
             ]
             config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -3969,6 +4094,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -3981,6 +4108,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -3993,6 +4122,8 @@ trackTests {
             enrollment_status = "disabled"
             os_status = "basic_screenlock"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
@@ -4006,6 +4137,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4018,6 +4151,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4031,12 +4166,14 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            scenario = "auto_enroll"
+            scenario = "blocker_enrolled"
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
@@ -4044,6 +4181,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4058,6 +4197,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4071,6 +4212,8 @@ trackTests {
             os_status = "basic_screenlock"
             dismissible = "disabled"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
@@ -4085,6 +4228,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4099,6 +4244,8 @@ trackTests {
             dismissible = "disabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4113,6 +4260,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4127,6 +4276,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4141,6 +4292,8 @@ trackTests {
             dismissible = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "100",
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4164,7 +4317,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4175,7 +4330,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4186,7 +4343,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4199,7 +4358,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4212,7 +4373,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4225,7 +4388,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4238,7 +4403,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4251,7 +4418,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4264,7 +4433,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4277,7 +4448,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4290,7 +4463,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4303,7 +4478,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4316,7 +4493,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4329,7 +4508,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4342,7 +4523,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
     }
@@ -4356,7 +4539,9 @@ trackTests {
                     "transaction": "disabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "transaction"
         }
@@ -4368,7 +4553,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "opening_lock"
         }
@@ -4380,7 +4567,9 @@ trackTests {
                     "transaction": "disabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "transaction"
         }
@@ -4392,7 +4581,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "opening_lock"
         }
@@ -4404,7 +4595,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4415,7 +4608,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "100",
-                    "opening_custom": "5"
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4426,7 +4621,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4437,7 +4634,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "100",
-                    "opening_custom": "5"
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -4449,6 +4648,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4460,6 +4661,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
                     "transaction": "disabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
@@ -4471,6 +4674,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4482,6 +4687,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4493,6 +4700,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -4504,6 +4713,8 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "150",
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
@@ -5166,6 +5377,18 @@ trackTests {
             tracking_id = "1"
         }
 
+        "/login/transactional/challenge/submit"(platform: "/mobile/android", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "test1_submit"
+            tracking_id = "1"
+        }
+
+        "/login/transactional/challenge/submit"(platform: "/mobile/ios", type: TrackType.Event) {
+            authentication_id = "1"
+            challenge = "test1_submit"
+            tracking_id = "1"
+        }
+
         //Operation Start
         "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
@@ -5193,6 +5416,20 @@ trackTests {
             amount = "10.0"
         }
 
+        "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+
         //Operation End - Success
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
@@ -5202,6 +5439,7 @@ trackTests {
             transaction_id = "1"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5212,6 +5450,7 @@ trackTests {
             transaction_id = "2"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5223,6 +5462,7 @@ trackTests {
             transaction_id = "3"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5234,6 +5474,29 @@ trackTests {
             transaction_id = "4"
             reauth_status = "created"
             screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "success"
+            transaction_id = "1"
+            reauth_status = "created"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "success"
+            transaction_id = "2"
+            reauth_status = "created"
+            screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5243,6 +5506,7 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5252,6 +5516,7 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5262,6 +5527,7 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5272,8 +5538,30 @@ trackTests {
             result = "success"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
 
         //Operation End - Error
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5284,6 +5572,7 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5294,6 +5583,7 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5305,6 +5595,7 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5316,6 +5607,29 @@ trackTests {
             error = "Ups error :S"
             reauth_status = "error"
             screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         //Operation End - Cancel
@@ -5327,6 +5641,7 @@ trackTests {
             reauth_status = "created"
             transaction_id = "4"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5337,6 +5652,7 @@ trackTests {
             reauth_status = "created"
             transaction_id = "4"
             screenlock_validated = false
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5346,6 +5662,7 @@ trackTests {
             result = "cancel"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
         }
 
         "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5355,6 +5672,27 @@ trackTests {
             result = "cancel"
             reauth_status = "not_needed"
             screenlock_validated = true
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
         }
         //Reauth Retry
         "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5400,6 +5738,19 @@ trackTests {
             reauth_mods_id = "1"
             operation_id = "1"
             flow_type = "payment"
+            amount = "10.0"
+        }
+
+        "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+        "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
             amount = "10.0"
         }
     }

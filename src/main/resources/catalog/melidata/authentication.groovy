@@ -202,11 +202,11 @@ tracks {
 
     //Login Transactional
     "/login/transactional"(platform: "/mobile", isAbstract: true, initiative: 1127) {
-        authentication_id(type: PropertyType.String, required: true, description: "Reauthentication id Transaction")
+        authentication_id(type: PropertyType.String, required: true, description: "Authentication id Transaction")
     }
 
     "/login/transactional/success"(platform: "/mobile", type: TrackType.Event) {
-        challenge(type: PropertyType.String, required: true, description: "Reauthentication step")
+        challenge(type: PropertyType.String, required: true, description: "Transactional step")
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
     }
 
@@ -216,7 +216,7 @@ tracks {
     }
 
     "/login/transactional/challenge"(platform: "/mobile", type: TrackType.View) {
-        challenge(type: PropertyType.String, required: true, description: "Reauthentication Step")
+        challenge(type: PropertyType.String, required: true, description: "Transactional Step")
         tracking_id(type: PropertyType.String, required: true, description: "Indicates the id to track the transaction")
     }
 
@@ -225,9 +225,10 @@ tracks {
     }
 
     "/login/transactional/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
-        challenge(type: PropertyType.String, required: true, description: "Reauthentication Step")
         tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
     }
+
+    "/login/transactional/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
 
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}
@@ -529,6 +530,17 @@ tracks {
 
     "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {}
 
+    "/authenticators/email_validation/enter_code/open_email_app"(platform: "/mobile/android", type: TrackType.Event) {
+        packages(PropertyType.ArrayList, required: true, description: "Packages for apps offered to the user when choosing to open their email")
+    }
+
+    "/authenticators/email_validation/enter_code/magic_link"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/email_validation/enter_code/magic_link"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+        cause(PropertyType.String, required: true, values:["native_not_listening", "opened_with_browser", "incorrect_code"], description: "Cause for showing an error screen")
+    }
 
     "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
         social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")
@@ -542,7 +554,9 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
-        transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
+        transaction_granularity_option(required: true, type: PropertyType.String, values: ["always", "daily_amount"], description: "Granularity option selected by user")
+        transaction_accumulated_amount(required: true, type: PropertyType.String, description: "User tx accumulated amount")
+        transaction_custom(required: true, type: PropertyType.String, description: "Granularity amount on which screenLock will be triggered")
         opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
@@ -599,7 +613,7 @@ tracks {
         from(type: PropertyType.String, required: false, values: ["login", "registration", "sso", "campaign"])
         dismissible(required: false, type: PropertyType.String, values: ["enabled", "disabled"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-        scenario(type: PropertyType.String, required: true, values: ["no_security", "activate_security_success", "help", "test", "auto_enroll", "awareness", "insistence", "reminder1", "reminder2", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
+        scenario(type: PropertyType.String, required: true, values: ["no_security", "activate_security_success", "help", "test", "auto_enroll", "awareness", "insistence", "reminder1", "reminder2", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "blocker_enrolled"])
     }
 
     "/screenlock/security_blocker/ok"(platform: "/mobile", type: TrackType.Event) {
@@ -626,7 +640,7 @@ tracks {
     "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
-        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment", "withdraw"], description: "Operation type")
         amount(type: PropertyType.String, required: false, description: "amount of the operation")
     }
 
@@ -640,6 +654,7 @@ tracks {
         transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
         reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error"], description: "Identify 201, 204 o error status by api result workflow decide")
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }
 
     "/reauth/error/retry"(platform: "/mobile", type: TrackType.Event) {}

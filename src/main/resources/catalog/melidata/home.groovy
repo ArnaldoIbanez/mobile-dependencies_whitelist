@@ -147,6 +147,11 @@ tracks {
 
     "/home/navigation"(platform: "/", type: TrackType.View) {}
 
+    // Motors popup view
+    "/home/category/motors/popup_meli"(platform: "/", type: TrackType.View, parentPropertiesInherited:false) {}
+    "/home/category/motors/popup_meli/accept"(platform: "/", type: TrackType.Event) {}
+    "/home/category/motors/popup_meli/deny"(platform: "/", type: TrackType.Event) {}
+
      // RealEstate Portal Inmobiliario Sections
     "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
 

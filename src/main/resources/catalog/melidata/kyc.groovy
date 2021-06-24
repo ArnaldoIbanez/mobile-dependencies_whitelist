@@ -34,6 +34,12 @@ tracks {
         reason (required: true, type: PropertyType.String, description: "The error description")
     }
 
+    // tap on a component from a challenge
+    "/kyc/challenge/tap"(platform: "/", type: TrackType.Event) {
+        component (required: true, type: PropertyType.String, description: "The tapped component")
+        link (required: false, type: PropertyType.String, description: "An optional link open when the component is tapped")
+    }
+
     // Challenges
     "/kyc/challenge_pep"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_fatca"(platform: "/", type: TrackType.View) {}
@@ -124,6 +130,10 @@ tracks {
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
+    "/kyc/iv/step_time"(platform: "/mobile", type: TrackType.Event) {
+        step_time(required: true, type: PropertyType.Numeric, description: "Time of step")
+        step_name(required: true, values: ["none", "permission", "landing", "landing_vanilla", "landing_error", "camera", "confirmation", "uploading", "result"], type: PropertyType.String, description: "Step name")
+    }
     
     "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
         challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie", "doc_front_vanilla", "doc_back_vanilla", "liveness"], type: PropertyType.String, description: "Challenge type")
@@ -215,6 +225,23 @@ tracks {
     "/kyc/iv/proof_of_life_gesture"(platform: "/mobile", type: TrackType.Event) {
         gesture(type: PropertyType.String, required: true, description: "Type of validation made")
         gestures_probabilities(type: PropertyType.Map(gestures_probabilities_definition), required: true, description: "Map of probabilities of each gesture")
+    }
+
+    "/kyc/iv/object_detection"(platform: "/mobile", isAbstract: true) {}
+
+    "/kyc/iv/object_detection/model_download"(platform: "/mobile", type: TrackType.Event) {
+        success(type: PropertyType.Boolean, required: true, description: "Is download success")
+        model_name(type: PropertyType.String, required: true, description: "Name of model")
+        time(required: true, type: PropertyType.Numeric, description: "Download time")
+    }
+
+    "/kyc/iv/object_detection/validation"(platform: "/mobile", type: TrackType.Event) {
+        validation(required: true, values: ["confidence", "aspect_ratio", "label_check", "ok"], type: PropertyType.String, description: "Validation type")
+        value(type: PropertyType.String, required: true, description: "Value of validation")
+    }
+
+    "/kyc/iv/object_detection/error"(platform: "/mobile", type: TrackType.Event) {
+        error(type: PropertyType.String, required: true, description: "Error of interpreter")
     }
 
     "/kyc/iv/activity/check_step"(platform: "/mobile", type: TrackType.View) {}
@@ -401,9 +428,17 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/kyc/iv/documentation/select_option"(platform: "/web/desktop", type: TrackType.Event) {
+    "/kyc/iv/documentation/select_option"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         option(type: PropertyType.String, required: true, description: "Indicates if the user chose to continue from desktop or from phone")
+    }
+
+    "/kyc/iv/documentation/error"(platform: "/", type: TrackType.Event) {
+        error_type(type: PropertyType.String, required: true, description: "Indicates if it was a business error or a server error")
+        error_message(type: PropertyType.String, required: true, description: "Descriptive message for the error")
+    }
+
+    "/kyc/iv/documentation/cross_acceptance"(platform: "/", type: TrackType.Event) {
     }
 
     "/kyc/iv/documentation/uploader_click"(platform: "/", type: TrackType.Event) {

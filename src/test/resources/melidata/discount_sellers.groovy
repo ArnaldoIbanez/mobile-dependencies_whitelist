@@ -24,7 +24,7 @@ trackTests {
             session_id = "1"
             form_model = "{modelo}"
             mcc = "1234"
-            melicapaign_id = "1"
+            melicampaign_id = "1"
             origin = "push"
             clone_campaign_id = "1"
             tooltip = "Budget"
@@ -551,6 +551,62 @@ trackTests {
             payments = 65
         }
     }
+    // Instore (ISDT) - Webview -  Home Sellers History > filter
+    test("Home sellers - History - filter") {
+        "/discount_sellers/v2/history/filter" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
+            campaigns = [
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "ACTIVE"
+                ],
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "INACTIVE"
+                ],
+            ]
+            active_filters = ['ONGOING'] 
+            filter_selected = "PAUSED"
+            is_selected = false
+
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers History > scroll
+    test("Home sellers - History - scroll") {
+        "/discount_sellers/v2/history/scroll" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
+            campaigns = [
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "ACTIVE"
+                ],
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "INACTIVE"
+                ],
+            ]
+            active_filters = ['ONGOING'] 
+            page = 2
+            
+
+        }
+    }
     // Instore (ISDT) - Webview -  Home Sellers error > Pageview
     test("Home sellers - error") {
         "/discount_sellers/v2/error" (platform: "/", type: TrackType.View) {
@@ -600,6 +656,15 @@ trackTests {
             result = "success"
         }
     }
+    test("Home sellers - template-details - Congrats - Melicampaign") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "melicampaign"
+            melicampaign_id = "qwerty-12313-qwaaa"
+            campaign_id = 672315
+            result = "success"
+        }
+    }
     // Instore (ISDT) - Webview -  Home Sellers template-details > congrats > tap
     test("Home sellers - template-details") {
         "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
@@ -617,8 +682,36 @@ trackTests {
             action = "admin"
         }
     }
-
-
-
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats/tap" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = 672315
+            action = "admin"
+            melicampaign_id = "qwerty-12313-qwaaa"
+        }
+    }
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/landings" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            type = "sold_out"
+        }
+    }
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/landings" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            type = "melicampaign_soldout"
+            melicampaign_id = "qwerty-12313-qwaaa"
+        }
+    }
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/landings/cta" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            action = "create_custom_campaign"
+            melicampaign_id = "qwerty-12313-qwaaa"
+            action = "create_custom_campaign"
+            type="melicampaign"
+        }
+    }
 
 }

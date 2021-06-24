@@ -24,7 +24,7 @@ tracks {
     "/discount_sellers/form" (platform: "/mobile", type: TrackType.View) {
         form_model(required: false, type: PropertyType.String, description: "Model to identify the sections drawed")
         mcc(required: false, type: PropertyType.String, description: "MCC Identifier")
-        melicapaign_id(required: false, type: PropertyType.String, description: "Melicampaign identifier")
+        melicampaign_id(required: false, type: PropertyType.String, description: "Melicampaign identifier")
         origin(required: false, type: PropertyType.String, description: "Form origin, like push, history, empty, etc")
         clone_campaign_id(required: false, type: PropertyType.String, description: "Clone campaign identifier")
         tooltip(required: false, type: PropertyType.String, description: "Tooltip description")
@@ -305,6 +305,21 @@ tracks {
         position (type: PropertyType.Numeric, required: false, description: "positon of element on the secreen")
     }
 
+    // Instore (ISDT) - Webview -  Home Sellers History > filter
+    "/discount_sellers/v2/history/filter" (platform: "/", type: TrackType.Event) {
+        campaigns(type: PropertyType.ArrayList, description: "Campaign list")
+        active_filters (type: PropertyType.ArrayList, description: "List of available filters")
+        filter_selected (type: PropertyType.String, values:['ONGOING','DUE_TO_BEGIN','PAUSED','ENDED'], description: "Filter selected by user")
+        is_selected (type: PropertyType.Boolean, description: "Button selection status")
+    }
+    
+    // Instore (ISDT) - Webview -  Home Sellers History > scroll
+    "/discount_sellers/v2/history/scroll" (platform: "/", type: TrackType.Event) {
+        campaigns(type: PropertyType.ArrayList, description: "Campaign list")
+        active_filters (type: PropertyType.ArrayList, description: "List of available filters")
+        page (type: PropertyType.Numeric, description: "Number of page in scroll")
+    }
+    
     // Instore (ISDT) - Webview -  Home Sellers Detail "Active" > Pageview
     "/discount_sellers/v2/detail" (platform: "/", type: TrackType.View) {
         campaign_id (type: PropertyType.String, required: false, description: "Id of campaign")
@@ -322,6 +337,7 @@ tracks {
 
     "/discount_sellers/v2/template-details" (platform: "/", type: TrackType.View) {
         template_id (type: PropertyType.String, description: "Id of template")
+        melicampaign_id (type: PropertyType.String, required: false , description: "Id of melicampaign")
     }
 
     "/discount_sellers/v2/template-details/tap" (platform: "/", type: TrackType.Event) {
@@ -331,10 +347,20 @@ tracks {
     "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
          result (type: PropertyType.String, values:['success','fail'], required:false, description: "check if campaign was created")
          campaign_id (type: PropertyType.Numeric,required:false, description: "Id of created campaign if result was succes")
+         melicampaign_id (type: PropertyType.String, required: false , description: "Id of melicampaign")
     }
 
     "/discount_sellers/v2/template-details/congrats/tap" (platform: "/", type: TrackType.Event) {
          action (type: PropertyType.String, values:['close', 'admin'], description: "button taped in modal")
     }
+
+    "/discount_sellers/v2/landings" (platform: "/", type: TrackType.View) {
+         type (type: PropertyType.String, description: "button taped in modal")
+         melicampaign_id (type: PropertyType.String, required: false , description: "Id of melicampaign")
+    }
     
+    "/discount_sellers/v2/landings/cta" (platform: "/", type: TrackType.Event) {
+         action (type: PropertyType.String, description: "button taped in melicampaign landing")
+    }
+
 }

@@ -708,6 +708,20 @@ trackTests {
             sales_percentage_map()
         }
 
+        "/credits/merchant/administrator/inconsistency"(platform: "/mobile/android") {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map()
+            ]
+            promise = 'create_promise'
+            accesses = 'open_market'
+            reason = 'communications_library'
+            from = 'enrollment'
+            additional_info = 'credit_line_taken'
+        }
+
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
@@ -845,17 +859,20 @@ trackTests {
         }
         "/credits/merchant/early_repayment"(platform: "/web/desktop") {
             account_money = 'insufficient'
+            payment_type = 'total'
             fixed_term()
         }
 
         "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {
             fixed_term()
+            payment_type = 'total'
         }
 
         "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {}
         "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {
             fixed_term()
+            payment_type = 'total'
         }
 
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
@@ -863,6 +880,7 @@ trackTests {
         }
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
             reason = 'early_repayment_error'
+            payment_type = 'total'
             fixed_term()
         }
     }
@@ -1587,7 +1605,9 @@ trackTests {
         }
 
         //Events
+        "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/mobile", type: TrackType.Event) {}
 
+        "/credits/consumer/administrator_v2/details_button"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
             installments_qty = 3
@@ -1655,6 +1675,15 @@ trackTests {
             dashboard_status = 'on_time'
         }
 
+        //Onboarding view
+        "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {
+
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+
         /******************************************
             *       End: Consumers Admin Detail
         ******************************************/
@@ -1717,6 +1746,31 @@ trackTests {
         ******************************************/
     }
 
+    test("Early Repayments for Consumer Credits users browsing by MP") {
+        /******************************************
+        *    Start: Consumers Early Repayments FLow
+        ******************************************/
+        "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
+            total_amount = 100
+            total_amount_with_discount = 100
+            total_discount = 0
+            installments_ids = [1111,2222,3333]
+        }
+
+        "/credits/consumer/early_repayments/success"(platform: "/", type: TrackType.View) {}
+        "/credits/consumer/early_repayments/error"(platform: "/", type: TrackType.View) {}
+        "/credits/consumer/early_repayments/warning"(platform: "/", type: TrackType.View) {}
+        "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
+            total_amount = 100
+            total_amount_with_discount = 100
+            total_discount = 0
+            installments_ids = [1111,2222,3333]
+        }
+        /******************************************
+        *    End: Consumers Early Repayments FLow
+        ******************************************/
+    }
+
     test("Self service from MercadoPago") {
         /******************************************
         *    Start: Self Service
@@ -1771,6 +1825,26 @@ trackTests {
 
         "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
+            error_type = "no_offer"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_first_attempt"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_second_attempt"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "invalid_offer_three_or_more_attempts"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "merchant"
+            error_type = "unknown"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "no_credit"
             error_type = "no_offer"
         }
 

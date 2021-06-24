@@ -28,7 +28,8 @@ trackTests {
                 name: "Tiendas oficiales",
                 type: "text",
                 position: -1,
-                values_quantity: 8
+                values_quantity: 8,
+                enhanced_position: 0
             ],
             [
                 id: "discount",
@@ -86,6 +87,10 @@ trackTests {
             nextday: ["MLA12345645"]
     ]
 
+    def originalSearchFilterInfo = [
+            filter_id  : "cpg",
+            filter_value: "yes",
+    ]
 
     test("Search core tracking") {
 
@@ -138,6 +143,7 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            original_search_filter: originalSearchFilterInfo
         }
 
         def defaultWebTrack = {
@@ -247,6 +253,16 @@ trackTests {
                     selected   : [
                             name       : "Hogar, Muebles y Jardin",
                             selected_id: "MLA1574"
+                    ]
+            ]
+        }
+
+        def filter_definition = {
+            [
+                    carousel_id: "GENDER",
+                    selected   : [
+                            name       : "Sin género",
+                            selected_id: "110461"
                     ]
             ]
         }
@@ -421,6 +437,7 @@ trackTests {
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
             carousel_categories_shown = true
+            filter_carousel_shown = false
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -453,6 +470,7 @@ trackTests {
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
             carousel_categories_shown = true
+            filter_carousel_shown = true
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -493,6 +511,10 @@ trackTests {
 
         "/search/category_carousel"(platform: "/mobile", type: TrackType.Event) {
             carousels = category_definition()
+        }
+
+        "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event) {
+            carousels = filter_definition()
         }
 
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {

@@ -33,7 +33,9 @@ trackTests {
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
         }
 
         def launchingDefaultProperties = {
@@ -42,7 +44,7 @@ trackTests {
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
         }
 
         def finishDefaultProperties = {
@@ -197,6 +199,14 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -249,6 +259,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -376,6 +391,14 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -428,6 +451,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
@@ -517,7 +545,9 @@ trackTests {
             checkout_open_mode = "v2_checkout_redirect"
             items_quantity = 2
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
         }
 
         def launchingDefaultProperties = {
@@ -526,7 +556,7 @@ trackTests {
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
             app_candidate = true
-            client_id = "0C470234B553122"
+            client_id = 470234553122
         }
 
         def finishDefaultProperties = {
@@ -559,7 +589,7 @@ trackTests {
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
-            payment_id = "5408994392"        
+            payment_id = "5408994392"
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
@@ -682,6 +712,14 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -734,6 +772,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -861,6 +904,14 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -913,6 +964,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }

@@ -35,7 +35,9 @@ tracks {
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
-        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
+        errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
+        visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
     }
 
     // EVENTS
@@ -53,7 +55,8 @@ tracks {
         preference_id(required: false, description: "Preference being paid, e.g: '123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61'", type: PropertyType.String)
         operation_type(required: false, description: "Operation type, e.g: 'regular_payment'", type: PropertyType.String, values: ["regular_payment", "account_fund", "money_transfer", "pos_payment", "payment_addition"])
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
-        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
+        flow_context(required: false, description: "Information about current flow's status, e.g: 'no_sniffing'", type: PropertyType.String)
     }
 
     // Login
@@ -140,7 +143,9 @@ tracks {
         checkout_open_mode(required: false, description: "Which product and view is being presented to the user, e.g: v2_checkout_redirect", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of item in preference, e.g: 2", type: PropertyType.Numeric)
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
-        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.String)
+        client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
+        errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
+        visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
     }
 
     // For this path, none is required
@@ -168,6 +173,9 @@ tracks {
     "/checkout_off/congrats/express_recover"(platform: "/", type: TrackType.View) {
     }
 
+    "/checkout_off/congrats/offline_recover"(platform: "/", type: TrackType.View) {
+    }
+
     "/checkout_off/congrats/no_display"(platform: "/", type: TrackType.View) {
     }
 
@@ -189,9 +197,15 @@ tracks {
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
 
+    //Paypal Views
     "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
 
+    //Open Sea Views
+    "/checkout_off/payment/opensea_credits_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/opensea_credits_redirect"(platform: "/", type: TrackType.View) {}
+
+    //One Click Views
     "/checkout_off/payment/one_click_redirect"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/one_click_processing"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/one_click_return"(platform: "/", type: TrackType.View) {}

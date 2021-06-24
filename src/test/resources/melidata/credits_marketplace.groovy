@@ -269,6 +269,13 @@ trackTests {
             dashboard_status = 'on_time'
         }
 
+        //Onboarding view
+        "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {}
+
+        //Events
+        "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+
 
         /******************************************
          *       End: Consumers Administrator
@@ -717,6 +724,34 @@ trackTests {
         /******************************************
         *    End: Consumers Change Due Date FLow
         ******************************************/
+
+        /******************************************
+        *    Start: Consumers Early Repayments FLow
+        ******************************************/
+        "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
+            total_amount = 100
+            total_amount_with_discount = 100
+            total_discount = 0
+            installments_ids = [1111,2222,3333]
+        }
+
+        "/credits/consumer/early_repayments/success"(platform: "/", type: TrackType.View) {}
+
+        "/credits/consumer/early_repayments/error"(platform: "/", type: TrackType.View) {}
+
+        "/credits/consumer/early_repayments/warning"(platform: "/", type: TrackType.View) {}
+
+        "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
+            total_amount = 100
+            total_amount_with_discount = 100
+            total_discount = 0
+            installments_ids = [1111,2222,3333]
+        }
+
+        /******************************************
+        *    End: Consumers Early Repayments FLow
+        ******************************************/
+
 
         /******************************************
         *    Start: Self Service
