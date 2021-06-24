@@ -313,10 +313,10 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = null
-          ch = null
-          camp = null
-          strategy = null
+          bu = ''
+          ch = ''
+          camp = ''
+          strategy = ''
           product = "Merdaco Pago Point Bluetooth"
           coupon_type = "mgm"
         }
