@@ -428,9 +428,17 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/kyc/iv/documentation/select_option"(platform: "/web/desktop", type: TrackType.Event) {
+    "/kyc/iv/documentation/select_option"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         option(type: PropertyType.String, required: true, description: "Indicates if the user chose to continue from desktop or from phone")
+    }
+
+    "/kyc/iv/documentation/error"(platform: "/", type: TrackType.Event) {
+        error_type(type: PropertyType.String, required: true, description: "Indicates if it was a business error or a server error")
+        error_message(type: PropertyType.String, required: true, description: "Descriptive message for the error")
+    }
+
+    "/kyc/iv/documentation/cross_acceptance"(platform: "/", type: TrackType.Event) {
     }
 
     "/kyc/iv/documentation/uploader_click"(platform: "/", type: TrackType.Event) {
