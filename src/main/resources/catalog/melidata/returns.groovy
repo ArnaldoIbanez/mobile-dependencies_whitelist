@@ -20,7 +20,6 @@ tracks {
       request_type(required: false, values:['RETURN', 'REPURCHASE', 'CHANGE'], description: 'request type of the operation', type: PropertyType.String)
       flow_version(required: true, description: 'identify the specific flow version', type: PropertyType.String)
     }
-
     // STEP 01
     "/return/potential_resolutions"(platform: "/", type: TrackType.View) {}
     "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -129,6 +128,9 @@ tracks {
 
     "/return/error"(platform: "/", type: TrackType.View) {
         previous_step(required: false, type: PropertyType.String, description: 'step before the error')
+        flow_version(required: false, description: 'identify the specific flow version', type: PropertyType.String)
+        order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
+        loyalty_level(required: false, type: PropertyType.Numeric, description: 'buyer level loyalty')
     }
 
     "/return/delivered_confirmation"(platform: "/", type: TrackType.View) { }
