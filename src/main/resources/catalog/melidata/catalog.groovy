@@ -249,7 +249,7 @@ catalog {
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
-        include business, "hot_sale.groovy"
+        include business, "coupon_reservation.groovy"
         include business, "business_config.groovy"
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
