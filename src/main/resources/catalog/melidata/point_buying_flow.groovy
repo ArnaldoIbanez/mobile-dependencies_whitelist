@@ -53,10 +53,6 @@ tracks {
         groupCheckoutProperties
     }
 
-    "/point/buyingflow/payment/installments/installments"(platform: "/", type: TrackType.Event) {
-        groupCheckoutProperties
-    }
-
     "/point/buyingflow/payment/bank_selector"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
     }
@@ -114,19 +110,14 @@ tracks {
 
     "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
-     "/point/buyingflow/congrats"(platform: "/", type: TrackType.View) {
-        payment_method (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+    "/point/buyingflow/congrats"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
         payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
-        device_id (type: PropertyType.String, required: true, description: "Seleected device ID")
-        amount (type: PropertyType.Numeric, required: false, description: "Total Paid Amount")
-        is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
-        e2e_test (type: PropertyType.Boolean, required: true, description: "e2e test")
-        discount_code (type: PropertyType.String, required: false, description: "Coupon Code")
-        product_id (type: PropertyType.String, required: false, description: "Product identifier")
-        product (type: PropertyType.String, required: false, description: "Product Name")
-        coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic")
-        paymentStatus (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
-        paymentStatusDetail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
     }
 
 }

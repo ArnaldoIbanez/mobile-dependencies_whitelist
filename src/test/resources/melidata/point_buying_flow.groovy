@@ -106,22 +106,6 @@ trackTests {
           coupon_type = "mgm"
         }
 
-        "/point/buyingflow/payment/installments/installments"(platform: "/", type: TrackType.Event) {
-          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          product_id = "11"
-          currency = "ARS"
-          price = 299
-          discount_code = "GHZM"
-          is_guest = true
-          e2e_test = false
-          bu = ''
-          ch = ''
-          camp = ''
-          strategy = ''
-          product = "Merdaco Pago Point Bluetooth"
-          coupon_type = "mgm"
-        }
-
         "/point/buyingflow/payment/new_card"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product_id = "11"
@@ -324,18 +308,25 @@ trackTests {
         "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
         "/point/buyingflow/congrats"(platform: "/", type: TrackType.View) {
-          payment_method = "pagofacil"
-          payment_id 15511951431
-          device_id = "11"
-          amount = 599
-          is_guest = false
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product_id = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
           e2e_test = false
-          discount_code = "POINT_ORG"
+          bu = ''
+          ch = ''
+          camp = ''
+          strategy = ''
           product = "Merdaco Pago Point Bluetooth"
           coupon_type = "mgm"
-          product_id = "11"
-          paymentStatus = "rejected"
-          paymentStatusDetail = "cc_rejected_call_for_authorize"
+          payment_method_id = "pagofacil"
+          payment_id 15511951431
+          payment_status = "rejected"
+          payment_status_detail = "cc_rejected_call_for_authorize"
+          payment_installments = 1
+          payment_type_id = "ticket"
         }
     }
 }
