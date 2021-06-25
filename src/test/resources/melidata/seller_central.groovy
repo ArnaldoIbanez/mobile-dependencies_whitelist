@@ -2308,6 +2308,16 @@ trackTests {
     }
   }
 
+  test("metrics my attention summary open onboarding track for web") {
+    "/seller_central/metrics/attention/summary/open_onboarding"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
   // Details page
 
   test("metrics my attention details section view for web") {
