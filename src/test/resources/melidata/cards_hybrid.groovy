@@ -34,6 +34,17 @@ trackTests {
 
     }
 
+    //Shipping: Delivered
+    test("cards hybrid shipping delivered") {
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+    }
+
     //Shipping: Delayed
     test("cards hybrid shipping delayed") {
         "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {

@@ -89,6 +89,17 @@ tracks {
         )
     }
 
+    //Shipping: Delivered
+    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "unlock", "reissue"],
+            description: "Action tapped"
+        )
+    }
+
     //Feedback: Tracking
     "/cards/hybrid/shipping/tracking/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/shipping/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
