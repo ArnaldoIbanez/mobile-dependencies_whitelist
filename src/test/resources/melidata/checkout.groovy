@@ -2870,10 +2870,6 @@ trackTests {
 
         "/checkout/onetap/loading" (platform:"/mobile/android", type: TrackType.View) {}
 
-        "/checkout/onetap/congrats" (platform:"/mobile/android", type: TrackType.View) {
-            purchase_id = 11111
-        }
-
         "/checkout/onetap/main" (platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/screenlock" (platform:"/mobile/android", type: TrackType.View) {}
