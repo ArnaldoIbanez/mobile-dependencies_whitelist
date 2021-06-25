@@ -262,8 +262,15 @@ catalog {
     }
 
     mercadoshops.each { business ->
+        include business, "add_to_cart.groovy"
         include business, "authentication.groovy"
+        include business, "cartCheckout.groovy"
+        include business, "cartList.groovy"
+        include business, "home.groovy"
         include business, "notifications_mshops.groovy"
+        include business, "registrations.groovy"
+        include business, "search.groovy"
+        include business, "vip.groovy"
     }
 
     mercadoads.each { business ->
