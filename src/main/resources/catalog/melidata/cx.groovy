@@ -208,6 +208,13 @@ tracks {
         portal_content_destination_url
     }
 
+    "/portal/action"(platform: "/", isAbstract:  true) {}
+
+    "/portal/action/click"(platform: "/", type: TrackType.Event) {
+        portal_content_id
+        portal_content_destination_url
+    }
+
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
         portal_form_id
         portal_content_id(required: false, type: PropertyType.Numeric,

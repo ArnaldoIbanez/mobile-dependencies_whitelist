@@ -34,6 +34,17 @@ trackTests {
 
     }
 
+    //Shipping: Delivered
+    test("cards hybrid shipping delivered") {
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+    }
+
     //Shipping: Delayed
     test("cards hybrid shipping delayed") {
         "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {
@@ -2004,6 +2015,15 @@ trackTests {
         "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
             restrictiveness = 'not_restrictive'
             default_app = 'not_default'
+        }
+    }
+    
+    // NFC_ONDEMAND_ENROLLMENT
+    test("cards hybrid nfc on demand enrollment") {
+        "/cards/nfc/enrollment/ondemand"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
+            error_message = "Empty nfc_command userId"
         }
     }
 

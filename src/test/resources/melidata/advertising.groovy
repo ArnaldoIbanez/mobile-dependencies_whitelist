@@ -175,8 +175,9 @@ trackTests {
     test("Advertising Communications") {
         "/advertising/communications"(platform: "/", type: TrackType.Event) {
             type = "show"
-            placement = "sc_listing"
-            communications = ["sads_paused", "credits_reactivation"]
+            source = "summary"
+            medium = "task"
+            campaigns = ["sads_paused", "credits_reactivation"]
         }
     }
 

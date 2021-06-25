@@ -573,6 +573,12 @@ tracks {
         checked_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of filters applied")
     }
 
+    "/seller_central/listings/sort"(platform: "/") {
+        id(required: true, type: PropertyType.String, description: "Index of sort applied")
+        view_id(required: true, type: PropertyType.String, description: "View where the event has been called")
+
+    }
+
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
@@ -1408,6 +1414,10 @@ tracks {
         days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
     }
 
+    "/seller_central/metrics/attention/summary/open_onboarding"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
     // Page Details - My Attention
 
     "/seller_central/metrics/attention/details"(platform: "/web", type: TrackType.View) {
@@ -2050,6 +2060,67 @@ tracks {
     "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/promotions/collapsible/opened"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor/open"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+    }
+
+    "/seller_central/promotions/massive/editor/confirm"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
+    }
+
+    "/seller_central/promotions/massive/editor/cancel"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
+    }
+
+    "/seller_central/promotions/massive/editor/delete"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.String, description: "Quantity of items")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+    }
+
+    "/seller_central/promotions/massive/editor/toolbar"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor/toolbar/checkbox"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Toolbar checkbox action", values: ["select", "unselect"])
+    }
+
+    "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/modal/add"(platform: "/", type: TrackType.Event) {
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+    }
+
+    "/seller_central/promotions/massive/modal/delete"(platform: "/", type: TrackType.Event) {
+        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+    }
+
+    "/seller_central/promotions/widget"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/widget/header"(platform: "/", type: TrackType.Event) {
+        collapsed(required: true, type: PropertyType.Boolean, description: "If widget is collapsed")
+    }
+
+    "/seller_central/promotions/widget/dismiss"(platform: "/", type: TrackType.Event) {
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch to delete from widget")
+    }
+
+    "/seller_central/promotions/widget/close"(platform: "/", type: TrackType.Event) {
+        processing(required: false, type: PropertyType.Boolean, description: "If widget is closed with processing batches")
+        batch_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Ids of batches to delete from widget")
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS SYI V4 - RealEstate

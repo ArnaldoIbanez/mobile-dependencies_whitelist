@@ -89,6 +89,17 @@ tracks {
         )
     }
 
+    //Shipping: Delivered
+    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "unlock", "reissue"],
+            description: "Action tapped"
+        )
+    }
+
     //Feedback: Tracking
     "/cards/hybrid/shipping/tracking/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/shipping/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
@@ -2097,6 +2108,20 @@ tracks {
                 "default",
                 "not_default"
             ]
+        )
+    }
+    
+    // NFC_ONDEMAND_ENROLLMENT
+    // -----------------------
+    "/cards/nfc/enrollment/ondemand"(platform: "/", type: TrackType.Event) {}
+    
+    "/cards/nfc/enrollment/ondemand/success"(platform: "/", type: TrackType.Event) {}
+    
+    "/cards/nfc/enrollment/ondemand/error"(platform: "/", type: TrackType.Event) {
+        error_message (
+            required: true,
+            type: PropertyType.String,
+            description: "Cause of on-demand enrollment error"
         )
     }
 }
