@@ -264,6 +264,7 @@ catalog {
     mercadoshops.each { business ->
         include business, "add_to_cart.groovy"
         include business, "authentication.groovy"
+        include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "checkout.groovy"
