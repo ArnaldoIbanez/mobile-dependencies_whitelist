@@ -322,7 +322,7 @@ trackTests {
           product = "Merdaco Pago Point Bluetooth"
           coupon_type = "mgm"
           payment_method_id = "pagofacil"
-          payment_id 15511951431
+          payment_id = 15511951431
           payment_status = "rejected"
           payment_status_detail = "cc_rejected_call_for_authorize"
           payment_installments = 1
