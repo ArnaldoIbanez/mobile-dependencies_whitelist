@@ -266,6 +266,7 @@ catalog {
         include business, "authentication.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "checkout.groovy"
         include business, "notifications_mshops.groovy"
         include business, "registrations.groovy"
         include business, "search.groovy"
