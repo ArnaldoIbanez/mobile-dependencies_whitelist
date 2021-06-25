@@ -70,5 +70,14 @@ trackTests {
                 consent_type = consent_types.modal
             }
         }
+
+        test("navigation cookies-consent close event") {
+            "/navigation/cookies_consent/close"(platform: "/web/mobile", type: TrackType.Event) {
+                consent_type = consent_types.modal
+            }
+            "/navigation/cookies_consent/close"(platform: "/web/desktop", type: TrackType.Event) {
+                consent_type = consent_types.modal
+            }
+        }
     }
 }
