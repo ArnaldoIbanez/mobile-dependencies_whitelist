@@ -2027,6 +2027,46 @@ tracks {
         event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
     }
 
+    "/notification/campaigns_wpp"(platform: "/", type: TrackType.Event) {
+          segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+          experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+          communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+          communication_data(required: false, type: PropertyType.String, description: "Extra data")
+          campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+      }
+
+      "/notification/mpcampaigns_wpp"(platform: "/", type: TrackType.Event) {
+          segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+          experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+          communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+          communication_data(required: false, type: PropertyType.String, description: "Extra data")
+          campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+      }
+
+    "/notification/institutional_wpp"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+    }
+
+    "/notification/mpinstitutional_wpp"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+    }
+
       //MKT Deals
       "/notification/campaigns_deals"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the mkt notification sent.")
@@ -3010,6 +3050,24 @@ tracks {
     }
 
     "/notification/institutional_generic"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        sent_date(required: false, type: PropertyType.String, description:"")
+    }
+
+    "/notification/institutional-control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        sent_date(required: false, type: PropertyType.String, description:"")
+    }
+
+    "/notification/mpinstitutional-control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
