@@ -16,23 +16,27 @@ tracks {
         PurchaseStatus(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-	    //id
-	    //nickname
-	    //mercado_lider
-	    //reputation_level
+	    // id
+	    // nickname
+	    // mercado_lider
+	    // reputation_level
+        // messages_count
 
 	    buyer(required: false, type:PropertyType.ArrayList, description: "Array of buyers with their data")
-	    //id
-	    //nickname
-	    //loyalty_level
+	    // id
+	    // nickname
+	    // loyalty_level
+        // is_prime
 
         render_buy_it_again(required: false, type: PropertyType.String, description: "Has render the buy_it_again button")
+
     }
 
     propertyGroups {
         mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
     }
 
+    // ---------------- Sales
 
     "/myml/sales"(platform: "/", isAbstract: true) {
         mymlGroup
@@ -86,9 +90,14 @@ tracks {
 
     "/myml/sales/item"(platform:"/", type: TrackType.View) {}
 
+
+    // ---------------- Purchases
+
+
     "/myml/purchases"(platform: "/", isAbstract: true) {
     	mymlGroup
     }
+
     // Deprecar en Julio
     "/myml/purchases"(platform: "/mobile", isAbstract: true) {
         dimensions(required: false, description: "Temporal for 1 months")
@@ -120,6 +129,8 @@ tracks {
     	carrier(required:false, type: PropertyType.String)
     }
 
+    "/myml/purchases/detail/history"(platform:"/", type: TrackType.View) {}
+
     "/myml/purchases/print_label"(platform: "/") {}
 
     "/myml/purchases/print_label/show_stores_map"(platform: "/", type: TrackType.Event) {}
@@ -142,8 +153,6 @@ tracks {
 
     "/myml/purchases/order"(platform:"/", type: TrackType.View) {}
 
-    "/myml/purchases/detail/history"(platform:"/", type: TrackType.View) {}
-
     "/myml/purchases/feedback"(platform: "/mobile", isAbstract: true) {}
 
     "/myml/purchases/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
@@ -158,17 +167,22 @@ tracks {
 
     "/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
 
-    "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
-
     "/myml/purchases/item"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
         buy_it_again_experiment(required: true,type: PropertyType.String, description: "Is the user in the experiment")
         buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
+
+    "/myml/purchases/status/shipping_detail"(platform:"/", type: TrackType.Event) {}
+
+    // ---------------- Listings
+
 
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
@@ -543,35 +557,198 @@ tracks {
         code(required: false, type: PropertyType.String, description: "Message code to display")
     }
 
-    // Type page
-    "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
-
-    "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, values: ["nfe", "gnre"], description: "Type of download page")
-    }
-
     // Success page
     "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
         query_data(required: false, type: PropertyType.String, description: "Base64 code with zip informations")
     }
-
     "/myml/invoices/documents/success/btn"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
-    "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
-
-    // GNRE page
-    "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
-        start(required: false, type: PropertyType.String, description: "Date start")
-        end(required: false, type: PropertyType.String, description: "Date end")
-        printed(required: false, type: PropertyType.Boolean, description: "With last printed")
+    "/myml/invoices/documents/success/btn/back"(platform: "/", type: TrackType.Event) {
+        url(required: true, type: PropertyType.String, description: "Action of user on page to back")
     }
 
-    "/myml/invoices/documents/gnre/btn"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
+    // Type page
+    "/myml/invoices/documents/type"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/type/selection"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, values: ["nfe", "gnre"], description: "Type of download page")
+    }
+
+    // CTE page
+    "/myml/invoices/documents/cte"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/cte/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/cte/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/cte/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+    "/myml/invoices/documents/cte/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/cte/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/cte/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+    // NFE View
+    "/myml/invoices/documents/nfe"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/nfe/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/nfe/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+        sale(required: true, type: PropertyType.String, description: "File select of nfe sale")
+        returns(required: true, type: PropertyType.String, description: "File select of nfe return")
+        full(required: true, type: PropertyType.String, description: "File select of nfe full")
+        others(required: true, type: PropertyType.String, description: "File select of nfe others")
+    }
+
+    "/myml/invoices/documents/nfe/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+        sale(required: true, type: PropertyType.String, description: "File select of nfe sale")
+        returns(required: true, type: PropertyType.String, description: "File select of nfe return")
+        full(required: true, type: PropertyType.String, description: "File select of nfe full")
+        others(required: true, type: PropertyType.String, description: "File select of nfe others")
+    }
+
+    "/myml/invoices/documents/nfe/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+        sale(required: true, type: PropertyType.String, description: "File select of nfe sale")
+        returns(required: true, type: PropertyType.String, description: "File select of nfe return")
+        full(required: true, type: PropertyType.String, description: "File select of nfe full")
+        others(required: true, type: PropertyType.String, description: "File select of nfe others")
+    }
+
+    // NFE Purchases View
+    "/myml/invoices/documents/nfe/purchases"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/nfe/purchases/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/nfe/purchases/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/purchases/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+    }
+
+    "/myml/invoices/documents/nfe/purchases/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/purchases/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+    }
+
+    "/myml/invoices/documents/nfe/purchases/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        file_types(required: true, type: PropertyType.String, description: "Types of file to download")
+        simple_folder(required: true, type: PropertyType.Boolean, description: "Break or not break folders")
+    }
+
+    // NFe Reports View
+    "/myml/invoices/documents/nfe/reports"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/nfe/reports/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/invoices/documents/nfe/reports/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/reports/download/start"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+    "/myml/invoices/documents/nfe/reports/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/nfe/reports/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/nfe/reports/download/validate/error"(platform: "/", type: TrackType.Event) {
+        end(required: true, type: PropertyType.String, description: "End of date")
+        start(required: true, type: PropertyType.String, description: "Start of date")
+    }
+
+
+    // GNRE page
+    "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/gnre/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/gnre/download/start"(platform: "/", type: TrackType.Event) {
         start(required: true, type: PropertyType.String, description: "Date start")
         end(required: true, type: PropertyType.String, description: "Date end")
         printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+        paid(required: true, type: PropertyType.String, description: "Status paid")
     }
+
+    "/myml/invoices/documents/gnre/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/gnre/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+        paid(required: true, type: PropertyType.String, description: "Status paid")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/gnre/download/validate/error"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        printed(required: true, type: PropertyType.Boolean, description: "With last printed")
+        paid(required: true, type: PropertyType.String, description: "Status paid")
+    }
+
+    // Gnre Unprocessed View
+    "/myml/invoices/documents/gnre/unprocessed"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/documents/gnre/unprocessed/download"(platform: "/", isAbstract: true) {}
+
+     "/myml/invoices/documents/gnre/unprocessed/download/start"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        failed(required: true, type: PropertyType.Boolean, description: "NFe who had errors")
+        unsupported(required: true, type: PropertyType.Boolean, description: "NFe that belong to the states of SP or ES")
+    }
+
+    "/myml/invoices/documents/gnre/unprocessed/download/validate"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/documents/gnre/unprocessed/download/validate/empty"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        failed(required: true, type: PropertyType.Boolean, description: "NFe who had errors")
+        unsupported(required: true, type: PropertyType.Boolean, description: "NFe that belong to the states of SP or ES")
+        empty(required: true, type: PropertyType.Boolean, description: "Download is empty")
+    }
+
+    "/myml/invoices/documents/gnre/unprocessed/download/validate/error"(platform: "/", type: TrackType.Event) {
+        start(required: true, type: PropertyType.String, description: "Date start")
+        end(required: true, type: PropertyType.String, description: "Date end")
+        failed(required: true, type: PropertyType.Boolean, description: "NFe who had errors")
+        unsupported(required: true, type: PropertyType.Boolean, description: "NFe that belong to the states of SP or ES")
+    }
+
 
     //:::: Sales list
     "/myml/invoices/sales_list"(platform: "/", isAbstract: true) {}
@@ -588,6 +765,96 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
         campaign(required: false, type: PropertyType.String, description: "Campaign description")
         campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
+
+    /**
+     * Seller Invoices - Inform Nfe
+     */
+    "/myml/invoices/inform_nfe"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+        shipments_quantity(required: true, type: PropertyType.Numeric, description: "Quantity of Shipments in view")
+    }
+    "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+    "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: true,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+        seller_type(required: false,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
+    }
+
+    // MLC - Tracking click - if seller profile needs go to previous page
+    "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
+    }
+
+    // MLC - Tracking click - if seller profile needs help
+    "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
+    }
+
+    // MLC - Tracking click -  if seller profile needs change yours data
+    "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
+    }
+
+    // MLC - Tracking click - if seller profile accept use biller (facturador)
+    "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
+    }
+
+    // MLB - Basic tax settings
+    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - Blocked Access Page
+    "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+        reason(required: true,  values: ["NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - Certificate
+    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - GNRE
+    "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - Invoice Data (NFe)
+    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - Base Validations
+    "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - Activity Validation
+    "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - Business Name (Social Reason) Validation
+    "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
+
+    // MLB - State Registry Validation
+    "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
     }
 
     //not found
@@ -765,6 +1032,16 @@ tracks {
     //devolution
     "/myml/invoices/order/devolution"(platform: "/") {}
     "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
+        devolution_type(require: true, type: PropertyType.String, description: "Successfully issues a devolution NF-e.")
+        order_id(require: true, type: PropertyType.String, description: "Successfully issues a devolution NF-e. and send order_id")
+
+    }
+    "/myml/invoices/order/devolution/modal"(platform: "/", type: TrackType.Event) {
+        action(require: true, type: PropertyType.String, description: "Action performed by the user")
+        order_id(require: true, type: PropertyType.String, description: "MLB orderId")
+        invoice_id(require: true, type: PropertyType.String, description: "MLB invoiceId")
+    }
 
     //buyer
     "/myml/invoices/order/buyer-info"(platform: "/") {}
@@ -1018,6 +1295,23 @@ tracks {
     "/myml/invoices/opt_in/difal/button"(platform: "/", isAbstract: true) {}
     "/myml/invoices/opt_in/difal/button/save"(platform: "/") {}
 
+    // rule composition
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/rule-composition"(platform: "/") {}
+
+    "/myml/invoices/opt_in/rule-composition/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/rule-composition/button/save"(platform: "/") {}
+
+    // cst nfe devolution
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/cst-devolution"(platform: "/") {}
+
+    "/myml/invoices/opt_in/cst-devolution/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/") {}
+
+    "/myml/download_invoice_preference"(platform: "/", type: TrackType.Event) {}
+
+
     //:::: SELLER - INVOICES
 
     "/myml/buy_it_again"(platform: "/mobile") {}
@@ -1102,75 +1396,142 @@ tracks {
     // Massive Page
 
     "/myml/fiscal_rules/massive"(platform: "/", type: TrackType.View) {
-        callback(required: true, type: PropertyType.String, description: "Callback URL")
         action(required: true, type: PropertyType.String, description: "Action of sheets")
-        selected(required: true, type: PropertyType.String, description: "Ids selected")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+        selected(required: false, type: PropertyType.String, description: "Ids selected")
     }
 
     "/myml/fiscal_rules/massive/button"(platform: "/", isAbstract: true) {}
 
     "/myml/fiscal_rules/massive/button/download"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action type of download")
-        selected(required: true, type: PropertyType.String, description: "Ids of download")
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+        selected(required: false, type: PropertyType.String, description: "Ids selected")
     }
 
-    "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/modal"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/download"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/download/helper"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/download/button"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/download/button/start"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/download/action"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/download/action/primary"(platform: "/", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "Link of button primary")
+    "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
     }
 
-    "/myml/fiscal_rules/massive/download/action/secondary"(platform: "/", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "Link of button secondary")
+    "/myml/fiscal_rules/massive/button/download_error"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of batch error")
+        status(required: true, type: PropertyType.String, description: "Status of batch error")
     }
 
-    "/myml/fiscal_rules/massive/upload"(platform: "/", type: TrackType.View) {}
+    "/myml/fiscal_rules/massive/modal"(platform: "/", isAbstract: true) {}
 
-    "/myml/fiscal_rules/massive/upload/modal"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
-        status(required: true, type: PropertyType.String, description: "Status of upload")
+    "/myml/fiscal_rules/massive/modal/progress"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.String, description: "Status of batch")
+        scope(required: true, type: PropertyType.String, values: ["download", "upload"], description: "Scope of batch")
+        id(required: true, type: PropertyType.String, description: "ID of batch")
     }
 
-    "/myml/fiscal_rules/massive/upload/status/helpers"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload"(platform: "/", type: TrackType.View) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+    }
 
-    "/myml/fiscal_rules/massive/upload/action"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_rules/massive/upload/uploader"(platform: "/", isAbstract: true) {}
 
-    "/myml/fiscal_rules/massive/upload/action/upload"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/uploader/change"(platform: "/", type: TrackType.Event) {
+        has_files(required: true, type: PropertyType.Boolean, description: "Has files selected")
+    }
 
-    "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/actions"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/upload/actions/helper"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/uploader/error"(platform: "/", type: TrackType.Event) {
+        error(required: true, type: PropertyType.String, description: "Error into selected file")
+    }
 
     "/myml/fiscal_rules/massive/upload/button"(platform: "/", isAbstract: true) {}
-    
-    "/myml/fiscal_rules/massive/upload/button/start"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/fiscal_rules/massive/upload/button/remove"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/button/later"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+    }
 
-    "/myml/fiscal_rules/massive/upload/button/uplater"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/button/save"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+        name(required: false, type: PropertyType.String, description: "File name to upload")
+        type(required: false, type: PropertyType.String, description: "File type to upload")
+        size(required: false, type: PropertyType.Numeric, description: "File size to upload")
+    }
 
-    "/myml/fiscal_rules/massive/wizard"(platform: "/", type: TrackType.Event) {
-        show(required: true, type: PropertyType.Boolean, description: "Visible or hidden")
-        times(required: true, type: PropertyType.Numeric, description: "Quantity of view")
+    "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
+        id(required: true, type: PropertyType.String, description: "ID of batch")
+    }
+
+    "/myml/fiscal_rules/massive/upload/status/button"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/upload/status/button/fiscal_information"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of batch")
+    }
+
+    "/myml/fiscal_rules/massive/upload/status/button/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of batch")
+    }
+
+    //Tracks MYML ADVANCED TAX SETTINGS
+
+    "/myml/advanced_tax_settings"(platform: "/", isAbstract: true) {}
+
+    "/myml/advanced_tax_settings/message"(platform: "/", type: TrackType.View) {
+        code(required: true, type: PropertyType.Numeric, description: "Error")
+    }
+
+    "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
+
+    "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
+        destination_to(required: true, type: PropertyType.String, description: 'Page to GO')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
+
+    "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
+
+    "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
+
+    "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
+
+    "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
+
+    "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
+
+    "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
+
+    "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
+
+    "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
+    }
+
+    "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {
+        context(required: true, type: PropertyType.String, description: 'Context about page')
+    }
+
+    "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: 'Context about event')
     }
 
     //TRACKS MYML Search Bookmarks Alerts
@@ -1182,4 +1543,38 @@ tracks {
     //TRACKS MYML MYContact Section
     "/myml/mycontact" (type: TrackType.View, isAbstract: true) {}
     "/myml/mycontact/main" (type: TrackType.View) {}
+    "/myml/mycontact/export" (type: TrackType.Event) {
+        questions_filter(required: false, type: PropertyType.String, description: 'Questions filter applied value')
+        last(required: false, type: PropertyType.String, description: 'Last filter applied value')
+        items_filter(required: false, type: PropertyType.String, description: 'Items filter applied value')
+    }
+
+    // TRACKS MYML Invoice Detail
+    "/myml/invoices/detail"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/detail/correction_letter_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_modal_cancel"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_modal_confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_cancel"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/resend_invoice_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/resend_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fiscal_data_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fiscal_data_modal_close"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/to_send_devolution_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/create_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/print_danfe_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fix_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/download_xml_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
+
+    //MYML - MARKETPLACE VIS
+    "/myml/marketplace"(platform: "/", isAbstract: true) {}
+    "/myml/marketplace/subscription"(platform: "/", type: TrackType.Event) {}
 }

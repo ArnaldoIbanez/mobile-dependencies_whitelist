@@ -6,6 +6,7 @@ import com.amazonaws.services.s3.model.S3ObjectInputStream
 import com.amazonaws.services.s3.model.S3ObjectSummary
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.DslUtils
+import org.apache.commons.io.FileUtils
 
 /**
  * Created by mtencer on 5/4/16.
@@ -85,7 +86,7 @@ class CatalogHandler {
 		version
 	}
 
-	private reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
+	protected reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
 		Integer newVersion = Integer.parseInt(object.getObjectMetadata().getUserMetaDataOf("catalog-version"))
 		if (catalog == null || !newVersion.equals(version)) {
 			DslUtils.setBaseDir(LOCAL_FOLDER)
@@ -98,29 +99,15 @@ class CatalogHandler {
 		}
 	}
 
-	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries, String folder = LOCAL_FOLDER, String keyPrefixReplacement = "") throws IOException {
+	protected S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries, String folder = LOCAL_FOLDER, String keyPrefixReplacement = "") throws IOException {
 		S3Object object = null
 		for ( S3ObjectSummary obj : objectSummaries ) {
 			S3Object s3Object = cli.getObject(obj.getKey())
 			S3ObjectInputStream objectContent = s3Object.getObjectContent()
 
-			BufferedWriter writer = null
-			BufferedReader reader = null
-			try {
-				def output = new File(folder, obj.getKey().replace(S3_CONTAINER, keyPrefixReplacement))
-				output.getParentFile().mkdirs()
-				writer = new BufferedWriter(new FileWriter(output))
-				reader = new BufferedReader(new InputStreamReader(objectContent))
-				String line
-				while ((line = reader.readLine()) != null) {
-					writer.write(line + "\n")
-				}
-			} finally {
-				if ( reader != null )
-					reader.close()
-				if ( writer != null )
-					writer.close()
-			}
+			def output = new File(folder, obj.getKey().replace(S3_CONTAINER, keyPrefixReplacement))
+			output.getParentFile().mkdirs()
+			FileUtils.copyInputStreamToFile(objectContent, output);
 
 			if ( isMainFile(obj.getKey()) ) object =  s3Object
 		}
@@ -129,7 +116,7 @@ class CatalogHandler {
 
 	}
 
-	private boolean isMainFile(String key) {
+	protected boolean isMainFile(String key) {
 		return key.endsWith(S3_CATALOG_FILE)
 	}
 

@@ -22,7 +22,7 @@ tracks {
 
     propertyGroups {
         quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
-        quotationEventData(item_id, source)
+        quotationEventData(item_id, source, unit_id)
     }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
 
@@ -32,6 +32,8 @@ tracks {
     "/quotation/unregistered_form"(platform: "/", isAbstract: true) {}
     "/quotation/modal"(platform: "/", isAbstract: true) {}
     "/quotation/models"(platform: "/", isAbstract: true) {}
+    "/quotation/credits_intention"(platform: "/", isAbstract: true) {}
+
 
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
@@ -54,6 +56,16 @@ tracks {
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
         source(required: true, type:PropertyType.String,description: "Origen de donde se llego al selector de modelos")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_agency, etc")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_status(required: false, type: PropertyType.String, description: "Whenever the items is active, closed or paused")
+        seller_id(required: false, type: PropertyType.Numeric)
+        buying_mode(required: false, type: PropertyType.String, values: ["classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
     }
 
     "/quotation/details/unregistered/show"(platform: "/web", type: TrackType.Event) {
@@ -171,6 +183,10 @@ tracks {
     }
 
     "/quotation/modal/close"(platform: "/web", type: TrackType.Event) {
+        quotationEventData
+    }
+
+    "/quotation/credits_intention/card"(platform: "/web", type: TrackType.Event) {
         quotationEventData
     }
 

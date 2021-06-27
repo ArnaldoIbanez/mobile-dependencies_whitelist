@@ -6,7 +6,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1127"
+    initiative = "1149"
 
     /**
      * ACCOUNT FUND Screen Tracks
@@ -59,6 +59,10 @@ tracks {
     "/account_fund/mi_cvu/edit_alias/save"(platform: "/", type: TrackType.Event) {}
     "/account_fund/mi_cvu/edit_alias/save/success"(platform: "/", type: TrackType.View) {}
     "/account_fund/mi_cvu/edit_alias/save/fail"(platform: "/", type: TrackType.View) {}
+    "/account_fund/mi_cvu/transfer_help"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/mi_cvu/share"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/mi_cvu/menu_help"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/mi_cvu/edit_alias/menu_help"(platform: "/", type: TrackType.Event) {}
     
     "/account_fund/cvu/copy_alias"(platform: "/", type: TrackType.Event) {}
     "/account_fund/cvu/copy_cvu"(platform: "/", type: TrackType.Event) {}

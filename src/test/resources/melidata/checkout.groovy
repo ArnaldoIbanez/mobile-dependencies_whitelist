@@ -1877,29 +1877,6 @@ trackTests {
     Garex tracks tests
     * */
     test('checkout garex') {
-        "/checkout/garex"(platform:"/web", type: TrackType.View) {}
-        "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
-        "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-            garex = [
-                    "id": "MLA390289_GAR16001",
-                    "period": 24,
-                    "cost": 1234,
-                    "revenue_share_fee": 70,
-                    "revenue": 863.80,
-                    "currency_id": "ARS"
-            ]
-        }
-        "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-        "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
-            garex = [
-                    "id": "MLA390289_GAR16001",
-                    "period": 24,
-                    "cost": 1234,
-                    "revenue_share_fee": 70,
-                    "revenue": 863.80,
-                    "currency_id": "ARS"
-            ]
-        }
 
         "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
         "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
@@ -2253,11 +2230,19 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address/submit"(platform:"/", dataSet, type: TrackType.Event)
+        "/checkout/shipping/input_address/map"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
+        "/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
+        "/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}
+        "/checkout/shipping/input_address/unknown_zip_code_submit"(platform: "/", type: TrackType.Event) {}
+        "/checkout/shipping/input_address/unknown_zip_code_back"(platform: "/", type: TrackType.Event) {}
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2271,6 +2256,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2284,6 +2270,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
+            value = "00"
             items = [
                     [
                             quantity: 1,
@@ -2297,6 +2284,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/city"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2310,6 +2298,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2323,6 +2312,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/street_number"(platform:"/",  type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
+            value = "aaa"
             items = [
                     [
                             quantity: 1,
@@ -2349,6 +2339,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2362,6 +2353,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/delivery_instructions"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2375,6 +2367,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2401,6 +2394,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
             label = "Revisa este dato"
+            value = "!*"
             items = [
                     [
                             quantity: 1,
@@ -2414,6 +2408,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
             label = "Revisa este dato"
+            value = ""
             session_id="some_session_id"
         }
         "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event){
@@ -2429,6 +2424,285 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            value = "aa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/checkout/shipping/input_address/error_name"(platform:"/", type: TrackType.Event){
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_street_type"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_street_name"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_zip_code"(platform:"/", type: TrackType.Event){
+            label = "La cantidad de caracteres ingresados es inválida"
+            value = "00"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_state"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_city"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_colony"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_intersection"(platform:"/",  type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            value = "aaa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_street_number"(platform:"/",  type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            value = "aaa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_delivery"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_delivery_instructions"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_phone"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            value = "!*"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            value = ""
+            session_id="some_session_id"
+        }
+        "/checkout/shipping/input_address/error_internal_number"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/error_caixa_postal_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            value = "aa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/checkout/shipping/input_address/map/error_map"(platform: "/", type: TrackType.Event) {
+            label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+
+        "/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
+            written = "sug"
+            final_text = "suggested street"
+        }
+
+        "/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
+            written = "123"
+            final_text = "12345678"
+        }
+
+        "/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 10.0
+        }
+
+        "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 2.0
+            session_id = "1234567"
+        }
+
+        "/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
+            suggested = [
+                "latitude": "12.12",
+                "longitude": "42.42"
+            ]
+            final_coordinates = [
+                "latitude": "12.13",
+                "longitude": "42.40"
+            ]
+            session_id = "1234567"
+        }
+        "/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
+            start_loading = "2021-02-24 12:12:12"
+         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
@@ -2589,4 +2863,34 @@ trackTests {
 
     }
 
+    test("Mobile platform onetap") {
+        "/checkout/onetap/billing" (platform:"/mobile/android", type: TrackType.View) {}
+
+        "/checkout/onetap/error" (platform:"/mobile/android", type: TrackType.View) {}
+
+        "/checkout/onetap/loading" (platform:"/mobile/android", type: TrackType.View) {}
+
+        "/checkout/onetap/main" (platform:"/mobile/android", type: TrackType.View) {}
+
+        "/checkout/onetap/screenlock" (platform:"/mobile/android", type: TrackType.View) {}
+
+        "/checkout/onetap/shipping/select_option" (platform:"/mobile/android", type: TrackType.View) {}
+
+        "/checkout/onetap/payment/input_card" (platform:"/mobile/android", type: TrackType.View) {}
+
+        "/checkout/onetap/payment/input_sec_code" (platform:"/mobile/android", type: TrackType.View) {}
+    }
+
+    test("Mobile platform split") {
+
+        "/checkout/payment/split_payment/input_amount"(platform: "/mobile", type: TrackType.View) {}
+
+        "/checkout/payment/split_payment/input_amount/error"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/checkout/payment/split_payment/select_type"(platform: "/mobile", type: TrackType.View) {}
+
+        "/checkout/payment/split_payment/select_installments"(platform: "/mobile", type: TrackType.View) {}
+
+        "/checkout/payment/split_payment/input_sec_code"(platform: "/mobile", type: TrackType.View) {}
+    }
 }

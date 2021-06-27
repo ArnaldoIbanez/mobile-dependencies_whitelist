@@ -4,7 +4,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1046"
+    initiative = "1300"
 
     /**
     *PDV tracks
@@ -13,6 +13,7 @@ tracks {
         path(required: true, type: PropertyType.String, description: "end path to invoke finish onboarding", values: ["/collections", "/collections/setup/onboarding"])
         pos_management(required: true, type: PropertyType.Boolean, description: 'indicates user preference of pos management')
         cash_management(required: true, type: PropertyType.Boolean, description: 'indicates user preference of cash management')
+        external_payments(required: true, type: PropertyType.Boolean, description: 'indicates user preference of external payments')
         key(required: false, type: PropertyType.String, description: "search key")
         category_id(required: false, type: PropertyType.String, description: "optional search category")
         has_image(required: true, type: PropertyType.Boolean, description: "product has image")
@@ -48,6 +49,7 @@ tracks {
     "/pdv/onboarding/pos_management"(platform: "/", type: TrackType.Event) {
         pos_management(required: true, type: PropertyType.Boolean, description: "pos management is enabled")
         cash_management(required: true, type: PropertyType.Boolean, description: "cash management is enabled")
+        external_payments(required: true, type: PropertyType.Boolean, description: "external payments are enabled")
     }
     "/pdv/onboarding/end"(platform: "/", type: TrackType.Event) {
         path(required: true, type: PropertyType.String, description: "ftu path")

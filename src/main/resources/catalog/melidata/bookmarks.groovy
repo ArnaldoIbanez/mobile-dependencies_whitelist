@@ -22,8 +22,9 @@ tracks {
     "/bookmarks/action"(platform: "/", isAbstract: true) {
         item_id( description: "item id in which we are performing the action")
         action_location(required:false ,type: PropertyType.String, description:"Where the action can be performed. Ej: navbar,maininfo ")
-        context( required:true ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp"])
+        context( required:true ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp", "/history"])
         catalog_product_id(required: false, description: "Id of the product", PropertyType.String)
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/bookmarks/action/post"(platform: "/", type: TrackType.Event) {

@@ -20,7 +20,6 @@ tracks {
       request_type(required: false, values:['RETURN', 'REPURCHASE', 'CHANGE'], description: 'request type of the operation', type: PropertyType.String)
       flow_version(required: true, description: 'identify the specific flow version', type: PropertyType.String)
     }
-
     // STEP 01
     "/return/potential_resolutions"(platform: "/", type: TrackType.View) {}
     "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -72,6 +71,9 @@ tracks {
     "/return/review/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       review_return_method(required: true, type: PropertyType.String, description: 'type of review', values: ['review_code', 'review_label'] )
     }
+    "/return/review/agencies"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'selected agencies button in review step')
+    }
 
     // STEP 07
     "/return/congrats"(platform: "/", type: TrackType.View) {
@@ -82,11 +84,16 @@ tracks {
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       refund_account_money(required: true, type: PropertyType.Boolean, description: 'refund money in the buyers account')
       cart_order(required: true, type: PropertyType.Boolean, description: 'order created by cart')
-      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered'])
+      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered', 'unknown'])
+
     }
 
     "/return/congrats/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       selection(required: true, type: PropertyType.String, description: 'selected option button')
+    }
+
+    "/return/congrats/agencies"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'selected agencies button in congrats step')
     }
 
     // Bloqueo Scoring High
@@ -96,8 +103,10 @@ tracks {
       shipment_type(required: true, type: PropertyType.String, description: 'Selected shipment type', values:['delivery', 'pickup', 'self_dispatch'])
       pickup_time(required: false, type: PropertyType.String, description: 'pickup time product to seller')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
+      refund_account_money(required: false, type: PropertyType.Boolean, description: 'refund money in the buyers account')
       cart_order(required: true, type: PropertyType.Boolean, description: 'order created by cart')
-      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered_3'])
+      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered_3', 'delivered'])
+
     }
 
     "/return/congrats_error/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -119,6 +128,9 @@ tracks {
 
     "/return/error"(platform: "/", type: TrackType.View) {
         previous_step(required: false, type: PropertyType.String, description: 'step before the error')
+        flow_version(required: false, description: 'identify the specific flow version', type: PropertyType.String)
+        order_id(required: false, type: PropertyType.Numeric, description: 'order identifier')
+        loyalty_level(required: false, type: PropertyType.Numeric, description: 'buyer level loyalty')
     }
 
     "/return/delivered_confirmation"(platform: "/", type: TrackType.View) { }
