@@ -2241,7 +2241,7 @@ trackTests {
             sent_date= "20210626"
             event_type= "sent"
         }
-        "/notification/mpinstitutional_wpp"(platform: "/"){
+        "//notification/institutional_wpp"(platform: "/"){
             segment_name= "segment"
             experiment_name= "experiment"
             communication_data = "data4"
@@ -4538,7 +4538,7 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
-        "/notification/institutional-control_group"(platform: "/mobile"){
+        "/notification/institutional_control_group"(platform: "/mobile"){
             event_type="discarded"
             campaign_id= "institutional-control_group1"
             sent_date= "20210624"
@@ -4548,7 +4548,7 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
-        "/notification/mpinstitutional-control_group"(platform: "/mobile"){
+        "/notification/mpinstitutional_control_group"(platform: "/mobile"){
             event_type="discarded"
             campaign_id= "mpinstitutional-control_group1"
             sent_date= "20210624"
@@ -10573,7 +10573,7 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
-        "/notification/institutional-control_group"(platform: "/mobile"){
+        "/notification/institutional_control_group"(platform: "/mobile"){
             event_type="discarded"
             campaign_id= "institutional-control_group1"
             sent_date= "20210624"
@@ -10583,7 +10583,7 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
-        "/notification/mpinstitutional-control_group"(platform: "/mobile"){
+        "/notification/mpinstitutional_control_group"(platform: "/mobile"){
             event_type="discarded"
             campaign_id= "mpinstitutional-control_group1"
             sent_date= "20210624"

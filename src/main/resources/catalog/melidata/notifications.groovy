@@ -2052,7 +2052,6 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
     }
 
     "/notification/mpinstitutional_wpp"(platform: "/", type: TrackType.Event) {
@@ -2062,7 +2061,6 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
     }
 
       //MKT Deals
@@ -3056,7 +3054,7 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description:"")
     }
 
-    "/notification/institutional-control_group"(platform: "/mobile") {
+    "/notification/institutional_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
@@ -3065,7 +3063,7 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description:"")
     }
 
-    "/notification/mpinstitutional-control_group"(platform: "/mobile") {
+    "/notification/mpinstitutional_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
