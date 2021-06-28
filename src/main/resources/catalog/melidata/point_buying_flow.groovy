@@ -25,6 +25,8 @@ tracks {
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
+    "/point/buyingflow/shipping"(platform: "/", isAbstract: true) {}
+    "/point/buyingflow/payment"(platform: "/", isAbstract: true) {}
 
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
