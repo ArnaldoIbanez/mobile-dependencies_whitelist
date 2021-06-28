@@ -2034,7 +2034,6 @@ tracks {
           communication_data(required: false, type: PropertyType.String, description: "Extra data")
           campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
       }
 
       "/notification/mpcampaigns_wpp"(platform: "/", type: TrackType.Event) {
@@ -2044,7 +2043,6 @@ tracks {
           communication_data(required: false, type: PropertyType.String, description: "Extra data")
           campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
       }
 
     "/notification/institutional_wpp"(platform: "/", type: TrackType.Event) {
