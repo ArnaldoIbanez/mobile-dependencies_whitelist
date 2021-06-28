@@ -574,7 +574,7 @@ tracks {
 
    "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
-       claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
+       claim(required: false, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
 
     "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
