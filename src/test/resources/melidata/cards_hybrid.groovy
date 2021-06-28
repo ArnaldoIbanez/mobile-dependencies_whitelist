@@ -1492,11 +1492,11 @@ trackTests {
     test("cards hybrid nfc tokenization time process") {
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 3
-            action = "user_waiting_start_time_avaible_feature"
+            action = "user_waiting_start_time_payments_available"
         }
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 2
-            action = "user_waiting_finish_time_avaible_feature"
+            action = "user_waiting_finish_time_payments_available"
         }
         "/cards/nfc/enrollment/tokenization/waiting_time"(platform:"/", type: TrackType.Event) {
             time_millis = 10567

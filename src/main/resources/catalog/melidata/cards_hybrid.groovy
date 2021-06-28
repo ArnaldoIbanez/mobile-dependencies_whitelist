@@ -1635,8 +1635,8 @@ tracks {
             type: PropertyType.String,
             inheritable: false,
             values: ["tokenization_success_total_time",
-                     "user_waiting_start_time_avaible_feature",
-                     "user_waiting_finish_time_avaible_feature"],
+                     "user_waiting_start_time_payments_available",
+                     "user_waiting_finish_time_payments_available"],
             description: "Type of tokenization state time"
         )
     }
