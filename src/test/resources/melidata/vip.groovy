@@ -941,7 +941,7 @@ trackTests {
             item_id = "MLA112341"
         }
 
-        "/vip/apparel/size_chart_preview/show"(platform: "/", type: TrackType.Event) {}
+        "/vip/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {}
     }
 
     test("New Shipping calculator"){
