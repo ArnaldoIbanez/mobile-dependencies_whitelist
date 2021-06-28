@@ -1900,7 +1900,6 @@ tracks {
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"],
             description: "Type of sdk error message"
         )
     }
@@ -1956,7 +1955,6 @@ tracks {
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"],
             description: "Type of sdk error message"
         )
     }
@@ -2012,7 +2010,6 @@ tracks {
         error_message(
             type: PropertyType.String,
             required: true,
-            values:["error_message"],
             description: "Type of sdk error message"
         )
     }
