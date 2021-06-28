@@ -2241,7 +2241,7 @@ trackTests {
             sent_date= "20210626"
             event_type= "sent"
         }
-        "//notification/institutional_wpp"(platform: "/"){
+        "/notification/mpinstitutional_wpp"(platform: "/"){
             segment_name= "segment"
             experiment_name= "experiment"
             communication_data = "data4"
