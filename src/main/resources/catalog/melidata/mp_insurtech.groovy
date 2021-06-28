@@ -230,13 +230,13 @@ tracks {
         status(required: true, type: PropertyType.String, values: ['approved', 'pending'], description:"Subscription payment status")
     }
 
-    "/insurtech/roda/qpage/onboarding_kyc"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited:false) {
-        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
+    "/insurtech/roda/qpage/onboarding_kyc"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
         buying_mode(required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "Type of payment method for purchase")
         quote_intention_id(required: true, type: PropertyType.String, description: "Quote intention id")
     }
 
-    "/insurtech/roda/qpage/onboarding_kyc/go_to_kyc"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/roda/qpage/onboarding_kyc/go_to_kyc"(platform:"/", type: TrackType.Event) {
     }
 
     // INSURTECH RODA Hardware Check
