@@ -208,6 +208,8 @@ tracks {
                         "Santander",
                         "Scotiabank",
                         "Votorantim",
+                        "BBVA",
+                        "CrediHome",
                 ]
         )
 
