@@ -1948,11 +1948,19 @@ trackTests {
     }
     
     test("cards hybrid nfc initialization service") {
-        "/cards/nfc/core/service"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/start"(platform:"/", type: TrackType.Event) { }
+
         "/cards/nfc/core/service/error"(platform:"/", type: TrackType.Event) {
             error_code = "INTERNAL_COMPONENT_ERROR"
+            from = "CPS"
         }
-        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { 
+            action = "MG component init"
+        }
+        "/cards/nfc/core/service/success/sdk_is_initialized"(platform:"/", type: TrackType.Event) { 
+            action = "CPS component is already initialized"
+        }
+         "/cards/nfc/core/service/success/sdk_is_initialized"(platform:"/", type: TrackType.Event) {}
     }
 
         
