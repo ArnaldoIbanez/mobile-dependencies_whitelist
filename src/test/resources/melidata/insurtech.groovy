@@ -1415,7 +1415,7 @@ trackTests {
             status='pending'
         }
 
-        "/insurtech/roda/qpage/onboarding_kyc"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/roda/qpage/onboarding_kyc"(platform:"/", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
                 model: "J7",
@@ -1426,7 +1426,7 @@ trackTests {
             quote_intention_id = '253D824dd923-3713-4720-8928-UUID-test'
         }
 
-        "/insurtech/roda/qpage/onboarding_kyc/go_to_kyc"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/roda/qpage/onboarding_kyc/go_to_kyc"(platform:"/", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model: "J7",
