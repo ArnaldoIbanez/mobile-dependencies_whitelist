@@ -940,6 +940,8 @@ trackTests {
         "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
             item_id = "MLA112341"
         }
+
+        "/vip/apparel/size_chart_preview/show"(platform: "/", type: TrackType.Event)
     }
 
     test("New Shipping calculator"){
