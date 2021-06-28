@@ -13,20 +13,17 @@ tracks {
         shop_id(required: true, type: PropertyType.Numeric)
         shop_name(required: true, type: PropertyType.String)
         shop_domain(required: false, type: PropertyType.String)
-        business(required: true, type: PropertyType.String)
         location(required: true, type: PropertyType.String)
     }
 
     propertyGroups {
-        mshopsEventGroup(shop_id, shop_name, shop_domain, business)
-        mshopslClickGroup(location, business)
+        mshopsEventGroup(shop_id, shop_name, shop_domain)
+        mshopslClickGroup(location)
     }
 
     "/home"(platform: "/", type: TrackType.View){}
 
-    "/home/landing"(platform: "/", type: TrackType.View){
-        business(required: true, type: PropertyType.String)
-    }
+    "/home/landing"(platform: "/", type: TrackType.View){}
 
     "/home/landing/click"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
