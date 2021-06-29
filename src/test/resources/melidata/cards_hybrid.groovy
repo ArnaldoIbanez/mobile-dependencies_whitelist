@@ -1,7 +1,6 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -33,6 +32,17 @@ trackTests {
             action = "research_form"
         }
 
+    }
+
+    //Shipping: Delivered
+    test("cards hybrid shipping delivered") {
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
     }
 
     //Shipping: Delayed
@@ -294,6 +304,15 @@ trackTests {
         }
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "hybrid_active"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_active"
         }
     }
     
@@ -1137,6 +1156,11 @@ trackTests {
             action = "next"
             step = 3
             id = "setup_virtual_debit_coachmark"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 3
+            id = "setup_virtual_credit_coachmark"
         }
     }
     
@@ -2899,6 +2923,8 @@ trackTests {
             is_token_ready = true
             is_token_active = true
             is_default_tap_n_pay = true
+            is_restrictive = true
+            is_tap_n_pay_admitted_to_pay = true
             is_default_card = true
             is_nfc_activated = true
             are_payment_keys_avaliable = true
@@ -2911,6 +2937,8 @@ trackTests {
             is_token_ready = false
             is_token_active = false
             is_default_tap_n_pay = false
+            is_restrictive = false
+            is_tap_n_pay_admitted_to_pay = false
             is_default_card = false
             is_nfc_activated = false
             are_payment_keys_avaliable = false
@@ -2934,6 +2962,15 @@ trackTests {
         "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
             restrictiveness = 'not_restrictive'
             default_app = 'not_default'
+        }
+    }
+
+    // NFC_ONDEMAND_ENROLLMENT
+    test("cards hybrid nfc on demand enrollment") {
+        "/cards/nfc/enrollment/ondemand"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
+            error_message = "Empty nfc_command userId"
         }
     }
 

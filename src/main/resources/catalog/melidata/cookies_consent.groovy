@@ -31,4 +31,10 @@ tracks {
                 description: "Describes the type of shown consent"
         )
     }
+    "/navigation/cookies_consent/close"(platform: "/web", type: TrackType.Event) {
+        consent_type(required: true, type: PropertyType.String,
+                values: ["modal"],
+                description: "Describes the type of shown consent"
+        )
+    }
 }

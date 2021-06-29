@@ -520,7 +520,9 @@ tracks {
         validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address", "invalidEmail"], description: "Email submition status by response")
     }
 
-    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+      social_option(PropertyType.String, required: false, values: ["Google", "Microsoft"], description: "Social option displayed prior to this view")
+    }
 
     "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
         validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
@@ -530,6 +532,17 @@ tracks {
 
     "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {}
 
+    "/authenticators/email_validation/enter_code/open_email_app"(platform: "/mobile/android", type: TrackType.Event) {
+        packages(PropertyType.ArrayList, required: true, description: "Packages for apps offered to the user when choosing to open their email")
+    }
+
+    "/authenticators/email_validation/enter_code/magic_link"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/email_validation/enter_code/magic_link"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+        cause(PropertyType.String, required: true, values:["native_not_listening", "opened_with_browser", "incorrect_code"], description: "Cause for showing an error screen")
+    }
 
     "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
         social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")
@@ -602,7 +615,7 @@ tracks {
         from(type: PropertyType.String, required: false, values: ["login", "registration", "sso", "campaign"])
         dismissible(required: false, type: PropertyType.String, values: ["enabled", "disabled"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-        scenario(type: PropertyType.String, required: true, values: ["no_security", "activate_security_success", "help", "test", "auto_enroll", "awareness", "insistence", "reminder1", "reminder2", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
+        scenario(type: PropertyType.String, required: true, values: ["no_security", "activate_security_success", "help", "test", "auto_enroll", "awareness", "insistence", "reminder1", "reminder2", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "blocker_enrolled"])
     }
 
     "/screenlock/security_blocker/ok"(platform: "/mobile", type: TrackType.Event) {
@@ -629,7 +642,7 @@ tracks {
     "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
-        flow_type(type: PropertyType.String, required: true, values: ["other", "payment"], description: "Operation type")
+        flow_type(type: PropertyType.String, required: true, values: ["other", "payment", "withdraw"], description: "Operation type")
         amount(type: PropertyType.String, required: false, description: "amount of the operation")
     }
 

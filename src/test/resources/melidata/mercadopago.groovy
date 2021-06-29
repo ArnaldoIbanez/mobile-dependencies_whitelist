@@ -1412,12 +1412,30 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "fcu"
+            reason = "user_in_whitelist"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "network_request_failed"
+        }
+        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow = "legacy"
+            reason = "user_not_in_whitelist"
+        }
         "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
             flow_origin = 'point'
         }
         "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "debit_card"
+        }
+        "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+            card_type = "credit_card"
+        }
         "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
@@ -1425,7 +1443,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
@@ -1440,7 +1458,7 @@ trackTests {
             flow_id = "1231313123213"
             method = "swipe"
             currency = "ARS"
-            amount = "10"
+            amount = 10
             installments = "1"
             payment_status = "approved"
             payment_detail = "accredited"
@@ -2871,6 +2889,30 @@ trackTests {
             mandatory()
             result_status = "rejected"
         }
+        "/bill_payments/checkout"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/utility/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/run"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/success"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/error"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/checkout/lazy_init/cancel"(platform: "/mobile") {
+            mandatory()
+        }
         "/bill_payments/fee"(platform: "/mobile") {
             mandatory()
         }
@@ -3049,6 +3091,61 @@ trackTests {
         }
 
         "/bill_payments/schedule_payment/retry/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // detail
+        "/bill_payments/detail"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/detail/money_in"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/detail/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // input
+        "/bill_payments/input"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input/helper"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrats
+        "/bill_payments/congrats"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -4076,7 +4173,7 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            scenario = "auto_enroll"
+            scenario = "blocker_enrolled"
         }
 
         "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
@@ -5319,6 +5416,20 @@ trackTests {
             amount = "10.0"
         }
 
+        "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+
         //Operation End - Success
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
@@ -5369,6 +5480,28 @@ trackTests {
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
             operation_id = "1"
+            flow_type = "withdraw"
+            result = "success"
+            transaction_id = "1"
+            reauth_status = "created"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "success"
+            transaction_id = "2"
+            reauth_status = "created"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
             flow_type = "other"
             result = "success"
             reauth_status = "not_needed"
@@ -5408,6 +5541,27 @@ trackTests {
             elapsed_time = 1.0
         }
 
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
 
         //Operation End - Error
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5449,6 +5603,28 @@ trackTests {
             operation_id = "2"
             flow_type = "payment"
             amount = "10.0"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
             result = "error"
             error = "Ups error :S"
             reauth_status = "error"
@@ -5498,6 +5674,26 @@ trackTests {
             screenlock_validated = true
             elapsed_time = 1.0
         }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
         //Reauth Retry
         "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
@@ -5542,6 +5738,19 @@ trackTests {
             reauth_mods_id = "1"
             operation_id = "1"
             flow_type = "payment"
+            amount = "10.0"
+        }
+
+        "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+        "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
             amount = "10.0"
         }
     }

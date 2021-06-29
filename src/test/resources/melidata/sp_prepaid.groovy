@@ -364,6 +364,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Multiple devices
@@ -560,6 +564,23 @@ trackTests {
             view_time()
         }
 
+        // Accreditation information
+        "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+
+        "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+        "/single_player/prepaid/check_accreditation_information/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
 
         // Carousel
         "/single_player/prepaid/carousel"(platform: "/mobile", type: TrackType.View) {
@@ -1076,7 +1097,10 @@ trackTests {
             mandatory()
             view_time()
         }
-
+        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
         // Multiple devices
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
@@ -1268,6 +1292,25 @@ trackTests {
         }
         "/single_player/prepaid/accreditation_information/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+
+
+        // Accreditation information
+        "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+
+        "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+        "/single_player/prepaid/check_accreditation_information/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
             view_time()
         }
 

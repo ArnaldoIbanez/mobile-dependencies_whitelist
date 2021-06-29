@@ -23,6 +23,9 @@ tracks {
         payment_method (required:true, description: "Selected payment method")
     }
 
+    //Payment method user cvu pressed
+    "/money_in/payment_methods/my_cvu"(platform: "/",type: TrackType.Event){}
+
     //Payment method help pressed
     "/money_in/payment_methods/help"(platform: "/", type: TrackType.Event) {}
 
@@ -332,6 +335,7 @@ tracks {
     }
     "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
     "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/my_cvu"(platform:"/",type: TrackType.Event){}
 
     //Debin Onboarding
     "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
@@ -432,5 +436,8 @@ tracks {
     "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
 
     //Money In Error View - Enchufe
-    "/money_in/error_view"(platform: "/", type: TrackType.View) {}
+    "/money_in/error_view"(platform: "/", type: TrackType.View) {
+        error (required:false, description: "Indicate the error type thats been shown")
+        view (required:false, description: "Indicate the view where the error happened")
+    }
 }

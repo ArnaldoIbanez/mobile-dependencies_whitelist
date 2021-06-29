@@ -90,6 +90,7 @@ trackTests {
             button = "top"
             free_trial_ad = true
             budget = 500
+            official_stores = true
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -98,6 +99,7 @@ trackTests {
             budget = 500
             id = "adq_pads"
             position = "home_desktop"
+            official_stores = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -105,6 +107,7 @@ trackTests {
             free_trial_ad = true
             budget = 500
             experiment = true
+            official_stores = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -121,6 +124,7 @@ trackTests {
             free_trial_ad = true
             id = "adq_pads"
             position = "home_desktop"
+            official_stores = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
@@ -168,6 +172,15 @@ trackTests {
 
     }
 
+    test("Advertising Communications") {
+        "/advertising/communications"(platform: "/", type: TrackType.Event) {
+            type = "show"
+            source = "summary"
+            medium = "task"
+            campaigns = ["sads_paused", "credits_reactivation"]
+        }
+    }
+
     test("Advertising privacy") {
         "/advertising/privacy"(platform: "/", type: TrackType.View) {
         }
@@ -199,20 +212,20 @@ trackTests {
 
     test("Advertising upselling") {
         "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
-            campaign_id = "2222222"
+            campaign_id = 2222222
             mode = "custom"
             status = "active"
-            budget = "500"
-            budget_suggested = "1000"
+            budget = 500
+            budget_suggested = 1000
         }
 
         "/advertising/pads2/manager/upselling/modal/go"(platform: "/", type: TrackType.Event) {
-            campaign_id = "2222222"
+            campaign_id = 2222222
             mode = "custom"
             status = "active"
-            budget = "500"
-            budget_suggested = "1000"
-            budget_selected = "800"
+            budget = 500
+            budget_suggested = 1000
+            budget_selected = 800
         }
 
         "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
@@ -329,12 +342,14 @@ trackTests {
             button = "top"
             id = "adq_pads"
             position = "home_desktop"
+            official_stores = false
         }
 
         "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.View) {
             free_trial_type = "M"
             budget = "500"
             button = "top"
+            official_stores = true
         }
 
         "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.View) {
@@ -342,6 +357,7 @@ trackTests {
             budget = "500"
             button = "top"
             experiment = true
+            official_stores = false
         }
 
         "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
@@ -360,17 +376,20 @@ trackTests {
             budget = "500"
             id = "adq_pads"
             position = "home_desktop"
+            official_stores = true
         }
 
         "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
             free_trial_type = "M"
             budget = "500"
+            official_stores = false
         }
 
         "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
             free_trial_type = "M"
             budget = "500"
             experiment = true
+            official_stores = true
         }
     }
 
@@ -838,8 +857,8 @@ trackTests {
 
         "/advertising/pads2/hub/campaign/update/budget/go"(platform: "/web", type: TrackType.Event) {
         campaign_id = 2222222
-        budget = "4000"
-        budget_new = "5600"
+        budget = 4000
+        budget_new = 5600
         status = "active"
         }
 

@@ -811,7 +811,9 @@ trackTests {
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
             payment_method_type = "credit_card"
             payment_method_id = "visa"
+            payment_method_selected_index = 1
             review_type = "one_tap"
+
             extra_info = {
                 selected_installment = {
                     quantity = 3
@@ -830,6 +832,7 @@ trackTests {
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
             payment_method_type = "account_money"
             payment_method_id = "account_money"
+            payment_method_selected_index = 0
             review_type = "one_tap"
 
             flow_detail = {
@@ -846,7 +849,9 @@ trackTests {
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
             payment_method_type = "credit_card"
             payment_method_id = "visa"
+            payment_method_selected_index = 1
             review_type = "traditional"
+
             extra_info = {
                 selected_installment = [
                         quantity = 3,
@@ -3424,7 +3429,9 @@ trackTests {
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
             payment_method_type = "credit_card"
             payment_method_id = "visa"
+            payment_method_selected_index = 1
             review_type = "one_tap"
+
             extra_info = {
                 selected_installment = {
                     quantity = 3
@@ -3443,6 +3450,7 @@ trackTests {
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
             payment_method_type = "account_money"
             payment_method_id = "account_money"
+            payment_method_selected_index = 0
             review_type = "one_tap"
 
             flow_detail = {
@@ -3459,7 +3467,9 @@ trackTests {
         "/px_checkout/review/confirm"(platform: "/mobile", type: TrackType.Event) {
             payment_method_type = "credit_card"
             payment_method_id = "visa"
+            payment_method_selected_index = 1
             review_type = "traditional"
+
             extra_info = {
                 selected_installment = [
                         quantity = 3,
