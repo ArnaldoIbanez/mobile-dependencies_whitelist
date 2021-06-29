@@ -20,6 +20,11 @@ tracks {
                 type: PropertyType.Boolean,
                 description: "Indicates if the user is a collaborator"
         )
+        is_collaborator_optional(
+                required: false,
+                type: PropertyType.Boolean,
+                description: "Indicates if the user is a collaborator"
+        )
         collect_methods_count(
                 required: true,
                 type: PropertyType.Numeric,
@@ -37,6 +42,7 @@ tracks {
         config_group(widget_id, is_collaborator)
         config_successful_group(widget_id, is_collaborator, collect_methods_count)
         use_widget_group(widget_id, collect_method, is_collaborator)
+        use_widget_optional_group(widget_id, collect_method, is_collaborator_optional)
         use_widget_not_logged_group(widget_id, collect_method)
     }
 
@@ -69,7 +75,7 @@ tracks {
         use_widget_group
     }
     "/widget/collect/remove" (platform: "/mobile/android", type: TrackType.Event) {
-        use_widget_group
+        use_widget_optional_group
     }
     "/widget/collect/not_logged" (platform: "/mobile/android", type: TrackType.Event) {
         use_widget_not_logged_group

@@ -64,7 +64,6 @@ trackTests {
         "/widget/collect/remove"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             collect_method = "qr"
-            is_collaborator = false
         }
     }
 
