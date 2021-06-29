@@ -2213,6 +2213,44 @@ trackTests {
             event_type= "sent"
         }
 
+        "/notification/campaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data-1"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpcampaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data2"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+
+        "/notification/institutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data3"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "RECURRENTE"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpinstitutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data4"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -4498,6 +4536,26 @@ trackTests {
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
             campaign_data = "MLA1234"
+        }
+
+        "/notification/institutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "institutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_PACK_20180508_3"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA1234"
+        }
+
+        "/notification/mpinstitutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "mpinstitutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_MPPACK_20180508_4"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA12345"
         }
 
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
@@ -8118,6 +8176,44 @@ trackTests {
             event_type= "sent"
         }
 
+        "/notification/campaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data-1"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpcampaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data2"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+
+        "/notification/institutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data3"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "RECURRENTE"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpinstitutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data4"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -10475,6 +10571,26 @@ trackTests {
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
             campaign_data = "MLA1234"
+        }
+
+        "/notification/institutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "institutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_PACK_20180508_3"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA1234"
+        }
+
+        "/notification/mpinstitutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "mpinstitutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_MPPACK_20180508_4"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA12345"
         }
 
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
