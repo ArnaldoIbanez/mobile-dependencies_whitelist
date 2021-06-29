@@ -5281,7 +5281,7 @@ trackTests {
     test("About screen") {
         "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
-
+    
     test("Register Point Plus") {
         // Register device
         "/point/register/start"(platform: "/", type: TrackType.View) {}
