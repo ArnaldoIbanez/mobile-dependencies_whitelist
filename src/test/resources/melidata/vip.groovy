@@ -863,6 +863,7 @@ trackTests {
             vip_version = "new"
             has_good_price = false
             has_highlighted_sale_specs=false
+            is_highlighted = false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -878,6 +879,7 @@ trackTests {
             ]
             has_good_price = true
             has_highlighted_sale_specs=true
+            is_highlighted = false
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
