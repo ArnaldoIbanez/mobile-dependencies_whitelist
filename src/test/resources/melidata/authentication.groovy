@@ -150,6 +150,15 @@ trackTests {
             challenge = "pass"
             tracking_id = "123"
         }
+        "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+            source = "default"
+        }
+        "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+        }
         "/login/auth/challenge/decline"(platform: "/web", type: TrackType.View) {
             challenge = "pass"
             source = "QUESTION"
@@ -450,6 +459,15 @@ trackTests {
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
             errors = ["user_not_found"]
+        }
+        "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+            source = "default"
+        }
+        "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
         }
         "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
@@ -1817,6 +1835,18 @@ trackTests {
                 operation_id = "1"
                 flow_type = "withdraw"
                 amount = "10.0"
+            }
+        }
+
+        test("Login conversion tracks ") {
+            "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+                challenge = "email_or_nickname_or_phone"
+                tracking_id = "123"
+                source = "default"
+            }
+            "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+                challenge = "email_or_nickname_or_phone"
+                tracking_id = "123"
             }
         }
     }
