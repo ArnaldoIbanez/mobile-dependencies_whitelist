@@ -440,4 +440,9 @@ tracks {
         error (required:false, description: "Indicate the error type thats been shown")
         view (required:false, description: "Indicate the view where the error happened")
     }
+
+    //Error de static resoruces, en iniciativa Money In
+    "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
+        error(required:true, description:"Network Error Message")
+    }
 }

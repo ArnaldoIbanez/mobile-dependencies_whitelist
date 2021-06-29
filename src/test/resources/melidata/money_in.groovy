@@ -670,5 +670,10 @@ trackTests {
            error = "Error 404"
            view = "Payment Methods Dashboard"
         }
+
+        //Money In Error View - Enchufe
+        "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
+           error = "Error 404"
+        }
     }
 }
