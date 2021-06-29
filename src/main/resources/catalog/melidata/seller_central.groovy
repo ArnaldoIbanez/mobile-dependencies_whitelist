@@ -2174,6 +2174,12 @@ tracks {
         hotjar_survey(required: true, type: PropertyType.String, description: "hotjar survey value")
     }
 
+    "/seller_central/questions/filter"(platform: "/", type: TrackType.Event) {
+        period(required: true, description: "The time frame to search questions", type: PropertyType.String)
+        status(required: false, description: "The status of the question consulted", type: PropertyType.String)
+        user_type(required: true, description: "The type of user looking for their questions", type: PropertyType.String)
+    }
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central Buyer Questions
