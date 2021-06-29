@@ -4643,7 +4643,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/questions/filter"(platform: "/", type: TrackType.Event) {
       period = "60"
       status = "answered"
-      userType = "car_dealer"
+      user_type = "car_dealer"
     }
   }
 

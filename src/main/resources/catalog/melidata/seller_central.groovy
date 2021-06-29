@@ -2171,9 +2171,9 @@ tracks {
     }
 
     "/seller_central/questions/filter"(platform: "/", type: TrackType.Event) {
-        period(required: false, description: "The time frame to search questions", type: PropertyType.String)
+        period(required: true, description: "The time frame to search questions", type: PropertyType.String)
         status(required: false, description: "The status of the question consulted", type: PropertyType.String)
-        userType(required: false, description: "The type of user looking for their questions", type: PropertyType.String)
+        user_type(required: true, description: "The type of user looking for their questions", type: PropertyType.String)
     }
 
 
