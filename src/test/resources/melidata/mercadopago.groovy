@@ -4653,7 +4653,7 @@ trackTests {
             ]
         }
 
-        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/android", type: TrackType.View) {
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
