@@ -672,6 +672,7 @@ trackTests {
         }
 
         //Money In Error View - Enchufe
+        "/money_in/static_resources"(platform:"/", isAbstract: true){}
         "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
            error = "Error 404"
         }

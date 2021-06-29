@@ -442,6 +442,7 @@ tracks {
     }
 
     //Error de static resoruces, en iniciativa Money In
+    "/money_in/static_resources"(platform:"/", isAbstract: true){}
     "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
         error(required:true, description:"Network Error Message")
     }
