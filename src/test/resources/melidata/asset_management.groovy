@@ -257,6 +257,8 @@ trackTests {
         "/asset_management/invest_section/auto_enabled"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/not_enough_money_nor_returns"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/enough_money_or_returns"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/max_udis_reached"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/max_udis_not_reached"(platform: "/", type: TrackType.View) {}
 
         "/asset_management/invest_section/show_estimated_yield"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", type: TrackType.Event) {}
