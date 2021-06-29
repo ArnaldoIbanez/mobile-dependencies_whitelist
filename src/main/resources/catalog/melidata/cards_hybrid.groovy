@@ -1676,7 +1676,7 @@ tracks {
         information (
             required: true,
             type: PropertyType.String,
-            values:["tokenization completed token provisioned"],
+            values:["tokenization completed event"],
             description: "Tokenization completed token provisioned"
         )
     }
@@ -1691,7 +1691,7 @@ tracks {
         result (
             required: true,
             type: PropertyType.String,
-            values: ["missing enrollment push notification"],
+            values: ["Missing token provisioning push"],
             description: "Miss push notification for nfc enrollment"
         )
     }

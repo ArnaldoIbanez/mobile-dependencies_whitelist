@@ -1538,14 +1538,14 @@ trackTests {
     test("cards hybrid nfc enrollment new card push received success") {
         "/cards/nfc/enrollment/tokenization/new_card_push/success"(platform:"/", type: TrackType.Event) {
             action = "new_card_push_received_success"
-            information = "tokenization completed token provisioned"
+            information = "tokenization completed event"
         }
     }
 
-    test("cards hybrid nfc enrollment new card push received success") {
+    test("cards hybrid nfc enrollment new card push received error") {
         "/cards/nfc/enrollment/tokenization/new_card_push/error"(platform:"/", type: TrackType.Event) {
             action = "missing_new_card_push_notification"
-            result = "missing enrollment push notification"
+            result = "Missing token provisioning push"
         }
     }
 
