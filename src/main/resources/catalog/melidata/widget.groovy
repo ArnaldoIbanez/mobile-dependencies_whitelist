@@ -20,10 +20,10 @@ tracks {
                 type: PropertyType.Boolean,
                 description: "Indicates if the user is a collaborator"
         )
-        collect_count(
+        collect_methods_count(
                 required: true,
                 type: PropertyType.Numeric,
-                description: "Indicates how many collect permissions the user has"
+                description: "Indicates the amount of collect methods that the user has enabled"
         )
         collect_method(
                 required: true,
@@ -35,7 +35,7 @@ tracks {
     propertyGroups {
         widget_id_group(widget_id)
         config_group(widget_id, is_collaborator)
-        config_successful_group(widget_id, is_collaborator, collect_count)
+        config_successful_group(widget_id, is_collaborator, collect_methods_count)
         use_widget_group(widget_id, collect_method, is_collaborator)
         use_widget_not_logged_group(widget_id, collect_method)
     }
@@ -74,6 +74,4 @@ tracks {
     "/widget/collect/not_logged" (platform: "/mobile/android", type: TrackType.Event) {
         use_widget_not_logged_group
     }
-
-
 }

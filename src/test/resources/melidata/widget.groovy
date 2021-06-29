@@ -16,22 +16,22 @@ trackTests {
         }
     }
 
-    test("User adds widget to homescreen") {
+    test("Data service for setup screen response okay") {
         "/widget/collect/config/success"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             is_collaborator = true
-            collect_count = 0
+            collect_methods_count = 0
         }
     }
 
-    test("Error trying to add a widget") {
+    test("Data service for setup screen response with error") {
         "/widget/collect/config/error"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             is_collaborator = true
         }
     }
 
-    test("User exist config page using back button") {
+    test("User exits config page using back button") {
         "/widget/collect/config/back"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             is_collaborator = true
@@ -52,7 +52,7 @@ trackTests {
         }
     }
 
-    test("User taps payment button") {
+    test("User taps over the widget") {
         "/widget/collect/tap"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             collect_method = "point"
