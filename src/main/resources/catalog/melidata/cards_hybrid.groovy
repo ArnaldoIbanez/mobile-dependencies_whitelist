@@ -486,13 +486,13 @@ tracks {
     }
     //Dynamic Carousel Tracking
     def dynamic_carousel_description = objectSchemaDefinitions {
-        audience(required: true, type: PropertyType.String)
-        bu(required: true, type: PropertyType.String)
-        bu_line(required: true, type: PropertyType.String)
-        component_id(required: true, type: PropertyType.String)
-        content_id(required: true, type: PropertyType.String)
-        flow(required: true, type: PropertyType.String)
-        logic(required: true, type: PropertyType.String)
+        audience(required: false, type: PropertyType.String)
+        bu(required: false, type: PropertyType.String)
+        bu_line(required: false, type: PropertyType.String)
+        component_id(required: false, type: PropertyType.String)
+        content_id(required: false, type: PropertyType.String)
+        flow(required: false, type: PropertyType.String)
+        logic(required: false, type: PropertyType.String)
         position(required: true, type: PropertyType.Numeric)
     }
     "/cards/hybrid/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
