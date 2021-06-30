@@ -574,6 +574,12 @@ tracks {
         flow_lock(required: true, type: PropertyType.Boolean, description: "flow_lock required status")
         app_lock(required: true, type: PropertyType.Boolean, description: "app_lock required status")
     }
+    
+    def applockFlowlockStructure = objectSchemaDefinitions {
+        enabled(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time from the last applock finish to the start of the next flowlock")
+        screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in validation")
+    }
 
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1127) {
@@ -590,6 +596,7 @@ tracks {
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         transaction_information(type: PropertyType.Map(transactionInformationStructure), required: true, description: "transaction information")
+        applock_flowlock_information(type: PropertyType.Map(applockFlowlockStructure), required: false, description: "applock flowlock information")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
     }
