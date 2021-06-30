@@ -128,8 +128,10 @@ tracks {
         app_cache(required: false, type: PropertyType.Numeric, description: "Application cache occupied storage in bytes")
         app_data(required: false, type: PropertyType.Numeric, description: "Application data occupied storage in bytes")
         dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
-         description: "Dark Mode status")
-        font_scale(required: false, type: PropertyType.String, values: ["small", "medium", "large", "xlarge"], description: "Font scale")
+        description: "Dark Mode status")
+        font_scale(required: false, type: PropertyType.String, values: ["xsmall", "small", "medium", "large", "xlarge", "xxlarge", "xxxlarge", 
+        "accessibilityMedium", "accessibilityLarge", "accessibilityXLarge", "accessibilityXXLarge", "accessibilityXXXLarge", "undefined"], 
+        description: "Font scale")
         voice_over(required: false, type: PropertyType.Boolean, description: "Voice over is enabled or not")
         high_contrast(required: false, type: PropertyType.Boolean, description: "High contrast is enabled or not")
         battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
