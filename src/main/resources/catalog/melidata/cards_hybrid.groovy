@@ -1630,7 +1630,7 @@ tracks {
         action (
         required: true,
         type: PropertyType.String,
-        description: "HelpButtonTapped")
+        description: "Main Button Tapped")
     }
     "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
