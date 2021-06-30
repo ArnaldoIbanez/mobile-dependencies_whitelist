@@ -2014,6 +2014,14 @@ trackTests {
             news_id = "card_freeze_rejected_authorization-12345678"
             event_type = "shown"
         }
+        "/notification/insurtech_kyc_roda_pre_activacion"(platform: "/mobile") {
+            news_id = "insurtech_kyc_roda_pre_activacion-12345678"
+            event_type = "shown"
+        }
+        "/notification/insurtech_kyc_roda_pre_compra"(platform: "/mobile") {
+            news_id = "insurtech_kyc_roda_pre_compra-12345678"
+            event_type = "shown"
+        }
         "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {
             news_id = "card_freeze_rejected_withdraw-12345678"
             event_type = "shown"
@@ -8012,6 +8020,14 @@ trackTests {
         }
         "/notification/card_freeze_rejected_authorization"(platform: "/mobile") {
             news_id = "card_freeze_rejected_authorization-12345678"
+            event_type = "shown"
+        }
+        "/notification/insurtech_kyc_roda_pre_activacion"(platform: "/mobile") {
+            news_id = "insurtech_kyc_roda_pre_activacion-12345678"
+            event_type = "shown"
+        }
+        "/notification/insurtech_kyc_roda_pre_compra"(platform: "/mobile") {
+            news_id = "insurtech_kyc_roda_pre_compra-12345678"
             event_type = "shown"
         }
         "/notification/card_freeze_rejected_withdraw"(platform: "/mobile") {

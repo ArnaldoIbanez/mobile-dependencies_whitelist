@@ -3101,6 +3101,10 @@ tracks {
     "/notification/insurtech_money_in"(platform: "/mobile") {}
     "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {}
 
+    //Insurtech_kyc
+    "/notification/insurtech_kyc_roda_pre_activacion"(platform: "/") {}
+    "/notification/insurtech_kyc_roda_pre_compra"(platform: "/") {}
+
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
 
