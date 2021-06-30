@@ -1459,7 +1459,25 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    "/notification_center/insurtech_pending_payment"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+  
+    "/notification_center/insurtech_purchase"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 
+    "/notification_center/insurtech_imei_cancellation_advice"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    "/notification_center/insurtech_cancellation"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 
       /**
        * NOTIFICATIONS TRAY
@@ -2007,6 +2025,42 @@ tracks {
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
         event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+    }
+
+    "/notification/campaigns_wpp"(platform: "/", type: TrackType.Event) {
+          segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+          experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+          communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+          communication_data(required: false, type: PropertyType.String, description: "Extra data")
+          campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+      }
+
+      "/notification/mpcampaigns_wpp"(platform: "/", type: TrackType.Event) {
+          segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+          experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+          communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+          communication_data(required: false, type: PropertyType.String, description: "Extra data")
+          campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+      }
+
+    "/notification/institutional_wpp"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/mpinstitutional_wpp"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
       //MKT Deals
@@ -3000,6 +3054,24 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description:"")
     }
 
+    "/notification/institutional_control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        sent_date(required: false, type: PropertyType.String, description:"")
+    }
+
+    "/notification/mpinstitutional_control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        sent_date(required: false, type: PropertyType.String, description:"")
+    }
+
     "/notification/hub_transfer_new_approved"(platform: "/mobile") {}
     "/notification/hub_transfer_manualreview"(platform: "/mobile") {}
     "/notification/hub_transfer_new_rejected"(platform: "/mobile") {}
@@ -3012,6 +3084,10 @@ tracks {
 
     //Insurtech
     "/notification/insurtech_imei_activation"(platform: "/mobile") {}
+    "/notification/insurtech_pending_payment"(platform: "/mobile") {}
+    "/notification/insurtech_cancellation"(platform: "/mobile") {}
+    "/notification/insurtech_purchase"(platform: "/mobile") {}
+    "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {}
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}

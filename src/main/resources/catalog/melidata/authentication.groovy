@@ -135,6 +135,8 @@ tracks {
 
     "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
+    "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
+
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/phone_validation/rechallenge"(platform: "/mobile", type: TrackType.Event) {}
@@ -520,7 +522,9 @@ tracks {
         validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address", "invalidEmail"], description: "Email submition status by response")
     }
 
-    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+      social_option(PropertyType.String, required: false, values: ["Google", "Microsoft"], description: "Social option displayed prior to this view")
+    }
 
     "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
         validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
@@ -530,6 +534,17 @@ tracks {
 
     "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {}
 
+    "/authenticators/email_validation/enter_code/open_email_app"(platform: "/mobile/android", type: TrackType.Event) {
+        packages(PropertyType.ArrayList, required: true, description: "Packages for apps offered to the user when choosing to open their email")
+    }
+
+    "/authenticators/email_validation/enter_code/magic_link"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/email_validation/enter_code/magic_link"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+        cause(PropertyType.String, required: true, values:["native_not_listening", "opened_with_browser", "incorrect_code"], description: "Cause for showing an error screen")
+    }
 
     "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
         social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")

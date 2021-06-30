@@ -2213,6 +2213,44 @@ trackTests {
             event_type= "sent"
         }
 
+        "/notification/campaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data-1"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpcampaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data2"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+
+        "/notification/institutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data3"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "RECURRENTE"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpinstitutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data4"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -4500,6 +4538,26 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
+        "/notification/institutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "institutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_PACK_20180508_3"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA1234"
+        }
+
+        "/notification/mpinstitutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "mpinstitutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_MPPACK_20180508_4"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA12345"
+        }
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -5756,6 +5814,36 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_purchase"(platform: "/") {
+            latest_news_type= "insurtech_purchase"
+            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_purchase"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -5778,6 +5866,16 @@ trackTests {
         "/notification/registry_recovery"(platform: "/mobile") {
             news_id = "registry_recovery-123"
             event_type = "shown"
+        }
+
+        "/notification_center/insurtech_imei_cancellation_advice"(platform: "/") {
+            latest_news_type= "insurtech_imei_cancellation_advice"
+            latest_news_id= "insurtech_imei_cancellation_advice-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {
+            news_id = "insurtech_imei_cancellation_advice_123"
+            event_type = "open"
         }
     }
 
@@ -8075,6 +8173,44 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
+            event_type= "sent"
+        }
+
+        "/notification/campaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data-1"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpcampaigns_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data2"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+
+        "/notification/institutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data3"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "RECURRENTE"
+            sent_date= "20210626"
+            event_type= "sent"
+        }
+        "/notification/mpinstitutional_wpp"(platform: "/"){
+            segment_name= "segment"
+            experiment_name= "experiment"
+            communication_data = "data4"
+            communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
+            campaign_type= "ADHOC"
+            sent_date= "20210626"
             event_type= "sent"
         }
 
@@ -10437,6 +10573,26 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
+        "/notification/institutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "institutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_PACK_20180508_3"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA1234"
+        }
+
+        "/notification/mpinstitutional_control_group"(platform: "/mobile"){
+            event_type="discarded"
+            campaign_id= "mpinstitutional-control_group1"
+            sent_date= "20210624"
+            batch_id = "MLA_MPPACK_20180508_4"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA12345"
+        }
+
         "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -11390,6 +11546,36 @@ trackTests {
             news_id = "insurtech_imei_activation_123"
             event_type = "open"
         }
+
+        "/notification_center/insurtech_pending_payment"(platform: "/") {
+            latest_news_type= "insurtech_pending_payment"
+            latest_news_id= "insurtech_pending_payment-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_pending_payment"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment_123"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_cancellation"(platform: "/") {
+            latest_news_type= "insurtech_cancellation"
+            latest_news_id= "insurtech_cancellation-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_cancellation"(platform: "/mobile") {
+            news_id = "insurtech_cancellation_123"
+            event_type = "open"
+        }
+        
+        "/notification_center/insurtech_purchase"(platform: "/") {
+            latest_news_type= "insurtech_purchase"
+            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+        }
+
+        "/notification/insurtech_purchase"(platform: "/mobile") {
+            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            event_type = "open"
+        }
          
         "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
@@ -11399,6 +11585,16 @@ trackTests {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        "/notification_center/insurtech_imei_cancellation_advice"(platform: "/") {
+            latest_news_type= "insurtech_imei_cancellation_advice"
+            latest_news_id= "insurtech_imei_cancellation_advice-143816022-MLB1013046714"
+        }
+
+        "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {
+            news_id = "insurtech_imei_cancellation_advice_123"
+            event_type = "open"
         }
     }
 

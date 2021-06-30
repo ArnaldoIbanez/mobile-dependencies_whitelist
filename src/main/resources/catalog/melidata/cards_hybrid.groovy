@@ -46,6 +46,7 @@ tracks {
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -85,6 +86,17 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["exit", "reissue"],
+            description: "Action tapped"
+        )
+    }
+
+    //Shipping: Delivered
+    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "unlock", "reissue"],
             description: "Action tapped"
         )
     }
@@ -1988,7 +2000,7 @@ tracks {
     // ----------------------
     
     // NfcInitializationServiceInitialized
-    "/cards/nfc/core/service"(platform: "/", type: TrackType.Event) { }
+    "/cards/nfc/core/service/start"(platform: "/", type: TrackType.Event) { }
 
     "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) { 
         error_code (
@@ -1996,11 +2008,29 @@ tracks {
             type: PropertyType.String,
             description: "Error code for nfc service initialization"
         )
+        from (
+            required: true,
+            type: PropertyType.String,
+            description: "Where did this error come from"
+        )
     }
 
     // NfcInitializationServiceSucess
-    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
-    
+    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "The service action that succeed"
+        )
+     }
+
+    "/cards/nfc/core/service/success/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
+        action (
+            required: false,
+            type: PropertyType.String,
+            description: "The service action that was previously initialized"
+        )
+     }
     
     // NFC-CONSTRAINTS
     // -----------
@@ -2097,6 +2127,20 @@ tracks {
                 "default",
                 "not_default"
             ]
+        )
+    }
+    
+    // NFC_ONDEMAND_ENROLLMENT
+    // -----------------------
+    "/cards/nfc/enrollment/ondemand"(platform: "/", type: TrackType.Event) {}
+    
+    "/cards/nfc/enrollment/ondemand/success"(platform: "/", type: TrackType.Event) {}
+    
+    "/cards/nfc/enrollment/ondemand/error"(platform: "/", type: TrackType.Event) {
+        error_message (
+            required: true,
+            type: PropertyType.String,
+            description: "Cause of on-demand enrollment error"
         )
     }
 }

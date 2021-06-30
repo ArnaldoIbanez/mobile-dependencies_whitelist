@@ -843,4 +843,32 @@ trackTests {
              *       End: Credit Card Landings
              ***********************************************/
         }
+        test("Credits Credit Card - Wait List tests") {
+            /***********************************************
+             *       Start: Credit Card Wait List
+             ***********************************************/
+
+            // Landing
+            "/credits/credit_card/waitlist/landing"(platform: "/", type: TrackType.View) {}
+
+            //Congrats
+
+            "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View) {
+                status = "registered"
+            }
+
+            "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View) {
+                status = "already_registered"
+            }
+
+            //Error
+            "/credits/credit_card/waitlist/error"(platform: "/", type: TrackType.View) {
+                reason = "Wait list error"
+            }
+
+
+                /***********************************************
+             *       End: Credit Card Wait List
+             ***********************************************/
+        }
 }

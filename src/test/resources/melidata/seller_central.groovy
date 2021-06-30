@@ -97,7 +97,12 @@ trackTests {
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
   }
 
-
+  test("seller central listing sort") {
+    "/seller_central/listings/sort"(platform: "/", type: TrackType.Event) {
+      id = "stock_remaining_weeks_asc"
+      view_id = "fulfillment"
+    }
+  }
 
   test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -2300,6 +2305,16 @@ trackTests {
       seller_segment = "MEDIUM_SELLERS_III"
       user_type = "real_estate_agency"
       days_count = 35
+    }
+  }
+
+  test("metrics my attention summary open onboarding track for web") {
+    "/seller_central/metrics/attention/summary/open_onboarding"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
     }
   }
 
@@ -4631,6 +4646,14 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("seller central questions hotjar survey") {
     "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
       hotjar_survey = "1"
+    }
+  }
+
+  test("Seller central questions filter") {
+    "/seller_central/questions/filter"(platform: "/", type: TrackType.Event) {
+      period = "60"
+      status = "answered"
+      user_type = "car_dealer"
     }
   }
 
