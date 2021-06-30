@@ -4025,6 +4025,11 @@ trackTests {
                 "amount": "100.0",
                 "type": "transactional"
             ]
+            applock_flowlock_information = [
+                    "enabled": "enabled",
+                    "elapsed_time": 10,
+                    "screenlock_validated":false
+            ]
             config = [
                 "transaction_granularity_option": "always",
                 "transaction_accumulated_amount": "100",
