@@ -704,8 +704,8 @@ tracks {
         platform: "/web",
         type: TrackType.Event) {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
-        budget_new(required: true, type: PropertyType.Numeric, description: "New budget related to the campaign.")
+        budget(required: true, description: "Current budget related to the campaign")
+        budget_new(required: true, description: "New budget related to the campaign.")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
