@@ -62,6 +62,7 @@ tracks {
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
+    "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
     "/banking/debts"(platform: "/", type: TrackType.View) {}
     "/banking/debts/detail"(platform: "/", type: TrackType.View) {}
 
@@ -74,6 +75,8 @@ tracks {
     "/banking/balance/error"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
@@ -115,4 +118,26 @@ tracks {
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { eventDataTrack }
+
+    // Vouchers
+    "/banking/vouchers"(platform: "/", type: TrackType.View) {}
+
+    // Vouchers - Benefits 
+    "/banking/vouchers/benefits"(platform: "/", isAbstract: true) {}
+    "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - Account switch
+    "/banking/vouchers/account-money"(platform: "/", isAbstract: true) {}
+    "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - Activities
+    "/banking/vouchers/activities"(platform: "/", isAbstract: true) {}
+    "/banking/vouchers/activities/row"(platform: "/", type: TrackType.Event) {}
+    "/banking/vouchers/activities/footer"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - MP Card
+    "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
+
+    // Vouchers - Help
+    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}   
 }

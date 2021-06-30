@@ -27,6 +27,10 @@ trackTests {
     test("Balance Cerc") {
         "/banking/cerc"(platform: "/", type: TrackType.View) {}
     }
+    
+    test("Balance Cerc Optin") {
+        "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
+    }
 
     test("Balance Debts") {
         "/banking/debts"(platform: "/", type: TrackType.View) {}
@@ -59,6 +63,12 @@ trackTests {
             action_id = 'test'
         }
         "/banking/balance/debts"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/cerc"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
     }
@@ -155,5 +165,20 @@ trackTests {
             bu_line = 'banking'
             flow = '1'
         }
+    }
+
+    test("Vouchers") {
+        "/banking/vouchers"(platform: "/", type: TrackType.View) {}
+
+        "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/account-money/switch"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/activities/row"(platform: "/", type: TrackType.Event) {}
+        "/banking/vouchers/activities/footer"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
+
+        "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
     }
 }

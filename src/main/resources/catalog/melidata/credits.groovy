@@ -18,6 +18,7 @@ tracks {
     "/credits/consumer/upsell"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/opensea/pre_approved_flow"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/remedy"(platform: "/", isAbstract: true) {}
 
     /******************************************
@@ -95,6 +96,28 @@ tracks {
      *       End: Consumers Integrated Flow
      *********************************************/
 
+    /***********************************************
+     *       Start: Consumers Pre Approved Flow (mercadolibre - mercadopago)
+     ***********************************************/
+    //Pre Approved Flow - Start
+
+    //Page view
+    "/credits/consumer/opensea/pre_approved_flow/start"(platform: "/", type: TrackType.View) {
+        source(description: "Pre approved flow source", type: PropertyType.String, required: true)
+    }
+
+    //Events
+    "/credits/consumer/opensea/pre_approved_flow/start/application_start"(platform: "/", type: TrackType.Event) {
+        source(description: "Pre approved flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/pre_approved_flow/start/application_cancel"(platform: "/", type: TrackType.Event) {
+        source(description: "Pre approved flow source", type: PropertyType.String, required: true)
+    }
+
+    /*********************************************
+     *       End: Consumers Pre Approved Flow
+     *********************************************/
+
     /******************************************
      *    Start: Consumers Opensea Integrations
      ******************************************/
@@ -132,6 +155,48 @@ tracks {
     /******************************************
      *   End: Consumers Opensea Flow
      ******************************************/
+
+     /******************************************
+     *       Start: Credits Optins
+     ******************************************/
+
+    "/credits/preferences"(platform: "/", isAbstract: true, type: TrackType.View) {
+        initiative(
+            type: PropertyType.String,
+            required: true,
+            inheritable: true,
+            values: [
+                'merchant_enrollment',
+                'merchant_express_money',
+                'merchant_open_market',
+                'merchant_administrator',
+                'consumer_open_sea',
+                'consumer_personal_loan',
+                'consumer_administrator'
+            ]
+        )
+        step(
+            type: PropertyType.String,
+            required: true,
+            inheritable: true,
+            values: [
+                'whatsapp', 
+                'whatsapp_sms', 
+                'sms', 
+                'telcel', 
+                'credit_circle', 
+                'telcel_credit_circle'
+            ]
+        )
+    }
+    "/credits/preferences/accept"(platform: "/", type: TrackType.Event){}
+    "/credits/preferences/decline"(platform: "/", type: TrackType.Event){}
+    
+
+    /******************************************
+     *       End: Credits Optins
+     ******************************************/
+
 
      /******************************************
      *       Start: Merchants Public Landings

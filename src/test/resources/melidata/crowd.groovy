@@ -22,9 +22,9 @@ trackTests {
                     [
                             offer_price: 33443.33,
                             facility_id: "SMX1",
-                            start_date: "2020/11/26T10:00:00",
-                            end_date: "2020/11/26T15:00:00",
-                            order_id: "24434343"
+                            start_date : "2020/11/26T10:00:00",
+                            end_date   : "2020/11/26T15:00:00",
+                            order_id   : "24434343"
                     ]
             ]
         }
@@ -69,9 +69,9 @@ trackTests {
                     [
                             order_price: 33443.33,
                             facility_id: "SMX1",
-                            start_date: "2020/11/26T10:00:00",
-                            end_date: "2020/11/26T15:00:00",
-                            order_id: "24434343"
+                            start_date : "2020/11/26T10:00:00",
+                            end_date   : "2020/11/26T15:00:00",
+                            order_id   : "24434343"
                     ]
             ]
         }
@@ -127,9 +127,9 @@ trackTests {
                     [
                             order_price: 33443.33,
                             facility_id: "SMX1",
-                            start_date: "2020/11/26T10:00:00",
-                            end_date: "2020/11/26T15:00:00",
-                            order_id: "24434343"
+                            start_date : "2020/11/26T10:00:00",
+                            end_date   : "2020/11/26T15:00:00",
+                            order_id   : "24434343"
                     ]
             ]
         }
@@ -183,5 +183,91 @@ trackTests {
             user_id = "1234"
         }
 
+    }
+
+    test("MercadoEnvios - Crowd App - Testing earning history tracks") {
+        def defaultLocation =
+                {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
+
+        def defaultPaginationMetadata = {
+            pagination_metadata =
+                    [
+                            offset               : 1,
+                            limit                : 10,
+                            count                : 100,
+                            latest_visible_period: "202103W5"
+                    ]
+        }
+
+        def defaultDailyDetail = {
+            daily_detail =
+                    [
+                            preinvoice_id    : "1",
+                            preinvoice_status: "billed",
+                            date             : "2021-03-09"
+                    ]
+        }
+
+        def defaultWeeklyDetail = {
+            weekly_detail =
+                    [
+                            preinvoice_id    : "1",
+                            preinvoice_status: "billed",
+                            period           : "202103W5",
+                            type             : "regular"
+                    ]
+        }
+
+        "/crowd/earning_history/hub"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/earning_history/hub/paginate"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPaginationMetadata()
+        }
+
+        "/crowd/earning_history/hub/daily_detail"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultDailyDetail()
+        }
+
+        "/crowd/earning_history/hub/daily_detail/tooltip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultDailyDetail()
+        }
+
+        "/crowd/earning_history/hub/daily_detail/help"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultDailyDetail()
+        }
+
+        "/crowd/earning_history/weekly_detail"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultWeeklyDetail()
+        }
+
+        "/crowd/earning_history/weekly_detail/invoice/tap"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultWeeklyDetail()
+        }
+
+        "/crowd/earning_history/weekly_detail/payment/tap"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultWeeklyDetail()
+        }
+
+        "/crowd/earning_history/weekly_detail/help"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultWeeklyDetail()
+        }
+
+        "/crowd/earning_history/weekly_detail/tooltip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultWeeklyDetail()
+        }
     }
 }

@@ -38,7 +38,7 @@ metrics {
 		}
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/vip/contact_seller", "/vip/contact_whatsapp")
+				path("/vip/call_seller", "/vip/contact_seller", "/vip/contact_whatsapp", "/contact_seller")
 			}
 		}
 	}
@@ -99,7 +99,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path("/vip/contact_seller")
+				path("/vip/contact_seller", "/contact_seller")
 			}
 		}
 	}

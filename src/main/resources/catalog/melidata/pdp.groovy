@@ -130,7 +130,7 @@ tracks {
         cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
-        cac_status(required: false, type: PropertyType.String, 
+        cac_status(required: false, type: PropertyType.String,
                 values: ["normal", "after_dispatch", "unknown"],
                 description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
 
@@ -431,7 +431,7 @@ tracks {
     "/pdp/questions/quick_access"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
         item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
-        type(required: true, type: PropertyType.String,values: ["payment", "returns", "shipping", "warranty"], description: "quick access type")
+        type(required: true, type: PropertyType.String,values: ["payment", "returns", "shipping", "warranty", "credits"], description: "quick access type")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         context(required: true, type: PropertyType.String, description: "The context is qadb", values:["/qadb","/questions"])
     }
@@ -677,12 +677,37 @@ tracks {
     "/pdp/html_description/view_all_action"(platform: "/", parentPropertiesInherited: true) {
     }
 
-    "/pdp/vertical_gallery"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+    "/pdp/fullscreen_gallery"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        context(required: true, type: PropertyType.String, description: "Indicate from what gallery is called")
+        action(required: true, type: PropertyType.String, description: "Indicate from what image or button is called")
     }
 
-    "/pdp/vertical_gallery/show"(platform: "/", parentPropertiesInherited: true) {
+    "/pdp/vertical_gallery"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
     }
 
+    "/pdp/vertical_gallery/show"(platform: "/", parentPropertiesInherited: true) {
+        image_quantity(required: true, type: PropertyType.Numeric, description: "Indicates the quantity of images in the gallery")
+        show_more_button(required: true, type: PropertyType.Boolean, description: "Indicates if has the button show more image")
+    }
+
+    "/pdp/vertical_gallery/show/open_image"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        order(required: true, type: PropertyType.String, description: "Indicate position of the image or the button who was tapped")
+    }
+
+    "/pdp/vertical_gallery/show/more_images"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+    }
+
+    "/pdp/back_to_top"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 }

@@ -118,6 +118,31 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Branches
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Vendor Central branches listing view") {
+    "/vendor_central/branches/listing"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central branch detail view") {
+    "/vendor_central/branches/detail"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central branch create view") {
+    "/vendor_central/branches/create"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central branch select accounts view") {
+    "/vendor_central/branches/accounts"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central branch select accounts view") {
+    "/vendor_central/branches/congrats"(platform: "/web", type: TrackType.Event) {
+      collaborators_updated = false
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Vendor Central Contra Cogs
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Vendor Central Contra COGS list search event") {
@@ -146,6 +171,19 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Vendor Central Invoices view") {
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Inbound creator
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Vendor Central inbound creator congrats") {
+    "/vendor_central/inbound-shipment/creator/congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
+
+  test("Vendor Central inbound creator view") {
+    "/vendor_central/inbound-shipment/creator"(platform: "/web", type: TrackType.View) {}
   }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------

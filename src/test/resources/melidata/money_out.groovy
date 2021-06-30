@@ -110,6 +110,8 @@ trackTests {
          error = "rejected" 
       }
 
+      "/money_out/tecban/risk_cap"(platform: "/", type: TrackType.View) {}
+
       "/money_out"(platform: "/", type: TrackType.Event) {}
       "/money_out/tecban/select_amount"(platform: "/", type: TrackType.View) {}
 
@@ -174,7 +176,10 @@ trackTests {
       "/money_out/transfers/review_and_confirm/edit_amount_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/review_and_confirm/edit_account_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/review_and_confirm/confirm_button_clicked"(platform: "/", type: TrackType.Event) {}
-
+      "/money_out/transfers/review_and_confirm/know_more_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/review_and_confirm/know_more_tooltip_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/review_and_confirm/edit_reason_clicked"(platform: "/", type: TrackType.Event) {}
+      
       //Transfer Hub - Congrats
       "/money_out/transfers/result"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/result/success_online"(platform: "/", type: TrackType.View) {
@@ -325,5 +330,57 @@ trackTests {
       "/pix/limits/congrat"(platform: "/", type: TrackType.View) {}
       "/pix/limits/congrat/primary_button_click"(platform: "/", type: TrackType.Event) {}
       "/pix/limits/congrat/secondary_button_click"(platform: "/", type: TrackType.Event) {}
+
+      //Money Out Error View - Enchufe
+      "/money_out/error_view"(platform: "/", type: TrackType.View) {
+        error = "Error 404"
+        view = "Transfer Dashboard"
+      }
+
+      //Digital Accounts Components
+      "/da_base_activity"(platform: "/", type: TrackType.View) {}
+      "/da_base_activity/error_view"(platform: "/", type: TrackType.View) {}
+
+      //Home Pix MLB
+      "/pix/home"(platform: "/", type: TrackType.View) {}
+       "/pix/home/settings"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/faq"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/money_in"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/money_out"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/cash_out"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/collect"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/pay"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - Keys
+       "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/keys/share"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/keys/new"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - Cadastrar Keys
+       "/pix/home/banner/new_key"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - Help Button
+       "/pix/home/additional_list/faq"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - Bottom Sheet
+       "/pix/home/bottom_sheet"(platform: "/", type: TrackType.View) {}
+
+       //Home Pix MLB - Help Button Options
+       "/pix/home/bottom_sheet/faq"(platform: "/", type: TrackType.Event) {}    
+       "/pix/home/bottom_sheet/bacen"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - Settings options
+       "/pix/home/bottom_sheet/pix_limits"(platform: "/", type: TrackType.Event) {}    
+       "/pix/home/bottom_sheet/pix_keys"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - Pay options
+       "/pix/home/bottom_sheet/qr_scan"(platform: "/", type: TrackType.Event) {}    
+       "/pix/home/bottom_sheet/copy_paste"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - FTU
+       "/pix/home/ftu"(platform: "/", type: TrackType.View) {}
+       "/pix/home/ftu/close"(platform: "/", type: TrackType.Event) {}  
+       "/pix/home/ftu/confirm"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/ftu/cancel"(platform: "/", type: TrackType.Event) {}
     }
 }

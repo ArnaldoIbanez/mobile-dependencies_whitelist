@@ -37,7 +37,6 @@ class CatalogManager implements Runnable {
 
 	void init() {
 		InitiativeAPI.getInstance().init()
-		catalogHandlers.each{ _, catalogHandler -> catalogHandler.reload()}
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES)
 	}
 

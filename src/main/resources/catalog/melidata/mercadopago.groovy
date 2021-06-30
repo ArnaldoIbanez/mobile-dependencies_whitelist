@@ -53,91 +53,6 @@ tracks {
 
     "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
 
-    "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
-
-    "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
-    }
-
-    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        has_account_money (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has enough money in account")
-    }
-
-    "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
-        selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
-        installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
-    }
-
-    "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        error_code (type: PropertyType.Numeric, required: true, description: "Error code")
-    }
-
-    "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
-        selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
-        installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
-    }
-
-    "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/invalid_address"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/complete_card_data"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/sim_card"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
-
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
@@ -162,6 +77,12 @@ tracks {
 
     // [Merchants Growth] Landings Navigation > Events
     "/point/landings/navigation"(platform:"/", type: TrackType.Event) {}
+    
+    // [Merchants Growth] Landings Navigation > Calculator link
+    "/point/landings/calculator"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landings Navigation > Security module link
+    "/point/landings/security"(platform:"/", type: TrackType.Event) {}
 
     // [Merchants Growth] Landing compare
     "/point/landings/compare"(platform:"/", type: TrackType.View) {}
@@ -499,9 +420,9 @@ tracks {
     "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
-    * PDV Onboarding IIBB - Register Point Plus
+    * Register Point Devices
     */
-    "/point/register"(platform: "/", isAbstract: true, initiative : "1046") {}
+    "/point/register"(platform: "/", isAbstract: true, initiative : "1300") {}
 
     // Register device
     "/point/register/start"(platform: "/", type: TrackType.View) {}

@@ -28,7 +28,8 @@ trackTests {
                 name: "Tiendas oficiales",
                 type: "text",
                 position: -1,
-                values_quantity: 8
+                values_quantity: 8,
+                enhanced_position: 0
             ],
             [
                 id: "discount",
@@ -86,6 +87,10 @@ trackTests {
             nextday: ["MLA12345645"]
     ]
 
+    def originalSearchFilterInfo = [
+            filter_id  : "cpg",
+            filter_value: "yes",
+    ]
 
     test("Search core tracking") {
 
@@ -138,6 +143,7 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            original_search_filter: originalSearchFilterInfo
         }
 
         def defaultWebTrack = {
@@ -247,6 +253,16 @@ trackTests {
                     selected   : [
                             name       : "Hogar, Muebles y Jardin",
                             selected_id: "MLA1574"
+                    ]
+            ]
+        }
+
+        def filter_definition = {
+            [
+                    carousel_id: "GENDER",
+                    selected   : [
+                            name       : "Sin género",
+                            selected_id: "110461"
                     ]
             ]
         }
@@ -421,6 +437,40 @@ trackTests {
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
             carousel_categories_shown = true
+            filter_carousel_shown = false
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
+        })
+
+        "/search"(platform: "/mobile", {
+            total = 258
+            limit = 0
+            view_mode = "MAP"
+            results = []
+            billboards = []
+            category_path = []
+            offset = 50.0
+            sort_id = "relevance"
+            filters = { official_store = "140" }
+            autoselected_filters = ["official_store"]
+            geo_search = "false"
+            filter_tags = "locationFromHistory"
+            pads = []
+            pads_info = {
+                ids = []
+                printed_positions = []
+                printed_positions_size = 0
+            }
+            carousel_filters = ["BRAND", "official_store", "STYLE"]
+            pdp_grouped_search = true
+            pdp_info = pdpInfo
+            promoted_items = ["MLA1", "MLA2"]
+            carousel_categories_shown = true
+            filter_carousel_shown = true
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -461,6 +511,10 @@ trackTests {
 
         "/search/category_carousel"(platform: "/mobile", type: TrackType.Event) {
             carousels = category_definition()
+        }
+
+        "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event) {
+            carousels = filter_definition()
         }
 
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
@@ -552,6 +606,12 @@ trackTests {
         "/search/back_listing"(platform: "/") {
             defaultSearchInformation()
         }
+       "/search/map_link"(platform: "/mobile") {
+        }
+        "/search/search_map"(platform: "/mobile") {
+        }
+        "/search/back_listing"(platform: "/mobile") {
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }
@@ -567,6 +627,10 @@ trackTests {
         "/search/official_store_logo/click"(platform: "/web") {
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
+        }
+        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            defaultSearchInformation()
+            official_store_id = "123"
         }
         "/search/banner"(platform: "/web", defaultWebTrack)
         "/search/banner/click"(platform: "/web", type: TrackType.Event) {
@@ -731,5 +795,4 @@ trackTests {
             advertising_id = "sky"
         }
     }
-
 }

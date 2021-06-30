@@ -24,7 +24,7 @@ trackTests {
             session_id = "1"
             form_model = "{modelo}"
             mcc = "1234"
-            melicapaign_id = "1"
+            melicampaign_id = "1"
             origin = "push"
             clone_campaign_id = "1"
             tooltip = "Budget"
@@ -379,6 +379,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
     test("Home sellers - Home") {
         "/discount_sellers/v2/home"(platform: "/", type: TrackType.View) {
+            session_id= "qowejqboej1b11klasdsjal"
             segments = [
                 "featured_campaign",
                 "template_campaigns",
@@ -391,6 +392,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
     test("Home sellers - Segment Your campaigns") {
         "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             drawing_type = "list"
             segment_id = "your_campaigns"
             position = 0
@@ -419,6 +421,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
     test("Home sellers - Segment campaigns one click") {
         "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             drawing_type = "list"
             segment_id = "template_campaigns"
             position = 1
@@ -441,6 +444,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
     test("Home sellers - Segment: Moderacion") {
         "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             drawing_type = "modal"
             segment_id = "moderation"
             position = 0
@@ -456,6 +460,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
     test("Home sellers - Segment: Create campaign") {
         "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             drawing_type = "button"
             segment_id = "personalized_campaign"
             position = 3 
@@ -464,6 +469,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers Error > segment
     test("Home sellers - Segment: Melicampaign") {
         "/discount_sellers/v2/home/segment"(platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             drawing_type = "banner"
             segment_id = "featured_campaign"
             position = 3
@@ -471,6 +477,7 @@ trackTests {
     }
     test("Home sellers -Home Tap") {
         "/discount_sellers/v2/home/tap"(platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             drawing_type = "list"
             segment_id = "featured_campaign"
             position = 3
@@ -484,6 +491,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers Detail "Active" > Pageview
     test("Home sellers - Detail") {
         "/discount_sellers/v2/detail" (platform: "/", type: TrackType.View) {
+            session_id= "qowejqboej1b11klasdsjal"
             campaign_id = "432682"
             status = "ACTIVE"
             payments = "123"
@@ -496,6 +504,7 @@ trackTests {
      // Instore (ISDT) - Webview -  Home Sellers Detail "Active" > tap
     test("Home sellers - Detail - tap") {
         "/discount_sellers/v2/detail/tap" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             campaign_id = "432682"
             status = "ACTIVE"
             payments = "123"
@@ -508,6 +517,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers History > Pageview
     test("Home sellers - history") {
         "/discount_sellers/v2/history" (platform: "/", type: TrackType.View) {
+            session_id= "qowejqboej1b11klasdsjal"
             campaigns = [
                 [
                     component_id = "30013420",
@@ -531,6 +541,7 @@ trackTests {
     // Instore (ISDT) - Webview -  Home Sellers History > tap
     test("Home sellers - History - tap") {
         "/discount_sellers/v2/history/tap" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             component_id = "100524"
             position = 3
             budget_total = 2000
@@ -540,15 +551,167 @@ trackTests {
             payments = 65
         }
     }
-    // Instore (ISDT) - Webview -  Home Sellers History > tap
+    // Instore (ISDT) - Webview -  Home Sellers History > filter
+    test("Home sellers - History - filter") {
+        "/discount_sellers/v2/history/filter" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
+            campaigns = [
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "ACTIVE"
+                ],
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "INACTIVE"
+                ],
+            ]
+            active_filters = ['ONGOING'] 
+            filter_selected = "PAUSED"
+            is_selected = false
+
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers History > scroll
+    test("Home sellers - History - scroll") {
+        "/discount_sellers/v2/history/scroll" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
+            campaigns = [
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "ACTIVE"
+                ],
+                [
+                    component_id = "30013420",
+                    payments = 342,
+                    payed_amount = 1230,
+                    budget_used = 1000,
+                    budget_total = 1230,
+                    status = "INACTIVE"
+                ],
+            ]
+            active_filters = ['ONGOING'] 
+            page = 2
+            
+
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers error > Pageview
     test("Home sellers - error") {
-        "/discount_sellers/v2/error" (platform: "/", type: TrackType.View) {}
+        "/discount_sellers/v2/error" (platform: "/", type: TrackType.View) {
+            session_id= "qowejqboej1b11klasdsjal"
+        }
     }
 
     // Instore (ISDT) - Webview -  Home Sellers History > tap
     test("Home sellers - error - tap") {
         "/discount_sellers/v2/error/tap" (platform: "/", type: TrackType.Event) {
+            session_id= "qowejqboej1b11klasdsjal"
             link = "go_home"  
         }
     }
+
+    // Instore (ISDT) - Webview -  Home Sellers template-details > Pageview
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details" (platform: "/", type: TrackType.View) {
+            session_id= "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"  
+        }
+    }
+
+    // Instore (ISDT) - Webview -  Home Sellers template-details > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/tap" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            action = "TyC"
+        }
+    }
+
+    // Instore (ISDT) - Webview -  Home Sellers template-details > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = "672315"
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers template-details > congrats > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = 672315
+            result = "success"
+        }
+    }
+    test("Home sellers - template-details - Congrats - Melicampaign") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "melicampaign"
+            melicampaign_id = "qwerty-12313-qwaaa"
+            campaign_id = 672315
+            result = "success"
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers template-details > congrats > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            result = "fail"
+        }
+    }
+    // Instore (ISDT) - Webview -  Home Sellers template-details > congrats > tap
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats/tap" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = 672315
+            action = "admin"
+        }
+    }
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/template-details/congrats/tap" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            template_id = "default_template_MLA"
+            campaign_id = 672315
+            action = "admin"
+            melicampaign_id = "qwerty-12313-qwaaa"
+        }
+    }
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/landings" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            type = "sold_out"
+        }
+    }
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/landings" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            type = "melicampaign_soldout"
+            melicampaign_id = "qwerty-12313-qwaaa"
+        }
+    }
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/landings/cta" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            action = "create_custom_campaign"
+            melicampaign_id = "qwerty-12313-qwaaa"
+            action = "create_custom_campaign"
+            type="melicampaign"
+        }
+    }
+
 }

@@ -156,46 +156,6 @@ trackTests {
 			newPurchasesDataSet()
 		}
 
-		"/my_purchases/status_detail/show_action" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/show_help" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/show_faq" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/click_action" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/click_help" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/click_faq" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/click_view_item" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/click_view_messages" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/click_driver_messages" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
-		"/my_purchases/status_detail/click_contact_us" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
-		}
-
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------
     // TEST TRACKS MY PURCHASES STATUS ITEMS
@@ -291,6 +251,57 @@ trackTests {
 		}
 
 		"/my_purchases/detail/click_action" (platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/detail/click_shipment_detail"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/detail/click_view_item"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/detail/click_download_invoice"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/detail/click_pack_link_modal"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/detail/click_go_to_insurance"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+		// TEST TRACKS MY PURCHASES REFUND DETAIL
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		"/my_purchases/refund_detail"(platform:"/", type: TrackType.View) {
+		}
+
+		"/my_purchases/refund_detail/show_action"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/show_help"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/show_faq"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/click_action"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/click_help"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
+
+		"/my_purchases/refund_detail/click_faq"(platform:"/", type: TrackType.Event) {
 			purchasesEventDataSet()
 		}
 

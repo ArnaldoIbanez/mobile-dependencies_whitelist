@@ -80,6 +80,7 @@ catalog {
         include business, "traffic.groovy"
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
+        include business, "dynamic_features.groovy"
         include business, "payers_growth.groovy"
         include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
@@ -89,6 +90,7 @@ catalog {
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
         include business, "cookie_disclaimer.groovy"
+        include business, "cookies_consent.groovy"
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
         include business, "addresses.groovy"
@@ -111,6 +113,7 @@ catalog {
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
         include business, "credits_classifieds.groovy"
+        include business, "credits_vis.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "fulfillment.groovy"
@@ -180,6 +183,8 @@ catalog {
         include business, "global_selling.groovy"
         include business, "categories.groovy"
         include business, "category_landing.groovy"
+        include business, "cx_clicktocall.groovy"
+        include business, "tendencies.groovy"
     }
 
     mercadopago.each { business ->
@@ -244,16 +249,31 @@ catalog {
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
-        include business, "black_friday.groovy"
+        include business, "hot_sale.groovy"
         include business, "business_config.groovy"
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
         include business, "point_devices.groovy"
+        include business, "proximity_marketplace.groovy"
+        include business, "my_business_challenges.groovy"
+        include business, "point_receipts.groovy"
+        include business, "disbursements_wu.groovy"
+        include business, "point_buying_flow.groovy"
+        include business, "mercadopago_corecheckouts.groovy"
     }
 
     mercadoshops.each { business ->
+        include business, "add_to_cart.groovy"
         include business, "authentication.groovy"
+        include business, "buyIntention.groovy"
+        include business, "cartCheckout.groovy"
+        include business, "cartList.groovy"
+        include business, "checkout.groovy"
         include business, "notifications_mshops.groovy"
+        include business, "landing_mshops.groovy"
+        include business, "registrations.groovy"
+        include business, "search.groovy"
+        include business, "vip.groovy"
     }
 
     mercadoads.each { business ->

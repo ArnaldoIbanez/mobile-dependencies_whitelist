@@ -194,6 +194,18 @@ tracks {
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use"(platform: "/", type: TrackType.Event) {}
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet"(platform: "/", type: TrackType.Event) {}
 
+    // Invite and Win
+    "/merchant_acquisition/point"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/point/landing"(platform: "/", isAbstract: true) {}
+
+    "/merchant_acquisition/point/landing/invite_and_win"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/point/landing/invite_and_win/recommend"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/sign_up"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/additional_benefits"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/point_details"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/qr_details"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/kit_download"(platform: "/", type: TrackType.Event) {}
+
     // Associar Point - Micrositio - reseller
     "/merchant_acquisition/flows/resellers/point_register"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/point_register/associate"(platform:"/", type: TrackType.View) {}

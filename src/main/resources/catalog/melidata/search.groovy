@@ -33,10 +33,6 @@ tracks {
     }
 
     def seo_item_definition = objectSchemaDefinitions {
-        is_whitelisted(type: PropertyType.Boolean, required: false)
-        check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: false)
-        value(type: PropertyType.Numeric, required: false)
-        is_default(type: PropertyType.Boolean, required: false)
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
     }
 
@@ -104,6 +100,11 @@ tracks {
         selected(type: PropertyType.Map(selected_definition), required: false)
     }
 
+    def filter_definition = objectSchemaDefinitions {
+        carousel_id(type: PropertyType.String, required: true)
+        selected(type: PropertyType.Map(selected_definition), required: false)
+    }
+
     def selected_definition = objectSchemaDefinitions {
         name(required:true, PropertyType.String)
         selected_id(required:true, PropertyType.String)
@@ -125,6 +126,12 @@ tracks {
         type(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         values_quantity(type: PropertyType.Numeric, required: true)
+        enhanced_position(type: PropertyType.Numeric, required: false, description: "position in the view where the enhanced filter will be displayed")
+    }
+
+    def original_search_filter_definition = objectSchemaDefinitions {
+        filter_id(type: PropertyType.String, required: true, description: "original search filter id applied")
+        filter_value(type: PropertyType.String, required: true, description: "original search filter value applied")
     }
 
     //SEARCH FLOW
@@ -141,7 +148,7 @@ tracks {
         filters(required: true, description: "filters applied")
         displayed_filters(required: false, descrition: "Information about displayed filters that can be applied by the user", PropertyType.ArrayList(PropertyType.Map(displayed_filter_object)))
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
-        view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
+        view_mode(required: true, description: "MOSAIC, LIST or GALLERY, MAP on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY","MAP"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
         promise_items(required: false, description:  "items with shipping promise", type: PropertyType.Map(promise_item_definition))
 
@@ -156,7 +163,7 @@ tracks {
         best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
         highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
-
+        original_search_filter(required: false, description: 'original search filter (a fallback search may be performed with certain filters unapplied in case of zero results)', type: PropertyType.Map(original_search_filter_definition))
 
         //Tracks from Search Backend:
         backend_data(required: false)
@@ -239,6 +246,7 @@ tracks {
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
+        filter_carousel_shown(required: false, description: 'filter carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -341,12 +349,22 @@ tracks {
         url(required: true, description: "Url of landing associated with the logo click event")
     }
 
+    "/search/official_store"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+        official_store_id(required: true, type: PropertyType.String, description: "Link's Official store id")
+    }
+
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
 
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
+    }
+
+    "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        carousels(required:true, PropertyType.ArrayList(PropertyType.Map(filter_definition)))
     }
 
     "/search/input/back"(platform: "/mobile") {}
@@ -393,6 +411,30 @@ tracks {
     }
 
     "/search/back_listing"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/map_link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+    }
+
+    "/search/search_map"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+    }
+
+    "/search/back_listing"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

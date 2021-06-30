@@ -434,28 +434,28 @@ metrics {
     }
   }
 
-  "payment.installments"(description: "Counts when a user pay with installments > 1", compute_payment: true, deprecation_date:"2021/03/31") {
+  "payment_intent.first_payment_method"(description: "Counts when a user confirms pay with first suggested payment method", compute_payment: true) {
     startWith {
-      experiment("px_nativo/highlight_installments")
-    }
-
-    countsOn {
-      condition {
-        path("/px_checkout/result/success")
-        notEquals("event_data.extra_info.selected_installment.quantity", "1")
-      }
-    }
-  }
-
-  "payment_intent.installments"(description: "Counts when a user confirm pay with installments > 1", compute_payment: true, deprecation_date:"2021/03/31") {
-    startWith {
-      experiment("px_nativo/highlight_installments")
+      experiment("px_nativo/payment_method_recommendation")
     }
 
     countsOn {
       condition {
         path("/px_checkout/review/confirm")
-        notEquals("event_data.extra_info.selected_installment.quantity", "1")
+        equals("event_data.payment_method_selected_index", 0)
+      }
+    }
+  }
+
+  "payment_intent.second_payment_method"(description: "Counts when a user confirms pay with second suggested payment method", compute_payment: true) {
+    startWith {
+      experiment("px_nativo/payment_method_recommendation")
+    }
+
+    countsOn {
+      condition {
+        path("/px_checkout/review/confirm")
+        equals("event_data.payment_method_selected_index", 1)
       }
     }
   }
