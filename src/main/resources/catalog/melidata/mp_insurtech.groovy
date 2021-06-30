@@ -85,6 +85,13 @@ tracks {
         franchise_payment_amount(required: false, type: PropertyType.Numeric, description: "Amount associated to the franchise payment.")
     }
 
+    def product = objectSchemaDefinitions {
+        entity_type(required: true, type: PropertyType.String, description: "Entity type insurtech product ", values: ["quote", "order", "item_id"])
+        entity_id(required: true, type: PropertyType.String, description: "Entity id of the insurtech product")
+        product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex"])
+        product_id(required: false, type: PropertyType.String, description: "Id insurtech product")
+    }
+
     // INSURTECH RODA QPage Abstract
     "/insurtech"(platform: "/", isAbstract: true) {}
 
@@ -505,6 +512,7 @@ tracks {
     }
 
     // INSURTECH MyDetailFe
+    //RODA
     "/insurtech/protections/detail"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
 
     "/insurtech/protections/detail/roda"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
@@ -569,6 +577,26 @@ tracks {
     "/insurtech/protections/detail/roda/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
+
+    //GAREX
+    "/insurtech/protections/detail/garex"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
+
+    "/insurtech/protections/detail/garex"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+    "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
+    }
+    "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
+    }
+    "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
+    }
+    "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
+    }
+    "/insurtech/protections/detail/garex/activities"(platform:"/", type: TrackType.Event) {
+    }
+
+
+    //Landing-fe
     "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
             type(required: true, type:PropertyType.String,values: ['mobile', 'desktop', 'tablet'], description: "Device type")
             os_name(required: true, type:PropertyType.String, description: "Operating system")
