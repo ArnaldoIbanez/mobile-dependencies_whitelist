@@ -5836,11 +5836,31 @@ trackTests {
 
         "/notification_center/insurtech_purchase"(platform: "/") {
             latest_news_type= "insurtech_purchase"
-            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            latest_news_id= "insurtech_purchase-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
         }
 
         "/notification/insurtech_purchase"(platform: "/mobile") {
-            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            news_id = "insurtech_purchase-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            event_type = "open"
+        }
+
+         "/notification_center/insurtech_payment_recovery"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery"
+            latest_news_id= "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+        
+        "/notification_center/insurtech_money_in"(platform: "/") {
+            latest_news_type= "insurtech_money_in"
+            latest_news_id= "insurtech_money_in-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_money_in"(platform: "/mobile") {
+            news_id = "insurtech_money_in-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
 
@@ -11569,11 +11589,31 @@ trackTests {
         
         "/notification_center/insurtech_purchase"(platform: "/") {
             latest_news_type= "insurtech_purchase"
-            latest_news_id= "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            latest_news_id= "insurtech_purchase-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
         }
 
         "/notification/insurtech_purchase"(platform: "/mobile") {
-            news_id = "insurtech_pending_payment-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            news_id = "insurtech_purchase-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
+            event_type = "open"
+        }
+        
+        "/notification_center/insurtech_payment_recovery"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery"
+            latest_news_id= "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+        
+        "/notification_center/insurtech_money_in"(platform: "/") {
+            latest_news_type= "insurtech_money_in"
+            latest_news_id= "insurtech_money_in-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_money_in"(platform: "/mobile") {
+            news_id = "insurtech_money_in-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
          
