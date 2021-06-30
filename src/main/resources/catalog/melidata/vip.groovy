@@ -1074,6 +1074,7 @@ tracks {
     }
 
     "/vip/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {
+        is_highlighted(required: false, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
     }
 
     "/vip/technical_specs/see_more"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1097,6 +1098,7 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has attributes highlighted sale specification")
+        is_highlighted(required: false, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
     }
 
     "/vip/denounce_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
