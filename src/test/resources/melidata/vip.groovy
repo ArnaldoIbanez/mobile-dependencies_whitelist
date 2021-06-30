@@ -857,6 +857,15 @@ trackTests {
             has_highlighted_sale_specs=false
         }
 
+        "/vip/technical_specs/show"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            vertical = "core"
+            vip_version = "new"
+            has_good_price = false
+            has_highlighted_sale_specs=false
+            is_highlighted = false
+        }
+
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
             item_id = "MLA213512313"
             vertical = "motors"
@@ -870,6 +879,7 @@ trackTests {
             ]
             has_good_price = true
             has_highlighted_sale_specs=true
+            is_highlighted = false
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -932,6 +942,8 @@ trackTests {
         "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
             item_id = "MLA112341"
         }
+
+        "/vip/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {}
     }
 
     test("New Shipping calculator"){
@@ -1414,6 +1426,83 @@ trackTests {
 
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
+        }
+    }
+
+    test("VIP NEW Shipping Calculator"){
+
+        def shipping_promises = {
+            item_id = "MLU474386325"
+            quantity = 1
+            shipping_promises = [
+                    {
+                        type = "address"
+                        display = "recommended"
+                        discount_type = "ratio"
+                        free_shipping = true
+                        shipping_preference = "Rápido a domicilio"
+                        after_dispatch = false
+                        min_days = 0
+                        max_days = 0
+                        list_cost = 199
+                        cost = 0
+                        shipping_method_type = "super_express"
+                        estimated_delivery_time = {
+                            type = "known"
+                            date = "2021-05-20T03:00:00Z"
+                            shipping = 0
+                            handling = 0
+                            schedule = 0
+                            offset = {
+                                shipping = 0
+                            }
+                            time_frame = {}
+                            pay_before = "2021-05-20T19:00:00Z"
+                        }
+                    }
+            ]
+        }
+
+
+        "/vip/new_shipping_calculator"(platform: "/", type: TrackType.View) {
+            shipping_promises()
+            item_id = "MLA533657947"
+            quantity = 1
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/vip/new_shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+        }
+
+
+        "/vip/new_shipping_calculator"(platform: "/web/desktop", type: TrackType.View) {
+            shipping_promises()
+        }
+
+        "/vip/new_shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
+
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+        }
+
+        //Apps
+        "/vip/new_shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
+            shipping_promises()
+            item_id = "MLA533657947"
+            quantity = 1
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+
+
+        "/vip/new_shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+
+        "/vip/new_shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
         }
     }
 

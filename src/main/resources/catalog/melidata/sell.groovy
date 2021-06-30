@@ -584,7 +584,7 @@ tracks {
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
         is_catalog_listing(required: false, description: "If core item is a catalog listing", type: PropertyType.Boolean)
-        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type"])
+        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type", "sharing_first_place"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {
@@ -1106,6 +1106,9 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
     }
+    "/sell/item_conditions/prices"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/prices/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/prices/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1277,6 +1280,7 @@ tracks {
         sellGroup
         listingTypeFlow
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        mshopsGroup
     }
     "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}

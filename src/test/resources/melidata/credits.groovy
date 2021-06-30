@@ -244,6 +244,36 @@ trackTests {
         "/credits/merchant/public_landing/credits_access"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
     }
 
+    test('Credits Optins FrontEnd') {
+        // MercadoPago Business
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            initiative = 'merchant_enrollment'
+            step = 'whatsapp'
+        }
+        "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            initiative = 'merchant_open_market'
+            step = 'whatsapp_sms'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            initiative = 'merchant_administrator'
+            step = 'sms'
+        }
+
+        // MercadoLibre business
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            initiative = 'consumer_open_sea'
+            step = 'telcel'
+        }
+        "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            initiative = 'consumer_administrator'
+            step = 'credit_circle'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            initiative = 'consumer_personal_loan'
+            step = 'telcel_credit_circle'
+        }
+    }
+
     // Credits Marketing Performance landing
     test("Credits Marketing landings") {
         // MercadoPago Business

@@ -14,15 +14,9 @@ trackTests {
 
     test("Dynamic features track - ML") {
 
-	    // Dynamic Features Events
-	    "/dynamic_features/downloaded"(platform: "/mobile", type: TrackType.Event) {
-            module_name = "module_dynamic"
-            dynamic_deeplink = "meli://new_deeplink"
-            static_deeplink = "meli://old_deeplink"
-		}
-
 		"/dynamic_features/failed"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
+            failed_reason = "some failed reason"
             static_deeplink = "meli://old_deeplink"
 		}
         "/dynamic_features/launched"(platform: "/mobile", type: TrackType.Event) {
@@ -32,6 +26,15 @@ trackTests {
 		}    
         "/dynamic_features/canceled"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
+            static_deeplink = "meli://old_deeplink"
+		}
+        "/dynamic_features/dispatched"(platform: "/mobile", type: TrackType.Event) {
+            static_deeplink = "meli://old_deeplink"
+		}
+
+        "/dynamic_features/installed"(platform: "/mobile", type: TrackType.Event) {
+            module_name = "module_dynamic"
+            dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
 		}
     }
@@ -40,15 +43,9 @@ trackTests {
 
     test("Dynamic features track - MP") {
 
-	    // Dynamic Features Events
-	    "/dynamic_features/downloaded"(platform: "/mobile", type: TrackType.Event) {
-            module_name = "module_dynamic"
-            dynamic_deeplink = "meli://new_deeplink"
-            static_deeplink = "meli://old_deeplink"
-		}
-
 		"/dynamic_features/failed"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
+            dynamic_module_size = "500k"
             static_deeplink = "meli://old_deeplink"
 		}
         "/dynamic_features/launched"(platform: "/mobile", type: TrackType.Event) {
@@ -58,6 +55,15 @@ trackTests {
 		}    
         "/dynamic_features/canceled"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
+            static_deeplink = "meli://old_deeplink"
+		}
+        "/dynamic_features/dispatched"(platform: "/mobile", type: TrackType.Event) {
+            static_deeplink = "meli://old_deeplink"
+		}
+
+        "/dynamic_features/installed"(platform: "/mobile", type: TrackType.Event) {
+            module_name = "module_dynamic"
+            dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
 		}
     }
