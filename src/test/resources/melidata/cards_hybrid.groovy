@@ -1646,6 +1646,9 @@ trackTests {
             action = "faq"
         }
         "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+            action = "payment_intention_help"
+        }
         "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -1660,6 +1663,9 @@ trackTests {
         }
         "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
             status = "unknown"
+        }
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "generic"
         }
         "/cards/nfc/congrats/insufficient_money"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/congrats/blocked_pin"(platform: "/", type: TrackType.View) {}
