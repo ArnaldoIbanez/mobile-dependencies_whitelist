@@ -36,4 +36,14 @@ trackTests {
         }
     }
 
+    test("Landing mercadopago online payments shopify") {
+        "/landing/shopify" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago online payments shopify with browser_id") {
+        "/landing/shopify" (platform: "/web") {
+            browser_id = "111111-22222-333333-444444"
+        }
+    }
+
 }
