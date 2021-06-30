@@ -670,5 +670,11 @@ trackTests {
            error = "Error 404"
            view = "Payment Methods Dashboard"
         }
+
+        //Static Resources Network Error in Money In
+        "/money_in/static_resources"(platform:"/", type: TrackType.View){}
+        "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
+           error = "Error 404"
+        }
     }
 }
