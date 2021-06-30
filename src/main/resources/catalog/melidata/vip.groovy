@@ -477,6 +477,8 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
+    "/vip/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
