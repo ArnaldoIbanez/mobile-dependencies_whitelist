@@ -222,10 +222,14 @@ trackTests {
             product = "kit-qr-standalone"
         }
 
-         "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {
+        "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {
             component_id = "open_modal"
             component_type = "button"
             value = "Open Modal"
+        }
+
+        "/landing/qr_kit/error" (platform: "/", type: TrackType.Event) {
+            value = "Something went terribly wrong on our site"
         }
     }
 }

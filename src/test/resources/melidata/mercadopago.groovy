@@ -4025,6 +4025,11 @@ trackTests {
                 "amount": "100.0",
                 "type": "transactional"
             ]
+            applock_flowlock_information = [
+                    "enabled": "enabled",
+                    "elapsed_time": 10,
+                    "screenlock_validated":false
+            ]
             config = [
                 "transaction_granularity_option": "always",
                 "transaction_accumulated_amount": "100",
@@ -4076,6 +4081,74 @@ trackTests {
             ]
         }
 
+        "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            from = "security_status"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            remote_config = "enabled"
+            last_status_expired = true
+            called = true
+        }
+
+        "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            from = "force_block_refresh"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            remote_config = "enabled"
+            called = true
+        }
+
+        "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            result = "success"
+            from = "security_status"
+            response = [
+                "type": "SECURITY_BLOCKER",
+                "app_lock": true,
+                "flow_lock": true
+            ]
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+
+        "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            result = "error"
+            from = "force_block_refresh"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+        
         "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
             os_status = "biometrics"
             error_msg_id = 501
@@ -4628,6 +4701,32 @@ trackTests {
         }
 
         "/security_settings/screenlock/granularity_opening"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
@@ -5281,7 +5380,7 @@ trackTests {
     test("About screen") {
         "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
-
+    
     test("Register Point Plus") {
         // Register device
         "/point/register/start"(platform: "/", type: TrackType.View) {}

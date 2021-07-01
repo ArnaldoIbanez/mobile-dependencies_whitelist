@@ -259,6 +259,9 @@ catalog {
         include business, "point_receipts.groovy"
         include business, "disbursements_wu.groovy"
         include business, "point_buying_flow.groovy"
+        include business, "widget.groovy"
+        include business, "mercadopago_corecheckouts.groovy"
+        include business, "pog_landings.groovy"
     }
 
     mercadoshops.each { business ->

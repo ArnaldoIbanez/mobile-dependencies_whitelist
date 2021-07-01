@@ -21,15 +21,15 @@ tracks {
         mshopslClickGroup(location)
     }
 
-    "/mercado_shops/home"(platform: "/", type: TrackType.View){}
+    "/home"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/home/landing"(platform: "/", type: TrackType.View){}
+    "/home/landing"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/home/landing/click"(platform: "/", type: TrackType.Event){
+    "/home/landing/click"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
-    "/mercado_shops/home/landing/activate_store"(platform: "/", type: TrackType.Event){
+    "/home/landing/activate_store"(platform: "/", type: TrackType.Event){
         mshopslClickGroup
     }
 

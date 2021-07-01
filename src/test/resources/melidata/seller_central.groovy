@@ -4649,6 +4649,14 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
+  test("Seller central questions filter") {
+    "/seller_central/questions/filter"(platform: "/", type: TrackType.Event) {
+      period = "60"
+      status = "answered"
+      user_type = "car_dealer"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller Central Buyer Questions
   //------------------------------------------------------------------------------------------------------------------------------------------------------

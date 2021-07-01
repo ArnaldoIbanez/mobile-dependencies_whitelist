@@ -243,6 +243,21 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tracking_shipped"
         }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_delivered"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
     }
     
      //Physical acquisition stop: Tracking
@@ -313,6 +328,9 @@ trackTests {
         }
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "virtual_debit_and_credit_active"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "without_cards_and_card_request"
         }
     }
     
@@ -400,7 +418,50 @@ trackTests {
             action = "page_4"
         }
     }
-    
+    //Dynamic Carousel Tracking
+    test("cards hybrid dashboard dynamic carousel tapped") {
+        "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "22",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 2
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Swiped") {
+        "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Closed") {
+        "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "42",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 3
+            ]
+        }
+    }
+
     //Feedback: Tracking
     test("cards hybrid dashboard feedback") {
         "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {

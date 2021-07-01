@@ -364,6 +364,7 @@ tracks {
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
+         dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
     
     "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
@@ -391,7 +392,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped"],
+            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge"],
             description: "Mini card tapped"
           )
     }
@@ -402,7 +403,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active"],
+            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active", "without_cards_and_card_request"],
             description: "Banner tapped"
           )
     }
@@ -492,7 +493,40 @@ tracks {
             description: "Carousel item swiped"
           )
     }
-    
+    //Dynamic Carousel Tracking
+    def dynamic_carousel_description = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String)
+        bu(required: false, type: PropertyType.String)
+        bu_line(required: false, type: PropertyType.String)
+        component_id(required: false, type: PropertyType.String)
+        content_id(required: false, type: PropertyType.String)
+        flow(required: false, type: PropertyType.String)
+        logic(required: false, type: PropertyType.String)
+        position(required: true, type: PropertyType.Numeric)
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item tapped"
+          )
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item swiped"
+          )
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item closed"
+          )
+    }
+
     //Feedback: Tracking
     "/cards/hybrid/dashboard/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
