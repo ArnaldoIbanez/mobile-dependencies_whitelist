@@ -11827,7 +11827,7 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "card_transactions_approved_authorization_extracash"(platform: "/mobile") {
+        "/notification/card_transactions_approved_authorization_extracash"(platform: "/mobile") {
             news_id = "card_transactions_approved_authorization_extracash-186785675"
             event_type = "open"
             notification_type= "deep_linking"
@@ -12239,8 +12239,8 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/card_nip_set_nip"(platform: "/mobile") {
-            news_id = "card_nip_set_nip-186785675"
+        "/notification/card_transactions_approved_authorization_extracash"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization_extracash-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
