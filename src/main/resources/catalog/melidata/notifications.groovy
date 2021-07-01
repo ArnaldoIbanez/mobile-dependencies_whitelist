@@ -2358,6 +2358,8 @@ tracks {
     "/notification/money_out_cashout_withdrawn"(platform: "/") {}
     "/notification/money_out_cashout_reversed"(platform: "/") {}
     "/notification/money_in_cashin_exceeded_cap"(platform: "/") {}
+    "/notification/moneyin_cashin_accredited"(platform: "/") {}
+    "/notification/moneyin_cashin_rejected"(platform: "/") {}
 
       //Reputation
       "/notification/reputation"(platform: "/") {
