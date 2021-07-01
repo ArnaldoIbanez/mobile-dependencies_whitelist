@@ -9,66 +9,54 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("User tries to add a new widget") {
-        "/widget/collect/config/open" (platform: "/mobile/android", type: TrackType.View) {
+    test("Widget config screen is accessed") {
+        "/widget/seller_collect/config"(platform: "/mobile/android", type: TrackType.View) {
             widget_id = 1
-            is_collaborator = false
-        }
-    }
-
-    test("Data service for setup screen response okay") {
-        "/widget/collect/config/success"(platform: "/mobile/android", type: TrackType.Event) {
-            widget_id = 1
-            is_collaborator = true
             collect_methods_count = 0
         }
     }
 
-    test("Data service for setup screen response with error") {
-        "/widget/collect/config/error"(platform: "/mobile/android", type: TrackType.Event) {
+    test("Widget config screen fails to open") {
+        "/widget/seller_collect/config/error"(platform: "/mobile/android", type: TrackType.View) {
             widget_id = 1
-            is_collaborator = true
-        }
-    }
-
-    test("User exits config page using back button") {
-        "/widget/collect/config/back"(platform: "/mobile/android", type: TrackType.Event) {
-            widget_id = 1
-            is_collaborator = true
-        }
-    }
-
-    test("User saves widget configuration") {
-        "/widget/collect/config/save"(platform: "/mobile/android", type: TrackType.Event) {
-            widget_id = 1
-            collect_method = "point"
-            is_collaborator = false
         }
     }
 
     test("User tries tu add a new widget not being logged in") {
-        "/widget/collect/config/not_logged"(platform: "/mobile/android", type: TrackType.Event) {
+        "/widget/seller_collect/config/not_logged"(platform: "/mobile/android", type: TrackType.View) {
             widget_id = 1
+        }
+    }
+
+    test("User exits config page using back button") {
+        "/widget/seller_collect/config/back"(platform: "/mobile/android", type: TrackType.Event) {
+            widget_id = 1
+        }
+    }
+
+    test("User saves widget configuration") {
+        "/widget/seller_collect/config/save"(platform: "/mobile/android", type: TrackType.Event) {
+            widget_id = 1
+            collect_method = "point"
         }
     }
 
     test("User taps over the widget") {
-        "/widget/collect/tap"(platform: "/mobile/android", type: TrackType.Event) {
+        "/widget/seller_collect/tap"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             collect_method = "point"
-            is_collaborator = false
         }
     }
 
     test("User removes widget from homescreen") {
-        "/widget/collect/remove"(platform: "/mobile/android", type: TrackType.Event) {
+        "/widget/seller_collect/remove"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             collect_method = "qr"
         }
     }
 
     test("User taps widget not being logged in") {
-        "/widget/collect/not_logged"(platform: "/mobile/android", type: TrackType.Event) {
+        "/widget/seller_collect/not_logged"(platform: "/mobile/android", type: TrackType.Event) {
             widget_id = 1
             collect_method = "point"
         }
