@@ -11827,6 +11827,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "card_transactions_approved_authorization_extracash"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization_extracash-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -12223,6 +12229,12 @@ trackTests {
 
         "/notification/card_nip_nip_block"(platform: "/mobile") {
             news_id = "card_nip_nip_block-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_set_nip"(platform: "/mobile") {
+            news_id = "card_nip_set_nip-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
