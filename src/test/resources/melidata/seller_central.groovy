@@ -390,6 +390,7 @@ trackTests {
         rules_applied: "none"
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -405,6 +406,7 @@ trackTests {
         rules_applied: "none"
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -428,6 +430,7 @@ trackTests {
         ]
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -439,6 +442,7 @@ trackTests {
       page = 2
       scroll_type = "next"
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
