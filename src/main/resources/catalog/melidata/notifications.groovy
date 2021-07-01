@@ -852,6 +852,14 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/moneyin_cashin_accredited"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_cashin_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/money_request_started"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2350,6 +2358,9 @@ tracks {
     "/notification/money_out_cashout_withdrawn"(platform: "/") {}
     "/notification/money_out_cashout_reversed"(platform: "/") {}
     "/notification/money_in_cashin_exceeded_cap"(platform: "/") {}
+    
+    "/notification/moneyin_cashin_accredited"(platform: "/") {}
+    "/notification/moneyin_cashin_rejected"(platform: "/") {}
 
       //Reputation
       "/notification/reputation"(platform: "/") {
