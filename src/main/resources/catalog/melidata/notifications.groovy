@@ -2358,8 +2358,14 @@ tracks {
     "/notification/money_out_cashout_withdrawn"(platform: "/") {}
     "/notification/money_out_cashout_reversed"(platform: "/") {}
     "/notification/money_in_cashin_exceeded_cap"(platform: "/") {}
-    "/notification/moneyin_cashin_accredited"(platform: "/") {}
-    "/notification/moneyin_cashin_rejected"(platform: "/") {}
+    "/notification/moneyin_cashin_accredited"(platform: "/") {
+        news_id(required: true, type: PropertyType.String)
+        event_type(required: true, type: PropertyType.String)
+    }
+    "/notification/moneyin_cashin_rejected"(platform: "/") {
+        news_id(required: true, type: PropertyType.String)
+        event_type(required: true, type: PropertyType.String)
+    }
 
       //Reputation
       "/notification/reputation"(platform: "/") {
