@@ -8,7 +8,5 @@ tracks {
     initiative = "1159"
 
     // MP Landing Plugins Woocommerce
-    "/landing/woocommerce"(platform: "/web"){
-        browser_id (type: PropertyType.String, required: false, description: "Specifies the browser id")
-    }
+    "/landing/woocommerce"(platform: "/web"){}
 }

@@ -8,7 +8,5 @@ tracks {
     initiative = "1159"
 
     // MP Landing Internal Products Suscripciones
-    "/landing/suscripciones"(platform: "/web"){
-        browser_id (type: PropertyType.String, required: false, description: "Specifies the browser id")
-    }
+    "/landing/subscriptions"(platform: "/web"){}
 }
