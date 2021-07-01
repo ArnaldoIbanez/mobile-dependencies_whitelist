@@ -373,7 +373,6 @@ trackTests {
         }
         "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
-            view_time()
         }
         "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.View) {
             mandatory()

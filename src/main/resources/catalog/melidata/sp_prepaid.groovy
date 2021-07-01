@@ -185,7 +185,6 @@ tracks {
     "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
-        view_time
     }
 
 
