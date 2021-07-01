@@ -1,6 +1,8 @@
 package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
+import javafx.beans.property.Property
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
@@ -429,6 +431,15 @@ tracks {
         expired(required: true, type: PropertyType.Boolean,
             description: "Case has SLA expired")
     }
+
+    "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
+        user_text(required: true, type: PropertyType.String)
+        team_name(required: true, type: PropertyType.String)
+        score(required: true, type: PropertyType.Numeric)
+        problem_id(required: true, type: PropertyType.Numeric)
+        case_id(required: true, type: PropertyType.Numeric)
+    }
+
 
     "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
         case_id(required: true, type: PropertyType.Numeric,
