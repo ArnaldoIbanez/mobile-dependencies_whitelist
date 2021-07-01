@@ -24,6 +24,7 @@ trackTests {
                 flow = "-1"
                 logic = "campaign"
                 campaign_id = "2345"
+                c_category = "THB_TEST"
                 position = 2
             }
         }
