@@ -1219,16 +1219,14 @@ trackTests {
             latest_news_id= "money_in_cashin_exceeded_cap-186785675-76283123"
             latest_news_type= "money_in_cashin_exceeded_cap"
         }
-
-        "/notification_center/moneyin_cashin_accredited"(platform: "/") {
-            latest_news_id= "moneyin_cashin-186785675-76283123"
+        "/notification_center/moneyin_cashin_accredited"(platform: "/mobile") {
             latest_news_type= "moneyin_cashin_accredited"
+            latest_news_id= "moneyin_cashin-186785675-76283123"
         }
         "/notification_center/moneyin_cashin_rejected"(platform: "/mobile") {
-            latest_news_id= "moneyin_cashin-186785675-76283123"
             latest_news_type= "moneyin_cashin_rejected"
+            latest_news_id= "moneyin_cashin-186785675-76283123"
         }
-
         "/notification_center/money_request_started"(platform: "/mobile") {
             latest_news_id= "money_request_started-186785675-76283123"
             latest_news_type= "money_request_started"
@@ -7310,6 +7308,14 @@ trackTests {
         "/notification_center/money_in_cashin_exceeded_cap"(platform: "/mobile") {
             latest_news_id= "money_in_cashin_exceeded_cap-186785675-76283123"
             latest_news_type= "money_in_cashin_exceeded_cap"
+        }
+        "/notification_center/moneyin_cashin_accredited"(platform: "/mobile") {
+            latest_news_type= "moneyin_cashin_accredited"
+            latest_news_id= "moneyin_cashin-186785675-76283123"
+        }
+        "/notification_center/moneyin_cashin_rejected"(platform: "/mobile") {
+            latest_news_type= "moneyin_cashin_rejected"
+            latest_news_id= "moneyin_cashin-186785675-76283123"
         }
         "/notification_center/money_request_started"(platform: "/mobile") {
             latest_news_id= "money_request_started-186785675-76283123"
