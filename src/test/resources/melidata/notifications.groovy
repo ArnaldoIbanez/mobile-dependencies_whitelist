@@ -1219,6 +1219,16 @@ trackTests {
             latest_news_id= "money_in_cashin_exceeded_cap-186785675-76283123"
             latest_news_type= "money_in_cashin_exceeded_cap"
         }
+
+        "/notification_center/moneyin_cashin_accredited"(platform: "/mobile") {
+            latest_news_id= "moneyin_cashin-186785675-76283123"
+            latest_news_type= "moneyin_cashin_accredited"
+        }
+        "/notification_center/moneyin_cashin_rejected"(platform: "/mobile") {
+            latest_news_id= "moneyin_cashin-186785675-76283123"
+            latest_news_type= "moneyin_cashin_rejected"
+        }
+
         "/notification_center/money_request_started"(platform: "/mobile") {
             latest_news_id= "money_request_started-186785675-76283123"
             latest_news_type= "money_request_started"
@@ -5066,6 +5076,14 @@ trackTests {
         }
         "/notification/money_in_cashin_exceeded_cap"(platform: "/mobile") {
             news_id = "money_in_cashin_exceeded_cap-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/moneyin_cashin_accredited"(platform: "/mobile") {
+            news_id = "moneyin_cashin-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/moneyin_cashin_rejected"(platform: "/mobile") {
+            news_id = "moneyin_cashin-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
         "/notification/money_request_started"(platform: "/mobile"){
