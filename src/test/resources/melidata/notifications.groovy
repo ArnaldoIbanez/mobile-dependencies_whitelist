@@ -1220,7 +1220,7 @@ trackTests {
             latest_news_type= "money_in_cashin_exceeded_cap"
         }
 
-        "/notification_center/moneyin_cashin_accredited"(platform: "/mobile") {
+        "/notification_center/moneyin_cashin_accredited"(platform: "/") {
             latest_news_id= "moneyin_cashin-186785675-76283123"
             latest_news_type= "moneyin_cashin_accredited"
         }
