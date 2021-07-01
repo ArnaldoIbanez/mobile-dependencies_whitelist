@@ -93,6 +93,13 @@ tracks {
             description: "Indicates the contents of oneclick predicted for a user")
         portal_oneclick_features(required: false, type: PropertyType.Map,
             description: "Indicates the features used in the oneclick prediction")
+        user_text(required: true, type: PropertyType.String,
+            description: "Text entered by user in oneclick MP contact")
+        team_name(required: true, type: PropertyType.String,
+            description: "Team predicted by NLP algorithm")
+        score(required: true, type: PropertyType.Numeric, description: "Score of NLP prediction")
+        problem_id(required: true, type: PropertyType.Numeric, description: "ProblemId predicted by NLP algorithm")
+        case_id(required: true, type: PropertyType.Numeric, description: "Id of case created")
     }
 
     propertyGroups {
@@ -433,11 +440,11 @@ tracks {
     }
 
     "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
-        user_text(required: true, type: PropertyType.String)
-        team_name(required: true, type: PropertyType.String)
-        score(required: true, type: PropertyType.Numeric)
-        problem_id(required: true, type: PropertyType.Numeric)
-        case_id(required: true, type: PropertyType.Numeric)
+        user_text
+        team_name
+        score
+        problem_id
+        case_id
     }
 
 

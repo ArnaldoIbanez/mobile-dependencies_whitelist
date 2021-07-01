@@ -154,6 +154,14 @@ trackTests {
             portal_source_id = 1628
             portal_delayed_pack_id = 12345678
         }
+
+        "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
+            user_text = "Test text"
+            team_name = "Purchases"
+            score = 0.9
+            problem_id = 1234
+            case_id = 1234
+        }
     }
 
     test("Support Widget having Content Type") {
@@ -449,6 +457,14 @@ trackTests {
         }
         "/support/widget/search"(platform: "/", type: TrackType.View) {
             portal_source_id = 123
+        }
+
+        "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
+            user_text = "Test text"
+            team_name = "Purchases"
+            score = 0.9
+            problem_id = 1234
+            case_id = 1234
         }
     }
 
