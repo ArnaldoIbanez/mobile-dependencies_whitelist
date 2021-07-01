@@ -133,6 +133,12 @@ tracks {
         portal_oneclick_cluster_id(portal_oneclick_cluster_id)
         portal_oneclick_contents_predicted(portal_oneclick_contents_predicted)
         portal_oneclick_features(portal_oneclick_features)
+        user_text(user_text)
+        team_name(team_name)
+        score(score)
+        problem_id(problem_id)
+        case_id(case_id)
+
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
