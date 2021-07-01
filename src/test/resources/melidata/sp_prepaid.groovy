@@ -1119,7 +1119,6 @@ trackTests {
         }
         "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
-            view_time()
         }
 
         // Multiple devices
