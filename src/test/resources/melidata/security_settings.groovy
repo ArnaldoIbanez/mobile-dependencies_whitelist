@@ -738,5 +738,57 @@ trackTests {
                     "transaction_accumulated_amount": "10.0"
             ]
         }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
     }
 }

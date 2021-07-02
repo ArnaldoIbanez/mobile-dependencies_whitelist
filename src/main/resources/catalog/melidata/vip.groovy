@@ -208,6 +208,8 @@ tracks {
                         "Santander",
                         "Scotiabank",
                         "Votorantim",
+                        "BBVA",
+                        "CrediHome",
                 ]
         )
 
@@ -474,6 +476,8 @@ tracks {
     "/vip/apparel/fit_as_expected/open"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
+
+    "/vip/apparel/size_chart_preview"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
@@ -1070,6 +1074,7 @@ tracks {
     }
 
     "/vip/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {
+        is_highlighted(required: false, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
     }
 
     "/vip/technical_specs/see_more"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1093,6 +1098,7 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has attributes highlighted sale specification")
+        is_highlighted(required: false, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
     }
 
     "/vip/denounce_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

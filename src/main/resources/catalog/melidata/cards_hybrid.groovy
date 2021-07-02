@@ -46,6 +46,7 @@ tracks {
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -85,6 +86,17 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["exit", "reissue"],
+            description: "Action tapped"
+        )
+    }
+
+    //Shipping: Delivered
+    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "unlock", "reissue"],
             description: "Action tapped"
         )
     }
@@ -343,6 +355,7 @@ tracks {
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
+         dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
     
     "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
@@ -370,7 +383,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped"],
+            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge"],
             description: "Mini card tapped"
           )
     }
@@ -381,7 +394,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active"],
+            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active", "without_cards_and_card_request"],
             description: "Banner tapped"
           )
     }
@@ -469,6 +482,39 @@ tracks {
             type: PropertyType.String,
             values: ["page_0", "page_1", "page_2", "page_3", "page_4"],
             description: "Carousel item swiped"
+          )
+    }
+    //Dynamic Carousel Tracking
+    def dynamic_carousel_description = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String)
+        bu(required: false, type: PropertyType.String)
+        bu_line(required: false, type: PropertyType.String)
+        component_id(required: false, type: PropertyType.String)
+        content_id(required: false, type: PropertyType.String)
+        flow(required: false, type: PropertyType.String)
+        logic(required: false, type: PropertyType.String)
+        position(required: true, type: PropertyType.Numeric)
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item tapped"
+          )
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item swiped"
+          )
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item closed"
           )
     }
     
@@ -1614,6 +1660,12 @@ tracks {
         )
     }
     "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+        action (
+        required: true,
+        type: PropertyType.String,
+        description: "Main Button Tapped")
+    }
     "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -1643,7 +1695,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values: ["success", "unknown"],
+            values: ["success", "unknown", "generic"],
             description: "Type of congrats",
             inheritable: false
         )
@@ -1988,7 +2040,7 @@ tracks {
     // ----------------------
     
     // NfcInitializationServiceInitialized
-    "/cards/nfc/core/service"(platform: "/", type: TrackType.Event) { }
+    "/cards/nfc/core/service/start"(platform: "/", type: TrackType.Event) { }
 
     "/cards/nfc/core/service/error"(platform: "/", type: TrackType.Event) { 
         error_code (
@@ -1996,11 +2048,29 @@ tracks {
             type: PropertyType.String,
             description: "Error code for nfc service initialization"
         )
+        from (
+            required: true,
+            type: PropertyType.String,
+            description: "Where did this error come from"
+        )
     }
 
     // NfcInitializationServiceSucess
-    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) { }
-    
+    "/cards/nfc/core/service/success"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "The service action that succeed"
+        )
+     }
+
+    "/cards/nfc/core/service/success/sdk_is_initialized"(platform: "/", type: TrackType.Event) {
+        action (
+            required: false,
+            type: PropertyType.String,
+            description: "The service action that was previously initialized"
+        )
+     }
     
     // NFC-CONSTRAINTS
     // -----------

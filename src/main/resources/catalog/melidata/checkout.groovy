@@ -120,7 +120,7 @@ tracks {
         first_for_order(serverSide: true)
 
         // Checkout flows
-        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase","onetap"])
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
@@ -1617,11 +1617,6 @@ tracks {
 
     //Billing info
     "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
-
-    //Congrats tracks
-    "/checkout/onetap/congrats"(platform: "/mobile", type: TrackType.View) {
-        purchase_id(required: false, type: PropertyType.Numeric, description: "Identifier purchase")
-    }
 
     //ERROR
     "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}

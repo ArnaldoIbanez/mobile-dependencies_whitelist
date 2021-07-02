@@ -4048,6 +4048,32 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
+    test("SYI v4 prices card showed"){
+        "/sell/item_conditions/prices/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+    test("SYI v4 prices card confirmed"){
+        "/sell/item_conditions/prices/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
     test("SYI v4 price and currency card showed"){
         "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -4645,6 +4671,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 
