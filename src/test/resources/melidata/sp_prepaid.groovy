@@ -383,6 +383,7 @@ trackTests {
         "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
+            view_time()
         }
 
 
@@ -1141,6 +1142,7 @@ trackTests {
         "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
+            view_time()
         }
 
         // Multiple devices

@@ -328,6 +328,7 @@ tracks {
     "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
         mandatory
         step_information
+        view_time
     }
 
 
