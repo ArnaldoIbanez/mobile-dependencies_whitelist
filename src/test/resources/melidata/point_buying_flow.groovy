@@ -304,6 +304,38 @@ trackTests {
           product = "Merdaco Pago Point Bluetooth"
           coupon_type = "mgm"
         }
+
+        "/point/buyingflow/payment/credit_authorization"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product_id = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
+          e2e_test = false
+          bu = "Point"
+          ch = "channel"
+          camp = "TELE_2021"
+          strategy = "strategy"
+          product = "Merdaco Pago Point Bluetooth"
+          coupon_type = "mgm"
+        }
+
+        "/point/buyingflow/payment/credit_authorization/confirm"(platform: "/", type: TrackType.Event) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product_id = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
+          e2e_test = false
+          bu = "Point"
+          ch = "channel"
+          camp = "TELE_2021"
+          strategy = "strategy"
+          product = "Merdaco Pago Point Bluetooth"
+          coupon_type = "mgm"
+        }
         
         "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
