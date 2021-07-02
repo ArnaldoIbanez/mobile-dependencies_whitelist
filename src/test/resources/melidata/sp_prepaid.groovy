@@ -235,6 +235,10 @@ trackTests {
             available_items()
             notification_panel()
         }
+        "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
 
 
 
@@ -438,6 +442,21 @@ trackTests {
         "/single_player/prepaid/companies/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+
+        // Pre One Tap
+        "/single_player/prepaid/break_pre_one_tap"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+        "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
 
@@ -978,7 +997,7 @@ trackTests {
             available_items()
             notification_panel()
         }
-        "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             step_information()
         }
@@ -1118,6 +1137,10 @@ trackTests {
         "/single_player/prepaid/one_device/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
         }
 
         // Multiple devices
