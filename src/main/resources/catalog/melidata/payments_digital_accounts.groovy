@@ -47,15 +47,14 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         // Components
-        my_money_shortcuts_button(type: PropertyType,Map(component_definition))
+        my_money_shortcuts_buttons(type: PropertyType,Map(component_definition))
         my_money_available(type: PropertyType,Map(component_definition))
-        my_money_shortcuts_rows(type: PropertyType.Map(component_definition))
-        my_money_dynamics_actions(type: PropertyType.Map(component_definition))
+        my_money_cross_selling_carousel(type: PropertyType.Map(component_definition))
         my_money_retained(type: PropertyType.Map(component_definition))
-        my_money_available_tab(type: PropertyType.Map(component_definition))
+        my_money_available(type: PropertyType.Map(component_definition))
+        my_money_to_release(type: PropertyType.Map(component_definition))
         my_money_activities(type: PropertyType.Map(component_definition))
-        my_money_tabs(type: PropertyType.Map(component_definition))
-        my_money_balance(type: PropertyType.Map(component_definition))
+        my_money_calendar(type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -75,8 +74,14 @@ tracks {
                 action_id
         )
         componentsViews (
-                my_money_shortcuts_button, my_money_available, my_money_shortcuts_rows, my_money_dynamics_actions,
-                my_money_retained, my_money_available_tab, my_money_activities, my_money_tabs, my_money_balance
+                my_money_shortcuts_button,
+                my_money_available,
+                my_money_dynamics_actions,
+                my_money_retained,
+                my_money_available,
+                my_money_to_release,
+                my_money_activities,
+                my_money_calendar
         )
     }
 
