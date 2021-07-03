@@ -93,6 +93,7 @@ tracks {
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
+    "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
     "/banking/debts"(platform: "/", type: TrackType.View) {}
     "/banking/debts/detail"(platform: "/", type: TrackType.View) {}
 
@@ -105,6 +106,8 @@ tracks {
     "/banking/balance/error"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}

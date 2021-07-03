@@ -478,21 +478,46 @@ trackTests {
             error_type = "document_form"
         }
         "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
             receiver_relationship = "HOLDER"
         }
         "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
         }
         "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
         }
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
-            shipment_id = "222"
-        }
-        "/logistics/last_mile/package/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
-            shipment_id = "222"
+            shipments = ["123", "123"]
             driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
+        }
+        "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal"(platform: "/mobile", type: TrackType.View) {
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "delivery_keyword"
+        }
+        "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal/not_delivery"(platform: "/mobile", type: TrackType.Event) {
+            shipments = ["123", "123"]
+            driver_id = 124
+            route_id = "123"
+            vehicle_id = 123
+            delivery_type = "cart_group_keyword"
         }
         "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -775,6 +800,7 @@ trackTests {
             route_id = "125"
             driver_id = "123"
             packages = ["1", "2", "3"]
+            full_vehicle_incident_id = "123"
         }
         "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()

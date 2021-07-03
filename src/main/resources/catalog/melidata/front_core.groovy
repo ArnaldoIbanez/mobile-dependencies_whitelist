@@ -28,10 +28,16 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
         logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        criticality(required: false, type: PropertyType.Numeric, description: "Criticality of the pending")
+        from(required: false, type: PropertyType.String, description: "From where this pending shown")
     }
     propertyGroups {
         walletHomeMerchEngineFields(
             section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position
+        )
+
+        walletHomePendingsFields(
+            section_id, link, component_id, audience, bu, bu_line, content_id, flow, logic, position, criticality, from
         )
     }
 
@@ -534,6 +540,10 @@ tracks {
         position(type: PropertyType.Numeric, required: true, description: "The position in the section")
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
+
+    "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+        quantity(type: PropertyType.Numeric, required: true, description: "The number of user accounts")
+    }
     
     "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
         hidden(required: true, type: PropertyType.Boolean, description: "hidden status")
@@ -644,6 +654,10 @@ tracks {
         walletHomeMerchEngineFields
     }
 
+    "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomePendingsFields
+    }
+
     "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }
@@ -694,6 +708,7 @@ tracks {
         has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
         has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
+        from(required: false, type: PropertyType.String, values: ["section", "sheet"], description: "How the user add their shortcut")
     }
 
     "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
@@ -709,6 +724,7 @@ tracks {
         has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
         has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
+        from(required: false, type: PropertyType.String, values: ["section", "sheet"], description: "How the user removed their shortcut")
     }
 
     "/wallet_home/shortcuts_sheet/modal" (platform: "/mobile", isAbstract: true) {}  

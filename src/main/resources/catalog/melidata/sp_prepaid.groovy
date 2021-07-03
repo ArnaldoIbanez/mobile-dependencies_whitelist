@@ -312,6 +312,12 @@ tracks {
         segment
     }
 
+    "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+    }
+
 
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
@@ -445,6 +451,19 @@ tracks {
         view_time
     }
     "/single_player/prepaid/accreditation_information/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Check Accreditation information
+    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
+        view_time
+    }
+
+    "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/check_accreditation_information/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 

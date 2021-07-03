@@ -22,6 +22,13 @@ trackTests {
         account_total_amount: 300
     ]
 
+    def amount_input_without_total_amount_data = [
+            amount: 100,
+            statement_min_amount: 10,
+            statement_max_amount: 100,
+            account_total_amount: null
+    ]
+
     def payment_plan_data = [
         payment_plan_number: 6,
         min_payment_plan: 3,
@@ -99,6 +106,13 @@ trackTests {
         }
 
         "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
+            account = account_rating_a
+            statement_status = "closed"
+            payment_option = "total"
+            amount_input = amount_input_without_total_amount_data
+        }
+
+        "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
             account = account_rating_b
             statement_status = "closed"
             payment_option = "payment_plan"
@@ -110,6 +124,13 @@ trackTests {
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
+        }
+
+        "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
+            account = account_rating_a
+            statement_status = "closed"
+            payment_option = "total"
+            amount_input = amount_input_without_total_amount_data
         }
 
         "/credits/credit_card/payment/summary/payment_action"(platform: "/", type: TrackType.Event) {
@@ -131,15 +152,21 @@ trackTests {
         def congrats_approved_status = "approved"
         def congrats_pending_status = "pending"
         def congrats_rejected_status = "rejected"
+        def congrats_status_linked = "linked_card"
+        def congrats_status_not_linked = "not_linked_card"
+        def congrats_status_not_requested = "physical_not_requested"
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
         def stop_page_already_active = "user_has_active_account"
+        def stop_page_kyc_not_compliant= "kyc_not_compliant"
+        def hybrid_dashboard_source = "hybrid-dashboard"
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
             proposal = account_rating_b
             is_card_active = true
             page = 1
+            from = hybrid_dashboard_source
         }
 
         "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
@@ -173,23 +200,70 @@ trackTests {
             proposal = account_rating_b
             is_card_active = true
             status = congrats_approved_status
+            congrats_status = congrats_status_linked
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_b
+            is_card_active = true
+            status = congrats_approved_status
+            congrats_status = congrats_status_not_linked
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_b
+            is_card_active = true
+            status = congrats_approved_status
+            congrats_status = congrats_status_not_requested
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
             proposal = account_rating_a
             is_card_active = true
             status = congrats_pending_status
+            congrats_status = congrats_status_linked
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            proposal = account_rating_b
+            proposal = account_rating_a
+            is_card_active = true
+            status = congrats_pending_status
+            congrats_status = congrats_status_not_linked
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_a
+            is_card_active = true
+            status = congrats_pending_status
+            congrats_status = congrats_status_not_requested
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_a
             is_card_active = true
             status = congrats_rejected_status
+            congrats_status = congrats_status_not_requested
         }
 
         "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
 
         "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event) {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event) {
+            status = congrats_pending_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event) {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event) {
+            status = congrats_pending_status
+        }
 
         // Error
         "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
@@ -207,6 +281,10 @@ trackTests {
 
         "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
             reason = stop_page_already_active
+        }
+
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_kyc_not_compliant
         }
 
         /*********************************************
@@ -763,6 +841,34 @@ trackTests {
 
             /***********************************************
              *       End: Credit Card Landings
+             ***********************************************/
+        }
+        test("Credits Credit Card - Wait List tests") {
+            /***********************************************
+             *       Start: Credit Card Wait List
+             ***********************************************/
+
+            // Landing
+            "/credits/credit_card/waitlist/landing"(platform: "/", type: TrackType.View) {}
+
+            //Congrats
+
+            "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View) {
+                status = "registered"
+            }
+
+            "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View) {
+                status = "already_registered"
+            }
+
+            //Error
+            "/credits/credit_card/waitlist/error"(platform: "/", type: TrackType.View) {
+                reason = "Wait list error"
+            }
+
+
+                /***********************************************
+             *       End: Credit Card Wait List
              ***********************************************/
         }
 }

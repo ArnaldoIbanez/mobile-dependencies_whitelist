@@ -34,6 +34,17 @@ trackTests {
 
     }
 
+    //Shipping: Delivered
+    test("cards hybrid shipping delivered") {
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+    }
+
     //Shipping: Delayed
     test("cards hybrid shipping delayed") {
         "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {
@@ -232,6 +243,21 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tracking_shipped"
         }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_delivered"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
     }
     
      //Physical acquisition stop: Tracking
@@ -293,6 +319,18 @@ trackTests {
         }
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "hybrid_active"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_pending"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_debit_and_credit_active"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "without_cards_and_card_request"
         }
     }
     
@@ -378,6 +416,49 @@ trackTests {
         }
         "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
             action = "page_4"
+        }
+    }
+    //Dynamic Carousel Tracking
+    test("cards hybrid dashboard dynamic carousel tapped") {
+        "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "22",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 2
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Swiped") {
+        "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Closed") {
+        "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "42",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 3
+            ]
         }
     }
     
@@ -1137,6 +1218,11 @@ trackTests {
             step = 3
             id = "setup_virtual_debit_coachmark"
         }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 3
+            id = "setup_virtual_credit_coachmark"
+        }
     }
     
     //OPTIONS
@@ -1560,6 +1646,9 @@ trackTests {
             action = "faq"
         }
         "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+            action = "payment_intention_help"
+        }
         "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -1574,6 +1663,9 @@ trackTests {
         }
         "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
             status = "unknown"
+        }
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "generic"
         }
         "/cards/nfc/congrats/insufficient_money"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/congrats/blocked_pin"(platform: "/", type: TrackType.View) {}
@@ -1906,6 +1998,13 @@ trackTests {
         }
     }
 
+    // NFC-DEVICE-CVM
+    test("cards hybrid nfc device cvm information") {
+        "/cards/nfc/enrollment/devicecvm"(platform:"/", type: TrackType.Event) {
+            status = "device cdcvm initialized"
+        }
+    }
+
     test("cards hybrid nfc feature ignite status") {
         "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
             value = true
@@ -1916,11 +2015,19 @@ trackTests {
     }
     
     test("cards hybrid nfc initialization service") {
-        "/cards/nfc/core/service"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/start"(platform:"/", type: TrackType.Event) { }
+
         "/cards/nfc/core/service/error"(platform:"/", type: TrackType.Event) {
             error_code = "INTERNAL_COMPONENT_ERROR"
+            from = "CPS"
         }
-        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { 
+            action = "MG component init"
+        }
+        "/cards/nfc/core/service/success/sdk_is_initialized"(platform:"/", type: TrackType.Event) { 
+            action = "CPS component is already initialized"
+        }
+         "/cards/nfc/core/service/success/sdk_is_initialized"(platform:"/", type: TrackType.Event) {}
     }
 
         
@@ -1944,6 +2051,8 @@ trackTests {
             is_token_ready = true
             is_token_active = true
             is_default_tap_n_pay = true
+            is_restrictive = true
+            is_tap_n_pay_admitted_to_pay = true
             is_default_card = true
             is_nfc_activated = true
             are_payment_keys_avaliable = true
@@ -1956,6 +2065,8 @@ trackTests {
             is_token_ready = false
             is_token_active = false
             is_default_tap_n_pay = false
+            is_restrictive = false
+            is_tap_n_pay_admitted_to_pay = false
             is_default_card = false
             is_nfc_activated = false
             are_payment_keys_avaliable = false
@@ -1979,6 +2090,15 @@ trackTests {
         "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
             restrictiveness = 'not_restrictive'
             default_app = 'not_default'
+        }
+    }
+    
+    // NFC_ONDEMAND_ENROLLMENT
+    test("cards hybrid nfc on demand enrollment") {
+        "/cards/nfc/enrollment/ondemand"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/nfc/enrollment/ondemand/error"(platform:"/", type: TrackType.Event) {
+            error_message = "Empty nfc_command userId"
         }
     }
 

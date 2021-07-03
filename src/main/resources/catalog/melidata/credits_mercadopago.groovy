@@ -337,7 +337,51 @@ tracks {
         products_with_status
     }
 
-    "/credits/merchant/administrator/inconsistency"(platform:"/", type: TrackType.View) {}
+    "/credits/merchant/administrator/inconsistency"(platform:"/mobile", type: TrackType.View) {
+        offers(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(offer_definition)
+            ),
+            required: false,
+            inheritable: false
+        )
+        products(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(with_status)
+            ),
+            required: false,
+            inheritable: false
+        )
+        promise(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'create_promise',
+                'view_promise',
+                'create_debt_relief',
+                'view_debt_relief',
+                'none',
+            ],
+            inheritable: false
+        )
+
+        accesses(
+            description: "List of accesses shown to the user",
+            type: PropertyType.ArrayList(accesses),
+            required: false
+        )
+
+        reason(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'communications_library'
+            ],
+            inheritable: false
+        )
+
+        source_tracking
+    }
 
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
@@ -430,13 +474,40 @@ tracks {
             ],
             inheritable: false
         )
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
         products_group
     }
     "/credits/merchant/early_repayment/congrats"(platform: "/", type: TrackType.View) {
         products_group
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
     }
     "/credits/merchant/early_repayment/active_early_repayment"(platform: "/", type: TrackType.View) {
         products_group
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
     }
     "/credits/merchant/early_repayment/error"(platform: "/", type: TrackType.View) {
         reason(
@@ -445,6 +516,15 @@ tracks {
             inheritable: false
         )
         products_group
+        payment_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'total',
+                'partial'
+            ],
+            inheritable: false
+        )
     }
 
     /******************************************
@@ -1608,6 +1688,8 @@ tracks {
     }
 
     //Events
+    "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/", type: TrackType.Event) {}
+
     "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
         installment_status(
                 type: PropertyType.String,
@@ -1744,6 +1826,15 @@ tracks {
     //Event PX Congrats Extra Component
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {}
 
+    //Onboarding view
+    "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {}
+
+    //Events
+    "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
+
+
     /******************************************
      *       End: Consumers Administrator
      ******************************************/
@@ -1804,6 +1895,65 @@ tracks {
 
      /******************************************
      *    End: Consumers Change Due Date FLow
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Early Repayments FLow
+     ******************************************/
+    "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
+        total_amount(
+            required: false,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: false,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: false,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: false,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+    "/credits/consumer/early_repayments/success"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/warning"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
+        total_amount(
+            required: false,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: false,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: false,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: false,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+     /******************************************
+     *    End: Consumers Early Repayments FLow
      ******************************************/
 
      /******************************************
@@ -1963,7 +2113,18 @@ tracks {
                     "invalid_offer_three_or_more_attempts",
                 ]
             )
-        }
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer, mix or no credit)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix",
+                "no_credit"
+            ]
+        )
+    }
      /******************************************
      *    End: Self service
      ******************************************/

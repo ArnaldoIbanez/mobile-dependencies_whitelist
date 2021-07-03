@@ -502,8 +502,14 @@ trackTests {
         "/wms/login_successful"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
+            serial_number = "123456"
+            user_nickname = "user_teste"
         }
         "/wms/logout_successful"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+        "/wms/logout/inactive"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
         }

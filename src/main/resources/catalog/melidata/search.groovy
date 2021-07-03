@@ -126,6 +126,12 @@ tracks {
         type(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         values_quantity(type: PropertyType.Numeric, required: true)
+        enhanced_position(type: PropertyType.Numeric, required: false, description: "position in the view where the enhanced filter will be displayed")
+    }
+
+    def original_search_filter_definition = objectSchemaDefinitions {
+        filter_id(type: PropertyType.String, required: true, description: "original search filter id applied")
+        filter_value(type: PropertyType.String, required: true, description: "original search filter value applied")
     }
 
     //SEARCH FLOW
@@ -157,7 +163,7 @@ tracks {
         best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
         highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
-
+        original_search_filter(required: false, description: 'original search filter (a fallback search may be performed with certain filters unapplied in case of zero results)', type: PropertyType.Map(original_search_filter_definition))
 
         //Tracks from Search Backend:
         backend_data(required: false)

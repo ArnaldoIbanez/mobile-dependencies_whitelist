@@ -194,6 +194,14 @@ tracks {
             description: "The link's hierarchy position (e.g. header, l1, l2, l3, etc)"
         )
     }
+    "/navigation/footer"(platform: "/web", isAbstract: true) {}
+    "/navigation/footer/link"(platform: "/web", type: TrackType.Event) {
+        id(
+            required: true,
+            type: PropertyType.String,
+            description: "The link's identifier (e.g. digital-account, asset, credits, etc)"
+        )
+    }
 
     // MP Landing - Digital Wallet
     "/digital_wallet"(platform: "/", type: TrackType.View) {}
@@ -281,7 +289,7 @@ tracks {
     }
 
     // MP Landing - Landing KIT QR
-    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1305") {
+    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1216") {
         product (type: PropertyType.String, required: false, description: "Name of device, example: 'kit-standalone'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")
@@ -301,5 +309,7 @@ tracks {
     }
 
     "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {}
-
+    "/landing/qr_kit/error"(platform: "/", type: TrackType.Event) {
+        value(required: true, inheritable: false, type: PropertyType.String, description: "Error description")
+    }
 }

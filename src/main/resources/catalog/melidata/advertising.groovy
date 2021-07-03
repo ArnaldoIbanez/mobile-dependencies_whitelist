@@ -22,6 +22,15 @@ tracks {
         items_id(required:true, description: "Items ids")
     }
 
+    "/advertising/communications"(platform: "/", isAbstract: true) {}
+
+    "/advertising/communications"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "type of communication action", values: ['show', 'click'])
+        source(required: true, type: PropertyType.String, description: "communication source")
+        medium(required: true, type: PropertyType.String, description: "communication medium")
+        campaigns(required: true, type: PropertyType.ArrayList, description: "Array of communications available for placement")
+    }
+
     "/advertising/pads2"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/manager/card"(platform: "/", isAbstract: true) {}
@@ -89,6 +98,7 @@ tracks {
         budget(required: true, description: "Budget related to the landing", inheritable:false)
         ui_version(required: false, description: "UI version rendered in Search", inheritable:false)
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
+        official_stores(required: true, type: PropertyType.Boolean, description: "indicate if it is an official store")
     }
 
     "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -151,20 +161,20 @@ tracks {
     "/advertising/pads2/manager/upselling/modal"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
-        campaign_id(required: true, description: "Id related to the campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget_suggested(required: false, description: "Suggested budget related to the campaign")
-        budget(required: false, description: "Current budget related to the campaign")
+        budget_suggested(required: false, type: PropertyType.Numeric, description: "Suggested budget related to the campaign")
+        budget(required: false, type: PropertyType.Numeric, description: "Current budget related to the campaign")
     }
 
     "/advertising/pads2/manager/upselling/modal/go"(platform: "/", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget_suggested(required: false, description: "Suggested budget related to the campaign")
-        budget_selected(required: false, description: "Selected budget related to the campaign")
-        budget(required: false, description: "Current budget related to the campaign")}
+        budget_suggested(required: false, type: PropertyType.Numeric, description: "Suggested budget related to the campaign")
+        budget_selected(required: false, type: PropertyType.Numeric, description: "Selected budget related to the campaign")
+        budget(required: false, type: PropertyType.Numeric, description: "Current budget related to the campaign")}
 
     "/advertising/pads2/manager/upselling/modal/close"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
@@ -225,6 +235,7 @@ tracks {
         free_trial_type(required: true, description: "type of free trial with which the user enters the landing pads")
         budget(required: true, description: "Budget related to the landing")
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
+        official_stores(required: true, type: PropertyType.Boolean, description: "indicate if it is an official store")
     }
 
     "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.Event) {
@@ -693,8 +704,8 @@ tracks {
         platform: "/web",
         type: TrackType.Event) {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
-        budget_new(required: true, type: PropertyType.String, description: "New budget related to the campaign.")
+        budget(required: true, description: "Current budget related to the campaign")
+        budget_new(required: true, description: "New budget related to the campaign.")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
@@ -1887,7 +1898,7 @@ tracks {
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
-        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total', 'daily', 'weekly'])
         filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
@@ -1898,7 +1909,7 @@ tracks {
     }
 
     "/advertising/pads2/reports/group"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total', 'daily', 'weekly'])
     }
 
     "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1915,7 +1926,7 @@ tracks {
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
-        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total'])
+        group_by(required: false, type: PropertyType.String,  description: "Data grouped by", values: ['monthly', 'total', 'daily', 'weekly'])
         filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
         rows(required: false, type: PropertyType.Numeric,  description: "Number of data rows in report 0 - 10.000")
     }

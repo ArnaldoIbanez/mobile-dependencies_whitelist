@@ -262,6 +262,17 @@ trackTests {
         }
     }
 
+    test("places operations home") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/home"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
     test("places operations unified scanner step") {
 
         def defaultTrackInformation = {
@@ -357,6 +368,66 @@ trackTests {
         }
 
         "/places/operations/error_step_inbound"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations geolocation_error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            geolocation_error_message = "Permission denied"
+        }
+
+        "/places/operations/geolocation_error"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations containers container_identification_step") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/container_identification_step"(platform: "/web",
+                type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations containers container_scanner_step") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/container_scanner_step"(platform: "/web",
+                type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations containers container_inbound_congrats_view") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/container_inbound_congrats_view"(platform: "/web",
+                type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations containers inbound_error_congrats_view") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/inbound_error_congrats_view"(platform: "/web",
+                type: TrackType.View) {
             defaultTrackInformation()
         }
     }

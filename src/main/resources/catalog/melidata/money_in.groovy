@@ -23,6 +23,9 @@ tracks {
         payment_method (required:true, description: "Selected payment method")
     }
 
+    //Payment method user cvu pressed
+    "/money_in/payment_methods/my_cvu"(platform: "/",type: TrackType.Event){}
+
     //Payment method help pressed
     "/money_in/payment_methods/help"(platform: "/", type: TrackType.Event) {}
 
@@ -42,7 +45,7 @@ tracks {
     }
 
     "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {}
-    
+
     //Checkout PX
     "/money_in/px"(platform: "/", isAbstract: true) {}
 
@@ -137,19 +140,19 @@ tracks {
     "/money_in/caixa/success"(platform: "/", type: TrackType.View) {}
     "/money_in/caixa/success/go_home_button_clicked"(platform: "/", type: TrackType.Event) {}
 
-    // Caixa - Disclaimer 
+    // Caixa - Disclaimer
     "/money_in/caixa/disclaimer"(platform: "/", type: TrackType.View) {}
     "/money_in/caixa/disclaimer/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 
-    // Cash Tickets - Locations 
+    // Cash Tickets - Locations
     "/money_in/cash"(platform:"/", isAbstract:true){}
     "/money_in/cash/location_list"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/location/location_selected"(platform: "/", type: TrackType.Event) {
         id (required:true, description: "Selected location")
     }
 
-    // Cash Tickets - Amount 
+    // Cash Tickets - Amount
     "/money_in/cash/amount"(platform: "/", type: TrackType.View) {
         type (required:true, description: "Ticket type source", values: ["paycash", "oxxo"])
     }
@@ -158,7 +161,7 @@ tracks {
         amount (required:true, description: "Continue amount entered")
     }
 
-    // Cash Tickets - Info 
+    // Cash Tickets - Info
     "/money_in/cash/ticket"(platform: "/", type: TrackType.View) {
         type (required:true, description: "Ticket type source", values: ["paycash", "oxxo"])
     }
@@ -166,7 +169,7 @@ tracks {
         type (required:true, description: "Cancel ticket selected", values: ["paycash", "oxxo"])
     }
 
-    // Cash Tickets - Camcel Modal 
+    // Cash Tickets - Camcel Modal
     "/money_in/cash/cancel_ticket_modal"(platform: "/", type: TrackType.View) {
         type (required:true, description: "Ticket type source", values: ["paycash", "oxxo"])
     }
@@ -191,8 +194,8 @@ tracks {
     "/money_in/cash/go_home"(platform: "/", type: TrackType.Event) {
         payment_method (required:true, description: "Payment method selected on go to tome")
     }
-    
-    // Oxxo Tickets - Disuassive Modal 
+
+    // Oxxo Tickets - Disuassive Modal
     "/money_in/cash/location"(platform:"/", isAbstract:true){}
     "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
@@ -202,7 +205,7 @@ tracks {
     "/money_in/cash/ifpe_cap_exceeded"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
     "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
-    
+
     // Ticket Cashin MLB - review and confirm
     "/money_in/cash/review_and_confirm"(platform: "/", type: TrackType.View) {
         payment_method (required:true, description: "Payment method selected on ryc")
@@ -213,7 +216,7 @@ tracks {
     "/money_in/cash/review_and_confirm/edit_amount"(platform: "/", type: TrackType.Event) {
         payment_method (required:true, description: "Payment method selected on ryc edition")
     }
-    
+
     //PIX keys - Congrats
     "/money_in/pix_keys"(platform:"/", isAbstract:true){}
     "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
@@ -332,6 +335,7 @@ tracks {
     }
     "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
     "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
+    "/money_in/debin/hub/my_cvu"(platform:"/",type: TrackType.Event){}
 
     //Debin Onboarding
     "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
@@ -388,6 +392,14 @@ tracks {
         xp_id(required:false,type: PropertyType.String, description:"id of the experiments")
     }
 
+    //Debin RyC contingency error
+    "/money_in/debin/ryc/contingency_error"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/ryc/contingency_error/go_init"(platform:"/", type: TrackType.Event){}
+
+    //Debin RyC contingency error
+    "/money_in/debin/calculator/contingency_error"(platform:"/", type: TrackType.View){}
+    "/money_in/debin/calculator/contingency_error/go_init"(platform:"/", type: TrackType.Event){}
+
     //Debin Search account
     "/money_in/debin/search"(platform:"/", type: TrackType.View){}
     "/money_in/debin/search/help"(platform:"/", type: TrackType.Event){}
@@ -432,5 +444,14 @@ tracks {
     "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
 
     //Money In Error View - Enchufe
-    "/money_in/error_view"(platform: "/", type: TrackType.View) {}
+    "/money_in/error_view"(platform: "/", type: TrackType.View) {
+        error (required:false, description: "Indicate the error type thats been shown")
+        view (required:false, description: "Indicate the view where the error happened")
+    }
+
+    //Error de static resoruces, en iniciativa Money In
+    "/money_in/static_resources"(platform:"/", isAbstract: true){}
+    "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
+        error(required:true, description:"Network Error Message")
+    }
 }
