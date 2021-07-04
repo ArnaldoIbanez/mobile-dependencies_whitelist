@@ -47,8 +47,8 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         // Components
-        my_money_shortcuts(required: false, type: PropertyType,Map(component_definition))
-        my_money_available(required: false, type: PropertyType,Map(component_definition))
+        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition))
+        my_money_available(required: false, type: PropertyType.Map(component_definition))
         my_money_cross_selling_carousel(required: false, type: PropertyType.Map(component_definition))
         my_money_retained(required: false, type: PropertyType.Map(component_definition))
         my_money_available(required: false, type: PropertyType.Map(component_definition))
