@@ -77,13 +77,27 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        componentsViews (
+                my_money_shortcuts,
+                my_money_available,
+                my_money_cross_selling_carousel,
+                my_money_retained,
+                my_money_available,
+                my_money_to_release,
+                my_money_to_advance,
+                my_money_activities,
+                my_money_calendar,
+                my_money_calendar_daily,
+                my_money_balance_available,
+                my_money_balance_to_release
+        )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
