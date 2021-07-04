@@ -15,13 +15,13 @@ tracks {
 
     //inner properties definitions
     def element_definition = objectSchemaDefinitions {
-        elements(type: PropertyType.Numeric)
+        elements(required: false, type: PropertyType.Numeric)
     }
 
     def component_definition = objectSchemaDefinitions {
         component_id(required: true, type: PropertyType.Numeric)
         content_id(required: true, type: PropertyType.ArrayList(PropertyType.String))
-        event_data(type: PropertyType.Map(element_definition))
+        event_data(required: false, type: PropertyType.Map(element_definition))
     }
 
     //Definitions
@@ -47,18 +47,18 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         // Components
-        my_money_shortcuts(type: PropertyType,Map(component_definition))
-        my_money_available(type: PropertyType,Map(component_definition))
-        my_money_cross_selling_carousel(type: PropertyType.Map(component_definition))
-        my_money_retained(type: PropertyType.Map(component_definition))
-        my_money_available(type: PropertyType.Map(component_definition))
-        my_money_to_release(type: PropertyType.Map(component_definition))
-        my_money_to_advance(type: PropertyType.Map(component_definition))
-        my_money_activities(type: PropertyType.Map(component_definition))
-        my_money_calendar(type: PropertyType.Map(component_definition))
-        my_money_calendar_daily(type: PropertyType.Map(component_definition))
-        my_money_balance_available(type: PropertyType.Map(component_definition))
-        my_money_balance_to_release(type: PropertyType.Map(component_definition))
+        my_money_shortcuts(required: false, type: PropertyType,Map(component_definition))
+        my_money_available(required: false, type: PropertyType,Map(component_definition))
+        my_money_cross_selling_carousel(required: false, type: PropertyType.Map(component_definition))
+        my_money_retained(required: false, type: PropertyType.Map(component_definition))
+        my_money_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_to_advance(required: false, type: PropertyType.Map(component_definition))
+        my_money_activities(required: false, type: PropertyType.Map(component_definition))
+        my_money_calendar(required: false, type: PropertyType.Map(component_definition))
+        my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition))
+        my_money_balance_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_balance_to_release(required: false, type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -76,20 +76,6 @@ tracks {
         )
         balanceEventClick (
                 action_id
-        )
-        componentsViews (
-                my_money_shortcuts,
-                my_money_available,
-                my_money_cross_selling_carousel,
-                my_money_retained,
-                my_money_available,
-                my_money_to_release,
-                my_money_to_advance,
-                my_money_activities,
-                my_money_calendar,
-                my_money_calendar_daily,
-                my_money_balance_available,
-                my_money_balance_to_release
         )
     }
 
