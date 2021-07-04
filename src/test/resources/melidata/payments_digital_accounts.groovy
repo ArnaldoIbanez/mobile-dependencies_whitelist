@@ -14,6 +14,12 @@ trackTests {
 
     test("Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            my_money_balance_available = {
+                component_id:'my_money_balance_available',
+                content_id: ['balance']
+            }
+        }
     }
 
     test("Balance Calendar") {
@@ -27,7 +33,7 @@ trackTests {
     test("Balance Cerc") {
         "/banking/cerc"(platform: "/", type: TrackType.View) {}
     }
-    
+
     test("Balance Cerc Optin") {
         "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
     }
