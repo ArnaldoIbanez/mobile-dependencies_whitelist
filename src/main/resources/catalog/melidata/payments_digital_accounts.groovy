@@ -21,7 +21,7 @@ tracks {
     def component_definition = objectSchemaDefinitions {
         component_id(required: true, type: PropertyType.Numeric)
         content_id(required: true, type: PropertyType.ArrayList(PropertyType.String))
-        event_data(type: PropertyType.Map(row_definition))
+        event_data(type: PropertyType.Map(element_definition))
     }
 
     //Definitions
@@ -54,9 +54,9 @@ tracks {
         my_money_available(type: PropertyType.Map(component_definition))
         my_money_to_release(type: PropertyType.Map(component_definition))
         my_money_to_advance(type: PropertyType.Map(component_definition))
-        my_money_activities(type: PropertyType.Map(element_definition))
+        my_money_activities(type: PropertyType.Map(component_definition))
         my_money_calendar(type: PropertyType.Map(component_definition))
-        my_money_calendar_daily(type: PropertyType.Map(element_definition))
+        my_money_calendar_daily(type: PropertyType.Map(component_definition))
         my_money_balance_available(type: PropertyType.Map(component_definition))
         my_money_balance_to_release(type: PropertyType.Map(component_definition))
     }
