@@ -97,7 +97,7 @@ tracks {
     "/banking"(platform: "/", isAbstract: true) {}
 
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
