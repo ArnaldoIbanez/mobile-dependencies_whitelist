@@ -14,8 +14,8 @@ tracks {
     ******************************************/
 
     //inner properties definitions
-    def row_definition = objectSchemaDefinitions {
-        rows(type: PropertyType.Numeric)
+    def element_definition = objectSchemaDefinitions {
+        elements(type: PropertyType.Numeric)
     }
 
     def component_definition = objectSchemaDefinitions {
@@ -47,14 +47,18 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         // Components
-        my_money_shortcuts_buttons(type: PropertyType,Map(component_definition))
+        my_money_shortcuts(type: PropertyType,Map(component_definition))
         my_money_available(type: PropertyType,Map(component_definition))
         my_money_cross_selling_carousel(type: PropertyType.Map(component_definition))
         my_money_retained(type: PropertyType.Map(component_definition))
         my_money_available(type: PropertyType.Map(component_definition))
         my_money_to_release(type: PropertyType.Map(component_definition))
-        my_money_activities(type: PropertyType.Map(component_definition))
+        my_money_to_advance(type: PropertyType.Map(component_definition))
+        my_money_activities(type: PropertyType.Map(element_definition))
         my_money_calendar(type: PropertyType.Map(component_definition))
+        my_money_calendar_daily(type: PropertyType.Map(element_definition))
+        my_money_balance_available(type: PropertyType.Map(component_definition))
+        my_money_balance_to_release(type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -74,14 +78,18 @@ tracks {
                 action_id
         )
         componentsViews (
-                my_money_shortcuts_button,
+                my_money_shortcuts,
                 my_money_available,
-                my_money_dynamics_actions,
+                my_money_cross_selling_carousel,
                 my_money_retained,
                 my_money_available,
                 my_money_to_release,
+                my_money_to_advance,
                 my_money_activities,
-                my_money_calendar
+                my_money_calendar,
+                my_money_calendar_daily,
+                my_money_balance_available,
+                my_money_balance_to_release,
         )
     }
 
