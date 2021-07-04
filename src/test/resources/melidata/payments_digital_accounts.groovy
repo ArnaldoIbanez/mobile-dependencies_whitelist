@@ -15,10 +15,10 @@ trackTests {
     test("Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
         "/banking/balance"(platform: "/", type: TrackType.View) {
-            my_money_balance_available = {
-                component_id:'my_money_balance_available',
+            my_money_balance_available = [
+                component_id: 'my_money_balance_available'
                 content_id: ['balance']
-            }
+            ]
         }
     }
 
