@@ -159,6 +159,16 @@ trackTests {
             free_trial_ad = false
         }
 
+        "/advertising/pads2/landing/modal/no_items"(platform: "/", type: TrackType.View) {
+            button = "top"
+            free_trial_ad = true
+        }
+
+        "/advertising/pads2/landing/modal/no_items/go"(platform: "/", type: TrackType.Event) {
+            button = "top"
+            free_trial_ad = true
+        }
+
     }
 
     test("Advertising upselling") {
