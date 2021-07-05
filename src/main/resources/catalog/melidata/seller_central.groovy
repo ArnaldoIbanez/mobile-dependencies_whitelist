@@ -144,6 +144,7 @@ tracks {
         position(required: false, type: PropertyType.Numeric, description: "Position of the card (relative to the page)")
         item_id(required: false, type: PropertyType.String, description: "Id of the listing featured in this recommendation")
         rules_applied(required: true, type: PropertyType.String, description: "Type of rules applied to show this card", values: ['hard', 'soft', 'none'])
+        with_random_order(required: true, type: PropertyType.Boolean, description: "Whether the order of the cards was randomized")
     }
 
     def picture_info_map = objectSchemaDefinitions {
