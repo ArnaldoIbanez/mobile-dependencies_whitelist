@@ -1422,47 +1422,56 @@ tracks {
         nfc_card_id (
             required: true,
             type: PropertyType.String,
-            description: "The user NFC card id"
+            description: "The user NFC card id",
+            inheritable: false
         )
         need_show_only_error_message_in_configuration_hub (
             required: true,
             type: PropertyType.Boolean,
-            description: "User error message status"
+            description: "User error message status",
+            inheritable: false
         )
         tokenization_error (
             required: true,
             type: PropertyType.Boolean,
-            description: "Tokenization error status"
+            description: "Tokenization error status",
+            inheritable: false
         )
         nfc_has_pin_setted (
             required: true,
             type: PropertyType.Boolean,
-            description: "User nfc card pin status"
+            description: "User nfc card pin status",
+            inheritable: false
         )
         nfc_is_freezed (
             required: true,
             type: PropertyType.Boolean,
-            description: "User nfc card freeze status"
+            description: "User nfc card freeze status",
+            inheritable: false
         )
         has_physical_card (
             required: true,
             type: PropertyType.Boolean,
-            description: "If user already has a physical card"
+            description: "If user already has a physical card",
+            inheritable: false
         )
         is_nfc_enabled (
             required: true,
             type: PropertyType.Boolean,
-            description: "Checks if NFC is turned on"
+            description: "Checks if NFC is turned on",
+            inheritable: false
         )
         is_tap_and_pay_setted (
             required: true,
             type: PropertyType.Boolean,
-            description: "Checks if MP is the default Tap&Pay app"
+            description: "Checks if MP is the default Tap&Pay app",
+            inheritable: false
         )
         is_restrictive_mode_occupied (
             required: true,
             type: PropertyType.Boolean,
-            description: "Checks if MP can replace the default Tap&Pay app"
+            description: "Checks if MP can replace the default Tap&Pay app",
+            inheritable: false
         )
     }
     "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
@@ -1516,47 +1525,56 @@ tracks {
         nfc_card_id (
             required: true,
             type: PropertyType.String,
-            description: "The user NFC card id"
+            description: "The user NFC card id",
+            inheritable: false
         )
         need_show_only_error_message_in_configuration_hub (
             required: true,
             type: PropertyType.Boolean,
-            description: "User error message status"
+            description: "User error message status",
+            inheritable: false
         )
         tokenization_error (
             required: true,
             type: PropertyType.Boolean,
-            description: "Tokenization error status"
+            description: "Tokenization error status",
+            inheritable: false
         )
         nfc_has_pin_setted (
             required: true,
             type: PropertyType.Boolean,
-            description: "User nfc card pin status"
+            description: "User nfc card pin status",
+            inheritable: false
         )
         nfc_is_freezed (
             required: true,
             type: PropertyType.Boolean,
-            description: "User nfc card freeze status"
+            description: "User nfc card freeze status",
+            inheritable: false
         )
         has_physical_card (
             required: true,
             type: PropertyType.Boolean,
-            description: "If user already has a physical card"
+            description: "If user already has a physical card",
+            inheritable: false
         )
         is_nfc_enabled (
             required: true,
             type: PropertyType.Boolean,
-            description: "Checks if NFC is turned on"
+            description: "Checks if NFC is turned on",
+            inheritable: false
         )
         is_tap_and_pay_setted (
             required: true,
             type: PropertyType.Boolean,
-            description: "Checks if MP is the default Tap&Pay app"
+            description: "Checks if MP is the default Tap&Pay app",
+            inheritable: false
         )
         is_restrictive_mode_occupied (
             required: true,
             type: PropertyType.Boolean,
-            description: "Checks if MP can replace the default Tap&Pay app"
+            description: "Checks if MP can replace the default Tap&Pay app",
+            inheritable: false
         )
     }
     "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
