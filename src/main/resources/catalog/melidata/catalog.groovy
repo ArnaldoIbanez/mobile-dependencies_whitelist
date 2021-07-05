@@ -246,6 +246,8 @@ catalog {
         include business, "fees_installment.groovy"
         include business, "costs_section.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "mp_growth_plugins.groovy"
+        include business, "mp_growth_internalproducts.groovy"
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
