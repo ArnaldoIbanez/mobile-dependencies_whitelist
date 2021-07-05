@@ -12,7 +12,7 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance") {
+    test("Balance available") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
         "/banking/balance"(platform: "/", type: TrackType.View) {
             my_money_balance_available = [
@@ -26,6 +26,10 @@ trackTests {
                         elements: 5
             ]
         }
+    }
+
+    test("Balance to release") {
+         "/banking/to_release"(platform: "/", type: TrackType.View) {}
     }
 
     test("Balance Calendar") {
