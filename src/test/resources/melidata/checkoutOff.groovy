@@ -47,6 +47,11 @@ trackTests {
             client_id = 470234553122
         }
 
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
+        }
+
         def finishDefaultProperties = {
             payment_installments = 3
             payment_status_detail = "accredited"
@@ -104,6 +109,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -140,6 +146,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -559,6 +566,11 @@ trackTests {
             client_id = 470234553122
         }
 
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
+        }
+
         def finishDefaultProperties = {
             payment_installments = 3
             payment_status_detail = "accredited"
@@ -617,6 +629,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -653,6 +666,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
