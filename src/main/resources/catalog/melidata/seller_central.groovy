@@ -589,6 +589,7 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
+        message(required: false, type: PropertyType.String, description: "Text input from actions with user feedback")
     }
 
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
