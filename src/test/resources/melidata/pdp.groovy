@@ -783,4 +783,29 @@ trackTests {
             catalog_product_id = "MLA1234"
         }
     }
+
+    test("PDP payment methods modal view") {
+        "/pdp/payment_methods"(platform: "/", type: TrackType.View) {
+            page_vertical = "CORE"
+            category_l1 = "{'MLA1574':'Hogar, Muebles y Jardín}"
+            category_l2 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar}"
+            category_l3 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar,'MLA1623':'Otros}"
+            shipping_mode = "not_specified"
+            free_shipping = false
+            international_delivery_mode = "none"
+            item_id = "MLA786428856"
+            item_condition = "NEW"
+            buying_mode = "BUY_IT_NOW"
+            variations = false
+            collector_id = "151804293"
+            category_domain = "MLA-HOME_FURNITURE"
+            listing_source = "mercadolibre"
+            listing_type = "gold_special"
+            fulfillment = false
+            item_attributes = "DEFERRED_STOCK"
+            item_state = "NONE"
+            item_city = "NONE"
+            item_neighborhood = "NONE"
+        }
+    }
 }

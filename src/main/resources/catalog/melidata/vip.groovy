@@ -1622,4 +1622,28 @@ tracks {
 
     "/vip/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 
+    "/vip/payment_methods"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        page_vertical(required: true, type: PropertyType.String, description: "Item vertical")
+        category_l1(required: false, type: PropertyType.String, description: "Item level 1 category")
+        category_l2(required: false, type: PropertyType.String, description: "Item level 2 category")
+        category_l3(required: false, type: PropertyType.String, description: "Item level 3 category")
+        category_l4(required: false, type: PropertyType.String, description: "Item level 4 category")
+        category_l5(required: false, type: PropertyType.String, description: "Item level 5 category")
+        shipping_mode(required: true, type: PropertyType.String, description: "Item shipping mode")
+        free_shipping(required: true, type: PropertyType.Boolean, description: "Item has free shipping")
+        international_delivery_mode(required: false, type: PropertyType.String, description: "Item international delivery mode")
+        item_condition(required: true, type: PropertyType.String, description: "Item condition")
+        buying_mode(required: true, type: PropertyType.String, description: "Item buying mode")
+        variations(required: false, type: PropertyType.Boolean, description: "Item has variations")
+        collector_id(required: false, type: PropertyType.String, description: "Item seller id")
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        listing_source(required: false, type: PropertyType.String, description: "Item listing source")
+        listing_type(required: false, type: PropertyType.String, description: "Item listing type")
+        fulfillment(required: true, type: PropertyType.Boolean, description: "Item has fulfillment")
+        item_attributes(required: true, type: PropertyType.String, description: "Item attributes")
+        item_state(required: false, type: PropertyType.String, description: "Item state")
+        item_city(required: false, type: PropertyType.String, description: "Item city")
+        item_neighborhood(required: false, type: PropertyType.String, description: "Item neighborhood")
+    }
 }
