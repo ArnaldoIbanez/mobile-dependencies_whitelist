@@ -231,6 +231,7 @@ catalog {
         include business, "external.groovy"
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
+        include business, "point_refunds.groovy"
         include business, "sp_prepaid.groovy"
         include business, "tools_for_sellers.groovy"
         include business, "mp_growth.groovy"
