@@ -59,6 +59,7 @@ tracks {
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/to_release"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
@@ -122,7 +123,7 @@ tracks {
     // Vouchers
     "/banking/vouchers"(platform: "/", type: TrackType.View) {}
 
-    // Vouchers - Benefits 
+    // Vouchers - Benefits
     "/banking/vouchers/benefits"(platform: "/", isAbstract: true) {}
     "/banking/vouchers/benefits/categories"(platform: "/", type: TrackType.Event) {}
 
@@ -139,5 +140,5 @@ tracks {
     "/banking/vouchers/card"(platform: "/", type: TrackType.Event) {}
 
     // Vouchers - Help
-    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}   
+    "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
 }
