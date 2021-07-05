@@ -262,6 +262,7 @@ catalog {
         include business, "widget.groovy"
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
+        include business, "meliplaces.groovy"
     }
 
     mercadoshops.each { business ->
