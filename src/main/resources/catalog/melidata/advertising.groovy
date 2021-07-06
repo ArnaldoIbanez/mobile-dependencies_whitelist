@@ -154,12 +154,12 @@ tracks {
 
     "/advertising/pads2/landing/modal"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/landing/modal/no_items"(platform: "/", type: TrackType.View) {
+    "/advertising/pads2/landing/modal/no_items"(platform: "/", type: TrackType.View, parentPropertiesInherited:false) {
         button(required: true, description: "Button that redirects to confirm page")
         free_trial_ad(required: false, description: "Indicates if user is suitable for free trial")
     }
 
-    "/advertising/pads2/landing/modal/no_items/go"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/landing/modal/no_items/go"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         button(required: true, description: "Button that redirects to confirm page")
         free_trial_ad(required: false, description: "Indicates if user is suitable for free trial")
     }
