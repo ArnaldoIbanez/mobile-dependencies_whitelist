@@ -79,6 +79,8 @@ trackTests {
             free_trial_ad = true
             budget = 500
             official_stores = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
@@ -86,6 +88,8 @@ trackTests {
             budget = 500
             experiment = true
             official_stores = false
+            new_advertiser = false
+            has_items = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -93,6 +97,8 @@ trackTests {
             free_trial_ad = true
             budget = 500
             official_stores = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -102,6 +108,8 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             official_stores = false
+            new_advertiser = false
+            has_items = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -110,6 +118,8 @@ trackTests {
             budget = 500
             experiment = true
             official_stores = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -120,6 +130,8 @@ trackTests {
         "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
             free_trial_ad = true
             official_stores = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
@@ -128,6 +140,8 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             official_stores = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
@@ -162,6 +176,8 @@ trackTests {
             position = "home_desktop"
             experiment = true
             official_stores = false
+            new_advertiser = false
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
