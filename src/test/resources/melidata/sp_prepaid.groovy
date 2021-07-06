@@ -600,7 +600,6 @@ trackTests {
         "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
-            view_time()
         }
 
         "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
@@ -1358,7 +1357,6 @@ trackTests {
         "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
-            view_time()
         }
 
         "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {

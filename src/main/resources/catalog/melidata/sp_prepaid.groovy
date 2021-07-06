@@ -475,9 +475,7 @@ tracks {
 
 
     // Check Accreditation information
-    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
-        view_time
-    }
+    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {}
 
     "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
