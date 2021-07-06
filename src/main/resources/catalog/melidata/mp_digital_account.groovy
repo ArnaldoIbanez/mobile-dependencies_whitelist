@@ -23,7 +23,7 @@ tracks {
 
     def structDataAddAccount = objectSchemaDefinitions {
         bank_id(required:true, type: PropertyType.String, description: "Bank identificator")
-        branch(required:true, type: PropertyType.String, description: "Agency of bank")
+        branch(required:false, type: PropertyType.String, description: "Agency of bank")
         holder(required:true, type: PropertyType.String, description: "Name of account")
         identification(required:false, type: PropertyType.String)
         number(required:true, type:PropertyType.String, description: "Number of account")

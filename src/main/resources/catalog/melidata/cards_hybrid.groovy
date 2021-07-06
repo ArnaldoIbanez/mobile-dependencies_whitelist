@@ -632,12 +632,12 @@ tracks {
         )
     }
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: false,
             type: PropertyType.String,
-            description: "The wsp button tapped"
+            description: "The wsp banner tapped"
         )
     }
     "/cards/hybrid/setup/virtual/card"(platform: "/", isAbstract: true) { }
@@ -720,10 +720,10 @@ tracks {
           )
     }
 
-    // WHATSAPP BUTTON
+    // WHATSAPP Banner
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {}
+    "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {}
 
 
     // CARDS HUBS
@@ -1418,7 +1418,62 @@ tracks {
     
     // ENROLLMENT-HUB-NFC
     //-------------------
-    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {
+        nfc_card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "The user NFC card id",
+            inheritable: false
+        )
+        need_show_only_error_message_in_configuration_hub (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User error message status",
+            inheritable: false
+        )
+        tokenization_error (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Tokenization error status",
+            inheritable: false
+        )
+        nfc_has_pin_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card pin status",
+            inheritable: false
+        )
+        nfc_is_freezed (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card freeze status",
+            inheritable: false
+        )
+        has_physical_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "If user already has a physical card",
+            inheritable: false
+        )
+        is_nfc_enabled (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if NFC is turned on",
+            inheritable: false
+        )
+        is_tap_and_pay_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP is the default Tap&Pay app",
+            inheritable: false
+        )
+        is_restrictive_mode_occupied (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP can replace the default Tap&Pay app",
+            inheritable: false
+        )
+    }
     "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -1466,7 +1521,62 @@ tracks {
     
     // CONFFIGURATION-HUB-NFC
     //-------------------
-    "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {
+        nfc_card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "The user NFC card id",
+            inheritable: false
+        )
+        need_show_only_error_message_in_configuration_hub (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User error message status",
+            inheritable: false
+        )
+        tokenization_error (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Tokenization error status",
+            inheritable: false
+        )
+        nfc_has_pin_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card pin status",
+            inheritable: false
+        )
+        nfc_is_freezed (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card freeze status",
+            inheritable: false
+        )
+        has_physical_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "If user already has a physical card",
+            inheritable: false
+        )
+        is_nfc_enabled (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if NFC is turned on",
+            inheritable: false
+        )
+        is_tap_and_pay_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP is the default Tap&Pay app",
+            inheritable: false
+        )
+        is_restrictive_mode_occupied (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP can replace the default Tap&Pay app",
+            inheritable: false
+        )
+    }
     "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -1660,6 +1770,12 @@ tracks {
         )
     }
     "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+        action (
+        required: true,
+        type: PropertyType.String,
+        description: "Main Button Tapped")
+    }
     "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -1689,7 +1805,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values: ["success", "unknown"],
+            values: ["success", "unknown", "generic"],
             description: "Type of congrats",
             inheritable: false
         )

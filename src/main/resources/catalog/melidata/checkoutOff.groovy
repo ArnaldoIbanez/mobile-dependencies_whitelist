@@ -66,7 +66,11 @@ tracks {
     // Groups payment method data collection views
     "/checkout_off/payment"(platform: "/", isAbstract: true) {}
 
-    "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {
+        opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
+        opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+    }
+
     "/checkout_off/payment/select_stores"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/select_transfer"(platform: "/", type: TrackType.View) {}
 
@@ -99,7 +103,12 @@ tracks {
 
     // Groups consumer credits data collection views
     "/checkout_off/payment/input_credits"(platform: "/", isAbstract: true) {}
-    "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {
+        opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
+        opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+    }
+
     "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
 
     // Tokenizer product final screen.

@@ -110,6 +110,14 @@ tracks {
         groupCheckoutProperties
     }
 
+    "/point/buyingflow/payment/credit_authorization"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
+    "/point/buyingflow/payment/credit_authorization/confirm"(platform: "/", type: TrackType.Event) {
+        groupCheckoutProperties
+    }
+
     "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
     "/point/buyingflow/congrats"(platform: "/", type: TrackType.View) {
