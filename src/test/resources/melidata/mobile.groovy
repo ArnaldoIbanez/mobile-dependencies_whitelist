@@ -178,8 +178,8 @@ trackTests {
     }
 
     test("IDFA Permission dialog shown") {
-        "/permissions/idfa/show"(platform: "/mobile") {}
-        "/permissions/idfa/show"(platform: "/mobile", business: "mercadopago") {}
+        "/permissions/idfa/shown"(platform: "/mobile") {}
+        "/permissions/idfa/shown"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("IDFA Permission dialog accepted") {
@@ -188,8 +188,8 @@ trackTests {
     }
 
     test("IDFA Permission dialog denied") {
-        "/permissions/idfa/deny"(platform: "/mobile") {}
-        "/permissions/idfa/deny"(platform: "/mobile", business: "mercadopago") {}
+        "/permissions/idfa/denied"(platform: "/mobile") {}
+        "/permissions/idfa/denied"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("Devices Metadata") {
@@ -200,6 +200,9 @@ trackTests {
             app_cache = 76800
             app_data = 230400
             dark_mode_status = "enabled"
+            font_scale = "large"
+            voice_over = false
+            high_contrast = true
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"
@@ -216,6 +219,9 @@ trackTests {
             app_cache = 76800
             app_data = 230400
             dark_mode_status = "enabled"
+            font_scale = "medium"
+            voice_over = true
+            high_contrast = false
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"
@@ -292,7 +298,19 @@ trackTests {
         "/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/accept"(platform: "/mobile") {}
+        "/apprater/accept"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/cancel"(platform: "/mobile") {}
+        "/apprater/cancel"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile", business: "mercadopago") {}
     }
+
+    test("MercadoLibre apprater") {
+        "/apprater/popup"(platform: "/mobile") {}
+        "/apprater/accept"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
+    } 
 
     test("Landing Deeplinks in Mobile") {
         "/landing/deeplinks"(platform:"/mobile") {

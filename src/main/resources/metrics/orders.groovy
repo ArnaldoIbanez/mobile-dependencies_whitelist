@@ -52,12 +52,12 @@ metrics {
 			divisionMetric("bids")
 		}
 	}
-	
+
 	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				and ( 
+				and (
 					equals(
 						externalCondition {
 							url("internal/orders/\$0")
@@ -69,11 +69,11 @@ metrics {
 						"paid"
 					),
 					equals("event_data.is_pdp", true)
-				)	
+				)
 			}
 		}
 	}
-	
+
 	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
@@ -145,14 +145,14 @@ metrics {
 			}
 		}
 	}
-	
+
 	"buys"(description: "orders or purchases created from feed", compute_order: true) {
 		countsOn {
 			condition {
 				or(
 					and (
 						equals("path", "/orders/ordercreated"),
-						equals("event_data.is_carrito", false)	
+						equals("event_data.is_carrito", false)
 					),
 					and (
 						equals("path","/purchases/purchasecreated")
@@ -161,7 +161,7 @@ metrics {
 			}
 		}
 	}
-	
+
 	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
 		countsOn {
 			condition {
@@ -183,7 +183,7 @@ metrics {
 			}
 		}
 	}
-				       
+
 	"bids.sameProduct"(description: "/orders/ordercreated from feed in the same product of experiement", compute_order: true) {
 		countsOn {
 			condition {
@@ -192,12 +192,12 @@ metrics {
 			}
 		}
 	}
-	
+
 	"bids.sameProduct.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation and in the same product of experiement", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				and ( 
+				and (
 					equals(
 						externalCondition {
 							url("internal/orders/\$0")
@@ -209,7 +209,7 @@ metrics {
 						"paid"
 					),
 				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
-				)	
+				)
 			}
 		}
 	}
@@ -218,7 +218,7 @@ metrics {
 		startWith {
 			experiment(regex("qadb/.*"))
 		}
-		
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -273,29 +273,29 @@ metrics {
 		}
 	}
 
-				       
+
 	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
 		startWith {
-			experiment(regex("search/.*"))
+			experiment(regex("(search|filters)/.*"))
 		}
-		
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
 				equals("event_data.items.item.id", property("item_ids"))
 			}
 		}
-	}			       
-	
+	}
+
 	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
 		startWith {
-			experiment(regex("search/.*"))
+			experiment(regex("(search|filters)/.*"))
 		}
-		
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				and ( 
+				and (
 					equals(
 						externalCondition {
 							url("internal/orders/\$0")
@@ -307,10 +307,10 @@ metrics {
 						"paid"
 					),
 				equals("event_data.items.item.id", property("item_ids"))
-				)	
+				)
 			}
 		}
-	}	
+	}
 
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
@@ -379,7 +379,7 @@ metrics {
 		startWith {
 			experiment(regex("(checkout|buyingflow)/.*"))
 		}
-		
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -395,6 +395,27 @@ metrics {
 								},
 								"paid"
 						))
+			}
+		}
+	}
+
+	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				like(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("internal_tags")
+						},
+						"meli_warranty"
+				)
 			}
 		}
 	}

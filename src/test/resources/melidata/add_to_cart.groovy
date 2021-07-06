@@ -78,6 +78,38 @@ trackTests {
 
             context = 'recommendations'
         }
+
+        "/add_to_cart"(platform: "/mobile/android", type: TrackType.Event) {
+            items = [
+                    [
+                            quantity   : 1,
+                            item       : [
+                                    category_id: "MLB63385",
+                                    id         : "MLB754486062"
+                            ],
+                    ]
+            ]
+            carousel_type = "normal"
+            carousel_label = "Limpieza"
+            component = 3
+            context = "supermarket_home"
+        }
+
+        "/add_to_cart"(platform: "/web/desktop", type: TrackType.Event) {
+            items = [
+                    [
+                            quantity   : 1,
+                            item       : [
+                                    category_id: "MLB63385",
+                                    id         : "MLB754486062"
+                            ],
+                    ]
+            ]
+            carousel_type = 'home'
+            carousel_label = 'Bebés'
+            component = 3
+            context = 'supermarket_home'
+        }
     }
 
      test("Add to cart intention tracks") {

@@ -46,6 +46,11 @@ trackTests {
                           "immediate_payment",
                           "cart_eligible"
                         ],
+                        deal_ids: [
+                          "MLA1234",
+                          "MLA1235",
+                          "MLA1236"
+                        ],
                         warranty: "",
                         accepts_mercadopago: true,
                         boosted: true,
@@ -60,7 +65,8 @@ trackTests {
                           start_date: "2020-01-29T11:00:00-06:00"
                         ],
                         deal_of_the_day_configuration: null,
-                        dispatching_normally: true
+                        dispatching_normally: true,
+                        pos: 1
                       ], 
                       [
                         id: "MLA611663122",
@@ -96,13 +102,19 @@ trackTests {
                           "immediate_payment",
                           "cart_eligible"
                         ],
+                        deal_ids: [
+                          "MLA2234",
+                          "MLA2235",
+                          "MLA2236"
+                        ],
                         accepts_mercadopago: true,
                         rebate: 1,
                         one_p: 0,
                         private_label: 1,
                         promotion_type: "DEAL_OF_THE_DAY",
                         lightning_deal_configuration: null,
-                        deal_of_the_day_configuration: null
+                        deal_of_the_day_configuration: null,
+                        pos: 2
                       ],
                       [
                         id: "MLA611663126",
@@ -139,6 +151,11 @@ trackTests {
                           "immediate_payment",
                           "cart_eligible"
                         ],
+                        deal_ids: [
+                          "MLA3234",
+                          "MLA3235",
+                          "MLA3236"
+                        ],
                         warranty: "",
                         accepts_mercadopago: true,
                         rebate: 1,
@@ -146,7 +163,8 @@ trackTests {
                         private_label: 1,
                         promotion_type: "LIGHTNING_DEAL",
                         lightning_deal_configuration: null,
-                        deal_of_the_day_configuration: null
+                        deal_of_the_day_configuration: null,
+                        pos: 3
                       ]
                     ]
             // algorithms = [scoring: "threshold", selection: "bci_v1", sorting: "max_10pct_l2"]
@@ -183,6 +201,11 @@ trackTests {
                   image_src: "https://http2.mlstatic.com/D_683598-MLA42907993112_072020-T.jpg",
                   free_shipping: true,
                   fulfillment: false,
+                  deal_ids: [
+                          "MLA1234",
+                          "MLA1235",
+                          "MLA1236"
+                  ],
                   link: [
                     url: "https://articulo.mercadolibre.com.ar/MLA-689581949-notebook-hp-intel-core-i3-4gb-1tb-pantalla"
                   ],

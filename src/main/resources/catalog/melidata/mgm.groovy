@@ -77,19 +77,19 @@ tracks {
      * MGM SELLER TRACKS *
      *************************/
 
-    "/mgm_seller" (platform: "/mobile", isAbstract: true) {}
+    "/mgm_seller" (platform: "/", isAbstract: true) {}
 
     // Views
-    "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
-    "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
+    "/mgm_seller/referal" (platform: "/", type: TrackType.View) {}
+    "/mgm_seller/dashboard" (platform: "/", type: TrackType.View) {}
     
     // Events
-    "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
+    "/mgm_seller/referal/tap" (platform: "/", type: TrackType.Event) {
         media(required: false, type: PropertyType.String, description: "media to share the content")
         device(required: false, type: PropertyType.String, description: "Device to share")
         link(required: false, type: PropertyType.String, description: "link to screen")
     }
-    "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
+    "/mgm_seller/referal/swipe" (platform: "/", type: TrackType.Event) {}
 
     /*************************
      * MGM PAYER TRACKS v3  *
@@ -180,8 +180,8 @@ tracks {
     }
 
     "/mgm/v3/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        program_id(required: true, type: PropertyType.String, description: "Indicates the id of the member get member program.")
-        reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_guest", "kyc_booster", "kyc_fraud", "discount_used", "scarcity_overcome", "wrong_site"])
+        mgmGuestMinimumFields
+        reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_guest", "kyc_booster", "kyc_fraud", "discount_used", "scarcity_overcome", "wrong_site", "cap_reached"])
     }
 
     "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {}
