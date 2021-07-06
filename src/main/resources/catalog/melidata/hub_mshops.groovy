@@ -30,14 +30,14 @@ tracks {
     ]
 
     def confData = objectSchemaDefinitions {
-        whatsapp(required: false, type: PropertyType.String, values: toolStatus)
-        facebook_shop(required: false, type: PropertyType.String, values: toolStatus)
-        facebook_pixel(required: false, type: PropertyType.String, values: toolStatus)
-        google_analytics(required: false, type: PropertyType.String, values: toolStatus)
-        google_shopping(required: false, type: PropertyType.String, values: toolStatus)
-        google_ads(required: false, type: PropertyType.String, values: toolStatus)
-        google_search(required: false, type: PropertyType.String, values: toolStatus)
-        instagram(required: false, type: PropertyType.String, values: toolStatus)
+        whatsapp(required: true, type: PropertyType.String, values: toolStatus)
+        facebook_shop(required: true, type: PropertyType.String, values: toolStatus)
+        facebook_pixel(required: true, type: PropertyType.String, values: toolStatus)
+        google_analytics(required: true, type: PropertyType.String, values: toolStatus)
+        google_shopping(required: true, type: PropertyType.String, values: toolStatus)
+        google_ads(required: true, type: PropertyType.String, values: toolStatus)
+        google_search(required: true, type: PropertyType.String, values: toolStatus)
+        instagram(required: true, type: PropertyType.String, values: toolStatus)
     }
 
     def cardsData = objectSchemaDefinitions {
