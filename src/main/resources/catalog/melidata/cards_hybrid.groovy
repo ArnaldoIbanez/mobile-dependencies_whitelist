@@ -632,12 +632,12 @@ tracks {
         )
     }
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: false,
             type: PropertyType.String,
-            description: "The wsp button tapped"
+            description: "The wsp banner tapped"
         )
     }
     "/cards/hybrid/setup/virtual/card"(platform: "/", isAbstract: true) { }
@@ -720,10 +720,10 @@ tracks {
           )
     }
 
-    // WHATSAPP BUTTON
+    // WHATSAPP Banner
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {}
+    "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {}
 
 
     // CARDS HUBS
