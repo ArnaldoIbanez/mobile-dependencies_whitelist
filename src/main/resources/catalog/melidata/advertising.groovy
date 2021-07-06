@@ -134,6 +134,8 @@ tracks {
         budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
     }
 
+    "/advertising/pads2/landing/modal"(platform: "/", isAbstract: true) {}
+
     "/advertising/pads2/landing/modal/no_items"(platform: "/", type: TrackType.View) {
         button(required: true, description: "Button that redirects to confirm page")
         free_trial_ad(required: false, description: "Indicates if user is suitable for free trial")
