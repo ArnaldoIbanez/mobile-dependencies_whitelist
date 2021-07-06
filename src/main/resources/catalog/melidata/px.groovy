@@ -24,7 +24,7 @@ tracks {
         card_id(required: false, type: PropertyType.String, description: "Card id")
         issuer_id(required: false, type: PropertyType.String, description: "Issuer id")
         bin(required: false, type: PropertyType.String, description: "Bin")
-        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason"])
+        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason", "ESC_CAP", "SAVED_CARD", "CALL_FOR_AUTH", "DISABLED_CARD", "INVALID_ESC", "INVALID_FINGERPRINT", "UNEXPECTED_TOKENIZATION_ERROR", "ESC_DISABLED", "NO_REASON"])
     }
 
     propertyGroups {
@@ -524,6 +524,10 @@ tracks {
         externalData
     }
 
+    "/px_checkout/combo_switch"(platform: "/mobile", type: TrackType.Event) {
+        option_selected(required: true, type: PropertyType.String, description: "selected option in the switch", values: ["debit_card", "credit_card", "account_money"])
+    }
+
     // Review:
     "/px_checkout/review/confirm"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
@@ -532,6 +536,10 @@ tracks {
         review_type(required: true, type: PropertyType.String, description: "Review screen type", values: ["one_tap" , "traditional"])
         extra_info(required: false, description: "Extra payment method info")
         externalData
+    }
+
+    "/px_checkout/program_validation"(platform: "/mobile", type: TrackType.Event) {
+        validation_program_used(required: false, type: PropertyType.String, description: "validaton program executed if there was one", values: ["STP"])
     }
 
     // Congrats:

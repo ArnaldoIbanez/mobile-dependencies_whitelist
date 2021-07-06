@@ -10,7 +10,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1218"
+    initiative = "1305"
 	
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
     "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
@@ -27,10 +27,15 @@ tracks {
         review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
         discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
         delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
+        category_id(type: PropertyType.String, required: true, description: "The Category item id")
+        item_id(type: PropertyType.String, required: true, description: "The item id")
+        item_name(type: PropertyType.String, required: true, description: "The item title")
     }
 
     propertyGroups {
         storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
+        moreInfoGroup(store_id, collector_id, brand_id, session_id)
+        vipGroup(collector_id, category_id, item_id, item_name, session_id)
     }
 
     def store_review_definition = objectSchemaDefinitions {
@@ -55,11 +60,21 @@ tracks {
         pickup(type: PropertyType.Boolean, required: true, description: "If the store has pickup")
     }
 
+    def context_info_definition = objectSchemaDefinitions {
+        has_cart(type: PropertyType.Boolean, required: true, description: "If the cart is available")
+        has_catalog(type: PropertyType.Boolean, required: false, description: "If the Catalog is available")
+        version_code(type: PropertyType.Numeric, required: false, description: "The version used")
+        version_name(type: PropertyType.String, required: false, description: "The version name used")
+    }
+
+
     // VSP
 
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
+        context_info(type: PropertyType.Map(context_info_definition), required: false, description: "The context information")
     }
+
 
     def vsp_components_definition = objectSchemaDefinitions {
         actionable_info(required: false, type: PropertyType.ArrayList(PropertyType.Map(vsp_actionable_info_definition)), description: "Actionable info components")
@@ -107,6 +122,29 @@ tracks {
 
     "/discount_center/payers/request_location/back" (platform: "/mobile", type: TrackType.Event) {}
 
+
+    // MORE INFO
+
+    "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+        moreInfoGroup
+    }
+
+    def amount_definition = objectSchemaDefinitions {
+        final_price(type: PropertyType.Numeric, required: true, description: "The final price with discount if exits")
+        currency(type: PropertyType.String, required: true, description: "The currency")
+        discount(type: PropertyType.Numeric, required: false, description: "The discount in percent")
+        original_price(type: PropertyType.Numeric, required: false, description: "The price without discount")
+    }
+
+    // VIP
+
+    "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
+        vipGroup
+        amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
+        context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
+    }
+
+
     // SESSION
 
     "/discount_center/payers/session" (platform: "/mobile", isAbstract: true) {}
@@ -140,6 +178,17 @@ tracks {
     def image_banner_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
         index(type: PropertyType.Numeric, required: true, description: "The position of the image banner")
+    }
+
+    def purchase_item_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        name(type: PropertyType.String, required: true, description: "The name")
+        purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
+        purchase_state(type: PropertyType.String, required: true, values: ['paid'], description: "The purchase state")
+        action_label(type: PropertyType.String, required: true, description: "Label text of the action link")
+        action_target(type: PropertyType.String, required: true, description: "Target of the action link")
     }
 
     def marketplace_main_slider_definition = objectSchemaDefinitions {
@@ -196,6 +245,20 @@ tracks {
         index(type: PropertyType.Numeric, required: true, description: "The position of the filter within the component")
     }
 
+    def marketplace_cover_carousel_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, values: ['cover_carousel'], description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the carousel")
+    }
+
+    def marketplace_purchases_status_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, values: ['purchases_status'], description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(purchase_item_definition)), description: "Items shown in the purchase carousel")
+    }
+
     def marketplace_components_definition = objectSchemaDefinitions {
         main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_slider_definition)), description: "Main slider components")
         main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
@@ -208,6 +271,8 @@ tracks {
         hybrid_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
         filters(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_definition)), description: "Filters components")
         filters_l2(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_l2_definition)), description: "Filters L2 components")
+        cover_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_cover_carousel_definition)), description: "Cover carousel components")
+        purchases_status(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_purchases_status_definition)), description: "Purchases status components")
     }
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {

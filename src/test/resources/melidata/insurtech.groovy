@@ -252,10 +252,9 @@ trackTests {
 
         "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
-        "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/select"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
@@ -268,30 +267,12 @@ trackTests {
             currency_id = "BR"
         }
 
-        "/insurtech/qpage_on/faq"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/help"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
         }
 
-        "/insurtech/qpage_on/selected"(platform:"/mobile", type: TrackType.Event) {
-            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
-            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
-            period = 12
-            cost = 270
-            original_cost = 300
-            discount_rate = 10
-            revenue_share_fee = 30
-            revenue = 78
-            currency_id = "BR"
-        }
-
-        "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
-            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
-        }
-
-        "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/add"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
@@ -304,7 +285,23 @@ trackTests {
             currency_id = "BR"
         }
 
-        "/insurtech/qpage_on/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/skip"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+        }
+
+        "/insurtech/qpage_on/quote_fail"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            period = 12
+            cost = 270
+            original_cost = 300
+            discount_rate = 10
+            revenue = 78
+            currency_id = "BR"
+        }
+
+        "/insurtech/qpage_on/quote_success"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             quote_id = "343cae11-d2ef-4115-b284-96c7e69fb1d8"
@@ -312,14 +309,16 @@ trackTests {
 
         "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
         }
 
 
         "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
             error_type = "timeout"
+        }
+
+        "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAdaA4124a"
         }
 
         "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
@@ -332,7 +331,627 @@ trackTests {
         }
     }
 
+    defaultBusiness = "mercadolibre"
 
+    test('Insurtech - test hub-on tacking on checkout'){
+        "/insurtech/qpage_on"(platform:"/web", type: TrackType.View) {
+            item = [
+               id: "MLB1539246793",
+               domain_id: "MLB-FREEZERS",
+               price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ]
+           ]
+           has_roda = false
+           has_garex = true
+        }
+        "/insurtech/qpage_on/select"(platform:"/web", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+           ]
+           has_roda = true
+           has_garex = true
+        }
+        "/insurtech/qpage_on/add"(platform:"/web", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+        }
+        "/insurtech/qpage_on/quote_success"(platform:"/web", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+        }
+        "/insurtech/qpage_on/quote_fail"(platform:"/web", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+        }
+        "/insurtech/qpage_on/skip"(platform:"/web", type: TrackType.Event) {
+           item = [
+               id: "MLB1539246793",
+               domain_id: "MLB-FREEZERS",
+               price: 2300.0,
+           ]
+           options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ]
+           ]
+           has_roda = true
+           has_garex = true
+        }
+        "/insurtech/qpage_on/help"(platform:"/web", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+           ]
+           has_roda = true
+           has_garex = false
+         }
+        "/insurtech/qpage_on/faq"(platform:"/web", type: TrackType.View) {
+            product_id = "RODA"
+            coverage = "screen"
+            manufacturer_warranty = null
+            period = null
+         }
+         "/insurtech/qpage_on/terms"(platform:"/web", type: TrackType.View) {
+            product_id = "RODA"
+            from = "insurance-fe-hub-off"
+         }
+         "/insurtech/qpage_on/particular_conditions"(platform:"/web", type: TrackType.View) {
+            product_id = "GAREX"
+            from = "insurance-fe-hub-off"
+         }
+        "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
+            item = [
+                    id: "MLB1539246793",
+                    domain_id: "MLB-FREEZERS",
+                    price: 2300.0,
+            ]
+            options = [
+                    [
+                            product_id: "GAREX",
+                            price: [
+                                    final_amount: 242.73,
+                                    discount_rate: null,
+                            ],
+                            period: 12,
+                            option_data: [
+                                    manufacturer_warranty: 12
+                            ],
+                    ],
+                    [
+                            product_id: "RODA",
+                            price: [
+                                    final_amount: 242.73,
+                                    discount_rate: null,
+                            ],
+                            period: 12,
+                            option_data: [
+                                    brand: "Samsung",
+                                    coverage: "screen",
+                                    deductible_amount: 279.9,
+                                    model: "Galaxy A70",
+                                    size: "128GB"
+                            ],
+                    ]
+            ]
+        }
+    }
+
+    defaultBusiness = "mercadolibre"
+    test('Insurtech - test hub-off tacking on checkout'){
+        "/insurtech/qpage_off"(platform:"/", type: TrackType.View) {
+            item = [
+               id: "MLB1539246793",
+               domain_id: "MLB-FREEZERS",
+               price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ]
+            ]
+            has_roda = false
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/select"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/add"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/quote_success"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/quote_fail"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            options = [
+            [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ],
+            [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ],
+            ],
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "screen",
+                    deductible_amount: 279.9,
+                    model: "Galaxy A70",
+                    size: "128GB"
+                ]
+            ]
+            has_roda = true
+            has_garex = true
+            order_id = '12345'
+        }
+        "/insurtech/qpage_off/help"(platform:"/", type: TrackType.Event) {
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ],
+            ]
+            has_roda = true
+            has_garex = false
+            order_id = '12345'
+         }
+        "/insurtech/qpage_off/faq"(platform:"/", type: TrackType.View) {
+            product_id = "RODA"
+            coverage = "screen"
+            manufacturer_warranty = null
+            period = null
+        }
+        "/insurtech/qpage_off/error"(platform:"/", type: TrackType.View) {
+        }
+        "/insurtech/qpage_off/fallback"(platform:"/", type: TrackType.View) {
+        }
+        "/insurtech/qpage_off/congrats"(platform:"/", type: TrackType.View) {
+            order_id = '12345'
+            product_id = 'GAREX'
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            payment = [
+                id: 12345,
+                payment_type_id: 'credit_card',
+                transaction_amount: 2330.0,
+                status: 'approved',
+            ]
+        }
+        "/insurtech/qpage_off/congrats/go_to_protections_page"(platform:"/", type: TrackType.Event) {
+            order_id = '12345'
+            product_id = 'GAREX'
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            payment = [
+                id: 12345,
+                payment_type_id: 'credit_card',
+                transaction_amount: 2330.0,
+                status: 'approved',
+            ]
+        }
+        "/insurtech/qpage_off/congrats/go_to_my_protections_page"(platform:"/", type: TrackType.Event) {
+            order_id = '12345'
+            product_id = 'GAREX'
+            item = [
+                id: "MLB1539246793",
+                domain_id: "MLB-FREEZERS",
+                price: 2300.0,
+            ]
+            payment = [
+                id: 12345,
+                payment_type_id: 'credit_card',
+                transaction_amount: 2330.0,
+                status: 'approved',
+            ]
+        }
+    }
 
     defaultBusiness = "mercadopago"
 
@@ -362,6 +981,15 @@ trackTests {
                         "7893299910425"
                     ],
                     discount_rate: 10,
+                    insured_amount: 30000,
+                    item_cost: 15000,
+                    franchise_type: "PREV_OPEN_CLAIM",
+                    available_resolution_types:[
+                        "repair",
+                        "compensation"
+                    ],
+                    allowed_opening: 2,
+                    compensation_money_amount: 10000,
                 ],
                 [
                     coverage: "theft_break",
@@ -372,6 +1000,15 @@ trackTests {
                         "7893299910425"
                     ],
                     discount_rate: 0,
+                    insured_amount: 30000,
+                    item_cost: 15000,
+                    franchise_type: "PREV_OPEN_CLAIM",
+                    available_resolution_types:[
+                        "repair",
+                        "compensation"
+                    ],
+                    allowed_opening: 2,
+                    compensation_money_amount: 10000,
                 ]
             ]
             entity_type = "order"
@@ -404,6 +1041,15 @@ trackTests {
                         "7893299910425"
                     ],
                     discount_rate: 0,
+                    insured_amount: 30000,
+                    item_cost: 15000,
+                    franchise_type: "PREV_OPEN_CLAIM",
+                    available_resolution_types:[
+                        "repair",
+                        "compensation"
+                    ],
+                    allowed_opening: 2,
+                    compensation_money_amount: 10000,
                 ],
             ]
             entity_type = "order"
@@ -627,6 +1273,15 @@ trackTests {
                     "7893299910425"
                 ],
                 discount_rate: 30,
+                insured_amount: 30000,
+                item_cost: 15000,
+                franchise_type: "PREV_OPEN_CLAIM",
+                available_resolution_types:[
+                    "repair",
+                    "compensation"
+                ],
+                allowed_opening: 2,
+                compensation_money_amount: 10000,
             ]
             entity_type = "order"
             entity_id = "789078907890"
@@ -700,6 +1355,15 @@ trackTests {
                     "7893299910425"
                 ],
                 discount_rate: 20,
+                insured_amount: 30000,
+                item_cost: 15000,
+                franchise_type: "PREV_OPEN_CLAIM",
+                available_resolution_types:[
+                    "repair",
+                    "compensation"
+                ],
+                allowed_opening: 2,
+                compensation_money_amount: 10000,
             ]
             entity_type = "order"
             entity_id = "789078907890"
@@ -708,7 +1372,7 @@ trackTests {
             discount_code = 'CODE TEST'
         }
 
-       "/insurtech/roda/qpage/quoting_fallback/default/quotable/select"(platform:"/", type: TrackType.Event) {
+        "/insurtech/roda/qpage/quoting_fallback/default/quotable/select"(platform:"/", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
@@ -719,7 +1383,7 @@ trackTests {
             buying_mode = 'buy_it_now'
         }
 
-       "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable/select"(platform:"/", type: TrackType.Event) {
+        "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable/select"(platform:"/", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
@@ -730,25 +1394,47 @@ trackTests {
             buying_mode = 'buy_it_now'
         }
 
-       "/insurtech/roda/qpage/congrats_subscription"(platform:"/", type: TrackType.View) {
+        "/insurtech/roda/qpage/congrats_subscription"(platform:"/", type: TrackType.View) {
             purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
             preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
             payment_id=10341173315
-            status='success'
+            status='approved'
         }
 
-       "/insurtech/roda/qpage/congrats_subscription/go_to_protections"(platform:"/", type: TrackType.Event) {
+        "/insurtech/roda/qpage/congrats_subscription/go_to_protections"(platform:"/", type: TrackType.Event) {
             purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
             preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
             payment_id=10341173315
-            status='success'
+            status='approved'
         }
 
-       "/insurtech/roda/qpage/congrats_subscription/go_to_protection_detail"(platform:"/", type: TrackType.Event) {
+        "/insurtech/roda/qpage/congrats_subscription/go_to_protection_detail"(platform:"/", type: TrackType.Event) {
             purchase_id='quote-13aeab9c-70af-43a7-91da-2013ae66b750-test'
             preference_id='593032277-5f9f2c52-b5f9-41c7-b95e-761ff7f2fd97'
             payment_id=10341173315
-            status='success'
+            status='pending'
+        }
+
+        "/insurtech/roda/qpage/onboarding_kyc"(platform:"/", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            buying_mode = 'subscription'
+            quote_intention_id = '253D824dd923-3713-4720-8928-UUID-test'
+        }
+
+        "/insurtech/roda/qpage/onboarding_kyc/go_to_kyc"(platform:"/", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            buying_mode = 'subscription'
+            quote_intention_id = '253D824dd923-3713-4720-8928-UUID-test'
         }
 
         //Mobile
@@ -773,6 +1459,12 @@ trackTests {
 
         "/insurtech/hardware_check/onboarding/start_tests"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/onboarding/device_info_error"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            error_description = "illegal State Exception on get information()"
+            view_time = 24578
         }
 
         "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {
@@ -870,6 +1562,18 @@ trackTests {
             check_id = "VOLUME_DOWN"
             session_id = "348536772342324"
             view_time = 604578
+        }
+
+        "/insurtech/hardware_check/checkups/first_touch"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            time_elapsed = 4
+            view_time = 604575
+        }
+
+        "/insurtech/hardware_check/checkups/redirect"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            deep_link = "mercadopago://insurance/webview?url=https%3A%2F%2mercadopago.com.br%2F%26param%3Dvalue%"
+            view_time = 604575
         }
 
         "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
@@ -1227,6 +1931,7 @@ trackTests {
         }
 
         // INSURTECH Protections Detail - my-detail-fe
+        //RODA
         "/insurtech/protections/detail/roda"(platform:"/mobile", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
@@ -1349,7 +2054,25 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/detail/roda/imei_activation"(platform:"/web", type: TrackType.Event) {
+        "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            is_imei_valid = true
+            protection_status = 'pending_activation'
+            days_taken_for_imei_activation = 5
+            retries_number = 4
+            modal_imei_retries = 2
+        }
+
+        "/insurtech/protections/detail/roda/change_protection"(platform:"/mobile", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
                 amount_total: 100.72,
@@ -1361,6 +2084,26 @@ trackTests {
                 is_current_device_protection: false,
             ]
         }
+
+        "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: true,
+                is_current_device_protection: true,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+                status_detail: "PENDING_SEND_PROVIDER"
+            ]
+        }
+
 
         "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
             protection = [
@@ -1410,6 +2153,24 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/roda/claim_detail/insurer_response"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+            ]
+        }
+
         "/insurtech/protections/detail/roda/phone_activation"(platform:"/web", type: TrackType.View) {}
 
         "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/web", type: TrackType.View) {}
@@ -1420,311 +2181,53 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
-        }∫
+        }
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
 
-        "/insurtech/protections/detail/roda/congrats/imei"(platform:"/web", type: TrackType.View) {
-            insurance_purchase: "roda-ABC125"
-        }
-    }
-
-    ["mercadolibre", "mercadopago"].each { business ->
-		defaultBusiness = business
-    test("Insurtech - ${business} tests roda claims tacking ") {
-        // INSURTECH Claims
-
-        "/insurtech/protections/claims"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/use_service"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-            ]
-        }
-
-        "/insurtech/protections/claims/use_service_certificate"(platform:"/web", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-            ]
-        }
-
-        "/insurtech/protections/claims/use_service_not_certificate"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel_protection"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-            ]
-        }
-
-        "/insurtech/protections/claims/help"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-            ]
-        }
-
-        "/insurtech/protections/claims/read_certificate"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-            ]
-        }
-
-        "/insurtech/protections/claims/need_help"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-            ]
-        }
-
-        "/insurtech/protections/claims/need_help/select"(platform:"/", type: TrackType.Event) {
-            help_id = '1234'
-        }
-
-        "/insurtech/protections/claims/cancel/reasons"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel/reasons/select"(platform:"/", type: TrackType.Event) {
-            reason_id = '1234'
-        }
-
-       "/insurtech/protections/claims/cancel/reasons/other"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel/reasons/other/confirm"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel/review"(platform:"/", type: TrackType.View){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel/review/confirm"(platform:"/", type: TrackType.Event){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel/review/keep_protection"(platform:"/", type: TrackType.Event){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-            type_congrats= 'success'
-        }
-
-        "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-            type_congrats= 'error'
-        }
-        "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/item/confirm"(platform:"/", type: TrackType.Event){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/description"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/description/confirm"(platform:"/", type: TrackType.Event){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/questions"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/questions/select_reasons"(platform:"/", type: TrackType.Event){
-            reason_id='123123'
-        }
-        "/insurtech/protections/claims/execute/questions/select_police_report"(platform:"/", type: TrackType.Event){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-        "/insurtech/protections/claims/execute/questions/select_not_police_report"(platform:"/", type: TrackType.Event){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-
-        "/insurtech/protections/claims/execute/address"(platform:"/", type: TrackType.View){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event){
-            address_id= '123123'
-        }
-        "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event){
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/review"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/review/confirm"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-
-        "/insurtech/protections/claims/execute/congrats"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-            type_congrats= 'success'
-        }
-
-        "/insurtech/protections/claims/execute/congrats"(platform:"/", type: TrackType.View) {
+        //GAREX
+         "/insurtech/protections/detail/garex"(platform:"/", type: TrackType.View) {
              product_data =[
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST"
             ]
-            type_congrats= 'success'
+        }
+            "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+               "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+               "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+               "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
         }
 
-        "/insurtech/protections/claims/execute/certificate_update"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
-        }
-        "/insurtech/protections/claims/execute/certificate_update/confirm"(platform:"/", type: TrackType.Event) {
-            product_data =[
+        "/insurtech/protections/detail/garex/activities"(platform:"/", type: TrackType.Event) {
+             product_data =[
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
@@ -1732,30 +2235,472 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/claims/execute/franchise"(platform:"/", type: TrackType.View) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
+        //landing-fe
+        "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View) {
+           type = "desktop"
+           os_name = "ios"
+           os_version = "9"
+           discount_type = "fixed"
+           is_generic = false
+           site = "MLB"
         }
-        "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
+        "/insurtech/protections/landings_fe/go_to_store"(platform:"/", type: TrackType.Event) {
+            type = "desktop"
+           os_name = "ios"
+           os_version = "9"
+           discount_type = "fixed"
+           is_generic = false
+           site = "MLB"
         }
-        "/insurtech/protections/claims/execute/franchise/cancel"(platform:"/", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
-            ]
+        "/insurtech/protections/landings_fe/go_to_qpage"(platform:"/", type: TrackType.Event) {
+            type = "desktop"
+           os_name = "ios"
+           os_version = "9"
+           discount_type = "fixed"
+           is_generic = false
+           site = "MLB"
         }
     }
-  }
+
+    ["mercadolibre", "mercadopago"].each { business ->
+		defaultBusiness = business
+        test("Insurtech - ${business} tests roda claims tacking ") {
+            // INSURTECH Claims
+
+            "/insurtech/protections/claims"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/use_service"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/use_service_certificate"(platform:"/web", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/use_service_not_certificate"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel_protection"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/help"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/read_certificate"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/feedback"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/need_help"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                ]
+            }
+
+            "/insurtech/protections/claims/need_help/select"(platform:"/", type: TrackType.Event) {
+                help_id = '1234'
+            }
+
+            "/insurtech/protections/claims/cancel/reasons"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/reasons/select"(platform:"/", type: TrackType.Event) {
+                reason_id = '1234'
+            }
+
+            "/insurtech/protections/claims/cancel/reasons/other"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/reasons/other/confirm"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/review"(platform:"/", type: TrackType.View){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/review/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/review/keep_protection"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'success'
+            }
+
+            "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'error'
+            }
+            "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/item/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/description"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/description/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/questions"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/questions/select_reasons"(platform:"/", type: TrackType.Event){
+                reason_id='123123'
+            }
+            "/insurtech/protections/claims/execute/questions/select_police_report"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+            "/insurtech/protections/claims/execute/questions/select_not_police_report"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+
+            "/insurtech/protections/claims/execute/address"(platform:"/", type: TrackType.View){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event){
+                address_id= 123123
+            }
+            "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+
+            "/insurtech/protections/claims/execute/imei_lock_code"(platform:"/", type: TrackType.View){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+            "/insurtech/protections/claims/execute/imei_lock_code/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/review"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/review/confirm"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/congrats"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'success'
+            }
+
+            "/insurtech/protections/claims/execute/congrats"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'success'
+            }
+
+            "/insurtech/protections/claims/execute/congrats/feedback"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'success'
+            }
+
+            "/insurtech/protections/claims/execute/certificate_update"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+            "/insurtech/protections/claims/execute/certificate_update/confirm"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/franchise"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+            "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+            "/insurtech/protections/claims/execute/franchise/cancel"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+            "/insurtech/protections/claims/execute/help/police_report"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST",
+                    insurance_purchase_key: "quote-d612d476-c1de-4fb2-a9bd-1e549c123456"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/help/police_report/confirm"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST",
+                    insurance_purchase_key: "quote-d612d476-c1de-4fb2-a9bd-1e549c123456"
+                ]
+            }
+
+
+            "/insurtech/protections/claims/execute/wipe_data"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/wipe_data/confirm"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/document/request"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/document/request/select_continue"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/execute/document/request/select_police_report"(platform:"/", type: TrackType.Event) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            // INSURTECH Webview
+            "/insurtech/webview/generic-error"(platform:"/mobile", type: TrackType.Event) {
+                deeplink = "mercadopago://insurtech/webview?url=https%3A%2F%2Fmercadopago.com.br%2Fprotections%2Froda%2Fqpage&toolbar=true"
+                device = [
+                    brand: "Samsung",
+                    model: "J7",
+                    model_code: "SM-J700M",
+                    size: "64GB",
+                ]
+            }
+        }
+    }
 }

@@ -40,7 +40,7 @@ tracks {
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
@@ -88,11 +88,13 @@ tracks {
 
     "/register/congrats"(platform: "/web", type: TrackType.View){
         app(type: PropertyType.String, required:true, description: "Current Flow")
-        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        source(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
         // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, required: false, description: "Registration Version")
+        captcha_showed(type: PropertyType.Boolean, description: "Checks if the registration done had a recaptcha")
+        prog_reg_version(type: PropertyType.Numeric, required:false, description: "Version of progressive registration, if is 0 is normal registration")
     }
 
     "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
@@ -108,12 +110,12 @@ tracks {
     }
 
     "/register/hub"(platform: "/mobile", type: TrackType.View){
+        registration_version(type: PropertyType.String, description: "Registration Version")
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
     }
     "/register/hub/register-with-email"(platform: "/mobile", type: TrackType.Event){}
-    "/register/hub/register-with-facebook"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/form"(platform: "/mobile", type: TrackType.View){
         app(type: PropertyType.String, required:true, description: "Current Flow")
@@ -124,8 +126,20 @@ tracks {
         source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:false)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
+    "/register/form/validate"(platform: "/mobile/ios", type: TrackType.Event){
+      step_valid(type: PropertyType.String, required: true, description: "checks if TyC checkbox is marked")
+      checkbox_valid(type: PropertyType.String, required: true, description: "checks if all fields have been completed")
+      components_valid(type: PropertyType.String, required: true, description: "checks if all fields, tyc included, are completed")
+    }
+    "/register/form/validate"(platform: "/mobile/android", type: TrackType.Event){
+      step_valid(type: PropertyType.Boolean, required: true, description: "checks if TyC checkbox is marked")
+      checkbox_valid(type: PropertyType.Boolean, required: true, description: "checks if all fields have been completed")
+      components_valid(type: PropertyType.Boolean, required: true, description: "checks if all fields, tyc included, are completed")
+    }
+    "/register/form/continue"(platform: "/mobile", type: TrackType.Event){}
+
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/google_hint"(platform: "/mobile", isAbstract: true){
         step(type: PropertyType.String, required: true, values: ["registration", "phoneRegistration", "getEmail"], description: "Step where the google hint is provided to the user")
@@ -160,6 +174,7 @@ tracks {
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
+        registration_version(type: PropertyType.String, required:false, description: "Registration Version")
     }
 
     "/register/account-recovery-hub/account-recovery"(platform: "/mobile", type: TrackType.Event){}
@@ -194,6 +209,12 @@ tracks {
         item_id(type: PropertyType.String, required:false, description: "Item" )
     }
 
+    "/register/upgrade_version"(platform: "/mobile", type: TrackType.View){
+        app(type: PropertyType.String, description: "Current Flow")
+        origin(type: PropertyType.String, description: "The source where the flow was called")
+        registration_version(type: PropertyType.String, description: "Registration Version" )
+    }
+
     // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
     "/progressive_registration"(platform: "/mobile", type: TrackType.View, initiative:'1125') {}
 
@@ -221,8 +242,21 @@ tracks {
     "/register/v3/hub/email_validation"(platform: "/", isAbstract: true){}
     "/register/v3/hub/phone_validation"(platform: "/", isAbstract: true){}
     "/register/v3/hub/kyc"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/pix"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/regulations"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/tyc"(platform: "/", isAbstract: true){}
     "/register/v3/hub/email_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/pix/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/regulations/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/tyc/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
+
+    "/register/v3/challenge"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc/wallet"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/wallet/submit"(platform: "/", type: TrackType.Event){}
+    "/register/v3/challenge/tyc/standard"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/standard/submit"(platform: "/", type: TrackType.Event){}
 }

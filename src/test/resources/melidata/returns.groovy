@@ -141,6 +141,10 @@ trackTests {
         review_return_method = 'review_code'
       }
 
+      "/return/review/agencies"(platform: "/", type: TrackType.Event) {
+        selection = "view_agencies"
+      }
+
       // STEP 07
       "/return/congrats"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
@@ -165,6 +169,10 @@ trackTests {
         selection = "to_myml"
       }
 
+      "/return/congrats/agencies"(platform: "/", type: TrackType.Event) {
+        selection = "view_agencies"
+      }
+
       "/return/congrats_error"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -178,6 +186,7 @@ trackTests {
         shipment_type = "delivery"
         pickup_time = ""
         showed_payment_methods = "credit_card"
+        refund_account_money = true
         cart_order = false
         payment_refund_at = "shipped"
         flow_version = "return-mobile-0.0.1"

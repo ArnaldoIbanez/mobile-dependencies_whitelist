@@ -14,6 +14,9 @@ tracks {
         category (required: false, type: PropertyType.String, description: "The category of the current event") // for backwards compatibility with old tracks
     }
 
+    //Invest Section
+    "/asset_management/invest_section"(platform: "/", isAbstract: true) {}
+
     // First time
     "/asset_management/first_time"(platform: "/mobile", type: TrackType.View) {}
 
@@ -64,8 +67,7 @@ tracks {
     "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
 
     // Congrats View
-    "/asset_management/congrats_success"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/congrats_success"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {}
     "/asset_management/congrats_error"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
@@ -101,8 +103,6 @@ tracks {
     // Opt-out
     "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/opt_out"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_stop_investing"(platform: "/web", type: TrackType.View) {}
 
     // Detail
     "/asset_management/investment_detail"(platform: "/", type: TrackType.View) {
@@ -121,13 +121,9 @@ tracks {
     "/asset_management/operations/detail"(platform: "/web") {}
 
     // Congrats
-    "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
-    "/asset_management/result_unavailable"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/congrats_success"(platform: "/", type: TrackType.View) {
+        congratsName (required: false, type: PropertyType.String, description: "Description name")
+    }
 
     // Faqs
     "/asset_management/faqs"(platform: "/mobile", type: TrackType.View) {}
@@ -142,8 +138,8 @@ tracks {
     "/asset_management/invest"(platform: "/web", type: TrackType.View) {}
 
     // Investment report
-    "/asset_management/investment_report"(platform: "/web", type: TrackType.Event) {
-        year (required: true, type: PropertyType.String, description: "The year of earnings requested")
+    "/asset_management/investment_report"(platform: "/", type: TrackType.Event) {
+        year (required: false, type: PropertyType.String, description: "The year of earnings requested")
         quarter (required: false, type: PropertyType.String, values: ["1", "2", "3", "4"], description: "The requested quarter of the year, if chosen")
     }
 
@@ -192,7 +188,55 @@ tracks {
     "/asset_management/next_year"(platform: "/", type: TrackType.Event) {}
     "/asset_management/previous_month"(platform: "/", type: TrackType.Event) {}
     "/asset_management/next_month"(platform: "/", type: TrackType.Event) {}
-
+    
     //Clarifications events
     "/asset_management/show_clarifications"(platform: "/", type: TrackType.Event) {}
+
+    //Investment Settings
+    "/asset_management/investment_settings"(platform: "/", type: TrackType.View) {}
+    "/asset_management/investment_settings/switch_false"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/investment_settings/switch_true"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/investment_settings/continue_investing"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/investment_settings/show_opt_out"(platform: "/", type: TrackType.Event) {}
+    
+    //Keypad
+    "/asset_management/investment_keypad"(platform: "/", type: TrackType.View) {}
+    "/asset_management/investment_keypad/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {
+        invested(type: PropertyType.Numeric, required: true, description: "The percentage of money invested by the user.")
+    }
+    
+    //Invest Section
+    "/asset_management/invest_section/empty_no_money"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/empty_no_returns"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/money_to_invest"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/all_invested"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/not_enough_money_nor_returns"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/enough_money_or_returns"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/automatic_invest_ready"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/auto_enabled"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/max_udis_reached"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/max_udis_not_reached"(platform: "/", type: TrackType.View) {}
+    
+    "/asset_management/invest_section/show_estimated_yield"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/invest_section/click_button_edit_amount"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/invest_section/click_button_automatic_invest_ready"(platform: "/", type: TrackType.Event) {}
+
+    //Update App
+    "/asset_management/update_app"(platform: "mobile", type: TrackType.View) {}
+    
+    //Kyc Onboarding
+    "/asset_management/kyc_onboarding"(platform: "/", type: TrackType.View) {}
+    "/asset_management/kyc_onboarding/send_to_kyc"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/kyc_onboarding/show_more"(platform: "/", type: TrackType.Event) {}
+
+    //Redirect onbaording mobile
+    "/asset_management/kyc_web_blocker"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/kyc_web_blocker/play_store"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/kyc_web_blocker/app_store"(platform: "/web", type: TrackType.Event) {}
+
+
+    //Loading GBM
+    "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
 }

@@ -54,6 +54,13 @@ trackTests {
             deeplink = "mercadopago://home"
         }
 
+        //Finish with an optional dismissible shield
+        "/user_blocker/finish"(platform: "/") {
+            deeplink = "mercadopago://home"
+            dismiss_shield = "true"
+            duration = "86400"
+        }
+
         //Async mode events
         "/user_blocker/async_mode_load"(platform: "/") {
             label = "service_success"
@@ -108,6 +115,13 @@ trackTests {
         //Finish events
         "/user_blocker/finish"(platform: "/", business: "mercadolibre") {
             deeplink = "meli://home"
+        }
+
+        //Finish with an optional dismissible shield
+        "/user_blocker/finish"(platform: "/", business: "mercadolibre") {
+            deeplink = "meli://home"
+            dismiss_shield = "true"
+            duration = "86400"
         }
 
         //Async mode events

@@ -53,82 +53,6 @@ tracks {
 
     "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
 
-    "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
-
-    "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
-    }
-
-    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
-        selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
-        installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
-    }
-
-    "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        error_code (type: PropertyType.Numeric, required: true, description: "Error code")
-    }
-
-    "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-        selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
-        selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
-        installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
-    }
-
-    "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/invalid_address"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
-        groupCheckoutProperties
-    }
-
-    "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
-
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
@@ -143,8 +67,29 @@ tracks {
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
+    // [Merchants Growth] Multiproduct
+    "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {}
+
     // [Merchants Growth] Landing Multiproduct > Events
-    "/point/landings/compare"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/multiproduct/buy"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landings Navigation > Events
+    "/point/landings/navigation"(platform:"/", type: TrackType.Event) {}
+    
+    // [Merchants Growth] Landings Navigation > Calculator link
+    "/point/landings/calculator"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landings Navigation > Security module link
+    "/point/landings/security"(platform:"/", type: TrackType.Event) {}
+
+    // [Merchants Growth] Landing compare
+    "/point/landings/compare"(platform:"/", type: TrackType.View) {}
+
+    // [Merchants Growth] Landing compare > Events
+    "/point/landings/compare/buy"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/compare/go"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings: MGM > Events
     "/point/landings/mgm"(platform: "/", isAbstract: true) {}
@@ -167,6 +112,7 @@ tracks {
         amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
         is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
         e2e_test (required: true, type: PropertyType.Boolean, description: "e2e Test")
+        discount_code (required: true, type: PropertyType.String, description: "Discount code")
     }
 
     "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
@@ -176,20 +122,10 @@ tracks {
     "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {}
 
     //congrats OFF
-    "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
@@ -199,41 +135,7 @@ tracks {
     "/point/landings/landing_bundles_buy"(platform:"/", type: TrackType.Event) {
         quantity (required:true, type: PropertyType.Numeric, description: "bundle quantity")
     }
-
-    // Services landings
-    "/services"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/services/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/services/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
-    }
-    "/services/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
-    }
-
-    // QR Payers Landings
-    "/qr_payers"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-    }
-    "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
-    }
-    "/qr_payers/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
-        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
-        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
-    }
-
+    
     "/pos_mobile"(platform: "/mobile", type: TrackType.Event, initiative: "1175") {}
     "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
         flow_id(required: false, type: PropertyType.String, description: "Flow id.")
@@ -518,9 +420,9 @@ tracks {
     "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
-    * PDV Onboarding IIBB - Register Point Plus
+    * Register Point Devices
     */
-    "/point/register"(platform: "/", isAbstract: true, initiative : "1046") {}
+    "/point/register"(platform: "/", isAbstract: true, initiative : "1300") {}
 
     // Register device
     "/point/register/start"(platform: "/", type: TrackType.View) {}

@@ -192,6 +192,15 @@ tracks {
             description: "Self service option shown to the user",
             type: PropertyType.ArrayList(PropertyType.String)
         )
+        opt_in_separator(
+                required: false,
+                description: "It is only shown when user needs to allow notifications",
+                type: PropertyType.String,
+                values: [
+                        "visible",
+                        "not visible"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -206,8 +215,20 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
+        status(
+                required: true,
+                description: "Define if user allows or not whatsapp notifications",
+                type: PropertyType.Boolean,
+        )
+    }
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
         installments_group
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/choose_installments"(platform: "/", type: TrackType.Event) {}
@@ -230,10 +251,18 @@ tracks {
     //Mobile Events
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_uses_modal"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_how_to_use_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
@@ -242,7 +271,11 @@ tracks {
     }
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Event PX Congrats Extra Component
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {}
 
     //Admin History (Compras Finalizadas)
 
@@ -252,6 +285,15 @@ tracks {
     //Events
     "/credits/consumer/administrator/history/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/history/educational_landing"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding view
+    "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {}
+
+    //Events
+    "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
+
 
     /******************************************
      *       End: Consumers Administrator
@@ -318,6 +360,11 @@ tracks {
                 required: true,
                 values: ['cho', 'ticket']
         )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
+        )
     }
     "/credits/consumer/administrator/detail/payment_intention_list"(platform: "/", type: TrackType.Event) {
         installment_status(
@@ -340,6 +387,11 @@ tracks {
                 description: "Current selected 'path' to payment",
                 required: true,
                 values: ['cho', 'ticket']
+        )
+        advance_installment(
+            required: false,
+            description: "User wanted to pay in advance and was redirected to CX widget",
+            type: PropertyType.Boolean,
         )
     }
 
@@ -454,7 +506,7 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: false, values: ["search", "vip", "pdp", "home"],
+        context(required: false, values: ["search", "vip", "pdp", "pdpd", "home"],
                 description: "The page or section where the nav action is taking place")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
@@ -740,6 +792,66 @@ tracks {
      /******************************************
      *    End: Consumers Change Due Date FLow
      ******************************************/
+
+    /******************************************
+     *    Start: Consumers Early Repayments FLow
+     ******************************************/
+    "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
+        total_amount(
+            required: false,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: false,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: false,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: false,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+    "/credits/consumer/early_repayments/success"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/warning"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
+        total_amount(
+            required: true,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: true,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: true,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: true,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+     /******************************************
+     *    End: Consumers Early Repayments FLow
+     ******************************************/
+
 
      /******************************************
      *    Start: Self service
