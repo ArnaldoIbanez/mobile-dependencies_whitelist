@@ -18,7 +18,7 @@ tracks {
     "/meliplaces/result"(platform: "/", isAbstract: true) {}
 
     /* HOME */
-    "/meliplaces/home/view"(platform: "/", type: TrackType.View) {
+    "/meliplaces/home/success"(platform: "/", type: TrackType.View) {
         service_id(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "an array of services id")
     }
     "/meliplaces/home/shield"(platform: "/", type: TrackType.View) {
@@ -35,8 +35,8 @@ tracks {
     }
 
     /* PERFORMANCE */
-    "/meliplaces/performance/view"(platform: "/", type: TrackType.View) {}
-    "/meliplaces/performance/view/empty_state"(platform: "/", type: TrackType.View) {}
+    "/meliplaces/performance/success"(platform: "/", type: TrackType.View) {}
+    "/meliplaces/performance/empty_state"(platform: "/", type: TrackType.View) {}
     "/meliplaces/performance/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
         error(required: true, type: PropertyType.Numeric, description: "The error code")
@@ -54,7 +54,7 @@ tracks {
     }
 
     /* ACTIVITY DETAIL */
-    "/meliplaces/activities/detail/view"(platform: "/", type: TrackType.View) {}
+    "/meliplaces/activities/detail/success"(platform: "/", type: TrackType.View) {}
     "/meliplaces/activities/detail/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
         error(required: true, type: PropertyType.Numeric, description: "The error code")
@@ -63,9 +63,9 @@ tracks {
     "/meliplaces/activities/detail/receipt"(platform: "/", type: TrackType.Event) {}
 
     /* RESULT */
-    "/meliplaces/result/view"(platform: "/mobile", type: TrackType.View) {
+    "/meliplaces/result/success"(platform: "/mobile", type: TrackType.View) {
         service_id(required: true, type: PropertyType.String, description: "The service id that called the result")
-        status(required: true, type: PropertyType.String, description: "The result's status")
+        status(required: true, type: PropertyType.String, description: "The result's status", values: ['approved', 'pending', 'rejected'])
     }
     "/meliplaces/result/shield"(platform: "/mobile", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
@@ -75,7 +75,7 @@ tracks {
     "/meliplaces/result/share"(platform: "/mobile", type: TrackType.Event) {}
     "/meliplaces/result/action"(platform: "/mobile", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "The id of the action")
-        type(required: true, type: PropertyType.String, description: "The type of action")
+        type(required: true, type: PropertyType.String, description: "The type of action", values: ['navigate', 'close'])
     }
     "/meliplaces/result/close"(platform: "/mobile", type: TrackType.Event) {}
 }
