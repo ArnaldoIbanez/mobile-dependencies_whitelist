@@ -873,8 +873,8 @@ trackTests {
 
         "/advertising/pads2/hub/campaign/update/budget/go"(platform: "/web", type: TrackType.Event) {
         campaign_id = 2222222
-        budget = "4000"
-        budget_new = "5600"
+        budget = 4000
+        budget_new = 5600
         status = "active"
         }
 

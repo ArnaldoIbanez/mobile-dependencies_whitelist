@@ -894,6 +894,7 @@ tracks {
     // Recurrence
     "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {
         segment
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
     }
 
     "/single_player/paygo/recurrence/add_money"(platform: "/mobile", type: TrackType.Event) {
