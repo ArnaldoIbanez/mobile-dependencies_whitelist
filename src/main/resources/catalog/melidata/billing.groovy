@@ -35,4 +35,10 @@ tracks {
     "/billing/legal_documents"(platform: "/") {
         type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
     }
+    "/billing/payment"(platform: "/") {
+        type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
+    }
+    "/billing/payment/congrats"(platform: "/") {
+        type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
+    }
 }

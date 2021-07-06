@@ -66,4 +66,12 @@ trackTests {
             type = "LEGAL_DOCUMENTS_DOWNLOAD_BUTTON_CLICK"
         }
     }
+
+    test("Payment") {
+        "/billing/payment"(platform: "/", type: TrackType.View) {
+        }
+
+        "/billing/payment/congrats"(platform: "/", type: TrackType.View) {
+        }
+    }
 }
