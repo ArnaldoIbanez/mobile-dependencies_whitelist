@@ -12,18 +12,18 @@ tracks {
     "/open_banking"(platform: "/", isAbstract: true) {}
 
     "/open_banking/authorization"(platform: "/", type: TrackType.View) {
-        basePath (type: PropertyType.String, required: true, description: "Page root de open banking'")
-        namePage (type: PropertyType.String, required: true, description: "event result'")
+        basepath (type: PropertyType.String, required: true, description: "Page root de open banking'")
+        namepage (type: PropertyType.String, required: true, description: "event result'")
     }
 
      "/open_banking/error"(platform: "/", type: TrackType.View) {
-        basePath (type: PropertyType.String, required: true, description: "Page root de open banking'")
-        namePage (type: PropertyType.String, required: true, description: "event result'")
+        basepath (type: PropertyType.String, required: true, description: "Page root de open banking'")
+        namepage (type: PropertyType.String, required: true, description: "event result'")
     }
 
     "/open_banking/access"(platform: "/", type: TrackType.View) {
-        basePath (type: PropertyType.String, required: true, description: "Page root de open banking'")
-        namePage (type: PropertyType.String, required: true, description: "event result'")
+        basepath (type: PropertyType.String, required: true, description: "Page root de open banking'")
+        namepage (type: PropertyType.String, required: true, description: "event result'")
     }
  
 }

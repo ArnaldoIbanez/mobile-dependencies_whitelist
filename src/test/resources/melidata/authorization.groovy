@@ -13,18 +13,18 @@ trackTests {
        "/open_banking"(platform: "/") {}
 
         "/open_banking/authorization"(platform: "/", type: TrackType.View)  {
-            basePath = "/open_banking"
-            namePage = "/authorization"
+            basepath = "/open_banking"
+            namepage = "/authorization"
         }
 
         "/open_banking/error"(platform: "/", type: TrackType.View)  {
-            basePath = "/open_banking"
-            namePage = "/error"
+            basepath = "/open_banking"
+            namepage = "/error"
         }
 
         "/open_banking/access"(platform: "/", type: TrackType.View)  {
-            basePath = "/open_banking"
-            namePage = "/access"
+            basepath = "/open_banking"
+            namepage = "/access"
         }
 
     }
