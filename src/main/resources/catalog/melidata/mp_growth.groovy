@@ -109,8 +109,15 @@ tracks {
 	"/merchant_acquisition/flows/wrap_up"(platform: "/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/home"(platform:"/", type: TrackType.View) {}
 	"/merchant_acquisition/flows/wrap_up/home/x_sell"(platform:"/", type: TrackType.View) {}
+	"/merchant_acquisition/flows/wrap_up/home/closing"(platform:"/", type: TrackType.View) {}
 	"/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more"(platform:"/", type: TrackType.Event) {
         product_sell_name(required: true, type: PropertyType.String, description: "The product sell name")
+        link(required: true, type: PropertyType.String, description: "Link to execute")
+    }
+    "/merchant_acquisition/flows/wrap_up/home/closing/click_Like"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/wrap_up/home/closing/click_Dislike"(platform:"/", type: TrackType.Event) {}
+	"/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/wrap_up/home/sellers_central/click_see_more"(platform:"/", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Link to execute")
     }
 
