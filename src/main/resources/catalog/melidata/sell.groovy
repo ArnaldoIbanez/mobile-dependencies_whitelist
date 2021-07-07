@@ -832,7 +832,7 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
     }
-    "/sell/hub/select_vertical"(platform: "/mobile", type: TrackType.Event) {
+    "/sell/list/hub/select_vertical"(platform: "/mobile", type: TrackType.Event) {
         vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
     }
 
