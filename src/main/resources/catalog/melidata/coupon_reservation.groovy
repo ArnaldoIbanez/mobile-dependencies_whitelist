@@ -23,6 +23,8 @@ tracks {
     amount_header(required: false, inheritable: false, type: PropertyType.String, description: "Cupon amount_header")
     amount(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount")
     amount_footer(required: false, inheritable: false, type: PropertyType.String, description: "Cupon amount_footer")
+    phase(required: false, inheritable: false, type: PropertyType.String, description: "Cupon amount_footer")
+    available(required: false, inheritable: false, type: PropertyType.Boolean, description: "Cupon amount_footer")
   }
 
   "/instore/coupon_reservation/reservation/cta" (platform: "/", type: TrackType.Event) {
