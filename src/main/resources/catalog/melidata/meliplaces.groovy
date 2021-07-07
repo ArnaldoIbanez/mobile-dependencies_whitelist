@@ -7,19 +7,15 @@ tracks {
     initiative = "1148"
 
     "/meliplaces"(platform: "/", isAbstract: true) {}
-    "/meliplaces/home"(platform: "/", isAbstract: true) {}
     "/meliplaces/home/other_options"(platform: "/", isAbstract: true) {}
     "/meliplaces/transaction"(platform: "/", isAbstract: true) {}
-    "/meliplaces/performance"(platform: "/", isAbstract: true) {}
     "/meliplaces/performance/tooltip"(platform: "/", isAbstract: true) {}
     "/meliplaces/performance/card"(platform: "/", isAbstract: true) {}
     "/meliplaces/activities"(platform: "/", isAbstract: true) {}
-    "/meliplaces/activities/detail"(platform: "/", isAbstract: true) {}
-    "/meliplaces/result"(platform: "/", isAbstract: true) {}
 
     /* HOME */
-    "/meliplaces/home/success"(platform: "/", type: TrackType.View) {
-        service_id(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "an array of services id")
+    "/meliplaces/home"(platform: "/", type: TrackType.View) {
+        service_id(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "an array of services id")
     }
     "/meliplaces/home/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
@@ -35,7 +31,7 @@ tracks {
     }
 
     /* PERFORMANCE */
-    "/meliplaces/performance/success"(platform: "/", type: TrackType.View) {}
+    "/meliplaces/performance"(platform: "/", type: TrackType.View) {}
     "/meliplaces/performance/empty_state"(platform: "/", type: TrackType.View) {}
     "/meliplaces/performance/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
@@ -54,7 +50,7 @@ tracks {
     }
 
     /* ACTIVITY DETAIL */
-    "/meliplaces/activities/detail/success"(platform: "/", type: TrackType.View) {}
+    "/meliplaces/activities/detail"(platform: "/", type: TrackType.View) {}
     "/meliplaces/activities/detail/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
         error(required: true, type: PropertyType.Numeric, description: "The error code")
@@ -63,9 +59,9 @@ tracks {
     "/meliplaces/activities/detail/receipt"(platform: "/", type: TrackType.Event) {}
 
     /* RESULT */
-    "/meliplaces/result/success"(platform: "/mobile", type: TrackType.View) {
-        service_id(required: true, type: PropertyType.String, description: "The service id that called the result")
-        status(required: true, type: PropertyType.String, description: "The result's status", values: ['approved', 'pending', 'rejected'])
+    "/meliplaces/result"(platform: "/mobile", type: TrackType.View) {
+        service_id(required: false, type: PropertyType.String, description: "The service id that called the result")
+        status(required: false, type: PropertyType.String, description: "The result's status", values: ['approved', 'pending', 'rejected'])
     }
     "/meliplaces/result/shield"(platform: "/mobile", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")

@@ -7,7 +7,7 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Home loads successfully") {
-        "/meliplaces/home/success"(platform: "/", type: TrackType.View) {
+        "/meliplaces/home"(platform: "/", type: TrackType.View) {
             service_id = ['cashin', 'cashout']
         }
     }
@@ -37,7 +37,7 @@ trackTests {
     }
 
     test("Performance view loads successfully") {
-        "/meliplaces/performance/success"(platform: "/", type: TrackType.View) {}
+        "/meliplaces/performance"(platform: "/", type: TrackType.View) {}
     }
 
     test("Performance empty state view loads successfully") {
@@ -72,7 +72,7 @@ trackTests {
     }
 
     test("Activity detail view loads successfully") {
-        "/meliplaces/activities/detail/success"(platform: "/", type: TrackType.View) {}
+        "/meliplaces/activities/detail"(platform: "/", type: TrackType.View) {}
     }  
     
     test("Activity detail shield view is shown") {
@@ -88,7 +88,7 @@ trackTests {
     }
 
     test("Result view loads successfully") {
-        "/meliplaces/result/success"(platform: "/mobile", type: TrackType.View) {
+        "/meliplaces/result"(platform: "/mobile", type: TrackType.View) {
             service_id = "cashin"
             status = "approved"
         }
