@@ -99,6 +99,7 @@ tracks {
         ui_version(required: false, description: "UI version rendered in Search", inheritable:false)
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
         official_stores(required: false, type: PropertyType.Boolean, description: "Indicates if the user is an official store")
+        matching(required: false, type: PropertyType.Boolean, description: "Indicates if the user is matching")
         new_advertiser(required: false, type: PropertyType.Boolean, description: "Indicates if the user is a new advertiser")
         has_items(required: false, type: PropertyType.Boolean, description: "Indicates if the user has items")
     }

@@ -79,6 +79,7 @@ trackTests {
             free_trial_ad = true
             budget = 500
             official_stores = true
+            matching = true
             new_advertiser = true
             has_items = true
         }
@@ -88,6 +89,7 @@ trackTests {
             budget = 500
             experiment = true
             official_stores = false
+            matching = false
             new_advertiser = false
             has_items = false
         }
@@ -97,6 +99,7 @@ trackTests {
             free_trial_ad = true
             budget = 500
             official_stores = true
+            matching = true
             new_advertiser = true
             has_items = true
         }
@@ -108,6 +111,7 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             official_stores = false
+            matching = false
             new_advertiser = false
             has_items = false
         }
@@ -118,6 +122,7 @@ trackTests {
             budget = 500
             experiment = true
             official_stores = true
+            matching = true
             new_advertiser = true
             has_items = true
         }
@@ -130,6 +135,7 @@ trackTests {
         "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
             free_trial_ad = true
             official_stores = true
+            matching = true
             new_advertiser = true
             has_items = true
         }
@@ -140,6 +146,7 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             official_stores = true
+            matching = true
             new_advertiser = true
             has_items = true
         }
@@ -176,6 +183,7 @@ trackTests {
             position = "home_desktop"
             experiment = true
             official_stores = false
+            matching = false
             new_advertiser = false
             has_items = true
         }
