@@ -1364,6 +1364,17 @@ trackTests {
             type = "activate_before"
         }
 
+        "/notification_center/subscription_free_content_level_drop"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_level_drop-186785675"
+            latest_news_id= "subscription_free_content_level_drop-186785675"
+            latest_news_type= "subscription_free_content_level_drop"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
@@ -4665,7 +4676,14 @@ trackTests {
             date = "20181211"
             type = "activate_before"
         }
-
+        "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
+            news_id = "subscription_free_content_level_drop-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
             news_id = "123"
             event_type = "discarded"
@@ -7101,6 +7119,16 @@ trackTests {
             newsgroup_id = "subscription_disney_activation_free_trial-186785675"
             latest_news_id= "subscription_disney_activation_free_trial-186785675"
             latest_news_type= "subscription_disney_activation_free_trial"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_free_content_level_drop"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_level_drop-186785675"
+            latest_news_id= "subscription_free_content_level_drop-186785675"
+            latest_news_type= "subscription_free_content_level_drop"
             status= "read"
             provider = "hbo"
             provider_name = "Disney"
@@ -10766,6 +10794,15 @@ trackTests {
         }
         "/notification/subscription_disney_activation_free_trial"(platform: "/mobile") {
             news_id = "subscription_disney_activation_free_trial-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+
+        "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
+            news_id = "subscription_free_content_level_drop-186785675-hbo-20181211"
             event_type = "open"
             provider = "hbo"
             provider_name = "Disney"
