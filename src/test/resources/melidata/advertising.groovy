@@ -2153,6 +2153,7 @@ trackTests {
             trtarget = 1
             total_ads = 1
         }
+
         "/advertising/pads2/configuration/mode/confirmation/cta"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             strategy = "PROFITABILITY"
@@ -2161,11 +2162,13 @@ trackTests {
             trtarget = 1
             total_ads = 1
         }
-        "/advertising/pads2/configuration/mode/confirmation/createcampaign"(platform: "/", type: TrackType.Event) {
+
+        "/advertising/pads2/configuration/mode/confirmation/createcampaign"(platform: "/web", type: TrackType.Event) {
             campaign_id = 12345
             status = "active"
             mode = "custom"
         }
+
         "/advertising/pads2/configuration/emptystate"(platform: "/", type: TrackType.View) {}
 
         "/advertising/pads2/configuration/mode/strategy"(platform: "/", type: TrackType.View) {
@@ -2284,16 +2287,20 @@ trackTests {
         "/advertising/pads2/manager/auto/modal/go"(platform: "/", type: TrackType.Event) {
             mode = "custom"
         }
-        "/advertising/pads2/manager/addads/createcampaign"(platform: "/", type: TrackType.Event) {
+
+        "/advertising/pads2/manager/addads/createcampaign"(platform: "/web", type: TrackType.Event) {
             campaign_id = 12345
             status = "active"
             mode = "automatic"
         }
-        "/advertising/pads2/manager/addads/createcampaign/modal"(platform: "/", type: TrackType.View) {
+
+        "/advertising/pads2/manager/addads/createcampaign/modal"(platform: "/web", type: TrackType.View) {
         }
-        "/advertising/pads2/manager/addads/createcampaign/modal/close"(platform: "/", type: TrackType.Event) {
+
+        "/advertising/pads2/manager/addads/createcampaign/modal/close"(platform: "/web", type: TrackType.Event) {
         }
-        "/advertising/pads2/manager/addads/createcampaign/modal/go"(platform: "/", type: TrackType.Event) {
+
+        "/advertising/pads2/manager/addads/createcampaign/modal/go"(platform: "/web", type: TrackType.Event) {
             campaign_id = 12345
             status = "active"
             mode = "automatic"

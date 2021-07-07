@@ -1779,7 +1779,7 @@ tracks {
         total_ads(required: false, type: PropertyType.Numeric, description: "Indicates total of ads")
     }
 
-    "/advertising/pads2/configuration/mode/confirmation/createcampaign"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/configuration/mode/confirmation/createcampaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom'])
@@ -1897,19 +1897,19 @@ tracks {
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
-    "/advertising/pads2/manager/addads/createcampaign"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/manager/addads/createcampaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['automatic'])
     }
 
-    "/advertising/pads2/manager/addads/createcampaign/modal"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/manager/addads/createcampaign/modal"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
     }
 
-    "/advertising/pads2/manager/addads/createcampaign/modal/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/manager/addads/createcampaign/modal/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
     }
 
-    "/advertising/pads2/manager/addads/createcampaign/modal/go"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/manager/addads/createcampaign/modal/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['automatic'])
