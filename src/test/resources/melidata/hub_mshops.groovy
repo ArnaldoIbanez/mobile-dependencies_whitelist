@@ -18,7 +18,6 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             shop_status = "active"
             domain_status = "shops_domain"
-            product_quantity = 27
             configuration = [
                 "whatsapp": "not_configured",
                 "facebook_shop": "configured",
@@ -50,7 +49,7 @@ trackTests {
     }
 
     test("Mercado Shops manage tools") {
-        "/shops/hub/configure"(platform: "/", type: TrackType.Event) {
+        "/shops/hub/configuration"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
