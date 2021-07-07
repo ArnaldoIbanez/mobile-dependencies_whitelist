@@ -19,10 +19,10 @@ tracks {
     id(required: true, inheritable: false, type: PropertyType.Numeric, description: "Cupon id")
     image(required: true, inheritable: false, type: PropertyType.String, description: "Cupon image url")
     title(required: true, inheritable: false, type: PropertyType.String, description: "Cupon image title")
-    description(required: true, inheritable: false, type: PropertyType.String, description: "Cupon description")
-    amount_header(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount_header")
+    description(required: false, inheritable: false, type: PropertyType.String, description: "Cupon description")
+    amount_header(required: false, inheritable: false, type: PropertyType.String, description: "Cupon amount_header")
     amount(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount")
-    amount_footer(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount_footer")
+    amount_footer(required: false, inheritable: false, type: PropertyType.String, description: "Cupon amount_footer")
   }
 
   "/instore/coupon_reservation/reservation/cta" (platform: "/", type: TrackType.Event) {
