@@ -1675,6 +1675,12 @@ trackTests {
             segment = "test_segment"
         }
 
+        def notification_panel = {
+            notification_panel = {
+                type = "neutral"
+                content = ["Diária: ", "Dá direito a realizar até 10 viagens por dia em até 24h, a partir da primeira utilização."]
+            }
+        }
 
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2006,6 +2012,7 @@ trackTests {
             mandatory()
             step_information()
             segment()
+            notification_panel()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -2752,6 +2759,7 @@ trackTests {
             mandatory()
             step_information()
             segment()
+            notification_panel()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
