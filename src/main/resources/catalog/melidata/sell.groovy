@@ -375,8 +375,12 @@ tracks {
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
+
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
@@ -396,6 +400,9 @@ tracks {
     "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -824,6 +831,9 @@ tracks {
         vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
+    }
+    "/sell/hub/select_vertical"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
     }
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
