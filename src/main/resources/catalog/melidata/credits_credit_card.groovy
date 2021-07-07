@@ -356,7 +356,9 @@ tracks {
                         "no_proposal_match",
                         "invalid_proposal_status",
                         "user_has_active_account",
-                        "kyc_not_compliant"
+                        "kyc_not_compliant",
+                        "physical_card_request",
+                        "kyc_api_failed"
                 ]
         )
     }
