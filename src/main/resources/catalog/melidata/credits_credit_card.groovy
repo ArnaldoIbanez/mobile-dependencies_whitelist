@@ -245,11 +245,7 @@ tracks {
         from(
                 description: "Indicates where the onboarding flow was accessed from",
                 type: PropertyType.String,
-                required: true,
-                values: [
-                        "hybrid-dashboard",
-                        "unknown"
-                ]
+                required: true
         )
     }
 
