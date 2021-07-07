@@ -15,7 +15,7 @@ tracks {
 
     /* HOME */
     "/meliplaces/home"(platform: "/", type: TrackType.View) {
-        service_id(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "an array of services id")
+        service_id(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "an array of services id", inheritable: false)
     }
     "/meliplaces/home/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
@@ -60,8 +60,8 @@ tracks {
 
     /* RESULT */
     "/meliplaces/result"(platform: "/mobile", type: TrackType.View) {
-        service_id(required: false, type: PropertyType.String, description: "The service id that called the result")
-        status(required: false, type: PropertyType.String, description: "The result's status", values: ['approved', 'pending', 'rejected'])
+        service_id(required: true, type: PropertyType.String, description: "The service id that called the result", inheritable: false)
+        status(required: true, type: PropertyType.String, description: "The result's status", values: ['approved', 'pending', 'rejected'], inheritable: false)
     }
     "/meliplaces/result/shield"(platform: "/mobile", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
