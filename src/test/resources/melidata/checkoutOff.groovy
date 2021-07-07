@@ -295,6 +295,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         // ONLY REQUIRED TESTS
         // EVENTS
         "/checkout_off/init"(platform: "/web/mobile") {
@@ -485,6 +490,11 @@ trackTests {
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
         }
 
         // Properties not necessary but minimum
@@ -815,6 +825,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         // ONLY REQUIRED TESTS
         // EVENTS
         "/checkout_off/init"(platform: "/web/mobile") {
@@ -1005,6 +1020,11 @@ trackTests {
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
         }
 
         // Properties not necessary but minimum
