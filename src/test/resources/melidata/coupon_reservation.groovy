@@ -10,28 +10,26 @@ trackTests {
   // ----- Reservation stage -----
   test("Reservation view") {
     "/instore/coupon_reservation/reservation" (platform: "/", type: TrackType.View) {
-      // coupons = [
-      //   [
-      //     id = 2,
-      //     image = "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density =3X",
-      //     title = "Domino\u0027s",
-      //     description = "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
-      //     price_header = "A solo",
-      //     price = "\$ 18",
-      //     available = true,
-      //     phase = "reservation"
-      //   ],
-      //   [
-      //     id = 3,
-      //     image = "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density =3X",
-      //     title = "Domino\u0027s",
-      //     description = "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
-      //     price_header = "A solo",
-      //     price = "\$ 18",
-      //     available = false,
-      //     phase = "reservation"
-      //   ],
-      // ]
+      event_id = 12333
+      coupons = [
+        [
+          id = 2,
+          image = "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density =3X",
+          title = "Domino\u0027s",
+          description = "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
+          amount_header = "A solo",
+          amount = "\$ 18",
+        ],
+        [
+          id = 3,
+          image = "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density =3X",
+          title = "Domino\u0027s",
+          description = "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
+          amount_header = "A solo",
+          amount = "\$ 18",
+          amount_footer = "antes",
+        ],
+      ]
     }
   }
 
@@ -70,23 +68,27 @@ trackTests {
 
   // ----- exchange stage -----
   test("Exchange view") {
-    "/instore/coupon_reservation/exchange" (platform: "/", type: TrackType.View) {
-      // used_campaigns_status = [
-      //   [brand_name = "Starbucks", cupon_status = false],
-      //   [brand_name = "Burger King", cupon_status = false],
-      //   [brand_name = "Domino’s", cupon_status = true],
-      //   [brand_name = "Benavides", cupon_status = true],
-      // ]
+    "/instore/coupon_reservation/redeem" (platform: "/", type: TrackType.View) {
+      coupons_status = [
+        [
+          id = 2,
+          available = true,
+        ],
+        [
+          id = 3,
+          available = false,
+        ]
+      ]
     }
   }
 
   test("Exchange event cta") {
-    "/instore/coupon_reservation/exchange/cta" (platform: "/", type: TrackType.Event) {
+    "/instore/coupon_reservation/redeem/cta" (platform: "/", type: TrackType.Event) {
       type = "tyc"
     }
   }
   test("Exchange event cta") {
-    "/instore/coupon_reservation/exchange/cta" (platform: "/", type: TrackType.Event) {
+    "/instore/coupon_reservation/redeem/cta" (platform: "/", type: TrackType.Event) {
       type = "how_to_use"
     }
   }
@@ -127,15 +129,15 @@ trackTests {
   }
   // -- Exchange How to use --
   test("FTU How tu use view") {
-    "/instore/coupon_reservation/ftu/how_to_use" (platform: "/", type: TrackType.View) {}
+    "/instore/coupon_reservation/ftu/how_to" (platform: "/", type: TrackType.View) {}
   }
   test("FTU How tu use event cta") {
-    "/instore/coupon_reservation/ftu/how_to_use/cta" (platform: "/", type: TrackType.Event) {
+    "/instore/coupon_reservation/ftu/how_to/cta" (platform: "/", type: TrackType.Event) {
       action = "pay_qr"
     }
   }
   test("FTU How tu use event cta") {
-    "/instore/coupon_reservation/ftu/how_to_use/cta" (platform: "/", type: TrackType.Event) {
+    "/instore/coupon_reservation/ftu/how_to/cta" (platform: "/", type: TrackType.Event) {
       action = "find_stores"
     }
   }
@@ -153,5 +155,12 @@ trackTests {
       action = "home"
     }
   }
-
+  test("error view") {
+    "/instore/coupon_reservation/error" (platform: "/", type: TrackType.View) {}
+  }
+  test("error event cta") {
+    "/instore/coupon_reservation/error/cta" (platform: "/", type: TrackType.Event) {
+      action = "exit"
+    }
+  }
 }

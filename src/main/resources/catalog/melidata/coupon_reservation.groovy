@@ -9,11 +9,20 @@ tracks {
 
   initiative="1218"
 
-  "/instore/coupon_reservation" (platform: "/", isAbstract: true) {}
+  "/instore/coupon_reservation" (platform: "/", isAbstract: true) {
+    event_id(required: false, type: PropertyType.Numeric, description: "Event id")
+  }
 
   // ----- reservation stage -----
   "/instore/coupon_reservation/reservation" (platform: "/", type: TrackType.View) {
-    // coupons(required: true, inheritable: false, type: PropertyType.ArrayList, description: "The cupons list to show")
+    coupons(required: true, inheritable: false, type: PropertyType.ArrayList, description: "The cupons list to show")
+    id(required: true, inheritable: false, type: PropertyType.Numeric, description: "Cupon id")
+    image(required: true, inheritable: false, type: PropertyType.String, description: "Cupon image url")
+    title(required: true, inheritable: false, type: PropertyType.String, description: "Cupon image title")
+    description(required: true, inheritable: false, type: PropertyType.String, description: "Cupon description")
+    amount_header(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount_header")
+    amount(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount")
+    amount_footer(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount_footer")
   }
 
   "/instore/coupon_reservation/reservation/cta" (platform: "/", type: TrackType.Event) {
@@ -29,11 +38,13 @@ tracks {
   // -----------------------------
 
   // ----- exchange stage -----
-  "/instore/coupon_reservation/exchange" (platform: "/", type: TrackType.View) {
-    // used_campaigns_status(type: PropertyType.ArrayList, inheritable: false, description: "Status of coupons consumed")
+  "/instore/coupon_reservation/redeem" (platform: "/", type: TrackType.View) {
+    coupons_status(required: true, inheritable: false, type: PropertyType.ArrayList, description: "The cupons list to show")
+    id(required: true, inheritable: false, type: PropertyType.Numeric, description: "Cupon id")
+    available(required: true, inheritable: false, type: PropertyType.Boolean, description: "Cupon amount_footer") 
   }
 
-  "/instore/coupon_reservation/exchange/cta" (platform: "/", type: TrackType.Event) {
+  "/instore/coupon_reservation/redeem/cta" (platform: "/", type: TrackType.Event) {
     type(required: true, type: PropertyType.String, values:["tyc", "how_to_use"], description: "The call to action type")
   }
   // --------------------------
@@ -60,9 +71,9 @@ tracks {
     action(required: true, values:["more_discounts", "home"], type: PropertyType.String, description: "The call to action type")
   }
   // -- Exchange How to use --
-  "/instore/coupon_reservation/ftu/how_to_use" (platform: "/", type: TrackType.View) {}
+  "/instore/coupon_reservation/ftu/how_to" (platform: "/", type: TrackType.View) {}
 
-  "/instore/coupon_reservation/ftu/how_to_use/cta" (platform: "/", type: TrackType.Event) {
+  "/instore/coupon_reservation/ftu/how_to/cta" (platform: "/", type: TrackType.Event) {
     action(required: true, values:["pay_qr", "find_stores"], type: PropertyType.String, description: "The call to action type")
   }
   // -- Exchange Used --
@@ -72,4 +83,9 @@ tracks {
     action(required: true, values:["more_discounts", "home"], type: PropertyType.String, description: "The call to action type")
   }
   // --------------------------
+  "/instore/coupon_reservation/error" (platform: "/", type: TrackType.View) {}
+
+  "/instore/coupon_reservation/error/cta" (platform: "/", type: TrackType.Event) {
+    action(required: true, values:["exit"], type: PropertyType.String, description: "The call to action type")
+  }
 }
