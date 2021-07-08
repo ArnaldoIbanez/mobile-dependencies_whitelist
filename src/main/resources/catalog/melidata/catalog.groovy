@@ -185,6 +185,7 @@ catalog {
         include business, "category_landing.groovy"
         include business, "cx_clicktocall.groovy"
         include business, "tendencies.groovy"
+        include business, "authorization.groovy"
         include business, "hub_mshops.groovy"
     }
 
