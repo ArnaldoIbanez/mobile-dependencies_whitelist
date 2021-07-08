@@ -36,10 +36,10 @@ tracks {
         type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
     }
     "/billing/payment"(platform: "/") {
-        total_debt(type: PropertyType.Numeric, required: false, description: "Indicates the total debt")
-        amount_to_pay(type: PropertyType.Numeric, required: false, description: "Indicates the amount selected to pay by the user")
-        periods_count(type: PropertyType.Numeric, required: false, description: "Indicates the total count of periods owed")
-        periods_to_pay_count(type: PropertyType.Numeric, required: false, description: "Indicates the total periods to pay selected by the user")
+        total_debt(type: PropertyType.Numeric, required: true, inheritable:false, description: "Indicates the total debt")
+        amount_to_pay(type: PropertyType.Numeric, required: true, inheritable:false, description: "Indicates the amount selected to pay by the user")
+        periods_count(type: PropertyType.Numeric, required: true, inheritable:false, description: "Indicates the total count of periods owed")
+        periods_to_pay_count(type: PropertyType.Numeric, required: true, inheritable:false, description: "Indicates the total periods to pay selected by the user")
     }
     "/billing/payment/congrats"(platform: "/") {
         amount(type: PropertyType.Numeric, required: true, description: "Indicates the amount paid")
