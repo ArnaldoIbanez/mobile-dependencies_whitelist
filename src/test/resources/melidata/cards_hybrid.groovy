@@ -673,8 +673,8 @@ trackTests {
             action = "additional_message_freeze"
         }
     }
-    test("cards hybrid setup virtual wsp button tap tracking") {
-        "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+    test("cards hybrid setup virtual wsp banner tap tracking") {
+        "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "action"
         }
     }
@@ -778,8 +778,8 @@ trackTests {
     }
 
     // WHATSAPP BUTTON
-    test("cards hybrid card setup virtual whatsapp button") {
-            "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event){
+    test("cards hybrid card setup virtual whatsapp banner") {
+            "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event){
                 
             }
         }
@@ -1388,7 +1388,17 @@ trackTests {
 
     //NFC ENROLLMENT HUB
     test("cards hybrid nfc enrollment hub") {
-        "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {
+            nfc_card_id = "12345"
+            need_show_only_error_message_in_configuration_hub = true
+            tokenization_error = false
+            nfc_has_pin_setted = true
+            nfc_is_freezed = false
+            has_physical_card = true
+            is_nfc_enabled = true
+            is_tap_and_pay_setted = true
+            is_restrictive_mode_occupied = false
+        }
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "primary_button"
         }
@@ -1446,7 +1456,17 @@ trackTests {
     
     //NFC CONFIGURATION HUB
     test("cards hybrid nfc configuration hub") {
-        "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {
+            nfc_card_id = "12345"
+            need_show_only_error_message_in_configuration_hub = true
+            tokenization_error = false
+            nfc_has_pin_setted = true
+            nfc_is_freezed = false
+            has_physical_card = true
+            is_nfc_enabled = true
+            is_tap_and_pay_setted = true
+            is_restrictive_mode_occupied = false
+        }
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "primary_button"
         }

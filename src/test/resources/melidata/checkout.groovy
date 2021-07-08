@@ -2233,6 +2233,10 @@ trackTests {
         "/checkout/shipping/input_address/submit"(platform:"/", dataSet, type: TrackType.Event)
         "/checkout/shipping/input_address/map"(platform:"/", dataSet)
         "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
+
+        "/checkout/shipping/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
+        }
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
         "/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event, dataSet)
 

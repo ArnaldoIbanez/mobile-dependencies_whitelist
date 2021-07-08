@@ -94,6 +94,7 @@ catalog {
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
         include business, "addresses.groovy"
+        include business, "zip_finder.groovy"
         include business, "bulk_publish.groovy"
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
@@ -147,7 +148,6 @@ catalog {
         include business, "instore.groovy"
         include business, "discount_center_touchpoints.groovy"
         include business, "qr_discount.groovy"
-        include business, "zip_finder.groovy"
         include business, "current_location.groovy"
         include business, "download_app.groovy"
         include business, "incentivate_login.groovy"
@@ -186,6 +186,7 @@ catalog {
         include business, "cx_clicktocall.groovy"
         include business, "tendencies.groovy"
         include business, "authorization.groovy"
+        include business, "hub_mshops.groovy"
     }
 
     mercadopago.each { business ->
@@ -232,6 +233,7 @@ catalog {
         include business, "external.groovy"
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
+        include business, "point_refunds.groovy"
         include business, "sp_prepaid.groovy"
         include business, "tools_for_sellers.groovy"
         include business, "mp_growth.groovy"
@@ -247,6 +249,8 @@ catalog {
         include business, "fees_installment.groovy"
         include business, "costs_section.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "mp_growth_plugins.groovy"
+        include business, "mp_growth_internalproducts.groovy"
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
@@ -263,6 +267,7 @@ catalog {
         include business, "widget.groovy"
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
+        include business, "meliplaces.groovy"
     }
 
     mercadoshops.each { business ->

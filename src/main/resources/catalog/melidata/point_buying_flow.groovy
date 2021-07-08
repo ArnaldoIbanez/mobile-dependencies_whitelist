@@ -110,9 +110,27 @@ tracks {
         groupCheckoutProperties
     }
 
+    "/point/buyingflow/payment/credit_authorization"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
+    "/point/buyingflow/payment/credit_authorization/confirm"(platform: "/", type: TrackType.Event) {
+        groupCheckoutProperties
+    }
+
     "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
     "/point/buyingflow/congrats"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+
+    "/point/buyingflow/congrats/refresh"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
         payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
         payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")

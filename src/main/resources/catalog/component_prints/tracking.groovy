@@ -16,10 +16,12 @@ tracks {
         bu_line(type: PropertyType.String, required: true, description: "vertical for the content")
         flow(type: PropertyType.String, required: true, description: "flow for the content")
         logic(type: PropertyType.String, required: true, description: "logic of the content")
+        campaign_id(type: PropertyType.Numeric, required: false, description: "campaign id of the content")
         position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
     }
 
     "/component"(platform: "/") {
+        c_category(required: false)
         c_id (required:false)
         c_event (required:false)
         c_campaign (required:false)
