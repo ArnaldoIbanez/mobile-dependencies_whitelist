@@ -13,35 +13,31 @@ trackTests {
       event_id = 12333
       coupons = [
         [
-          id = 2,
-          image = "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density =3X",
-          title = "Domino\u0027s",
-          description = "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
-          amount_header = "A solo",
-          amount = "\$ 18",
+          id: 2,
+          image: "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density3X",
+          title: "Domino\u0027s",
+          description: "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
+          amount_header: "A solo",
+          amount: "\$ 18",
         ],
         [
-          id = 3,
-          image = "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density =3X",
-          title = "Domino\u0027s",
-          description = "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
-          amount_header = "A solo",
-          amount = "\$ 18",
-          amount_footer = "antes",
-        ],
+          id: 3,
+          image: "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density3X",
+          title: "Domino\u0027s",
+          description: "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
+          amount_header: "A solo",
+          amount: "\$ 18",
+          amount_footer: "antes",
+        ]
       ]
     }
   }
 
   test("Reservation event cta") {
-    "/instore/coupon_reservation/reservation/cta" (platform: "/", type: TrackType.Event) {
-      type = "reserve"
-    }
+    "/instore/coupon_reservation/reservation/reserve" (platform: "/", type: TrackType.Event) {}
   }
   test("Reservation event cta") {
-    "/instore/coupon_reservation/reservation/cta" (platform: "/", type: TrackType.Event) {
-      type = "tyc"
-    }
+    "/instore/coupon_reservation/reservation/tyc" (platform: "/", type: TrackType.Event) {}
   }
   
   test("Reservation event congrats") {
@@ -70,97 +66,69 @@ trackTests {
   test("Exchange view") {
     "/instore/coupon_reservation/redeem" (platform: "/", type: TrackType.View) {
       coupons_status = [
-        [
-          id = 2,
-          available = true,
-        ],
-        [
-          id = 3,
-          available = false,
-        ]
+        [id: 2, available: true],
+        [id: 3, available: false]
       ]
     }
   }
 
   test("Exchange event cta") {
-    "/instore/coupon_reservation/redeem/cta" (platform: "/", type: TrackType.Event) {
-      type = "tyc"
-    }
+    "/instore/coupon_reservation/redeem/tyc" (platform: "/", type: TrackType.Event) {}
   }
   test("Exchange event cta") {
-    "/instore/coupon_reservation/redeem/cta" (platform: "/", type: TrackType.Event) {
-      type = "how_to_use"
-    }
+    "/instore/coupon_reservation/redeem/how_to_use" (platform: "/", type: TrackType.Event) {}
   }
   // --------------------------
 
   // ----- FTU pages -----
   // -- Reservation KYC --
   test("FTU KYC view") {
-    "/instore/coupon_reservation/ftu/kyc" (platform: "/", type: TrackType.View) {}
+    "/instore/coupon_reservation/ftu/know_your_customer" (platform: "/", type: TrackType.View) {}
   }
   test("FTU KYC event cta") {
-    "/instore/coupon_reservation/ftu/kyc/cta" (platform: "/", type: TrackType.Event) {
-      action = "start_kyc"
-    }
+    "/instore/coupon_reservation/ftu/know_your_customer/start" (platform: "/", type: TrackType.Event) {}
   }
   // -- Reservation Reserved --
   test("FTU Reserved view") {
     "/instore/coupon_reservation/ftu/reserved" (platform: "/", type: TrackType.View) {}
   }
   test("FTU Reserved event cta") {
-    "/instore/coupon_reservation/ftu/reserved/cta" (platform: "/", type: TrackType.Event) {
-      action = "agree"
-    }
+    "/instore/coupon_reservation/ftu/reserved/agree" (platform: "/", type: TrackType.Event) {}
   }
   // -- Reservation Sold out --
   test("FTU Sold out view") {
     "/instore/coupon_reservation/ftu/sold_out" (platform: "/", type: TrackType.View) {}
   }
   test("FTU Sold out event cta") {
-    "/instore/coupon_reservation/ftu/sold_out/cta" (platform: "/", type: TrackType.Event) {
-      action = "more_discounts"
-    }
+    "/instore/coupon_reservation/ftu/sold_out/more_discounts" (platform: "/", type: TrackType.Event) {}
   }
   test("FTU Sold out event cta") {
-    "/instore/coupon_reservation/ftu/sold_out/cta" (platform: "/", type: TrackType.Event) {
-      action = "home"
-    }
+    "/instore/coupon_reservation/ftu/sold_out/go_home" (platform: "/", type: TrackType.Event) {}
   }
   // -- Exchange How to use --
   test("FTU How tu use view") {
     "/instore/coupon_reservation/ftu/how_to" (platform: "/", type: TrackType.View) {}
   }
   test("FTU How tu use event cta") {
-    "/instore/coupon_reservation/ftu/how_to/cta" (platform: "/", type: TrackType.Event) {
-      action = "pay_qr"
-    }
+    "/instore/coupon_reservation/ftu/how_to/pay_qr" (platform: "/", type: TrackType.Event) {}
   }
   test("FTU How tu use event cta") {
-    "/instore/coupon_reservation/ftu/how_to/cta" (platform: "/", type: TrackType.Event) {
-      action = "find_stores"
-    }
+    "/instore/coupon_reservation/ftu/how_to/find_stores" (platform: "/", type: TrackType.Event) {}
   }
   // -- Exchange Used --
   test("FTU Used view") {
     "/instore/coupon_reservation/ftu/used" (platform: "/", type: TrackType.View) {}
   }
   test("FTU Used event cta") {
-    "/instore/coupon_reservation/ftu/used/cta" (platform: "/", type: TrackType.Event) {
-      action = "more_discounts"
-    }
+    "/instore/coupon_reservation/ftu/used/more_discounts" (platform: "/", type: TrackType.Event) {}
   }
   test("FTU Used event cta") {
-    "/instore/coupon_reservation/ftu/used/cta" (platform: "/", type: TrackType.Event) {
-      action = "home"
-    }
+    "/instore/coupon_reservation/ftu/used/go_home" (platform: "/", type: TrackType.Event) {}
   }
   test("error view") {
     "/instore/coupon_reservation/error" (platform: "/", type: TrackType.View) {}
   }
   test("error event cta") {
-    "/instore/coupon_reservation/error/cta" (platform: "/", type: TrackType.Event) {
-      action = "exit"
-    }
+    "/instore/coupon_reservation/error/exit" (platform: "/", type: TrackType.Event) {}
   }
 }
