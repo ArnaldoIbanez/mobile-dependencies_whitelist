@@ -2177,6 +2177,12 @@ trackTests {
             trtarget = 1
             total_ads = 1
         }
+        
+        "/advertising/pads2/configuration/mode/confirmation/create_campaign"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "custom"
+        }
 
         "/advertising/pads2/configuration/emptystate"(platform: "/", type: TrackType.View) {}
 
@@ -2295,6 +2301,24 @@ trackTests {
 
         "/advertising/pads2/manager/auto/modal/go"(platform: "/", type: TrackType.Event) {
             mode = "custom"
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal"(platform: "/web", type: TrackType.View) {
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal/close"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "automatic"
         }
     }
 
