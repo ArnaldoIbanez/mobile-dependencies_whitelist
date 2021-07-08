@@ -29,6 +29,13 @@ tracks {
         "google_search_console",
     ]
 
+    def shopCards = [
+        "marketing",
+        "listings",
+        "sales",
+        "promotions",
+    ]
+
     def confData = objectSchemaDefinitions {
         whatsapp(required: true, type: PropertyType.String, values: toolStatus)
         facebook_shop(required: true, type: PropertyType.String, values: toolStatus)
@@ -58,11 +65,10 @@ tracks {
                 "own_domain", "shops_domain"
             ]
         )
-        business(required: false, type: PropertyType.String, values: ["shops"])
     }
 
     propertyGroups {
-        mshopsGroup(shop_id, shop_name, shop_domain, domain_status, business)
+        mshopsGroup(shop_id, shop_name, shop_domain, domain_status)
     }
 
     "/shops"(platform: "/", isAbstract: true) {
@@ -92,7 +98,7 @@ tracks {
     }
 
     "/shops/hub/modify"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        tool(required: true, type: PropertyType.String, values: tools, inheritable: false)
     }
 
     "/shops/hub/link"(platform: "/", type: TrackType.Event) {
@@ -116,4 +122,74 @@ tracks {
     }
 
     "/shops/hub/configuration/show_more"(platform: "/", type: TrackType.Event) {}
+
+    // SHOP CARDS
+
+    "/shops/hub/manage"(platform: "/", isAbstract: true) {}
+
+    "/shops/hub/manage/listings"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/view"(platform: "/", isAbstract: true) {}
+
+    "/shops/hub/view/listings"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/modify/listings"(platform: "/", type: TrackType.Event) {}
+    
+    "/shops/hub/modify/sales_listings"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['sales'])
+    }
+
+    "/shops/hub/add"(platform: "/", isAbstract: true) {}
+
+    "/shops/hub/add/codes"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/add/listings"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/manage_sales"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/promotions_configuration"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, values: shopCards)
+    }
+
+    "/shops/hub/promotions_central"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['promotions'])
+    }
+
+    "/shops/hub/view_report"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['promotions'])
+    }
+
+    "/shops/hub/marketing_configuration"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['marketing'])
+    }
+
+    "/shops/hub/show_more"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, values: shopCards)
+    }
+
+    // SHOP METRICS
+
+    "/shops/hub/metrics"(platform: "/", isAbstract: true) {}
+
+    "/shops/hub/metrics/show_more"(platform: "/", type: TrackType.Event) {}
+
+    // TIPS AND NEWS
+
+    "/shops/hub/more_about"(platform: "/", isAbstract: true) {}
+
+    "/shops/hub/more_about/show_more"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/tips_news"(platform: "/", isAbstract: true) {}
+
+    "/shops/hub/tips_news/show_more"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools)
+    }
+
+    "/shops/hub/tips_news/configuration"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools)
+    }
+    
+    "/shops/hub/tips_news/link"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools)
+    }
 }
