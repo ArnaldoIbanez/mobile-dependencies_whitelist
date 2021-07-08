@@ -11,7 +11,7 @@ tracks {
 
     "/navigation/cookies_consent"(platform: "/", isAbstract: true) {}
 
-    "/navigation/cookies_consent/show"(platform: "/web", type: TrackType.View) {
+    "/navigation/cookies_consent/show"(platform: "/web", type: TrackType.Event) {
         consent_type(required: true, type: PropertyType.String,
                 values: ["disclaimer", "bottom", "modal"],
                 description: "Describes the type of shown consent"
