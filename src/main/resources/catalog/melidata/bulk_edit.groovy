@@ -20,8 +20,8 @@ tracks {
     }
 
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {
-        seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
-        user_type(required: true, type: PropertyType.String, description: "The user type")
+        seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation",  values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none", "no_reputation", "newbie"])
+        user_type(required: true, type: PropertyType.String, description: "The user type", values: ["normal", "brand", "car_dealer", "real_state", "real_estate_agency", "official_store", "franchise", "seller_reg"])
         user_shops_status(required: true, type: PropertyType.String, description: "Indicates if seller has mshops experience", values: ["active", "inactive"])
     }
 
