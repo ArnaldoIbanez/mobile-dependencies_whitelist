@@ -111,4 +111,145 @@ trackTests {
             domain_status = "shops_domain"
         }
     }
+
+    test("Mercado Shops cards") {
+        "/shops/hub/manage/listings"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/view/listings"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/modify/listings"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/add/codes"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/add/listings"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/manage_sales"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/sales_listings"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/promotions_configuration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            card = "promotions"
+        }
+
+        "/shops/hub/promotions_central"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            card = "listings"
+        }
+
+        "/shops/hub/view_report"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            card = "sales"
+        }
+
+        "/shops/hub/marketing_configuration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            card = "sales"
+        }
+
+        "/shops/hub/marketing_configuration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            card = "marketing"
+        }
+
+        "/shops/hub/show_more"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            card = "promotions"
+        }
+    }
+
+    test("Mercado Shops metrics section") {
+        "/shops/hub/metrics/show_more"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+    }
+
+    test("Mercado Shops tips and news") {
+        "/shops/hub/more_about/show_more"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/tips_news/show_more"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "whatsapp"
+        }
+
+        "/shops/hub/tips_news/configuration"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "facebook_shop"
+        }
+
+        "/shops/hub/tips_news/link"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "google_shopping"
+        }
+    }
 }
