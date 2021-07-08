@@ -71,7 +71,6 @@ tracks {
 
     "/shops/hub"(platform: "/", type: TrackType.View) {
         shop_status(required: true, type: PropertyType.String, inheritable:false)
-        product_quantity(required: true, type: PropertyType.Numeric, inheritable:false)
         configuration(required: true, type: PropertyType.Map(confData), inheritable: false)
         cards(required: true, type: PropertyType.Map(cardsData), inheritable: false)
     }
@@ -88,8 +87,8 @@ tracks {
     }
 
     // TOOLS CONFIGURATION
-    "/shops/hub/configure"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools.plus(["domain", "contact"]), description: "Media tools plus domain and contact information")
+    "/shops/hub/configuration"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools.plus(["domain", "contact"]), description: "Media tools plus domain and contact information", inheritable: false)
     }
 
     "/shops/hub/modify"(platform: "/", type: TrackType.Event) {
