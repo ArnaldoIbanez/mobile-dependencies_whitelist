@@ -43,7 +43,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             type = "logo"
         }
     }
@@ -54,7 +53,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             tool = "whatsapp"
         }
 
@@ -63,7 +61,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             tool = "facebook_shop"
         }
 
@@ -72,7 +69,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             tool = "facebook_pixel"
         }
 
@@ -81,7 +77,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             tool = "google_analytics"
         }
 
@@ -90,7 +85,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             tool = "instagram"
         }
 
@@ -99,7 +93,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             tool = "google_shopping"
         }
 
@@ -108,7 +101,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
             tool = "google_ads"
         }
 
@@ -117,7 +109,6 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            business = "shops"
         }
     }
 }

@@ -58,11 +58,10 @@ tracks {
                 "own_domain", "shops_domain"
             ]
         )
-        business(required: false, type: PropertyType.String, values: ["shops"])
     }
 
     propertyGroups {
-        mshopsGroup(shop_id, shop_name, shop_domain, domain_status, business)
+        mshopsGroup(shop_id, shop_name, shop_domain, domain_status)
     }
 
     "/shops"(platform: "/", isAbstract: true) {
