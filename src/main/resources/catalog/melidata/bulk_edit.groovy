@@ -19,7 +19,11 @@ tracks {
         operation_id(required: true, type: PropertyType.String, description: "Operation Id change")
     }
 
-    "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {
+        seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
+        user_type(required: true, type: PropertyType.String, description: "The user type")
+        user_shops_status(required: true, type: PropertyType.String, description: "Indicates if seller has mshops experience", values: ["active", "inactive"])
+    }
 
     "/seller_central/bulk/changes"(platform: "/", isAbstract: true) {}
 

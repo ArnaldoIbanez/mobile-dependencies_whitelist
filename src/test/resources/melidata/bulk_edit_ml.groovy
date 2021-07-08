@@ -9,7 +9,11 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("seller central bulk view") {
-        "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+        }
     }
 
     test("seller central bulk onboarding") {
