@@ -69,6 +69,9 @@ trackTests {
 
     test("Payment") {
         "/billing/payment"(platform: "/", type: TrackType.View) {
+        }
+
+        "/billing/payment"(platform: "/", type: TrackType.Event) {
           total_debt = 550
           amount_to_pay = 500
           periods_count = 3
