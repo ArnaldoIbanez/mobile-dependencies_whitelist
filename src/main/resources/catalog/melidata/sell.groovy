@@ -375,7 +375,7 @@ tracks {
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.Event) {
+    "/sell/list/draft/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
         vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
     }
 
@@ -400,7 +400,7 @@ tracks {
     "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.Event) {
+    "/sell/list/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
         vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
     }
 
