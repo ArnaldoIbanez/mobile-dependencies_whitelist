@@ -155,7 +155,7 @@ trackTests {
             domain_status = "shops_domain"
         }
 
-        "/shops/hub/sales_listings"(platform: "/", type: TrackType.Event) {
+        "/shops/hub/modify/sales_listings"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
@@ -175,7 +175,7 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            card = "listings"
+            card = "promotions"
         }
 
         "/shops/hub/view_report"(platform: "/", type: TrackType.Event) {
@@ -183,7 +183,7 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            card = "sales"
+            card = "promotions"
         }
 
         "/shops/hub/marketing_configuration"(platform: "/", type: TrackType.Event) {
@@ -191,7 +191,7 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            card = "sales"
+            card = "marketing"
         }
 
         "/shops/hub/marketing_configuration"(platform: "/", type: TrackType.Event) {

@@ -134,6 +134,10 @@ tracks {
     "/shops/hub/view/listings"(platform: "/", type: TrackType.Event) {}
 
     "/shops/hub/modify/listings"(platform: "/", type: TrackType.Event) {}
+    
+    "/shops/hub/modify/sales_listings"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['sales'])
+    }
 
     "/shops/hub/add"(platform: "/", isAbstract: true) {}
 
@@ -143,22 +147,20 @@ tracks {
 
     "/shops/hub/manage_sales"(platform: "/", type: TrackType.Event) {}
 
-    "/shops/hub/sales_listings"(platform: "/", type: TrackType.Event) {}
-
     "/shops/hub/promotions_configuration"(platform: "/", type: TrackType.Event) {
         card(required: true, type: PropertyType.String, values: shopCards)
     }
 
     "/shops/hub/promotions_central"(platform: "/", type: TrackType.Event) {
-        card(required: true, type: PropertyType.String, values: shopCards)
+        card(required: false, type: PropertyType.String, values: ['promotions'])
     }
 
     "/shops/hub/view_report"(platform: "/", type: TrackType.Event) {
-        card(required: true, type: PropertyType.String, values: shopCards)
+        card(required: false, type: PropertyType.String, values: ['promotions'])
     }
 
     "/shops/hub/marketing_configuration"(platform: "/", type: TrackType.Event) {
-        card(required: true, type: PropertyType.String, values: shopCards)
+        card(required: false, type: PropertyType.String, values: ['marketing'])
     }
 
     "/shops/hub/show_more"(platform: "/", type: TrackType.Event) {
