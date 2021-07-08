@@ -20,9 +20,11 @@ tracks {
         cashout_method (required:true, description: "Selected cashout method")
     }
 
+    //TODO: Delete from versions up to 2.178.0
     "/cashout/hub/kyc/onboarding"(platform: "/", type: TrackType.View) {}
     "/cashout/hub/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/cashout/hub/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
+    //end TODO
 
     "/cashout/hub/congrats"(platform: "/", isAbstract: true) {}
     "/cashout/hub/congrats/success"(platform: "/", type: TrackType.View) {}
