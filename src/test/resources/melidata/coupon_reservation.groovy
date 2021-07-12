@@ -16,18 +16,13 @@ trackTests {
           id: 2,
           image: "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density3X",
           title: "Domino\u0027s",
-          description: "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
-          amount_header: "A solo",
           amount: "\$ 18",
         ],
         [
           id: 3,
           image: "https://mobile.mercadolibre.com/remote_resources/image/banner-cross-link?density3X",
           title: "Domino\u0027s",
-          description: "\u003cstrong\u003e1\u003c/strong\u003e Pizza Mediana",
-          amount_header: "A solo",
           amount: "\$ 18",
-          amount_footer: "antes",
         ]
       ]
     }
