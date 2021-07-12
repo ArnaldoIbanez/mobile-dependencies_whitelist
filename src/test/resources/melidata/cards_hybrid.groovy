@@ -673,8 +673,8 @@ trackTests {
             action = "additional_message_freeze"
         }
     }
-    test("cards hybrid setup virtual wsp button tap tracking") {
-        "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+    test("cards hybrid setup virtual wsp banner tap tracking") {
+        "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "action"
         }
     }
@@ -778,8 +778,8 @@ trackTests {
     }
 
     // WHATSAPP BUTTON
-    test("cards hybrid card setup virtual whatsapp button") {
-            "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event){
+    test("cards hybrid card setup virtual whatsapp banner") {
+            "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event){
                 
             }
         }

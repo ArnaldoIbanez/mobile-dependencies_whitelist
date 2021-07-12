@@ -105,6 +105,7 @@ tracks {
     "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
     "/banking/debts"(platform: "/", type: TrackType.View) {}
     "/banking/debts/detail"(platform: "/", type: TrackType.View) {}
+    "/banking/open_banking"(platform: "/", type: TrackType.View) {}
 
     // Balance Events
     "/banking/balance/action"(platform: "/", type: TrackType.Event) { balanceEventClick }

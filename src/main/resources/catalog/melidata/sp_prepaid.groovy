@@ -475,9 +475,7 @@ tracks {
 
 
     // Check Accreditation information
-    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
-        view_time
-    }
+    "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {}
 
     "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
@@ -894,6 +892,7 @@ tracks {
     // Recurrence
     "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {
         segment
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
     }
 
     "/single_player/paygo/recurrence/add_money"(platform: "/mobile", type: TrackType.Event) {

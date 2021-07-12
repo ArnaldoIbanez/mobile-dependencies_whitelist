@@ -98,7 +98,10 @@ tracks {
         budget(required: true, description: "Budget related to the landing", inheritable:false)
         ui_version(required: false, description: "UI version rendered in Search", inheritable:false)
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
-        official_stores(required: true, type: PropertyType.Boolean, description: "indicate if it is an official store")
+        official_stores(required: false, type: PropertyType.Boolean, description: "Indicates if the user is an official store")
+        matching(required: false, type: PropertyType.Boolean, description: "Indicates if the user is matching")
+        new_advertiser(required: false, type: PropertyType.Boolean, description: "Indicates if the user is a new advertiser")
+        has_items(required: false, type: PropertyType.Boolean, description: "Indicates if the user has items")
     }
 
     "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -1779,6 +1782,12 @@ tracks {
         total_ads(required: false, type: PropertyType.Numeric, description: "Indicates total of ads")
     }
 
+    "/advertising/pads2/configuration/mode/confirmation/create_campaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom'])
+    }
+
     "/advertising/pads2/configuration/emptystate"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
     }
 
@@ -1889,6 +1898,24 @@ tracks {
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
         campaign_id (required: false, type: PropertyType.Numeric, description: "Id related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/manager/addads/create_campaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['automatic'])
+    }
+
+    "/advertising/pads2/manager/addads/create_campaign/modal"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    }
+
+    "/advertising/pads2/manager/addads/create_campaign/modal/close"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    }
+
+    "/advertising/pads2/manager/addads/create_campaign/modal/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['automatic'])
     }
 
     //Data transparency

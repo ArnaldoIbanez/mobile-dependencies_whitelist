@@ -1006,6 +1006,14 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
     }
+    "/notification_center/subscription_free_content_level_drop"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment error for level drop.")
+    }
     "/notification_center/subscription_payment_congrats"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2574,6 +2582,12 @@ tracks {
         provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
+    }
+    "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment error for level drop.")
     }
     "/notification/subscription_payment_congrats"(platform: "/mobile") {
         provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")

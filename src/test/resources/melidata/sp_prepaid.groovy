@@ -600,7 +600,6 @@ trackTests {
         "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
-            view_time()
         }
 
         "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
@@ -1358,7 +1357,6 @@ trackTests {
         "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
-            view_time()
         }
 
         "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -1675,6 +1673,12 @@ trackTests {
             segment = "test_segment"
         }
 
+        def notification_panel = {
+            notification_panel = {
+                type = "neutral"
+                content = ["Diária: ", "Dá direito a realizar até 10 viagens por dia em até 24h, a partir da primeira utilização."]
+            }
+        }
 
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2006,6 +2010,7 @@ trackTests {
             mandatory()
             step_information()
             segment()
+            notification_panel()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -2752,6 +2757,7 @@ trackTests {
             mandatory()
             step_information()
             segment()
+            notification_panel()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
