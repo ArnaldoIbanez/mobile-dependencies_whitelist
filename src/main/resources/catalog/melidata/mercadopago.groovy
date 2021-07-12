@@ -67,6 +67,10 @@ tracks {
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
+    // [POG] Landings Point > Multipricing experiment
+    "/point/landings/buy/low_price" (platform:"/", type: TrackType.Event) {}
+    "/point/landings/buy/low_tax" (platform:"/", type: TrackType.Event) {}
+
     // [Merchants Growth] Multiproduct
     "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {}
 

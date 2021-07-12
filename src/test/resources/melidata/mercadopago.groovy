@@ -1050,6 +1050,14 @@ trackTests {
             product = "bbpos"
         }
 
+        "/point/landings/buy/low_price" (platform:"/", type: TrackType.Event) {
+            product = "point-blue"
+        }
+
+        "/point/landings/buy/low_tax" (platform:"/", type: TrackType.Event) {
+            product = "point-blue"
+        }
+
         // Multiproduct
         "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {
             product = "multiproduct mla"
