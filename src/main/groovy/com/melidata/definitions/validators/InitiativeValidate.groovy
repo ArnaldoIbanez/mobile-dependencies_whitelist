@@ -43,7 +43,6 @@ class InitiativeValidate {
                 println("\tGetting catalog metrics report!")
 
                 def catalogMetric = new CatalogMetrics()
-                catalogMetric.refreshTrackedDefinitions()
                 catalogMetric.refreshCatalogedDefinitions(catalog)
 
                 def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
@@ -51,8 +50,6 @@ class InitiativeValidate {
                 Set<Map> catalogMetrics = catalogReport.values()
 
                 println("Catalogueds were: ${catalogMetrics.findAll { it.is_catalogued}.size()} \n")
-                println("Not trackeds were: ${catalogMetrics.findAll { !it.is_tracked}.size()} \n")
-
                 println("Catalogueds now are: ${catalogMetric.allDefinitions.values().findAll { !it.isTracked}.size()} \n")
 
                 println starBar()+"\n"

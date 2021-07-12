@@ -38,9 +38,8 @@ configurations {
 }
 
 dependencies {
-	compile 'org.codehaus.groovy:groovy-all:2.3.11'
+	compile 'org.codehaus.groovy:groovy-all:2.3.12'
 	compile 'log4j:log4j:1.2.16'
-	compile(group: 'org.apache.hive', name: 'hive-jdbc', version: '2.3.8')
 	compile 'com.amazonaws:aws-java-sdk:1.11.68'
 	compile 'commons-io:commons-io:2.4'
 	compile 'com.mercadolibre.melidata.catalog:commons:3.1.11'
