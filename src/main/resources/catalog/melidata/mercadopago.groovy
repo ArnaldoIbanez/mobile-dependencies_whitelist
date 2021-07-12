@@ -107,6 +107,16 @@ tracks {
     "/point/landings/reseller"(platform:"/", type: TrackType.Event) {}
     "/point/landings/reseller/congrats"(platform:"/", type: TrackType.Event) {}
 
+    // [POG] Landings Point > Click to call experiment
+    "/point/landings/click_to_call" (platform:"/", isAbstract: true) {}
+    "/point/landings/click_to_call/open_form" (platform:"/", type: TrackType.Event) {}
+    "/point/landings/click_to_call/submit_form" (platform:"/", type: TrackType.Event) {}
+    "/point/landings/click_to_call/resubmit_form" (platform:"/", type: TrackType.Event) {}
+    "/point/landings/click_to_call/congrats" (platform:"/", type: TrackType.Event) {
+        type (required: true, type: PropertyType.String, description: "success")
+        action (required: true, type: PropertyType.String, description: "open")
+    }
+
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {
