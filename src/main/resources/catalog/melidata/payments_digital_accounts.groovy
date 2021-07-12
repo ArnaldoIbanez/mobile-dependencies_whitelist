@@ -15,13 +15,14 @@ tracks {
 
     //inner properties definitions
     def element_definition = objectSchemaDefinitions {
-        elements(required: false, type: PropertyType.Numeric)
+        elements(required: false, type: PropertyType.Numeric, description: "items quantity")
+        status(required: false, type: PropertyType.String, description: "component status")
     }
 
     def component_definition = objectSchemaDefinitions {
-        component_id(required: true, type: PropertyType.Numeric)
-        content_id(required: true, type: PropertyType.ArrayList(PropertyType.String))
-        event_data(required: false, type: PropertyType.Map(element_definition))
+        component_id(required: true, type: PropertyType.Numeric, description: "parent component id")
+        component_data(required: false, type: PropertyType.Map(element_definition), description: "child component relevant content data")
+        content_id(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "children component ids")
     }
 
     //Definitions
