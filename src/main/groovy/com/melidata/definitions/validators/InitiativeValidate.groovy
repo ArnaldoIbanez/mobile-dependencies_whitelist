@@ -3,6 +3,7 @@ package com.melidata.definitions.validators
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
+import com.ml.melidata.manager.CatalogMetrics
 import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
@@ -41,12 +42,18 @@ class InitiativeValidate {
                 println "\n"+starBar()
                 println("\tGetting catalog metrics report!")
 
+                def catalogMetric = new CatalogMetrics()
+                catalogMetric.refreshTrackedDefinitions()
+                catalogMetric.refreshCatalogedDefinitions(catalog)
+
                 def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
                 Map catalogReport = clientFuryWeb.get(path: '/melidata/catalog/report').data
                 Set catalogMetrics = catalogReport.values()
 
-                println("Catalogueds were: ${catalogMetrics.findAll { it.is_catalogued}} \n")
-                println("Not trackeds were: ${catalogMetrics.findAll { !it.is_tracked}} \n")
+                println("Catalogueds were: ${catalogMetrics.findAll { it.is_catalogued}.size()} \n")
+                println("Not trackeds were: ${catalogMetrics.findAll { !it.is_tracked}.size()} \n")
+
+                println("Catalogueds now are: ${catalog.findAll { !it.is_tracked}.size()} \n")
 
                 println starBar()+"\n"
             }
