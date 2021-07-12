@@ -2528,9 +2528,12 @@ tracks {
       "/notification/returns_label_unavailable"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
-    "/notification/returns_refund_bank_transfer"(platform: "/") {
-        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
+      "/notification/returns_refund_bank_transfer"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_return_to_buyer_shipped"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
 
     //Security
     "/notification/security_enrollment"(platform: "/") {}
