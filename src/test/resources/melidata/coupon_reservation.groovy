@@ -55,6 +55,11 @@ trackTests {
       result = "success"
     }
   }
+  test("Reservation event congrats back") {
+    "/instore/coupon_reservation/reservation/congrats/others_discounts" (platform: "/", type: TrackType.Event) {
+      result = "sold_out"
+    }
+  }
   // -----------------------------
 
   // ----- exchange stage -----

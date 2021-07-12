@@ -40,6 +40,8 @@ tracks {
 
   "/instore/coupon_reservation/reservation/congrats/back" (platform: "/", type: TrackType.Event) {}
 
+  "/instore/coupon_reservation/reservation/congrats/others_discounts" (platform: "/", type: TrackType.Event) {}
+
   // -----------------------------
 
   // ----- exchange stage -----
