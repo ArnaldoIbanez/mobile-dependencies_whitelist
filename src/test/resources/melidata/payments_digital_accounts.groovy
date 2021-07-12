@@ -23,8 +23,19 @@ trackTests {
         "/banking/balance"(platform: "/", type: TrackType.View) {
             my_money_activities = [
                         component_id: 'activities',
-                        elements: 5
+                        component_data: [
+                            elements: 5
+                        ]
             ]
+        }
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+             my_money_activities = [
+                        component_id: 'activities',
+                        component_data: [
+                            elements: 5,
+                            status: 'disabled'
+                        ]
+             ]
         }
     }
 
