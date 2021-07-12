@@ -1,7 +1,9 @@
 package com.melidata.definitions.validators
 
+import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
+import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
 
@@ -21,7 +23,7 @@ class InitiativeValidate {
         }
     }
 
-    static boolean checkCoverage() {
+    static boolean checkCoverage(Catalog catalog) {
         def isValidStatus = true
 
         if(DslUtils.getCatalogName() in coveragebleCatalogs) {
@@ -35,6 +37,18 @@ class InitiativeValidate {
                 println("\033[91m - Actual coverage: "+actualCoverage+"\033[0m")
                 println("\033[92m - Intended coverage: "+baseCoverage+"\033[0m")
                 println(totalPaths - validPaths)
+            } else {
+                println "\n"+starBar()
+                println("\tGetting catalog metrics report!")
+
+                def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
+                Map catalogReport = clientFuryWeb.get(path: '/melidata/catalog/report').data
+                Set catalogMetrics = catalogReport.values()
+
+                println("Catalogueds were: ${catalogMetrics.findAll { it.is_catalogued}} \n")
+                println("Not trackeds were: ${catalogMetrics.findAll { !it.is_tracked}} \n")
+
+                println starBar()+"\n"
             }
         }
 

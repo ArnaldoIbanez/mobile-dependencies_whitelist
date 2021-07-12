@@ -31,7 +31,7 @@ class CatalogValidator {
         } catch(Exception e) {
             runOk = false
         }
-        runOk = runOk && InitiativeValidate.checkCoverage()
+        runOk = runOk && InitiativeValidate.checkCoverage(catalog)
         return runOk
     }
 
