@@ -48,12 +48,12 @@ class InitiativeValidate {
 
                 def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
                 Map catalogReport = clientFuryWeb.get(path: '/melidata/catalog/report').data
-                Set catalogMetrics = catalogReport.values()
+                Set<Map> catalogMetrics = catalogReport.values()
 
                 println("Catalogueds were: ${catalogMetrics.findAll { it.is_catalogued}.size()} \n")
                 println("Not trackeds were: ${catalogMetrics.findAll { !it.is_tracked}.size()} \n")
 
-                println("Catalogueds now are: ${catalog.findAll { !it.is_tracked}.size()} \n")
+                println("Catalogueds now are: ${catalogMetric.allDefinitions.values().findAll { !it.isTracked}.size()} \n")
 
                 println starBar()+"\n"
             }
