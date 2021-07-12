@@ -22,11 +22,13 @@ trackTests {
                 "whatsapp": "not_configured",
                 "facebook_shop": "configured",
                 "facebook_pixel": "configuring",
-                "instagram": "error",
+                "instagram_shop": "error",
                 "google_analytics": "blocked",
                 "google_shopping": "unavailable",
                 "google_ads": "configured",
-                "google_search": "configured",
+                "google_search_console": "configured",
+                "domain": "configured",
+                "contact_data": "not_configured",
             ]
             cards = [
                 "publications": 0,
@@ -85,7 +87,7 @@ trackTests {
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
-            tool = "instagram"
+            tool = "instagram_shop"
         }
 
         "/shops/hub/verify"(platform: "/", type: TrackType.Event) {
@@ -208,6 +210,14 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             card = "promotions"
+        }
+
+        "/shops/hub/review_sales"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            sale_status = "to_review"
         }
     }
 
