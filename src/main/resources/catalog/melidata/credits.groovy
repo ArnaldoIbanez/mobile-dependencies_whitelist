@@ -177,7 +177,7 @@ tracks {
         )
         step(
             type: PropertyType.String,
-            required: true,
+            required: false,
             inheritable: true,
             values: [
                 'whatsapp', 
@@ -189,6 +189,7 @@ tracks {
             ]
         )
     }
+    "/credits/preferences/error"(platform: "/", type: TrackType.View) {}
     "/credits/preferences/accept"(platform: "/", type: TrackType.Event){}
     "/credits/preferences/decline"(platform: "/", type: TrackType.Event){}
     

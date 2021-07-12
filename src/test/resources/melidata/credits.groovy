@@ -250,6 +250,9 @@ trackTests {
             initiative = 'merchant_enrollment'
             step = 'whatsapp'
         }
+        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {
+            initiative = 'merchant_enrollment'
+        }
         "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
             initiative = 'merchant_open_market'
             step = 'whatsapp_sms'
@@ -263,6 +266,9 @@ trackTests {
         "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
             initiative = 'consumer_open_sea'
             step = 'telcel'
+        }
+        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadolibre") {
+            initiative = 'merchant_enrollment'
         }
         "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
             initiative = 'consumer_administrator'
