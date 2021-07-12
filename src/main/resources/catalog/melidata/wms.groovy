@@ -142,6 +142,7 @@ tracks {
         user_nickname(required: true, type: PropertyType.String, description: "user nickname")
     }
     "/wms/logout_successful"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/logout/inactive"(platform: "/mobile/android", type: TrackType.Event) {}
 
     "/wms/home"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/transfer"(platform: "/mobile/android", type: TrackType.View) {}

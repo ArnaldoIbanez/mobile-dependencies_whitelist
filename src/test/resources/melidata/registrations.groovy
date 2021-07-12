@@ -561,6 +561,26 @@ trackTests {
                     ["field": "pass", "code": 1]
             ]
         }
+
+        "/register/company/email_validation/success"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("Company Registration Desktop MP") {
+        "/register/company/form"(platform: "/web", type: TrackType.View, business: "mercadopago") {
+        }
+        "/register/company/congrats"(platform: "/web", type: TrackType.View, business: "mercadopago") {
+        }
+        "/register/company/form/error"(platform: "/web", type: TrackType.Event, business: "mercadopago") {
+            errors = [
+                    ["field": "cuit", "code": 1],
+                    ["field": "socialReason", "code": 1],
+                    ["field": "email", "code": 1],
+                    ["field": "pass", "code": 1]
+            ]
+        }
+
+        "/register/company/email_validation/success"(platform: "/web", type: TrackType.Event, business: "mercadopago") {
+        }
     }
 
     test("Account Recovery tracking event") {

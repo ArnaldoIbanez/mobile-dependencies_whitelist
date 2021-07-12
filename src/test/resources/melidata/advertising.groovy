@@ -78,12 +78,20 @@ trackTests {
         "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
             free_trial_ad = true
             budget = 500
+            official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
             free_trial_ad = true
             budget = 500
             experiment = true
+            official_stores = false
+            matching = false
+            new_advertiser = false
+            has_items = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -91,6 +99,9 @@ trackTests {
             free_trial_ad = true
             budget = 500
             official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -100,6 +111,9 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             official_stores = false
+            matching = false
+            new_advertiser = false
+            has_items = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -108,6 +122,9 @@ trackTests {
             budget = 500
             experiment = true
             official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -117,11 +134,26 @@ trackTests {
 
         "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
             free_trial_ad = true
+            official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
             budget = "22.22"
             free_trial_ad = true
+            id = "adq_pads"
+            position = "home_desktop"
+            official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
+            budget = "22.22"
+            free_trial_ad = false
             id = "adq_pads"
             position = "home_desktop"
             official_stores = true
@@ -132,14 +164,8 @@ trackTests {
             free_trial_ad = false
             id = "adq_pads"
             position = "home_desktop"
-        }
-
-        "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
-            budget = "22.22"
-            free_trial_ad = false
-            id = "adq_pads"
-            position = "home_desktop"
             experiment = true
+            official_stores = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/contractofficialstore"(platform: "/", type: TrackType.Event) {
@@ -147,6 +173,7 @@ trackTests {
             free_trial_ad = false
             id = "adq_pads"
             position = "home_desktop"
+            official_stores = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
@@ -155,19 +182,26 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             experiment = true
+            official_stores = false
+            matching = false
+            new_advertiser = false
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
             free_trial_ad = false
+            official_stores = false
         }
 
         "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
             free_trial_ad = false
+            official_stores = false
         }
 
         "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
             budget = "22.22"
             free_trial_ad = false
+            official_stores = false
         }
 
     }
@@ -175,8 +209,9 @@ trackTests {
     test("Advertising Communications") {
         "/advertising/communications"(platform: "/", type: TrackType.Event) {
             type = "show"
-            placement = "sc_listing"
-            communications = ["sads_paused", "credits_reactivation"]
+            source = "summary"
+            medium = "task"
+            campaigns = ["sads_paused", "credits_reactivation"]
         }
     }
 
@@ -317,22 +352,26 @@ trackTests {
         "/advertising/pads2/landing_freetrial"(platform: "/", type: TrackType.View) {
             free_trial_type = "F"
             budget = "500"
+            official_stores = false
         }
 
         "/advertising/pads2/landing_freetrial"(platform: "/", type: TrackType.View) {
             free_trial_type = "D"
             budget = "500"
+            official_stores = false
         }
 
         "/advertising/pads2/landing_freetrial"(platform: "/", type: TrackType.View) {
             free_trial_type = "M"
             budget = "500"
+            official_stores = true
         }
 
         "/advertising/pads2/landing_freetrial"(platform: "/", type: TrackType.View) {
             free_trial_type = "M"
             budget = "500"
             experiment = true
+            official_stores = true
         }
 
         "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.View) {
@@ -362,12 +401,14 @@ trackTests {
         "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
             free_trial_type = "M"
             budget = "500"
+            official_stores = false
         }
 
         "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
             free_trial_type = "M"
             budget = "500"
             experiment = true
+            official_stores = true
         }
 
         "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
@@ -2136,6 +2177,12 @@ trackTests {
             trtarget = 1
             total_ads = 1
         }
+        
+        "/advertising/pads2/configuration/mode/confirmation/create_campaign"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "custom"
+        }
 
         "/advertising/pads2/configuration/emptystate"(platform: "/", type: TrackType.View) {}
 
@@ -2254,6 +2301,24 @@ trackTests {
 
         "/advertising/pads2/manager/auto/modal/go"(platform: "/", type: TrackType.Event) {
             mode = "custom"
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal"(platform: "/web", type: TrackType.View) {
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal/close"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "automatic"
         }
     }
 

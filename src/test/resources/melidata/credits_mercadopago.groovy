@@ -708,7 +708,19 @@ trackTests {
             sales_percentage_map()
         }
 
-        "/credits/merchant/administrator/inconsistency"(platform: "/mobile/android") {}
+        "/credits/merchant/administrator/inconsistency"(platform: "/mobile/android") {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map()
+            ]
+            promise = 'create_promise'
+            accesses = 'open_market'
+            reason = 'communications_library'
+            from = 'enrollment'
+            additional_info = 'credit_line_taken'
+        }
 
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
@@ -847,17 +859,20 @@ trackTests {
         }
         "/credits/merchant/early_repayment"(platform: "/web/desktop") {
             account_money = 'insufficient'
+            payment_type = 'total'
             fixed_term()
         }
 
         "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {
             fixed_term()
+            payment_type = 'total'
         }
 
         "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {}
         "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {
             fixed_term()
+            payment_type = 'total'
         }
 
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
@@ -865,6 +880,7 @@ trackTests {
         }
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
             reason = 'early_repayment_error'
+            payment_type = 'total'
             fixed_term()
         }
     }
@@ -1659,6 +1675,16 @@ trackTests {
             dashboard_status = 'on_time'
         }
 
+        //Onboarding view
+        "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {
+
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
+
         /******************************************
             *       End: Consumers Admin Detail
         ******************************************/
@@ -1802,7 +1828,6 @@ trackTests {
             user_type = "merchant"
             error_type = "no_offer"
         }
-        "/credits/merchant/administrator/inconsistency"(platform: "/", type: TrackType.View) {}
         "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
             error_type = "invalid_offer_first_attempt"
@@ -1818,6 +1843,10 @@ trackTests {
         "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
             user_type = "merchant"
             error_type = "unknown"
+        }
+        "/credits/self_service/debt_relief/error"(platform: "/", type: TrackType.View) {
+            user_type = "no_credit"
+            error_type = "no_offer"
         }
 
         /******************************************

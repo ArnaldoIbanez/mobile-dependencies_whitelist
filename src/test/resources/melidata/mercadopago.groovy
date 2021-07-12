@@ -776,11 +776,33 @@ trackTests {
         "/merchant_acquisition/flows/wrap_up/home/x_sell"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Wrap Up Closing section") {
+        "/merchant_acquisition/flows/wrap_up/home/closing"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Wrap Up X-Sell click see more") {
-        "/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more" (platform: "/", type: TrackType.Event) {
+        "/merchant_acquisition/flows/wrap_up/home/x_sell/see_more" (platform: "/", type: TrackType.Event) {
             product_sell_name = 'Créditos a tu medida'
             link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
         }
+    }
+
+    test("Wrap Up Closing click Like") {
+        "/merchant_acquisition/flows/wrap_up/home/closing/like" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Closing click Dislike") {
+        "/merchant_acquisition/flows/wrap_up/home/closing/dislike" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Sellers central click see more") {
+        "/merchant_acquisition/flows/wrap_up/home/sellers_central/see_more" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview?url=https%3A%2F%2Fvendedores.mercadolibre.com.ar%2F%3Fu%3Dmercado-pago&word=MLA_MP_PUSHMP_X_W_ALL_ACT_ALL_WRAP-UP-sellers-jun21&referrer=utm_medium%3Dnotifications%26utm_source%3Dmercado_pago%26utm_campaign%3DMLA_MP_PUSHMP_X_W_ALL_ACT_ALL_WRAP-UP-sellers-jun21'
+        }
+    }
+
+    test("Wrap Up") {
+        "/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform: "/", type: TrackType.View) {}
     }
 
     test("// Associar Point - Micrositio - reseller") {
@@ -4025,6 +4047,11 @@ trackTests {
                 "amount": "100.0",
                 "type": "transactional"
             ]
+            applock_flowlock_information = [
+                    "enabled": "enabled",
+                    "elapsed_time": 10,
+                    "screenlock_validated":false
+            ]
             config = [
                 "transaction_granularity_option": "always",
                 "transaction_accumulated_amount": "100",
@@ -4076,6 +4103,74 @@ trackTests {
             ]
         }
 
+        "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            from = "security_status"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            remote_config = "enabled"
+            last_status_expired = true
+            called = true
+        }
+
+        "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            from = "force_block_refresh"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            remote_config = "enabled"
+            called = true
+        }
+
+        "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            result = "success"
+            from = "security_status"
+            response = [
+                "type": "SECURITY_BLOCKER",
+                "app_lock": true,
+                "flow_lock": true
+            ]
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+
+        "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            result = "error"
+            from = "force_block_refresh"
+            config = [
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+        
         "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
             os_status = "biometrics"
             error_msg_id = 501
@@ -4628,6 +4723,32 @@ trackTests {
         }
 
         "/security_settings/screenlock/granularity_opening"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
@@ -5281,7 +5402,7 @@ trackTests {
     test("About screen") {
         "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
-
+    
     test("Register Point Plus") {
         // Register device
         "/point/register/start"(platform: "/", type: TrackType.View) {}
@@ -5416,6 +5537,20 @@ trackTests {
             amount = "10.0"
         }
 
+        "/reauth/operation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+
         //Operation End - Success
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
@@ -5466,6 +5601,28 @@ trackTests {
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
             operation_id = "1"
+            flow_type = "withdraw"
+            result = "success"
+            transaction_id = "1"
+            reauth_status = "created"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "success"
+            transaction_id = "2"
+            reauth_status = "created"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
             flow_type = "other"
             result = "success"
             reauth_status = "not_needed"
@@ -5505,6 +5662,27 @@ trackTests {
             elapsed_time = 1.0
         }
 
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "withdraw"
+            amount = "10.0"
+            result = "success"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
 
         //Operation End - Error
         "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
@@ -5546,6 +5724,28 @@ trackTests {
             operation_id = "2"
             flow_type = "payment"
             amount = "10.0"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "error"
+            error = "Ups error :S"
+            reauth_status = "error"
+            screenlock_validated = false
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
             result = "error"
             error = "Ups error :S"
             reauth_status = "error"
@@ -5595,6 +5795,26 @@ trackTests {
             screenlock_validated = true
             elapsed_time = 1.0
         }
+
+        "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
+
+        "/reauth/operation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            result = "cancel"
+            reauth_status = "not_needed"
+            screenlock_validated = true
+            elapsed_time = 1.0
+        }
         //Reauth Retry
         "/reauth/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
             reauth_mods_id = "1"
@@ -5639,6 +5859,19 @@ trackTests {
             reauth_mods_id = "1"
             operation_id = "1"
             flow_type = "payment"
+            amount = "10.0"
+        }
+
+        "/reauth/error/close"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
+            amount = "10.0"
+        }
+        "/reauth/error/close"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "withdraw"
             amount = "10.0"
         }
     }
