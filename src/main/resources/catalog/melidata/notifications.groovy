@@ -946,6 +946,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/multiplayer_restriction_collector"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/mp_seller_campaign_moderation"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1734,6 +1738,7 @@ tracks {
     "/notification/multiplayer_ml_money_request"(platform: "/") {}
     "/notification/multiplayer_regulation"(platform: "/") {}
     "/notification/multiplayer_regulation_validated"(platform: "/") {}
+    "/notification/multiplayer_restriction_collector"(platform: "/") {}
 
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/") {

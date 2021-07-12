@@ -1271,6 +1271,12 @@ trackTests {
             latest_news_type= "multiplayer_regulation_validated"
             status= "read"
         }
+        "/notification_center/multiplayer_restriction_collector"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_type= "multiplayer_restriction_collector"
+            status= "read"
+        }
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-campaigns-186785675-76283123"
             latest_news_id= "mpcampaigns-campaigns-186785675-76283123"
@@ -2780,6 +2786,10 @@ trackTests {
         }
         "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
             news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_restriction_collector"(platform: "/mobile"){
+            news_id = "multiplayer_restriction_collector-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
 
@@ -6986,6 +6996,12 @@ trackTests {
             latest_news_type= "multiplayer_regulation_validated"
             status= "read"
         }
+        "/notification_center/multiplayer_restriction_collector"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_type= "multiplayer_restriction_collector"
+            status= "read"
+        }
         "/notification_center/invite_gift"(platform: "/mobile"){
             newsgroup_id= "invite-gift-186785675-76283123"
             latest_news_id= "invite-gift-186785675-76283123"
@@ -8868,6 +8884,10 @@ trackTests {
         }
         "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
             news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_restriction_collector"(platform: "/mobile"){
+            news_id = "multiplayer_restriction_collector-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
 
