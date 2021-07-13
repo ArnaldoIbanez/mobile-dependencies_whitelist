@@ -406,6 +406,9 @@ tracks {
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
+    "/search/map"(platform: "/", isAbstract: true) {}
+    "/search/map/carousel"(platform: "/", type: TrackType.Event) {
+    }
 
     "/search/search_map"(platform: "/", type: TrackType.Event) {
     }
