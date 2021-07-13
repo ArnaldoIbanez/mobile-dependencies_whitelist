@@ -126,6 +126,7 @@ tracks {
         type(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         values_quantity(type: PropertyType.Numeric, required: true)
+        enhanced_position(type: PropertyType.Numeric, required: false, description: "position in the view where the enhanced filter will be displayed")
     }
 
     def original_search_filter_definition = objectSchemaDefinitions {
@@ -404,6 +405,9 @@ tracks {
     }
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
+    }
+    "/search/map"(platform: "/", isAbstract: true) {}
+    "/search/map/carousel"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/search_map"(platform: "/", type: TrackType.Event) {

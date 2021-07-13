@@ -229,6 +229,17 @@ trackTests {
             view_time()
             item_1()
         }
+        "/single_player/prepaid/product_credits_list"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+            available_items()
+            notification_panel()
+        }
+        "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
+
 
 
         // Recommended products
@@ -364,6 +375,16 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+            view_time()
+        }
 
 
         // Multiple devices
@@ -416,12 +437,27 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/companies/more_information"(platform: "/mobile",  type: TrackType.Event) {
-            mandatory()        
+            mandatory()
             view_time()
         }
         "/single_player/prepaid/companies/understood_information"(platform: "/mobile", type: TrackType.Event) {
-            mandatory() 
+            mandatory()
             view_time()
+        }
+
+        // Pre One Tap
+        "/single_player/prepaid/break_pre_one_tap"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+        "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
 
@@ -564,7 +600,6 @@ trackTests {
         "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
-            view_time()
         }
 
         "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", type: TrackType.Event) {
@@ -823,7 +858,7 @@ trackTests {
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
         //------------------------------------------------------------------------------------------------------------------------------------------------------
-        
+
         // Strart flow
         "/single_player/prepaid/start_flow"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -956,6 +991,16 @@ trackTests {
             view_time()
             item_1()
         }
+        "/single_player/prepaid/product_credits_list"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+            available_items()
+            notification_panel()
+        }
+        "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+        }
 
 
         // Recommended products
@@ -1062,7 +1107,7 @@ trackTests {
         "/single_player/prepaid/one_device/edit_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
-          
+
         }
         "/single_player/prepaid/one_device/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -1093,7 +1138,11 @@ trackTests {
             mandatory()
             view_time()
         }
-
+        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+            view_time()
+        }
 
         // Multiple devices
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
@@ -1144,12 +1193,27 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/companies/more_information"(platform: "/mobile", business: "mercadolibre",  type: TrackType.Event) {
-            mandatory()        
+            mandatory()
             view_time()
         }
         "/single_player/prepaid/companies/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
-            mandatory() 
+            mandatory()
             view_time()
+        }
+
+        // Pre One Tap
+        "/single_player/prepaid/break_pre_one_tap"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+        "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
         }
 
 
@@ -1293,7 +1357,6 @@ trackTests {
         "/single_player/prepaid/check_accreditation_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
-            view_time()
         }
 
         "/single_player/prepaid/check_accreditation_information/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -1369,7 +1432,7 @@ trackTests {
         }
         "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
-        }        
+        }
 
 
         // Timeout error
@@ -1568,7 +1631,7 @@ trackTests {
             flavor = "toll"
             last_recharge = "1459"
         }
-        
+
         def view_time = {
             view_time = 38927
         }
@@ -1610,6 +1673,12 @@ trackTests {
             segment = "test_segment"
         }
 
+        def notification_panel = {
+            notification_panel = {
+                type = "neutral"
+                content = ["Diária: ", "Dá direito a realizar até 10 viagens por dia em até 24h, a partir da primeira utilização."]
+            }
+        }
 
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1941,6 +2010,7 @@ trackTests {
             mandatory()
             step_information()
             segment()
+            notification_panel()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -2687,6 +2757,7 @@ trackTests {
             mandatory()
             step_information()
             segment()
+            notification_panel()
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
@@ -3083,7 +3154,7 @@ trackTests {
         }
         "/single_player/paygo/error/connection/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
-        }        
+        }
 
 
         // Timeout error

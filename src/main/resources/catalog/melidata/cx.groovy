@@ -91,6 +91,13 @@ tracks {
             description: "Indicates the contents of oneclick predicted for a user")
         portal_oneclick_features(required: false, type: PropertyType.Map,
             description: "Indicates the features used in the oneclick prediction")
+        user_text(required: true, type: PropertyType.String,
+            description: "Text entered by user in oneclick MP contact")
+        team_name(required: true, type: PropertyType.String,
+            description: "Team predicted by NLP algorithm")
+        score(required: true, type: PropertyType.Numeric, description: "Score of NLP prediction")
+        problem_id(required: true, type: PropertyType.Numeric, description: "ProblemId predicted by NLP algorithm")
+        case_id(required: true, type: PropertyType.Numeric, description: "Id of case created")
     }
 
     propertyGroups {
@@ -126,6 +133,12 @@ tracks {
         portal_oneclick_cluster_id(portal_oneclick_cluster_id)
         portal_oneclick_contents_predicted(portal_oneclick_contents_predicted)
         portal_oneclick_features(portal_oneclick_features)
+        user_text(user_text)
+        team_name(team_name)
+        score(score)
+        problem_id(problem_id)
+        case_id(case_id)
+
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -205,6 +218,13 @@ tracks {
 
     "/portal/folder/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
+        portal_content_destination_url
+    }
+
+    "/portal/action"(platform: "/", isAbstract:  true) {}
+
+    "/portal/action/click"(platform: "/", type: TrackType.Event) {
+        portal_content_id
         portal_content_destination_url
     }
 
@@ -422,6 +442,15 @@ tracks {
         expired(required: true, type: PropertyType.Boolean,
             description: "Case has SLA expired")
     }
+
+    "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
+        user_text
+        team_name
+        score
+        problem_id
+        case_id
+    }
+
 
     "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
         case_id(required: true, type: PropertyType.Numeric,
