@@ -375,8 +375,12 @@ tracks {
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
+
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
@@ -396,6 +400,9 @@ tracks {
     "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -701,6 +708,19 @@ tracks {
     "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/inscription_number"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback" (platform: "/mobile", isAbstract: true) {
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        item_id(required: true, description: "Item id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+    }
+    "/sell/update/delete_feedback/other_reason" (platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback/survey" (platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback/landing" (platform: "/mobile", type: TrackType.View) {
+        option_selected(required: true, type: PropertyType.Numeric, description: "Option selected in deleted feedback survey")
+        other_reason(required: false, type: PropertyType.String, description: "in case that the user selecte other reason, a explanation is required ")
+    }
+    "/sell/update/delete_feedback/landing/confirm" (platform: "/mobile", type: TrackType.Event) {}
 
     "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
         item_id(required: true, description: "Item id")
@@ -824,6 +844,9 @@ tracks {
         vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
+    }
+    "/sell/list/hub/select_vertical"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
     }
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
@@ -1106,6 +1129,9 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
     }
+    "/sell/item_conditions/prices"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/prices/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/prices/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1277,6 +1303,7 @@ tracks {
         sellGroup
         listingTypeFlow
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        mshopsGroup
     }
     "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}

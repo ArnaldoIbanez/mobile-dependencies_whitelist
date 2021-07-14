@@ -120,7 +120,7 @@ tracks {
         first_for_order(serverSide: true)
 
         // Checkout flows
-        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase","onetap"])
 
         //Billing info
         billing_info(required:false, description: "Dictionary containing the user selected billing info")
@@ -1165,6 +1165,11 @@ tracks {
     }
 
     // Event
+    "/checkout/shipping/input_address/map/open_map"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the map open case")
+        edit_flow(required: false, type: PropertyType.Boolean)
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
     "/checkout/shipping/input_address/unknown_zip_code"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
@@ -1617,11 +1622,6 @@ tracks {
 
     //Billing info
     "/checkout/onetap/billing"(platform: "/mobile", type: TrackType.View) {}
-
-    //Congrats tracks
-    "/checkout/onetap/congrats"(platform: "/mobile", type: TrackType.View) {
-        purchase_id(required: false, type: PropertyType.Numeric, description: "Identifier purchase")
-    }
 
     //ERROR
     "/checkout/onetap/error"(platform: "/mobile", type: TrackType.View) {}

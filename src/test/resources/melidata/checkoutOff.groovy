@@ -47,6 +47,11 @@ trackTests {
             client_id = 470234553122
         }
 
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
+        }
+
         def finishDefaultProperties = {
             payment_installments = 3
             payment_status_detail = "accredited"
@@ -104,6 +109,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -140,6 +146,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -284,6 +291,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -478,6 +490,11 @@ trackTests {
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
         }
 
         // Properties not necessary but minimum
@@ -559,6 +576,11 @@ trackTests {
             client_id = 470234553122
         }
 
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
+        }
+
         def finishDefaultProperties = {
             payment_installments = 3
             payment_status_detail = "accredited"
@@ -617,6 +639,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -653,6 +676,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -797,6 +821,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -991,6 +1020,11 @@ trackTests {
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
         }
 
         // Properties not necessary but minimum

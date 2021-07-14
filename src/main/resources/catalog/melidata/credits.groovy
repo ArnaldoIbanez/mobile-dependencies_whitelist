@@ -157,6 +157,49 @@ tracks {
      ******************************************/
 
      /******************************************
+     *       Start: Credits Optins
+     ******************************************/
+
+    "/credits/preferences"(platform: "/", isAbstract: true, type: TrackType.View) {
+        initiative(
+            type: PropertyType.String,
+            required: true,
+            inheritable: true,
+            values: [
+                'merchant_enrollment',
+                'merchant_express_money',
+                'merchant_open_market',
+                'merchant_administrator',
+                'consumer_open_sea',
+                'consumer_personal_loan',
+                'consumer_administrator'
+            ]
+        )
+        step(
+            type: PropertyType.String,
+            required: false,
+            inheritable: true,
+            values: [
+                'whatsapp', 
+                'whatsapp_sms', 
+                'sms', 
+                'telcel', 
+                'credit_circle', 
+                'telcel_credit_circle'
+            ]
+        )
+    }
+    "/credits/preferences/error"(platform: "/", type: TrackType.View) {}
+    "/credits/preferences/accept"(platform: "/", type: TrackType.Event){}
+    "/credits/preferences/decline"(platform: "/", type: TrackType.Event){}
+    
+
+    /******************************************
+     *       End: Credits Optins
+     ******************************************/
+
+
+     /******************************************
      *       Start: Merchants Public Landings
      ******************************************/
     //Public landing

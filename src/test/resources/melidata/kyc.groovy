@@ -91,7 +91,10 @@ trackTests {
         "/kyc/error"(platform: "/mobile") {
             label = "date_validation_invalid"
         }
-
+        "/kyc/error"(platform: "/web/desktop") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            error_id = "BGOR4MSZTA-210622"
+        }
         "/kyc/odr_error"(platform: "/") {
             image = "rmdy_ic_error_dni_ml"
             verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
@@ -342,6 +345,10 @@ trackTests {
         }
         "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
             label = "date_validation_invalid"
+        }
+        "/kyc/error"(platform: "/web/desktop", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            error_id = "BGOR4MSZTA-210622"
         }
 
         "/kyc/challenge/validation_fail"(platform: "/mobile", business: "mercadolibre") {

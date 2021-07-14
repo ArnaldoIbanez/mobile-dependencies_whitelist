@@ -28,7 +28,8 @@ trackTests {
                 name: "Tiendas oficiales",
                 type: "text",
                 position: -1,
-                values_quantity: 8
+                values_quantity: 8,
+                enhanced_position: 0
             ],
             [
                 id: "discount",
@@ -597,6 +598,9 @@ trackTests {
             defaultSearchInformation()
         }
         "/search/map_link"(platform: "/") {
+            defaultSearchInformation()
+        }
+        "/search/map/carousel"(platform: "/") {
             defaultSearchInformation()
         }
         "/search/search_map"(platform: "/") {

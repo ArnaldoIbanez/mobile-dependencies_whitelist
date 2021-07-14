@@ -10,6 +10,7 @@ trackTests {
 
     test("Home Discovery Component") {
         def component = {
+            c_category = "THB_TEST"
             c_id = 1
             c_event = 1
             c_campaign = 1
@@ -23,6 +24,7 @@ trackTests {
                 bu_line = "26"
                 flow = "-1"
                 logic = "campaign"
+                campaign_id = "2345"
                 position = 2
             }
         }
