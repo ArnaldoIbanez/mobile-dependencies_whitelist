@@ -6375,6 +6375,20 @@ trackTests {
             latest_news_id= "wallet_connect-binding_with_cash-84060496"
         }
 
+        //NFC
+
+        "/notification/nfc_wallet"(platform: "/") {
+            news_id = "1234-e567-MERCADOPAGO"
+            event_type = "open"
+            correlation_id = '1234e'
+        }
+
+        "/notification/nfc_command"(platform: "/") {
+            news_id = "1234-e567-MERCADOPAGO"
+            event_type = "open"
+            command = 'fire_direct_enrollment'
+        }
+
     }
 
     defaultBusiness = "mercadopago"
@@ -12585,6 +12599,20 @@ trackTests {
             latest_news_type= "wallet_connect_binding_with_cash"
             latest_news_id= "wallet_connect-binding_with_cash-84060496"
         }
+
+        //NFC
+
+        "/notification/nfc_wallet"(platform: "/") {
+            news_id = "1234-e567-MERCADOPAGO"
+            event_type = "open"
+            correlation_id = '1234e'
+        }
+
+        "/notification/nfc_command"(platform: "/") {
+            news_id = "1234-e567-MERCADOPAGO"
+            event_type = "open"
+            command = 'fire_direct_enrollment'
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -13696,10 +13724,13 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+
         "/notification_center/billing_iva_isr_mp"(platform: "/") {
             latest_news_type= "billing_iva_isr_mp"
             latest_news_id= "billing-iva_isr_mp-186785675-20200522"
         }
+
+
 
     }
 }

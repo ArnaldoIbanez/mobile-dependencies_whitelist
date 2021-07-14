@@ -3407,4 +3407,12 @@ tracks {
     "/notification/wallet_connect_binding_error"(platform: "/") {}
     "/notification/wallet_connect_binding_with_card_and_cash"(platform: "/") {}
     "/notification/wallet_connect_binding_with_cash"(platform: "/") {}
+
+    //NFC
+    "/notification/nfc_wallet"(platform: "/") {
+        correlation_id(required: true, type: PropertyType.String, description: "Correlation Id")
+    }
+    "/notification/nfc_command"(platform: "/") {
+        command(required: true, type: PropertyType.String, description: "Command")
+    }
 }
