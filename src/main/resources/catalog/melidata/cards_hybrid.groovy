@@ -1944,7 +1944,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
     }
@@ -1999,7 +1999,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
     }
@@ -2054,7 +2054,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
     }
@@ -2154,7 +2154,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Error message description"
         )
     }
@@ -2250,7 +2250,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
     }
@@ -2349,7 +2349,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Error message description"
         )
     }
