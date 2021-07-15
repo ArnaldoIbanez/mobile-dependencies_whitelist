@@ -1960,7 +1960,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
         http_status_code(
@@ -2035,7 +2035,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
         http_status_code(
@@ -2110,7 +2110,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
         http_status_code(
@@ -2230,7 +2230,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Error message description"
         )
         http_status_code(
@@ -2341,7 +2341,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Type of sdk error message"
         )
         http_status_code(
@@ -2455,7 +2455,7 @@ tracks {
 
         error_message(
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "Error message description"
         )
         http_status_code(
