@@ -119,6 +119,7 @@ tracks {
     }
 
     "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
+        budget(required: true, description: "Budget related to the campaign", inheritable:false)
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 

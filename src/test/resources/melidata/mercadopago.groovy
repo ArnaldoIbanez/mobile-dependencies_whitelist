@@ -1050,6 +1050,14 @@ trackTests {
             product = "bbpos"
         }
 
+        "/point/landings/buy/low_price" (platform:"/", type: TrackType.Event) {
+            product = "point-blue"
+        }
+
+        "/point/landings/buy/low_tax" (platform:"/", type: TrackType.Event) {
+            product = "point-blue"
+        }
+
         // Multiproduct
         "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {
             product = "multiproduct mla"
@@ -1095,6 +1103,25 @@ trackTests {
         // Landing go to security landing event
         "/point/landings/security"(platform:"/", type: TrackType.Event) {
             product = "Point Newland"
+        }
+
+        // [POG] Landings Point > Click to call experiment
+        "/point/landings/click_to_call/congrats" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
+          type = "success"
+          action = "open"
+        }
+
+        "/point/landings/click_to_call/open_form" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
+        }
+
+        "/point/landings/click_to_call/submit_form" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
+        }
+
+        "/point/landings/click_to_call/resubmit_form" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
         }
         
         // Landing MGM

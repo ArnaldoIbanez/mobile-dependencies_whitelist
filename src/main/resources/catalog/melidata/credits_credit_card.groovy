@@ -307,6 +307,11 @@ tracks {
                         "physical_not_requested"
                 ]
         )
+        from(
+                description: "Indicates where the upgrade congrats flow was accessed from",
+                type: PropertyType.String,
+                required: true
+        )
     }
 
     "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}

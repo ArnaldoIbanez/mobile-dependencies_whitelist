@@ -134,6 +134,7 @@ trackTests {
 
         "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
             free_trial_ad = true
+            budget = 500
             official_stores = true
             matching = true
             new_advertiser = true

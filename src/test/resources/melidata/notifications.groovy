@@ -1271,6 +1271,12 @@ trackTests {
             latest_news_type= "multiplayer_regulation_validated"
             status= "read"
         }
+        "/notification_center/multiplayer_restriction_collector"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_type= "multiplayer_restriction_collector"
+            status= "read"
+        }
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-campaigns-186785675-76283123"
             latest_news_id= "mpcampaigns-campaigns-186785675-76283123"
@@ -2659,6 +2665,26 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
+
         "/notification/messages_driver_logistics"(platform: "/mobile"){
             news_id = "messages-driver_logistics-321953606"
             event_type = "sent"
@@ -2780,6 +2806,10 @@ trackTests {
         }
         "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
             news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_restriction_collector"(platform: "/mobile"){
+            news_id = "multiplayer_restriction_collector-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
 
@@ -3868,6 +3898,22 @@ trackTests {
             news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
+        "/notification/me_crowd_city_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_complete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
 
         "/notification/moderations_item_warning"(platform: "/mobile") {
             news_id = "123"
@@ -4123,6 +4169,12 @@ trackTests {
 
         "/notification/returns_refund_bank_transfer"(platform: "/mobile") {
             news_id = "returns_refund_bank_transfer-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_return_to_buyer_shipped"(platform: "/mobile") {
+            news_id = "returns_return_to_buyer_shipped-1703067817-269729837"
             event_type = "sent"
             order_id = 1703067817
         }
@@ -6986,6 +7038,12 @@ trackTests {
             latest_news_type= "multiplayer_regulation_validated"
             status= "read"
         }
+        "/notification_center/multiplayer_restriction_collector"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_type= "multiplayer_restriction_collector"
+            status= "read"
+        }
         "/notification_center/invite_gift"(platform: "/mobile"){
             newsgroup_id= "invite-gift-186785675-76283123"
             latest_news_id= "invite-gift-186785675-76283123"
@@ -8681,6 +8739,22 @@ trackTests {
             news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
 
         "/notification/messages_driver_logistics"(platform: "/mobile"){
             news_id = "messages-driver_logistics-321953606"
@@ -8868,6 +8942,10 @@ trackTests {
         }
         "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
             news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_restriction_collector"(platform: "/mobile"){
+            news_id = "multiplayer_restriction_collector-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
 
@@ -10342,6 +10420,12 @@ trackTests {
 
         "/notification/returns_refund_bank_transfer"(platform: "/mobile") {
             news_id = "returns_refund_bank_transfer-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_return_to_buyer_shipped"(platform: "/mobile") {
+            news_id = "returns_return_to_buyer_shipped-1703067817-269729837"
             event_type = "sent"
             order_id = 1703067817
         }

@@ -269,5 +269,89 @@ trackTests {
             defaultLocation()
             defaultWeeklyDetail()
         }
+
+        // Registration
+        "/crowd/registration/tyc"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/hub"(platform: "/mobile", type: TrackType.View) {
+            bullet = "kyc"
+            defaultLocation()
+        }
+
+        "/crowd/registration/kyc/start"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/kyc/end"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/blocked"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/kyc/failure/logistics"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/city"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            city = "La plata"
+        }
+
+        "/crowd/registration/city/other"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/vehicle"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/vehicle/selected"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            vehicle = "camion"
+        }
+
+        "/crowd/registration/vehicle/other"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/vehicle/old"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/vehicle/data"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/billing/start"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/billing/city"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/billing/tralix"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/vehicle_verification"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/city/unavailable"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
     }
 }

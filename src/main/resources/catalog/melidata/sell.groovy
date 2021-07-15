@@ -708,6 +708,19 @@ tracks {
     "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/inscription_number"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback" (platform: "/mobile", isAbstract: true) {
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        item_id(required: true, description: "Item id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+    }
+    "/sell/update/delete_feedback/other_reason" (platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback/survey" (platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback/landing" (platform: "/mobile", type: TrackType.View) {
+        option_selected(required: true, type: PropertyType.Numeric, description: "Option selected in deleted feedback survey")
+        other_reason(required: false, type: PropertyType.String, description: "in case that the user selecte other reason, a explanation is required ")
+    }
+    "/sell/update/delete_feedback/landing/confirm" (platform: "/mobile", type: TrackType.Event) {}
 
     "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
         item_id(required: true, description: "Item id")

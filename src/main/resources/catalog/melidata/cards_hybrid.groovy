@@ -2134,6 +2134,15 @@ tracks {
             description: "Device cvm status information"
         )
     }
+
+    "/cards/nfc/enrollment/devicecvm/no_security"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["tokenization_error"],
+            description: "Tokenization not initialized"
+        )
+    }
     
     // NFC-FEATURE-IGNITE-STATUS
     // ----------------------

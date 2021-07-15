@@ -23,10 +23,11 @@ tracks {
         "facebook_shop",
         "facebook_pixel",
         "google_analytics",
-        "instagram",
+        "instagram_shop",
         "google_shopping",
         "google_ads",
         "google_search_console",
+        "pads",
     ]
 
     def shopCards = [
@@ -43,8 +44,10 @@ tracks {
         google_analytics(required: true, type: PropertyType.String, values: toolStatus)
         google_shopping(required: true, type: PropertyType.String, values: toolStatus)
         google_ads(required: true, type: PropertyType.String, values: toolStatus)
-        google_search(required: true, type: PropertyType.String, values: toolStatus)
-        instagram(required: true, type: PropertyType.String, values: toolStatus)
+        google_search_console(required: true, type: PropertyType.String, values: toolStatus)
+        instagram_shop(required: false, type: PropertyType.String, values: toolStatus)
+        contact_data(required: true, type: PropertyType.String, values: toolStatus)
+        domain(required: true, type: PropertyType.String, values: toolStatus)
     }
 
     def cardsData = objectSchemaDefinitions {
@@ -127,13 +130,19 @@ tracks {
 
     "/shops/hub/manage"(platform: "/", isAbstract: true) {}
 
-    "/shops/hub/manage/listings"(platform: "/", type: TrackType.Event) {}
+    "/shops/hub/manage/listings"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['listings'])
+    }
 
     "/shops/hub/view"(platform: "/", isAbstract: true) {}
 
-    "/shops/hub/view/listings"(platform: "/", type: TrackType.Event) {}
+    "/shops/hub/view/listings"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['listings'])
+    }
 
-    "/shops/hub/modify/listings"(platform: "/", type: TrackType.Event) {}
+    "/shops/hub/modify/listings"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['listings'])
+    }
     
     "/shops/hub/modify/sales_listings"(platform: "/", type: TrackType.Event) {
         card(required: false, type: PropertyType.String, values: ['sales'])
@@ -141,11 +150,17 @@ tracks {
 
     "/shops/hub/add"(platform: "/", isAbstract: true) {}
 
-    "/shops/hub/add/codes"(platform: "/", type: TrackType.Event) {}
+    "/shops/hub/add/codes"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['listings'])
+    }
 
-    "/shops/hub/add/listings"(platform: "/", type: TrackType.Event) {}
+    "/shops/hub/add/listings"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['listings'])
+    }
 
-    "/shops/hub/manage_sales"(platform: "/", type: TrackType.Event) {}
+    "/shops/hub/manage_sales"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['sales'])
+    }
 
     "/shops/hub/promotions_configuration"(platform: "/", type: TrackType.Event) {
         card(required: true, type: PropertyType.String, values: shopCards)
@@ -165,6 +180,10 @@ tracks {
 
     "/shops/hub/show_more"(platform: "/", type: TrackType.Event) {
         card(required: true, type: PropertyType.String, values: shopCards)
+    }
+
+    "/shops/hub/review_sales"(platform: "/", type: TrackType.Event) {
+        sale_status(required: true, type: PropertyType.String, values: ['ready_to_deliver', 'in_transit', 'to_review', 'to_prepare'])
     }
 
     // SHOP METRICS
