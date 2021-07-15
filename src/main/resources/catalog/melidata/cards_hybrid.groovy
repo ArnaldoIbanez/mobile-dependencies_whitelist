@@ -52,6 +52,7 @@ tracks {
     // --------
     "/cards/hybrid/shipping"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/shipping/tracking"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) { }
 
     //Shipping: Tracking
     "/cards/hybrid/shipping/tracking"(platform: "/", type: TrackType.View) {
@@ -91,7 +92,21 @@ tracks {
     }
 
     //Shipping: Delivered
-    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["receiver-2-mãe", "receiver-3-pai", "receiver-4-port", "receiver-5-secretario", "receiver-6-segurança", 
+            "receiver-7-funcionário", "receiver-8-empregada", "receiver-9-filho", "receiver-10-tio", "receiver-11-sobrinho", 
+            "receiver-12-avo", "receiver-13-procurador", "receiver-14-esposa", "receiver-15-esposo", "receiver-16-recepção",
+            "receiver-17-primo", "receiver-18-sogro", "receiver-19-inquilino", "receiver-20-sindico", "receiver-21-irmao", 
+            "receiver-22-noivo", "receiver-23-cunhado", "receiver-24-genro", "receiver-25-neto", "receiver-26-res_autorizado", 
+            "receiver-50-deixado_na_varanda", "receiver-51-caixa_de_correspondencia", "receiver-52-entregue_sob_a_porta", 
+            "receiver-53-garagem", "receiver-54-outros", "receiver-0-agência"],
+            description: "Type of relationship with receiver",
+            inheritable:false
+        )
+    }
     "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,

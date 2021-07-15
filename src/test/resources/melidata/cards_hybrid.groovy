@@ -36,7 +36,81 @@ trackTests {
 
     //Shipping: Delivered
     test("cards hybrid shipping delivered") {
-        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-2-mãe"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-3-pai"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-4-port"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-5-secretario"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-6-segurança"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-7-funcionário"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-8-empregada"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-9-filho"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-10-tio"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-11-sobrinho"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-12-avo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-13-procurador"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-14-esposa"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-15-esposo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-16-recepção"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-17-primo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-18-sogro"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-19-inquilino"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-20-sindico"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-21-irmao"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-22-noivo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-23-cunhado"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-24-genro"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-50-deixado_na_varanda"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-51-caixa_de_correspondencia"
+        }
         "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
             action = "unlock"
         }
