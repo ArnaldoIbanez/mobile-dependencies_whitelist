@@ -22,6 +22,21 @@ trackTests {
             latest_news_type= "addresses-update"
             latest_news_id= "addresses-update-126635313"
         }
+        "/notification/mp_shipping_label"(platform: "/mobile"){
+            news_id="mp_shipping-label-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_on_way"(platform:"/mobile"){
+            news_id="mp_shipping-on_way-789827052"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_not_delivered"(platform: "/mobile"){
+            news_id="mp_shipping-not_delivered-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
         "/notification_center/back"(platform: "/mobile"){}
         "/notification_center/failure"(platform: "/mobile"){}
         "/notification_center"(platform: "/mobile") {
@@ -9417,6 +9432,21 @@ trackTests {
             news_id = "point_voucher_sodexo-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+        "/notification/mp_shipping_label"(platform: "/mobile"){
+            news_id="mp_shipping-label-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_on_way"(platform:"/mobile"){
+            news_id="mp_shipping-on_way-789827052"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_not_delivered"(platform: "/mobile"){
+            news_id="mp_shipping-not_delivered-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
         }
         "/notification/pix_transfer_mo_rejected"(platform: "/mobile") {
             news_id = "pix_transfer_mo_rejected-186785675"

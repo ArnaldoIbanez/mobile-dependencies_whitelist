@@ -2981,6 +2981,11 @@ tracks {
     "/notification/point_voucher_sodexo"(platform: "/mobile") {}
     "/notification/point_pix"(platform: "/mobile") {}
 
+    //ShippingOff
+    "/notification/mp_shipping_label"(platform: "/mobile"){}
+    "/notification/mp_shipping_not_delivered"(platform: "/mobile"){}
+    "/notification/mp_shipping_on_way"(platform: "/mobile"){}
+
     //Partners
     "/notification/partners_pin_ml"(platform: "/mobile") {
         partner(required: true, type: PropertyType.String)
