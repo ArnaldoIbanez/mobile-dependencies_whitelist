@@ -277,6 +277,8 @@ catalog {
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "checkout.groovy"
+        include business, "cookies_consent.groovy"
+        include business, "cookie_disclaimer.groovy"
         include business, "notifications_mshops.groovy"
         include business, "landing_mshops.groovy"
         include business, "registrations.groovy"
