@@ -2025,6 +2025,13 @@ trackTests {
         }
     }
 
+    test("cards hybrid nfc device no security configured") {
+        "/cards/nfc/enrollment/devicecvm/no_security"(platform:"/", type: TrackType.Event) {
+            status = "User has no device security"
+            action = "tokenization_error"
+        }
+    }
+
     test("cards hybrid nfc feature ignite status") {
         "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
             value = true
