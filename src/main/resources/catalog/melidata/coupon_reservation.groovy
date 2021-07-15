@@ -10,25 +10,26 @@ tracks {
   initiative="1218"
 
   def campaign = objectSchemaDefinitions {
-    id(required: true, inheritable: false, type: PropertyType.Numeric, description: "Cupon id")
-    image(required: true, inheritable: false, type: PropertyType.String, description: "Cupon image url")
-    title(required: true, inheritable: false, type: PropertyType.String, description: "Cupon image title")
-    amount(required: true, inheritable: false, type: PropertyType.String, description: "Cupon amount")
-    phase(required: false, inheritable: false, type: PropertyType.String, description: "Cupon phase")
-    available(required: false, inheritable: false, type: PropertyType.Boolean, description: "Cupon availability") 
+    id(required: true, type: PropertyType.Numeric, description: "Cupon id")
+    image(required: true, type: PropertyType.String, description: "Cupon image url")
+    title(required: true, type: PropertyType.String, description: "Cupon image title")
+    amount(required: true, type: PropertyType.String, description: "Cupon amount")
+    phase(required: false, type: PropertyType.String, description: "Cupon phase")
+    available(required: false, type: PropertyType.Boolean, description: "Cupon availability") 
   }
   def status = objectSchemaDefinitions {
-    id(required: true, inheritable: false, type: PropertyType.Numeric, description: "Cupon id")
-    available(required: true, inheritable: false, type: PropertyType.Boolean, description: "Cupon amount_footer")
+    id(required: true, type: PropertyType.Numeric, description: "Cupon id")
+    available(required: true, type: PropertyType.Boolean, description: "Cupon amount_footer")
   }
 
   "/instore/coupon_reservation" (platform: "/", isAbstract: true) {
     event_id(required: false, type: PropertyType.Numeric, description: "Event id")
+    session_id(required: true, type: PropertyType.String, description: "Session identifier")
   }
 
   // ----- reservation stage -----
   "/instore/coupon_reservation/reservation" (platform: "/", type: TrackType.View) {
-    coupons(required: true, inheritable: false, type: PropertyType.ArrayList(PropertyType.Map(campaign)), description: "The cupons list to show")
+    coupons(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaign)), description: "The cupons list to show")
   }
 
   "/instore/coupon_reservation/reservation/reserve" (platform: "/", type: TrackType.Event) {}
@@ -46,7 +47,7 @@ tracks {
 
   // ----- exchange stage -----
   "/instore/coupon_reservation/redeem" (platform: "/", type: TrackType.View) {
-    coupons_status(required: true, inheritable: false, type: PropertyType.ArrayList(PropertyType.Map(status)), description: "The cupons list to show") 
+    coupons_status(required: false, type: PropertyType.ArrayList(PropertyType.Map(status)), description: "The cupons list to show") 
   }
 
   "/instore/coupon_reservation/redeem/how_to_use" (platform: "/", type: TrackType.Event) {}
