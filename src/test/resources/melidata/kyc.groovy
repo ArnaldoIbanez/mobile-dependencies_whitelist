@@ -74,22 +74,26 @@ trackTests {
 
         // Error
         "/kyc/error"(platform: "/mobile") {
-            label = "service_error_generic"
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            type = "timeout"
             verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
         "/kyc/error"(platform: "/mobile") {
-            label = "service_error"
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            type = "parsing"
             verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
-        "/kyc/error"(platform: "/mobile") {
-            label = "service_error_connection"
-            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
+        "/kyc/error"(platform: "/web/desktop") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            error_id = "BGOR4MSZTA-210622"
         }
-        "/kyc/error"(platform: "/mobile") {
-            label = "date_validation_underage"
+        "/kyc/error"(platform: "/web/desktop") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            verbose = "User not active"
+            type = "service"
         }
-        "/kyc/error"(platform: "/mobile") {
-            label = "date_validation_invalid"
+        "/kyc/connection_error"(platform: "/web/desktop") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
         }
 
         "/kyc/odr_error"(platform: "/") {
@@ -326,22 +330,26 @@ trackTests {
 
         // Error
         "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "service_error_generic"
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            type = "timeout"
             verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
         "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "service_error"
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            type = "parsing"
             verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "service_error_connection"
-            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
+        "/kyc/error"(platform: "/web/desktop", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            error_id = "BGOR4MSZTA-210622"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "date_validation_underage"
+        "/kyc/error"(platform: "/web/desktop", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            verbose = "User not active"
+            type = "service"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "date_validation_invalid"
+        "/kyc/connection_error"(platform: "/web/desktop", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
         }
 
         "/kyc/challenge/validation_fail"(platform: "/mobile", business: "mercadolibre") {

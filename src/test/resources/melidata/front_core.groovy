@@ -1590,6 +1590,10 @@ trackTests {
             banking_v2=[
                 hidden : true
             ]
+            pendings= [
+                    ordinal: 2,
+                    content_type : 'partial'
+            ]
             main_actions = [
                     content_type : 'complete',
                     ordinal: 2,
