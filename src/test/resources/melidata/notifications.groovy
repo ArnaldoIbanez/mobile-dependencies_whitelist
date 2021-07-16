@@ -22,6 +22,21 @@ trackTests {
             latest_news_type= "addresses-update"
             latest_news_id= "addresses-update-126635313"
         }
+        "/notification/mp_shipping_label"(platform: "/mobile"){
+            news_id="mp_shipping-label-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_on_way"(platform:"/mobile"){
+            news_id="mp_shipping-on_way-789827052"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_not_delivered"(platform: "/mobile"){
+            news_id="mp_shipping-not_delivered-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
         "/notification_center/back"(platform: "/mobile"){}
         "/notification_center/failure"(platform: "/mobile"){}
         "/notification_center"(platform: "/mobile") {
@@ -1271,6 +1286,12 @@ trackTests {
             latest_news_type= "multiplayer_regulation_validated"
             status= "read"
         }
+        "/notification_center/multiplayer_restriction_collector"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_type= "multiplayer_restriction_collector"
+            status= "read"
+        }
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-campaigns-186785675-76283123"
             latest_news_id= "mpcampaigns-campaigns-186785675-76283123"
@@ -1364,6 +1385,17 @@ trackTests {
             type = "activate_before"
         }
 
+        "/notification_center/subscription_free_content_level_drop"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_level_drop-186785675"
+            latest_news_id= "subscription_free_content_level_drop-186785675"
+            latest_news_type= "subscription_free_content_level_drop"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
@@ -1423,12 +1455,6 @@ trackTests {
             newsgroup_id= "card_request_challenge-pending-186785675-76283123"
             latest_news_id= "card_request_challenge-pending-186785675-76283123"
             latest_news_type= "card_request_challenge-pending"
-            status= "read"
-        }
-        "/notification_center/card_correios_strike"(platform: "/mobile"){
-            newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_type= "card_correios_strike-delayed"
             status= "read"
         }
         "/notification_center/card_flow_incentive"(platform: "/mobile"){
@@ -1534,9 +1560,27 @@ trackTests {
             status= "read"
         }
         "/notification_center/card_unlock_incentive"(platform: "/mobile"){
-            newsgroup_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_type= "card_unlock_incentive-zero_day"
+            newsgroup_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_owner"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_point"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_somewhere"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_known_person"
             status= "read"
         }
         "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
@@ -2636,6 +2680,26 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
+
         "/notification/messages_driver_logistics"(platform: "/mobile"){
             news_id = "messages-driver_logistics-321953606"
             event_type = "sent"
@@ -2757,6 +2821,10 @@ trackTests {
         }
         "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
             news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_restriction_collector"(platform: "/mobile"){
+            news_id = "multiplayer_restriction_collector-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
 
@@ -3845,6 +3913,22 @@ trackTests {
             news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
+        "/notification/me_crowd_city_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_complete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
 
         "/notification/moderations_item_warning"(platform: "/mobile") {
             news_id = "123"
@@ -4100,6 +4184,12 @@ trackTests {
 
         "/notification/returns_refund_bank_transfer"(platform: "/mobile") {
             news_id = "returns_refund_bank_transfer-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_return_to_buyer_shipped"(platform: "/mobile") {
+            news_id = "returns_return_to_buyer_shipped-1703067817-269729837"
             event_type = "sent"
             order_id = 1703067817
         }
@@ -4653,7 +4743,14 @@ trackTests {
             date = "20181211"
             type = "activate_before"
         }
-
+        "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
+            news_id = "subscription_free_content_level_drop-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
             news_id = "123"
             event_type = "discarded"
@@ -5382,18 +5479,26 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification/card_correios_strike_delayed"(platform: "/mobile") {
-            news_id = "card_correios_strike_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+        "/notification/card_unlock_incentive_zero_day_owner"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_owner-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
-        "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_zero_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+        "/notification/card_unlock_incentive_zero_day_somewhere"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_somewhere-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
+        "/notification/card_unlock_incentive_zero_day_point"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_point-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_unlock_incentive_zero_day_known_person"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_known_person-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
         "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_second_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -6948,6 +7053,12 @@ trackTests {
             latest_news_type= "multiplayer_regulation_validated"
             status= "read"
         }
+        "/notification_center/multiplayer_restriction_collector"(platform: "/mobile"){
+            newsgroup_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_id= "multiplayer_restriction_collector-186785675-76283123"
+            latest_news_type= "multiplayer_restriction_collector"
+            status= "read"
+        }
         "/notification_center/invite_gift"(platform: "/mobile"){
             newsgroup_id= "invite-gift-186785675-76283123"
             latest_news_id= "invite-gift-186785675-76283123"
@@ -7081,6 +7192,16 @@ trackTests {
             newsgroup_id = "subscription_disney_activation_free_trial-186785675"
             latest_news_id= "subscription_disney_activation_free_trial-186785675"
             latest_news_type= "subscription_disney_activation_free_trial"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_free_content_level_drop"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_level_drop-186785675"
+            latest_news_id= "subscription_free_content_level_drop-186785675"
+            latest_news_type= "subscription_free_content_level_drop"
             status= "read"
             provider = "hbo"
             provider_name = "Disney"
@@ -7343,12 +7464,6 @@ trackTests {
             latest_news_type= "card_request_challenge-pending"
             status= "read"
         }
-        "/notification_center/card_correios_strike"(platform: "/mobile"){
-            newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_id= "card_correios_strike-delayed-186785675-76283123"
-            latest_news_type= "card_correios_strike-delayed"
-            status= "read"
-        }
         "/notification_center/card_flow_incentive"(platform: "/mobile"){
             newsgroup_id= "card_flow_incentive-186785675-76283123"
             latest_news_id= "card_flow_incentive-186785675-76283123"
@@ -7452,9 +7567,27 @@ trackTests {
             status= "read"
         }
         "/notification_center/card_unlock_incentive"(platform: "/mobile"){
-            newsgroup_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_id= "card_unlock_incentive-zero_day-186785675-76283123"
-            latest_news_type= "card_unlock_incentive-zero_day"
+            newsgroup_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_owner-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_owner"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_somewhere-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_somewhere"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_point-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_point"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_id= "card_unlock_incentive-zero_day_known_person-186785675-76283123"
+            latest_news_type= "card_unlock_incentive-zero_day_known_person"
             status= "read"
         }
         "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
@@ -8621,6 +8754,22 @@ trackTests {
             news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
 
         "/notification/messages_driver_logistics"(platform: "/mobile"){
             news_id = "messages-driver_logistics-321953606"
@@ -8808,6 +8957,10 @@ trackTests {
         }
         "/notification/multiplayer_regulation_validated"(platform: "/mobile"){
             news_id = "multiplayer_regulation_validated-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/multiplayer_restriction_collector"(platform: "/mobile"){
+            news_id = "multiplayer_restriction_collector-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
 
@@ -9279,6 +9432,21 @@ trackTests {
             news_id = "point_voucher_sodexo-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+        "/notification/mp_shipping_label"(platform: "/mobile"){
+            news_id="mp_shipping-label-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_on_way"(platform:"/mobile"){
+            news_id="mp_shipping-on_way-789827052"
+            event_type="arrived"
+            notification_type="deep_linking"
+        }
+        "/notification/mp_shipping_not_delivered"(platform: "/mobile"){
+            news_id="mp_shipping-not_delivered-788142312"
+            event_type="arrived"
+            notification_type="deep_linking"
         }
         "/notification/pix_transfer_mo_rejected"(platform: "/mobile") {
             news_id = "pix_transfer_mo_rejected-186785675"
@@ -10286,6 +10454,12 @@ trackTests {
             order_id = 1703067817
         }
 
+        "/notification/returns_return_to_buyer_shipped"(platform: "/mobile") {
+            news_id = "returns_return_to_buyer_shipped-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -10734,6 +10908,15 @@ trackTests {
         }
         "/notification/subscription_disney_activation_free_trial"(platform: "/mobile") {
             news_id = "subscription_disney_activation_free_trial-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+
+        "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
+            news_id = "subscription_free_content_level_drop-186785675-hbo-20181211"
             event_type = "open"
             provider = "hbo"
             provider_name = "Disney"
@@ -11318,11 +11501,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification/card_correios_strike_delayed"(platform: "/mobile"){
-            news_id= "card_correios_strike_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
+
         "/notification/card_kyc_data_completed_virtual"(platform: "/mobile"){
             news_id= "card_kyc_data_completed_virtual-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -11363,12 +11542,26 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_zero_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+        "/notification/card_unlock_incentive_zero_day_owner"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_owner-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
+        "/notification/card_unlock_incentive_zero_day_somewhere"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_somewhere-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_unlock_incentive_zero_day_point"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_point-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_unlock_incentive_zero_day_known_person"(platform: "/mobile") {
+            news_id = "card_unlock_incentive_zero_day_known_person-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
         "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_second_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -11865,6 +12058,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization_extracash_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -12276,7 +12475,13 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-        
+
+        "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization_extracash_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"

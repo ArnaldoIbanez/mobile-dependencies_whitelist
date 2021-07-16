@@ -16,8 +16,8 @@ tracks {
 
     "/pog" (platform: "/", isAbstract: true) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
-      bu (type: PropertyType.String, required: true, description: "business unit")
-      ch (type: PropertyType.String, required: true, description: "sales channel")
+      bu (type: PropertyType.String, required: false, description: "business unit")
+      ch (type: PropertyType.String, required: false, description: "sales channel")
       currency (type: PropertyType.String, required: false, description: "Currency")
       price (type: PropertyType.Numeric, required: false, description: "Price of device")
       has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")

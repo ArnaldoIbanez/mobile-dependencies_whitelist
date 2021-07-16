@@ -594,6 +594,10 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
         claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
+    "/insurtech/protections/detail/roda/claim_detail/insurer_response"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+        claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
+    }
 
     "/insurtech/protections/detail/roda/phone_activation"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {}
 
@@ -601,6 +605,10 @@ tracks {
 
     "/insurtech/protections/detail/roda/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+    }
+
+    "/insurtech/protections/detail/roda/continue_kyc"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
     }
 
     //GAREX
@@ -618,6 +626,8 @@ tracks {
     "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
     }
     "/insurtech/protections/detail/garex/activities"(platform:"/", type: TrackType.Event) {
+    }
+    "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
     }
 
 

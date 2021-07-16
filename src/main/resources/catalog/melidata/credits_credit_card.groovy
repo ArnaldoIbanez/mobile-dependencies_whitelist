@@ -245,11 +245,7 @@ tracks {
         from(
                 description: "Indicates where the onboarding flow was accessed from",
                 type: PropertyType.String,
-                required: true,
-                values: [
-                        "hybrid-dashboard",
-                        "unknown"
-                ]
+                required: true
         )
     }
 
@@ -311,6 +307,11 @@ tracks {
                         "physical_not_requested"
                 ]
         )
+        from(
+                description: "Indicates where the upgrade congrats flow was accessed from",
+                type: PropertyType.String,
+                required: true
+        )
     }
 
     "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
@@ -356,7 +357,9 @@ tracks {
                         "no_proposal_match",
                         "invalid_proposal_status",
                         "user_has_active_account",
-                        "kyc_not_compliant"
+                        "kyc_not_compliant",
+                        "physical_card_request",
+                        "kyc_api_failed"
                 ]
         )
     }

@@ -70,7 +70,7 @@ metrics {
     "search_properties"(description: "define properties for order_id") {
         startWith {
             set_property("item_ids", "event_data.results")
-            experiment(regex("search/.*"))
+            experiment(regex("(search|filters)/.*"))
         }
     }
 
@@ -81,7 +81,7 @@ metrics {
             experiment(regex("pdp/.*"))
         }
     }
-    
+
     "qadb_properties"(description: "define properties for order_id") {
         startWith {
             set_property("catalog_product_id", "event_data.catalog_product_id")
@@ -89,7 +89,7 @@ metrics {
             experiment(regex("qadb/.*"))
         }
     }
-    
+
     "qadb/qadb-input"(description: "define properties for catalog_product_id qadb input experiment") {
         startWith {
             set_property("catalog_product_id", "event_data.catalog_product_id")

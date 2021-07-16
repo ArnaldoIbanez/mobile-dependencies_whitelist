@@ -1165,6 +1165,11 @@ tracks {
     }
 
     // Event
+    "/checkout/shipping/input_address/map/open_map"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the map open case")
+        edit_flow(required: false, type: PropertyType.Boolean)
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
     "/checkout/shipping/input_address/unknown_zip_code"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }

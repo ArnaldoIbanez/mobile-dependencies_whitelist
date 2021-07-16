@@ -31,15 +31,11 @@ trackTests {
       // Landing Multiproduct
       "/pog/landings/compare" (platform: "/", type: TrackType.View) {
         product = "Point Mini"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       // Multiproduct
       "/pog/landings/multiproduct"(platform:"/", type: TrackType.View) {
         product = "multiproduct mla"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
     /* ---------------------
@@ -48,8 +44,6 @@ trackTests {
 
       "/pog/landings/buy"(platform:"/", type: TrackType.Event) {
         product = "bbpos"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       // Landing navigation
@@ -57,52 +51,36 @@ trackTests {
         product = "Point Plus"
         coupon_code = "Y96XA"
         coupon_type = "default"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       // Landing go to calculator event
       "/pog/landings/calculator"(platform:"/", type: TrackType.Event) {
         product = "Point Newland"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       // Landing go to security landing event
       "/pog/landings/security"(platform:"/", type: TrackType.Event) {
         product = "Point Newland"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       "/pog/landings/compare/buy"(platform:"/", type: TrackType.Event) {
         product = "Point Plus"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       "/pog/landings/compare/go"(platform:"/", type: TrackType.Event) {
         product = "Point Plus"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       "/pog/landings/multiproduct/buy"(platform:"/", type: TrackType.Event) {
         product = "Point Plus"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       "/pog/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {
         product = "Point Plus"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
       "/pog/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {
         product = "Point Plus"
-        bu = "POINT"
-        ch = "XSELL"
       }
 
     }

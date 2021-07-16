@@ -946,6 +946,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/multiplayer_restriction_collector"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/mp_seller_campaign_moderation"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1005,6 +1009,14 @@ tracks {
         provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
+    }
+    "/notification_center/subscription_free_content_level_drop"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment error for level drop.")
     }
     "/notification_center/subscription_payment_congrats"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1103,10 +1115,6 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/card_unlock_incentive_second_day"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/card_correios_strike"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1730,6 +1738,7 @@ tracks {
     "/notification/multiplayer_ml_money_request"(platform: "/") {}
     "/notification/multiplayer_regulation"(platform: "/") {}
     "/notification/multiplayer_regulation_validated"(platform: "/") {}
+    "/notification/multiplayer_restriction_collector"(platform: "/") {}
 
     //Tu producto está en camino
     "/notification/shipping_shipped"(platform: "/") {
@@ -2335,6 +2344,10 @@ tracks {
     "/notification/me_crowd_multiple_offers_available"(platform: "/") {}
     "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/") {}
     "/notification/me_crowd_canceled_order_warning"(platform: "/") {}
+    "/notification/me_crowd_city_registration"(platform: "/") {}
+    "/notification/me_crowd_select_service_center_registration"(platform: "/") {}
+    "/notification/me_crowd_registration_incomplete"(platform: "/") {}
+    "/notification/me_crowd_registration_complete"(platform: "/") {}
 
     //Money
     "/notification/money_advance_congrats"(platform: "/") {}
@@ -2515,9 +2528,12 @@ tracks {
       "/notification/returns_label_unavailable"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
-    "/notification/returns_refund_bank_transfer"(platform: "/") {
-        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
-    }
+      "/notification/returns_refund_bank_transfer"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_return_to_buyer_shipped"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
 
     //Security
     "/notification/security_enrollment"(platform: "/") {}
@@ -2578,6 +2594,12 @@ tracks {
         provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
+    }
+    "/notification/subscription_free_content_level_drop"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment error for level drop.")
     }
     "/notification/subscription_payment_congrats"(platform: "/mobile") {
         provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
@@ -2809,7 +2831,6 @@ tracks {
 
     //Hybrid
     "/notification/card_request_challenge_pending"(platform: "/mobile") {}
-    "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_first_day"(platform: "/") {}
     "/notification/card_first_use_incentive_fourteenth_day"(platform: "/") {}
     "/notification/card_first_use_incentive_seventh_day"(platform: "/") {}
@@ -2838,7 +2859,10 @@ tracks {
     "/notification/card_kyc_data_completed_prepaid_acquisition_second"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_prepaid_acquisition_third"(platform: "/mobile") {}
     "/notification/card_kyc_data_completed_virtual_acquisition"(platform: "/mobile") {}
-    "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_owner"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_point"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_somewhere"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day_known_person"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {
         has_money(required: true, type: PropertyType.Boolean)
     }
@@ -2861,6 +2885,7 @@ tracks {
     "/notification/card_nip_set_nip"(platform: "/mobile") {}
     "/notification/card_wallet_resume_token"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_extracash"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}
@@ -2955,6 +2980,11 @@ tracks {
     "/notification/point_improvement"(platform: "/mobile") {}
     "/notification/point_voucher_sodexo"(platform: "/mobile") {}
     "/notification/point_pix"(platform: "/mobile") {}
+
+    //ShippingOff
+    "/notification/mp_shipping_label"(platform: "/mobile"){}
+    "/notification/mp_shipping_not_delivered"(platform: "/mobile"){}
+    "/notification/mp_shipping_on_way"(platform: "/mobile"){}
 
     //Partners
     "/notification/partners_pin_ml"(platform: "/mobile") {
