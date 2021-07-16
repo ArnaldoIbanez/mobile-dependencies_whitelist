@@ -23,8 +23,8 @@ tracks {
     // INSURTECH CLAIMS RODA
     "/insurtech/protections/claims"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
-    } 
-   
+    }
+
     "/insurtech/protections/claims/cancel"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }

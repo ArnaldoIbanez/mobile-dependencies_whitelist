@@ -36,7 +36,81 @@ trackTests {
 
     //Shipping: Delivered
     test("cards hybrid shipping delivered") {
-        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-2-mãe"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-3-pai"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-4-port"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-5-secretario"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-6-segurança"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-7-funcionário"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-8-empregada"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-9-filho"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-10-tio"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-11-sobrinho"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-12-avo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-13-procurador"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-14-esposa"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-15-esposo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-16-recepção"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-17-primo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-18-sogro"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-19-inquilino"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-20-sindico"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-21-irmao"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-22-noivo"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-23-cunhado"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-24-genro"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-50-deixado_na_varanda"
+        }
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+            context = "receiver-51-caixa_de_correspondencia"
+        }
         "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
             action = "unlock"
         }
@@ -243,6 +317,21 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tracking_shipped"
         }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_delivered"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
     }
     
      //Physical acquisition stop: Tracking
@@ -313,6 +402,9 @@ trackTests {
         }
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "virtual_debit_and_credit_active"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "without_cards_and_card_request"
         }
     }
     
@@ -398,6 +490,49 @@ trackTests {
         }
         "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
             action = "page_4"
+        }
+    }
+    //Dynamic Carousel Tracking
+    test("cards hybrid dashboard dynamic carousel tapped") {
+        "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "22",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 2
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Swiped") {
+        "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "3",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 0
+            ]
+        }
+    }
+    test("cards hybrid dashboard dynamic carousel Closed") {
+        "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+            description = [
+                audience: "audience example",
+                bu: "42",
+                bu_line: "13",
+                component_id: "some id",
+                content_id: "some content id",
+                flow: "some flow",
+                logic: "some logic",
+                position: 3
+            ]
         }
     }
     
@@ -612,8 +747,8 @@ trackTests {
             action = "additional_message_freeze"
         }
     }
-    test("cards hybrid setup virtual wsp button tap tracking") {
-        "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+    test("cards hybrid setup virtual wsp banner tap tracking") {
+        "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "action"
         }
     }
@@ -717,8 +852,8 @@ trackTests {
     }
 
     // WHATSAPP BUTTON
-    test("cards hybrid card setup virtual whatsapp button") {
-            "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event){
+    test("cards hybrid card setup virtual whatsapp banner") {
+            "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event){
                 
             }
         }
@@ -1327,7 +1462,17 @@ trackTests {
 
     //NFC ENROLLMENT HUB
     test("cards hybrid nfc enrollment hub") {
-        "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {
+            nfc_card_id = "12345"
+            need_show_only_error_message_in_configuration_hub = true
+            tokenization_error = false
+            nfc_has_pin_setted = true
+            nfc_is_freezed = false
+            has_physical_card = true
+            is_nfc_enabled = true
+            is_tap_and_pay_setted = true
+            is_restrictive_mode_occupied = false
+        }
         "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "primary_button"
         }
@@ -1385,7 +1530,17 @@ trackTests {
     
     //NFC CONFIGURATION HUB
     test("cards hybrid nfc configuration hub") {
-        "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/configuration/hub"(platform:"/", type: TrackType.View) {
+            nfc_card_id = "12345"
+            need_show_only_error_message_in_configuration_hub = true
+            tokenization_error = false
+            nfc_has_pin_setted = true
+            nfc_is_freezed = false
+            has_physical_card = true
+            is_nfc_enabled = true
+            is_tap_and_pay_setted = true
+            is_restrictive_mode_occupied = false
+        }
         "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
             action = "primary_button"
         }
@@ -1585,6 +1740,9 @@ trackTests {
             action = "faq"
         }
         "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+            action = "payment_intention_help"
+        }
         "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -1599,6 +1757,9 @@ trackTests {
         }
         "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
             status = "unknown"
+        }
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "generic"
         }
         "/cards/nfc/congrats/insufficient_money"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/congrats/blocked_pin"(platform: "/", type: TrackType.View) {}
@@ -1938,6 +2099,13 @@ trackTests {
         }
     }
 
+    test("cards hybrid nfc device no security configured") {
+        "/cards/nfc/enrollment/devicecvm/no_security"(platform:"/", type: TrackType.Event) {
+            status = "User has no device security"
+            action = "tokenization_error"
+        }
+    }
+
     test("cards hybrid nfc feature ignite status") {
         "/cards/nfc/core/ignite"(platform:"/", type: TrackType.Event) {
             value = true
@@ -1948,11 +2116,19 @@ trackTests {
     }
     
     test("cards hybrid nfc initialization service") {
-        "/cards/nfc/core/service"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/start"(platform:"/", type: TrackType.Event) { }
+
         "/cards/nfc/core/service/error"(platform:"/", type: TrackType.Event) {
             error_code = "INTERNAL_COMPONENT_ERROR"
+            from = "CPS"
         }
-        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/nfc/core/service/success"(platform:"/", type: TrackType.Event) { 
+            action = "MG component init"
+        }
+        "/cards/nfc/core/service/success/sdk_is_initialized"(platform:"/", type: TrackType.Event) { 
+            action = "CPS component is already initialized"
+        }
+         "/cards/nfc/core/service/success/sdk_is_initialized"(platform:"/", type: TrackType.Event) {}
     }
 
         

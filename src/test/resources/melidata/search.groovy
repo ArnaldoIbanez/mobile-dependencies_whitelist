@@ -600,6 +600,9 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/map/carousel"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/search_map"(platform: "/") {
             defaultSearchInformation()
         }

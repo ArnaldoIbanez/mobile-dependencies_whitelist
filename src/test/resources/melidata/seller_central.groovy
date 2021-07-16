@@ -387,9 +387,11 @@ trackTests {
         page: 1,
         position: 3,
         item_id: "15415445414",
-        rules_applied: "none"
+        rules_applied: "none",
+        with_random_order: true
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -402,9 +404,11 @@ trackTests {
         type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER",
         item_id: "15415445414",
-        rules_applied: "none"
+        rules_applied: "none",
+        with_random_order: false
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -418,16 +422,19 @@ trackTests {
           type: "CONTENT",
           key: "PB02",
           page: 2,
-          rules_applied: "hard"
+          rules_applied: "hard",
+          with_random_order: false
         ],
         [
           type: "CONTENT",
           key: "PB01",
           page: 2,
-          rules_applied: "soft"
+          rules_applied: "soft",
+          with_random_order: false
         ]
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -439,6 +446,7 @@ trackTests {
       page = 2
       scroll_type = "next"
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -4646,6 +4654,14 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("seller central questions hotjar survey") {
     "/seller_central/questions/survey"(platform: "/", type: TrackType.Event) {
       hotjar_survey = "1"
+    }
+  }
+
+  test("Seller central questions filter") {
+    "/seller_central/questions/filter"(platform: "/", type: TrackType.Event) {
+      period = "60"
+      status = "answered"
+      user_type = "car_dealer"
     }
   }
 

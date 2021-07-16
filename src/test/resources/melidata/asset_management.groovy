@@ -248,13 +248,16 @@ trackTests {
         }
         
         //Invest Section
-        //"/asset_management/invest_section"(platform: "/") {}
         "/asset_management/invest_section/empty_no_money"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/empty_no_returns"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/money_to_invest"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/all_invested"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/automatic_invest_ready"(platform: "/", type: TrackType.View) {}
         "/asset_management/invest_section/auto_enabled"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/not_enough_money_nor_returns"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/enough_money_or_returns"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/max_udis_reached"(platform: "/", type: TrackType.View) {}
+        "/asset_management/invest_section/max_udis_not_reached"(platform: "/", type: TrackType.View) {}
 
         "/asset_management/invest_section/show_estimated_yield"(platform: "/", type: TrackType.Event) {}
         "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", type: TrackType.Event) {}
@@ -498,6 +501,10 @@ trackTests {
         "/asset_management/invest_section/all_invested"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/automatic_invest_ready"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/auto_enabled"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/not_enough_money_nor_returns"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/enough_money_or_returns"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/max_udis_reached"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/invest_section/max_udis_not_reached"(platform: "/", business: "mercadolibre") {}
 
         "/asset_management/invest_section/show_estimated_yield"(platform: "/", business: "mercadolibre") {}
         "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", business: "mercadolibre") {}

@@ -333,6 +333,9 @@ trackTests {
             dataSet()
             edit_flow = false
         }
+        "/cart/checkout/shipping/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
+        }
         "/cart/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event) {}
         // Event
         "/cart/checkout/shipping/input_address/unknown_zip_code"(platform: "/", type: TrackType.Event) {}

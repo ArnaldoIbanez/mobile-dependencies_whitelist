@@ -135,6 +135,8 @@ tracks {
 
     "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
+    "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
+
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/phone_validation/rechallenge"(platform: "/mobile", type: TrackType.Event) {}
@@ -567,6 +569,18 @@ tracks {
         type(required: true, type: PropertyType.String, values: ["transactional", "non_transactional", "other"])
     }
 
+    def securityStatusResponse = objectSchemaDefinitions {
+        type(required: true, type: PropertyType.String, values: ["SECURITY_BLOCKER", "AUTO_ENROLL", "NONE", "FORCE_STATUS"], description: "security_status type")
+        flow_lock(required: true, type: PropertyType.Boolean, description: "flow_lock required status")
+        app_lock(required: true, type: PropertyType.Boolean, description: "app_lock required status")
+    }
+    
+    def applockFlowlockStructure = objectSchemaDefinitions {
+        enabled(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time from the last applock finish to the start of the next flowlock")
+        screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in validation")
+    }
+
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1127) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
@@ -582,8 +596,25 @@ tracks {
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         transaction_information(type: PropertyType.Map(transactionInformationStructure), required: true, description: "transaction information")
+        applock_flowlock_information(type: PropertyType.Map(applockFlowlockStructure), required: false, description: "applock flowlock information")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
+    }
+
+    "/screenlock/security_status"(platform: "/mobile/ios", isAbstract: true, initiative: 1127) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+        from(type: PropertyType.String, required: true, values: ["force_block_refresh", "security_status"], description: "which service asked to get security_status")
+    }
+
+    "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+        remote_config(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "remote_config status")
+        called(type: PropertyType.Boolean, required: true, description: "defines if get security status request was sent")
+        last_status_expired(type: PropertyType.Boolean, required: false, description: "determine if the last security status retrieved has expired")
+    }
+
+    "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+        result(type: PropertyType.String, required: true, values: ["success", "error"])
+        response(type: PropertyType.Map(securityStatusResponse), required: false, description: "security_status request response")
     }
 
     "/screenlock/status"(platform: "/mobile", type: TrackType.Event) {
