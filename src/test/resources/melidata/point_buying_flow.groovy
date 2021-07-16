@@ -304,10 +304,64 @@ trackTests {
           product = "Merdaco Pago Point Bluetooth"
           coupon_type = "mgm"
         }
+
+        "/point/buyingflow/payment/credit_authorization"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product_id = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
+          e2e_test = false
+          bu = "Point"
+          ch = "channel"
+          camp = "TELE_2021"
+          strategy = "strategy"
+          product = "Merdaco Pago Point Bluetooth"
+          coupon_type = "mgm"
+        }
+
+        "/point/buyingflow/payment/credit_authorization/confirm"(platform: "/", type: TrackType.Event) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product_id = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
+          e2e_test = false
+          bu = "Point"
+          ch = "channel"
+          camp = "TELE_2021"
+          strategy = "strategy"
+          product = "Merdaco Pago Point Bluetooth"
+          coupon_type = "mgm"
+        }
         
         "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
         "/point/buyingflow/congrats"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product_id = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          discount_code = "GHZM"
+          e2e_test = false
+          bu = "Point"
+          ch = "channel"
+          camp = "TELE_2021"
+          strategy = "strategy"
+          product = "Merdaco Pago Point Bluetooth"
+          coupon_type = "mgm"
+          payment_method_id = "pagofacil"
+          payment_id = 15511951431
+          payment_status = "rejected"
+          payment_status_detail = "cc_rejected_call_for_authorize"
+          payment_installments = 1
+          payment_type_id = "ticket"
+        }
+
+        "/point/buyingflow/congrats/refresh"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product_id = "11"
           currency = "ARS"

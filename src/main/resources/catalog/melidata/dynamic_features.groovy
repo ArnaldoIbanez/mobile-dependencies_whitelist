@@ -11,7 +11,7 @@ tracks {
     /**
     * Dynamic Features Tracks Definition
     */
-    "/dynamic_features"(platform: "/mobile", isAbstract: true) {
+    "/dynamic_feature"(platform: "/mobile", isAbstract: true) {
         module_name( required: false, description: "the dynamic module name", type: PropertyType.String)
         dynamic_deeplink( required: false, description: "the dynamic feature module deeplink", type: PropertyType.String)
         dynamic_module_size( required: false, description: "the dynamic feature module size", type: PropertyType.String)
@@ -20,10 +20,10 @@ tracks {
     }
 
     // Dynamic Features Events
-    "/dynamic_features/canceled"(platform: "/mobile", type: TrackType.Event) {}
-    "/dynamic_features/failed"(platform: "/mobile", type: TrackType.Event) {}
-    "/dynamic_features/launched"(platform: "/mobile", type: TrackType.Event) {}
-    "/dynamic_features/dispatched"(platform: "/mobile", type: TrackType.Event) {}
-    "/dynamic_features/installed"(platform: "/mobile", type: TrackType.Event) {}
+    "/dynamic_feature/canceled"(platform: "/mobile", type: TrackType.Event) {}
+    "/dynamic_feature/failed"(platform: "/mobile", type: TrackType.Event) {}
+    "/dynamic_feature/launched"(platform: "/mobile", type: TrackType.Event) {}
+    "/dynamic_feature/dispatched"(platform: "/mobile", type: TrackType.Event) {}
+    "/dynamic_feature/installed"(platform: "/mobile", type: TrackType.Event) {}
 
 }

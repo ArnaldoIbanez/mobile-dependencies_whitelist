@@ -625,6 +625,60 @@ trackTests {
         }
     }
 
+    test("vip - view 360") {
+
+        def dataSet = {
+            item_id = "MLA924707090"
+            category_id = "MLA1744"
+            buying_mode = "classified"
+            category_path = [
+                    "MLA1743",
+                    "MLA1744"]
+            vertical = "motors"
+            item_condition = "used"
+            listing_type_id = "gold"
+            item_status = "active"
+            deal_ids = []
+            catalog_listing = false
+            city = "Alberti"
+            neighborhood = "Alberti"
+            state = "Buenos Aires Interior"
+            seller_id = 692365350
+            contract_available = false
+            comparator_available = false
+            gallery_pattern = "X"
+            price_comparison_available = null
+            price_comparison_position = null
+            whatsapp_available = "false"
+            quote_demand_available = false
+            description_type = "plain_text"
+            quantity_models = null
+            domain_id = "MLA-CARS_AND_VANS"
+            item_seller_type = "normal"
+        }
+
+        def viewOption = {
+            dataSet()
+            video_type = "VIEW360"
+        }
+
+        def noneOption = {
+            dataSet()
+            video_type = "NONE"
+        }
+
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            viewOption()
+        }
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIEW360"
+        }
+    }
+
     test("Vip web mobile with reviews") {
         "/vip"(platform:"/web/mobile") {
             category_id = "MLA1234"
@@ -863,6 +917,7 @@ trackTests {
             vip_version = "new"
             has_good_price = false
             has_highlighted_sale_specs=false
+            is_highlighted = false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -878,6 +933,7 @@ trackTests {
             ]
             has_good_price = true
             has_highlighted_sale_specs=true
+            is_highlighted = false
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -940,6 +996,8 @@ trackTests {
         "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
             item_id = "MLA112341"
         }
+
+        "/vip/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {}
     }
 
     test("New Shipping calculator"){

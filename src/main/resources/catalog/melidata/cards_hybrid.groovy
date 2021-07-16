@@ -52,6 +52,7 @@ tracks {
     // --------
     "/cards/hybrid/shipping"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/shipping/tracking"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) { }
 
     //Shipping: Tracking
     "/cards/hybrid/shipping/tracking"(platform: "/", type: TrackType.View) {
@@ -91,7 +92,21 @@ tracks {
     }
 
     //Shipping: Delivered
-    "/cards/hybrid/shipping/delivered"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["receiver-2-mãe", "receiver-3-pai", "receiver-4-port", "receiver-5-secretario", "receiver-6-segurança", 
+            "receiver-7-funcionário", "receiver-8-empregada", "receiver-9-filho", "receiver-10-tio", "receiver-11-sobrinho", 
+            "receiver-12-avo", "receiver-13-procurador", "receiver-14-esposa", "receiver-15-esposo", "receiver-16-recepção",
+            "receiver-17-primo", "receiver-18-sogro", "receiver-19-inquilino", "receiver-20-sindico", "receiver-21-irmao", 
+            "receiver-22-noivo", "receiver-23-cunhado", "receiver-24-genro", "receiver-25-neto", "receiver-26-res_autorizado", 
+            "receiver-50-deixado_na_varanda", "receiver-51-caixa_de_correspondencia", "receiver-52-entregue_sob_a_porta", 
+            "receiver-53-garagem", "receiver-54-outros", "receiver-0-agência"],
+            description: "Type of relationship with receiver",
+            inheritable:false
+        )
+    }
     "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -355,6 +370,7 @@ tracks {
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
+         dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
     
     "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
@@ -382,7 +398,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped"],
+            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge"],
             description: "Mini card tapped"
           )
     }
@@ -393,7 +409,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active"],
+            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active", "without_cards_and_card_request"],
             description: "Banner tapped"
           )
     }
@@ -481,6 +497,39 @@ tracks {
             type: PropertyType.String,
             values: ["page_0", "page_1", "page_2", "page_3", "page_4"],
             description: "Carousel item swiped"
+          )
+    }
+    //Dynamic Carousel Tracking
+    def dynamic_carousel_description = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String)
+        bu(required: false, type: PropertyType.String)
+        bu_line(required: false, type: PropertyType.String)
+        component_id(required: false, type: PropertyType.String)
+        content_id(required: false, type: PropertyType.String)
+        flow(required: false, type: PropertyType.String)
+        logic(required: false, type: PropertyType.String)
+        position(required: true, type: PropertyType.Numeric)
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item tapped"
+          )
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item swiped"
+          )
+    }
+    "/cards/hybrid/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item closed"
           )
     }
     
@@ -598,12 +647,12 @@ tracks {
         )
     }
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: false,
             type: PropertyType.String,
-            description: "The wsp button tapped"
+            description: "The wsp banner tapped"
         )
     }
     "/cards/hybrid/setup/virtual/card"(platform: "/", isAbstract: true) { }
@@ -686,10 +735,10 @@ tracks {
           )
     }
 
-    // WHATSAPP BUTTON
+    // WHATSAPP Banner
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/virtual/whatsapp/button"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/virtual/whatsapp/button/tap"(platform:"/", type: TrackType.Event) {}
+    "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {}
 
 
     // CARDS HUBS
@@ -1384,7 +1433,62 @@ tracks {
     
     // ENROLLMENT-HUB-NFC
     //-------------------
-    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {
+        nfc_card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "The user NFC card id",
+            inheritable: false
+        )
+        need_show_only_error_message_in_configuration_hub (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User error message status",
+            inheritable: false
+        )
+        tokenization_error (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Tokenization error status",
+            inheritable: false
+        )
+        nfc_has_pin_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card pin status",
+            inheritable: false
+        )
+        nfc_is_freezed (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card freeze status",
+            inheritable: false
+        )
+        has_physical_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "If user already has a physical card",
+            inheritable: false
+        )
+        is_nfc_enabled (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if NFC is turned on",
+            inheritable: false
+        )
+        is_tap_and_pay_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP is the default Tap&Pay app",
+            inheritable: false
+        )
+        is_restrictive_mode_occupied (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP can replace the default Tap&Pay app",
+            inheritable: false
+        )
+    }
     "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -1432,7 +1536,62 @@ tracks {
     
     // CONFFIGURATION-HUB-NFC
     //-------------------
-    "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/configuration/hub"(platform: "/", type: TrackType.View) {
+        nfc_card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "The user NFC card id",
+            inheritable: false
+        )
+        need_show_only_error_message_in_configuration_hub (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User error message status",
+            inheritable: false
+        )
+        tokenization_error (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Tokenization error status",
+            inheritable: false
+        )
+        nfc_has_pin_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card pin status",
+            inheritable: false
+        )
+        nfc_is_freezed (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "User nfc card freeze status",
+            inheritable: false
+        )
+        has_physical_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "If user already has a physical card",
+            inheritable: false
+        )
+        is_nfc_enabled (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if NFC is turned on",
+            inheritable: false
+        )
+        is_tap_and_pay_setted (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP is the default Tap&Pay app",
+            inheritable: false
+        )
+        is_restrictive_mode_occupied (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Checks if MP can replace the default Tap&Pay app",
+            inheritable: false
+        )
+    }
     "/cards/nfc/configuration/hub/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -1626,6 +1785,12 @@ tracks {
         )
     }
     "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+        action (
+        required: true,
+        type: PropertyType.String,
+        description: "Main Button Tapped")
+    }
     "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -1655,7 +1820,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values: ["success", "unknown"],
+            values: ["success", "unknown", "generic"],
             description: "Type of congrats",
             inheritable: false
         )
@@ -1982,6 +2147,15 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Device cvm status information"
+        )
+    }
+
+    "/cards/nfc/enrollment/devicecvm/no_security"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["tokenization_error"],
+            description: "Tokenization not initialized"
         )
     }
     

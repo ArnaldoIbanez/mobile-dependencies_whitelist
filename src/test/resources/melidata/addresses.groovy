@@ -17,6 +17,9 @@ trackTests {
             context = "MY_ML"
             address_id = null
         }
+        "/addresses/input_address/map/open_map"(platform: "/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
+        }
     }
 
     test("Addresses - Test the views actions") {
@@ -186,6 +189,9 @@ trackTests {
         "/addresses/input_address/map"(platform: "/", type: TrackType.View) {
             context = "MY_ML"
             address_id = null
+        }
+        "/addresses/input_address/map/open_map"(platform: "/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
         }
     }
 
