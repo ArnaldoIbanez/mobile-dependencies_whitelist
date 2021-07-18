@@ -24,7 +24,7 @@ class InitiativeValidate {
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
         if(initiativeId && (InitiativeAPI.getInstance().applications.values().any() { it == initiativeId }
-            || InitiativeAPI.getInstance().initiatives.any() { Integer init -> init.toString() == initiativeId })) {
+                || InitiativeAPI.getInstance().initiatives.any() { Integer init -> init.toString() == initiativeId })) {
             validPaths << path
             return true
         } else {
@@ -87,8 +87,10 @@ class InitiativeValidate {
     }
 
     static Map<String, TrackMetricDTO> getNewCataloguedTracks(newTracks, prodMetrics) {
-        return prodMetrics.findAll { key, metric ->
-            metric.is_tracked && !metric.is_catalogued && newTracks.any { it.key.startsWith(key) }
+        return prodMetrics.findAll { String keyTracked, metric ->
+            metric.is_tracked && !metric.is_catalogued && newTracks.any { catalogedKey, catalogedMetric ->
+                keyTracked.contains(catalogedKey)
+            }
         }
     }
 
