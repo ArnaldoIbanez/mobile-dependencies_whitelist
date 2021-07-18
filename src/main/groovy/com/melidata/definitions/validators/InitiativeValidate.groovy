@@ -4,6 +4,8 @@ import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.manager.CatalogMetrics
+import com.ml.melidata.manager.helpers.TrackMetricDTO
+import groovy.json.JsonBuilder
 import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
@@ -12,6 +14,12 @@ class InitiativeValidate {
     private static Set totalPaths = []
     private static double baseCoverage = 100
     private static Set coveragebleCatalogs = ['melidata']
+
+    static setUp() {
+        if(!InitiativeAPI.getInstance().initiatives) {
+            InitiativeAPI.getInstance().run()
+        }
+    }
 
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
@@ -42,15 +50,14 @@ class InitiativeValidate {
                 println "\n"+starBar()
                 println("\tGetting catalog metrics report!")
 
-                def catalogMetric = new CatalogMetrics()
-                catalogMetric.refreshCatalogedDefinitions(catalog)
+                def localMetrics = getLocalMetrics(catalog)
+                Map catalogReport = getProdMetrics()
 
-                def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
-                Map catalogReport = clientFuryWeb.get(path: '/melidata/catalog/report').data
-                Set<Map> catalogMetrics = catalogReport.values()
+                Set<String> trackKeys = catalogReport.keySet()
+                Map<String, TrackMetricDTO> filteredTracks = localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
 
-                println("Catalogueds were: ${catalogMetrics.findAll { it.is_catalogued}.size()} \n")
-                println("Catalogueds now are: ${catalogMetric.allDefinitions.values().findAll { !it.isTracked}.size()} \n")
+
+                println("You are adding ${filteredTracks.size()} \n")
 
                 println starBar()+"\n"
             }
@@ -60,6 +67,18 @@ class InitiativeValidate {
         totalPaths = []
 
         return isValidStatus
+    }
+
+    static getLocalMetrics(Catalog catalog) {
+        def catalogMetric = new CatalogMetrics()
+        catalogMetric.refreshCatalogedDefinitions(catalog)
+
+        return catalogMetric
+    }
+
+    static Map getProdMetrics() {
+        def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
+        return clientFuryWeb.get(path: '/melidata/catalog/report').data
     }
 
     def static starBar() {
