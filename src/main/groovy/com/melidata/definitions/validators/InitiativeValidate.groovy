@@ -48,16 +48,16 @@ class InitiativeValidate {
                 println(totalPaths - validPaths)
             } else {
                 println "\n"+starBar()
-                println("\tGetting catalog metrics report!")
+                println("\tGetting catalog metrics report! \n")
 
                 def localMetrics = getLocalMetrics(catalog)
-                Map catalogReport = getProdMetrics()
+                Map prodMetrics = getProdMetrics()
 
-                Set<String> trackKeys = catalogReport.keySet()
-                Map<String, TrackMetricDTO> filteredTracks = localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
+                Map<String, TrackMetricDTO> newTracks = getAddedTracks(localMetrics, prodMetrics)
+                Map<String, TrackMetricDTO> cataloguedTracks = getNewCataloguedTracks(newTracks, prodMetrics)
 
-
-                println("You are adding ${filteredTracks.size()} \n")
+                println("You are adding ${newTracks.size()} \n")
+                println("Adding ${cataloguedTracks.size()} that were not catalogued \n")
 
                 println starBar()+"\n"
             }
@@ -79,6 +79,17 @@ class InitiativeValidate {
     static Map getProdMetrics() {
         def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
         return clientFuryWeb.get(path: '/melidata/catalog/report').data
+    }
+
+    static Map<String, TrackMetricDTO> getAddedTracks(localMetrics, prodMetrics) {
+        Set<String> trackKeys = prodMetrics.keySet()
+        return localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
+    }
+
+    static Map<String, TrackMetricDTO> getNewCataloguedTracks(newTracks, prodMetrics) {
+        return prodMetrics.findAll { key, metric ->
+            metric.is_tracked && !metric.is_catalogued && newTracks.any { it.key.startsWith(key) }
+        }
     }
 
     def static starBar() {
