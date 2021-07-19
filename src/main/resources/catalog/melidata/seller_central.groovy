@@ -517,9 +517,10 @@ tracks {
     "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start", "reopen"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
         viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+        user_type(required: false, type: PropertyType.String, description: "Authenticated user type")
     }
 
     "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}

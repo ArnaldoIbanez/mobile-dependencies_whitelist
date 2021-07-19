@@ -124,6 +124,10 @@ trackTests {
       action = "start"
       page = 1
     }
+    "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
+      action = "reopen"
+      user_type = "real_estate_agency"
+    }
   }
 
   test("seller central listing onboarding pdp") {
