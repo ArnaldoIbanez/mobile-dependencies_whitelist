@@ -14,6 +14,29 @@ trackTests {
 
     test("Balance available") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            my_money_balance_available = [
+                component_id: 'balance_available',
+                content_id: ['balance']
+            ]
+        }
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            my_money_activities = [
+                        component_id: 'activities',
+                        component_data: [
+                            elements: 5
+                        ]
+            ]
+        }
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+             my_money_activities = [
+                        component_id: 'activities',
+                        component_data: [
+                            elements: 5,
+                            status: 'disabled'
+                        ]
+             ]
+        }
     }
 
     test("Balance to release") {
