@@ -47,7 +47,9 @@ class InitiativeValidate {
                 println(totalPaths - validPaths)
             } else {
                 println "\n"+starBar()
-                println("\tGetting catalog metrics report! \n")
+                println("\tGetting catalog usage report!")
+                println starBar()+"\n"
+
 
                 def localMetrics = getLocalMetrics(catalog)
                 Map prodMetrics = getProdMetrics()
@@ -56,7 +58,6 @@ class InitiativeValidate {
 
                 validateInitiativeCoverage(newTracks)
 
-                println starBar()+"\n"
             }
         }
 
@@ -69,8 +70,6 @@ class InitiativeValidate {
     static validateInitiativeCoverage(Map<String, List<String>> newTracks) {
         newTracks.forEach {initiative_id, List<String> newMetrics ->
             Map<String, List<String>> catalogReport = clientFuryWeb.get(path: "/melidata/catalog/report/initiative/${initiative_id}").data
-            int total = catalogReport.catalogued.size() + catalogReport.uncatalogued.size()
-            double previosCoverage = catalogReport.catalogued.size() * 100 / total
 
             List<String> newCatalogueds = catalogReport.uncatalogued.findAll {keyTracked ->
                 newMetrics.any {keyDefined ->
@@ -80,7 +79,7 @@ class InitiativeValidate {
 
             double newCoverage = (catalogReport.catalogued.size() + newMetrics.size()) * 100 / (catalogReport.catalogued.size() + newMetrics.size() + catalogReport.uncatalogued.size() - newCatalogueds.size() )
 
-            println("Previous coverage for initiative ${initiative_id} was ${previosCoverage.round(2)}% actual is ${newCoverage.round(2)}%")
+            println("\033[92m - Initiative ${initiative_id} tracking coverage is ${newCoverage.round(2)}%\033[0m")
         }
     }
 
