@@ -512,7 +512,7 @@ tracks {
     }
     // End SLL SC
 
-
+    "/seller_central/listings/video_focus"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
 
