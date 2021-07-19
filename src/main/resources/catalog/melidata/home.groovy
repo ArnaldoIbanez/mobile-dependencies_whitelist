@@ -295,4 +295,8 @@ tracks {
 
     "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
 
+    "/home/social"(platform: "/", type: TrackType.Event) {
+        social_network(type: PropertyType.String, required: true, description: "Social network")
+    }
+
 }
