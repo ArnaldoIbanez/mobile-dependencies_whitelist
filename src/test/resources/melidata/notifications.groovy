@@ -1493,12 +1493,6 @@ trackTests {
             latest_news_type= "card_request_challenge"
             status= "read"
         }
-        "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
-            newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
-            latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
-            latest_news_type= "card_unlock_incentive_second_day"
-            status= "read"
-        }
         "/notification_center/card_wallet"(platform: "/mobile"){
             newsgroup_id= "card_wallet-186785675-76283123"
             latest_news_id= "card_wallet-186785675-76283123"
@@ -1587,6 +1581,24 @@ trackTests {
             newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
             latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
             latest_news_type= "card_unlock_incentive_second_day"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_fifth_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_fifth_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_fifth_day"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_fifteenth_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_fifteenth_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_fifteenth_day"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_twentyfifth_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_twentyfifth_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_twentyfifth_day"
             status= "read"
         }
         "/notification_center/card_delivery_tracking"(platform: "/mobile"){
@@ -2038,8 +2050,8 @@ trackTests {
             event_type = "shown"
         }
 
-        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_first_day-12345678"
+        "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_thirdth_day-12345678"
             event_type = "shown"
         }
         "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
@@ -4512,23 +4524,6 @@ trackTests {
             news_id = "credit_card_transaction_withdrawal-12345678"
             event_type = "shown"
         }
-
-        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_first_day-12345678"
-            event_type = "shown"
-        }
-        "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_fourteenth_day-12345678"
-            event_type = "shown"
-        }
-        "/notification/card_first_use_incentive_seventh_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_seventh_day-12345678"
-            event_type = "shown"
-        }
-        "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_twentyoneth_day-12345678"
-            event_type = "shown"
-        }
         "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/mobile") {
             news_id = "card_flow_incentive_prepaid_acquisition_first-12345678"
             event_type = "shown"
@@ -5512,12 +5507,6 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/card_unlock_incentive_tenth_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_tenth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
         "/notification/card_unlock_incentive_fifteenth_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_fifteenth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -5526,12 +5515,6 @@ trackTests {
 
         "/notification/card_unlock_incentive_twentyfifth_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_twentyfifth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/card_unlock_incentive_fourtyfifth_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_fourtyfifth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
@@ -7500,12 +7483,6 @@ trackTests {
             latest_news_type= "card_request_challenge"
             status= "read"
         }
-        "/notification_center/card_unlock_incentive_second_day"(platform: "/mobile"){
-            newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
-            latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
-            latest_news_type= "card_unlock_incentive_second_day"
-            status= "read"
-        }
         "/notification_center/card_wallet"(platform: "/mobile"){
             newsgroup_id= "card_wallet-186785675-76283123"
             latest_news_id= "card_wallet-186785675-76283123"
@@ -7594,6 +7571,24 @@ trackTests {
             newsgroup_id= "card_unlock_incentive_second_day-186785675-76283123"
             latest_news_id= "card_unlock_incentive_second_day-186785675-76283123"
             latest_news_type= "card_unlock_incentive_second_day"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_fifth_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_fifth_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_fifth_day"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_fifteenth_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_fifteenth_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_fifteenth_day"
+            status= "read"
+        }
+        "/notification_center/card_unlock_incentive"(platform: "/mobile"){
+            newsgroup_id= "card_unlock_incentive_twentyfifth_day-186785675-76283123"
+            latest_news_id= "card_unlock_incentive_twentyfifth_day-186785675-76283123"
+            latest_news_type= "card_unlock_incentive_twentyfifth_day"
             status= "read"
         }
         "/notification_center/card_delivery_tracking"(platform: "/mobile"){
@@ -8150,9 +8145,8 @@ trackTests {
             news_id = "credit_card_transaction_withdrawal-12345678"
             event_type = "shown"
         }
-
-        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_first_day-12345678"
+        "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_thirdth_day-12345678"
             event_type = "shown"
         }
         "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
@@ -10683,23 +10677,6 @@ trackTests {
             news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
         }
-
-        "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_first_day-12345678"
-            event_type = "shown"
-        }
-        "/notification/card_first_use_incentive_fourteenth_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_fourteenth_day-12345678"
-            event_type = "shown"
-        }
-        "/notification/card_first_use_incentive_seventh_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_seventh_day-12345678"
-            event_type = "shown"
-        }
-        "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/mobile") {
-            news_id = "card_first_use_incentive_twentyoneth_day-12345678"
-            event_type = "shown"
-        }
         "/notification/card_flow_incentive_prepaid_acquisition_first"(platform: "/mobile") {
             news_id = "card_flow_incentive_prepaid_acquisition_first-12345678"
             event_type = "shown"
@@ -11575,12 +11552,6 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/card_unlock_incentive_tenth_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_tenth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
         "/notification/card_unlock_incentive_fifteenth_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_fifteenth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -11589,12 +11560,6 @@ trackTests {
 
         "/notification/card_unlock_incentive_twentyfifth_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_twentyfifth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/card_unlock_incentive_fourtyfifth_day"(platform: "/mobile") {
-            news_id = "card_unlock_incentive_fourtyfifth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }

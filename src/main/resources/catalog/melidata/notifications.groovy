@@ -1154,10 +1154,6 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-    "/notification_center/card_unlock_incentive_second_day"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
     "/notification_center/card_wallet"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2831,7 +2827,7 @@ tracks {
 
     //Hybrid
     "/notification/card_request_challenge_pending"(platform: "/mobile") {}
-    "/notification/card_first_use_incentive_first_day"(platform: "/") {}
+    "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
     "/notification/card_first_use_incentive_fourteenth_day"(platform: "/") {}
     "/notification/card_first_use_incentive_seventh_day"(platform: "/") {}
     "/notification/card_first_use_incentive_twentyoneth_day"(platform: "/") {}
@@ -2867,10 +2863,8 @@ tracks {
         has_money(required: true, type: PropertyType.Boolean)
     }
     "/notification/card_unlock_incentive_fifth_day"(platform: "/mobile") {}
-    "/notification/card_unlock_incentive_tenth_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_fifteenth_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_twentyfifth_day"(platform: "/mobile") {}
-    "/notification/card_unlock_incentive_fourtyfifth_day"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_ready_to_ship"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_shipped"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_soon_deliver"(platform: "/mobile") {}
