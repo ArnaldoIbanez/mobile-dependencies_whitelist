@@ -1042,6 +1042,21 @@ trackTests {
     }
   }
 
+  test("seller central render broken card"){
+    "/seller_central/modify/broken_card/show"(platform: "/web", type: TrackType.Event){
+      category_id = "MLA1055"
+      seller_profile = "ADVANCED"
+      category_domain = "MLA-CELLPHONES"
+      seller_reputation = "NO_REPUTATION"
+      item_id = "MLA796280085"
+      item_type = "default"
+      shipping_local_pickup = false
+      listing_type = "gold_special"
+      session_id = "446913427-update-b5050d625f77"
+      broken_card_id = "shipping"
+    }
+  }
+
   test("seller central render subflow"){
     "/seller_central/modify/subflow"(platform: "/", type: TrackType.View){
       item_type = "default"

@@ -1050,6 +1050,12 @@ tracks {
         value(required: true, type: PropertyType.String, description: "New attribute value")
     }
 
+    "/seller_central/modify/broken_card"(platform: "/web", isAbstract: true) {}
+    "/seller_central/modify/broken_card/show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        broken_card_id(required: true, type: PropertyType.String, description: "Id of broken card")
+    }
+
     "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyGroup
         domain_id(required: true, type: PropertyType.String)
