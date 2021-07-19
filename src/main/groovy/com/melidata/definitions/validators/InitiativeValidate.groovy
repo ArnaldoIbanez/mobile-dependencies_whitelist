@@ -4,8 +4,6 @@ import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.manager.CatalogMetrics
-import com.ml.melidata.manager.helpers.TrackMetricDTO
-import groovy.json.JsonBuilder
 import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
@@ -14,6 +12,7 @@ class InitiativeValidate {
     private static Set totalPaths = []
     private static double baseCoverage = 100
     private static Set coveragebleCatalogs = ['melidata']
+    private static clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
 
     static setUp() {
         if(!InitiativeAPI.getInstance().initiatives) {
@@ -53,11 +52,9 @@ class InitiativeValidate {
                 def localMetrics = getLocalMetrics(catalog)
                 Map prodMetrics = getProdMetrics()
 
-                Map<String, TrackMetricDTO> newTracks = getAddedTracks(localMetrics, prodMetrics)
-                Map<String, TrackMetricDTO> cataloguedTracks = getNewCataloguedTracks(newTracks, prodMetrics)
+                Map<String, List<String>> newTracks = getAddedTracksByInitiative(localMetrics, prodMetrics)
 
-                println("You are adding ${newTracks.size()} \n")
-                println("Adding ${cataloguedTracks.size()} that were not catalogued \n")
+                validateInitiativeCoverage(newTracks)
 
                 println starBar()+"\n"
             }
@@ -69,6 +66,24 @@ class InitiativeValidate {
         return isValidStatus
     }
 
+    static validateInitiativeCoverage(Map<String, List<String>> newTracks) {
+        newTracks.forEach {initiative_id, List<String> newMetrics ->
+            Map<String, List<String>> catalogReport = clientFuryWeb.get(path: "/melidata/catalog/report/initiative/${initiative_id}").data
+            int total = catalogReport.catalogued.size() + catalogReport.uncatalogued.size()
+            double previosCoverage = catalogReport.catalogued.size() * 100 / total
+
+            List<String> newCatalogueds = catalogReport.uncatalogued.findAll {keyTracked ->
+                newMetrics.any {keyDefined ->
+                    keyTracked.contains(keyDefined)
+                }
+            }
+
+            double newCoverage = (catalogReport.catalogued.size() + newMetrics.size()) * 100 / (catalogReport.catalogued.size() + newMetrics.size() + catalogReport.uncatalogued.size() - newCatalogueds.size() )
+
+            println("Previous coverage for initiative ${initiative_id} was ${previosCoverage.round(2)}% actual is ${newCoverage.round(2)}%")
+        }
+    }
+
     static getLocalMetrics(Catalog catalog) {
         def catalogMetric = new CatalogMetrics()
         catalogMetric.refreshCatalogedDefinitions(catalog)
@@ -77,21 +92,24 @@ class InitiativeValidate {
     }
 
     static Map getProdMetrics() {
-        def clientFuryWeb = new RESTClient('http://api.mercadolibre.com/')
         return clientFuryWeb.get(path: '/melidata/catalog/report').data
     }
 
-    static Map<String, TrackMetricDTO> getAddedTracks(localMetrics, prodMetrics) {
+    static Map<String, List<String>> getAddedTracksByInitiative(localMetrics, prodMetrics) {
+        Map<String, List<String>> tracksByInitiative = [:]
         Set<String> trackKeys = prodMetrics.keySet()
-        return localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
-    }
+        Map newTracks = localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
+        newTracks.forEach {keyDefinition, metric ->
+            metric.initiatives.forEach { initiative ->
+                if(!tracksByInitiative[initiative]) {
+                    tracksByInitiative[initiative] = []
+                }
 
-    static Map<String, TrackMetricDTO> getNewCataloguedTracks(newTracks, prodMetrics) {
-        return prodMetrics.findAll { String keyTracked, metric ->
-            metric.is_tracked && !metric.is_catalogued && newTracks.any { catalogedKey, catalogedMetric ->
-                keyTracked.contains(catalogedKey)
+                tracksByInitiative[initiative].add(keyDefinition)
             }
         }
+
+        return tracksByInitiative
     }
 
     def static starBar() {

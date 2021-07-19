@@ -15,8 +15,6 @@ class CatalogValidator {
         out.beforeRun(catalog, tests)
         InitiativeValidate.setUp()
         tests?.each { singleTest ->
-            println( "Running test: ${singleTest.name}")
-
             if(singleTest.assertValid(catalog)) {
                 out.success(singleTest)
             } else {

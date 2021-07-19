@@ -75,14 +75,7 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) {
 task testAll (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.TestManager'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
-	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-fda-items-plus-busi", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
-	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
-	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
-    "mlo-mon-fda-catalog-discovery", "mlo-mon-fda-fraud-mercadoenvios", "mlo-mon-fraud-marketplace-cancel", "mlo-mon-cx-oneclick-mld", 
-	"mlo-mon-fraud-fda-tf-pipeline", "mlo-mon-replib-trainer", "mlo-mon-credits-mara", "mlo-mon-credits-pfa", "mlo-mon-cloudeconomics-ecus-fda",
-	"mlo-mon-advertising-pads-aml", "mlo-mon-aml-cx-ac","mlo-mon-fda-scd-severe", "mlo-mon-grupodot-art-prohibidos", "mlo-mon-model-bhv-mlm-eo", 
-	"mlo-mon-fda-catalog-similarity", "mlo-mon-bhv-negativizados", "mlo-mon-bhv-no-negativizados", "mlo-mon-brand-detector-serving-app"]
+	args = ["melidata"]
 }
 
 task uploadAll(type:JavaExec) {
