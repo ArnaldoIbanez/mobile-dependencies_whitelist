@@ -226,6 +226,7 @@ tracks {
     "/portal/action/click"(platform: "/", type: TrackType.Event) {
         portal_content_id
         portal_content_destination_url
+        portal_problem_id
     }
 
     "/portal/create_case"(platform: "/", type: TrackType.Event) {

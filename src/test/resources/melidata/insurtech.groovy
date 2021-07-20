@@ -2085,6 +2085,20 @@ trackTests {
             ]
         }
 
+
+        "/insurtech/protections/detail/roda/continue_kyc"(platform:"/mobile", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
         "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
@@ -2227,6 +2241,14 @@ trackTests {
         }
 
         "/insurtech/protections/detail/garex/activities"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
              product_data =[
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",

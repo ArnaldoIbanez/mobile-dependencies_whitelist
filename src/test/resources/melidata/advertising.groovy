@@ -79,6 +79,9 @@ trackTests {
             free_trial_ad = true
             budget = 500
             official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
@@ -86,6 +89,9 @@ trackTests {
             budget = 500
             experiment = true
             official_stores = false
+            matching = false
+            new_advertiser = false
+            has_items = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -93,6 +99,9 @@ trackTests {
             free_trial_ad = true
             budget = 500
             official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -102,6 +111,9 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             official_stores = false
+            matching = false
+            new_advertiser = false
+            has_items = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -110,6 +122,9 @@ trackTests {
             budget = 500
             experiment = true
             official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -119,7 +134,11 @@ trackTests {
 
         "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
             free_trial_ad = true
+            budget = 500
             official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
@@ -128,6 +147,9 @@ trackTests {
             id = "adq_pads"
             position = "home_desktop"
             official_stores = true
+            matching = true
+            new_advertiser = true
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
@@ -162,6 +184,9 @@ trackTests {
             position = "home_desktop"
             experiment = true
             official_stores = false
+            matching = false
+            new_advertiser = false
+            has_items = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
@@ -178,6 +203,16 @@ trackTests {
             budget = "22.22"
             free_trial_ad = false
             official_stores = false
+        }
+
+        "/advertising/pads2/landing/modal/no_items"(platform: "/", type: TrackType.View) {
+            button = "top"
+            free_trial_ad = true
+        }
+
+        "/advertising/pads2/landing/modal/no_items/go"(platform: "/", type: TrackType.Event) {
+            button = "top"
+            free_trial_ad = true
         }
 
     }
@@ -873,8 +908,8 @@ trackTests {
 
         "/advertising/pads2/hub/campaign/update/budget/go"(platform: "/web", type: TrackType.Event) {
         campaign_id = 2222222
-        budget = "4000"
-        budget_new = "5600"
+        budget = 4000
+        budget_new = 5600
         status = "active"
         }
 
@@ -2153,6 +2188,12 @@ trackTests {
             trtarget = 1
             total_ads = 1
         }
+        
+        "/advertising/pads2/configuration/mode/confirmation/create_campaign"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "custom"
+        }
 
         "/advertising/pads2/configuration/emptystate"(platform: "/", type: TrackType.View) {}
 
@@ -2271,6 +2312,24 @@ trackTests {
 
         "/advertising/pads2/manager/auto/modal/go"(platform: "/", type: TrackType.Event) {
             mode = "custom"
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "automatic"
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal"(platform: "/web", type: TrackType.View) {
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal/close"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/manager/addads/create_campaign/modal/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 12345
+            status = "active"
+            mode = "automatic"
         }
     }
 

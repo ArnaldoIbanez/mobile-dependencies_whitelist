@@ -104,6 +104,10 @@ trackTests {
     }
   }
 
+  test("seller central listing event of user focusing in youtube video") {
+    "/seller_central/listings/video_focus"(platform: "/", type: TrackType.Event) {}
+  }
+
   test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
   }
@@ -123,6 +127,10 @@ trackTests {
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
       action = "start"
       page = 1
+    }
+    "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
+      action = "reopen"
+      user_type = "real_estate_agency"
     }
   }
 
@@ -387,9 +395,11 @@ trackTests {
         page: 1,
         position: 3,
         item_id: "15415445414",
-        rules_applied: "none"
+        rules_applied: "none",
+        with_random_order: true
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -402,9 +412,11 @@ trackTests {
         type: "RECOMMENDATION",
         key: "LIGHTNING_OFFER",
         item_id: "15415445414",
-        rules_applied: "none"
+        rules_applied: "none",
+        with_random_order: false
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -418,16 +430,19 @@ trackTests {
           type: "CONTENT",
           key: "PB02",
           page: 2,
-          rules_applied: "hard"
+          rules_applied: "hard",
+          with_random_order: false
         ],
         [
           type: "CONTENT",
           key: "PB01",
           page: 2,
-          rules_applied: "soft"
+          rules_applied: "soft",
+          with_random_order: false
         ]
       ]
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -439,6 +454,7 @@ trackTests {
       page = 2
       scroll_type = "next"
       seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
     }
   }
 
@@ -1031,6 +1047,21 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+    }
+  }
+
+  test("seller central render broken card"){
+    "/seller_central/modify/broken_card/show"(platform: "/web", type: TrackType.Event){
+      category_id = "MLA1055"
+      seller_profile = "ADVANCED"
+      category_domain = "MLA-CELLPHONES"
+      seller_reputation = "NO_REPUTATION"
+      item_id = "MLA796280085"
+      item_type = "default"
+      shipping_local_pickup = false
+      listing_type = "gold_special"
+      session_id = "446913427-update-b5050d625f77"
+      broken_card_id = "shipping"
     }
   }
 
