@@ -2001,4 +2001,32 @@ tracks {
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
     }
 
+    // notifications - restriction - hub
+
+    "/advertising/pads2/hub/restrictions"(platform: "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
+    }
+
+    "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+    }
+
+    "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+    }
+
+    // notifications - restriction - dashboard
+
+    "/advertising/pads2/manager/restrictions"(platform: "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
+    }
+
+    "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
 }
