@@ -529,7 +529,7 @@ tracks {
     "/insurtech/protections/dataLoaded"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page.")
         protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
-        claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claims_short)), description: "List of current user Claims")
+        claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claim_short)), description: "List of current user Claims")
         roda(required: true, type: PropertyType.Map(my_protections_roda), description: "RODA product data recovered in protections list")
         garex(required: true, type: PropertyType.Map(my_protections_garex), description: "GAREX product data recovered in protections list")
 
