@@ -1991,6 +1991,22 @@ tracks {
             type: PropertyType.String,
             description: "Context from where its sended"
         )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Info"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        localized_message(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Localized Message"
+        )
+        
     }
 
     "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) { }
@@ -2072,6 +2088,26 @@ tracks {
             required: false,
             description: "Type of sdk error message"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
+        )
     }
 
     "/cards/nfc/enrollment/replenish_payment_keys/success"(platform: "/", type: TrackType.Event) {
@@ -2127,6 +2163,26 @@ tracks {
             required: false,
             description: "Type of sdk error message"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
+        )
     }
 
     "/cards/nfc/enrollment/device_enrollment/success"(platform: "/", type: TrackType.Event) {
@@ -2181,6 +2237,26 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Type of sdk error message"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
         )
     }
 
@@ -2282,6 +2358,21 @@ tracks {
             required: false,
             description: "Error message description"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
     }
 
     "/cards/nfc/enrollment/digitize_card/success"(platform: "/", type: TrackType.Event) {
@@ -2377,6 +2468,21 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Type of sdk error message"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
         )
     }
 
@@ -2476,6 +2582,21 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Error message description"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
         )
     }
 
