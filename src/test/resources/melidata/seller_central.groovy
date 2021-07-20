@@ -104,6 +104,10 @@ trackTests {
     }
   }
 
+  test("seller central listing event of user focusing in youtube video") {
+    "/seller_central/listings/video_focus"(platform: "/", type: TrackType.Event) {}
+  }
+
   test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
   }
@@ -123,6 +127,10 @@ trackTests {
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
       action = "start"
       page = 1
+    }
+    "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
+      action = "reopen"
+      user_type = "real_estate_agency"
     }
   }
 
