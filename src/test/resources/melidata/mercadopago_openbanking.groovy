@@ -7,8 +7,6 @@ trackTests {
     defaultBusiness = "mercadopago"
 
      test("CHO API webpay onelick") {
-        "/open_banking"(platform:"/", isAbstract: true) {}
-        
         "/open_banking/opt-in"(platform:"/", type:TrackType.View) {}
         "/open_banking/opt-in/set_date_limit_12"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/set_date_limit_6"(platform:"/", type:TrackType.Event) {}
@@ -43,6 +41,10 @@ trackTests {
         "/open_banking/feedback"(platform:"/", type:TrackType.View) {}
         "/open_banking/feedback/navigate_to_my_home"(platform:"/", type:TrackType.Event) {}
         "/open_banking/feedback/navigate_to_my_money"(platform:"/", type:TrackType.Event) {}
+
+         "/open_banking/landing-page"(platform:"/", type:TrackType.View) {}
+        "/open_banking/landing-page/click_primary_button"(platform:"/", type:TrackType.Event) {}
+        "/open_banking/landing-page/click_secondary_button"(platform:"/", type:TrackType.Event) {}
     }
 
 }
