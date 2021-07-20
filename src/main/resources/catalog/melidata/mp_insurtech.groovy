@@ -56,8 +56,14 @@ tracks {
         insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the protection.")
     }
 
+    def claim_short = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, values: ['garex', 'roda'], description: "Product id of the claim.")
+        insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the claim.")
+    }
+
     def my_protections_roda = objectSchemaDefinitions {
         has_protections(required: true, type: PropertyType.Boolean, description: "This is true if the user has RODA protections")
+        has_claims(required: true, type: PropertyType.Boolean, description: "This is true if the user has claims")
         is_current_device_protected(required: true, type: PropertyType.Boolean, description: "This is true if the current device of the track is already protected for RODA")
         is_current_device_quotable(required: true, type: PropertyType.Boolean, description: "This is true if the current device is quotable for RODA")
         offered(required: true, type: PropertyType.Boolean, description: "This is true if the RODA protection has been offered to the user")
@@ -65,6 +71,7 @@ tracks {
 
     def my_protections_garex = objectSchemaDefinitions {
         has_protections(required: true, type: PropertyType.Boolean, description: "This is true if the user has GAREX protections")
+        has_claims(required: true, type: PropertyType.Boolean, description: "This is true if the user has claims")
         offered(required: true, type: PropertyType.Boolean, description: "This is true if the GAREX protection has been offered to the user")
     }
 
@@ -498,12 +505,7 @@ tracks {
     // INSURTECH MyFe
     "/insurtech/protections"(platform: "/", isAbstract: true) {}
 
-    "/insurtech/protections"(platform:"/", type: TrackType.View) {
-        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
-        protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
-        roda(required: true, type: PropertyType.Map(my_protections_roda), description: "RODA product data recovered in protections list")
-        garex(required: true, type: PropertyType.Map(my_protections_garex), description: "GAREX product data recovered in protections list")
-    }
+    "/insurtech/protections"(platform:"/", type: TrackType.View) {}
 
     "/insurtech/protections/quote-me"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page.")
@@ -513,6 +515,24 @@ tracks {
     "/insurtech/protections/doubts"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
         protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
+        selected_faq(required: false, type: PropertyType.Numeric, values: [1, 2, 3], description: "Selected FAQ option by the user")
+    }
+
+    "/insurtech/protections/tabs"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page.")
+        protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
+        claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claim_short)), description: "List of current user Claims")
+        tab_name(required: true, type: PropertyType.String, values: ['protections', 'losses'], description: "Product id of the protection.");
+
+    }
+
+    "/insurtech/protections/dataLoaded"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page.")
+        protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
+        claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claims_short)), description: "List of current user Claims")
+        roda(required: true, type: PropertyType.Map(my_protections_roda), description: "RODA product data recovered in protections list")
+        garex(required: true, type: PropertyType.Map(my_protections_garex), description: "GAREX product data recovered in protections list")
+
     }
 
     "/insurtech/protections/finished"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
