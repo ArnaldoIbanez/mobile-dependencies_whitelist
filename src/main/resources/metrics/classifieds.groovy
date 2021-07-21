@@ -1,6 +1,7 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 def searchVipClassifiedExperiments = "((search|vip|classifieds|vis|sparkle)/.*)|(pdp/viewItemPageMigration.*)"
+def viewItemPageMigration = "pdp/viewItemPageMigration.*"
 def visRegex="(vis|vip)/.*"
 
 metrics {
@@ -150,4 +151,27 @@ metrics {
 		}
 	}
 
+	"quotations.services"(description: "track quotation as success for services (classifieds)") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/quote_demand/buyer/create/submit_quote_demand")
+			}
+		}
+	}
+
+	"contract_intention"(description: "track contract intention for classifieds") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/contract_intention")
+			}
+		}
+	}
 }
