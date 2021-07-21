@@ -515,7 +515,7 @@ tracks {
     "/insurtech/protections/doubts"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
         protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
-        selected_faq(required: false, type: PropertyType.Numeric, values: [1, 2, 3], description: "Selected FAQ option by the user")
+        selected_faq(required: false, type: PropertyType.Numeric, values: [0, 1, 2], description: "Selected FAQ option by the user")
     }
 
     "/insurtech/protections/tabs"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
