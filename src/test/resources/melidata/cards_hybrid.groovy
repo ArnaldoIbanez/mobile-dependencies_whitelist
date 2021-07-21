@@ -36,6 +36,7 @@ trackTests {
 
     //Shipping: Delivered
     test("cards hybrid shipping delivered") {
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
         "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
             context = "receiver-2-mãe"
         }
