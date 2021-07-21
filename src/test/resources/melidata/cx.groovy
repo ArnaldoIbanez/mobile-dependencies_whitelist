@@ -461,7 +461,7 @@ trackTests {
             ]
         }
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
-            portal_source_id = "1628"
+            portal_source_id = 1628
             helpcard_contents = [:]
         }
     }
