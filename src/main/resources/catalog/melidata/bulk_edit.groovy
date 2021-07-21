@@ -71,7 +71,6 @@ tracks {
 
     "/seller_central/bulk/massive_action/channel"(platform: "/", type: TrackType.Event) {
         value_id(required: true, PropertyType.String, description: "Value id channel applied")
-        value_name(required: true, PropertyType.String, description: "Value name channel applied") 
     }
 
     "/seller_central/bulk/massive_action/quantity"(platform: "/", type: TrackType.Event) {

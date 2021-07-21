@@ -86,7 +86,6 @@ trackTests {
             column_id = "channel"
             operation_id = "none"
             value_id = "ml_mshops"
-            value_name =  "ml_mshops"
         }
     }
 
