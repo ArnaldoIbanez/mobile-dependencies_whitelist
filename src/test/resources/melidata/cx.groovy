@@ -261,7 +261,6 @@ trackTests {
         "/support/helpcard"(platform: "/", type: TrackType.View) {}
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [
                 [
                     title: "Ayuda con tus compras",
@@ -272,7 +271,6 @@ trackTests {
         }
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [:]
         }
     }
@@ -490,7 +488,6 @@ trackTests {
         "/support/helpcard"(platform: "/", type: TrackType.View) {}
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [
                 [
                     title: "Ayuda con tus compras",
@@ -501,7 +498,6 @@ trackTests {
         }
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [:]
         }
     }
