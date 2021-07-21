@@ -1738,7 +1738,7 @@ trackTests {
         // INSURTECH Protections - my-fe
         "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {}
 
-        "/insurtech/protections/dataLoaded"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/protections/data-loaded"(platform:"/mobile", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model: "J7",
@@ -1779,7 +1779,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/dataLoaded"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/protections/data-loaded"(platform:"/mobile", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model: "J7",
@@ -1812,7 +1812,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/dataLoaded"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/protections/data-loaded"(platform:"/mobile", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
@@ -1844,7 +1844,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/dataLoaded"(platform:"/web", type: TrackType.Event) {
+        "/insurtech/protections/data-loaded"(platform:"/web", type: TrackType.Event) {
             roda = [
                 has_protections: false,
                 has_claims: false,
@@ -1860,7 +1860,7 @@ trackTests {
         }
 
 
-        "/insurtech/protections/dataLoaded"(platform:"/web", type: TrackType.Event) {
+        "/insurtech/protections/data-loaded"(platform:"/web", type: TrackType.Event) {
             protections = [
                 [
                     product_id: "roda",
