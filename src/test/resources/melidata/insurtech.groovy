@@ -1908,6 +1908,7 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
+            selected_faq = "Selected FAQ?"
         }
 
 
@@ -1923,7 +1924,7 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
-            selected_faq = 2
+            selected_faq = "Selected FAQ?"
         }
 
         "/insurtech/protections/tabs"(platform:"/mobile", type: TrackType.Event) {
@@ -1938,7 +1939,7 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
-            tab_name = 'protections'
+            tab_name = "protections"
         }
 
         "/insurtech/protections/tabs"(platform:"/mobile", type: TrackType.Event) {
@@ -1953,7 +1954,7 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
-            tab_name = 'losses'
+            tab_name = "losses"
         }
 
         "/insurtech/protections/error"(platform:"/mobile", type: TrackType.View) {
