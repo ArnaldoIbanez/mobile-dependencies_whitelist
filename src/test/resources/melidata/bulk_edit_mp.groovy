@@ -13,6 +13,7 @@ trackTests {
             seller_reputation = "5_green"
             user_type = "normal"
             user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
