@@ -1832,6 +1832,7 @@ trackTests {
         "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
+            origin_source = "instore"
         }
 
         "/single_player/paygo/add_device_number/confirm"(platform: "/mobile", type: TrackType.Event) {

@@ -755,7 +755,9 @@ tracks {
     }
 
     // Add device number
-    "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {
+        origin_source(required: false, PropertyType.String, description: "Source of flow")
+    }
 
     "/single_player/paygo/add_device_number/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
