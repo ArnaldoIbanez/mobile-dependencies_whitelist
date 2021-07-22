@@ -86,7 +86,7 @@ tracks {
                 my_money_to_release,
                 my_money_to_advance,
                 my_money_activities,
-                my_money_calendar,
+                my_money_card_calendar,
                 my_money_calendar_daily,
                 my_money_balance_available,
                 my_money_balance_to_release
