@@ -10,7 +10,7 @@ trackTests {
         "/open_banking/opt-in"(platform:"/", type:TrackType.View) {}
         "/open_banking/opt-in/set_consent_date_limit"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/edit_selected_bank"(platform:"/", type:TrackType.Event) {}
-        "/open_banking/opt-in/edit_selected_date"(platform:"/", type:TrackType.Event) {}
+        "/open_banking/opt-in/edit_consent_date"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/cancel_consent_date_bottom_sheet"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/show_bank_detail"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/select_bank"(platform:"/", type:TrackType.Event) {}
