@@ -56,7 +56,7 @@ tracks {
         my_money_to_release(required: false, type: PropertyType.Map(component_definition))
         my_money_to_advance(required: false, type: PropertyType.Map(component_definition))
         my_money_activities(required: false, type: PropertyType.Map(component_definition))
-        my_money_calendar(required: false, type: PropertyType.Map(component_definition))
+        my_money_card_calendar(required: false, type: PropertyType.Map(component_definition))
         my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition))
         my_money_balance_available(required: false, type: PropertyType.Map(component_definition))
         my_money_balance_to_release(required: false, type: PropertyType.Map(component_definition))
