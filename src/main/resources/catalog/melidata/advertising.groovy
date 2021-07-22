@@ -45,7 +45,7 @@ tracks {
                 values: ["matching_inversion", "matching_inversion_end", "matching_bonificacion", "matching_bonificacion_end", "matching_bonificacion_extended", "matching_bonificacion_extended_end"],
                 description: "Free trial matching status bar"
         )
-        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+        mode(required: false, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
