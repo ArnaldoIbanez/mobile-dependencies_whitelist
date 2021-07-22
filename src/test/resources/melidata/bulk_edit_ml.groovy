@@ -13,6 +13,7 @@ trackTests {
             seller_reputation = "5_green"
             user_type = "normal"
             user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -62,6 +63,10 @@ trackTests {
             oldValue = "20"
             newValue = "25"
             item_id = "MLB341920"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -78,6 +83,10 @@ trackTests {
             column_id = "price"
             operation_id = "increase_price_value"
             price = 200
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -86,6 +95,10 @@ trackTests {
             column_id = "channel"
             operation_id = "none"
             value_id = "ml_mshops"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -94,6 +107,10 @@ trackTests {
             column_id = "quantity"
             operation_id = "none"
             quantity = 2;
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
     
@@ -102,6 +119,10 @@ trackTests {
             column_id = "listing_type"
             operation_id = "none"
             listing_type = "gold_special";
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -110,6 +131,10 @@ trackTests {
             column_id = "secondary_actions_column"
             operation_id = "DELETE"
             secondary_actions = "massive_secondary_action_modal_delete";
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -118,6 +143,10 @@ trackTests {
             column_id = "shipping_type"
             operation_id = "UPDATE_SHIPPING_TYPE"
             local_pickup = true
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -126,6 +155,10 @@ trackTests {
             column_id = "manufacturing_time"
             operation_id = "ADD_MANUFACTURING_TIME"
             time= 200
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
       test("seller central bulk changes massive actions warranty") {
@@ -135,6 +168,10 @@ trackTests {
             type_value = "2230280"
             time_option = "day"
             time_value = 30
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -142,6 +179,10 @@ trackTests {
         "/seller_central/bulk/massive_action/shipping_method"(platform: "/", type: TrackType.Event) {
             column_id = "shipping_method"
             operation_id = "none"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
@@ -149,12 +190,20 @@ trackTests {
         "/seller_central/bulk/massive_action/status"(platform: "/", type: TrackType.Event) {
             column_id = "status"
             operation_id = "none"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
     test("seller central bulk changes massive actions sync_price") {
         "/seller_central/bulk/massive_action/sync_price"(platform: "/", type: TrackType.Event) {
             column_id = "sync_price"
             operation_id = "none"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            user_shops_status = "active"
+            session_id = "515106248-edition-72151975d676"
         }
     }
 
