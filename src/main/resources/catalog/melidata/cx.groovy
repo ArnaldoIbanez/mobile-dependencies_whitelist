@@ -98,6 +98,8 @@ tracks {
         score(required: true, type: PropertyType.Numeric, description: "Score of NLP prediction")
         problem_id(required: true, type: PropertyType.Numeric, description: "ProblemId predicted by NLP algorithm")
         case_id(required: true, type: PropertyType.Numeric, description: "Id of case created")
+        list_skip_button(required: true, type: PropertyType.Boolean, description: "Indicates if the list was skipped without selecting an item")
+        list_type(required: true, type: PropertyType.String, description: "Indicates the content of the list")
     }
 
     propertyGroups {
@@ -138,7 +140,8 @@ tracks {
         score(score)
         problem_id(problem_id)
         case_id(case_id)
-
+        list_skip_button(list_skip_button)
+        list_type(list_type)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -424,6 +427,13 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+    }
+
+    "/support/widget/list"(platform: "/", isAbstract:  true) {}
+
+    "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+        list_skip_button
+        list_type
     }
 
     // Mis Consultas
