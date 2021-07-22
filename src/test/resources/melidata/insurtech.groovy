@@ -2118,7 +2118,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/detail/roda/insurer_response"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/protections/detail/roda/insurer_response"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
                 amount_total: 100.72,
