@@ -171,6 +171,14 @@ tracks {
         // original_value,
         // value
         // items
+
+        //Contiene la informacion de cada descuento disponible.
+        applied_promotions(required: false, type:PropertyType.ArrayList)
+        // campaign_id,
+        // type,
+        // original_value,
+        // value
+        // items
     }
 
     /*

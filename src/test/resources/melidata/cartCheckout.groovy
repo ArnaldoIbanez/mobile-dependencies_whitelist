@@ -130,6 +130,16 @@ trackTests {
                             items: ["MLB1561278487"]
                     ]
             ]
+
+            applied_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
             
             context = "vip_combo"
             checkout_flow = "cart"
