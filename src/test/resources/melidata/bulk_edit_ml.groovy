@@ -63,10 +63,6 @@ trackTests {
             oldValue = "20"
             newValue = "25"
             item_id = "MLB341920"
-            seller_reputation = "5_green"
-            user_type = "normal"
-            user_shops_status = "active"
-            session_id = "515106248-edition-72151975d676"
         }
     }
 
