@@ -54,28 +54,24 @@ trackTests {
         "/banking/balance/to_release"(platform: "/", type: TrackType.View) {
             my_money_to_release = [
                 component_id: 'to_release',
-                content_id: []
             ]
         }
 
         "/banking/balance/to_advance"(platform: "/", type: TrackType.View) {
              my_money_to_advance = [
                 component_id: 'to_advance',
-                content_id: []
             ]
         }
 
         "/banking/balance/card_calendar"(platform: "/", type: TrackType.View) {
              my_money_card_calendar = [
                 component_id: 'card_calendar',
-                content_id: []
             ]
         }
 
         "/banking/balance/calendar_daily"(platform: "/", type: TrackType.View) {
             my_money_calendar_daily = [
                 component_id: 'calendar_daily',
-                content_id: []
             ]
         }
 
