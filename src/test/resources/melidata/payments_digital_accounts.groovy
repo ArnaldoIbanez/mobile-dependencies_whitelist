@@ -20,7 +20,7 @@ trackTests {
         "/banking/balance"(platform: "/", type: TrackType.View) {
             my_money_balance_available = [
                 component_id: 'balance_available',
-                content_id: ['balance']
+                content_id: ['available']
             ]
         }
 
@@ -32,7 +32,8 @@ trackTests {
 
         "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) {
             my_money_shortcuts = [
-                component_id: 'account_fund', 'withdraw',
+                component_id: 'shortcuts',
+                content_id: ['account_fund', 'withdraw']
             ]
         }
 
@@ -44,6 +45,7 @@ trackTests {
                 ]
             ]
         }
+
         "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
             my_money_activities = [
                 component_id: 'activities',
