@@ -8,10 +8,7 @@ trackTests {
 
      test("CHO API webpay onelick") {
         "/open_banking/opt-in"(platform:"/", type:TrackType.View) {}
-        "/open_banking/opt-in/set_date_limit_12"(platform:"/", type:TrackType.Event) {}
-        "/open_banking/opt-in/set_date_limit_6"(platform:"/", type:TrackType.Event) {}
-        "/open_banking/opt-in/set_date_limit_3"(platform:"/", type:TrackType.Event) {}
-        "/open_banking/opt-in/set_date_limit_1"(platform:"/", type:TrackType.Event) {}
+        "/open_banking/opt-in/set_consent_date_limit"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/edit_selected_bank"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/edit_selected_date"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/cancel_consent_date_bottom_sheet"(platform:"/", type:TrackType.Event) {}
