@@ -13,20 +13,14 @@ trackTests {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
-            share_value = "20"
-            chart_visible = true
-            detailsMeli_visible = true
-            share_visible = true
+            mode = "custom"
         }
 
         "/advertising/pads2/manager"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
-            share_value = "20"
-            chart_visible = true
-            detailsMeli_visible = true
-            share_visible = true
+            mode = "custom"
             matching_status = "matching_inversion"
         }
 

@@ -40,16 +40,12 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
-        share_value(required: false,  description: "Porcentual share value")
-        chart_visible(required: false, type: PropertyType.Boolean, description: "If the chart is visible")
-        detailsMeli_visible(required: false, type: PropertyType.Boolean, description: "If the details are visible")
-        share_visible(required: false, type: PropertyType.Boolean, description: "If the share is visible")
         matching_status(
                 required: false,
                 values: ["matching_inversion", "matching_inversion_end", "matching_bonificacion", "matching_bonificacion_end", "matching_bonificacion_extended", "matching_bonificacion_extended_end"],
                 description: "Free trial matching status bar"
         )
-        mode(required: false, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
@@ -300,7 +296,9 @@ tracks {
     }
 
     //Lift
-    "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {
+        share_value(required: false,  description: "Porcentual share value")
+    }
 
     "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/details/show"(platform: "/", type: TrackType.Event) {}
