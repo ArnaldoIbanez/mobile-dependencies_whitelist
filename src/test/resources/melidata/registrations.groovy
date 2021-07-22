@@ -693,4 +693,105 @@ trackTests {
         "/register/v3/challenge/tyc/standard"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/challenge/tyc/standard/submit"(platform: "/mobile", business: "mercadopago"){}   
     }
+
+    test("Underage") {
+        "/under_age_validation/tutor_email"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/submit"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+            status = "pending_authorization"
+        }
+        "/under_age_validation/tutor_email/congrats"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/congrats/change_email"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected/change_email"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_authorization"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/rejected"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/congrats"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_landing"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+        }
+
+        // MP
+        "/under_age_validation/tutor_email"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/submit"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+            status = "pending_authorization"
+        }
+        "/under_age_validation/tutor_email/congrats"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/congrats/change_email"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected/change_email"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_authorization"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/rejected"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/congrats"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_landing"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+        }
+    }
 }
