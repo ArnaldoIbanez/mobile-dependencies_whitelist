@@ -83,7 +83,6 @@ tracks {
                 my_money_available,
                 my_money_cross_selling_carousel,
                 my_money_retained,
-                my_money_available,
                 my_money_to_release,
                 my_money_to_advance,
                 my_money_activities,
@@ -96,6 +95,17 @@ tracks {
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
+
+    // Components
+    "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/available"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/retained"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/last_activities"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
