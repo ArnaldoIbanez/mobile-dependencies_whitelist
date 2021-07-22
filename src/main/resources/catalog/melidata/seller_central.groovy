@@ -800,6 +800,13 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_mshops_price"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+        synced(required: true, type: PropertyType.Boolean, description: "if MercadoShops's price is synced with MarketPlace's price")
+    }
+
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
