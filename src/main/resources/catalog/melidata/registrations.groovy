@@ -263,53 +263,36 @@ tracks {
     "/register/v3/challenge/tyc/standard/submit"(platform: "/", type: TrackType.Event){}
 
     "/under_age_validation"(platform: "/", isAbstract: true){}
-    "/under_age_validation/tutor_email"(platform: "/", type: TrackType.View){
+    "/under_age_validation/tutor_email"(platform: "/", isAbstract: true){
         under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         flow(type: PropertyType.String, , required:true, values: ["registration", "login"], description: "Indicating where it comes")
     }
+    "/under_age_validation/tutor_email"(platform: "/", type: TrackType.View){}
     "/under_age_validation/tutor_email/submit"(platform: "/", type: TrackType.Event){
-        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
-        flow(type: PropertyType.String, , required:true, values: ["registration", "login"], description: "Indicating where it comes")
         status(type: PropertyType.String, , required:true, values: ["pending_authorization"], description: "Indicating the status of the process")
     }
     "/under_age_validation/tutor_email/congrats"(platform: "/", type: TrackType.View){
-        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
-        flow(type: PropertyType.String, , required:true, values: ["registration", "login"], description: "Indicating where it comes")
     }
     "/under_age_validation/tutor_email/congrats/change_email"(platform: "/", type: TrackType.Event){
-        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
-        flow(type: PropertyType.String, , required:true, values: ["registration", "login"], description: "Indicating where it comes")
     }
     "/under_age_validation/tutor_email/rejected"(platform: "/", type: TrackType.View){
-        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
-        flow(type: PropertyType.String, , required:true, values: ["registration", "login"], description: "Indicating where it comes")
     }
     "/under_age_validation/tutor_email/rejected/change_email"(platform: "/", type: TrackType.Event){
-        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
-        flow(type: PropertyType.String, , required:true, values: ["registration", "login"], description: "Indicating where it comes")
     }
-    "/under_age_validation/tutor_authorization"(platform: "/", type: TrackType.View){
-        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
-        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
-        from_kyc(type: PropertyType.Boolean, , required:true, description: "If kyc have been completed")
-    }
-    "/under_age_validation/tutor_authorization/rejected"(platform: "/", type: TrackType.View){
+    "/under_age_validation/tutor_authorization"(platform: "/",  isAbstract: true){
         under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
         from_kyc(type: PropertyType.Boolean, , required:true, description: "If kyc have been completed")
     }
-    "/under_age_validation/tutor_authorization/congrats"(platform: "/", type: TrackType.View){
-        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
-        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
-        from_kyc(type: PropertyType.Boolean, , required:true, description: "If kyc have been completed")
-    }
+    "/under_age_validation/tutor_authorization"(platform: "/", type: TrackType.View){}
+    "/under_age_validation/tutor_authorization/rejected"(platform: "/", type: TrackType.View){}
+    "/under_age_validation/tutor_authorization/congrats"(platform: "/", type: TrackType.View){}
     "/under_age_validation/tutor_landing"(platform: "/", type: TrackType.View){
         under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
     }
-
 }
