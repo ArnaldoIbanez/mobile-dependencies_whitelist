@@ -1041,5 +1041,145 @@ trackTests {
             warehouse_id = "BRTW01"
             task_id = 1234
         }
+
+        "/wms/area_count/confirmation"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/confirmation/start_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/item/reset_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            navigate_to_home = true
+        }
+        "/wms/area_count/scan_inventory"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/scan_inventory/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/scan_inventory/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/area_count/scan_shelf"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/quarantine/transfer/scan_address_from"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/quarantine/transfer/select_problem/other"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            address_from_id = "CA-0-001-000-00-00"
+            inventory_id = "AAAA00001"
+        }
+        "/wms/quarantine/transfer/select_problem/other/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            description = "Problem not catalogued"
+            inventory_id = "AAAA00001"
+            address_from_id = "CA-0-001-000-00-00"
+        }
+
+        "/wms/range_count/confirmation"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/confirmation/start_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/item"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/item/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/item/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/item/reset_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            navigate_to_home = true
+        }
+        "/wms/range_count/scan_inventory"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/scan_inventory/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/scan_inventory/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/scan_shelf"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/sku_count/confirmation"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/confirmation/start_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/item"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/item/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/item/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/item/reset_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            navigate_to_home = true
+        }
+        "/wms/sku_count/scan_inventory"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/range_count/scan_shelf"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/scan_inventory/finish_address"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/scan_inventory/finish_count"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/sku_count/scan_shelf"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/stock_audit/confirmation"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/confirmation/cancel"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/confirmation/confirm"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/empty_tasks"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/empty_tasks/retry"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+        }
+        "/wms/wall_in/scan_slot"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA00001"
+        }
+        "/wms/wall_in/scan_slot/inventory_does_not_fit"(platform: "/mobile/android") {
+            warehouse_id = "BRWT01"
+            container_address = "CA-0-001-000-00-00"
+            inventory_id = "AAAA00001"
+        }
     }
 }

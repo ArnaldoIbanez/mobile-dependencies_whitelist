@@ -31,7 +31,7 @@ class TestRunnerTest {
                     "/mobile/web",
             ]
 
-            defaultBusiness = "mercadolibre"
+            defaultBusinesses = ["mercadolibre"]
 
             tracks {
                 initiative = "1148"
