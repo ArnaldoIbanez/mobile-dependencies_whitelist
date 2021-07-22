@@ -103,7 +103,7 @@ tracks {
     //Shipping: Delivered
     "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
         context (
-            required: true,
+            required: false,
             type: PropertyType.String,
             values: ["receiver-2-mãe", "receiver-3-pai", "receiver-4-port", "receiver-5-secretario", "receiver-6-segurança",
             "receiver-7-funcionário", "receiver-8-empregada", "receiver-9-filho", "receiver-10-tio", "receiver-11-sobrinho",

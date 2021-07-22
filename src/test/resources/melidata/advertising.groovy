@@ -2437,4 +2437,24 @@ trackTests {
         }
     }
 
+    test("Notifications restriction message") {
+        "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
+            type = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+        }
+
+        "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+            type = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+        }
+
+        "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
+            type = ["SEMAPHORES", "IN_PAY_CHECK"]
+            cpg_campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+            type = ["SEMAPHORES", "IN_PAY_CHECK"]
+            cpg_campaign_id = 1234
+        }
+    }
+
 }

@@ -76,8 +76,6 @@ tracks {
             description: "Indicates the features used in the prediction")
         portal_predicted_contents(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
             description: "Indicates the ids of the contents predicted to a user")
-        helpcard_title(required: true, type: PropertyType.String,
-            description: "Indicates the title of the help card as viewed by the user")
         helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
             description: "Indicates the contents viewed by the user in the help card")
         portal_contents_result(required: true, description: "Content ids result from search page", type: PropertyType.ArrayList)
@@ -126,7 +124,7 @@ tracks {
         portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
         portal_predicted_features(portal_predicted_features)
         portal_predicted_contents(portal_predicted_contents)
-        helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
+        helpcard_data(portal_source_id, helpcard_contents)
         portal_contents_result(portal_contents_result)
         portal_delayed_pack_id(portal_delayed_pack_id)
         portal_delayed_packs_ids(portal_delayed_packs_ids)

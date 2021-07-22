@@ -9,15 +9,6 @@ tracks {
     initiative = '1101'
 
     defaultBusiness = "mercadopago"
-    "/email"(platform: "/email", isAbstract: true) {
-        email_template(required: true)
-        event_type(required: true,
-                values: ["send", "open", "cancel"],
-                description: "Type of email event")
-        email_id(required: false)
-        subject(required: false)
-        sent_date(required: false)
-    }
 
     "/email/generic"(platform: "/email"){
 

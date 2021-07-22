@@ -1,12 +1,12 @@
 package com.melidata.definitions.uploaders
 
-import com.melidata.definitions.manager.CatalogHandler
 import com.melidata.definitions.format.HiveFormatter
-import com.melidata.definitions.manager.S3Controller
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.exceptions.CatalogException
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import com.ml.melidata.catalog.parsers.json.CatalogJsonOutput
+import com.ml.melidata.manager.CatalogHandler
+import com.ml.melidata.manager.S3Controller
 import org.apache.commons.io.IOUtils
 
 /**
@@ -35,10 +35,6 @@ class CatalogUploader {
     def upload() {
         println("Starting uploader")
         def catalogFile = new File(CATALOG_DIR + "/", CatalogHandler.S3_CATALOG_FILE)
-        if (catalogHandler.catalogIsUpdated(CATALOG_DIR)) {
-            println("Catalog doesn't have changes")
-            return
-        }
         println("Reading [${catalogFile}]")
         def dsl = IOUtils.toString(new FileInputStream(catalogFile))
         println("DSL loaded")

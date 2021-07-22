@@ -356,10 +356,20 @@ tracks {
                 values: [
                         "no_proposal_match",
                         "invalid_proposal_status",
-                        "user_has_active_account",
                         "kyc_not_compliant",
                         "physical_card_request",
                         "kyc_api_failed"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/stop_page/redirect_to_dashboard"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Indicates the status and then redirect to the dashboard",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "user_has_active_account"
                 ]
         )
     }

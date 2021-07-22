@@ -257,6 +257,14 @@ trackTests {
             delivery_id = 123456
         }
 
+        "/flex/package/start"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
+        "/flex/package/add_more_packages"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
         //QR detected but already registered event in Scanner edition success
         "/flex/package/add_more_packages/qr_detected"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()

@@ -1,5 +1,3 @@
-import com.melidata.definitions.manager.CatalogManager
-import org.junit.Test
 
 class CatalogManagerTest {
 /*
