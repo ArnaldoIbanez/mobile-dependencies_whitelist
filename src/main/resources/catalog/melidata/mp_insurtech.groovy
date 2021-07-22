@@ -522,7 +522,7 @@ tracks {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page.")
         protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
         claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claim_short)), description: "List of current user Claims")
-        tab_name(required: true, type: PropertyType.String, values: ['protections', 'losses'], description: "Product id of the protection.");
+        tab_name(required: true, type: PropertyType.String, values: ['protections', 'claims'], description: "Product id of the protection.");
 
     }
 

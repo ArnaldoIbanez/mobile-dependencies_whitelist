@@ -1954,7 +1954,7 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
-            tab_name = "losses"
+            tab_name = "claims"
         }
 
         "/insurtech/protections/error"(platform:"/mobile", type: TrackType.View) {
