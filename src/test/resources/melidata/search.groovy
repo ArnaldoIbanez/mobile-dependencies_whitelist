@@ -798,9 +798,4 @@ trackTests {
             advertising_id = "sky"
         }
     }
-    test("Social networks") {
-        "/search/social"(platform: "/", type: TrackType.Event) {
-            social_network = "facebook"
-        }
-    }
 }

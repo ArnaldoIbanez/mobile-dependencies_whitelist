@@ -2145,9 +2145,4 @@ trackTests {
             item_id = "MLB533657947"
         }
     }
-    test("Social networks") {
-        "/vip/social"(platform: "/", type: TrackType.Event) {
-            social_network = "facebook"
-        }
-    }
 }

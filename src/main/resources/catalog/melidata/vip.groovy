@@ -1622,18 +1622,4 @@ tracks {
 
     "/vip/back_to_top/top"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true) {}
 
-    "/vip/social"(platform: "/", type: TrackType.Event) {
-        social_network(type: PropertyType.String, required: true, description: "Social network")
-        category_id(required: false)
-        item_id(required: false)
-        category_id(required: false)
-        vertical(required: false)
-        item_condition(required: false)
-        listing_type_id(required: false)
-        item_status(required: false)
-        deal_ids(required: false)
-        seller_id(required: false)
-        buying_mode(required: false)
-        category_path(required: false)
-    }
 }
