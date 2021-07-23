@@ -2027,14 +2027,14 @@ tracks {
     }
 
     "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
     }
 
     "/advertising/pads2/hub/restrictions/paycheck"(platform: "/", type: TrackType.Event, isAbstract: true) {
     }
 
     "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
     }
 
     // notifications - restriction - dashboard
@@ -2043,7 +2043,7 @@ tracks {
     }
 
     "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
         cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
@@ -2051,7 +2051,7 @@ tracks {
     }
 
     "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
         cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
