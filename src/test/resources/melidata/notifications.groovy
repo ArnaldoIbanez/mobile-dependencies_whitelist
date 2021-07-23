@@ -156,6 +156,18 @@ trackTests {
             batch_id= "MLB_PACK_20180508_2"
         }
 
+        "/notification_center/mpinstitutional_generic"(platform: "/mobile"){
+            latest_news_type= "mpinstitutional_generic"
+            latest_news_id= "mpinstitutional_generic-143816022-MLB1013046714"
+            campaign_id= "mpinstitutional_generic"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            newsgroup_id= "mpinstitutional_generic-MLU102_07_02_2017-56626993"
+            status= "unread"
+            type_layout= "picture"
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+        }
+
         "/notification_center/campaigns-deals"(platform: "/mobile"){
             campaign_id= "campaign1"
             deal_id= "deal1_123"
@@ -1103,7 +1115,7 @@ trackTests {
             latest_news_id= "merchants_growth_sameday-186785675-76283123"
             latest_news_type= "merchants_growth_sameday"
             status= "read"
-        }        
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -4639,6 +4651,16 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
+        "/notification/mpinstitutional_generic"(platform: "/mobile"){
+            event_type = "open"
+            campaign_id= "mpinstitutional_generic1"
+            sent_date= "20180508"
+            batch_id = "MLA_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA1234"
+        }
+
         "/notification/institutional_control_group"(platform: "/mobile"){
             event_type="discarded"
             campaign_id= "institutional-control_group1"
@@ -5015,7 +5037,7 @@ trackTests {
         }
         "/notification/merchants_growth_sameday"(platform: "/mobile") {
             event_type = "open"
-        }        
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -5965,7 +5987,7 @@ trackTests {
             news_id = "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
-        
+
         "/notification_center/insurtech_money_in"(platform: "/") {
             latest_news_type= "insurtech_money_in"
             latest_news_id= "insurtech_money_in-315571651-4600610652-2021-06-29"
@@ -6156,7 +6178,17 @@ trackTests {
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
         }
-
+        "/notification_center/mpinstitutional_generic"(platform: "/mobile"){
+            latest_news_type= "mpinstitutional_generic"
+            latest_news_id= "mpinstitutional_generic-143816022-MLB1013046714"
+            campaign_id= "mpinstitutional_generic"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            newsgroup_id= "mpinstitutional_generic-MLU102_07_02_2017-56626993"
+            status= "unread"
+            type_layout= "picture"
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+        }
         "/notification_center/campaigns-deals"(platform: "/mobile"){
             campaign_id= "campaign1"
             deal_id= "deal1_123"
@@ -7078,7 +7110,7 @@ trackTests {
             latest_news_id= "merchants_growth_sameday-186785675-76283123"
             latest_news_type= "merchants_growth_sameday"
             status= "read"
-        }        
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -10792,6 +10824,16 @@ trackTests {
             campaign_data = "MLA1234"
         }
 
+        "/notification/mpinstitutional_generic"(platform: "/mobile"){
+            event_type = "open"
+            campaign_id= "mpinstitutional_generic1"
+            sent_date= "20180508"
+            batch_id = "MLA_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+            campaign_data = "MLA1234"
+        }
+
         "/notification/institutional_control_group"(platform: "/mobile"){
             event_type="discarded"
             campaign_id= "institutional-control_group1"
@@ -11792,7 +11834,7 @@ trackTests {
             news_id = "insurtech_cancellation_123"
             event_type = "open"
         }
-        
+
         "/notification_center/insurtech_purchase"(platform: "/") {
             latest_news_type= "insurtech_purchase"
             latest_news_id= "insurtech_purchase-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
@@ -11802,7 +11844,7 @@ trackTests {
             news_id = "insurtech_purchase-143816022-02f6a0f5-4e88-4797-aa47-eeb1a9a1e01b"
             event_type = "open"
         }
-        
+
         "/notification_center/insurtech_payment_recovery"(platform: "/") {
             latest_news_type= "insurtech_payment_recovery"
             latest_news_id= "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
@@ -11812,7 +11854,7 @@ trackTests {
             news_id = "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
-        
+
         "/notification_center/insurtech_money_in"(platform: "/") {
             latest_news_type= "insurtech_money_in"
             latest_news_id= "insurtech_money_in-315571651-4600610652-2021-06-29"
@@ -11822,11 +11864,11 @@ trackTests {
             news_id = "insurtech_money_in-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
-         
+
         "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
-      
+
         "/notification/card_wallet_resume_token"(platform: "/mobile") {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
@@ -12033,7 +12075,7 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
-            
+
         "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
             news_id = "card_limit-rejected_withdraw_by_maximum_limit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg-1565881200"
             event_type = "open"
@@ -12451,7 +12493,7 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
-                
+
         "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
             news_id = "card_limit-rejected_withdraw_by_maximum_limit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg-1565881200"
             event_type = "open"
@@ -12487,7 +12529,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-        
+
         "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
             news_id = "card_transactions_payment_reject_whit_contactless-186785675"
             event_type = "open"

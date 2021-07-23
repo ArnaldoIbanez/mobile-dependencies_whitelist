@@ -787,7 +787,7 @@ tracks {
     "/notification_center/merchants_growth_sameday"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }    
+    }
     "/notification_center/money-transfer_request"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1459,6 +1459,17 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description:"")
     }
 
+    "/notification_center/mpinstitutional_generic"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        sent_date(required: false, type: PropertyType.String, description:"")
+    }
+
     //Sll Advertising Notifications
     "/notification_center/sll_items_activate_items"(platform: "/") {
         site_id(required: true, type: PropertyType.String, description: "Site Id.")
@@ -1475,7 +1486,7 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-  
+
     "/notification_center/insurtech_purchase"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2367,7 +2378,7 @@ tracks {
     "/notification/money_out_cashout_withdrawn"(platform: "/") {}
     "/notification/money_out_cashout_reversed"(platform: "/") {}
     "/notification/money_in_cashin_exceeded_cap"(platform: "/") {}
-    
+
     "/notification/moneyin_cashin_accredited"(platform: "/") {}
     "/notification/moneyin_cashin_rejected"(platform: "/") {}
 
@@ -3095,6 +3106,15 @@ tracks {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        sent_date(required: false, type: PropertyType.String, description:"")
+    }
+
+    "/notification/mpinstitutional_generic"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
         campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
         sent_date(required: false, type: PropertyType.String, description:"")
