@@ -7,56 +7,16 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test("Card challenge mobile android ml") {
-
-        "/auth/card/validation"(platform: "/mobile/android") {}
-    }
-
-    test("Card challenge mobile ios ml") {
-        
-        "/auth/card/validation"(platform: "/mobile/ios") {}
-    }
-
-    test("Card challenge mobile web ml") {
-        
-        "/auth/card/validation"(platform: "/web") {}
-    }
-
-    test("Card challenge mobile web desktop ml") {
-        
-        "/auth/card/validation"(platform: "/web/desktop") {}
-    }
-
-    test("Card challenge mobile web desktop ml") {
-        
-        "/auth/card/validation"(platform: "/web/mobile") {}
+    test("Test auth card validation ml") {
+        "/auth/card/validation"(platform: "/", type:TrackType.View) {}
+        "/auth/card/validation"(platform: "/", type:TrackType.Event) {}
     }
 
     defaultBusiness = "mercadopago"
 
-    test("Card challenge mobile android mp") {
-
-        "/auth/card/validation"(platform: "/mobile/android") {}
-    }
-
-    test("Card challenge mobile ios mp") {
-        
-        "/auth/card/validation"(platform: "/mobile/ios") {}
-    }
-
-    test("Card challenge mobile web mp") {
-        
-        "/auth/card/validation"(platform: "/web") {}
-    }
-
-    test("Card challenge mobile web desktop mp") {
-        
-        "/auth/card/validation"(platform: "/web/desktop") {}
-    }
-
-    test("Card challenge mobile web desktop mp") {
-        
-        "/auth/card/validation"(platform: "/web/mobile") {}
+    test("Test auth card validation mp") {
+        "/auth/card/validation"(platform: "/", type:TrackType.View) {}
+        "/auth/card/validation"(platform: "/", type:TrackType.Event) {}
     }
 
 }
