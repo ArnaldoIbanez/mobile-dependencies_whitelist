@@ -389,9 +389,7 @@ tracks {
         statement_status_group
     }
 
-    "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {
-        statement_status
-    }
+    "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {}
 
     "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         statement_period
