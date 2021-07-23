@@ -283,6 +283,7 @@ catalog {
         include business, "landing_mshops.groovy"
         include business, "registrations.groovy"
         include business, "search.groovy"
+        include business, "social.groovy"
         include business, "vip.groovy"
     }
 
