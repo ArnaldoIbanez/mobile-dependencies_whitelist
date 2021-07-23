@@ -41,13 +41,15 @@ If you want to run the tests, you should execute **```make test```**
 
 ### REFERENCES
 
-1. [**Tracking Definitions**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Tracking-Style-Guide)
+1. 📖  👉 [**Tracking Definitions**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Tracking-Style-Guide)
 
-2. [Metrics Definitions](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/New-Metric)
+2. 📖  👉 [**FAQ**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/FAQ) 
 
-3. [Tracking health check](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Catalog-health-check)
+3. [Metrics Definitions](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/New-Metric)
 
-4. [FAQ](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/FAQ) 
+4. [Tracking health check](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Catalog-health-check)
+
+
 
 ### CONTACT
 <melidata_dev@mercadolibre.com>
