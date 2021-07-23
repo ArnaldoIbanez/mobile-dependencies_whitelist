@@ -150,6 +150,15 @@ trackTests {
             challenge = "pass"
             tracking_id = "123"
         }
+        "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+            source = "default"
+        }
+        "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+        }
         "/login/auth/challenge/decline"(platform: "/web", type: TrackType.View) {
             challenge = "pass"
             source = "QUESTION"
@@ -450,6 +459,15 @@ trackTests {
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
             errors = ["user_not_found"]
+        }
+        "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
+            source = "default"
+        }
+        "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+            challenge = "email_or_nickname_or_phone"
+            tracking_id = "123"
         }
         "/login/auth/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
@@ -800,10 +818,23 @@ trackTests {
                 client_type = "mobile"
             }
 
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                social_option = "Google"
+            }
+
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
                 flow = "registration"
                 client_type = "mobile"
                 validation_status = "success"
+            }
+
+            "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
+                validation_status = "success"
+                social_option = "Google"
             }
 
             "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
@@ -814,6 +845,35 @@ trackTests {
             "/authenticators/email_validation/enter_code/help/hard_bounce"(platform: "/", type: TrackType.Event) {
                 flow = "login"
                 client_type = "web"
+            }
+
+            "/authenticators/email_validation/enter_code/open_email_app"(platform: "/mobile/android", type: TrackType.Event) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                packages = ["com.emailAppPackage1.android", "com.emailAppPackage2.android"]
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link"(platform: "/mobile/android", type: TrackType.Event) {
+                flow = "registration_v3"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "web"
+                cause = "opened_with_browser"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "web"
+                cause = "incorrect_code"
+            }
+
+            "/authenticators/email_validation/enter_code/magic_link/error"(platform: "/", type: TrackType.View) {
+                flow = "registration_v3"
+                client_type = "mobile"
+                cause = "native_not_listening"
             }
 
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
@@ -875,6 +935,11 @@ trackTests {
                     "amount": "0",
                     "type": "non_transactional"
                 ]
+                applock_flowlock_information = [
+                        "enabled": "enabled",
+                        "elapsed_time": 10,
+                        "screenlock_validated":false
+                ]
                 config = [
                         "transaction_granularity_option": "daily_amount",
                         "transaction_accumulated_amount": "150",
@@ -895,6 +960,74 @@ trackTests {
                     "amount": "0",
                     "type": "other"
                 ]
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                from = "security_status"
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                remote_config = "enabled"
+                last_status_expired = true
+                called = true
+            }
+
+            "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                from = "force_block_refresh"
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                remote_config = "enabled"
+                called = true
+            }
+
+            "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                result = "success"
+                from = "security_status"
+                response = [
+                    "type": "SECURITY_BLOCKER",
+                    "app_lock": true,
+                    "flow_lock": true
+                ]
+                config = [
+                        "transaction_granularity_option": "daily_amount",
+                        "transaction_accumulated_amount": "150",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/security_status/result"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                result = "error"
+                from = "force_block_refresh"
                 config = [
                         "transaction_granularity_option": "daily_amount",
                         "transaction_accumulated_amount": "150",
@@ -1775,6 +1908,18 @@ trackTests {
                 operation_id = "1"
                 flow_type = "withdraw"
                 amount = "10.0"
+            }
+        }
+
+        test("Login conversion tracks ") {
+            "/login/auth/challenge/help"(platform: "/web", type: TrackType.Event) {
+                challenge = "email_or_nickname_or_phone"
+                tracking_id = "123"
+                source = "default"
+            }
+            "/login/auth/challenge/help"(platform: "/mobile", type: TrackType.Event) {
+                challenge = "email_or_nickname_or_phone"
+                tracking_id = "123"
             }
         }
     }

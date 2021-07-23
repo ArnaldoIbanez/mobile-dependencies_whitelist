@@ -69,6 +69,13 @@ trackTests {
             portal_source_id = 1627
             portal_content_id = 1
         }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+            portal_content_destination_url = "/ayuda/637"
+        }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+        }
     }
 
     test("Support Widget") {
@@ -146,6 +153,14 @@ trackTests {
         "/portal/delay_card"(platform: "/", type: TrackType.Event) {
             portal_source_id = 1628
             portal_delayed_pack_id = 12345678
+        }
+
+        "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
+            user_text = "Test text"
+            team_name = "Purchases"
+            score = 0.9
+            problem_id = 1234
+            case_id = 1234
         }
     }
 
@@ -374,6 +389,13 @@ trackTests {
             portal_source_id = 1628
             portal_delayed_pack_id = 12345678
         }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+            portal_content_destination_url = "/ayuda/637"
+        }
+        "/portal/action/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 19082
+        }
     }
 
 
@@ -435,6 +457,14 @@ trackTests {
         }
         "/support/widget/search"(platform: "/", type: TrackType.View) {
             portal_source_id = 123
+        }
+
+        "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
+            user_text = "Test text"
+            team_name = "Purchases"
+            score = 0.9
+            problem_id = 1234
+            case_id = 1234
         }
     }
 

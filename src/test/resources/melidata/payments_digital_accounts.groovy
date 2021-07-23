@@ -12,9 +12,17 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance") {
+    test("Balance available") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
+
+    test("Balance to release") {
+         "/banking/to_release"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Balance to release") {
+             "/banking/open_banking"(platform: "/", type: TrackType.View) {}
+        }
 
     test("Balance Calendar") {
         "/banking/calendar"(platform: "/", type: TrackType.View) {}
@@ -27,7 +35,7 @@ trackTests {
     test("Balance Cerc") {
         "/banking/cerc"(platform: "/", type: TrackType.View) {}
     }
-    
+
     test("Balance Cerc Optin") {
         "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
     }

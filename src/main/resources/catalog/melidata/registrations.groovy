@@ -226,6 +226,8 @@ tracks {
     "/register/company/form/error"(platform: "/web", type: TrackType.Event){
         errors(type: PropertyType.ArrayList, description: "Errores en el formulario", required: true)
     }
+     "/register/company/email_validation"(platform: "/", isAbstract: true){}
+     "/register/company/email_validation/success"(platform: "/web", type: TrackType.Event){}
 
     "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
     "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}

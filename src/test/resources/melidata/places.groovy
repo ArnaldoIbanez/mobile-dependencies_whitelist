@@ -383,4 +383,52 @@ trackTests {
             defaultTrackInformation()
         }
     }
+
+    test("places operations containers container_identification_step") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/container_identification_step"(platform: "/web",
+                type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations containers container_scanner_step") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/container_scanner_step"(platform: "/web",
+                type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations containers container_inbound_congrats_view") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/container_inbound_congrats_view"(platform: "/web",
+                type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places operations containers inbound_error_congrats_view") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+        }
+
+        "/places/operations/containers/inbound_error_congrats_view"(platform: "/web",
+                type: TrackType.View) {
+            defaultTrackInformation()
+        }
+    }
 }

@@ -136,9 +136,21 @@ tracks {
 
     "/vendor_central/inbound-shipment"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound-shipment/creator"(platform: "/web",  type: TrackType.View) {}
+    "/vendor_central/inbound-shipment/creator"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound-shipment/creator/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound-shipment/creator/download"(platform: "/web",  type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/download/error"(platform: "/web",  type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
 
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
