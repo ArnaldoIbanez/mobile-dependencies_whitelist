@@ -360,4 +360,10 @@ trackTests {
         "/home/motors"(platform: "/web/mobile", type: TrackType.Event) {}
         "/home/motors/sell"(platform: "/web/mobile", type: TrackType.Event) {}
     }
+
+    test("Social networks") {
+        "/home/social"(platform: "/", type: TrackType.Event) {
+            social_network = "facebook"
+        }
+    }
 }

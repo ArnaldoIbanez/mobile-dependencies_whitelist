@@ -466,4 +466,14 @@ tracks {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
     }
 
+    "/search/social"(platform: "/", type: TrackType.Event) {
+        social_network(type: PropertyType.String, required: true, description: "Social network")
+        limit(required: false)
+        offset(required: false)
+        total(required: false)
+        sort_id(required: false)
+        filters(required: false)
+        results(required: false)
+        view_mode(required: false)
+    }
 }
