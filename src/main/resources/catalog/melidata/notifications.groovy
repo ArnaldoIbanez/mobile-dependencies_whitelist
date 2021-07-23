@@ -56,14 +56,23 @@ tracks {
     "/notification_center/mp_sponsor_campaign_start_campaign"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        site_id(required: true, type: PropertyType.String, description: "Corresponds to the site_id of the newsgroup that is showing.")
+        caampaign_id(required: true, type: PropertyType.String, description:"Corresponds to the campaign_id of the newsgroup that is showing.")
+        end_date(required: true, type: PropertyType.String, description:"Corresponds to the end_date the newsgroup that is showing.")
     }
     "/notification_center/mp_sponsor_campaign_budget_trigger"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        site_id(required: true, type: PropertyType.String, description: "Corresponds to the site_id of the newsgroup that is showing.")
+        caampaign_id(required: true, type: PropertyType.String, description:"Corresponds to the campaign_id of the newsgroup that is showing.")
+        end_date(required: true, type: PropertyType.String, description:"Corresponds to the end_date the newsgroup that is showing.")
     }
     "/notification_center/mp_sponsor_campaign_day_trigger"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        site_id(required: true, type: PropertyType.String, description: "Corresponds to the site_id of the newsgroup that is showing.")
+        caampaign_id(required: true, type: PropertyType.String, description:"Corresponds to the campaign_id of the newsgroup that is showing.")
+        end_date(required: true, type: PropertyType.String, description:"Corresponds to the end_date the newsgroup that is showing.")
     }
     "/notification_center/mp_seller_campaign_start_campaign"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
