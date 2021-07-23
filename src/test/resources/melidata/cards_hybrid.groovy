@@ -1609,6 +1609,30 @@ trackTests {
         }
         "/cards/nfc/congrats/create_nfc_card_error"(platform: "/", type: TrackType.View) {}
     }
+
+    // CROSS-SELLING NFC
+    test("cards nfc cross-selling carousel") {
+        "/cards/nfc/acquisition/cross_selling"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_back"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "show_more_button"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "item"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "item"
+            device = [
+                id: "MLB1889766498",
+                description: "Samsung Galaxy A12 Dual Sim 64 Gb Black 4 Gb Ram"
+            ]
+        }
+    }
     
     // NFC-KYC
     test("cards hybrid nfc kyc initialization") {

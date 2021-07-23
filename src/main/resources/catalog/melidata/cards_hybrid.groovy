@@ -1637,6 +1637,27 @@ tracks {
             description: "Redirect deeplink"
         )
     }
+
+    // CROSS-SELLING NFC
+    def cross_selling_item_description = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String)
+        description(required: false, type: PropertyType.String)
+    }
+    
+    "/cards/nfc/acquisition/cross_selling"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_back", "item", "show_more_button", "back_button"],
+            description: "Cross-selling action Taps"
+        )
+        device (
+            required: false,
+            type: PropertyType.Map(cross_selling_item_description),
+            description: "Cross-selling tapped devices"
+        )
+    }
     
     // NFC-KYC
     //-------------------
