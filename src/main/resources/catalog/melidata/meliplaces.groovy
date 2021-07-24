@@ -19,7 +19,7 @@ tracks {
     }
     "/meliplaces/home/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
-        error(required: true, type: PropertyType.Numeric, description: "The error code")
+        error(required: false, type: PropertyType.Numeric, description: "The error code")
         message(required: true, type: PropertyType.String, description: "The error message")
     }
     "/meliplaces/home/close"(platform: "/mobile", type: TrackType.Event) {}
@@ -35,7 +35,7 @@ tracks {
     "/meliplaces/performance/empty_state"(platform: "/", type: TrackType.View) {}
     "/meliplaces/performance/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
-        error(required: true, type: PropertyType.Numeric, description: "The error code")
+        error(required: false, type: PropertyType.Numeric, description: "The error code")
         message(required: true, type: PropertyType.String, description: "The error message")
     }
     "/meliplaces/performance/tooltip/show"(platform: "/", type: TrackType.Event) {
@@ -53,7 +53,7 @@ tracks {
     "/meliplaces/activities/detail"(platform: "/", type: TrackType.View) {}
     "/meliplaces/activities/detail/shield"(platform: "/", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
-        error(required: true, type: PropertyType.Numeric, description: "The error code")
+        error(required: false, type: PropertyType.Numeric, description: "The error code")
         message(required: true, type: PropertyType.String, description: "The error message")
     }
     "/meliplaces/activities/detail/receipt"(platform: "/", type: TrackType.Event) {}
@@ -65,7 +65,7 @@ tracks {
     }
     "/meliplaces/result/shield"(platform: "/mobile", type: TrackType.View) {
         shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
-        error(required: true, type: PropertyType.Numeric, description: "The error code")
+        error(required: false, type: PropertyType.Numeric, description: "The error code")
         message(required: true, type: PropertyType.String, description: "The error message")
     }
     "/meliplaces/result/share"(platform: "/mobile", type: TrackType.Event) {}

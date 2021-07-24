@@ -17,6 +17,11 @@ trackTests {
         "/places/reception"(platform: "/web", type: TrackType.View) {
             defaultTrackInformation()
         }
+
+        "/places/reception/geolocation_error"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+            geolocation_error_message = "Error acquiring geolocation"
+        }
     }
 
     test("places home view") {
@@ -147,6 +152,10 @@ trackTests {
             place_id = "123456"
         }
 
+        "/places/outbounds"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+
         "/places/outbounds/buyer_qr_scan"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
@@ -233,6 +242,10 @@ trackTests {
 
         def defaultTrackInformation = {
             place_id = "123456"
+        }
+
+        "/places/returns"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
         }
 
         "/places/returns/package_scan"(platform: "/web", type: TrackType.Event) {

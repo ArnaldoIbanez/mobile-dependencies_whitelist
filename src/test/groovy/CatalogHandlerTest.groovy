@@ -130,13 +130,6 @@ import com.amazonaws.services.s3.model.analytics.AnalyticsConfiguration
 import com.amazonaws.services.s3.model.inventory.InventoryConfiguration
 import com.amazonaws.services.s3.model.metrics.MetricsConfiguration
 import com.amazonaws.services.s3.waiters.AmazonS3Waiters
-import com.melidata.definitions.manager.CatalogHandler
-import com.ml.melidata.catalog.tree.TrackValidationResponse
-import org.junit.Test
-
-import static org.junit.Assert.assertEquals
-import static org.junit.Assert.assertNotNull
-import static org.junit.Assert.assertTrue
 
 /**
  * Created by mtencer on 22/03/16.
@@ -199,7 +192,7 @@ class CatalogHandlerTest {
         TrackValidationResponse response = handler.getCatalog().validate(new com.ml.melidata.Track("/path1", com.ml.melidata.TrackType.View, "/prueba", "prueba_business"))
         assertTrue(response.status)
     }
-*/
+
     public class S3ClientMock implements AmazonS3 {
 
         def ObjectListing list
@@ -996,5 +989,5 @@ class CatalogHandlerTest {
             return null
         }
     }
-
+*/
 }

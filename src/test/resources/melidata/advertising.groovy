@@ -205,6 +205,16 @@ trackTests {
             official_stores = false
         }
 
+        "/advertising/pads2/landing/modal/no_items"(platform: "/", type: TrackType.View) {
+            button = "top"
+            free_trial_ad = true
+        }
+
+        "/advertising/pads2/landing/modal/no_items/go"(platform: "/", type: TrackType.Event) {
+            button = "top"
+            free_trial_ad = true
+        }
+
     }
 
     test("Advertising Communications") {
@@ -2424,6 +2434,26 @@ trackTests {
             from = "2021-02-02"
             to = "2021-05-02"
 
+        }
+    }
+
+    test("Notifications restriction message") {
+        "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
+            type = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+        }
+
+        "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+            type = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+        }
+
+        "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
+            type = ["SEMAPHORES", "IN_PAY_CHECK"]
+            cpg_campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+            type = ["SEMAPHORES", "IN_PAY_CHECK"]
+            cpg_campaign_id = 1234
         }
     }
 
