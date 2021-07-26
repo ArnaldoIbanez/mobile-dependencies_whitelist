@@ -13113,7 +13113,7 @@ trackTests {
             payment_option = "Citibanamex"
             female_gender = true
         }
-        "/notification_center/subscription_payment_pending"(platform: "/mobile") {
+        "/notification_center/subscription_payment_pending"(platform: "/") {
             newsgroup_id = "subscription-hbo-186785675"
             latest_news_id= "subscription-hbo-186785675"
             latest_news_type= "subscription_payment_pending"
