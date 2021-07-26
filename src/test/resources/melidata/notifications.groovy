@@ -2193,7 +2193,8 @@ trackTests {
         }
         "/notification/card_first_use_incentive_first_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_first_day-12345678"
-
+            event_type = "dismiss"
+        }
         "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_thirdth_day-12345678"
             event_type = "shown"
@@ -5563,7 +5564,14 @@ trackTests {
             news_id = "money_out_cashout-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
-
+        "/notification/moneyin_cashin_accredited"(platform: "/mobile") {
+            news_id = "moneyin_cashin_accredited-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/moneyin_cashin_rejected"(platform: "/mobile") {
+            news_id = "moneyin_cashin_rejected-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
         "/notification/loyalty_milestone"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -7642,6 +7650,7 @@ trackTests {
             latest_news_id= "money_advance-186785675-76283123"
             latest_news_type= "money_advance"
         }
+
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-campaigns-186785675-76283123"
             latest_news_id= "mpcampaigns-campaigns-186785675-76283123"
@@ -9649,6 +9658,15 @@ trackTests {
         }
         "/notification/money_out_cashout"(platform: "/mobile"){
             news_id = "money_out_cashout-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+
+        "/notification/moneyin_cashin_accredited"(platform: "/mobile") {
+            news_id = "moneyin_cashin_accredited-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/moneyin_cashin_rejected"(platform: "/mobile") {
+            news_id = "moneyin_cashin_rejected-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "open"
         }
 
@@ -13499,4 +13517,33 @@ trackTests {
             notification_type= "deep_linking"
         }
     }
+
+    defaultBusiness = "mercadoenvios"
+    test("Mobile Notifications mercadoenvios"){
+        "/notification/driver_logistics_changed_address"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+
+        "/notification/driver_logistics_driver_with_route"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+
+        "/notification/driver_logistics_retry_collect"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+
+        "/notification/driver_logistics_retry_delivery"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+
+        "/notification/messages_driver_logistics"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+    }
+
 }
