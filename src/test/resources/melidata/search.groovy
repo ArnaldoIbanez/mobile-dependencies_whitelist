@@ -798,4 +798,22 @@ trackTests {
             advertising_id = "sky"
         }
     }
+
+    test("Search shop dimentions") {
+        "/search"(platform: "/") {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+            shop_status = "active"
+            shop_id = "144517917"
+            shop_name = "legionextranjera"
+            shop_domain = "www.legionextranjera.com.ar"
+        }
+    }
 }
+
+
