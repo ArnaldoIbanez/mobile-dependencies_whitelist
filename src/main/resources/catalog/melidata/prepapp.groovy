@@ -42,10 +42,7 @@ tracks {
         // id
         // wave_id
 
-        scan_mode(required: true, type: PropertyType.String, description: "Type of the scan device")
-        // handheld
-        // camera
-        // none
+        scan_mode(required: true, type: PropertyType.String, values: ["handheld", "camera", "none"], description: "Type of the scan device")
 
         measure(required: true, type: PropertyType.String, description: "Unit of measure to calculate the quantity of product")
         // unit
