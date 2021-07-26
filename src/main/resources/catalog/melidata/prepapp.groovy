@@ -69,7 +69,7 @@ tracks {
         home_data(seller, available_sections)
         label_data(label)
         context_data(context)
-        picking_data(pickup)
+        pickup_data(pickup)
         pickup_list(finish_enabled, items_total, items_found, items_not_found)
         picked_list(items_total, items_found, items_not_found)
         product_scan(item_id, variation_id, scan_mode, items_total, items_found)
@@ -129,7 +129,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/prepapp/picking"(platform:"/", type: TrackType.View) {
-        picking_data
+        pickup_data
     }
 
     "/prepapp/picking/get_pickup"(platform:"/", type: TrackType.View) {
