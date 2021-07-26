@@ -1413,23 +1413,23 @@ trackTests {
         "/notification_center/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor_-ampaign_start_campaign-143816022-MLB1013046714"
-            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            campaign_id= "080677f9877e454f917ca55ea1bbbb24"
+            site_id= "MLB"
+            end_date= "2019-09-17T12:19:56.234-04:00"
         }
         "/notification_center/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor-campaign_budget_trigger-143816022-MLB1013046714"
-            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            campaign_id= "080677f9877e454f917ca55ea1bbbb24"
+            site_id= "MLB"
+            end_date= "2019-09-17T12:19:56.234-04:00"
         }
         "/notification_center/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor-campaign_day_trigger-143816022-MLB1013046714"
-            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            campaign_id= "080677f9877e454f917ca55ea1bbbb24"
+            site_id= "MLB"
+            end_date= "2019-09-17T12:19:56.234-04:00"
         }
         "/notification_center/mp_seller_campaign_start_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
@@ -4788,25 +4788,25 @@ trackTests {
         "/notification/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
             news_id = "mp_sponsor-campaign_start_campaign-12345678-123123"
             event_type = "shown"
-            campaign_id = "123123"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
 
         "/notification/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
             news_id = "mp_sponsor-campaign_budget_trigger-12345678-123123"
             event_type = "shown"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
 
         "/notification/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
             news_id = "mp_sponsor-campaign_day_trigger-12345678-123123"
             event_type = "shown"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
 
         "/notification/mp_seller_campaign_start_campaign"(platform: "/mobile") {
@@ -7223,22 +7223,22 @@ trackTests {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor_-ampaign_start_campaign-143816022-MLB1013046714"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
         "/notification_center/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor-campaign_budget_trigger-143816022-MLB1013046714"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
         "/notification_center/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor-campaign_day_trigger-143816022-MLB1013046714"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
         "/notification_center/mp_seller_campaign_start_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
@@ -10972,24 +10972,24 @@ trackTests {
             news_id = "mp_sponsor-campaign_start_campaign-12345678-123123"
             event_type = "shown"
             campaign_id = "123123"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
 
         "/notification/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
             news_id = "mp_sponsor-campaign_budget_trigger-12345678-123123"
             event_type = "shown"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
 
         "/notification/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
             news_id = "mp_sponsor-campaign_day_trigger-12345678-123123"
             event_type = "shown"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
-            site_id: "MLB"
-            end_date: "2019-09-17T12:19:56.234-04:00"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
         }
 
         "/notification/mp_seller_campaign_start_campaign"(platform: "/mobile") {
