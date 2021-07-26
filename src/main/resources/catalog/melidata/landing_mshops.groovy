@@ -31,6 +31,7 @@ tracks {
 
     "/home/landing/activate_store"(platform: "/", type: TrackType.Event){
         mshopslClickGroup
+        activation_status(required: false, type: PropertyType.String, description: "if the user already has the store activated", values: ["activate_shop", "already_active"])
     }
 
 }
