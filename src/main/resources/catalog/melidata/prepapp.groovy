@@ -35,6 +35,8 @@ tracks {
 
         label(required: true, type: PropertyType.String, description: "Detail for the event action")
         // path
+        // route_sheet
+        // nfe
 
         pickup(required: true, type: PropertyType.Map, description: "Object that represent the pack order")
         // id
@@ -63,12 +65,19 @@ tracks {
     }
 
     propertyGroups {
+        error_data(seller, context, error)
+        home_data(seller, available_sections)
+        label_data(label)
+        context_data(context)
+        picking_data(pickup)
         pickup_list(finish_enabled, items_total, items_found, items_not_found)
         picked_list(items_total, items_found, items_not_found)
         product_scan(item_id, variation_id, scan_mode, items_total, items_found)
+        scan_mode_data(scan_mode)
         product_weight_or_unit(item_id, variation_id, scan_mode, measure, items_total)
         product_quantity(item_id, variation_id, measure, items_total)
         product_not_found_or_less_units(item_id, variation_id)
+        seller_data(seller)
         oms_list(page, page_count, filters)
     }
 
@@ -92,30 +101,27 @@ tracks {
     }
 
     "/prepapp/error"(platform:"/", type: TrackType.View) {
-        seller
-        context
-        error
+        error_data
     }
 
     "/prepapp/home"(platform:"/", type: TrackType.View) {
-        seller
-        available_sections
+        home_data
     }
 
-    "/prepapp/navigation/open"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label
+    "/prepapp/navigation/open"(platform:"/", type: TrackType.Event) {
+        label_data
     }
 
-    "/prepapp/navigation/log_out"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label
+    "/prepapp/navigation/log_out"(platform:"/", type: TrackType.Event) {
+        label_data
     }
 
     "/prepapp/success"(platform:"/", type: TrackType.View) {
-        context
+        context_data
     }
 
     "/prepapp/cancelled"(platform:"/", type: TrackType.View) {
-        context
+        context_data
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -123,7 +129,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/prepapp/picking"(platform:"/", type: TrackType.View) {
-        pickup
+        picking_data
     }
 
     "/prepapp/picking/get_pickup"(platform:"/", type: TrackType.View) {
@@ -151,7 +157,7 @@ tracks {
     }
 
     "/prepapp/picking/product/input"(platform:"/", type: TrackType.View) {
-        scan_mode
+        scan_mode_data
     }
 
     "/prepapp/picking/product/weight"(platform:"/", type: TrackType.View) {
@@ -167,11 +173,11 @@ tracks {
     }
 
     "/prepapp/picking/parcel/scan"(platform:"/", type: TrackType.View) {
-        scan_mode
+        scan_mode_data
     }
 
     "/prepapp/picking/parcel/input"(platform:"/", type: TrackType.View) {
-        scan_mode
+        scan_mode_data
     }
 
     "/prepapp/picking/product/not_found"(platform:"/", type: TrackType.View) {
@@ -190,23 +196,23 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/prepapp/stagein"(platform:"/", type: TrackType.View) {
-        seller
+        seller_data
     }
 
     "/prepapp/stagein/parcel/scan"(platform:"/", type: TrackType.View) {
-        scan_mode
+        scan_mode_data
     }
 
     "/prepapp/stagein/parcel/input"(platform:"/", type: TrackType.View) {
-        scan_mode
+        scan_mode_data
     }
 
     "/prepapp/stagein/location/scan"(platform:"/", type: TrackType.View) {
-        scan_mode
+        scan_mode_data
     }
 
     "/prepapp/stagein/location/input"(platform:"/", type: TrackType.View) {
-        scan_mode
+        scan_mode_data
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -214,7 +220,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/prepapp/oms"(platform:"/", type: TrackType.View) {
-        seller
+        seller_data
     }
 
     "/prepapp/oms/backlog"(platform:"/", type: TrackType.View) {
@@ -234,13 +240,11 @@ tracks {
         oms_list
     }
 
-    "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-    }
-
     "/prepapp/oms/routes/delete"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
     }
 
     "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label_data
     }
 
     "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
