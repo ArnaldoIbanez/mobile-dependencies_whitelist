@@ -20,9 +20,7 @@ tracks {
     "/open_banking/opt-in/send_consent_data"(platform:"/", type:TrackType.Event) {}
     "/open_banking/opt-in/set_cancel_modal_close"(platform:"/", type:TrackType.Event) {}
     "/open_banking/opt-in/set_cancel_modal_open"(platform:"/", type:TrackType.Event) {}
-    "/open_banking/opt-in/navigate_to_page_2"(platform:"/", type:TrackType.Event) {}
-    "/open_banking/opt-in/navigate_to_page_3"(platform:"/", type:TrackType.Event) {}
-    "/open_banking/opt-in/navigate_to_page_4"(platform:"/", type:TrackType.Event) {}
+    "/open_banking/opt-in/navigate_to_page"(platform:"/", type:TrackType.Event) {}
     "/open_banking/opt-in/open_search_bottom_sheet"(platform:"/", type:TrackType.Event) {}
 
     "/open_banking/consent-management"(platform:"/", type:TrackType.View) {}
@@ -33,6 +31,7 @@ tracks {
     "/open_banking/consent-management/revoke_consent"(platform:"/", type:TrackType.Event) {}
     "/open_banking/consent-management/renew_consent"(platform:"/", type:TrackType.Event) {}
     "/open_banking/consent-management/create_new_consent"(platform:"/", type:TrackType.Event) {}
+    "/open-banking/consent-management/click_consent"(platform:"/", type:TrackType.Event) {}    
 
     "/open_banking/error"(platform:"/", type:TrackType.View) {}
     "/open_banking/error/navigate_to_my_home"(platform:"/", type:TrackType.Event) {}
@@ -45,5 +44,6 @@ tracks {
     "/open_banking/landing-page"(platform:"/", type:TrackType.View) {}
     "/open_banking/landing-page/click_primary_button"(platform:"/", type:TrackType.Event) {}
     "/open_banking/landing-page/click_secondary_button"(platform:"/", type:TrackType.Event) {}
+    "/open-banking/landing-page/loaded_from"(platform:"/", type:TrackType.Event) {}
     
     }
