@@ -268,6 +268,7 @@ catalog {
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
         include business, "meliplaces.groovy"
+        include business, "cashin.groovy"
     }
 
     mercadoshops.each { business ->
