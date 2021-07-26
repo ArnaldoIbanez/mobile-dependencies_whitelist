@@ -6,7 +6,7 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-     test("MP - Open banking") {
+     test("Mercado Pago - Open banking") {
         "/open_banking/opt-in"(platform:"/", type:TrackType.View) {}
         "/open_banking/opt-in/set_consent_date_limit"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/edit_selected_bank"(platform:"/", type:TrackType.Event) {}
@@ -41,6 +41,7 @@ trackTests {
          "/open_banking/landing-page"(platform:"/", type:TrackType.View) {}
         "/open_banking/landing-page/click_primary_button"(platform:"/", type:TrackType.Event) {}
         "/open_banking/landing-page/click_secondary_button"(platform:"/", type:TrackType.Event) {}
+        "/open-banking/landing-page/loaded_from"(platform:"/", type:TrackType.Event) {}
     }
 
 }
