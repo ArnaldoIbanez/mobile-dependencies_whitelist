@@ -8,7 +8,9 @@ trackTests {
 
      test("Mercado Pago - Open banking") {
         "/open_banking/opt-in"(platform:"/", type:TrackType.View) {}
-        "/open_banking/opt-in/set_consent_date_limit"(platform:"/", type:TrackType.Event) {}
+        "/open_banking/opt-in/set_consent_date_limit"(platform:"/", type:TrackType.Event) {
+            dateLimit: 12
+        }
         "/open_banking/opt-in/edit_selected_bank"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/edit_consent_date"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/cancel_consent_date_bottom_sheet"(platform:"/", type:TrackType.Event) {}
@@ -17,8 +19,13 @@ trackTests {
         "/open_banking/opt-in/send_consent_data"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/set_cancel_modal_close"(platform:"/", type:TrackType.Event) {}
         "/open_banking/opt-in/set_cancel_modal_open"(platform:"/", type:TrackType.Event) {}
-        "/open_banking/opt-in/navigate_to_page"(platform:"/", type:TrackType.Event) {}
+        "/open_banking/opt-in/navigate_to_page"(platform:"/", type:TrackType.Event) {
+            page: 2
+        }
         "/open_banking/opt-in/open_search_bottom_sheet"(platform:"/", type:TrackType.Event) {}
+        "/open-banking/opt-in/click_see_all"(platform:"/", type:TrackType.Event) {
+            cardLabel: "Cartões"
+        }
 
         "/open_banking/consent-management"(platform:"/", type:TrackType.View) {}
         "/open_banking/consent-management/set_tab_sent"(platform:"/", type:TrackType.Event) {}
