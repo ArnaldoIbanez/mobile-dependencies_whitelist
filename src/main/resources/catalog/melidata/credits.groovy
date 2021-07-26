@@ -27,9 +27,11 @@ tracks {
         //ML
     "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+        source_key(description: "Source key", type: PropertyType.String, required: true)
     }
     "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+        source_key(description: "Source key", type: PropertyType.String, required: true)
     }
     "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])

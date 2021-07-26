@@ -224,7 +224,7 @@ tracks {
     "/crop_image"(platform: "/mobile", initiative: "1100") { }
 
     "/checkout"(platform: "/mobile", isAbstract: true, initiative: "1142") {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/checkout/pay"(platform: "/mobile",initiative: "1142") {}

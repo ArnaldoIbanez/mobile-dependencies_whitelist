@@ -156,6 +156,18 @@ tracks {
         budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
     }
 
+    "/advertising/pads2/landing/modal"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/landing/modal/no_items"(platform: "/", type: TrackType.View, parentPropertiesInherited:false) {
+        button(required: true, values: ["top", "bottom"], description: "Button that redirects to confirm page")
+        free_trial_ad(required: false, type: PropertyType.Boolean, description: "Indicates if user is suitable for free trial")
+    }
+
+    "/advertising/pads2/landing/modal/no_items/go"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        button(required: true, values: ["top", "bottom"], description: "Button that redirects to confirm page")
+        free_trial_ad(required: false, type: PropertyType.Boolean, description: "Indicates if user is suitable for free trial")
+    }
+
     //Upselling
     "/advertising/pads2/manager/upselling"(platform: "/", isAbstract: true) {
         budget_new(required: false, description: "New budget assigned to the user")
@@ -1987,6 +1999,40 @@ tracks {
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
         from(required: false, type: PropertyType.String,  description: "Date when the report data starts")
         to(required: false, type: PropertyType.String,  description: "Date when the report data ends")
+    }
+
+    // notifications - restriction - hub
+
+    "/advertising/pads2/hub/restrictions"(platform: "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
+    }
+
+    "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+    }
+
+    "/advertising/pads2/hub/restrictions/paycheck"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+    }
+
+    // notifications - restriction - dashboard
+
+    "/advertising/pads2/manager/restrictions"(platform: "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
+    }
+
+    "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/restrictions/paycheck"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
 }

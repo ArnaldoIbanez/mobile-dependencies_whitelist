@@ -2048,6 +2048,7 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            device_secured = true
             type = "money_split"
             deep_link = "mercadopago://mplayer/"
         }
@@ -4522,6 +4523,7 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            device_secured = true
             type = "money_split"
             deep_link = "mercadopago://mplayer/"
         }

@@ -625,6 +625,60 @@ trackTests {
         }
     }
 
+    test("vip - view 360") {
+
+        def dataSet = {
+            item_id = "MLA924707090"
+            category_id = "MLA1744"
+            buying_mode = "classified"
+            category_path = [
+                    "MLA1743",
+                    "MLA1744"]
+            vertical = "motors"
+            item_condition = "used"
+            listing_type_id = "gold"
+            item_status = "active"
+            deal_ids = []
+            catalog_listing = false
+            city = "Alberti"
+            neighborhood = "Alberti"
+            state = "Buenos Aires Interior"
+            seller_id = 692365350
+            contract_available = false
+            comparator_available = false
+            gallery_pattern = "X"
+            price_comparison_available = null
+            price_comparison_position = null
+            whatsapp_available = "false"
+            quote_demand_available = false
+            description_type = "plain_text"
+            quantity_models = null
+            domain_id = "MLA-CARS_AND_VANS"
+            item_seller_type = "normal"
+        }
+
+        def viewOption = {
+            dataSet()
+            video_type = "VIEW360"
+        }
+
+        def noneOption = {
+            dataSet()
+            video_type = "NONE"
+        }
+
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            viewOption()
+        }
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIEW360"
+        }
+    }
+
     test("Vip web mobile with reviews") {
         "/vip"(platform:"/web/mobile") {
             category_id = "MLA1234"
@@ -1261,18 +1315,6 @@ trackTests {
     }
 
     test("VIP fulfillment onboardings") {
-
-        "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            item_condition = "new"
-            seller_id = 131662738
-            price = 15.3
-            currency_id = "ARS"
-            original_price = 18.0
-            vip_version = "new"
-        }
 
         "/vip/show_fulfillment_tooltip"(platform: "/") {
             item_id = "MLA533657947"

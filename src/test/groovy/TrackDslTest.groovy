@@ -11,7 +11,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
  * Created by apetalas on 19/11/14.
  */
 class TrackDslTest {
-
     def catalog = null
     def tests = null
 
@@ -19,7 +18,7 @@ class TrackDslTest {
     @Before void BuildCatalogTest(){
         this.catalog = catalog {
 
-            defaultBusiness = "mercadolibre"
+            defaultBusinesses = ["mercadolibre"]
 
             /**
              * All available platfrom

@@ -185,6 +185,17 @@ tracks {
     "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
+        view_time
+    }
+    "/single_player/prepaid/product_credits_list/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+    }
+    "/single_player/prepaid/product_credits_list/selected_product"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
     }
 
 
@@ -324,13 +335,8 @@ tracks {
         mandatory
         step_information
         view_time
+        item_structure
     }
-    "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
-        mandatory
-        step_information
-        view_time
-    }
-
 
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
@@ -399,9 +405,15 @@ tracks {
 
     // Pre One Tap
     "/single_player/prepaid/break_pre_one_tap"(platform: "/mobile", type: TrackType.View) {}
-    "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // One Tap

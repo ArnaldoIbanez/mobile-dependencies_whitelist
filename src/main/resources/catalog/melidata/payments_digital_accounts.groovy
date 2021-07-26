@@ -13,6 +13,18 @@ tracks {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
+    //inner properties definitions
+    def element_definition = objectSchemaDefinitions {
+        elements(required: false, type: PropertyType.Numeric, description: "items quantity")
+        status(required: false, type: PropertyType.String, description: "component status")
+    }
+
+    def component_definition = objectSchemaDefinitions {
+        component_id(required: true, type: PropertyType.String, description: "parent component id")
+        component_data(required: false, type: PropertyType.Map(element_definition), description: "child component relevant content data")
+        content_id(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "children component ids")
+    }
+
     //Definitions
     propertyDefinitions {
         // Global variables
@@ -34,6 +46,20 @@ tracks {
         period_option(required: false, type: PropertyType.String, description: "In case of default period type, option selected")
         begin_date(required: true, type: PropertyType.String, description: "Start date of the selected period")
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
+
+        // Components
+        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition))
+        my_money_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_cross_selling_carousel(required: false, type: PropertyType.Map(component_definition))
+        my_money_retained(required: false, type: PropertyType.Map(component_definition))
+        my_money_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_to_advance(required: false, type: PropertyType.Map(component_definition))
+        my_money_activities(required: false, type: PropertyType.Map(component_definition))
+        my_money_card_calendar(required: false, type: PropertyType.Map(component_definition))
+        my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition))
+        my_money_balance_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_balance_to_release(required: false, type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -52,13 +78,37 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        componentsViews (
+                my_money_shortcuts,
+                my_money_available,
+                my_money_cross_selling_carousel,
+                my_money_retained,
+                my_money_to_release,
+                my_money_to_advance,
+                my_money_activities,
+                my_money_card_calendar,
+                my_money_calendar_daily,
+                my_money_balance_available,
+                my_money_balance_to_release
+        )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
+    // Components
+    "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/available"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/retained"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/last_activities"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
+
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/to_release"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}

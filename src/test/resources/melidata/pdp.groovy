@@ -615,18 +615,6 @@ trackTests {
 
     test("PDP onboardings") {
 
-        "/pdp/fulfillment_modal/show"(platform: "/", type: TrackType.Event, {
-            catalog_product_id = "MLA1234"
-            item_id = "MLA533657947"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            item_condition = "new"
-            seller_id = 131662738
-            price = 15.3
-            currency_id = "ARS"
-            original_price = 18.0
-        })
-
         "/pdp/fulfillment_fs_modal/show"(platform: "/", type: TrackType.Event, {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"

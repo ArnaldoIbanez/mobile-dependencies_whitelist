@@ -157,11 +157,12 @@ trackTests {
         def congrats_status_not_requested = "physical_not_requested"
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
-        def stop_page_already_active = "user_has_active_account"
         def stop_page_kyc_not_compliant = "kyc_not_compliant"
         def stop_page_physical_card_request = "physical_card_request"
         def stop_page_kyc_api_failed = "kyc_api_failed"
+        def stop_page_already_active = "user_has_active_account"
         def hybrid_dashboard_source = "hybrid-dashboard"
+        def facebook_source = "facebook"
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
@@ -203,6 +204,7 @@ trackTests {
             is_card_active = true
             status = congrats_approved_status
             congrats_status = congrats_status_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -210,6 +212,7 @@ trackTests {
             is_card_active = true
             status = congrats_approved_status
             congrats_status = congrats_status_not_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -217,6 +220,7 @@ trackTests {
             is_card_active = true
             status = congrats_approved_status
             congrats_status = congrats_status_not_requested
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -224,6 +228,7 @@ trackTests {
             is_card_active = true
             status = congrats_pending_status
             congrats_status = congrats_status_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -231,6 +236,7 @@ trackTests {
             is_card_active = true
             status = congrats_pending_status
             congrats_status = congrats_status_not_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -238,6 +244,7 @@ trackTests {
             is_card_active = true
             status = congrats_pending_status
             congrats_status = congrats_status_not_requested
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -245,6 +252,7 @@ trackTests {
             is_card_active = true
             status = congrats_rejected_status
             congrats_status = congrats_status_not_requested
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
@@ -282,10 +290,6 @@ trackTests {
         }
 
         "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
-            reason = stop_page_already_active
-        }
-
-        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
             reason = stop_page_kyc_not_compliant
         }
         "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
@@ -293,6 +297,10 @@ trackTests {
         }
         "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
             reason = stop_page_kyc_api_failed
+        }
+
+        "/credits/credit_card/upgrade/stop_page/redirect_to_dashboard"(platform: "/", type: TrackType.Event) {
+            status = stop_page_already_active
         }
 
         /*********************************************
