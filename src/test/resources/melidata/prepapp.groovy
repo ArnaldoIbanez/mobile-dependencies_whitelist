@@ -17,11 +17,9 @@ trackTests {
         // DATA SET
         //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        def dataSet = {
+        def errorDataSet = {
             seller = [
-                    [
-                            meli_id: 123456
-                    ]
+                    meli_id: 123456
             ]
             context = "auth"
             error = "no_permission"
@@ -42,7 +40,7 @@ trackTests {
         }
 
         "/prepapp/error"(platform:"/", type: TrackType.View) {
-            dataSet()
+            errorDataSet()
         }
     }
 }

@@ -10,7 +10,7 @@ tracks {
 
     propertyDefinitions {
 
-        seller(required: true, type: PropertyType.ArrayList, description: "Object that represent seller id")
+        seller(required: true, type: PropertyType.Map, description: "Object that represent seller id")
         // meli_id
 
         context(required: true, type: PropertyType.String, description: "Action that represent open navigation or logout from any screen")
@@ -33,7 +33,7 @@ tracks {
         // picking
         // stagein
 
-        label(required: true, type: PropertyType.String, description: "Action that represent open navigation or logout from any screen")
+        label(required: true, type: PropertyType.String, description: "Detail for the event action")
         // path
 
         pickup(required: true, type: PropertyType.Map, description: "Object that represent the pack order")
@@ -59,7 +59,7 @@ tracks {
         variation_id(required: true, type: PropertyType.String, description: "Id variation item")
         page(required: true, type: PropertyType.Numeric, description: "Number of the page the user is on")
         page_count(required: true, type: PropertyType.Numeric, description: "Number of the total pages in the backlog")
-        filters(required: true, type: PropertyType.Map, description: "Object that represent the filters implemented in the list")
+        filters(required: true, type: PropertyType.ArrayList, description: "Object that represent the filters implemented in the list")
     }
 
     propertyGroups {
@@ -69,7 +69,6 @@ tracks {
         product_weight_or_unit(item_id, variation_id, scan_mode, measure, items_total)
         product_quantity(item_id, variation_id, measure, items_total)
         product_not_found_or_less_units(item_id, variation_id)
-        picking_parcel_scan(scan_mode, item_id, variation_id)
         oms_list(page, page_count, filters)
     }
 
@@ -168,7 +167,7 @@ tracks {
     }
 
     "/prepapp/picking/parcel/scan"(platform:"/", type: TrackType.View) {
-        picking_parcel_scan
+        scan_mode
     }
 
     "/prepapp/picking/parcel/input"(platform:"/", type: TrackType.View) {
@@ -183,7 +182,7 @@ tracks {
         product_not_found_or_less_units
     }
 
-    "/prepapp/picking/no_pickup"(platform:"/", type: TrackType.View) {
+    "/prepapp/picking/no_pickup"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
