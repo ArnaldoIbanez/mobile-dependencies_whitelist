@@ -73,6 +73,57 @@ metrics {
 			}
 		}
 	}
+	
+	"bids.cbt.paid"(description: "/orders/ordercreated that belong to our CBT vertical and are currently paid", compute_order: true) {
+		startWith {
+			experiment(regex("cbt/.*"))
+		}
+		
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+					equals("event_data.is_cbt", true)
+				)
+			}
+		}
+	}
+	
+	"bids.cpg.paid"(description: "/orders/ordercreated that belong to our CPG vertical and are currently paid", compute_order: true) {
+		startWith {
+			experiment(regex("cpg/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+					equals("event_data.is_cpg", true)
+				)
+			}
+		}
+	}
 
 	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
 		countsOn {
