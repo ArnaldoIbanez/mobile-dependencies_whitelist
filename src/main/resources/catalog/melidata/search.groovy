@@ -187,6 +187,12 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+
+        //Tracks MShops
+        shop_status(required: false, description: "shows if the shop is active or inactive", type: PropertyType.String, values: ["active", "inactive"])
+        shop_id(required: false, description: "content the id of the current shop", type: PropertyType.Numeric)
+        shop_name(required: false, description: "content the name of the current shop", type: PropertyType.String)
+        shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
     }
 
     "/search"(platform: "/web") {
