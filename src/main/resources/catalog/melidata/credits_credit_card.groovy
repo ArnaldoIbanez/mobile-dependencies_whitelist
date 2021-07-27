@@ -100,8 +100,11 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                "closed",
-                "open"
+                    "closed",
+                    "open",
+                    "scheduled",
+                    "overdue",
+                    "paid"
             ]
         )
         payment_option(
@@ -177,7 +180,7 @@ tracks {
         upgrade_info(proposal, is_card_active)
         full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         bucket_group(bucket)
-        statement_status_group(statement_status)
+        statement_status_group(statement_status , account)
         statement_period(month, year)
         disable_group(account, disable_option)
         disable_full_group(account, disable_option, reasons, other_reason)

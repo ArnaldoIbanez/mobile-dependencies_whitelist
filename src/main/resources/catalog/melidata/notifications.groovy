@@ -1638,7 +1638,9 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
-    "/notification_center/insurtech_purchase"(platform: "/", type: TrackType.Event) {
+    "/notification_center/insurtech_purchase"(platform: "/", type: TrackType.Event) {}
+
+    "/notification_center/insurtech_new_claim"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -3439,6 +3441,7 @@ tracks {
     "/notification/insurtech_pending_payment"(platform: "/mobile") {}
     "/notification/insurtech_cancellation"(platform: "/mobile") {}
     "/notification/insurtech_purchase"(platform: "/mobile") {}
+    "/notification/insurtech_new_claim"(platform: "/mobile") {}
     "/notification/insurtech_payment_recovery"(platform: "/mobile") {}
     "/notification/insurtech_money_in"(platform: "/mobile") {}
     "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {}
