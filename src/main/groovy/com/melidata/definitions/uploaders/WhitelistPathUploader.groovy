@@ -1,5 +1,6 @@
 package com.melidata.definitions.uploaders
 
+import com.amazonaws.services.s3.AmazonS3Client
 import com.google.gson.GsonBuilder
 import com.ml.melidata.manager.storage.S3Service
 
@@ -11,7 +12,7 @@ class WhitelistPathUploader {
 
     def WhitelistPathUploader(pathWhitelistDir) {
         this.pathWhitelistDir = pathWhitelistDir
-        this.s3Service = new S3Service("melidata-api-whitelist")
+        this.s3Service = new WhitelistService()
     }
 
     def static void main(String[] args) {
