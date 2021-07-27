@@ -2939,25 +2939,39 @@ trackTests {
 
     // NFC Payment
     test("cards hybrid nfc payment") {
-        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
-            from = "home_mp"
-        }
-        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
-            from = "setup_options"
-        }
-        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
-            from = "closed_app"
-        }
-        "/cards/nfc/payment"(platform:"/", type: TrackType.View) {
-            from = "tap_in_app"
+        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+            is_nfc_activated = true
+            is_token_ready = true
+            tap_type = "first_tap"
+            is_in_foreground = true
+            is_nfc_payments_initialized = true
+            is_default_tap_n_pay = true
+            is_phone_locked = false
+            is_restrictive = false
+            additional_info = ""
+            is_default_card = true
+            tap_status = "success"
+            from = "tap: ScreenLockActivity"
+            is_token_active = true
+            are_payment_keys_available = true
+            is_tap_n_pay_admitted_to_pay = true
         }
         "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
-            result = "error_payment"
-            reasons = "payment is not allowed as SDK initialization is ongoing"
-        }
-        "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
-            result = "error_payment"
-            reasons = "payment is not allowed as SDK is not initialized"
+            is_nfc_activated = true
+            is_token_ready = true
+            tap_type = "second_tap"
+            is_in_foreground = true
+            is_nfc_payments_initialized = true
+            is_default_tap_n_pay = true
+            is_phone_locked = false
+            is_restrictive = false
+            additional_info = "POS_COMM_DISCONNECTED error"
+            is_default_card = true
+            tap_status = "failure"
+            from = "preAuth: HomeActivity"
+            is_token_active = true
+            are_payment_keys_available = true
+            is_tap_n_pay_admitted_to_pay = true
         }
         "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
             action = "faq"
