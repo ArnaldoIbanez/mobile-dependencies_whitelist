@@ -8,5 +8,7 @@ class TestManager {
         CatalogTest.main(args)
         println("Testing metrics....")
         MetricsTest.main(args)
+
+        System.exit(0)
     }
 }
