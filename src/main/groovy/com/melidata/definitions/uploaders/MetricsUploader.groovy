@@ -1,7 +1,6 @@
 package com.melidata.definitions.uploaders
 
 import com.ml.melidata.manager.storage.MetricsService
-import com.ml.melidata.manager.storage.S3Service
 import com.ml.melidata.metrics.MetricsFactory
 import com.ml.melidata.metrics.format.MetricsFormatter
 
