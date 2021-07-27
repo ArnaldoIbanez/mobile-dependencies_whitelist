@@ -29,6 +29,7 @@ class CatalogUploader {
         Integer lastVersion = 0
         try {
             lastVersion = this.s3Service.getLastCatalogVersion()
+            lastVersion++
         } catch(AmazonS3Exception e) {
             println("Catalog doesnt exist, so version will be 0")
         }
