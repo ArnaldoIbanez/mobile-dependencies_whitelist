@@ -319,18 +319,22 @@ trackTests {
         // Statement
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_closed_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event) {
