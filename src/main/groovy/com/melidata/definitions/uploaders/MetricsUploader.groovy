@@ -1,6 +1,6 @@
 package com.melidata.definitions.uploaders
 
-import com.ml.melidata.manager.S3Controller
+import com.ml.melidata.manager.storage.MetricsService
 import com.ml.melidata.metrics.MetricsFactory
 import com.ml.melidata.metrics.format.MetricsFormatter
 
@@ -9,33 +9,21 @@ import com.ml.melidata.metrics.format.MetricsFormatter
  */
 class MetricsUploader {
 
-    def static JSON_CONTENT="application/json"
-    def static LAST_VERSION_FILE_NAME = "metrics.json"
+    MetricsService s3Service
 
-    def metricsDir
-
-    def MetricsUploader(metricsDir) {
-        this.metricsDir = metricsDir
-        S3Controller.initializeAWSService()
+    MetricsUploader() {
+        this.s3Service = new MetricsService()
     }
 
-    def static void main(String[] args) {
-        def metricsDir = "./src/main/resources/metrics/"
-        new MetricsUploader(metricsDir).upload()
+    static void main(String[] args) {
+        new MetricsUploader().upload()
     }
 
     def upload() {
-        println("Starting uploader")
-        println("Reading [${metricsDir}]")
+        println("Compiling local metrics")
+        String json = new MetricsFormatter(MetricsFactory.metrics).output
 
-        def json =  new MetricsFormatter(MetricsFactory.metrics).output
-
-        println("JSON loaded")
-
-        println("Uploading ${LAST_VERSION_FILE_NAME}")
-
-        S3Controller.saveFile("melidata-jobs", LAST_VERSION_FILE_NAME, json, JSON_CONTENT)
-
-        println("Finish")
+        println("Uploading metrics")
+        s3Service.saveMetrics(json)
     }
 }

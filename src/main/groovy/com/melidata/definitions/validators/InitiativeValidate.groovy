@@ -3,7 +3,7 @@ package com.melidata.definitions.validators
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
-import com.ml.melidata.manager.CatalogMetrics
+import com.ml.melidata.manager.CatalogHandlerWithMetrics
 import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
@@ -84,8 +84,9 @@ class InitiativeValidate {
     }
 
     static getLocalMetrics(Catalog catalog) {
-        def catalogMetric = new CatalogMetrics()
-        catalogMetric.refreshCatalogedDefinitions(catalog)
+        def catalogMetric = new CatalogHandlerWithMetrics("melidata")
+        catalogMetric.catalog = catalog
+        catalogMetric.refreshCatalogedDefinitions()
 
         return catalogMetric
     }
