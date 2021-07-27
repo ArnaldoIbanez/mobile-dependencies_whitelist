@@ -2145,4 +2145,29 @@ trackTests {
             item_id = "MLB533657947"
         }
     }
+
+    // MERCH
+    test("Vip Merch ecosystem") {
+        def dataSet = {
+            realestates = {
+                ecosystem = [
+                        {
+                            audience = '1'
+                            bu = '1'
+                            bu_line = '1'
+                            component_id = '2'
+                            content_id = '1'
+                            flow = '2'
+                            logic = '2'
+                            position = 2
+                        }
+                ]
+            }
+        }
+        "/vip"(platform: "/", dataSet)
+    }
+
+    test("VIP Merch show event") {
+        "/vip/merch/show"(platform: "/", type: TrackType.Event, {})
+    }
 }

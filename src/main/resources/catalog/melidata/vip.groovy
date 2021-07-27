@@ -8,6 +8,25 @@ tracks {
 
     initiative = "1171"
 
+    def realestatedata = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: false, description: "audience for the content")
+        bu(type: PropertyType.String, required: false, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: false, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: false,  description: "realestate id")
+        content_id(type: PropertyType.String, required: false, description: "content id")
+        flow(type: PropertyType.String, required: false, description: "flow for the content")
+        logic(type: PropertyType.String, required: false, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        ecosystem(required: false, type: realestatedata)
+    }
+
+     "/vip/merch/show"(platform: "/", type: TrackType.Event) {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
+    }
+
     def qadb_info_definition = objectSchemaDefinitions {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
@@ -97,6 +116,9 @@ tracks {
     //VIP FLOW
 
     "/vip"(platform: "/") {
+        // MERCH
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
+
         // TEMP FIELDS
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Item")
 

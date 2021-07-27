@@ -9,6 +9,25 @@ tracks {
 
     initiative = "1171"
 
+    def realestatedata = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: false, description: "audience for the content")
+        bu(type: PropertyType.String, required: false, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: false, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: false,  description: "realestate id")
+        content_id(type: PropertyType.String, required: false, description: "content id")
+        flow(type: PropertyType.String, required: false, description: "flow for the content")
+        logic(type: PropertyType.String, required: false, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        ecosystem(required: false, type: realestatedata)
+    }
+
+     "/pdp/merch/show"(platform: "/", type: TrackType.Event) {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
+    }
+
     def product_picker_definition = objectSchemaDefinitions {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
@@ -217,6 +236,9 @@ tracks {
 
         // PRICING 2.0
         pricing_info
+
+        // MERCH
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
