@@ -1,5 +1,6 @@
 package com.melidata.definitions.uploaders
 
+import com.amazonaws.services.s3.model.AmazonS3Exception
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import com.ml.melidata.catalog.utils.DslUtils
@@ -21,25 +22,26 @@ class CatalogUploader {
     }
 
     def upload() {
-        println("Compiling local catalog")
         def catalogFile = new File(CATALOG_DIR + "/", S3Service.CATALOG_MAIN_FILE)
         Catalog catalog = DslUtils.parseCatalog(catalogFile)
         catalog.addFile(catalogFile)
 
-        Integer lastVersion = this.s3Service.getLastCatalogVersion()
-        lastVersion++
+        Integer lastVersion = 0
+        try {
+            lastVersion = this.s3Service.getLastCatalogVersion()
+        } catch(AmazonS3Exception e) {
+            println("Catalog doesnt exist, so version will be 0")
+        }
 
-        println("Uploading versionified catalog")
         String versionedFolder = lastVersion.toString() + ".dsl/"
         this.s3Service.saveCatalogVersion(catalog, versionedFolder, lastVersion)
-
-        println("Overwriting last catalog")
         this.s3Service.saveCatalogVersion(catalog, this.s3Service.lastCatalogFolder, lastVersion)
     }
 
     static void main(String[] args) {
 
         args.each { catalogName ->
+            println("Uploading catalog ${catalogName}")
             new CatalogUploader(catalogName).upload()
         }
     }
