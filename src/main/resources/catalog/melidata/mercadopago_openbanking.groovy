@@ -8,9 +8,7 @@ tracks {
 
     initiative='1266'
 
-    // open_banking/opt-in  
     "/open_banking"(platform:"/", isAbstract: true) {}
-
     "/open_banking/opt-in"(platform:"/", type:TrackType.View) {}
     "/open_banking/opt-in/set_consent_date_limit"(platform:"/", type:TrackType.Event) {
         dateLimit(type: PropertyType.String, required: true, description: "value for consent date limit")
@@ -27,10 +25,9 @@ tracks {
         page(type: PropertyType.String, required: true, description: "value for page number")
     }
     "/open_banking/opt-in/open_search_bottom_sheet"(platform:"/", type:TrackType.Event) {}
-    "/open-banking/opt-in/click_see_all"(platform:"/", type:TrackType.Event) {
+    "/open_banking/opt-in/click_see_all"(platform:"/", type:TrackType.Event) {
         cardLabel(type: PropertyType.String, required: true, description: "card main label on accordion components")
     }
-
     "/open_banking/consent-management"(platform:"/", type:TrackType.View) {}
     "/open_banking/consent-management/set_tab_sent"(platform:"/", type:TrackType.Event) {}
     "/open_banking/consent-management/set_tab_received"(platform:"/", type:TrackType.Event) {}
@@ -39,19 +36,15 @@ tracks {
     "/open_banking/consent-management/revoke_consent"(platform:"/", type:TrackType.Event) {}
     "/open_banking/consent-management/renew_consent"(platform:"/", type:TrackType.Event) {}
     "/open_banking/consent-management/create_new_consent"(platform:"/", type:TrackType.Event) {}
-    "/open-banking/consent-management/click_consent"(platform:"/", type:TrackType.Event) {}
-
+    "/open_banking/consent-management/click_consent"(platform:"/", type:TrackType.Event) {}
     "/open_banking/error"(platform:"/", type:TrackType.View) {}
     "/open_banking/error/navigate_to_my_home"(platform:"/", type:TrackType.Event) {}
     "/open_banking/error/navigate_to_my_money"(platform:"/", type:TrackType.Event) {}
-
     "/open_banking/feedback"(platform:"/", type:TrackType.View) {}
     "/open_banking/feedback/navigate_to_my_home"(platform:"/", type:TrackType.Event) {}
     "/open_banking/feedback/navigate_to_my_money"(platform:"/", type:TrackType.Event) {}
-
     "/open_banking/landing-page"(platform:"/", type:TrackType.View) {}
     "/open_banking/landing-page/click_primary_button"(platform:"/", type:TrackType.Event) {}
     "/open_banking/landing-page/click_secondary_button"(platform:"/", type:TrackType.Event) {}
-    "/open-banking/landing-page/loaded_from"(platform:"/", type:TrackType.Event) {}
-    
+    "/open_banking/landing-page/loaded_from"(platform:"/", type:TrackType.Event) {}
     }
