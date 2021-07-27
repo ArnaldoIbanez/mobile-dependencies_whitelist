@@ -245,9 +245,20 @@ trackTests {
             overdue_days: 0,
         ],
         statement_status: "open",
-        pending_payments: false
+        pending_payments: false,
+        load_mode: "sync"
     ]
-    
+
+    def credit_card_data_skeleton = [
+        load_mode: "async"
+    ]
+
+    def credit_card_data_error = [
+            error: [
+                type: "failed_dependency",
+                cause: "payment"
+            ]
+    ]
 
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
@@ -273,6 +284,24 @@ trackTests {
             message_status = "warning"
             activities_status = "activities_with_error"
             credits = credit_card_data
+        }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credits = credit_card_data_skeleton
+        }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credits = credit_card_data_error
         }
         "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
