@@ -1,6 +1,7 @@
 package catalog.melidata
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
 
 tracks {
@@ -8,8 +9,7 @@ tracks {
     initiative = '1100'
     
     "/auth/card"(platform: "/", isAbstract: true) {}
-    "/auth/card/validation/"(platform: "/", type: TrackType.View) {}
-    "/auth/card/validation/"(platform: "/", type: TrackType.Event) {
+    "/auth/card/validation"(platform: "/", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "The name of the challenge")
         status(type: PropertyType.String, required: false, description: "The status of the challenge")
         site(type: PropertyType.String, required: false, description: "The site of the user")

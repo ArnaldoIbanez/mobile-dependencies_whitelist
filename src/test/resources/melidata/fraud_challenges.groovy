@@ -9,8 +9,7 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Test auth card validation ml") {
-        "/auth/card/validation/"(platform: "/", type:TrackType.View) {}
-        "/auth/card/validation/"(platform: "/", type:TrackType.Event) {
+        "/auth/card/validation"(platform: "/") {
             challenge = "test"
             status = "started"
             site = "mlb"
@@ -23,8 +22,7 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Test auth card validation mp") {
-        "/auth/card/validation/"(platform: "/", type:TrackType.View) {}
-        "/auth/card/validation/"(platform: "/", type:TrackType.Event) {
+        "/auth/card/validation"(platform: "/") {
             challenge = "test"
             status = "started"
             site = "mlb"
