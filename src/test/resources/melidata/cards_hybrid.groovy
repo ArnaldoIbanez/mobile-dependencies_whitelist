@@ -427,6 +427,15 @@ trackTests {
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "without_cards_and_card_request"
         }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_physical_delivered"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "nfc_virtual_only"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_pending_default"
+        }
     }
     
     //Flap card: Tracking

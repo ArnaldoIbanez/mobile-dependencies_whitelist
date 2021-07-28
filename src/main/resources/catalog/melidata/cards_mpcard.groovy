@@ -827,6 +827,15 @@ tracks {
             description: "Unlock Physical Button Tapped"
           )
     }
+    "/cards/mpcard/physical/unlock/status"(platform:"/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["success", "error"],
+            description: "Unlock Physical transaction status"
+          )
+    }
+
     
     // CHANGE-PIN
     // --------
@@ -908,7 +917,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["understand", "atm_away"],
+            values: ["understands", "atm_away"],
             description: "Button tapped",
         )
     }
