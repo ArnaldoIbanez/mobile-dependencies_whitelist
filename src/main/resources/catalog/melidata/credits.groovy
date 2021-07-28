@@ -174,7 +174,8 @@ tracks {
                 'merchant_administrator',
                 'consumer_open_sea',
                 'consumer_personal_loan',
-                'consumer_administrator'
+                'consumer_administrator',
+                'credit_card_open_sea'
             ]
         )
         step(

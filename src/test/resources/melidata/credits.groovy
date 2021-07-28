@@ -254,6 +254,10 @@ trackTests {
             initiative = 'merchant_enrollment'
             step = 'whatsapp'
         }
+        "/credits/preferences"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            initiative = 'credit_card_open_sea'
+            step = 'whatsapp'
+        }
         "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {
             initiative = 'merchant_enrollment'
         }
