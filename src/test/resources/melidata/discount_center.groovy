@@ -914,4 +914,54 @@ trackTests {
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
+
+    // ADDRESSES
+
+     test("Mercado Pago discount center payers request location") {
+        "/discount_center/payers/addresses/bar/tap" (platform: "/mobile", type: TrackType.Event) {
+            label = "Ubicación actual - CP: 1264 Parque Patricios"
+            action = "mercadopago://discount_center_payers/addresses_hub"
+        }
+
+        "/discount_center/payers/addresses/bar/tooltip/tap" (platform: "/mobile", type: TrackType.Event) {
+            action = "mercadopago://discount_center_payers/addresses_hub"
+        }
+
+        "/discount_center/payers/addresses/bar/tooltip/close" (platform: "/mobile", type: TrackType.Event) {}
+
+        // FTU
+
+        "/discount_center/payers/addresses/ftu" (platform: "/mobile", type: TrackType.View) {}
+
+        "/discount_center/payers/addresses/ftu/allow/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/discount_center/payers/addresses/ftu/secondary_button/tap" (platform: "/mobile", type: TrackType.Event) {
+            label = "Usar una de mis direcciones"
+            action = "mercadopago://discount_center_payers/addresses_hub"
+        }
+
+        "/discount_center/payers/addresses/ftu/back" (platform: "/mobile", type: TrackType.Event) {}
+
+        // Hub
+
+        "/discount_center/payers/addresses/hub" (platform: "/mobile", type: TrackType.View) {}
+
+        "/discount_center/payers/addresses/hub/back" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/discount_center/payers/addresses/hub/address/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = 6749403449
+        }
+
+        "/discount_center/payers/addresses/hub/current_location/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/discount_center/payers/addresses/hub/add_address/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        // Location Permissions
+
+        "/discount_center/payers/addresses/request_location" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/discount_center/payers/addresses/request_location/result" (platform: "/mobile", type: TrackType.Event) {
+            result = "enabled"
+        }
+    }
 }
