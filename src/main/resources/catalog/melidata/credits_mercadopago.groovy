@@ -1690,6 +1690,8 @@ tracks {
     //Events
     "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/", type: TrackType.Event) {}
 
+    "/credits/consumer/administrator/detail/see_tac"(platform: "/", type: TrackType.Event) {}
+
     "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
         installment_status(
                 type: PropertyType.String,
