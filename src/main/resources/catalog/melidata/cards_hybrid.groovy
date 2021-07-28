@@ -2565,7 +2565,7 @@ tracks {
             description: "Indicates if the tap action is success or failure"
         )
         additional_info (
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Adds more info for specials cases, like errors or fails"
         )

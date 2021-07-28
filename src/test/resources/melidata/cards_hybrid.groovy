@@ -2948,7 +2948,6 @@ trackTests {
             is_default_tap_n_pay = true
             is_phone_locked = false
             is_restrictive = false
-            additional_info = ""
             is_default_card = true
             tap_status = "success"
             from = "tap: ScreenLockActivity"
