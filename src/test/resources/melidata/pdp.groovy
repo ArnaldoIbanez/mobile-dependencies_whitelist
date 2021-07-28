@@ -804,8 +804,4 @@ trackTests {
         }
         "/vip"(platform: "/", dataSet)
     }
-
-    test("PDP Merch show event") {
-        "/pdp/merch/show"(platform: "/", type: TrackType.Event, {})
-    }
 }

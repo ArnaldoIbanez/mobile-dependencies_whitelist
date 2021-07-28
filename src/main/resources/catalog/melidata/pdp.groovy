@@ -24,10 +24,6 @@ tracks {
         ecosystem(required: false, type: realestatedata)
     }
 
-     "/pdp/merch/show"(platform: "/", type: TrackType.Event) {
-        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
-    }
-
     def product_picker_definition = objectSchemaDefinitions {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")

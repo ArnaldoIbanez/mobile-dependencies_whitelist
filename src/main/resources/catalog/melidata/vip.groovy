@@ -23,10 +23,6 @@ tracks {
         ecosystem(required: false, type: realestatedata)
     }
 
-     "/vip/merch/show"(platform: "/", type: TrackType.Event) {
-        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
-    }
-
     def qadb_info_definition = objectSchemaDefinitions {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
