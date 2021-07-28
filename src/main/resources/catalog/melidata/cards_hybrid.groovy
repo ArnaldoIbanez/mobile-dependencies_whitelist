@@ -2519,6 +2519,12 @@ tracks {
         )
     }
     "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "Main Button Tapped")
+    }
     "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
     "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -2548,7 +2554,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values: ["success", "unknown"],
+            values: ["success", "unknown", "generic"],
             description: "Type of congrats",
             inheritable: false
         )
