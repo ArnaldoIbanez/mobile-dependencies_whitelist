@@ -9,6 +9,7 @@ tracks {
     initiative = '1100'
     
     "/auth/card"(platform: "/", isAbstract: true) {}
+    "/auth/card/validation/landing"(platform: "/", type: TrackType.View) {}
     "/auth/card/validation"(platform: "/", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "The name of the challenge")
         status(type: PropertyType.String, required: true, description: "The status of the challenge")
