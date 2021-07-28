@@ -25,6 +25,7 @@ trackTests {
             flavor = "sube_nfc"
             last_recharge = "1459"
             parent_key = "cellphone_mlm_telcel__100_mb"
+            origin_source = "instore"
         }
 
         def view_time = {
@@ -1655,6 +1656,7 @@ trackTests {
             provider_id = "toll_mla_v2"
             flavor = "toll"
             last_recharge = "1459"
+            origin_source = "instore"
         }
 
         def view_time = {
@@ -1857,6 +1859,7 @@ trackTests {
         "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
+            origin_source = "instore"
         }
 
         "/single_player/paygo/add_device_number/confirm"(platform: "/mobile", type: TrackType.Event) {

@@ -15,6 +15,7 @@ tracks {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
         available_items(required: false, type: PropertyType.ArrayList, description: "Available items to select")
         parent_key(required: false, PropertyType.String, description: "Information about the product/category the user is looking at")
+        origin_source(required: false, PropertyType.String, description: "Source of flow")
         //item_id
         //type
         //content
@@ -38,7 +39,7 @@ tracks {
 
     propertyGroups {
         mandatory(flow, session_id)
-        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key)
+        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key, origin_source)
         item_structure(item_id, type, content)
         view_time(view_time)
         available_items(available_items)
