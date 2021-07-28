@@ -21,6 +21,8 @@ tracks {
     "/credits/consumer/opensea/pre_approved_flow"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/remedy"(platform: "/", isAbstract: true) {}
 
+    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
+
     /******************************************
     *       Start: Flujo Upsell Consumer
     ******************************************/
