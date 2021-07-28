@@ -11,7 +11,7 @@ tracks {
     "/open_banking"(platform:"/", isAbstract: true) {}
     "/open_banking/opt-in"(platform:"/", type:TrackType.View) {}
     "/open_banking/opt-in/set_consent_date_limit"(platform:"/", type:TrackType.Event) {
-        dateLimit(type: PropertyType.String, required: true, description: "value for consent date limit")
+        date_limit(type: PropertyType.String, required: true, description: "value for consent date limit")
     }
     "/open_banking/opt-in/edit_selected_bank"(platform:"/", type:TrackType.Event) {}
     "/open_banking/opt-in/edit_consent_date"(platform:"/", type:TrackType.Event) {}
@@ -26,7 +26,7 @@ tracks {
     }
     "/open_banking/opt-in/open_search_bottom_sheet"(platform:"/", type:TrackType.Event) {}
     "/open_banking/opt-in/click_see_all"(platform:"/", type:TrackType.Event) {
-        cardLabel(type: PropertyType.String, required: true, description: "card main label on accordion components")
+        card_label(type: PropertyType.String, required: true, description: "card main label on accordion components")
     }
     "/open_banking/consent-management"(platform:"/", type:TrackType.View) {}
     "/open_banking/consent-management/set_tab_sent"(platform:"/", type:TrackType.Event) {}
