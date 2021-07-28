@@ -9,7 +9,6 @@ tracks {
     initiative = '1100'
     
     "/auth/card"(platform: "/", isAbstract: true) {}
-    "/auth/card/validation/landing"(platform: "/", type: TrackType.View) {}
     "/auth/card/validation"(platform: "/", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "The name of the challenge")
         status(type: PropertyType.String, required: true, description: "The status of the challenge")
@@ -18,4 +17,5 @@ tracks {
         bank(type: PropertyType.String, required: false, description: "The bank of the card")
         payment_method_id(type: PropertyType.String, required: false, description: "The payment method. i.e visa, master, etc")
     }
+    "/auth/card/landing"(platform: "/", type: TrackType.View) {}
 }
