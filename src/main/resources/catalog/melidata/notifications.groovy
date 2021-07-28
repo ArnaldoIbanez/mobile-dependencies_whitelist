@@ -3092,7 +3092,6 @@ tracks {
     "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
     "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_first_day"(platform: "/") {}
-    "/notification/card_request_challenge_pending"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
     "/notification/card_first_use_incentive_fourteenth_day"(platform: "/") {}
     "/notification/card_first_use_incentive_seventh_day"(platform: "/") {}
