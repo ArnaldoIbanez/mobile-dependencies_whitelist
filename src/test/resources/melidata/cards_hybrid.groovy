@@ -118,6 +118,26 @@ trackTests {
         "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
             action = "reissue"
         }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-2-mãe"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-23-cunhado"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-24-genro"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-50-deixado_na_varanda"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-51-caixa_de_correspondencia"
+        }
     }
 
     //Shipping: Delayed
