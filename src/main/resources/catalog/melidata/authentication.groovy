@@ -625,12 +625,12 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
-    "/screenlock/opening_lock/error_presenting"(platform: "/mobile", type: TrackType.Event) {
+    "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
         vc_exists(type: PropertyType.Boolean, required: true, description: "Whether a vc existed when blocker was being presented or not")
         modal_presented(type: PropertyType.Boolean, required: true, description: "Whether a modal was currently presented on top vc or not")
     }
 
-    "/screenlock/opening_lock/error_routing"(platform: "/mobile", type: TrackType.Event) { }
+    "/screenlock/opening_lock/error_routing"(platform: "/mobile/ios", type: TrackType.Event) { }
 
     "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
