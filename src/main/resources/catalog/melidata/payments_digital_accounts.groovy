@@ -78,6 +78,9 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        cercEventClick (
+                action_type
+        )
         componentsViews (
                 my_money_shortcuts,
                 my_money_available,
@@ -192,4 +195,18 @@ tracks {
 
     // Vouchers - Help
     "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
+
+    // Regulations Cerc Views
+    "/regulations/cerc/"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+
+    // Regulations Cerc Events
+    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
 }
