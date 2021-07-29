@@ -35,8 +35,11 @@ class CatalogUploader {
         }
 
         String versionedFolder = lastVersion.toString() + ".dsl/"
+        String lastVersionFile = "last" + s3Service.catalogName.capitalize() + "Version"
         this.s3Service.saveCatalogVersion(catalog, versionedFolder, lastVersion)
         this.s3Service.saveCatalogVersion(catalog, this.s3Service.lastCatalogFolder, lastVersion)
+        //TODO Deprecated. Delete when catalog-api and consumers have 3.2.+ of commons
+        this.s3Service.saveFile(lastVersionFile, lastVersion.toString())
     }
 
     static void main(String[] args) {

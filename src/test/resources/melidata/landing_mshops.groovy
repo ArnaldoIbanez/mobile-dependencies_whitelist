@@ -28,7 +28,9 @@ trackTests {
       test("Mercado Shops Landing activate_store"){
         "/home/landing/activate_store"(platform: "/", type: TrackType.Event){
             location = "test"
-            activation_status = "already_active"
+        }
+        "/home/landing/already_active"(platform: "/", type: TrackType.Event){
+            location = "test"
         }
     }
 }
