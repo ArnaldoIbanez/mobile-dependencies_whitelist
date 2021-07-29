@@ -958,10 +958,13 @@ trackTests {
 
         // Location Permissions
 
-        "/discount_center/payers/addresses/request_location" (platform: "/mobile", type: TrackType.Event) {}
+        "/discount_center/payers/addresses/request_location" (platform: "/mobile", type: TrackType.Event) {
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
 
         "/discount_center/payers/addresses/request_location/result" (platform: "/mobile", type: TrackType.Event) {
             result = "enabled"
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 }

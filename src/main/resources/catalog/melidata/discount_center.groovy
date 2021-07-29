@@ -298,6 +298,10 @@ tracks {
 
     // ADDRESSES
 
+    "/discount_center/payers/addresses" (platform: "/mobile", type: TrackType.Event, isAbstract: true) {
+        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
+
     "/discount_center/payers/addresses/bar/tap" (platform: "/mobile", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "The label of the address bar")
         action(required: true, type: PropertyType.String, description: "The deeplink to open")
