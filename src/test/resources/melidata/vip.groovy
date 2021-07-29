@@ -2160,6 +2160,7 @@ trackTests {
             item_status = "active"
             deal_ids = []
             seller_id = 131662738
+            catalog_listing = false
 
             price = 15.3
             currency_id = "ARS"
