@@ -403,7 +403,10 @@
                         }
 
                         //Vouchers
-                        "/pos_seller/vouchers/sodexo"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/vouchers"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/vouchers/detail"(platform: "/web", type: TrackType.View) {
+                            name= "sodexo"
+                        }
                         "/pos_seller/vouchers/access-denied"(platform: "/web", type: TrackType.View) {}
                         "/pos_seller/vouchers/error"(platform: "/web", type: TrackType.View) {}
                          
