@@ -20,7 +20,7 @@ tracks {
     }
 
     def realestate = objectSchemaDefinitions {
-        ecosystem(required: false, type: realestatedata)
+        ecosystem(required: false, type: PropertyType.Map(realestatedata))
     }
 
     def qadb_info_definition = objectSchemaDefinitions {

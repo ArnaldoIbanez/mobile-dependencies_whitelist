@@ -21,7 +21,7 @@ tracks {
     }
 
     def realestate = objectSchemaDefinitions {
-        ecosystem(required: false, type: realestatedata)
+        ecosystem(required: false, type: PropertyType.Map(realestatedata))
     }
 
     def product_picker_definition = objectSchemaDefinitions {
