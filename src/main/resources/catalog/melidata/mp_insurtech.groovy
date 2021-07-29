@@ -615,6 +615,14 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
     }
 
+    "/insurtech/protections/detail/onboarding_kyc/roda"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        insurance_purchase_key(required: true, type: PropertyType.String, description: 'Insurance purchase key associated to the protection.')
+        protection_status(required: true, type: PropertyType.String, values: ['pending_shipping_customer_data', 'pending_activation_customer_data', 'confirmed', 'executing'], description: 'Protection status to see onboardingKYC page correctly.' )
+    }
+
+    "/insurtech/protections/detail/onboarding_kyc/roda/go_to_kyc"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+    }
+
     //GAREX
     "/insurtech/protections/detail/garex"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
 

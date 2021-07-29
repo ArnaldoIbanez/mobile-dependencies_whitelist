@@ -2099,6 +2099,29 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/onboarding_kyc/roda"(platform:"/", type: TrackType.View) {
+            insurance_purchase_key = 'roda-12345'
+            protection_status = 'pending_shipping_customer_data'
+        }
+
+        "/insurtech/protections/detail/onboarding_kyc/roda"(platform:"/", type: TrackType.View) {
+            insurance_purchase_key = 'roda-12345'
+            protection_status = 'pending_activation_customer_data'
+        }
+
+        "/insurtech/protections/detail/onboarding_kyc/roda"(platform:"/", type: TrackType.View) {
+            insurance_purchase_key = 'roda-12345'
+            protection_status = 'confirmed'
+        }
+
+        "/insurtech/protections/detail/onboarding_kyc/roda"(platform:"/", type: TrackType.View) {
+            insurance_purchase_key = 'roda-12345'
+            protection_status = 'executing'
+        }
+
+        "/insurtech/protections/detail/onboarding_kyc/roda/go_to_kyc"(platform:"/", type: TrackType.Event) {
+        }
+
         "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
