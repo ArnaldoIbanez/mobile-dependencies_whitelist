@@ -13,7 +13,6 @@ tracks {
 
     initiative = "1171"
 
-
     "/bookmarks"(platform: "/", type: TrackType.Event, isAbstract: true) {
         item_id( required: false ,description: "Item id")
         context( required:false ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp"])
@@ -22,15 +21,21 @@ tracks {
     "/bookmarks/action"(platform: "/", isAbstract: true) {
         item_id( description: "item id in which we are performing the action")
         action_location(required:false ,type: PropertyType.String, description:"Where the action can be performed. Ej: navbar,maininfo ")
-        context( required:true ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp", "/history"])
+        context( required:true ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp", "/history", "/widget"])
         catalog_product_id(required: false, description: "Id of the product", PropertyType.String)
-        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")       
+    }
+
+    "/bookmarks/change_page"(platform: "/", type: TrackType.Event) {
+        page(required:false ,type: PropertyType.Numeric, description:"The page where is change inside myml bookmarks page")
+        context(required:false ,description: "The page or section where the bookmark change page action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp", "/history", "/widget"])
     }
 
     "/bookmarks/action/post"(platform: "/", type: TrackType.Event) {
     }
 
     "/bookmarks/action/delete"(platform: "/", type: TrackType.Event) {
+         delete_from(required: false, type: PropertyType.String, values: ["item", "checkbox"], description: "From where is deleted from myml bookmarks page")
     }
 
     // TODO Borrar => Lo estamos standarizando hacía la definición de add_to_cart.groovy
