@@ -18,10 +18,17 @@ trackTests {
 
     test("Track Components views") {
         "/banking/balance"(platform: "/", type: TrackType.View) {
-            my_money_balance_available = [
-                component_id: 'balance_available',
+            my_money_available = [
+                component_id: 'available',
                 content_id: ['available']
             ]
+        }
+
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            my_money_to_release = [
+                 component_id: 'to_release',
+                 content_id: ['to_release']
+             ]
         }
 
         "/banking/balance/available"(platform: "/", type: TrackType.View) {
