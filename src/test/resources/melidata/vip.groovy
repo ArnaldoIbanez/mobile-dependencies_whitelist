@@ -84,6 +84,19 @@ trackTests {
             ]
         }
 
+        def realestates = {
+            ecosystem = {
+                audience = '1'
+                bu = '1'
+                bu_line = '1'
+                component_id = '2'
+                content_id = '1'
+                flow = '2'
+                logic = '2'
+                position = 2
+            }
+        }
+
         "/vip"(platform:"/mobile", {
             mandatory()
             catalog_listing = false
@@ -95,12 +108,14 @@ trackTests {
             mandatory()
             catalog_listing = false
             items_attributes()
+            realestates()
         })
 
         "/vip"(platform: "/web/desktop", {
             mandatory()
             catalog_listing = false
             items_attributes()
+            realestates()
         })
 
         "/vip"(platform:"/mobile", {
@@ -2144,24 +2159,5 @@ trackTests {
         "/vip/back_to_top"(platform: "/", type: TrackType.View) {
             item_id = "MLB533657947"
         }
-    }
-
-    // MERCH
-    test("Vip Merch ecosystem") {
-        def dataSet = {
-            realestates = {
-                ecosystem = {
-                    audience = '1'
-                    bu = '1'
-                    bu_line = '1'
-                    component_id = '2'
-                    content_id = '1'
-                    flow = '2'
-                    logic = '2'
-                    position = 2
-                }
-            }
-        }
-        "/vip"(platform: "/", dataSet)
     }
 }

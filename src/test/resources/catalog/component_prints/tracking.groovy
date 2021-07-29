@@ -45,6 +45,7 @@ trackTests {
                 position = 2
             }
         }
+
         "/vip/merch/show"(platform: "/", component)
     }
 
@@ -62,6 +63,7 @@ trackTests {
                 position = 2
             }
         }
+
         "/pdp/merch/show"(platform: "/", component)
     }
 }

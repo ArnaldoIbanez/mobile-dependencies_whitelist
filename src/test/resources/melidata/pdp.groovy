@@ -235,7 +235,7 @@ trackTests {
             discount_reasons = ["deal"]
         }
 
-        def realestates = [
+        def realestates = {
             ecosystem = {
                 audience = '1'
                 bu = '1'
@@ -246,7 +246,7 @@ trackTests {
                 logic = '2'
                 position = 2
             }
-        ]
+        }
 
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
@@ -796,5 +796,26 @@ trackTests {
         "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
         }
+    }
+
+    // MERCH
+    test("PDP Merch ecosystem") {
+        def dataSet = {
+            item_id = "MLB533657947"
+            realestates = {
+                ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/vip"(platform: "/", dataSet)
     }
 }
