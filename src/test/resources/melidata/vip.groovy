@@ -2151,6 +2151,20 @@ trackTests {
 
         def dataSet = {
             item_id = "MLB533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
             realestates = {
                 ecosystem = {
                     audience = '1'
