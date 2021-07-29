@@ -4854,7 +4854,7 @@ trackTests {
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
                     "opening_custom": "0"
-            ],
+            ]
             vc_exists = true
             modal_presented = false
         }
