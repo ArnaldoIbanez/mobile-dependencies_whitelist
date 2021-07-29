@@ -361,6 +361,25 @@ tracks {
         )
     }
 
+    def error_data = objectSchemaDefinitions {
+        type(
+            description: "Error type",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                "timeout",
+                "failed_dependency",
+                "internal_error"
+            ]
+        )
+        cause(
+            description: "Error cause",
+            type: PropertyType.String,
+            required: false
+        )
+
+    }
+
     def credits_data = objectSchemaDefinitions {
          account(
                 type: PropertyType.Map(account_data),
@@ -379,6 +398,20 @@ tracks {
                 description: "The pending payments",
                 type: PropertyType.Boolean,
                 required: false
+        )
+        error(
+            description: "Error Cause and Type on TC Dashboard",
+            type: PropertyType.Map(error_data),
+            required: false
+        )
+        load_mode(
+            description: "TC Dashboard can be loaded sync or async",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                "sync",
+                "async"
+            ]
         )
     }
 
