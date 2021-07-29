@@ -100,7 +100,7 @@ trackTests {
         }
 
         "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
-            my_money_activities = [
+            my_money_last_activities = [
                 component_id: 'last_activities',
                 component_data: [
                     elements: 5
@@ -109,7 +109,7 @@ trackTests {
         }
 
         "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
-            my_money_activities = [
+            my_money_last_activities = [
                 component_id: 'last_activities',
                 component_data: [
                     elements: 5,
