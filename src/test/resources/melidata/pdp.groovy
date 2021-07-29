@@ -788,33 +788,25 @@ trackTests {
     test("PDP Merch ecosystem") {
 
         def dataSet = {
-            item_id              : "MLA787787584",
-            price                : 8400,
-            original_price       : 10000,
-            currency_id          : "ARS",
-            installment_info     : "6f",
-            item_condition       : "new",
-            sold_quantity        : 5,
-            shipping_conditions  : "discount_gap",
-            bo_pick_up_conditions: "no_discount",
-            pushing_puis         : false,
-            showing_puis         : false,
-            official_store_id    : 231,
-            seller_id            : 1234,
-            seller_name          : "fulano",
-            available_quantity   : 31,
-            cart_content         : true,
-            logistic_type        : "cross_docking",
-            has_full_filment     : false,
-            available_promotions : [
-                [
-                    campaign_id     : "1761",
-                    type            : "DISCOUNT",
-                    original_value  : 953,
-                    value           : 643.5
-                ]
-            ],
-            discount_reasons : ["deal"]
+            item_id              = "MLA787787584"
+            price                = 8400
+            original_price       = 10000
+            currency_id          = "ARS"
+            installment_info     = "6f"
+            item_condition       = "new"
+            sold_quantity        = 5
+            shipping_conditions  = "discount_gap"
+            bo_pick_up_conditions = "no_discount"
+            pushing_puis         = false
+            showing_puis         = false
+            official_store_id    = 231
+            seller_id            = 1234
+            seller_name          = "fulano"
+            available_quantity   = 31
+            cart_content         = true
+            logistic_type        = "cross_docking"
+            has_full_filment     = false
+            discount_reasons = ["deal"]
             realestates = {
                 ecosystem = {
                     audience = '1'
