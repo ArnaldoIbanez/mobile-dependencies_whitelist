@@ -30,6 +30,12 @@ trackTests {
             ]
         }
 
+        "/banking/balance/card_available"(platform: "/", type: TrackType.View) {
+            my_money_card_available = [
+                component_id: 'card_available',
+            ]
+        }
+
         "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) {
             my_money_shortcuts = [
                 component_id: 'shortcuts',
@@ -54,6 +60,13 @@ trackTests {
         "/banking/balance/to_release"(platform: "/", type: TrackType.View) {
             my_money_to_release = [
                 component_id: 'to_release',
+                content_id: []
+            ]
+        }
+
+        "/banking/balance/card_to_release"(platform: "/", type: TrackType.View) {
+            my_money_card_to_release = [
+                component_id: 'card_to_release',
                 content_id: []
             ]
         }
