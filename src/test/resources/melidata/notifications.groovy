@@ -12943,6 +12943,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {
+            news_id = "cards_whatsapp_enrollment_confirmation-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -13365,6 +13371,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {
+            news_id = "cards_whatsapp_enrollment_confirmation-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
