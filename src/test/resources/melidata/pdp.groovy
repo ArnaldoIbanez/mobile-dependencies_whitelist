@@ -794,7 +794,6 @@ trackTests {
             currency_id          = "ARS"
             installment_info     = "6f"
             item_condition       = "new"
-            sold_quantity        = 5
             shipping_conditions  = "discount_gap"
             bo_pick_up_conditions = "no_discount"
             pushing_puis         = false
@@ -805,8 +804,10 @@ trackTests {
             available_quantity   = 31
             cart_content         = true
             logistic_type        = "cross_docking"
-            has_full_filment     = false
             discount_reasons = ["deal"]
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            vertical = "core"
             realestates = {
                 ecosystem = {
                     audience = '1'
