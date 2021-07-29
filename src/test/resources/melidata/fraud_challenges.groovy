@@ -9,11 +9,11 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Test auth card validation ml") {
+
         "/auth/card/landing"(platform: "/") {}
-        "/auth/card/validation"(platform: "/") {
-            challenge = "test"
+
+        "/auth/card/validation/random-charge"(platform: "/") {
             status = "started"
-            site = "mlb"
             marketplace = "on"
             bank = "nubank"
             payment_method_id = "visa"
@@ -23,11 +23,11 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Test auth card validation mp") {
+
         "/auth/card/landing"(platform: "/") {}
-        "/auth/card/validation"(platform: "/") {
-            challenge = "test"
+
+        "/auth/card/validation/random-charge"(platform: "/") {
             status = "started"
-            site = "mlb"
             marketplace = "on"
             bank = "nubank"
             payment_method_id = "visa"
