@@ -381,7 +381,7 @@ tracks {
     }
 
     "/discount_sellers/v2/form/invalid_field" (platform: "/", type: TrackType.Event) {
-        input (type: PropertyType.String, values:['discount', 'discount_cap','limit', 'name'], description: "input name")
-        value (type: PropertyType.String, description: "input value")
+        input (type: PropertyType.String, required: true, values:['discount', 'discount_cap','limit', 'name'], description: "input name")
+        value (type: PropertyType.String, required: true, description: "input value")
     }
 }
