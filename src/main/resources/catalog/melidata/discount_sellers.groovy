@@ -363,4 +363,25 @@ tracks {
          action (type: PropertyType.String, description: "button taped in melicampaign landing")
     }
 
+    "/discount_sellers/v2/landings/unauthorized" (platform: "/", type: TrackType.Event) {}
+
+    "/discount_sellers/v2/form" (platform: "/", type: TrackType.View) {}
+
+    "/discount_sellers/v2/form/how_to" (platform: "/", type: TrackType.Event) {}
+
+    "/discount_sellers/v2/form/how_to/agree" (platform: "/", type: TrackType.Event) {}
+    
+    "/discount_sellers/v2/form/tyc" (platform: "/", type: TrackType.Event) {}
+    
+    "/discount_sellers/v2/form/create_campaign" (platform: "/", type: TrackType.Event) {}
+    
+    "/discount_sellers/v2/form/congrats" (platform: "/", type: TrackType.Event) {
+        result (type: PropertyType.String, values:['success', 'pending','fail'], description: "result of creating a campaign")
+        campaign_id (type: PropertyType.String, required: false, description: "result of creating a campaign")
+    }
+
+    "/discount_sellers/v2/form/invalid_field" (platform: "/", type: TrackType.Event) {
+        input (type: PropertyType.String, values:['discount', 'discount_cap','limit', 'name'], description: "input name")
+        value (type: PropertyType.String, description: "input value")
+    }
 }
