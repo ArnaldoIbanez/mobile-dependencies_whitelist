@@ -17,6 +17,7 @@ tracks {
     def element_definition = objectSchemaDefinitions {
         elements(required: false, type: PropertyType.Numeric, description: "items quantity")
         status(required: false, type: PropertyType.String, description: "component status")
+        empty(required: false, type: PropertyType.Boolean, description: "quantity status")
     }
 
     def component_definition = objectSchemaDefinitions {
