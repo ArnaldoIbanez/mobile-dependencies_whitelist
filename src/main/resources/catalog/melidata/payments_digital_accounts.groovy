@@ -60,6 +60,7 @@ tracks {
         my_money_last_activities(required: false, type: PropertyType.Map(component_definition))
         my_money_card_calendar(required: false, type: PropertyType.Map(component_definition))
         my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition))
+        my_money_cerc(required: false, type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -90,6 +91,7 @@ tracks {
                 my_money_last_activities,
                 my_money_card_calendar,
                 my_money_calendar_daily,
+                my_money_cerc,
         )
     }
 

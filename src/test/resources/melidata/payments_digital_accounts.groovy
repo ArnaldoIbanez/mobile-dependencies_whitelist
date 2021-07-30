@@ -99,6 +99,13 @@ trackTests {
             ]
         }
 
+        "/banking/to_release/cerc"(platform: "/", type: TrackType.View) {
+             my_money_cerc = [
+                 component_id: 'cerc',
+                 content_id: []
+             ]
+        }
+
         "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
             my_money_last_activities = [
                 component_id: 'last_activities',
