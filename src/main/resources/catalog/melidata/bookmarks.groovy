@@ -34,6 +34,9 @@ tracks {
     "/bookmarks/action/post"(platform: "/", type: TrackType.Event) {
     }
 
+    "/bookmarks/widget/see_all"(platform: "/", type: TrackType.Event) {
+    }
+
     "/bookmarks/action/delete"(platform: "/", type: TrackType.Event) {
          delete_from(required: false, type: PropertyType.String, values: ["item", "checkbox"], description: "From where is deleted from myml bookmarks page")
     }
