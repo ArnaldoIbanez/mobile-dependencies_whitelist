@@ -13,20 +13,14 @@ trackTests {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
-            share_value = "20"
-            chart_visible = true
-            detailsMeli_visible = true
-            share_visible = true
+            mode = "custom"
         }
 
         "/advertising/pads2/manager"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
-            share_value = "20"
-            chart_visible = true
-            detailsMeli_visible = true
-            share_visible = true
+            mode = "custom"
             matching_status = "matching_inversion"
         }
 
@@ -2439,20 +2433,20 @@ trackTests {
 
     test("Notifications restriction message") {
         "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
-            type = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+            types = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
         }
 
         "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
-            type = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+            types = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
         }
 
         "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
-            type = ["SEMAPHORES", "IN_PAY_CHECK"]
+            types = ["SEMAPHORES", "IN_PAY_CHECK"]
             cpg_campaign_id = 1234
         }
 
         "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
-            type = ["SEMAPHORES", "IN_PAY_CHECK"]
+            types = ["SEMAPHORES", "IN_PAY_CHECK"]
             cpg_campaign_id = 1234
         }
     }
