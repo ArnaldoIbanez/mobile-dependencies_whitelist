@@ -95,18 +95,21 @@ tracks {
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
-    // Components
+    // Components Balance
     "/banking/balance/available"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/card_available"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/to_release"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/retained"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/last_activities"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
+
+    // Components ToRelease
+    "/banking/to_release/to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/cerc"(platform: "/", type: TrackType.View) { componentsViews }
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
