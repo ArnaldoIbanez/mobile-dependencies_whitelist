@@ -125,7 +125,7 @@ trackTests {
 
     test("Balance to release") {
              "/banking/open_banking"(platform: "/", type: TrackType.View) {}
-        }
+    }
 
     test("Balance Calendar") {
         "/banking/calendar"(platform: "/", type: TrackType.View) {}
