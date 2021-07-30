@@ -28,7 +28,7 @@ trackTests {
             my_money_to_release = [
                  component_id: 'to_release',
                  content_id: ['to_release']
-             ]
+            ]
         }
 
         "/banking/balance/available"(platform: "/", type: TrackType.View) {
