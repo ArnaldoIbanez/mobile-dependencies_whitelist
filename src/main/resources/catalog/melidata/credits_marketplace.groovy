@@ -53,7 +53,6 @@ tracks {
     }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy name", type: PropertyType.String, required: true)
     }
