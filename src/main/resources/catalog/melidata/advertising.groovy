@@ -2043,35 +2043,45 @@ tracks {
 
 
     //Shops
-    "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
+
+    "/advertising/pads2/configuration/shops"(platform: "/", type: TrackType.Event) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
         previous_status(required: true, type: PropertyType.Boolean, description: "Previus status")
     }
 
     "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
-        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         shops(required: true, type: PropertyType.Boolean, description: "Is Shops")
         shops_integration_status(required: true, type: PropertyType.Boolean, description: "Shops integration")
     }
 
     "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/card/shops"(platform: "/", type: TrackType.View) {
+        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+    }
+
+    "/advertising/pads2/card/shops"(platform: "/", type: TrackType.Event) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/card/shops/show"(platform: "/", type: TrackType.View) {
-        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/card/shops/go"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/tooltip/shops"(platform: "/", type: TrackType.View) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/tooltip/shops/show"(platform: "/", type: TrackType.View) {
-        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/tooltip/shops/go"(platform: "/", type: TrackType.Event) {
-        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/landing/contract_confirmation/shops/update_integration_status"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {

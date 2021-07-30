@@ -2480,59 +2480,67 @@ trackTests {
     }
 
     test("Shops") {
+
+        "/advertising/pads2/configuration/shops"(platform: "/", type: TrackType.Event) {
+            mode = "custom"
+        }
+        "/advertising/pads2/configuration/shops"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
         "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             previous_status = true
         }
-
         "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             previous_status = false
         }
-
         "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
             previous_status = false
         }
-
         "/advertising/pads2/configuration/shops/integration_status"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
             previous_status = true
         }
-
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
             shops = true
             shops_integration_status = true
         }
-
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
             shops = false
             shops_integration_status = false
         }
-
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             shops = false
             shops_integration_status = false
         }
-
         "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"
         }
-
         "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
         }
 
+
+        "/advertising/pads2/card/shops"(platform: "/", type: TrackType.View) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/card/shops"(platform: "/", type: TrackType.Event) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/card/shops"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
         "/advertising/pads2/card/shops/show"(platform: "/", type: TrackType.View) {
             mode = "automatic"
         }
         "/advertising/pads2/card/shops/show"(platform: "/", type: TrackType.View) {
             mode = "custom"
         }
-
         "/advertising/pads2/card/shops/go"(platform: "/", type: TrackType.Event) {
             mode = "custom"
         }
@@ -2540,13 +2548,19 @@ trackTests {
             mode = "automatic"
         }
 
+
+        "/advertising/pads2/tooltip/shops"(platform: "/", type: TrackType.View) {
+            mode = "automatic"
+        }
+        "/advertising/pads2/tooltip/shops"(platform: "/", type: TrackType.View) {
+            mode = "custom"
+        }
         "/advertising/pads2/tooltip/shops/show"(platform: "/", type: TrackType.View) {
             mode = "automatic"
         }
         "/advertising/pads2/tooltip/shops/show"(platform: "/", type: TrackType.View) {
             mode = "custom"
         }
-
         "/advertising/pads2/tooltip/shops/go"(platform: "/", type: TrackType.Event) {
             mode = "custom"
         }
