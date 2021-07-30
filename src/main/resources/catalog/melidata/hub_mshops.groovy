@@ -158,6 +158,10 @@ tracks {
         card(required: false, type: PropertyType.String, values: ['listings'])
     }
 
+    "/shops/hub/edit/prices_combos"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['listings'])
+    }
+
     "/shops/hub/manage_sales"(platform: "/", type: TrackType.Event) {
         card(required: false, type: PropertyType.String, values: ['sales'])
     }

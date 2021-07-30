@@ -17,6 +17,7 @@ tracks {
         checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
         collector_id(required: false, description: "Collector external id")
         security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
+        device_secured(required: false, type: PropertyType.Boolean, description: "If the user has pin/pattern/password in the device, only tracked in android by decision")
         experiments(required: false, type: PropertyType.String, description: "Active experiments")
 
         payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
@@ -28,7 +29,7 @@ tracks {
     }
 
     propertyGroups {
-        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, experiments)
+        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, device_secured, experiments)
         securityCodeViewData(payment_method_id, card_id, reason)
         securityCodeData(payment_method_id, payment_method_type, card_id, issuer_id, bin, reason)
     }

@@ -13,20 +13,14 @@ trackTests {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
-            share_value = "20"
-            chart_visible = true
-            detailsMeli_visible = true
-            share_visible = true
+            mode = "custom"
         }
 
         "/advertising/pads2/manager"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
-            share_value = "20"
-            chart_visible = true
-            detailsMeli_visible = true
-            share_visible = true
+            mode = "custom"
             matching_status = "matching_inversion"
         }
 
@@ -2434,6 +2428,26 @@ trackTests {
             from = "2021-02-02"
             to = "2021-05-02"
 
+        }
+    }
+
+    test("Notifications restriction message") {
+        "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
+            types = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+        }
+
+        "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+            types = ["MISSING_DOCUMENTATION", "SELLER_PROFILE"]
+        }
+
+        "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
+            types = ["SEMAPHORES", "IN_PAY_CHECK"]
+            cpg_campaign_id = 1234
+        }
+
+        "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
+            types = ["SEMAPHORES", "IN_PAY_CHECK"]
+            cpg_campaign_id = 1234
         }
     }
 

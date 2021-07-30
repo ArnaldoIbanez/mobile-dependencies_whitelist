@@ -25,6 +25,7 @@ trackTests {
             flavor = "sube_nfc"
             last_recharge = "1459"
             parent_key = "cellphone_mlm_telcel__100_mb"
+            origin_source = "instore"
         }
 
         def view_time = {
@@ -238,6 +239,17 @@ trackTests {
         "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             step_information()
+            view_time()
+        }
+        "/single_player/prepaid/product_credits_list/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+        "/single_player/prepaid/product_credits_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
         }
 
 
@@ -379,11 +391,7 @@ trackTests {
             mandatory()
             step_information()
             view_time()
-        }
-        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.View) {
-            mandatory()
-            step_information()
-            view_time()
+            item_structure()
         }
 
 
@@ -452,12 +460,15 @@ trackTests {
         }
         "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
 
@@ -1000,6 +1011,17 @@ trackTests {
         "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             step_information()
+            view_time()
+        }
+        "/single_player/prepaid/product_credits_list/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
+        "/single_player/prepaid/product_credits_list/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
         }
 
 
@@ -1138,10 +1160,11 @@ trackTests {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+        "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             step_information()
             view_time()
+            item_structure()
         }
 
         // Multiple devices
@@ -1208,12 +1231,15 @@ trackTests {
         }
         "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
 
@@ -1630,6 +1656,7 @@ trackTests {
             provider_id = "toll_mla_v2"
             flavor = "toll"
             last_recharge = "1459"
+            origin_source = "instore"
         }
 
         def view_time = {
@@ -1832,6 +1859,7 @@ trackTests {
         "/single_player/paygo/add_device_number"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
+            origin_source = "instore"
         }
 
         "/single_player/paygo/add_device_number/confirm"(platform: "/mobile", type: TrackType.Event) {

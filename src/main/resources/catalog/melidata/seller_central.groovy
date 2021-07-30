@@ -512,14 +512,15 @@ tracks {
     }
     // End SLL SC
 
-
+    "/seller_central/listings/video_focus"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start", "reopen"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
         viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+        user_type(required: false, type: PropertyType.String, description: "Authenticated user type")
     }
 
     "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
@@ -799,6 +800,13 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_mshops_price"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+        synced(required: true, type: PropertyType.Boolean, description: "if MercadoShops's price is synced with MarketPlace's price")
+    }
+
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
@@ -1048,6 +1056,12 @@ tracks {
     "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event) {
         attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
         value(required: true, type: PropertyType.String, description: "New attribute value")
+    }
+
+    "/seller_central/modify/broken_card"(platform: "/web", isAbstract: true) {}
+    "/seller_central/modify/broken_card/show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        broken_card_id(required: true, type: PropertyType.String, description: "Id of broken card")
     }
 
     "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event) {

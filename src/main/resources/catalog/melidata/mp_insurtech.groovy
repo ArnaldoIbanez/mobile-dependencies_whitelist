@@ -585,6 +585,10 @@ tracks {
        claim(required: false, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
 
+    "/insurtech/protections/detail/roda/insurer_response"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+           protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+    }
+
     "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
         type(required: true, type: PropertyType.String, values: ['deductible', 'protection'], description: "This is deductible if the payment ticket instructions are for the franchise. Protection other way.")
