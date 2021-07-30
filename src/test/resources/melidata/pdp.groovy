@@ -809,7 +809,7 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
             vertical = "core"
             realestates = {
-                ecosystem = {
+                vip_pdp_ecosystem_web_ml = {
                     audience = '1'
                     bu = '1'
                     bu_line = '1'
