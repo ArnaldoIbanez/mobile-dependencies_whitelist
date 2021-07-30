@@ -40,10 +40,6 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
-        share_value(required: false,  description: "Porcentual share value")
-        chart_visible(required: false, type: PropertyType.Boolean, description: "If the chart is visible")
-        detailsMeli_visible(required: false, type: PropertyType.Boolean, description: "If the details are visible")
-        share_visible(required: false, type: PropertyType.Boolean, description: "If the share is visible")
         matching_status(
                 required: false,
                 values: ["matching_inversion", "matching_inversion_end", "matching_bonificacion", "matching_bonificacion_end", "matching_bonificacion_extended", "matching_bonificacion_extended_end"],
@@ -300,25 +296,49 @@ tracks {
     }
 
     //Lift
-    "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true ) {}
 
     "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
-    "/advertising/pads2/manager/lift/details/show"(platform: "/", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/details/close"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/details/show"(platform: "/", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/details/close"(platform: "/", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
 
     "/advertising/pads2/manager/lift/chart"(platform: "/web", isAbstract: true) {}
-    "/advertising/pads2/manager/lift/chart/show"(platform: "/", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/chart/close"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/chart/show"(platform: "/", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/chart/close"(platform: "/", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
 
     "/advertising/pads2/manager/lift/tooltip"(platform: "/web", isAbstract: true) {}
-    "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/tooltip/meli_sales"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/tooltip/info"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/tooltip/prints"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/tooltip/clics"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/tooltip/income"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/tooltip/investment"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/tooltip/take_rate"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event ) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/tooltip/meli_sales"(platform: "/web", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/tooltip/info"(platform: "/web", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/tooltip/prints"(platform: "/web", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/tooltip/clics"(platform: "/web", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/tooltip/income"(platform: "/web", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/tooltip/investment"(platform: "/web", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
+    "/advertising/pads2/manager/lift/tooltip/take_rate"(platform: "/web", type: TrackType.Event) {
+        share_value(required: false,  description: "Porcentual share value", inheritable: true)
+    }
 
     "/advertising/pads2/manager/lift/modal"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/modal/open"(platform: "/", type: TrackType.Event) {
@@ -2007,14 +2027,14 @@ tracks {
     }
 
     "/advertising/pads2/hub/restrictions/show"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
     }
 
     "/advertising/pads2/hub/restrictions/paycheck"(platform: "/", type: TrackType.Event, isAbstract: true) {
     }
 
     "/advertising/pads2/hub/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
     }
 
     // notifications - restriction - dashboard
@@ -2023,7 +2043,7 @@ tracks {
     }
 
     "/advertising/pads2/manager/restrictions/show"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
         cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
@@ -2031,7 +2051,7 @@ tracks {
     }
 
     "/advertising/pads2/manager/restrictions/paycheck/go"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
+        types(required: true, type: PropertyType.ArrayList, description: "Array of errors from index policy")
         cpg_campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
     }
 
