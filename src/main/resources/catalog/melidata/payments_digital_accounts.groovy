@@ -197,16 +197,19 @@ tracks {
     "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
 
     // Regulations Cerc Views
-    "/regulations/cerc/"(platform: "/", type: TrackType.View) {}
-    "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+    "/mpfront/regulations/cerc"(platform: "/", type: TrackType.View) {}
+    "/mpfront/regulations/cerc/contracts"(platform: "/", type: TrackType.View) {}
+    "/mpfront/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
+    "/mpfront/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
+    "/mpfront/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
 
     // Regulations Cerc Events
-    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/mpfront/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
 }
