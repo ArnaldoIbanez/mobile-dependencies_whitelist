@@ -21,15 +21,19 @@ tracks {
     "/credits/consumer/opensea/pre_approved_flow"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/remedy"(platform: "/", isAbstract: true) {}
 
+    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
+
     /******************************************
     *       Start: Flujo Upsell Consumer
     ******************************************/
         //ML
     "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+        source_key(description: "Source key", type: PropertyType.String, required: true)
     }
     "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event) {
         remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+        source_key(description: "Source key", type: PropertyType.String, required: true)
     }
     "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
         result(description: "Congrats result", type: PropertyType.String, required: true, values: ["started", "manual_review", "approved", "rejected", "error", "data_sent"])
@@ -172,12 +176,13 @@ tracks {
                 'merchant_administrator',
                 'consumer_open_sea',
                 'consumer_personal_loan',
-                'consumer_administrator'
+                'consumer_administrator',
+                'credit_card_open_sea'
             ]
         )
         step(
             type: PropertyType.String,
-            required: true,
+            required: false,
             inheritable: true,
             values: [
                 'whatsapp', 
@@ -189,6 +194,7 @@ tracks {
             ]
         )
     }
+    "/credits/preferences/error"(platform: "/", type: TrackType.View) {}
     "/credits/preferences/accept"(platform: "/", type: TrackType.Event){}
     "/credits/preferences/decline"(platform: "/", type: TrackType.Event){}
     

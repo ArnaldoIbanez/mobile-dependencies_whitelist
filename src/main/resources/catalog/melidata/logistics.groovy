@@ -359,7 +359,7 @@ tracks {
         checked_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id checked to deliver", inheritable: false)
         dismissed_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id dismissed to deliver", inheritable: false)
     }
-    "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
+    "/logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         error_type(required: true, type: PropertyType.String, description: "Specifies the current error type", inheritable: false, values: ["document_form", "regex"])

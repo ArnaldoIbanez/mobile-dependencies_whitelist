@@ -2094,6 +2094,26 @@ trackTests {
                     ]
             ]
 
+            available_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
+
+            applied_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
+
             operation_status = "ok"
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
@@ -2233,6 +2253,10 @@ trackTests {
         "/checkout/shipping/input_address/submit"(platform:"/", dataSet, type: TrackType.Event)
         "/checkout/shipping/input_address/map"(platform:"/", dataSet)
         "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
+
+        "/checkout/shipping/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
+        }
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
         "/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event, dataSet)
 

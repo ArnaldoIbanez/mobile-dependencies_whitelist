@@ -776,11 +776,33 @@ trackTests {
         "/merchant_acquisition/flows/wrap_up/home/x_sell"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Wrap Up Closing section") {
+        "/merchant_acquisition/flows/wrap_up/home/closing"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Wrap Up X-Sell click see more") {
-        "/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more" (platform: "/", type: TrackType.Event) {
+        "/merchant_acquisition/flows/wrap_up/home/x_sell/see_more" (platform: "/", type: TrackType.Event) {
             product_sell_name = 'Créditos a tu medida'
             link = 'mercadopago://webview/?url=https%3A%2F%2Fwww.mercadopago.com.ar%2Fcredits%2Fhub%2F%23from%3Dwrap_up_mp%26additional_info%3Dxsell_banner'
         }
+    }
+
+    test("Wrap Up Closing click Like") {
+        "/merchant_acquisition/flows/wrap_up/home/closing/like" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Closing click Dislike") {
+        "/merchant_acquisition/flows/wrap_up/home/closing/dislike" (platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Wrap Up Sellers central click see more") {
+        "/merchant_acquisition/flows/wrap_up/home/sellers_central/see_more" (platform: "/", type: TrackType.Event) {
+            link = 'mercadopago://webview?url=https%3A%2F%2Fvendedores.mercadolibre.com.ar%2F%3Fu%3Dmercado-pago&word=MLA_MP_PUSHMP_X_W_ALL_ACT_ALL_WRAP-UP-sellers-jun21&referrer=utm_medium%3Dnotifications%26utm_source%3Dmercado_pago%26utm_campaign%3DMLA_MP_PUSHMP_X_W_ALL_ACT_ALL_WRAP-UP-sellers-jun21'
+        }
+    }
+
+    test("Wrap Up") {
+        "/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform: "/", type: TrackType.View) {}
     }
 
     test("// Associar Point - Micrositio - reseller") {
@@ -1028,6 +1050,14 @@ trackTests {
             product = "bbpos"
         }
 
+        "/point/landings/buy/low_price" (platform:"/", type: TrackType.Event) {
+            product = "point-blue"
+        }
+
+        "/point/landings/buy/low_tax" (platform:"/", type: TrackType.Event) {
+            product = "point-blue"
+        }
+
         // Multiproduct
         "/point/landings/multiproduct"(platform:"/", type: TrackType.View) {
             product = "multiproduct mla"
@@ -1073,6 +1103,25 @@ trackTests {
         // Landing go to security landing event
         "/point/landings/security"(platform:"/", type: TrackType.Event) {
             product = "Point Newland"
+        }
+
+        // [POG] Landings Point > Click to call experiment
+        "/point/landings/click_to_call/congrats" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
+          type = "success"
+          action = "open"
+        }
+
+        "/point/landings/click_to_call/open_form" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
+        }
+
+        "/point/landings/click_to_call/submit_form" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
+        }
+
+        "/point/landings/click_to_call/resubmit_form" (platform:"/", type: TrackType.Event) {
+          product = "point-pro-2"
         }
         
         // Landing MGM

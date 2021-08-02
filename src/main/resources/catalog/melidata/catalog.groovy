@@ -94,9 +94,11 @@ catalog {
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
         include business, "addresses.groovy"
+        include business, "zip_finder.groovy"
         include business, "bulk_publish.groovy"
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
+        include business, "fraud_challenges.groovy"
     }
 
     mercadolibre.each { business ->
@@ -147,7 +149,6 @@ catalog {
         include business, "instore.groovy"
         include business, "discount_center_touchpoints.groovy"
         include business, "qr_discount.groovy"
-        include business, "zip_finder.groovy"
         include business, "current_location.groovy"
         include business, "download_app.groovy"
         include business, "incentivate_login.groovy"
@@ -185,6 +186,8 @@ catalog {
         include business, "category_landing.groovy"
         include business, "cx_clicktocall.groovy"
         include business, "tendencies.groovy"
+        include business, "authorization.groovy"
+        include business, "hub_mshops.groovy"
     }
 
     mercadopago.each { business ->
@@ -252,7 +255,7 @@ catalog {
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
-        include business, "hot_sale.groovy"
+        include business, "coupon_reservation.groovy"
         include business, "business_config.groovy"
         include business, "qr_journey.groovy"
         include business, "fees_installments.groovy"
@@ -265,6 +268,8 @@ catalog {
         include business, "widget.groovy"
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
+        include business, "meliplaces.groovy"
+        include business, "mercadopago_openbanking.groovy"
     }
 
     mercadoshops.each { business ->
@@ -274,6 +279,8 @@ catalog {
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
         include business, "checkout.groovy"
+        include business, "cookies_consent.groovy"
+        include business, "cookie_disclaimer.groovy"
         include business, "notifications_mshops.groovy"
         include business, "landing_mshops.groovy"
         include business, "registrations.groovy"

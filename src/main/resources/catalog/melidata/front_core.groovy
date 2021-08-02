@@ -31,11 +31,11 @@ tracks {
         criticality(required: false, type: PropertyType.Numeric, description: "Criticality of the pending")
         from(required: false, type: PropertyType.String, description: "From where this pending shown")
     }
+
     propertyGroups {
         walletHomeMerchEngineFields(
             section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position
         )
-
         walletHomePendingsFields(
             section_id, link, component_id, audience, bu, bu_line, content_id, flow, logic, position, criticality, from
         )
@@ -69,6 +69,11 @@ tracks {
 
     def banking_v2_definition = objectSchemaDefinitions {
         hidden(required: true, type: PropertyType.Boolean, description: "hidden status")
+    }
+
+    def pendings_section_definition = objectSchemaDefinitions {
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
     }
 
     def credits_home_definition = objectSchemaDefinitions {}    
@@ -391,6 +396,7 @@ tracks {
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         banking_v2(required: false, type: PropertyType.Map(banking_v2_definition), description: "The banking v2 section information")
+        pendings(required: false, type: PropertyType.Map(pendings_section_definition), description: "The pendings section information")
         credits(required: false, type: PropertyType.Map(credits_home_definition), description: "The credits section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         shortcuts(required: false, type: PropertyType.Map(shortcuts_section_definition), description: "The shortcuts section information")

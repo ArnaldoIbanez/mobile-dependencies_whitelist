@@ -8,23 +8,30 @@ trackTests {
 
     test("consumer credits ml y mp") {
 
+        "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+
         /******************************************
         *       Start: Flujo Upsell Consumer
         ******************************************/
         "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadolibre") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
             result = 'approved'
         }
         "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadopago") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
             result = 'rejected'
@@ -250,6 +257,13 @@ trackTests {
             initiative = 'merchant_enrollment'
             step = 'whatsapp'
         }
+        "/credits/preferences"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            initiative = 'credit_card_open_sea'
+            step = 'whatsapp'
+        }
+        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {
+            initiative = 'merchant_enrollment'
+        }
         "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
             initiative = 'merchant_open_market'
             step = 'whatsapp_sms'
@@ -263,6 +277,9 @@ trackTests {
         "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
             initiative = 'consumer_open_sea'
             step = 'telcel'
+        }
+        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadolibre") {
+            initiative = 'merchant_enrollment'
         }
         "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
             initiative = 'consumer_administrator'

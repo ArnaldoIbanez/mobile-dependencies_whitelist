@@ -165,8 +165,16 @@ tracks
                 vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
+            "/crowd/feedback/modal"(platform: "/mobile", type: TrackType.View) {
+
+            }
+
+            "/crowd/feedback/modal/tap"(platform: "/mobile", type: TrackType.Event) {
+
+            }
+
             //Tracks lib flux
-            "flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
+            "/flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
                 user_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
@@ -221,4 +229,87 @@ tracks
                 weekly_detail(type: PropertyType.Map(weekly_detail_definition), required: true)
             }
 
+            // Registration
+            "/crowd/registration/tyc"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/hub"(platform: "/mobile", type: TrackType.View) {
+                bullet(required: true, type: PropertyType.String, description: "Specifies the current bullet available")
+                location
+            }
+
+            "/crowd/registration/kyc/start"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/kyc/end"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/blocked"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/kyc/failure/logistics"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/city"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+                location
+                city(required: true, type: PropertyType.String, description: "Specifies the current city selected")
+            }
+
+            "/crowd/registration/city/other"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle/selected"(platform: "/mobile", type: TrackType.Event) {
+                location
+                vehicle(required: true, type: PropertyType.String, description: "Specifies the current vehicle selected")
+            }
+
+            "/crowd/registration/vehicle/other"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle/old"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle/data"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/billing/start"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/billing/city"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/billing/tralix"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle_verification"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/city/unavailable"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
         }

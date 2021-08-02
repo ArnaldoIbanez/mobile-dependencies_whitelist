@@ -12,8 +12,126 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance") {
+    test("Balance available") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Track Components views") {
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            my_money_available = [
+                component_id: 'available',
+                content_id: ['available']
+            ]
+        }
+
+        "/banking/to_release"(platform: "/", type: TrackType.View) {
+            my_money_to_release = [
+                 component_id: 'to_release',
+                 content_id: ['to_release']
+            ]
+        }
+
+        "/banking/balance/available"(platform: "/", type: TrackType.View) {
+            my_money_available = [
+                component_id: 'available',
+            ]
+        }
+
+        "/banking/balance/card_available"(platform: "/", type: TrackType.View) {
+            my_money_card_available = [
+                component_id: 'card_available',
+            ]
+        }
+
+        "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) {
+            my_money_shortcuts = [
+                component_id: 'shortcuts',
+                content_id: ['account_fund', 'withdraw']
+            ]
+        }
+
+        "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) {
+            my_money_cross_selling_carousel = [
+                component_id: 'cross_selling_carousel',
+                content_id: ['portability']
+           ]
+        }
+
+        "/banking/balance/retained"(platform: "/", type: TrackType.View) {
+            my_money_retained = [
+                component_id: 'retained',
+                content_id: ['reserve_for_dispute']
+            ]
+        }
+
+        "/banking/to_release/to_release"(platform: "/", type: TrackType.View) {
+            my_money_to_release = [
+                component_id: 'to_release',
+                content_id: []
+            ]
+        }
+
+        "/banking/to_release/card_to_release"(platform: "/", type: TrackType.View) {
+            my_money_card_to_release = [
+                component_id: 'card_to_release',
+                content_id: []
+            ]
+        }
+
+        "/banking/to_release/to_advance"(platform: "/", type: TrackType.View) {
+             my_money_to_advance = [
+                component_id: 'to_advance',
+                content_id: []
+            ]
+        }
+
+        "/banking/to_release/card_calendar"(platform: "/", type: TrackType.View) {
+             my_money_card_calendar = [
+                component_id: 'card_calendar',
+                content_id: []
+            ]
+        }
+
+        "/banking/to_release/calendar_daily"(platform: "/", type: TrackType.View) {
+            my_money_calendar_daily = [
+                component_id: 'calendar_daily',
+                content_id: []
+            ]
+        }
+
+        "/banking/to_release/cerc"(platform: "/", type: TrackType.View) {
+             my_money_cerc = [
+                 component_id: 'cerc',
+                 content_id: []
+             ]
+        }
+
+        "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
+            my_money_last_activities = [
+                component_id: 'last_activities',
+                component_data: [
+                    elements: 5
+                ]
+            ]
+        }
+
+        "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
+            my_money_last_activities = [
+                component_id: 'last_activities',
+                component_data: [
+                    elements: 5,
+                    status: 'disabled'
+                ]
+            ]
+        }
+    }
+
+    test("Balance to release") {
+         "/banking/to_release"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Balance to release") {
+             "/banking/open_banking"(platform: "/", type: TrackType.View) {}
     }
 
     test("Balance Calendar") {
@@ -27,7 +145,7 @@ trackTests {
     test("Balance Cerc") {
         "/banking/cerc"(platform: "/", type: TrackType.View) {}
     }
-    
+
     test("Balance Cerc Optin") {
         "/banking/cerc/optin"(platform: "/", type: TrackType.View) {}
     }

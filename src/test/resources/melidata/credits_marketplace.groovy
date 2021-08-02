@@ -27,7 +27,6 @@ trackTests {
         }
         "/credits/consumer/public_landing/application_start"(platform: "/web/desktop") {}
         "/credits/consumer/public_landing/error"(platform: "/web/desktop") {}
-        "/credits/consumer/public_landing/paused"(platform: "/web/desktop") {}
         "/credits/consumer/public_landing/remedy"(platform: "/web/desktop") {
             remedy_name = 'declarative_info'
         }

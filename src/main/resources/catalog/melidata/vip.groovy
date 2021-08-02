@@ -8,6 +8,21 @@ tracks {
 
     initiative = "1171"
 
+    def realestatedata = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: false, description: "audience for the content")
+        bu(type: PropertyType.String, required: false, description: "business unit for the content")
+        bu_line(type: PropertyType.String, required: false, description: "vertical for the content")
+        component_id(type: PropertyType.String, required: false,  description: "realestate id")
+        content_id(type: PropertyType.String, required: false, description: "content id")
+        flow(type: PropertyType.String, required: false, description: "flow for the content")
+        logic(type: PropertyType.String, required: false, description: "logic of the content")
+        position(type: PropertyType.Numeric, required: false, description: "position in array of the content")
+    }
+
+    def realestate = objectSchemaDefinitions {
+        vip_pdp_ecosystem(required: false, type: PropertyType.Map(realestatedata))
+    }
+
     def qadb_info_definition = objectSchemaDefinitions {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
@@ -97,6 +112,9 @@ tracks {
     //VIP FLOW
 
     "/vip"(platform: "/") {
+        // MERCH
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
+
         // TEMP FIELDS
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Item")
 
@@ -242,7 +260,7 @@ tracks {
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
 
         whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
-        video_type(required: false, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"], description: "determines the video type of the item")
+        video_type(required: false, type: PropertyType.String, values: ["VIEW360", "TOUR360", "VIDEO", "NONE"], description: "determines the video type of the item")
         quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
         new_wording_free(required: false, type: PropertyType.Boolean, description: "determines if the new free wording is available" )
 
@@ -486,7 +504,7 @@ tracks {
         contract_available(required: false, type: PropertyType.Boolean)
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
-        video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
+        video_type(required: true, type: PropertyType.String, values: ["VIEW360", "TOUR360", "VIDEO", "NONE"],
                 description: "Video type of the item"
             )
         item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"],
@@ -494,7 +512,7 @@ tracks {
     }
 
     "/vip/video_focus"(platform: "/mobile", parentPropertiesInherited: false) {
-        video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO"],
+        video_type(required: true, type: PropertyType.String, values: ["VIEW360", "TOUR360", "VIDEO"],
                 description: "Video type of the item"
             )
         item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"],
@@ -1122,19 +1140,6 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has attributes highlighted sale specification")
-    }
-
-    "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
-        seller_id(required: true, type: PropertyType.Numeric)
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
-                description: "Whether the item is new, used or refurbished")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
-        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
-        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/vip/show_fulfillment_tooltip"(platform: "/", parentPropertiesInherited: false){

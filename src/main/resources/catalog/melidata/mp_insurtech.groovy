@@ -571,7 +571,7 @@ tracks {
     "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
         is_imei_valid(required: true, type: PropertyType.Boolean, description: "Imei valid or invalid ")
-        protection_status(required: true, type: PropertyType.String, values: ['active_on_route', 'pending_activation'], description: "Status of protection when is going to be activated")
+        protection_status(required: true, type: PropertyType.String, values: ['pending_shipping_imei', 'pending_activation_imei'], description: "Status of protection when is going to be activated")
         days_taken_for_imei_activation(required: true, type: PropertyType.Numeric, description: "Days passed after protection was in pending_activation status")
         retries_number(required: true, type: PropertyType.Numeric, description: "Number of attempts before to activate with success")
         modal_imei_retries(required: true, type: PropertyType.Numeric, description: "Number of times that modal showed up")
@@ -583,6 +583,10 @@ tracks {
    "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
        claim(required: false, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
+    }
+
+    "/insurtech/protections/detail/roda/insurer_response"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+           protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
     }
 
     "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
@@ -607,6 +611,18 @@ tracks {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
 
+    "/insurtech/protections/detail/roda/continue_kyc"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+    }
+
+    "/insurtech/protections/detail/onboarding_kyc/roda"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        insurance_purchase_key(required: true, type: PropertyType.String, description: 'Insurance purchase key associated to the protection.')
+        protection_status(required: true, type: PropertyType.String, values: ['pending_shipping_customer_data', 'pending_activation_customer_data', 'confirmed', 'executing'], description: 'Protection status to see onboardingKYC page correctly.' )
+    }
+
+    "/insurtech/protections/detail/onboarding_kyc/roda/go_to_kyc"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+    }
+
     //GAREX
     "/insurtech/protections/detail/garex"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
 
@@ -622,6 +638,8 @@ tracks {
     "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
     }
     "/insurtech/protections/detail/garex/activities"(platform:"/", type: TrackType.Event) {
+    }
+    "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
     }
 
 
