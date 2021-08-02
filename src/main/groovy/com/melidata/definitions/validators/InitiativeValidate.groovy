@@ -4,6 +4,7 @@ import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.manager.CatalogHandlerWithMetrics
+import com.ml.melidata.manager.helpers.TrackMetricDTO
 import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
@@ -97,7 +98,9 @@ class InitiativeValidate {
 
     static Map<String, List<String>> getAddedTracksByInitiative(localMetrics, prodMetrics) {
         Map<String, List<String>> tracksByInitiative = [:]
-        Set<String> trackKeys = prodMetrics.keySet()
+        Set trackKeys = prodMetrics.collect { String key, TrackMetricDTO metricDTO ->
+            "${metricDTO.path}-${metricDTO.platform}"
+        }.toSet()
         Map newTracks = localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
         newTracks.forEach {keyDefinition, metric ->
             metric.initiatives.forEach { initiative ->
@@ -108,6 +111,7 @@ class InitiativeValidate {
                 tracksByInitiative[initiative].add(keyDefinition)
             }
         }
+        println(newTracks)
 
         return tracksByInitiative
     }
