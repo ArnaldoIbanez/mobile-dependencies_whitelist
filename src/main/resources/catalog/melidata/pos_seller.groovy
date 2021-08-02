@@ -317,11 +317,10 @@ import com.ml.melidata.TrackType
         }
 
         //Vouchers
-        "/pos_seller/vouchers/sodexo"(platform: "/", type: TrackType.View) {}
         "/pos_seller/vouchers/detail"(platform: "/", type: TrackType.View) {
-            voucherName (required: true, type: PropertyType.String, description: "Voucher name")
+            voucher_name (required: true, type: PropertyType.String, description: "Voucher name")
         }
-        "/pos_seller/vouchers/access-denied"(platform: "/", type: TrackType.View) {}
+        "/pos_seller/vouchers/access_denied"(platform: "/", type: TrackType.View) {}
         "/pos_seller/vouchers/error"(platform: "/", type: TrackType.View) {}
 
         //Misc

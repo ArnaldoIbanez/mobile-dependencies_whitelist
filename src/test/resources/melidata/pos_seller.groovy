@@ -404,9 +404,8 @@
 
                         //Vouchers
                         "/pos_seller/vouchers"(platform: "/", type: TrackType.View) {}
-                        "/pos_seller/vouchers/sodexo"(platform: "/", type: TrackType.View) {}
-                        "/pos_seller/vouchers/detail"(platform: "/", type: TrackType.View) { voucherName = "alelo" }
-                        "/pos_seller/vouchers/access-denied"(platform: "/", type: TrackType.View) {}
+                        "/pos_seller/vouchers/detail"(platform: "/", type: TrackType.View) { voucher_name = "alelo" }
+                        "/pos_seller/vouchers/access_denied"(platform: "/", type: TrackType.View) {}
                         "/pos_seller/vouchers/error"(platform: "/", type: TrackType.View) {}
                          
                         /**
