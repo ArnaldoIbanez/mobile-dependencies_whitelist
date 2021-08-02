@@ -205,7 +205,7 @@ trackTests {
             free_shipping = false
             local_pick_up = true
             store_pick_up = true
-            logistic_type = "default"
+            logistic_type = "self_service"
             shipping_conditions = "discount_mandatory"
         }
 

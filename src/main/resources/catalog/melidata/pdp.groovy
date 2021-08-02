@@ -43,7 +43,7 @@ tracks {
         store_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has store pick up")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
 
         //SHIPPING CONDITIONS
@@ -103,7 +103,7 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean, description: "Content of cart")
         has_full_filment(required: false, type: PropertyType.Boolean, description: "If an item is available via fullfilment")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
 
         // PRICING 2.0
