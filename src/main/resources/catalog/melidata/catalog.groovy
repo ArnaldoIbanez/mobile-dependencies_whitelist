@@ -98,6 +98,7 @@ catalog {
         include business, "bulk_publish.groovy"
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
+        include business, "fraud_challenges.groovy"
     }
 
     mercadolibre.each { business ->
