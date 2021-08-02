@@ -189,6 +189,9 @@ trackTests {
         "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/open_banking"(platform: "/", type: TrackType.Event) {
+            action = 'mp'
+        }
     }
 
     test("Movements") {
