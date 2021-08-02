@@ -9,8 +9,8 @@ tracks {
     initiative = "1323"
 
     def pickup_definition = objectSchemaDefinitions {
-        id(required: true, type: PropertyType.Numeric, description: "The id of the picker")
-        wave_id(required: true, type: PropertyType.Numeric, description: "The position of the wave")
+        id(required: true, type: PropertyType.Numeric, description: "The id number of the picker")
+        wave_id(required: true, type: PropertyType.Numeric, description: "The id number of the wave")
     }
 
     def seller_definition = objectSchemaDefinitions {
