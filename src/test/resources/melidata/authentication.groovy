@@ -244,6 +244,9 @@ trackTests {
     }
 
     test("Account recovery flow") {
+        "/auth/account_recovery/restrict"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
         }

@@ -8,6 +8,9 @@ trackTests {
 
     test("consumer credits ml y mp") {
 
+        "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+
         /******************************************
         *       Start: Flujo Upsell Consumer
         ******************************************/
@@ -252,6 +255,10 @@ trackTests {
         // MercadoPago Business
         "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
             initiative = 'merchant_enrollment'
+            step = 'whatsapp'
+        }
+        "/credits/preferences"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            initiative = 'credit_card_open_sea'
             step = 'whatsapp'
         }
         "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {

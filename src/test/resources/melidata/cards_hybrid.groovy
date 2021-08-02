@@ -265,9 +265,20 @@ trackTests {
             overdue_days: 0,
         ],
         statement_status: "open",
-        pending_payments: false
+        pending_payments: false,
+        load_mode: "sync"
     ]
-    
+
+    def credit_card_data_skeleton = [
+        load_mode: "async"
+    ]
+
+    def credit_card_data_error = [
+            error: [
+                type: "failed_dependency",
+                cause: "payment"
+            ]
+    ]
 
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
@@ -293,6 +304,24 @@ trackTests {
             message_status = "warning"
             activities_status = "activities_with_error"
             credits = credit_card_data
+        }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credits = credit_card_data_skeleton
+        }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credits = credit_card_data_error
         }
         "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
@@ -1637,6 +1666,30 @@ trackTests {
             action = "some deeplink"
         }
         "/cards/nfc/congrats/create_nfc_card_error"(platform: "/", type: TrackType.View) {}
+    }
+
+    // CROSS-SELLING NFC
+    test("cards nfc cross-selling carousel") {
+        "/cards/nfc/acquisition/cross_selling"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_back"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "show_more_button"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "item"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "item"
+            device = [
+                id: "MLB1889766498",
+                description: "Samsung Galaxy A12 Dual Sim 64 Gb Black 4 Gb Ram"
+            ]
+        }
     }
     
     // NFC-KYC

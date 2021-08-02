@@ -22,6 +22,7 @@ tracks {
     // Dynamic Features Events
     "/dynamic_feature/canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/dynamic_feature/failed"(platform: "/mobile", type: TrackType.Event) {}
+    "/dynamic_feature/started"(platform: "/mobile", type: TrackType.Event) {}
     "/dynamic_feature/launched"(platform: "/mobile", type: TrackType.Event) {}
     "/dynamic_feature/dispatched"(platform: "/mobile", type: TrackType.Event) {}
     "/dynamic_feature/installed"(platform: "/mobile", type: TrackType.Event) {}
