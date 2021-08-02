@@ -919,7 +919,6 @@ trackTests {
 
      test("Mercado Pago discount center payers request location") {
         "/discount_center/payers/addresses/bar/tap" (platform: "/mobile", type: TrackType.Event) {
-            label = "Ubicación actual - CP: 1264 Parque Patricios"
             action = "mercadopago://discount_center_payers/addresses_hub"
         }
 

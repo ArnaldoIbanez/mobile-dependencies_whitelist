@@ -303,7 +303,6 @@ tracks {
     }
 
     "/discount_center/payers/addresses/bar/tap" (platform: "/mobile", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "The label of the address bar")
         action(required: true, type: PropertyType.String, description: "The deeplink to open")
     }
 
