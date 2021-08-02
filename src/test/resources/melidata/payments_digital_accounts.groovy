@@ -130,7 +130,7 @@ trackTests {
          "/banking/to_release"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Balance to release") {
+    test("Balance openbanking") {
              "/banking/open_banking"(platform: "/", type: TrackType.View) {}
     }
 
@@ -189,8 +189,8 @@ trackTests {
         "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
-        "/banking/open_banking"(platform: "/", type: TrackType.Event) {
-            action = 'mp'
+        "/banking/open_banking/accounts"(platform: "/", type: TrackType.Event) {
+            action = 'test'
         }
     }
 
