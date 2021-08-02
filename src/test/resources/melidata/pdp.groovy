@@ -771,4 +771,45 @@ trackTests {
             catalog_product_id = "MLA1234"
         }
     }
+    
+    // MERCH
+    test("PDP Merch ecosystem") {
+
+        def dataSet = {
+            item_id              = "MLA787787584"
+            price                = 8400
+            original_price       = 10000
+            currency_id          = "ARS"
+            installment_info     = "6f"
+            item_condition       = "new"
+            shipping_conditions  = "discount_gap"
+            bo_pick_up_conditions = "no_discount"
+            pushing_puis         = false
+            showing_puis         = false
+            official_store_id    = 231
+            seller_id            = 1234
+            seller_name          = "fulano"
+            available_quantity   = 31
+            cart_content         = true
+            logistic_type        = "cross_docking"
+            discount_reasons = ["deal"]
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            vertical = "core"
+            realestates = {
+                vip_pdp_ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/pdp"(platform: "/", dataSet)
+    }
 }
