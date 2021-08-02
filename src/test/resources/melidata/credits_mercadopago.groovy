@@ -1607,6 +1607,8 @@ trackTests {
         //Events
         "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/mobile", type: TrackType.Event) {}
 
+        "/credits/consumer/administrator/detail/see_tac"(platform: "/mobile", type: TrackType.Event) {}
+
         "/credits/consumer/administrator_v2/details_button"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'

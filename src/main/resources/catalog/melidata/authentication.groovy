@@ -249,6 +249,8 @@ tracks {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
+    "/auth/account_recovery/restrict"(platform: "/", type: TrackType.View) {}
+
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
