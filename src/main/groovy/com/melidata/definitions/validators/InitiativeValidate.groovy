@@ -102,9 +102,10 @@ class InitiativeValidate {
             "${metricDTO.path}-${metricDTO.platform}"
         }.toSet()
 
-        println("we are having ${trackKeys}")
-
         Map newTracks = localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
+
+        println("we should be having ${newTracks}")
+
         newTracks.forEach {keyDefinition, metric ->
             metric.initiatives.forEach { initiative ->
                 if(!tracksByInitiative[initiative]) {
