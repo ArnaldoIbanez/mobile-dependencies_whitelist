@@ -47,5 +47,7 @@ tracks {
     "/open_banking/data_in/landing_page"(platform:"/", type:TrackType.View) {}
     "/open_banking/data_in/landing_page/click_primary_button"(platform:"/", type:TrackType.Event) {}
     "/open_banking/data_in/landing_page/click_secondary_button"(platform:"/", type:TrackType.Event) {}
-    "/open_banking/data_in/landing_page/loaded_from"(platform:"/", type:TrackType.Event) {}
+    "/open_banking/data_in/landing_page/loaded_from"(platform:"/", type:TrackType.Event) {
+        page_name(type: PropertyType.String, required: true, description: "valeu for page where user came from")
+    }
     }
