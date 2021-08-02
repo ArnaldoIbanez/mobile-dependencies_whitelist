@@ -2066,7 +2066,25 @@ trackTests {
                 is_current_device_protection: false,
             ]
             is_imei_valid = true
-            protection_status = 'pending_activation'
+            protection_status = 'pending_activation_imei'
+            days_taken_for_imei_activation = 5
+            retries_number = 4
+            modal_imei_retries = 2
+        }
+
+        "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            is_imei_valid = true
+            protection_status = 'pending_shipping_imei'
             days_taken_for_imei_activation = 5
             retries_number = 4
             modal_imei_retries = 2
