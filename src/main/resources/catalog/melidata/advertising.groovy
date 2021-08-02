@@ -1734,7 +1734,7 @@ tracks {
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
     }
 
-    "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/configuration"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
         shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
         shops_integration_status(required: false, type: PropertyType.Boolean, description: "Shops integration")
@@ -2042,7 +2042,9 @@ tracks {
     }
 
 
-    //Shops
+    /*
+        Shops - Opt-in
+     */
 
     "/advertising/pads2/configuration/shops"(platform: "/", type: TrackType.Event) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
@@ -2060,29 +2062,35 @@ tracks {
     "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/pads2/card/shops"(platform: "/", type: TrackType.View) {
+    /*
+        Shops - Card
+    */
+    "/advertising/pads2/card"(platform: "/", isAbstract: true) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
-    "/advertising/pads2/card/shops"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/card/shops"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/card/shops/show"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/card/shops/go"(platform: "/", type: TrackType.Event) {}
+
+    /*
+        Shops - Tooltips
+     */
+    "/advertising/pads2/tooltip"(platform: "/", isAbstract: true) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
-    "/advertising/pads2/card/shops/show"(platform: "/", type: TrackType.View) {
-    }
-
-    "/advertising/pads2/card/shops/go"(platform: "/", type: TrackType.Event) {
-    }
+    "/advertising/pads2/tooltip/shops"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/tooltip/shops"(platform: "/", type: TrackType.View) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
-    "/advertising/pads2/tooltip/shops/show"(platform: "/", type: TrackType.View) {
-    }
+    "/advertising/pads2/tooltip/shops/show"(platform: "/", type: TrackType.View) {}
 
-    "/advertising/pads2/tooltip/shops/go"(platform: "/", type: TrackType.Event) {
-    }
+    "/advertising/pads2/tooltip/shops/go"(platform: "/", type: TrackType.Event) {}
 
     "/advertising/pads2/landing/contract_confirmation/shops/update_integration_status"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         previous_status(required: true, type: PropertyType.Boolean, description: "Previus status")

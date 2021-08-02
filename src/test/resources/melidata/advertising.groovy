@@ -2108,16 +2108,16 @@ trackTests {
             mode = "automatic"
         }
 
-        "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "automatic"
         }
 
-        "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
             shops = true
             shops_integration_status = true
         }
-        "/advertising/pads2/configuration"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
             shops = false
             shops_integration_status = false
