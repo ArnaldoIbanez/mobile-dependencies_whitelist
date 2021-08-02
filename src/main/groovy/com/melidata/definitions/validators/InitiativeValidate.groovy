@@ -103,7 +103,7 @@ class InitiativeValidate {
         }.toSet()
 
         Map newTracks = localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
-        
+
         newTracks.forEach {keyDefinition, metric ->
             metric.initiatives.forEach { initiative ->
                 if(!tracksByInitiative[initiative]) {
