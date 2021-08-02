@@ -98,9 +98,12 @@ class InitiativeValidate {
 
     static Map<String, List<String>> getAddedTracksByInitiative(localMetrics, prodMetrics) {
         Map<String, List<String>> tracksByInitiative = [:]
-        Set trackKeys = prodMetrics.collect { String key, Map metricDTO ->
+        Set trackKeys = prodMetrics.values().collect { Map metricDTO ->
             "${metricDTO.path}-${metricDTO.platform}"
         }.toSet()
+
+        println("we are having ${trackKeys}")
+
         Map newTracks = localMetrics.allDefinitions.findAll {!trackKeys.contains(it.key) }
         newTracks.forEach {keyDefinition, metric ->
             metric.initiatives.forEach { initiative ->
@@ -111,7 +114,6 @@ class InitiativeValidate {
                 tracksByInitiative[initiative].add(keyDefinition)
             }
         }
-        println(newTracks)
 
         return tracksByInitiative
     }
