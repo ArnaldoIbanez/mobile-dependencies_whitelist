@@ -18,15 +18,28 @@ trackTests {
 
     test("Track Components views") {
         "/banking/balance"(platform: "/", type: TrackType.View) {
-            my_money_balance_available = [
-                component_id: 'balance_available',
+            my_money_available = [
+                component_id: 'available',
                 content_id: ['available']
+            ]
+        }
+
+        "/banking/to_release"(platform: "/", type: TrackType.View) {
+            my_money_to_release = [
+                 component_id: 'to_release',
+                 content_id: ['to_release']
             ]
         }
 
         "/banking/balance/available"(platform: "/", type: TrackType.View) {
             my_money_available = [
                 component_id: 'available',
+            ]
+        }
+
+        "/banking/balance/card_available"(platform: "/", type: TrackType.View) {
+            my_money_card_available = [
+                component_id: 'card_available',
             ]
         }
 
@@ -51,37 +64,51 @@ trackTests {
             ]
         }
 
-        "/banking/balance/to_release"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/to_release"(platform: "/", type: TrackType.View) {
             my_money_to_release = [
                 component_id: 'to_release',
                 content_id: []
             ]
         }
 
-        "/banking/balance/to_advance"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/card_to_release"(platform: "/", type: TrackType.View) {
+            my_money_card_to_release = [
+                component_id: 'card_to_release',
+                content_id: []
+            ]
+        }
+
+        "/banking/to_release/to_advance"(platform: "/", type: TrackType.View) {
              my_money_to_advance = [
                 component_id: 'to_advance',
                 content_id: []
             ]
         }
 
-        "/banking/balance/card_calendar"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/card_calendar"(platform: "/", type: TrackType.View) {
              my_money_card_calendar = [
                 component_id: 'card_calendar',
                 content_id: []
             ]
         }
 
-        "/banking/balance/calendar_daily"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/calendar_daily"(platform: "/", type: TrackType.View) {
             my_money_calendar_daily = [
                 component_id: 'calendar_daily',
                 content_id: []
             ]
         }
 
+        "/banking/to_release/cerc"(platform: "/", type: TrackType.View) {
+             my_money_cerc = [
+                 component_id: 'cerc',
+                 content_id: []
+             ]
+        }
+
         "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
-            my_money_activities = [
-                component_id: 'activities',
+            my_money_last_activities = [
+                component_id: 'last_activities',
                 component_data: [
                     elements: 5
                 ]
@@ -89,8 +116,8 @@ trackTests {
         }
 
         "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
-            my_money_activities = [
-                component_id: 'activities',
+            my_money_last_activities = [
+                component_id: 'last_activities',
                 component_data: [
                     elements: 5,
                     status: 'disabled'
@@ -105,7 +132,7 @@ trackTests {
 
     test("Balance to release") {
              "/banking/open_banking"(platform: "/", type: TrackType.View) {}
-        }
+    }
 
     test("Balance Calendar") {
         "/banking/calendar"(platform: "/", type: TrackType.View) {}

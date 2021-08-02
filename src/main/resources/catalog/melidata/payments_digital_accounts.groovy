@@ -17,6 +17,7 @@ tracks {
     def element_definition = objectSchemaDefinitions {
         elements(required: false, type: PropertyType.Numeric, description: "items quantity")
         status(required: false, type: PropertyType.String, description: "component status")
+        empty(required: false, type: PropertyType.Boolean, description: "quantity status")
     }
 
     def component_definition = objectSchemaDefinitions {
@@ -48,18 +49,18 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         // Components
-        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition))
         my_money_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_card_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_card_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition))
         my_money_cross_selling_carousel(required: false, type: PropertyType.Map(component_definition))
         my_money_retained(required: false, type: PropertyType.Map(component_definition))
-        my_money_available(required: false, type: PropertyType.Map(component_definition))
-        my_money_to_release(required: false, type: PropertyType.Map(component_definition))
         my_money_to_advance(required: false, type: PropertyType.Map(component_definition))
-        my_money_activities(required: false, type: PropertyType.Map(component_definition))
+        my_money_last_activities(required: false, type: PropertyType.Map(component_definition))
         my_money_card_calendar(required: false, type: PropertyType.Map(component_definition))
         my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition))
-        my_money_balance_available(required: false, type: PropertyType.Map(component_definition))
-        my_money_balance_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_cerc(required: false, type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -79,37 +80,43 @@ tracks {
                 action_id
         )
         componentsViews (
-                my_money_shortcuts,
                 my_money_available,
+                my_money_card_available,
+                my_money_to_release,
+                my_money_card_to_release,
+                my_money_shortcuts,
                 my_money_cross_selling_carousel,
                 my_money_retained,
-                my_money_to_release,
                 my_money_to_advance,
-                my_money_activities,
+                my_money_last_activities,
                 my_money_card_calendar,
                 my_money_calendar_daily,
-                my_money_balance_available,
-                my_money_balance_to_release
+                my_money_cerc,
         )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
-    // Components
-    "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
+    // Components Balance
     "/banking/balance/available"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/card_available"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/retained"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/to_release"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/last_activities"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
+
+    // Components ToRelease
+    "/banking/to_release/to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/cerc"(platform: "/", type: TrackType.View) { componentsViews }
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release"(platform: "/", type: TrackType.View) {}
+    "/banking/to_release"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
