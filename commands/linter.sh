@@ -1,1 +1,1 @@
-echo "HI THERE IM EXECUTING"
+./gradlew lint

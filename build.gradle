@@ -760,6 +760,10 @@ task exportMetrics(type:JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
+task lint() {
+
+}
+
 task bootRepackage {
 }
 
