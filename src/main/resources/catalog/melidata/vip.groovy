@@ -20,7 +20,7 @@ tracks {
     }
 
     def realestate = objectSchemaDefinitions {
-        vip_pdp_ecosystem_web_ml(required: false, type: PropertyType.Map(realestatedata))
+        vip_pdp_ecosystem(required: false, type: PropertyType.Map(realestatedata))
     }
 
     def qadb_info_definition = objectSchemaDefinitions {
