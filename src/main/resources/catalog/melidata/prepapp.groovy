@@ -8,10 +8,21 @@ tracks {
 
     initiative = "1323"
 
+    def pickup_definition = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.Numeric, description: "The id of the picker")
+        wave_id(required: true, type: PropertyType.Numeric, description: "The position of the wave")
+    }
+
+    def seller_definition = objectSchemaDefinitions {
+        meli_id(required: true, type: PropertyType.Numeric, description: "The number id of the seller")
+    }
+
     propertyDefinitions {
 
-        seller(required: true, type: PropertyType.Map, description: "Object that represent seller id")
+        seller(required: true, type: PropertyType.Map(seller_definition), description: "Object that represent seller id")
         // meli_id
+
+        pickup(required: true, type: PropertyType.Map(pickup_definition), description: "Object that represent the pack order")
 
         context(required: true, type: PropertyType.String, description: "Action that represent open navigation or logout from any screen")
         // picking_product
@@ -37,10 +48,6 @@ tracks {
         // path
         // route_sheet
         // nfe
-
-        pickup(required: true, type: PropertyType.Map, description: "Object that represent the pack order")
-        // id
-        // wave_id
 
         scan_mode(required: true, type: PropertyType.String, values: ["handheld", "camera", "none"], description: "Type of the scan device")
 
