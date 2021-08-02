@@ -21,6 +21,9 @@ ENV GRADLE_RUN="bootRun"
 ENV CODECOV_TOKEN=""
 
 ADD ./commands/linter.sh /commands/linter.sh
+RUN chmod a+x /commands/linter.sh
+
+ADD ./commands/test_integration.sh /commands/test_integration.sh
 RUN chmod a+x /commands/test_integration.sh
 
 ADD ./commands/execute_after_test.sh /commands/execute_after_test.sh
