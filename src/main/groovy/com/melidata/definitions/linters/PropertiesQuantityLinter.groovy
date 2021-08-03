@@ -1,6 +1,7 @@
 package com.melidata.definitions.linters
 
 import com.ml.melidata.catalog.TrackDefinition
+import com.ml.melidata.catalog.TrackDefinitionProperty
 
 class PropertiesQuantityLinter extends AbstractLinter {
 
@@ -13,8 +14,11 @@ class PropertiesQuantityLinter extends AbstractLinter {
 
     @Override
     boolean validateTrack(TrackDefinition trackDefinition) {
-        def props = getPropertiesFromDefinition(trackDefinition)
+        return true
+    }
 
+    @Override
+    boolean validatePropertySet(List<TrackDefinitionProperty> props) {
         return props.size() <= maxProps
     }
 }

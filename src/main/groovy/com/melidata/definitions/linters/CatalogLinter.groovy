@@ -10,7 +10,7 @@ class CatalogLinter {
     CatalogLinter() {
         linters.add(new PropertiesQuantityLinter(10))
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type"]))
-        linters.add(new PropertyNameLinter())
+        linters.add(new NamingLinter())
     }
 
     CatalogLinter(List<AbstractLinter> lintersList) {
