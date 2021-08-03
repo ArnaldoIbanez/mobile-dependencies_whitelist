@@ -10,7 +10,7 @@ tracks {
 
     def pickup_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.Numeric, description: "The id number of the picker")
-        wave_id(required: true, type: PropertyType.Numeric, description: "The id number of the wave")
+        wave_id(required: false, type: PropertyType.Numeric, description: "The id number of the wave")
     }
 
     def seller_definition = objectSchemaDefinitions {
