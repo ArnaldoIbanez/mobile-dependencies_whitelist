@@ -19,10 +19,18 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
 
     @Override
     boolean validatePropertySet(List<TrackDefinitionProperty> properties) {
-        return properties.every {propertyDefinition ->
+        def isValid = properties.every {propertyDefinition ->
             requiredProperties.every {requiredProperty ->
                 propertyDefinition.properties[requiredProperty] != null
             }
         }
+
+        if(properties.size() > 4) {
+            isValid = isValid && properties.any {propertyDefinition ->
+                propertyDefinition.required
+            }
+        }
+        
+        return isValid
     }
 }
