@@ -39,19 +39,19 @@ tracks {
     "/quotation/details"(platform: "/") {
         item_id(required: true, type:PropertyType.String,description: "Item id")
         source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
-                description: "Origen de donde se generó el evento")
+                description: "Source where item models are called")
     }
 
     "/quotation/details"(platform: "/web") {
         quotationDetails
         source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
-                description: "Origen de donde se generó el evento")
+                description: "Source where item models are called")
     }
 
     "/quotation/details/unregistered"(platform: "/web") {
         quotationDetails
         source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
-                description: "Origen de donde se generó el evento")
+                description: "Source where item models are called")
     }
 
     "/quotation/details"(platform: "/mobile") {
@@ -59,7 +59,7 @@ tracks {
         model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
         source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
-                description: "Origen de donde se generó el evento")
+                description: "Source where item models are called")
     }
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
