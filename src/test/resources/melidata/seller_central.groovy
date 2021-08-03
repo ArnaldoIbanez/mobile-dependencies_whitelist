@@ -200,6 +200,14 @@ trackTests {
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {}
   }
 
+  test("seller central listing quantity action") {
+    "/seller_central/listings/quantity/action"(platform: "/", type: TrackType.Event) {
+      action_id = "action_id"
+      view_id = "fulfillment"
+      target_view_id = "stranded"
+    }
+  }
+
   test("Seller central banner go, hide, show") {
     "/seller_central/listings/go"(platform: "/", type: TrackType.Event) {
       placement = "publicidad_banner"
