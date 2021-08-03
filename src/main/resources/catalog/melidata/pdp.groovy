@@ -26,6 +26,33 @@ tracks {
         value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item value")
     }
 
+    def shipping_promise_map = objectSchemaDefinitions {
+        destination(required: false, type:PropertyType.String, description:'Destination of the shipping')
+        address_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Address type shipping options list')
+        agency_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Agency type shipping options list')
+    }
+
+    def shipping_option_map = objectSchemaDefinitions {
+        shipping_option_id(required: false, type:PropertyType.Numeric, description:'Id of shipping option')
+        method_type(required: false, type:PropertyType.String, description: 'Method type of delivery')
+        delivery_lower_bound(required: false, type:PropertyType.Map(delivery_bound_map), description: 'Actual delivery date or min date in time frame cases')
+        delivery_upper_bound(required: false, type:PropertyType.Map(delivery_bound_map), description: 'Max delivery date in time frame cases')
+        pay_before(required: false, type:PropertyType.String, description: 'Promise validity deadline date with hour')
+        offset_days(required: false, type:PropertyType.Numeric, description: 'Offset days between delivery upper bound and delivery lower bound')
+        price(required:false, type:PropertyType.Map(shipping_promise_price_map), description: 'Price of the shipping')
+    }
+
+    def delivery_bound_map = objectSchemaDefinitions {
+        date(required: false, type:PropertyType.String, description: 'Date of delivery bound')
+        days(required: false, type:PropertyType.Numeric, description: 'Amount of days of distance from today')
+    }
+
+    def shipping_promise_price_map = objectSchemaDefinitions {
+        amount(required: false, type:PropertyType.Numeric, description: 'Price amount of shipping')
+        currency_id(required: false, type:PropertyType.String, description: 'Currency id')
+        is_loyalty_discount(required: false, type:PropertyType.Boolean, description: 'Indicates if price has a loyalty discount')
+    }
+
     propertyDefinitions {
         price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
@@ -45,7 +72,7 @@ tracks {
         logistic_type(required: false,
                 values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
-        shipping_promise(required: false, description: "Map of shipping delivery promise", type: PropertyType.Map)
+        shipping_promise(required: false, description: "Map of shipping delivery promise", type: PropertyType.Map(shipping_promise_map))
 
         //SHIPPING CONDITIONS
         shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
