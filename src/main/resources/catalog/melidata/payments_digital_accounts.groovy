@@ -136,9 +136,7 @@ tracks {
     "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/open_banking/accounts"(platform: "/", type: TrackType.Event) {
-        action( require: true, type: PropertyType.String, description: "Identifies item selected on account list")
-    }
+    "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
