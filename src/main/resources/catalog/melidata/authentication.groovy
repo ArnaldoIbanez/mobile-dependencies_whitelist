@@ -224,7 +224,6 @@ tracks {
 
     "/login/transactional/challenge/error"(platform: "/mobile", type: TrackType.View) {
         errors(type: PropertyType.ArrayList, required: true, description: "Errors presented")
-        user(type: PropertyType.String, required: false, description: "User information if available")
     }
 
     "/login/transactional/challenge/decline"(platform: "/mobile", type: TrackType.Event) {

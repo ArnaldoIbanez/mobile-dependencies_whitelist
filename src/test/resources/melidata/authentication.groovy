@@ -1645,7 +1645,6 @@ trackTests {
                 authentication_id = "1"
                 challenge = "test1"
                 errors = ["un error", "dos errores"]
-                user = "12345"
                 tracking_id = "1"
             }
 
