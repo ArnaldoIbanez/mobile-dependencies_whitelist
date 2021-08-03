@@ -13,9 +13,7 @@ class PropertiesQuantityLinter extends AbstractLinter {
     }
 
     @Override
-    boolean validate(TrackDefinition definition) {
-        def props = getPropertiesFromDefinition(definition)
-
+    boolean validate(List<TrackDefinitionProperty> props) {
         return props.size() <= maxProps
     }
 }

@@ -1,5 +1,7 @@
 package com.melidata.definitions.linters
 
+import com.ml.melidata.catalog.ArrayListProperty
+import com.ml.melidata.catalog.MapProperty
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
 
@@ -8,21 +10,34 @@ abstract class AbstractLinter {
     String errorMessage
 
     boolean passValidation(TrackDefinition definition) {
-        if(!validate(definition)) {
+        List<TrackDefinitionProperty> properties = getPropertiesFromDefinition(definition)
+        if(!validate(properties)) {
             printFails("Track ${definition.path} with platform ${definition.platform} " +
                     "didn't pass validation => ${errorMessage}")
 
             return false
+        } else {
+            def allNestedStructures = properties.findAll{it.type instanceof MapProperty}.toList()
+
+            if(!allNestedStructures.every {
+                properties = ((MapProperty)it.type).nestedProperties.values().toList()
+                validate(properties)
+            }) {
+                printFails("Track ${definition.path} with platform ${definition.platform} " +
+                        "didn't pass validation on nested structure => ${errorMessage}")
+
+                return false
+            }
         }
 
         return true
     }
 
-    Map<String, TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
-        return (Map<String,TrackDefinitionProperty>) definition.properties
+    List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
+        return ((Map<String,TrackDefinitionProperty>) definition.properties).values().toList()
     }
 
-    abstract boolean validate(TrackDefinition definition)
+    abstract boolean validate(List<TrackDefinitionProperty> properties)
 
     def printFails(String message) {
         println "\n"+starBar()
