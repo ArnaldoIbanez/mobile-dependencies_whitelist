@@ -16,7 +16,7 @@ trackTests {
 
         "/quotation/details"(platform: "/") {
             item_id = "MLM2222222"
-            source = "carouse"
+            source = "carousel"
         }
 
         "/quotation/details"(platform: "/web") {
