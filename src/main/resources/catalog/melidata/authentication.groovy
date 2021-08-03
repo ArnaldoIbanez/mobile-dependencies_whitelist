@@ -591,7 +591,7 @@ tracks {
     
     "/screenlock/challenge"(platform: "/mobile", type: TrackType.View) {
         transaction_id(type: PropertyType.String, required: false)
-        valid_params(type: PropertyType.Boolean, required: true)
+        valid_params(type: PropertyType.Boolean, required: false)
     }
 
     "/screenlock/challenge/start"(platform: "/mobile", type: TrackType.Event) {
