@@ -33,11 +33,9 @@ tracks {
     "/wallet_home"(platform: "/" , isAbstract: true) {}
 
     "/wallet_home/print"(platform: "/mobile") {
-        qr_map (required:false)
-        banking (required:false)
+        user_id(required:true, PropertyType.String, description: "users id")
     }
 
-    "/walletHome"(platform: "/mobile") {}
 
     "/vip/merch/show"(platform: "/") {
         merch_data (required:false, type: PropertyType.Map(merchdata))
