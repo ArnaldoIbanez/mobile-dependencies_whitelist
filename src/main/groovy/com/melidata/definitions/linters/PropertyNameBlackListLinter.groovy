@@ -10,13 +10,25 @@ class PropertyNameBlackListLinter extends AbstractLinter {
     List<String> alreadyTrackeds
 
     PropertyNameBlackListLinter() {
+        this.vagueNames = ["data", "extra_info", "extra_data", "extra", "event_data"]
+        this.reservedNames = ["platform", "user", "device", "name", "required", "description"]
+        this.alreadyTrackeds = ["user_id", "site_id", "colaborator_id"]
+
         this.errorMessage = "Property names shouldnt be included at \n" +
                 "${vagueNames} => Too vague names \n" +
                 "${reservedNames} => Reserved property names \n" +
                 "${alreadyTrackeds} => Already tracked information \n"
-        this.vagueNames = ["data", "extra_info", "extra_data", "extra", "event_data"]
-        this.reservedNames = ["platform", "user", "device", "name", "required", "description"]
-        this.alreadyTrackeds = ["user_id", "site_id", "colaborator_id"]
+    }
+
+    PropertyNameBlackListLinter(List<String> vageNames, List<String> reservedNames, List<String> alreadyTrackeds) {
+        this.vagueNames = vageNames
+        this.reservedNames = reservedNames
+        this.alreadyTrackeds = alreadyTrackeds
+
+        this.errorMessage = "Property names shouldnt be included at \n" +
+                "${vagueNames} => Too vague names \n" +
+                "${reservedNames} => Reserved property names \n" +
+                "${alreadyTrackeds} => Already tracked information \n"
     }
 
     @Override

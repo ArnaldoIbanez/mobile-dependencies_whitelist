@@ -33,7 +33,7 @@ tracks {
     "/wallet_home"(platform: "/" , isAbstract: true) {}
 
     "/wallet_home/print"(platform: "/mobile") {
-        user_id(required:true, PropertyType.String, description: "users id")
+        user_id(required:true, type: PropertyType.String, description: "users id")
     }
 
 
