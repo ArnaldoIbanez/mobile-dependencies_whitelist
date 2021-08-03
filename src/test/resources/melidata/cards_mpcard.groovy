@@ -853,7 +853,7 @@ trackTests {
         }
     }
 
-    test("cards hybrid physical unlock Events") {
+    test("cards mpcard physical unlock Events") {
         "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
             action = "close"
         }
@@ -862,6 +862,14 @@ trackTests {
         }
         "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
             action = "block_card"
+        }
+    }
+    test("cards mpcard physical unlock operation status") {
+        "/cards/mpcard/physical/unlock/status"(platform:"/", type: TrackType.Event) {
+            status = "success"
+        }
+        "/cards/mpcard/physical/unlock/status"(platform:"/", type: TrackType.Event) {
+            status = "error"
         }
     }
     
@@ -925,7 +933,7 @@ trackTests {
     test("cards mpcard nip change nip congrats") {
         "/cards/mpcard/change_nip/congrats"(platform:"/", type: TrackType.View) { }
         "/cards/mpcard/change_nip/congrats/tap"(platform:"/", type: TrackType.Event) {
-            action = "understand"
+            action = "understands"
         }
         "/cards/mpcard/change_nip/congrats/tap"(platform:"/", type: TrackType.Event) {
             action = "atm_away"

@@ -244,6 +244,9 @@ trackTests {
     }
 
     test("Account recovery flow") {
+        "/auth/account_recovery/restrict"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
         "/auth/account_recovery/landing"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
         }
@@ -1302,6 +1305,49 @@ trackTests {
             "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                vc_exists = false
+                modal_presented = false
+            }
+
+            "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction_granularity_option": "always",
+                        "transaction_accumulated_amount": "0",
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+                vc_exists = true
+                modal_presented = true
+            }
+
+            "/screenlock/opening_lock/error_routing"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
                 config = [
                         "transaction_granularity_option": "always",
                         "transaction_accumulated_amount": "0",

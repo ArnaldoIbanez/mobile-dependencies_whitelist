@@ -29,5 +29,8 @@ trackTests {
         "/home/landing/activate_store"(platform: "/", type: TrackType.Event){
             location = "test"
         }
+        "/home/landing/already_active"(platform: "/", type: TrackType.Event){
+            location = "test"
+        }
     }
 }

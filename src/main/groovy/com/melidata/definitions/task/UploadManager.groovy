@@ -8,7 +8,10 @@ class UploadManager {
 
     static void main(String[] args) {
 
-        TestManager.main(args)
+        println("Testing catalog....")
+        CatalogTest.main(args)
+        println("Testing metrics....")
+        MetricsTest.main('false')
 
         println("Starting upload of all catalogs")
         CatalogUploader.main(args)
@@ -16,5 +19,7 @@ class UploadManager {
         MetricsUploader.main(args)
         println("Starting upload json for whitelisted paths")
         WhitelistPathUploader.main(args)
+
+        System.exit(0)
     }
 }
