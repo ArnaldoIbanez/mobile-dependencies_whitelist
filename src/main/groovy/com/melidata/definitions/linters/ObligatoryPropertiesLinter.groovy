@@ -4,8 +4,11 @@ import com.ml.melidata.catalog.TrackDefinition
 
 class ObligatoryPropertiesLinter extends AbstractLinter {
 
-    ObligatoryPropertiesLinter() {
+    List<String> requiredProperties = []
+
+    ObligatoryPropertiesLinter(List<String> properties) {
         this.errorMessage = "Tracks should have description, requirement, and type defined"
+        this.requiredProperties = properties
     }
 
     @Override
@@ -13,7 +16,7 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
         def props = getPropertiesFromDefinition(definition)
 
         return props.every {propertyName, propertyDefinition ->
-            propertyDefinition.description && propertyDefinition.required != null && propertyDefinition.type
+            requiredProperties in propertyDefinition.properties.keySet()
         }
     }
 }
