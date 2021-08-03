@@ -2,18 +2,17 @@ package com.melidata.definitions.linters
 
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.TrackDefinition
-import com.ml.melidata.catalog.TrackDefinitionProperty
-import com.ml.melidata.catalog.utils.DslUtils
 
 class CatalogLinter {
 
-    List<LinterInterface> linters = []
+    List<AbstractLinter> linters = []
 
     CatalogLinter() {
-        linters.add(new PropertiesQuantityLinter(5))
+        linters.add(new PropertiesQuantityLinter(10))
+        linters.add(new ObligatoryPropertiesLinter())
     }
 
-    CatalogLinter(List<LinterInterface> lintersList) {
+    CatalogLinter(List<AbstractLinter> lintersList) {
         this.linters = lintersList
     }
 

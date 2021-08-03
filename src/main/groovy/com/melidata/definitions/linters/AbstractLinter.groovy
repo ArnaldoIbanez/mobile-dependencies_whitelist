@@ -1,8 +1,9 @@
 package com.melidata.definitions.linters
 
 import com.ml.melidata.catalog.TrackDefinition
+import com.ml.melidata.catalog.TrackDefinitionProperty
 
-abstract class LinterInterface {
+abstract class AbstractLinter {
 
     String errorMessage
 
@@ -15,6 +16,10 @@ abstract class LinterInterface {
         }
 
         return true
+    }
+
+    Map<String, TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
+        return (Map<String,TrackDefinitionProperty>) definition.properties
     }
 
     abstract boolean validate(TrackDefinition definition)

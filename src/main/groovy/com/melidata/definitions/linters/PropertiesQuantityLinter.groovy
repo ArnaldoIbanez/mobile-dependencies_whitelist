@@ -3,7 +3,7 @@ package com.melidata.definitions.linters
 import com.ml.melidata.catalog.TrackDefinition
 import com.ml.melidata.catalog.TrackDefinitionProperty
 
-class PropertiesQuantityLinter extends LinterInterface {
+class PropertiesQuantityLinter extends AbstractLinter {
 
     private int maxProps
 
@@ -14,7 +14,7 @@ class PropertiesQuantityLinter extends LinterInterface {
 
     @Override
     boolean validate(TrackDefinition definition) {
-        Map<String, TrackDefinitionProperty> props = (Map<String,TrackDefinitionProperty>) definition.properties
+        def props = getPropertiesFromDefinition(definition)
 
         return props.size() <= maxProps
     }
