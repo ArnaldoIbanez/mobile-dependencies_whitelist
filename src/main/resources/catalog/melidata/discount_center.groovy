@@ -295,4 +295,49 @@ tracks {
       marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
       components(required: true, type: PropertyType.Map(marketplace_components_definition), description: "Marketplace components")
     }
+
+    // ADDRESSES
+
+    "/discount_center/payers/addresses" (platform: "/mobile", type: TrackType.Event, isAbstract: true) {
+        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
+
+    "/discount_center/payers/addresses/bar/tap" (platform: "/mobile", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "The deeplink to open")
+    }
+
+    "/discount_center/payers/addresses/bar/tooltip/tap" (platform: "/mobile", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "The deeplink to open")
+    }
+
+    "/discount_center/payers/addresses/bar/tooltip/close" (platform: "/mobile", type: TrackType.Event) {}
+    
+    "/discount_center/payers/addresses/ftu" (platform: "/mobile", type: TrackType.View) {}
+
+    "/discount_center/payers/addresses/ftu/allow/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/ftu/secondary_button/tap" (platform: "/mobile", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "The title of the button")
+        action(required: true, type: PropertyType.String, description: "The deeplink to open")
+    }
+
+    "/discount_center/payers/addresses/ftu/back" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/request_location" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/request_location/result" (platform: "/mobile", type: TrackType.Event) {
+      result(required: true, type: PropertyType.String, values: ['enabled','disabled'] )
+    }
+
+    "/discount_center/payers/addresses/hub" (platform: "/mobile", type: TrackType.View) {}
+
+    "/discount_center/payers/addresses/hub/back" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/hub/address/tap" (platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.Numeric, description: "The id of the selected address" )
+    }
+
+    "/discount_center/payers/addresses/hub/current_location/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/hub/add_address/tap" (platform: "/mobile", type: TrackType.Event) {}
 }
