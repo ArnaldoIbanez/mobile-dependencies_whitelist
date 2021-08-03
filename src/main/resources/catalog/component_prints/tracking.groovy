@@ -42,6 +42,6 @@ tracks {
     }
 
     "/pdp/merch/show"(platform: "/") {
-        merch_data (required:false, type: PropertyType.Map(merchdata))
+        merch_data (required:false, type: PropertyType.Map(merchdata), description: "merchant engine metadata")
     }
 }

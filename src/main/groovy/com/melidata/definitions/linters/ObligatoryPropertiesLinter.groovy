@@ -7,8 +7,8 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
     List<String> requiredProperties = []
 
     ObligatoryPropertiesLinter(List<String> properties) {
-        this.errorMessage = "Tracks should have description, requirement, and type defined"
         this.requiredProperties = properties
+        this.errorMessage = "Tracks should have ${requiredProperties} at all their properties"
     }
 
     @Override
@@ -16,7 +16,9 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
         def props = getPropertiesFromDefinition(definition)
 
         return props.every {propertyName, propertyDefinition ->
-            requiredProperties in propertyDefinition.properties.keySet()
+            requiredProperties.every {requiredProperty ->
+                propertyDefinition.properties[requiredProperty] != null
+            }
         }
     }
 }
