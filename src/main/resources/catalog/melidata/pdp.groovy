@@ -27,18 +27,18 @@ tracks {
     }
 
     def shipping_promise_map = objectSchemaDefinitions {
-        destination(required: false, type:PropertyType.String, description:'Destination of the shipping')
+        destination(required: true, type:PropertyType.String, description:'Destination of the shipping')
         address_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Address type shipping options list')
         agency_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Agency type shipping options list')
     }
 
     def shipping_option_map = objectSchemaDefinitions {
-        shipping_option_id(required: false, type:PropertyType.Numeric, description:'Id of shipping option')
-        method_type(required: false, type:PropertyType.String, description: 'Method type of delivery')
-        delivery_lower_bound(required: false, type:PropertyType.Map(delivery_bound_map), description: 'Actual delivery date or min date in time frame cases')
+        shipping_option_id(required: true, type:PropertyType.Numeric, description:'Id of shipping option')
+        method_type(required: true, type:PropertyType.String, description: 'Method type of delivery')
+        delivery_lower_bound(required: true, type:PropertyType.Map(delivery_bound_map), description: 'Actual delivery date or min date in time frame cases')
         delivery_upper_bound(required: false, type:PropertyType.Map(delivery_bound_map), description: 'Max delivery date in time frame cases')
         pay_before(required: false, type:PropertyType.String, description: 'Promise validity deadline date with hour')
-        offset_days(required: false, type:PropertyType.Numeric, description: 'Offset days between delivery upper bound and delivery lower bound')
+        offset_days(required: true, type:PropertyType.Numeric, description: 'Offset days between delivery upper bound and delivery lower bound')
         price(required:false, type:PropertyType.Map(shipping_promise_price_map), description: 'Price of the shipping')
     }
 
