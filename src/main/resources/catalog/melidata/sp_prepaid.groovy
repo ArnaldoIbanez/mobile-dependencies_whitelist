@@ -15,6 +15,7 @@ tracks {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
         available_items(required: false, type: PropertyType.ArrayList, description: "Available items to select")
         parent_key(required: false, PropertyType.String, description: "Information about the product/category the user is looking at")
+        origin_source(required: false, PropertyType.String, description: "Source of flow")
         //item_id
         //type
         //content
@@ -38,7 +39,7 @@ tracks {
 
     propertyGroups {
         mandatory(flow, session_id)
-        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key)
+        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key, origin_source)
         item_structure(item_id, type, content)
         view_time(view_time)
         available_items(available_items)
@@ -185,6 +186,17 @@ tracks {
     "/single_player/prepaid/product_credits_list/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         step_information
+        view_time
+    }
+    "/single_player/prepaid/product_credits_list/back"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+    }
+    "/single_player/prepaid/product_credits_list/selected_product"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
     }
 
 
@@ -324,13 +336,8 @@ tracks {
         mandatory
         step_information
         view_time
+        item_structure
     }
-    "/single_player/prepaid/one_device/credits_button"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
-        mandatory
-        step_information
-        view_time
-    }
-
 
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
@@ -399,9 +406,15 @@ tracks {
 
     // Pre One Tap
     "/single_player/prepaid/break_pre_one_tap"(platform: "/mobile", type: TrackType.View) {}
-    "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/break_pre_one_tap/pay"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/break_pre_one_tap/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // One Tap

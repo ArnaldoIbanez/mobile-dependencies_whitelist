@@ -164,6 +164,11 @@ trackTests {
             problem_id = 1234
             case_id = 1234
         }
+
+        "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+            list_skip_button = true
+            list_type = "oneclick_purchases"
+        }
     }
 
     test("Support Widget having Content Type") {
@@ -468,7 +473,12 @@ trackTests {
             problem_id = 1234
             case_id = 1234
         }
-    }
+
+        "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+            list_skip_button = true
+            list_type = "oneclick_purchases"
+        }
+  }
 
     test("Support Cases") {
         "/support/cases"(platform: "/", type: TrackType.View) {}

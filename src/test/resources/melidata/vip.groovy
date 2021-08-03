@@ -1316,18 +1316,6 @@ trackTests {
 
     test("VIP fulfillment onboardings") {
 
-        "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            item_condition = "new"
-            seller_id = 131662738
-            price = 15.3
-            currency_id = "ARS"
-            original_price = 18.0
-            vip_version = "new"
-        }
-
         "/vip/show_fulfillment_tooltip"(platform: "/") {
             item_id = "MLA533657947"
             buyer_id = "12343718"
@@ -2144,5 +2132,42 @@ trackTests {
         "/vip/back_to_top"(platform: "/", type: TrackType.View) {
             item_id = "MLB533657947"
         }
+    }
+
+    // MERCH
+    test("Vip Merch ecosystem") {
+
+        def dataSet = {
+            item_id = "MLB533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+            catalog_listing = false
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
+            realestates = {
+                vip_pdp_ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/vip"(platform: "/", dataSet)
     }
 }

@@ -47,8 +47,8 @@ tracks {
 
     "/flex/configuration"(platform: "/", type: TrackType.View) {}
 
-    "/flex/configuration/select_handling_time"(platform: "/", type: TrackType.Event) {
-        handling_time(required: true, type: PropertyType.String, description: "handling time selected by the user")
+    "/flex/configuration/select_delivery_time"(platform: "/", type: TrackType.Event) {
+        delivery_time(required: true, type: PropertyType.String, description: "delivery days and time selected by the user")
     }
 
     "/flex/configuration/select_zones"(platform: "/", type: TrackType.Event) {
