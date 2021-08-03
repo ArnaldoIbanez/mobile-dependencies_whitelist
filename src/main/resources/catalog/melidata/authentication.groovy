@@ -588,10 +588,8 @@ tracks {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
     }
-
-    "/screenlock/challenge"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
-
-    "/screenlock/challenge/view"(platform: "/mobile", type: TrackType.View) {
+    
+    "/screenlock/challenge"(platform: "/mobile", type: TrackType.View) {
         transaction_id(type: PropertyType.String, required: false)
         valid_params(type: PropertyType.Boolean, required: true)
     }
@@ -611,10 +609,8 @@ tracks {
         transaction_id(type: PropertyType.String, required: true)
         challenge_time(type: PropertyType.Numeric, required: true, description: "elapsed time since challenge was showed")
     }
-
-    "/screenlock/challenge/error"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
-
-    "/screenlock/challenge/error/view"(platform: "/mobile", type: TrackType.View) {
+    
+    "/screenlock/challenge/error"(platform: "/mobile", type: TrackType.View) {
         transaction_id(type: PropertyType.String, required: false)
     }
 

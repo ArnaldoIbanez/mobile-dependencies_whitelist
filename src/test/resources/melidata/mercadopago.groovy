@@ -4791,14 +4791,14 @@ trackTests {
     }
 
     test("Biometrics / Reauth - Screenlock Challenge") {
-        "/screenlock/challenge/view"(platform: "/mobile/android", type: TrackType.View) {
+        "/screenlock/challenge"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             transaction_id = "123"
             valid_params = true
         }
 
-        "/screenlock/challenge/view"(platform: "/mobile/ios", type: TrackType.View) {
+        "/screenlock/challenge"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             valid_params = false
@@ -4847,13 +4847,13 @@ trackTests {
             challenge_time = 10
         }
 
-        "/screenlock/challenge/error/view"(platform: "/mobile/ios", type: TrackType.View) {
+        "/screenlock/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             transaction_id = "123"
         }
 
-        "/screenlock/challenge/error/view"(platform: "/mobile/android", type: TrackType.View) {
+        "/screenlock/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
         }
