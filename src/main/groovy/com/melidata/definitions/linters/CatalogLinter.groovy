@@ -7,14 +7,25 @@ import com.ml.melidata.catalog.utils.DslUtils
 
 class CatalogLinter {
 
-    static boolean run(String catalogName) {
-        Catalog catalog = DslUtils.parseLocalCatalogByName(catalogName)
+    List<LinterInterface> linters = []
+
+    CatalogLinter() {
+        linters.add(new PropertiesQuantityLinter(5))
+    }
+
+    CatalogLinter(List<LinterInterface> lintersList) {
+        this.linters = lintersList
+    }
+
+    boolean run(Catalog catalog) {
+        boolean isValid = true
 
         catalog.platformTree.allDefinitions.toSet().forEach { TrackDefinition definition ->
-            Map<String, TrackDefinitionProperty> props = (Map<String,TrackDefinitionProperty>) definition.properties
-            println("Track ${definition.path} has ${props.size()} properties for platform ${definition.platform}")
+            if(!linters.every {it.passValidation(definition)}) {
+                isValid = false
+            }
         }
 
-        return true
+        return isValid
     }
 }

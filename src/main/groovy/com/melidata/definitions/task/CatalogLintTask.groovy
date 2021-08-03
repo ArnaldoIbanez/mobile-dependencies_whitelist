@@ -1,16 +1,17 @@
 package com.melidata.definitions.task
 
 import com.melidata.definitions.linters.CatalogLinter
-import com.melidata.definitions.outs.StdOut
-import com.melidata.definitions.validators.CatalogValidator
-import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
+import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.utils.DslUtils
 
 class CatalogLintTask {
 
     static void main(String[] args) {
         def status = true
+        CatalogLinter cl = new CatalogLinter()
         args.each { catalogName ->
-            status = status && CatalogLinter.run(catalogName)
+            Catalog catalog = DslUtils.parseLocalCatalogByName(catalogName)
+            status = status && cl.run(catalog)
         }
 
         //If any test fails main program will exit with status=1
