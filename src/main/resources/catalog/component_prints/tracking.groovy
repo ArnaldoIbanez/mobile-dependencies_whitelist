@@ -33,15 +33,15 @@ tracks {
     "/wallet_home"(platform: "/" , isAbstract: true) {}
 
     "/wallet_home/print"(platform: "/mobile") {
-        user_id(required:true, type: PropertyType.String, description: "users id")
+        qr_map (required:false)
+        banking (required:false)
     }
-
 
     "/vip/merch/show"(platform: "/") {
         merch_data (required:false, type: PropertyType.Map(merchdata))
     }
 
     "/pdp/merch/show"(platform: "/") {
-        merch_data (required:false, type: PropertyType.Map(merchdata), description: "merchant engine metadata")
+        merch_data (required:false, type: PropertyType.Map(merchdata))
     }
 }

@@ -9,7 +9,7 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
 
     ObligatoryPropertiesLinter(List<String> properties) {
         this.requiredProperties = properties
-        this.errorMessage = "Tracks should have ${requiredProperties} at all their properties"
+        this.errorMessage = "Tracks should have ${requiredProperties} at all their properties and some required:true"
     }
 
     @Override
@@ -30,7 +30,7 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
                 propertyDefinition.required
             }
         }
-        
+
         return isValid
     }
 }
