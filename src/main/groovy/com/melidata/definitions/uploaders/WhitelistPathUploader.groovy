@@ -1,28 +1,22 @@
 package com.melidata.definitions.uploaders
 
-import com.melidata.definitions.manager.S3Controller
 import com.google.gson.GsonBuilder
+import com.ml.melidata.manager.storage.S3Service
 
 class WhitelistPathUploader {
 
-    def static JSON_CONTENT="application/json"
     def static FILE_NAME = "path.json"
-
     def pathWhitelistDir
-    def S3Controller s3Controller
+    def S3Service s3Service
 
-    def WhitelistPathUploader(pathWhitelistDir, s3Bucket, accessKey, secretKey) {
+    def WhitelistPathUploader(pathWhitelistDir) {
         this.pathWhitelistDir = pathWhitelistDir
-        s3Controller = new S3Controller(s3Bucket, accessKey, secretKey)
+        this.s3Service = new WhitelistService()
     }
 
     def static void main(String[] args) {
         def pathWhitelistDir = "./src/main/resources/whitelist/"
-        def s3Bucket = "melidata-api-whitelist"
-        def accessKey = "AKIAJ4K4ZOXUNJLTL4NQ"
-        def secretKey = "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"
-
-        new WhitelistPathUploader(pathWhitelistDir,s3Bucket,accessKey,secretKey).upload();
+        new WhitelistPathUploader(pathWhitelistDir).upload();
     }
 
     def upload() {
@@ -40,8 +34,8 @@ class WhitelistPathUploader {
         println("Uploading ${FILE_NAME}")
 
 
-        s3Controller.saveFile( FILE_NAME, json, JSON_CONTENT)
-        s3Controller.saveFile(versionedName, json, JSON_CONTENT)
+        this.s3Service.saveFile( FILE_NAME, json)
+        this.s3Service.saveFile( versionedName, json)
 
         println("Finish")
     }

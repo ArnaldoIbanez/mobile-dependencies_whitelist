@@ -714,4 +714,62 @@ trackTests {
         }
     }
 
+    test("Home sellers - template-details") {
+        "/discount_sellers/v2/landings/unauthorized" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            type = "melicampaign"
+        }
+    }
+
+    test("Home sellers - form") {
+        "/discount_sellers/v2/form" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+        }
+    }
+
+    test("Home sellers - form - how to") {
+        "/discount_sellers/v2/form/how_to" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+        }
+    }
+
+    test("Home sellers - form - how to - agree") {
+        "/discount_sellers/v2/form/how_to/agree" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+        }
+    }
+    
+    test("Home sellers - form - how to - agree") {
+        "/discount_sellers/v2/form/how_to/agree" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+        }
+    }
+
+    test("Home sellers - form - tyc") {
+        "/discount_sellers/v2/form/tyc" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+        }
+    }
+
+    test("Home sellers - form - create campaign") {
+        "/discount_sellers/v2/form/create_campaign" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+        }
+    }
+
+    
+    test("Home sellers - form - congrats") {
+        "/discount_sellers/v2/form/congrats" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            result = "fail"
+        }
+    }
+    
+    test("Home sellers - form - invalid field") {
+        "/discount_sellers/v2/form/invalid_field" (platform: "/", type: TrackType.Event) {
+            session_id = "qowejqboej1b11klasdsjal"
+            input = "name"
+            value = "Descuento especial"
+        }
+    }
 }

@@ -98,6 +98,7 @@ catalog {
         include business, "bulk_publish.groovy"
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
+        include business, "fraud_challenges.groovy"
     }
 
     mercadolibre.each { business ->
@@ -268,6 +269,8 @@ catalog {
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
         include business, "meliplaces.groovy"
+        include business, "mercadopago_openbanking.groovy"
+        include business, "point_loyalty.groovy"
     }
 
     mercadoshops.each { business ->

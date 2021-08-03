@@ -164,6 +164,11 @@ trackTests {
             problem_id = 1234
             case_id = 1234
         }
+
+        "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+            list_skip_button = true
+            list_type = "oneclick_purchases"
+        }
     }
 
     test("Support Widget having Content Type") {
@@ -261,7 +266,6 @@ trackTests {
         "/support/helpcard"(platform: "/", type: TrackType.View) {}
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [
                 [
                     title: "Ayuda con tus compras",
@@ -272,7 +276,6 @@ trackTests {
         }
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [:]
         }
     }
@@ -470,7 +473,12 @@ trackTests {
             problem_id = 1234
             case_id = 1234
         }
-    }
+
+        "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+            list_skip_button = true
+            list_type = "oneclick_purchases"
+        }
+  }
 
     test("Support Cases") {
         "/support/cases"(platform: "/", type: TrackType.View) {}
@@ -490,7 +498,6 @@ trackTests {
         "/support/helpcard"(platform: "/", type: TrackType.View) {}
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [
                 [
                     title: "Ayuda con tus compras",
@@ -501,7 +508,6 @@ trackTests {
         }
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [:]
         }
     }
