@@ -932,7 +932,7 @@ trackTests {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 transaction_id = "123"
-                errors = ["error in screenlock"]
+                error = "error in screenlock"
                 elapsed_time = 5
                 result = "error"
             }

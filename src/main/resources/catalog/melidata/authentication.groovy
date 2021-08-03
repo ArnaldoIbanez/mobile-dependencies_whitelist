@@ -605,7 +605,7 @@ tracks {
         transaction_id(type: PropertyType.String, required: true)
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time since challenge start was called")
         result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
-        errors(type: PropertyType.ArrayList, required: false)
+        error(type: PropertyType.String, required: false)
     }
 
     "/screenlock/challenge/finish"(platform: "/mobile", type: TrackType.Event) {
