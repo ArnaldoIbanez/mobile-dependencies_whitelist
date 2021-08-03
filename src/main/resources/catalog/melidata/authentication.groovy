@@ -213,7 +213,8 @@ tracks {
     }
 
     "/login/transactional/error"(platform: "/mobile", type: TrackType.View) {
-        error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"], description: "Indicates the error type shown in error view.")
+        error(type: PropertyType.String, required: true, values: ["resource_not_found", "conflict", "network", "server"],
+                description: "Indicates the error type shown in error view.")
     }
 
     "/login/transactional/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -226,7 +227,9 @@ tracks {
         user(type: PropertyType.String, required: false, description: "User information if available")
     }
 
-    "/login/transactional/challenge/decline"(platform: "/mobile", type: TrackType.Event) {}
+    "/login/transactional/challenge/decline"(platform: "/mobile", type: TrackType.Event) {
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
+    }
 
     "/login/transactional/challenge/submit"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -246,6 +249,8 @@ tracks {
     "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
+
+    "/auth/account_recovery/restrict"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
 
