@@ -1901,7 +1901,7 @@ tracks {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
-
+    "/notification/credits_consumer_opt_in_telcel_data_privacy"(platform: "/") {}
     "/notification/credits_consumer_congrats_microlines"(platform: "/") {}
 
       "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
