@@ -16,7 +16,7 @@ trackTests {
 
         "/quotation/details"(platform: "/") {
             item_id = "MLM2222222"
-            source = "modal"
+            source = "carouse"
         }
 
         "/quotation/details"(platform: "/web") {
@@ -27,7 +27,7 @@ trackTests {
             error_type = ""
             model_id = "102B"
             unit_id = 23544349337
-            source = "carousel"
+            source = "vip"
         }
 
         "/quotation/details"(platform: "/mobile") {
@@ -49,7 +49,7 @@ trackTests {
             vertical = "REAL_ESTATE"
             model_id = "102B"
             unit_id = 23544349337
-            source = "modal"
+            source = "primary"
         }
     }
 
@@ -73,7 +73,7 @@ trackTests {
             error_type = ""
             model_id = "102B"
             unit_id = 23544349337
-            source = "modal"
+            source = "vip"
         }
     }
 

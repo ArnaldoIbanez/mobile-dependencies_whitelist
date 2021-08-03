@@ -38,24 +38,28 @@ tracks {
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
         item_id(required: true, type:PropertyType.String,description: "Item id")
-        source(required: false, type:PropertyType.String,description: "Origen de donde se generó el evento")
+        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
+                description: "Origen de donde se generó el evento")
     }
 
     "/quotation/details"(platform: "/web") {
         quotationDetails
-        source(required: false, type:PropertyType.String,description: "Origen de donde se generó el evento")
+        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
+                description: "Origen de donde se generó el evento")
     }
 
     "/quotation/details/unregistered"(platform: "/web") {
         quotationDetails
-        source(required: false, type:PropertyType.String,description: "Origen de donde se generó el evento")
+        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
+                description: "Origen de donde se generó el evento")
     }
 
     "/quotation/details"(platform: "/mobile") {
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
-        source(required: false, type:PropertyType.String,description: "Origen de donde se generó el evento")
+        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
+                description: "Origen de donde se generó el evento")
     }
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
