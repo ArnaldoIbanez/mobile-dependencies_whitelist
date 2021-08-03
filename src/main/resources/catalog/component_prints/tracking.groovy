@@ -37,6 +37,8 @@ tracks {
         banking (required:false)
     }
 
+    "/walletHome"(platform: "/mobile") {}
+
     "/vip/merch/show"(platform: "/") {
         merch_data (required:false, type: PropertyType.Map(merchdata))
     }

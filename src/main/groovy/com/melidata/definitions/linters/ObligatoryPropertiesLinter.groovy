@@ -1,7 +1,6 @@
 package com.melidata.definitions.linters
 
 import com.ml.melidata.catalog.TrackDefinition
-import com.ml.melidata.catalog.TrackDefinitionProperty
 
 class ObligatoryPropertiesLinter extends AbstractLinter {
 
@@ -13,7 +12,8 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
     }
 
     @Override
-    boolean validate(List<TrackDefinitionProperty> props) {
+    boolean validateTrack(TrackDefinition trackDefinition) {
+        def props = getPropertiesFromDefinition(trackDefinition)
         return props.every {propertyDefinition ->
             requiredProperties.every {requiredProperty ->
                 propertyDefinition.properties[requiredProperty] != null
