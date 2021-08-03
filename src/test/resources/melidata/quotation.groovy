@@ -14,12 +14,25 @@ trackTests {
             item_id = "MLM2222222"
         }
 
+        "/quotation/details"(platform: "/") {
+            item_id = "MLM2222222"
+            source = "modal"
+        }
+
         "/quotation/details"(platform: "/web") {
             item_id = "MLM2222222"
             seller_id = 123456789
             category_id = "MLM170531"
             vertical = "REAL_ESTATE"
             error_type = ""
+            model_id = "102B"
+            unit_id = 23544349337
+            source = "carousel"
+        }
+
+        "/quotation/details"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            vertical = "REAL_ESTATE"
             model_id = "102B"
             unit_id = 23544349337
         }
@@ -29,6 +42,14 @@ trackTests {
             vertical = "REAL_ESTATE"
             model_id = "102B"
             unit_id = 23544349337
+        }
+
+        "/quotation/details"(platform: "/mobile") {
+            item_id = "MLM2222222"
+            vertical = "REAL_ESTATE"
+            model_id = "102B"
+            unit_id = 23544349337
+            source = "modal"
         }
     }
 
@@ -42,6 +63,17 @@ trackTests {
             error_type = ""
             model_id = "102B"
             unit_id = 23544349337
+        }
+
+        "/quotation/details/unregistered"(platform: "/web") {
+            item_id = "MLM2222222"
+            seller_id = 123456789
+            category_id = "MLM170531"
+            vertical = "REAL_ESTATE"
+            error_type = ""
+            model_id = "102B"
+            unit_id = 23544349337
+            source = "modal"
         }
     }
 

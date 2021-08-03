@@ -21,7 +21,7 @@ tracks {
     }
 
     propertyGroups {
-        quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
+        quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id, source)
         quotationEventData(item_id, source, unit_id)
     }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
@@ -38,6 +38,7 @@ tracks {
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
         item_id(required: true, type:PropertyType.String,description: "Item id")
+        source(required: false, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
     "/quotation/details"(platform: "/web") {
@@ -52,6 +53,7 @@ tracks {
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
+        source(required: false, type:PropertyType.String,description: "Origen de donde se generó el evento")
     }
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
