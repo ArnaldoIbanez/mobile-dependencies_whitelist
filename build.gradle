@@ -685,91 +685,10 @@ task uploadWhitelist(type:JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 }
 
-task exportMelidata(type:JavaExec) {
-    def mainClass
-    if (format == 'hive')
-        mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else
-        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-
-    main = mainClass
+task lint(type:JavaExec) {
+    main = "com.melidata.definitions.task.CatalogLintTask"
     classpath = sourceSets.main.runtimeClasspath
-    args ["melidata"]
-}
-
-task exportShipping(type:JavaExec) {
-    def mainClass
-    if (format == 'hive')
-        mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else
-        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-    main = mainClass
-    classpath = sourceSets.main.runtimeClasspath
-    args ["shipping"]
-}
-
-task exportPoint(type:JavaExec) {
-    def mainClass
-    if (format == 'hive')
-        mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else
-        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-    main = mainClass
-    classpath = sourceSets.main.runtimeClasspath
-    args ["point"]
-}
-
-task exportAdvertising(type:JavaExec) {
-    def mainClass
-    if (format == 'hive')
-        mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else
-        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-    main = mainClass
-    classpath = sourceSets.main.runtimeClasspath
-    args ["advertising"]
-}
-
-task exportComponentPrints(type:JavaExec) {
-    def mainClass
-    if (format == 'hive')
-        mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else
-        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-    main = mainClass
-    classpath = sourceSets.main.runtimeClasspath
-    args ["component_prints"]
-}
-
-task exportCxHelpChannels(type:JavaExec) {
-    def mainClass
-    if (format == 'hive')
-        mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else
-        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-    main = mainClass
-    classpath = sourceSets.main.runtimeClasspath
-    args ["cx_help_channels"]
-}
-
-task exportRecommendations(type:JavaExec) {
-    def mainClass
-    if (format == 'hive')
-        mainClass = "com.melidata.definitions.format.HiveFormatter"
-    else
-        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
-    main = mainClass
-    classpath = sourceSets.main.runtimeClasspath
-    args ["recommendations"]
-}
-
-task exportMetrics(type:JavaExec) {
-    main = "com.ml.melidata.metrics.format.MetricsFormatter"
-    classpath = sourceSets.main.runtimeClasspath
-}
-
-task lint() {
-
+    args = ["component_prints"]
 }
 
 task bootRepackage {
