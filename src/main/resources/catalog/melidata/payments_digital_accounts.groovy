@@ -136,6 +136,7 @@ tracks {
     "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
