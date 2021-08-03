@@ -45,6 +45,7 @@ tracks {
         logistic_type(required: false,
                 values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
+        shipping_promise(required: false, description: "Map of shipping delivery promise", type: PropertyType.Map)
 
         //SHIPPING CONDITIONS
         shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
@@ -74,7 +75,7 @@ tracks {
 
     propertyGroups {
         add_cart_info(cart_content)
-        shipping_info(shipping_mode, free_shipping, local_pick_up, store_pick_up, logistic_type, shipping_conditions)
+        shipping_info(shipping_mode, free_shipping, local_pick_up, store_pick_up, logistic_type, shipping_conditions, shipping_promise)
         pickup_info(showing_puis, pushing_puis, bo_pick_up_conditions)
         alternative_buying_option_info(position, item_id, buying_option_id, seller_id, seller_name)
         pricing_info(available_promotions, discount_reasons, price, original_price, currency_id)
