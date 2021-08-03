@@ -21,13 +21,13 @@ tracks {
     }
 
     "/component"(platform: "/") {
-        c_category(required: false)
-        c_id (required:false)
-        c_event (required:false)
-        c_campaign (required:false)
-        c_element_order (required:false)
-        c_original_target (required:false)
-        merch_data (required:false, type: PropertyType.Map(merchdata))
+        c_category(required: false, description: "something")
+        c_id (required:false, description: "something")
+        c_event (required:false, description: "something")
+        c_campaign (required:false, description: "something")
+        c_element_order (required:false, description: "something")
+        c_original_target (required:false, description: "something")
+        merch_data (required:false, description: "something", type: PropertyType.Map(merchdata))
     }
 
     "/wallet_home"(platform: "/" , isAbstract: true) {}
