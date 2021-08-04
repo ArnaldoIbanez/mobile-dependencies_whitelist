@@ -8,27 +8,53 @@ trackTests {
 
     test("consumer credits ml y mp") {
 
+        "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+
         /******************************************
         *       Start: Flujo Upsell Consumer
         ******************************************/
         "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadolibre") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
-            variant = 'success'
+            result = 'approved'
         }
         "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View, business:"mercadopago") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             remedy_name = 'declarative_info'
+            source_key = 'landing'
         }
         "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
-            variant = 'retry'
+            result = 'rejected'
         }
+        "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            result = 'approved'
+        }
+        "/credits/consumer/upsell/congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            result = 'rejected'
+        }
+        "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            result = 'rejected'
+        }
+        "/credits/consumer/upsell/congrats/help"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            result = 'approved'
+        }
+
+        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
         /******************************************
         *       End: Flujo Upsell Consumer
         ******************************************/
@@ -111,6 +137,38 @@ trackTests {
          *       End: Consumers Integrated Flow
          *********************************************/
 
+         /***********************************************
+         *       Start: Consumers Pre Approved Flow
+         ***********************************************/
+        //Pre Approved Flow - Start
+
+        //Page view
+        "/credits/consumer/opensea/pre_approved_flow/start"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            source = 'on'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/start"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            source = 'off'
+        }
+
+        //Events
+        "/credits/consumer/opensea/pre_approved_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event, business:"mercadolibre") {
+            source = 'on'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event, business:"mercadopago") {
+            source = 'off'
+        }
+         "/credits/consumer/opensea/pre_approved_flow/start/application_cancel"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            source = 'on'
+        }
+        "/credits/consumer/opensea/pre_approved_flow/start/application_cancel"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            source = 'off'
+        }
+
+        /*********************************************
+         *       End: Consumers Pre Approved Flow
+         *********************************************/
+
+
         /******************************************
          *    Start: Consumers Opensea Integrations
          ******************************************/
@@ -191,6 +249,46 @@ trackTests {
         "/credits/merchant/public_landing/em_offer"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
         "/credits/merchant/public_landing/new_account"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
         "/credits/merchant/public_landing/credits_access"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+    }
+
+    test('Credits Optins FrontEnd') {
+        // MercadoPago Business
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            initiative = 'merchant_enrollment'
+            step = 'whatsapp'
+        }
+        "/credits/preferences"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            initiative = 'credit_card_open_sea'
+            step = 'whatsapp'
+        }
+        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadopago") {
+            initiative = 'merchant_enrollment'
+        }
+        "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            initiative = 'merchant_open_market'
+            step = 'whatsapp_sms'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            initiative = 'merchant_administrator'
+            step = 'sms'
+        }
+
+        // MercadoLibre business
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            initiative = 'consumer_open_sea'
+            step = 'telcel'
+        }
+        "/credits/preferences/error"(platform: "/web/mobile", type: TrackType.View, business:"mercadolibre") {
+            initiative = 'merchant_enrollment'
+        }
+        "/credits/preferences/accept"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            initiative = 'consumer_administrator'
+            step = 'credit_circle'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            initiative = 'consumer_personal_loan'
+            step = 'telcel_credit_circle'
+        }
     }
 
     // Credits Marketing Performance landing

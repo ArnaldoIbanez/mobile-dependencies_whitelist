@@ -28,10 +28,16 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
         logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        criticality(required: false, type: PropertyType.Numeric, description: "Criticality of the pending")
+        from(required: false, type: PropertyType.String, description: "From where this pending shown")
     }
+
     propertyGroups {
         walletHomeMerchEngineFields(
             section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position
+        )
+        walletHomePendingsFields(
+            section_id, link, component_id, audience, bu, bu_line, content_id, flow, logic, position, criticality, from
         )
     }
 
@@ -63,6 +69,11 @@ tracks {
 
     def banking_v2_definition = objectSchemaDefinitions {
         hidden(required: true, type: PropertyType.Boolean, description: "hidden status")
+    }
+
+    def pendings_section_definition = objectSchemaDefinitions {
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
     }
 
     def credits_home_definition = objectSchemaDefinitions {}    
@@ -356,7 +367,7 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
-    "/wallet_home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/wallet_home/secondary_actions/toggle" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: true) {
         id(required: true, PropertyType.String, description: "the tab ID")
         quantity(required: true, PropertyType.String, description: "secondary actions quantity")
         is_showing_aware(required: true, type: PropertyType.Boolean, description: "If secondary actions is showing the aware")
@@ -385,6 +396,7 @@ tracks {
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         banking_v2(required: false, type: PropertyType.Map(banking_v2_definition), description: "The banking v2 section information")
+        pendings(required: false, type: PropertyType.Map(pendings_section_definition), description: "The pendings section information")
         credits(required: false, type: PropertyType.Map(credits_home_definition), description: "The credits section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         shortcuts(required: false, type: PropertyType.Map(shortcuts_section_definition), description: "The shortcuts section information")
@@ -392,6 +404,7 @@ tracks {
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        ads_top_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The advertising section information")
         loyalty(required: false, type: PropertyType.Map(loyalty_section_definition), description: "The loyalty section information")
         subscription(required: false, type: PropertyType.Map(subscription_section_definition), description: "The subscription section")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
@@ -419,6 +432,7 @@ tracks {
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        ads_top_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The advertising section information")
         loyalty(required: false, type: PropertyType.Map(loyalty_section_definition), description: "The loyalty section information")
         subscription(required: false, type: PropertyType.Map(subscription_section_definition), description: "The subscription section")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
@@ -532,6 +546,10 @@ tracks {
         position(type: PropertyType.Numeric, required: true, description: "The position in the section")
         enabled(type: PropertyType.Boolean, required: true, description: "If the item is show enabled")
     }
+
+    "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+        quantity(type: PropertyType.Numeric, required: true, description: "The number of user accounts")
+    }
     
     "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
         hidden(required: true, type: PropertyType.Boolean, description: "hidden status")
@@ -631,10 +649,22 @@ tracks {
         walletHomeMerchEngineFields
     }
 
+    "/wallet_home/section/tap/ads_top_banner" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomeMerchEngineFields
+    }
+
     "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }
     "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomeMerchEngineFields
+    }
+
+    "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomePendingsFields
+    }
+
+    "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }
 
@@ -670,6 +700,44 @@ tracks {
         favorite_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of favorite ids to save")
         from(required: false, type: PropertyType.String, values: ["modal", "sheet"], description: "How did user saved his shortcuts")
     }
+
+    "/wallet_home/shortcuts_sheet/add" (platform: "/mobile", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true, description: "The user profile", values: ["seller", "payer", "newbie"])
+        group_id(required: true, type: PropertyType.String, description: "The component id of the item")
+        enabled(type: PropertyType.Boolean, required: true, description: "If the item has tap enabled indicating that it has a link")
+        is_favorite(type: PropertyType.Boolean, required: true, description: "If the item was selected as favorite")
+        position(required: true, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        has_aware(type: PropertyType.Boolean, required: true, description: "If has an aware badge")
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        group_position(required: false, type: PropertyType.String, description: "The group position of the item")
+        component_id(required: true, type: PropertyType.String, description: "Component ID")
+        has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+        has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
+        from(required: false, type: PropertyType.String, values: ["section", "sheet"], description: "How the user add their shortcut")
+    }
+
+    "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
+        user_profile(type: PropertyType.String, required: true, description: "The user profile", values: ["seller", "payer", "newbie"])
+        group_id(required: true, type: PropertyType.String, description: "The component id of the item")
+        enabled(type: PropertyType.Boolean, required: true, description: "If the item has tap enabled indicating that it has a link")
+        is_favorite(type: PropertyType.Boolean, required: true, description: "If the item was selected as favorite")
+        position(required: true, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        has_aware(type: PropertyType.Boolean, required: true, description: "If has an aware badge")
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        group_position(required: false, type: PropertyType.String, description: "The group position of the item")
+        component_id(required: true, type: PropertyType.String, description: "Component ID")
+        has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
+        has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
+        from(required: false, type: PropertyType.String, values: ["section", "sheet"], description: "How the user removed their shortcut")
+    }
+
+    "/wallet_home/shortcuts_sheet/modal" (platform: "/mobile", isAbstract: true) {}  
+
+    "/wallet_home/shortcuts_sheet/modal/view" (platform: "/mobile", type: TrackType.View) {}
+
+    "/wallet_home/shortcuts_sheet/modal/dismiss" (platform: "/mobile", type: TrackType.Event) {}
 
     /************************************/
     //  TRACKS CROSS SELL EXPERIMENTS   //

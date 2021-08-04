@@ -87,7 +87,7 @@ tracks {
     /***** Create Similar Quote Mobile ******/
     // Quote Create -  Loading
     "/quote/seller/create_similar"(platform: "/", parentPropertiesInherited: false) {}
-    
+
     // Quote Create -  Loading
     "/quote/seller/create_similar/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
         vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
@@ -442,6 +442,7 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         item_id(required: true, type: PropertyType.String, description: "Item id")
+        vip_version(required: false, type: PropertyType.String, description: "vip version for query new experience")
     }
 
     /***** Quote Demands Listing ******/

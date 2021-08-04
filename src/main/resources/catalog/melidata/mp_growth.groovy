@@ -109,9 +109,19 @@ tracks {
 	"/merchant_acquisition/flows/wrap_up"(platform: "/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/home"(platform:"/", type: TrackType.View) {}
 	"/merchant_acquisition/flows/wrap_up/home/x_sell"(platform:"/", type: TrackType.View) {}
-	"/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more"(platform:"/", type: TrackType.Event) {
+	"/merchant_acquisition/flows/wrap_up/home/closing"(platform:"/", type: TrackType.View) {}
+	"/merchant_acquisition/flows/wrap_up/home/x_sell/see_more"(platform:"/", type: TrackType.Event) {
         product_sell_name(required: true, type: PropertyType.String, description: "The product sell name")
         link(required: true, type: PropertyType.String, description: "Link to execute")
+    }
+    "/merchant_acquisition/flows/wrap_up/home/closing/like"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/wrap_up/home/closing/dislike"(platform:"/", type: TrackType.Event) {}
+	"/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/wrap_up/home/sellers_central/see_more"(platform:"/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link to execute")
+    }
+    "/merchant_acquisition/flows/wrap_up/home/value_prop"(platform:"/", type: TrackType.Event) {
+        section(required: true, type: PropertyType.String, description: "Name of section where the user clicked the link.")
     }
 
     //mgm
@@ -193,6 +203,18 @@ tracks {
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards"(platform: "/", type: TrackType.Event) {}
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use"(platform: "/", type: TrackType.Event) {}
 	"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet"(platform: "/", type: TrackType.Event) {}
+
+    // Invite and Win
+    "/merchant_acquisition/point"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/point/landing"(platform: "/", isAbstract: true) {}
+
+    "/merchant_acquisition/point/landing/invite_and_win"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/point/landing/invite_and_win/recommend"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/sign_up"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/additional_benefits"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/point_details"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/qr_details"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/point/landing/invite_and_win/kit_download"(platform: "/", type: TrackType.Event) {}
 
     // Associar Point - Micrositio - reseller
     "/merchant_acquisition/flows/resellers/point_register"(platform:"/", type: TrackType.View) {}

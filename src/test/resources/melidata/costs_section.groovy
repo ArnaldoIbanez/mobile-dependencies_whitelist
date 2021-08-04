@@ -303,9 +303,14 @@ trackTests {
         }
     }
     test("The save button was clicked with a error result 2 - PSJ") {
-        "/pricing_section/psj/save/error" (platform: "/", type: TrackType.Event) {
+        "/pricing_section/psj/save/error"(platform: "/", type: TrackType.Event) {
             status = "500"
             message = "Error"
+        }
+    }
+    test("Access psj activity from deeplink outside pricing section") {
+        "/pricing_section/psj_activity"(platform: "/mobile", type: TrackType.Event) {
+            caller="test.java"
         }
     }
 }

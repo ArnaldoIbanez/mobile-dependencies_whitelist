@@ -64,7 +64,7 @@ tracks {
         account_total_amount(
             description: "The user total debt",
             type: PropertyType.Numeric,
-            required: true
+            required: false
         )
     }
 
@@ -86,6 +86,24 @@ tracks {
         )
     }
 
+    def error_data = objectSchemaDefinitions {
+        type(
+                description: "Error type",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "timeout",
+                        "failed_dependency",
+                        "internal_error"
+                ]
+        )
+        cause(
+                description: "Error cause",
+                type: PropertyType.String,
+                required: true
+        )
+    }
+
     propertyDefinitions {
         amount_input(
             type: PropertyType.Map(amount_input_data),
@@ -100,8 +118,11 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                "closed",
-                "open"
+                    "closed",
+                    "open",
+                    "scheduled",
+                    "overdue",
+                    "paid"
             ]
         )
         payment_option(
@@ -147,7 +168,7 @@ tracks {
         pending_payments(
                 description: "The pending payments",
                 type: PropertyType.Boolean,
-                required: true
+                required: false
         )
         disable_option(
             description: "The account cancellation type",
@@ -168,19 +189,25 @@ tracks {
             type: PropertyType.String,
             required: false
         )
+        error(
+            description: "Error Cause and Type on TC Dashboard",
+            type: PropertyType.Map(error_data),
+            required: false
+        )
     }
 
     propertyGroups {
-        dashboard_view_group(account, statement_status, pending_payments)
+        dashboard_view_group(account, statement_status, pending_payments, error)
         dashboard_event_group(account, statement_status)
         payment_group(account, statement_status)
         upgrade_info(proposal, is_card_active)
         full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         bucket_group(bucket)
-        statement_status_group(statement_status)
+        statement_status_group(statement_status , account)
         statement_period(month, year)
         disable_group(account, disable_option)
         disable_full_group(account, disable_option, reasons, other_reason)
+        error_group(error)
     }
 
     /******************************************
@@ -193,6 +220,7 @@ tracks {
     "/credits/credit_card/statement"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
+    "/credits/credit_card/waitlist"(platform: "/", isAbstract: true){}
 
 
     /******************************************
@@ -241,9 +269,14 @@ tracks {
     "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
         upgrade_info
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
+        from(
+                description: "Indicates where the onboarding flow was accessed from",
+                type: PropertyType.String,
+                required: true
+        )
     }
 
-    "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/upgrade/onboarding/change_page"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         upgrade_info
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
     }
@@ -291,11 +324,50 @@ tracks {
                 "rejected"
             ]
         )
+        congrats_status(
+                description: "Status for the congrats's view",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "linked_card",
+                        "not_linked_card",
+                        "physical_not_requested"
+                ]
+        )
+        from(
+                description: "Indicates where the upgrade congrats flow was accessed from",
+                type: PropertyType.String,
+                required: true
+        )
     }
 
     "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from the physical card request",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from the physical card unlock",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
 
     // Error
     "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
@@ -311,6 +383,19 @@ tracks {
                 values: [
                         "no_proposal_match",
                         "invalid_proposal_status",
+                        "kyc_not_compliant",
+                        "physical_card_request",
+                        "kyc_api_failed"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/stop_page/redirect_to_dashboard"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Indicates the status and then redirect to the dashboard",
+                type: PropertyType.String,
+                required: true,
+                values: [
                         "user_has_active_account"
                 ]
         )
@@ -397,6 +482,20 @@ tracks {
         )
     }
 
+    "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/fallback_dialer_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        error_group
+    }
+
+    "/credits/credit_card/dashboard/fallback_retry_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        error_group
+    }
+
+    "/credits/credit_card/dashboard/load_credit_sections_event"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) { }
+
     /*********************************************
      *       End: Credit Card Dashboard
      *********************************************/
@@ -462,5 +561,34 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Landings
+     *********************************************/
+
+
+    /***********************************************
+     *       Start: Credit Card Wait List
+     ***********************************************/
+    // Landings
+    "/credits/credit_card/waitlist/landing"(platform: "/", type: TrackType.View) { }
+
+    // Congrats
+    "/credits/credit_card/waitlist/congrats"(platform: "/", type: TrackType.View) {
+        status(
+                description: "Status from the user in Wait list",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "registered",
+                        "already_registered",
+                ]
+        )
+    }
+
+    // Error
+    "/credits/credit_card/waitlist/error"(platform: "/", type: TrackType.View) {
+        reason(type: PropertyType.String, required: false)
+    }
+
+    /*********************************************
+     *       End: Credit Card Wait List
      *********************************************/
 }

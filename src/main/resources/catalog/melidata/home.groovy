@@ -147,6 +147,11 @@ tracks {
 
     "/home/navigation"(platform: "/", type: TrackType.View) {}
 
+    // Motors popup view
+    "/home/category/motors/popup_meli"(platform: "/", type: TrackType.View, parentPropertiesInherited:false) {}
+    "/home/category/motors/popup_meli/accept"(platform: "/", type: TrackType.Event) {}
+    "/home/category/motors/popup_meli/deny"(platform: "/", type: TrackType.Event) {}
+
      // RealEstate Portal Inmobiliario Sections
     "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
 
@@ -185,6 +190,36 @@ tracks {
     "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View) {}
 
     "/home/category/real_estate/map"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/official_store"(platform: "/", isAbstract: true) {}
+
+    "/home/category/real_estate/official_store/developer"(platform: "/", isAbstract: true) {}
+
+    "/home/category/real_estate/official_store/developer/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/developer/print"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/developer/all_brands"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){}
+
+    "/home/category/real_estate/official_store/realtor"(platform: "/", isAbstract: true) {}
+
+    "/home/category/real_estate/official_store/realtor/action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/realtor/print"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        official_store_name(required: true, type:PropertyType.String, description: "Official store name" )
+        official_store_id(required: true, type:PropertyType.Numeric, description: "Official store id" )
+    }
+
+    "/home/category/real_estate/official_store/realtor/all_brands"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){}
 
     // Apparel
     "/home/category/apparel"(platform: "/", isAbstract: true) {

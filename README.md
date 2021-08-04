@@ -41,17 +41,16 @@ If you want to run the tests, you should execute **```make test```**
 
 ### REFERENCES
 
-1. [**Tracking Definitions**](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
+1. 📖  👉 [**Tracking Definitions**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Tracking-Style-Guide)
 
-2. [Metrics Definitions](https://github.com/mercadolibre/melidata-catalog/wiki/New-Metric)
+2. 📖  👉 [**FAQ**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/FAQ) 
 
-3. [Cronned Queries Definitions](https://sites.google.com/mercadolibre.com/melidata/custom-data/bi-integration)
+3. [Metrics Definitions](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/New-Metric)
 
-4. [Tracking health check](https://github.com/mercadolibre/melidata-catalog/wiki/Catalog-health-check)
+4. [Tracking health check](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Catalog-health-check)
 
-5. [FAQ](https://github.com/mercadolibre/melidata-catalog/wiki/FAQ) 
 
 ### CONTACT
 <melidata_dev@mercadolibre.com>
 
-We internally rotate in the Melidata team to periodically take PRs at this catalog. In case of a hurry ( just in that case ) you can reach catalog owner of the week by checking [this rotation](https://nasdaq-meli.app.opsgenie.com/settings/schedule/detail/e9e18d88-3536-4572-9351-6ab680d4b1ed)
+We internally **rotate in the Melidata team to periodically take PRs at this catalog**. In case of a hurry ( just in that case ) you can reach catalog owner of the week by checking [this rotation](https://nasdaq-meli.app.opsgenie.com/settings/schedule/detail/e9e18d88-3536-4572-9351-6ab680d4b1ed)

@@ -126,6 +126,9 @@ tracks {
     "/mplayer/closed_request/status/reject"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/reject/reject"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/reject/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/reject/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, values: ["close_button", "main_button"], description: "the button selected to exit")
+    }
 
     "/mplayer/closed_request/result"(platform: "/mobile", isAbstract: true) {}
 
@@ -150,6 +153,11 @@ tracks {
     "/mplayer/closed_request/bottom_sheet/new_contact_phone"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/bottom_sheet/continue"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/mplayer/closed_request/redirector"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/closed_request/redirector/manual_amount"(platform: "/mobile", type: TrackType.View) {
+        flow(required: false, PropertyType.String, description: "the source flow")
+        contact_type(required: true, PropertyType.String, description: "the type of the contact")
+    }
 
     // Open Request
     "/mplayer/open_request"(platform: "/mobile", isAbstract: true) {}

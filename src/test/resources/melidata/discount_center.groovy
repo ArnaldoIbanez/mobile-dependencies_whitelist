@@ -500,6 +500,22 @@ trackTests {
                                 ]
                         ]
                 ],
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido fue entregado",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                            ]
+                ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -755,6 +771,22 @@ trackTests {
                                         ]
                                 ]
                         ]
+                ],
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido esta en camino",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                    ]
                 ]
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -857,6 +889,81 @@ trackTests {
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+
+        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                purchases_status: [
+                    marketplace_type: "purchases_status",
+                    segment_id: "purchases_status",
+                    marketplace_index: 1,
+                    purchases: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_label: "Tu pedido esta en camino",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "purchase_tracking_id"
+                    ]
+                ],
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+    // ADDRESSES
+
+     test("Mercado Pago discount center payers request location") {
+        "/discount_center/payers/addresses/bar/tap" (platform: "/mobile", type: TrackType.Event) {
+            action = "mercadopago://discount_center_payers/addresses_hub"
+        }
+
+        "/discount_center/payers/addresses/bar/tooltip/tap" (platform: "/mobile", type: TrackType.Event) {
+            action = "mercadopago://discount_center_payers/addresses_hub"
+        }
+
+        "/discount_center/payers/addresses/bar/tooltip/close" (platform: "/mobile", type: TrackType.Event) {}
+
+        // FTU
+
+        "/discount_center/payers/addresses/ftu" (platform: "/mobile", type: TrackType.View) {}
+
+        "/discount_center/payers/addresses/ftu/allow/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/discount_center/payers/addresses/ftu/secondary_button/tap" (platform: "/mobile", type: TrackType.Event) {
+            label = "Usar una de mis direcciones"
+            action = "mercadopago://discount_center_payers/addresses_hub"
+        }
+
+        "/discount_center/payers/addresses/ftu/back" (platform: "/mobile", type: TrackType.Event) {}
+
+        // Hub
+
+        "/discount_center/payers/addresses/hub" (platform: "/mobile", type: TrackType.View) {}
+
+        "/discount_center/payers/addresses/hub/back" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/discount_center/payers/addresses/hub/address/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = 6749403449
+        }
+
+        "/discount_center/payers/addresses/hub/current_location/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/discount_center/payers/addresses/hub/add_address/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        // Location Permissions
+
+        "/discount_center/payers/addresses/request_location" (platform: "/mobile", type: TrackType.Event) {
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+
+        "/discount_center/payers/addresses/request_location/result" (platform: "/mobile", type: TrackType.Event) {
+            result = "enabled"
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 }
