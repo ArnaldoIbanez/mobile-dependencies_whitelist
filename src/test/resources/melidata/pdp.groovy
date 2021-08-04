@@ -207,47 +207,45 @@ trackTests {
             store_pick_up = true
             logistic_type = "self_service"
             shipping_conditions = "discount_mandatory"
-            shipping_promise = {
-                destination = "1430"
-                address_options = [
-                        {
-                            shipping_option_id = 7
-                            method_type = "super_express"
-                            delivery_lower_bound = {
-                                date = "2021-07-30T03:00:00Z"
-                                days = 0
-                            }
-                            delivery_upper_bound = {}
-                            pay_before = "2021-07-31T16:00:00Z"
-                            offset_days = 0
-                            price = {
-                                amount = 390.99
-                                currency_id = "ARS"
-                                is_loyalty_discount = true
-                            }
-                        }
+            shipping_promise = [
+                destination : "1430",
+                address_options : [
+                        [
+                            shipping_option_id : 7,
+                            method_type : "super_express",
+                            delivery_lower_bound : [
+                                date : "2021-07-30T03:00:00Z",
+                                days : 0,
+                            ],
+                            delivery_upper_bound : [],
+                            pay_before : "2021-07-31T16:00:00Z",
+                            offset_days : 0,
+                            price : [
+                                amount : 390.99,
+                                currency_id : "ARS",
+                                is_loyalty_discount : true
+                            ]
+                        ]
+                ],
+                agency_options : [
+                        [
+                            method_type : "standard",
+                            delivery_lower_bound : [
+                                date : "2021-08-05T03:00:00Z",
+                                days : 2
+                            ],
+                            delivery_upper_bound : [
+                                date : "2021-08-10T03:00:00Z",
+                                days : 7
+                            ],
+                            offset_days : 5,
+                            price : [
+                                currency_id : "ARS",
+                                is_loyalty_discount : false
+                            ]
+                        ]
                 ]
-
-                agency_options = [
-                        {
-                            shipping_option_id = 4007511109
-                            method_type = "standard"
-                            delivery_lower_bound = {
-                                date = "2021-08-05T03:00:00Z"
-                                days = 2
-                            }
-                            delivery_upper_bound = {
-                                date = "2021-08-10T03:00:00Z"
-                                days = 7
-                            }
-                            offset_days = 5
-                            price = {
-                                currency_id = "ARS"
-                                is_loyalty_discount = false
-                            }
-                        }
-                ]
-            }
+            ]
         }
 
         def pickup = {
