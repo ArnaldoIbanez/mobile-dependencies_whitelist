@@ -41,6 +41,33 @@ tracks {
         value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item value")
     }
 
+    def delivery_bound_map = objectSchemaDefinitions {
+        date(required: false, type:PropertyType.String, description: 'Date of delivery bound')
+        days(required: false, type:PropertyType.Numeric, description: 'Amount of days of distance from today')
+    }
+
+    def shipping_promise_price_map = objectSchemaDefinitions {
+        amount(required: false, type:PropertyType.Numeric, description: 'Price amount of shipping')
+        currency_id(required: false, type:PropertyType.String, description: 'Currency id')
+        is_loyalty_discount(required: false, type:PropertyType.Boolean, description: 'Indicates if price has a loyalty discount')
+    }
+
+    def shipping_option_map = objectSchemaDefinitions {
+        shipping_option_id(required: true, type:PropertyType.Numeric, description:'Id of shipping option')
+        method_type(required: true, type:PropertyType.String, description: 'Method type of delivery')
+        delivery_lower_bound(required: true, type:PropertyType.Map(delivery_bound_map), description: 'Actual delivery date or min date in time frame cases')
+        delivery_upper_bound(required: false, type:PropertyType.Map(delivery_bound_map), description: 'Max delivery date in time frame cases')
+        pay_before(required: false, type:PropertyType.String, description: 'Promise validity deadline date with hour')
+        offset_days(required: true, type:PropertyType.Numeric, description: 'Offset days between delivery upper bound and delivery lower bound')
+        price(required:false, type:PropertyType.Map(shipping_promise_price_map), description: 'Price of the shipping')
+    }
+
+    def shipping_promise_map = objectSchemaDefinitions {
+        destination(required: true, type:PropertyType.String, description:'Destination of the shipping')
+        address_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Address type shipping options list')
+        agency_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Agency type shipping options list')
+    }
+
     propertyDefinitions {
         price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
@@ -58,8 +85,9 @@ tracks {
         store_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has store pick up")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
+        shipping_promise(required: false, description: "Map of shipping delivery promise", type: PropertyType.Map(shipping_promise_map))
 
         //SHIPPING CONDITIONS
         shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
@@ -89,7 +117,7 @@ tracks {
 
     propertyGroups {
         add_cart_info(cart_content)
-        shipping_info(shipping_mode, free_shipping, local_pick_up, store_pick_up, logistic_type, shipping_conditions)
+        shipping_info(shipping_mode, free_shipping, local_pick_up, store_pick_up, logistic_type, shipping_conditions, shipping_promise)
         pickup_info(showing_puis, pushing_puis, bo_pick_up_conditions)
         alternative_buying_option_info(position, item_id, buying_option_id, seller_id, seller_name)
         pricing_info(available_promotions, discount_reasons, price, original_price, currency_id)
@@ -118,7 +146,7 @@ tracks {
         cart_content(required: false, type: PropertyType.Boolean, description: "Content of cart")
         has_full_filment(required: false, type: PropertyType.Boolean, description: "If an item is available via fullfilment")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
 
         // PRICING 2.0
