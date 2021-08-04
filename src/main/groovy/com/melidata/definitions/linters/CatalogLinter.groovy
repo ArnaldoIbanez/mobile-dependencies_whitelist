@@ -1,6 +1,7 @@
 package com.melidata.definitions.linters
 
 import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.TrackDefinition
 
 class CatalogLinter {
@@ -12,6 +13,7 @@ class CatalogLinter {
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type"]))
         linters.add(new NamingLinter())
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
+        linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data"],
                 ["platform", "user", "device", "name", "required", "description"],
