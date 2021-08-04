@@ -30,8 +30,6 @@ tracks {
         merch_data (required:false, type: PropertyType.Map(merchdata))
     }
 
-    "/fyi/smth/tap"(platform: "/" , isAbstract: true) {}
-
     "/wallet_home"(platform: "/" , isAbstract: true) {}
 
     "/wallet_home/print"(platform: "/mobile") {

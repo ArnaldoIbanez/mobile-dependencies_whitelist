@@ -15,6 +15,8 @@ class ViewsAndEventsLinter extends AbstractLinter {
 
     @Override
     boolean validateTrack(TrackDefinition definition) {
+        if(definition.path == '/') return true
+
         String lastSection = definition.path.split('/').last()
         return !(lastSection in nonDeclarativeSections)
     }
