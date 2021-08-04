@@ -180,6 +180,7 @@ catalog {
         include business, "global_selling.groovy"
         include business, "categories.groovy"
         include business, "category_landing.groovy"
+        include business, "livecommerce.groovy"
     }
 
     mercadopago.each { business ->
