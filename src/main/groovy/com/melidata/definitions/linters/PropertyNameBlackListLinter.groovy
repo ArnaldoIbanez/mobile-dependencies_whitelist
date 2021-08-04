@@ -15,9 +15,9 @@ class PropertyNameBlackListLinter extends AbstractLinter {
         this.alreadyTrackeds = alreadyTrackeds
 
         this.errorMessage = "Property names shouldnt be included at \n" +
-                "${vagueNames} => Too vague names \n" +
-                "${reservedNames} => Reserved property names \n" +
-                "${alreadyTrackeds} => Already tracked information"
+                "${this.vagueNames} => Too vague names \n" +
+                "${this.reservedNames} => Reserved property names \n" +
+                "${this.alreadyTrackeds} => Already tracked information"
     }
 
     @Override
@@ -28,7 +28,7 @@ class PropertyNameBlackListLinter extends AbstractLinter {
     @Override
     boolean validatePropertySet(List<TrackDefinitionProperty> definition) {
         return definition.every {
-            !(it.name in vagueNames) && !(it.name in alreadyTrackeds)  && !(it.name in reservedNames)
+            !(it.name in this.vagueNames) && !(it.name in this.reservedNames)  && !(it.name in this.alreadyTrackeds)
         }
     }
 }
