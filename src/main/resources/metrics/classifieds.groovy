@@ -174,4 +174,28 @@ metrics {
 			}
 		}
 	}
+
+	"quotation_intention"(description: "track quotation intention for classifieds") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/quotation_intention")
+			}
+		}
+	}
+
+	"quotation_details"(description: "track quotation details of models for classifieds") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/quotation/details")
+			}
+		}
+	}
 }
