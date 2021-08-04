@@ -19,14 +19,14 @@ tracks {
     propertyDefinitions {
         section_id(required: false, type: PropertyType.String, description: "Section ID")
         link(required: false, type: PropertyType.String, description: "deeplink to execute")
-        component_id(required: true, type: PropertyType.String, description: "Component ID")
+        component_id(required: false, type: PropertyType.String, description: "Component ID")
         action_id(required: false, type: PropertyType.String, description: "The action executed")
-        audience(required: true, type: PropertyType.String, description: "The audience of the user that saw the content")
-        bu(required: true, type: PropertyType.String, description: "The business unit: MP or ML")
-        bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content - Ex: Point")
-        content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
-        flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
-        logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
+        audience(required: false, type: PropertyType.String, description: "The audience of the user that saw the content")
+        bu(required: false, type: PropertyType.String, description: "The business unit: MP or ML")
+        bu_line(required: false, type: PropertyType.String, description: "The business unit related to the content - Ex: Point")
+        content_id(required: false, type: PropertyType.String, description: "Identifier for the unique content shown")
+        flow(required: false, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
+        logic(required: false, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
         criticality(required: false, type: PropertyType.Numeric, description: "Criticality of the pending")
         from(required: false, type: PropertyType.String, description: "From where this pending shown")
@@ -663,6 +663,16 @@ tracks {
     "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomePendingsFields
     }
+
+    "/wallet_home/pendings_sheet" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/pendings_sheet/view" (platform: "/mobile", type: TrackType.View) {
+        from(required: true, type: PropertyType.String, description: "From where this pending shown")
+    }
+
+    "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
