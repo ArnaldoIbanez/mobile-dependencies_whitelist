@@ -104,6 +104,7 @@ tracks {
     "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/retained"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/balance/last_activities"(platform: "/", type: TrackType.View) { componentsViews }
 
     // Components ToRelease
