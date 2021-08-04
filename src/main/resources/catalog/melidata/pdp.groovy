@@ -26,10 +26,15 @@ tracks {
         value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item value")
     }
 
-    def shipping_promise_map = objectSchemaDefinitions {
-        destination(required: true, type:PropertyType.String, description:'Destination of the shipping')
-        address_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Address type shipping options list')
-        agency_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Agency type shipping options list')
+    def delivery_bound_map = objectSchemaDefinitions {
+        date(required: false, type:PropertyType.String, description: 'Date of delivery bound')
+        days(required: false, type:PropertyType.Numeric, description: 'Amount of days of distance from today')
+    }
+
+    def shipping_promise_price_map = objectSchemaDefinitions {
+        amount(required: false, type:PropertyType.Numeric, description: 'Price amount of shipping')
+        currency_id(required: false, type:PropertyType.String, description: 'Currency id')
+        is_loyalty_discount(required: false, type:PropertyType.Boolean, description: 'Indicates if price has a loyalty discount')
     }
 
     def shipping_option_map = objectSchemaDefinitions {
@@ -42,15 +47,10 @@ tracks {
         price(required:false, type:PropertyType.Map(shipping_promise_price_map), description: 'Price of the shipping')
     }
 
-    def delivery_bound_map = objectSchemaDefinitions {
-        date(required: false, type:PropertyType.String, description: 'Date of delivery bound')
-        days(required: false, type:PropertyType.Numeric, description: 'Amount of days of distance from today')
-    }
-
-    def shipping_promise_price_map = objectSchemaDefinitions {
-        amount(required: false, type:PropertyType.Numeric, description: 'Price amount of shipping')
-        currency_id(required: false, type:PropertyType.String, description: 'Currency id')
-        is_loyalty_discount(required: false, type:PropertyType.Boolean, description: 'Indicates if price has a loyalty discount')
+    def shipping_promise_map = objectSchemaDefinitions {
+        destination(required: true, type:PropertyType.String, description:'Destination of the shipping')
+        address_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Address type shipping options list')
+        agency_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Agency type shipping options list')
     }
 
     propertyDefinitions {
