@@ -14,5 +14,6 @@ tracks {
     "/shops/social"(platform: "/", type: TrackType.Event){
         social_network(required: true, type: PropertyType.String, description: "Name social network")
         from(required: true, type: PropertyType.String, description: "Project where the track is sent")
+        status(required:true, description: "social section status", type: PropertyType.String, values: ["active", "inactive"])
     }
 }
