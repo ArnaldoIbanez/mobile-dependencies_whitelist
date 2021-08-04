@@ -2100,6 +2100,25 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/roda/cancel_claim"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+                status_detail: "PENDING_SEND_PROVIDER"
+            ]
+        }
+
         "/insurtech/protections/detail/roda/help"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
