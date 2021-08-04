@@ -173,6 +173,11 @@ trackTests {
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("Vendor Central Invoices upload error") {
+    "/vendor_central/invoices/upload/error"(platform: "/web", type: TrackType.Event) {
+      error_type = "fileInvalidType"
+    }
+  }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Vendor Central Inbound creator
