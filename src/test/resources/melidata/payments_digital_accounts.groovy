@@ -64,6 +64,13 @@ trackTests {
             ]
         }
 
+        "/banking/balance/card_to_release"(platform: "/", type: TrackType.View) {
+            my_money_card_to_release = [
+                 component_id: 'card_to_release',
+                 content_id: []
+            ]
+        }
+
         "/banking/to_release/to_release"(platform: "/", type: TrackType.View) {
             my_money_to_release = [
                 component_id: 'to_release',
