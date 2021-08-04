@@ -724,14 +724,12 @@ tracks {
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }
-
-    "/reauth/error"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
+    
+    "/reauth/error"(platform: "/mobile", type: TrackType.View) {}
 
     "/reauth/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     "/reauth/error/close"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/reauth/error/view"(platform: "/mobile", type: TrackType.View) {}
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}

@@ -2036,12 +2036,12 @@ trackTests {
                 flow_type = "withdraw"
                 amount = "10.0"
             }
-            "/reauth/error/view"(platform: "/mobile/android", type: TrackType.View) {
+            "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
             }
-            "/reauth/error/view"(platform: "/mobile/ios", type: TrackType.View) {
+            "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
                 reauth_mods_id = "1"
                 operation_id = "1"
                 flow_type = "other"
