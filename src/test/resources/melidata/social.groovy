@@ -9,7 +9,7 @@ trackTests {
     defaultBusiness = "mercadoshops"
 
      test("Social networks") {
-        "/social"(platform: "/", type: TrackType.Event) {
+        "/shops/social"(platform: "/", type: TrackType.Event) {
             social_network = "facebook"
             shop_id = 121221
             shop_name = "name shop"

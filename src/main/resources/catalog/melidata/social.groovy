@@ -9,9 +9,9 @@ tracks {
 
     initiative = "1129"
 
-    "/social"(platform: "/", isAbstract: true) {}
+    "/shops/social"(platform: "/", isAbstract: true) {}
 
-    "/social"(platform: "/", type: TrackType.Event){
+    "/shops/social"(platform: "/", type: TrackType.Event){
         shop_id(required: true, type: PropertyType.Numeric)
         social_network(required: true, type: PropertyType.String, description: "Name social network")
         from(required: true, type: PropertyType.String, description: "Project where the track is sent")
