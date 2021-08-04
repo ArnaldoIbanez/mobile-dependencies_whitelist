@@ -6,22 +6,29 @@ import com.ml.melidata.catalog.TrackDefinitionProperty
 class NamingLinter extends AbstractLinter {
 
     NamingLinter() {
-        this.errorMessage = "Paths and property names should be in snake_case"
+        this.errorMessage = "Paths and property names should be in snake_case. " +
+                "Additionaly paths shouldnt end on / and MUST start with / "
     }
 
     @Override
     boolean validateTrack(TrackDefinition trackDefinition) {
-        return trackDefinition.path.equals(toSnakeCase(trackDefinition.path))
+        if(trackDefinition.path == '/') return true
+
+        return shouldBeSnakeCase(trackDefinition.path) && !trackDefinition.path.endsWith("/") &&
+                trackDefinition.path.startsWith("/")
     }
 
     @Override
     boolean validatePropertySet(List<TrackDefinitionProperty> props) {
         return props.every { TrackDefinitionProperty prop ->
-            prop.name.equals(toSnakeCase(prop.name))
+            prop.name.equals(shouldBeSnakeCase(prop.name))
         }
     }
 
-    static String toSnakeCase(String text ) {
-        return text.replaceAll( /([A-Z])/, /_$1/ ).toLowerCase().replaceAll( /^_/, '' )
+    static String shouldBeSnakeCase(String text) {
+        return text
+                .replaceAll( /([A-Z])/, /_$1/ )
+                .toLowerCase()
+                .replaceAll( /^_/, '' )
     }
 }
