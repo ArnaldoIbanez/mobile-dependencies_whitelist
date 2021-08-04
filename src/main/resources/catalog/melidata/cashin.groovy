@@ -56,7 +56,7 @@ tracks {
     "/cash_in/payer/meliplace/help"(platform: "/", type: TrackType.Event) {}
     "/cash_in/payer/meliplace/show_map"(platform: "/", type: TrackType.Event) {}
     "/cash_in/payer/meliplace/show_place"(platform: "/", type: TrackType.Event) {
-        place_id (required:false, type: PropertyType.String, description: "The selected place id")
+        place_id (required:true, type: PropertyType.String, description: "The selected place id")
     }
     "/cash_in/payer/meliplace/scroll_up"(platform: "/", type: TrackType.Event) {}
     "/cash_in/payer/meliplace/delay_error"(platform: "/", type: TrackType.Event) {}
@@ -67,17 +67,17 @@ tracks {
     // Map
     "/cash_in/payer/map"(platform: "/", type: TrackType.View) {}
     "/cash_in/payer/map/place"(platform: "/", type: TrackType.Event) {
-        place_id (required:false, type: PropertyType.String, description: "The selected place id")
+        place_id (required:true, type: PropertyType.String, description: "The selected place id")
     }
     "/cash_in/payer/map/go_external_map"(platform: "/", type: TrackType.Event) {}
     "/cash_in/payer/map/report"(platform: "/", type: TrackType.Event) {
-        place_id (required:false, type: PropertyType.String, description: "The id of the selected place to be reported")
+        place_id (required:true, type: PropertyType.String, description: "The id of the selected place to be reported")
     }
 
     // Reports
     "/cash_in/payer/report"(platform: "/", type: TrackType.View) {}
     "/cash_in/payer/report/send"(platform: "/", type: TrackType.Event) {
-        place_id (required:false, type: PropertyType.String, description: "The id of the reported place")
+        place_id (required:true, type: PropertyType.String, description: "The id of the reported place")
         option_id (required:false, type: PropertyType.String, description: "The id of the report option selected")
     }
     "/cash_in/payer/report/cancel"(platform: "/", type: TrackType.Event) {}
