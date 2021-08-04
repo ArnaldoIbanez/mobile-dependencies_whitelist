@@ -44,22 +44,16 @@ tracks {
 
     "/quotation/details"(platform: "/web") {
         quotationDetails
-        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
-                description: "Source where item models are called")
     }
 
     "/quotation/details/unregistered"(platform: "/web") {
         quotationDetails
-        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
-                description: "Source where item models are called")
     }
 
     "/quotation/details"(platform: "/mobile") {
         vertical(required: false, type:PropertyType.String, description: "Item Vertical: SERVICE/MOTOR/REAL_ESTATE/etc...")
         model_id(required: false, type:PropertyType.String, "Model Id" )
         unit_id(required: false, type:PropertyType.Numeric, description: "Unit Id")
-        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
-                description: "Source where item models are called")
     }
 
     "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
