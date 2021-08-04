@@ -26,7 +26,7 @@ class NamingLinter extends AbstractLinter {
     }
 
     static String shouldBeSnakeCase(String text) {
-        return text
+        return text == text
                 .replaceAll( /([A-Z])/, /_$1/ )
                 .toLowerCase()
                 .replaceAll( /^_/, '' )
