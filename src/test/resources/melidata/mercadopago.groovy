@@ -805,6 +805,12 @@ trackTests {
         "/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Wrap Up Value prop section click see more") {
+        "/merchant_acquisition/flows/wrap_up/home/value_prop" (platform: "/", type: TrackType.Event) {
+            section = 'Opciones de financiamiento'
+        }
+    }
+
     test("// Associar Point - Micrositio - reseller") {
         "/merchant_acquisition/flows/resellers/point_register"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/resellers/point_register/associate"(platform: "/", type: TrackType.View) {}
