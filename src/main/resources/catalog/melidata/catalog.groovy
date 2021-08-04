@@ -270,6 +270,7 @@ catalog {
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
         include business, "meliplaces.groovy"
+        include business, "cashin.groovy"
         include business, "mercadopago_openbanking.groovy"
         include business, "point_loyalty.groovy"
     }
