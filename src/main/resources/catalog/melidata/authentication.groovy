@@ -588,10 +588,39 @@ tracks {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
     }
+    
+    "/screenlock/challenge"(platform: "/mobile", type: TrackType.View) {
+        transaction_id(type: PropertyType.String, required: false)
+        valid_params(type: PropertyType.Boolean, required: false)
+    }
+
+    "/screenlock/challenge/start"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+    }
+
+    "/screenlock/challenge/end"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time since challenge start was called")
+        result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
+        error(type: PropertyType.String, required: false)
+    }
+
+    "/screenlock/challenge/finish"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+        challenge_time(type: PropertyType.Numeric, required: true, description: "elapsed time since challenge was showed")
+    }
+    
+    "/screenlock/challenge/error"(platform: "/mobile", type: TrackType.View) {
+        transaction_id(type: PropertyType.String, required: false)
+    }
+
+    "/screenlock/challenge/error/retry"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+    }
 
     "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) {
         flow_id(type: PropertyType.String, required: true, description: "Flow identifier where validation is happening")
-     }
+    }
 
     "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
         flow_id(type: PropertyType.String, required: true)
@@ -627,13 +656,19 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
+    "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+        vc_exists(type: PropertyType.Boolean, required: true, description: "Whether a vc existed when blocker was being presented or not")
+        modal_presented(type: PropertyType.Boolean, required: true, description: "Whether a modal was currently presented on top vc or not")
+    }
+
+    "/screenlock/opening_lock/error_routing"(platform: "/mobile/ios", type: TrackType.Event) { }
+
     "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
     // Biometrics lib
-    "/screenlock/biometrics"(platform: "/mobile/android", isAbstract: true, parentPropertiesInherited: false) {
-    }
+    "/screenlock/biometrics"(platform: "/mobile/android", isAbstract: true, parentPropertiesInherited: false) {}
 
     "/screenlock/biometrics/failure"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
@@ -679,8 +714,6 @@ tracks {
         amount(type: PropertyType.String, required: false, description: "amount of the operation")
     }
 
-    "/reauth/error"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
-
     "/reauth/operation_start"(platform: "/mobile", type: TrackType.Event) {}
 
     "/reauth/operation_end"(platform: "/mobile", type: TrackType.Event) {
@@ -691,6 +724,8 @@ tracks {
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }
+    
+    "/reauth/error"(platform: "/mobile", type: TrackType.View) {}
 
     "/reauth/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 

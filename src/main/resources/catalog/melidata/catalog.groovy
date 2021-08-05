@@ -188,6 +188,7 @@ catalog {
         include business, "tendencies.groovy"
         include business, "authorization.groovy"
         include business, "hub_mshops.groovy"
+        include business, "prepapp.groovy"
     }
 
     mercadopago.each { business ->
@@ -269,7 +270,9 @@ catalog {
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
         include business, "meliplaces.groovy"
+        include business, "cashin.groovy"
         include business, "mercadopago_openbanking.groovy"
+        include business, "point_loyalty.groovy"
     }
 
     mercadoshops.each { business ->
@@ -285,6 +288,7 @@ catalog {
         include business, "landing_mshops.groovy"
         include business, "registrations.groovy"
         include business, "search.groovy"
+        include business, "social.groovy"
         include business, "vip.groovy"
     }
 
