@@ -175,7 +175,7 @@ metrics {
 		}
 	}
 
-	"quotation_intention"(description: "track quotation intention for classifieds") {
+	"quotation.intention"(description: "track quotation intention for classifieds") {
 		startWith {
 			experiment(regex(viewItemPageMigration))
 		}
@@ -187,7 +187,7 @@ metrics {
 		}
 	}
 
-	"quotation_details"(description: "track quotation details of models for classifieds") {
+	"quotation.details"(description: "track quotation details of models for classifieds") {
 		startWith {
 			experiment(regex(viewItemPageMigration))
 		}
