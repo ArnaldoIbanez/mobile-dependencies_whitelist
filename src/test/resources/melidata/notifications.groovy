@@ -12669,6 +12669,11 @@ trackTests {
             event_type = "arrived"
             shipment_id = 21409256437
         }
+        "/notification/shipping_shipped_same_day_scoring_key_pass"(platform: "/mobile"){
+            news_id = "shipping-shipped_same_day_scoring_key_pass-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
         "/notification/shipping_shipped_waiting_for_confirmation"(platform: "/mobile"){
             news_id = "shipping-shipped_waiting_for_confirmation-21409256437"
             event_type = "arrived"
@@ -12676,6 +12681,11 @@ trackTests {
         }
         "/notification/shipping_soon_deliver_same_day"(platform: "/mobile"){
             news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_soon_deliver_same_day_scoring_key_pass"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day_scoring_key_pass-21409256437"
             event_type = "arrived"
             shipment_id = 21409256437
         }
