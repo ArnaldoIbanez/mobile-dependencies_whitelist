@@ -174,7 +174,7 @@ trackTests {
   }
 
   test("Vendor Central Invoices upload error") {
-    "/vendor_central/invoices/upload/error"(platform: "/web", type: TrackType.Event) {
+    "/vendor_central/invoices/upload/error"(platform: "/web", type: TrackType.View) {
       error_type = "fileInvalidType"
     }
   }
