@@ -1499,6 +1499,55 @@ tracks {
         selected_problem(required: true, type: PropertyType.String, description: "Problem selected ID")
         problem_type(required: true, type: PropertyType.String, description: "Problem type", values: ["L1", "L2"])
     }
+    
+    // Delayed Shipping - My Attention
+
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        default_selected_period(required: false, type: PropertyType.String, description: "Seller's default reputation period")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/delayed_shippings/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        section_name(required: true, type: PropertyType.String, description: "Section where the button is placed")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/apply_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        filters(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/start_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        start_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/finish_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        finish_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/products_actions"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        action_type(required: true, type: PropertyType.String, description: "Product action selected")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/open_onboarding"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
 
     // CATALOG OPTIN SECTION
 
