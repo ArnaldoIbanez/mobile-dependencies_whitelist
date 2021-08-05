@@ -311,45 +311,45 @@ trackTests {
     }
 
     test("Regulations Cerc") {
-        "/mpfront/regulations/cerc"(platform: "/", type: TrackType.View) {}
+        "/regulations/cerc"(platform: "/", type: TrackType.View) {}
 
-        "/mpfront/regulations/cerc/contracts"(platform: "/", type: TrackType.View) {}
+        "/regulations/cerc/contracts"(platform: "/", type: TrackType.View) {}
 
-        "/mpfront/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
+        "/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
 
-        "/mpfront/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
+        "/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
 
-        "/mpfront/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+        "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
 
-        "/mpfront/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
 
-        "/mpfront/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
 
-        "/mpfront/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
 
-        "/mpfront/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
 
-        "/mpfront/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
 
-        "/mpfront/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
 
-        "/mpfront/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
 
-        "/mpfront/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
     }
