@@ -2682,6 +2682,11 @@ trackTests {
             loan_id= 12345433
         }
 
+        "/notification/credits_consumer_opt_in_telcel_data_privacy"(platform: "/mobile") {
+            news_id = "credits_consumer-opt_in_telcel_data_privacy-21680059-20180516"
+            event_type = "shown"
+        }
+
         "/notification/credits_consumer_congrats_microlines"(platform: "/mobile") {
             news_id = "credits-credits_consumer_congrats_microlines-21680059-20180516"
             event_type = "shown"
@@ -9359,6 +9364,11 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credits_consumer_opt_in_telcel_data_privacy"(platform: "/mobile") {
+            news_id = "credits_consumer-opt_in_telcel_data_privacy-21680059-20180516"
+            event_type = "shown"
+        }
+        
         "/notification/credits_consumer_congrats_microlines"(platform: "/mobile") {
             news_id = "credits-credits_consumer_congrats_microlines-21680059-20180516"
             event_type = "shown"
