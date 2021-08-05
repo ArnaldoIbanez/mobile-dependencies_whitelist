@@ -664,10 +664,8 @@ tracks {
         walletHomePendingsFields
     }
 
-    "/wallet_home/pendings_sheet" (platform: "/mobile", isAbstract: true) {}
-
-    "/wallet_home/pendings_sheet/view" (platform: "/mobile", type: TrackType.View) {
-        from(required: true, type: PropertyType.String, description: "From where this pending shown")
+    "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+        from(required: false, type: PropertyType.String, description: "From where this pending shown")
     }
 
     "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {}

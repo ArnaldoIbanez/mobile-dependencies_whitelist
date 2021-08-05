@@ -1091,7 +1091,7 @@ trackTests {
     }
 
     test("Mercadopago pendings sheet page view") {
-        "/wallet_home/pendings_sheet/view" (platform: "/mobile", type: TrackType.View) {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
             from = "sheet"
             metadata_user:[
                 type: "payer"
@@ -2232,7 +2232,7 @@ trackTests {
     }
 
     test("Mercadopago pendings sheet page view") {
-        "/wallet_home/pendings_sheet/view" (platform: "/mobile", type: TrackType.View) {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
             from = "sheet"
             metadata_user:[
                 type: "payer"
