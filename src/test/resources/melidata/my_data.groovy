@@ -5,8 +5,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
     test("My data") {
 
-        "/my-data"(platform: "/", type: TrackType.View) { }
-
         "/my-data"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
@@ -59,7 +57,6 @@ trackTests {
     }
 
     test("User") {
-        "/my-data/user-identity-me"(platform: "/", type: TrackType.View) {}
 
         "/my-data/user-identity-me/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
