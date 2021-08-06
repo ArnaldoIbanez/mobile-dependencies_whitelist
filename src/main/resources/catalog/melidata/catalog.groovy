@@ -73,6 +73,7 @@ catalog {
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
+        include business, "my_data.groovy"
         include business, "privacy_preferences.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
