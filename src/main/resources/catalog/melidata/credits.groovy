@@ -47,7 +47,10 @@ tracks {
 
     "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {
+        list_status(description: "List Status", type: PropertyType.String, required: true, values: ["black_list", "white_list"])
+        dashboard_status(description: "Dashboard Status", type: PropertyType.String, required: true)
+    }
     /******************************************
     *       End: Flujo Upsell Consumer
     ******************************************/

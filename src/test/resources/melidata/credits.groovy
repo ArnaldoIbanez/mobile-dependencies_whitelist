@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -53,8 +54,14 @@ trackTests {
         "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadopago") {}
         "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
         "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
-        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
-        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            list_status = "white_list"
+            dashboard_status = "on_time"
+        }
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            list_status = "black_list"
+            dashboard_status = "overdue"
+        }
         /******************************************
         *       End: Flujo Upsell Consumer
         ******************************************/
