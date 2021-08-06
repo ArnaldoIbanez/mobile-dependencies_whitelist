@@ -9,11 +9,50 @@ tracks {
     initiative = "1198"
 
     propertyDefinitions {
+
         items(required: true, type: PropertyType.ArrayList, description: "Items in this purchase")
+        // business
+        // page_vertical
+        // domain
+        // category_l1
+        // category_l2
+        // category_l3 (optional)
+        // category_l4 (optional)
+        // category_l5 (optional)
+        // listing_type
+        // item_id
+        // quantity
+        // variation_id (optional)
+        // condition
+        // product_id (optional)
+        // deals (optional)
+
         payments(required: false, type: PropertyType.ArrayList, description: "Payments in this purchase")
+        // payment_method_type
+        // payment_method_id
+        // payment_status
+        // payment_status_detail
+
         shipping(required: false, type: PropertyType.ArrayList, description: "Shipments in this purchase")
+        // shipping_method
+        // shipping_mode
+        // logistic_type
+        // shipping_status
+        // shipping_sub_status
+
         seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
+        // id
+        // nickname
+        // mercado_lider
+        // reputation_level
+        // messages_count
+
 	    buyer(required: true, type:PropertyType.ArrayList, description: "Array of buyers with their data")
+        // id
+        // nickname
+        // loyalty_level
+        // is_prime
+
     	purchase_status(required: true, type: PropertyType.String, description: "Purchase status")
     	purchases_flow(required: true, type: PropertyType.String, description: "Flow identification to know if it is the new or old flow")
     	checkout_flow(required: false, type: PropertyType.String, values: ["pack", "order"], description: "cart (pack) or direct (order) purchase")
