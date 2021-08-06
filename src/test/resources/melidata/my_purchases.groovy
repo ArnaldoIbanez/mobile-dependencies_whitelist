@@ -97,7 +97,7 @@ trackTests {
 			order_id= 1234
 		}
 
-		def newPurchasesDataFullSet = purchasesEventDataSet + newPurchasesDataSet
+		def newPurchasesDataFullSet = purchasesEventDataSet >> newPurchasesDataSet
 
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 		// TEST TRACKS MY PURCHASES STATUS
