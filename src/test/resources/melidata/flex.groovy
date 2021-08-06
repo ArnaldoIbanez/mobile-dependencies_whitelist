@@ -373,7 +373,6 @@ trackTests {
 
         //Detail Shipment Parcels success
         "/flex/package/detail/parcel"(platform:"/mobile", type: TrackType.View) {
-            driver_id = "123456"
             shipment_id = "123456"
         }
 

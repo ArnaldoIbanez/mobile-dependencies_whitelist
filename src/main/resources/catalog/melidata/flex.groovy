@@ -217,7 +217,6 @@ tracks {
     }
 
     "/flex/package/detail/parcel"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: true)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
 
