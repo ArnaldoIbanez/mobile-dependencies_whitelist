@@ -117,14 +117,6 @@ tracks {
         action (required: true, type: PropertyType.String, description: "open")
     }
 
-    // [POG] Landing Multiproduct  > Webview experiment
-    "/point/landings/experiment" (platform:"/", isAbstract: true) {}
-    "/point/landings/experiment/webview" (platform:"/", isAbstract: true) {}
-    "/point/landings/experiment/webview/go_taxes_section" (platform:"/", type: TrackType.Event) {}
-    "/point/landings/experiment/webview/compare" (platform:"/", type: TrackType.Event) {}
-    "/point/landings/experiment/webview/device" (platform:"/", isAbstract: true) {}
-    "/point/landings/experiment/webview/device/more_information" (platform:"/", type: TrackType.Event) {}
-
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {

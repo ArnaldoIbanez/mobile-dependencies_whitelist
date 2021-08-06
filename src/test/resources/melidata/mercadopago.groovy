@@ -1130,19 +1130,6 @@ trackTests {
           product = "point-pro-2"
         }
 
-        // [POG] Landing Multiproduct > Webview experiment
-        "/point/landings/experiment/webview/go_taxes_section" (platform:"/", type: TrackType.Event) {
-          product = "point-pro-2"
-        }
-
-        "/point/landings/experiment/webview/compare" (platform:"/", type: TrackType.Event) {
-          product = "point-pro-2"
-        }
-
-        "/point/landings/experiment/webview/device/more_information" (platform:"/", type: TrackType.Event) {
-          product = "point-pro-2"
-        }
-
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
