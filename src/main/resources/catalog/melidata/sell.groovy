@@ -111,7 +111,7 @@ tracks {
         accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
         debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
-        user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none"])
+        user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none", "precreated"])
         sales_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Selected sales channels")
     }
 
@@ -138,7 +138,7 @@ tracks {
         sellGroupMobile
         listingTypeFlowMobile
         seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
-        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
+        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none", "precreated"])
         sale_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's sale channel values accepted: ['private', 'proximity', 'marketplace', 'mshops']")
     }
     "/sell/list"(platform: "/", isAbstract: true){
