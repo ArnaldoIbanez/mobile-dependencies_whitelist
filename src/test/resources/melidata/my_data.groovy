@@ -61,14 +61,14 @@ trackTests {
     test("User") {
         "/my-data/user-identity-me"(platform: "/", type: TrackType.View) {}
 
-        "/my-data/user-identity-me"(platform: "/", type: TrackType.Event) {
+        "/my-data/user-identity-me/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             account_type = "CO"
             target = "modified"
         }
 
-        "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
+        "/my-data/user-identity-me/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             account_type = "BU"
