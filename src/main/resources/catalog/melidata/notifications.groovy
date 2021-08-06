@@ -1674,6 +1674,11 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    "/notification_center/claim"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
       /**
        * NOTIFICATIONS TRAY
        **/
@@ -1771,6 +1776,12 @@ tracks {
     "/notification/alwayson_sirtach"(platform: "/") {
         sent_date(required: true, type: PropertyType.String, description: "Sent date")
     }
+
+    //Claims 2.0
+    //Collection
+    "/notification/claim_pdd_first_rescue"(platform: "/") {}
+    "/notification/claim_pdd_second_rescue"(platform: "/") {}
+
     // Credits - Credit Card
     // Collection
     "/notification/credit_card_adhoc_communication"(platform: "/") {}
