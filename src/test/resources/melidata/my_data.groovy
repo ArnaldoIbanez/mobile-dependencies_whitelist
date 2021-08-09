@@ -54,6 +54,14 @@ trackTests {
             event_type = "click"
             target = "identity"
         }
+
+        "/my-data/action"(platform: "/", type: TrackType.Event) {
+            entity_type = "company"
+            is_compliant = false
+            account_type = "BU"
+            event_type = "click"
+            target = "email"
+        }
     }
 
     test("User") {
