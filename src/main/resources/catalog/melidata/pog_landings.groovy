@@ -14,6 +14,10 @@ tracks {
     --- Abstract path's ----
     --------------------- */
 
+    def experiments_definitions = objectSchemaDefinitions {
+      variant (required: false, type: PropertyType.String, description: "ID of variant, example: 1234")
+    }
+
     "/pog" (platform: "/", isAbstract: true) {
       product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
       bu (type: PropertyType.String, required: false, description: "business unit")
@@ -27,6 +31,7 @@ tracks {
       price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
       camp (type: PropertyType.String, required: false, description: "campaign")
       strategy (type: PropertyType.String, required: false, description: "strategy")
+      experiments (type: PropertyType.ArrayList(PropertyType.Map(experiments_definitions)), required: false, description: "List of variants of current experiments")
     }
 
     /* ---------------------
@@ -65,10 +70,7 @@ tracks {
     "/pog/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {}
 
     // [Point Online Growth] Landing Multiproduct  > Webview experiment
-    "/pog/landings/multiproduct/experiment" (platform:"/", isAbstract: true) {}
-    "/pog/landings/multiproduct/experiment/webview" (platform:"/", isAbstract: true) {}
-    "/pog/landings/multiproduct/experiment/webview/go_taxes_section" (platform:"/", type: TrackType.Event) {}
-    "/pog/landings/multiproduct/experiment/webview/compare" (platform:"/", type: TrackType.Event) {}
-    "/pog/landings/multiproduct/experiment/webview/device" (platform:"/", isAbstract: true) {}
-    "/pog/landings/multiproduct/experiment/webview/device/more_information" (platform:"/", type: TrackType.Event) {}
+    "/pog/landings/multiproduct/go_taxes_section" (platform:"/", type: TrackType.Event) {}
+    "/pog/landings/multiproduct/device" (platform:"/", isAbstract: true) {}
+    "/pog/landings/multiproduct/device/more_information" (platform:"/", type: TrackType.Event) {}
 }
