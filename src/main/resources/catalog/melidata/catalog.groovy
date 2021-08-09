@@ -271,6 +271,7 @@ catalog {
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
         include business, "meliplaces.groovy"
+        include business, "cashin.groovy"
         include business, "mercadopago_openbanking.groovy"
         include business, "point_loyalty.groovy"
     }
@@ -281,6 +282,7 @@ catalog {
         include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "cdn_metrics.groovy"
         include business, "checkout.groovy"
         include business, "cookies_consent.groovy"
         include business, "cookie_disclaimer.groovy"
@@ -331,6 +333,7 @@ catalog {
         include business, "traffic.groovy"
         include business, "vip.groovy"
         include business, "splinter.groovy"
+        include business, "cdn_metrics.groovy"
     }
 
 }

@@ -14,8 +14,9 @@ trackTests {
             shop_id = 121221
             shop_name = "name shop"
             shop_domain = "www.shop-domain.com"
-            status = "active"
+            domain_status = "shops_domain"
             from = "home"
+            status = "active"
         }
      }
      
