@@ -2165,10 +2165,16 @@ tracks {
     "/notification/shipping_shipped_same_day"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
+    "/notification/shipping_shipped_same_day_scoring_key_pass"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
     "/notification/shipping_shipped_waiting_for_confirmation"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
     "/notification/shipping_soon_deliver_same_day"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
+    "/notification/shipping_soon_deliver_same_day_scoring_key_pass"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
     "/notification/shipping_wrong_address_driver_action"(platform: "/") {
