@@ -63,7 +63,7 @@ tracks {
     }
 
     def shipping_promise_map = objectSchemaDefinitions {
-        destination(required: true, type:PropertyType.String, description:'Destination of the shipping')
+        destination(required: false, type:PropertyType.String, description:'Destination of the shipping')
         address_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Address type shipping options list')
         agency_options(required: false, type:PropertyType.ArrayList(PropertyType.Map(shipping_option_map)), description: 'Agency type shipping options list')
     }
