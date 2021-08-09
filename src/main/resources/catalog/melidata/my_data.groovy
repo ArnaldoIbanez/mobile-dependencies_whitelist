@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    // my data
+    // My data
     "/my_data"(platform: "/", type: TrackType.View) {
         entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "indicates the type of person (person, company, unknown)")
         is_compliant(type: PropertyType.Boolean, required: false, description: "is compliant", inheritable:false)
@@ -22,7 +22,7 @@ tracks {
         target(type: PropertyType.String, required: true, values: ["nickname", "email", "identity", "user", "phone", "preferred-name"], description: "Name of cell that was clicked")
     }
 
-    // User
+    // identity
     "/my_data/identity"(platform: "/", type: TrackType.View) {
         entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "indicates the type of person (person, company, unknown)")
         is_compliant(type: PropertyType.Boolean, required: false, description: "is compliant", inheritable:false)
