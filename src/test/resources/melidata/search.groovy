@@ -220,7 +220,7 @@ trackTests {
                                     exact_query_strategy        : true
                             ]
                     ],
-                    experiments: [
+                    seo_experiments: [
                             status: "OK",
                             experiment_list:
                                     [
@@ -411,7 +411,7 @@ trackTests {
                                     exact_query_strategy        : true
                             ]
                     ],
-                    experiments: [
+                    seo_experiments: [
                             status: "OK",
                             experiment_list:
                                     [
@@ -815,10 +815,9 @@ trackTests {
                                 exact_query_strategy        : true
                             ]
                     ],
-                    experiments: [
+                    seo_experiments: [
                             status: "ERROR",
-                            experiment_list:
-                                    []
+                            experiment_list: []
                     ]
             ]
             merch_data = [
