@@ -764,6 +764,20 @@ trackTests {
             result = "fail"
         }
     }
+
+    test("Home sellers - form - congrats") {
+        "/discount_sellers/v2/form/congrats/close" (platform: "/", type: TrackType.Event) {
+             session_id = "qowejqboej1b11klasdsjal"
+             result = "success"
+        }
+    }
+
+    test("Home sellers - form - congrats") {
+        "/discount_sellers/v2/form/congrats/go_admin" (platform: "/", type: TrackType.Event) {
+             session_id = "qowejqboej1b11klasdsjal"
+             result = "success"
+        }
+    }
     
     test("Home sellers - form - invalid field") {
         "/discount_sellers/v2/form/invalid_field" (platform: "/", type: TrackType.Event) {
