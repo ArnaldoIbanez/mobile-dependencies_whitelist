@@ -32,8 +32,23 @@ tracks {
         results_by_strategy(type: PropertyType.Map, required: true)
     }
 
+    def seo_experiment_item_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true)
+        is_enabled(type: PropertyType.Boolean, required: true)
+        is_active(type: PropertyType.Boolean, required: true)
+        should_apply(type: PropertyType.Boolean, required: true)
+        executed_successfully(type: PropertyType.Boolean, required: true)
+        group(type: PropertyType.String, required: true)
+    }
+
+    def seo_experiments_definition = objectSchemaDefinitions {
+        status(type: PropertyType.String, required: true)
+        experiment_list(PropertyType.ArrayList(PropertyType.Map(seo_experiment_item_definition)), required: true, "list of seo experiments run")
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
+        experiments(type: PropertyType.Map(seo_experiments_definition), required: true, description: "seo experiments data")
     }
 
     def location_info_definition = objectSchemaDefinitions {
