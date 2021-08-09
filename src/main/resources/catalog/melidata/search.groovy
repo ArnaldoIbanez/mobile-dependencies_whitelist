@@ -33,12 +33,12 @@ tracks {
     }
 
     def seo_experiment_item_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        is_enabled(type: PropertyType.Boolean, required: true)
-        is_active(type: PropertyType.Boolean, required: true)
-        should_apply(type: PropertyType.Boolean, required: true)
-        executed_successfully(type: PropertyType.Boolean, required: true)
-        group(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true, description: "experiment identifier")
+        is_enabled(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is enable by configuration")
+        is_active(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is active by configuration")
+        should_apply(type: PropertyType.Boolean, required: true, description: "indicates if the experiment should be apply for the URL")
+        executed_successfully(type: PropertyType.Boolean, required: true, description: "indicates if the experiment executed successfully or not")
+        group(type: PropertyType.String, required: true, description: "indicates comparison group to which the URL belongs")
     }
 
     def seo_experiments_definition = objectSchemaDefinitions {
