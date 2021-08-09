@@ -23,7 +23,11 @@ tracks {
     }
 
     // User
-    "/my_data/identity"(platform: "/", type: TrackType.View) {}
+    "/my_data/identity"(platform: "/", type: TrackType.View) {
+        entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "indicates the type of person (person, company, unknown)")
+        is_compliant(type: PropertyType.Boolean, required: false, description: "is compliant", inheritable:false)
+        account_type(type: PropertyType.String, required: true, values:["BU", "CO"], description: "customer type (BU, CO)")
+    }
 
     "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
         entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "indicates the type of person (person, company, unknown)")
