@@ -6,6 +6,7 @@ import com.ml.melidata.catalog.TrackDefinitionProperty
 class ObligatoryPropertiesLinter extends AbstractLinter {
 
     List<String> requiredProperties = []
+    int maxPropertiesToAskForRequired = 4
 
     ObligatoryPropertiesLinter(List<String> properties) {
         this.requiredProperties = properties
@@ -25,7 +26,7 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
             }
         }
 
-        if(properties.size() > 4) {
+        if(properties.size() > maxPropertiesToAskForRequired) {
             isValid = isValid && properties.any {propertyDefinition ->
                 propertyDefinition.required
             }

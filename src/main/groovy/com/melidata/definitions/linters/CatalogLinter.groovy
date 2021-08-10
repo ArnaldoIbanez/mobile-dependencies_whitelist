@@ -10,7 +10,7 @@ class CatalogLinter {
 
     CatalogLinter() {
         linters.add(new PropertiesQuantityLinter(10))
-        linters.add(new ObligatoryPropertiesLinter(["required", "description", "type"]))
+        linters.add(new ObligatoryPropertiesLinter(["required", "description", "type", "name"]))
         linters.add(new NamingLinter())
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
