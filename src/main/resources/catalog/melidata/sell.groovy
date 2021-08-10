@@ -1062,6 +1062,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
+        category_id(required: false, type: PropertyType.String, description: "Category Id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
     }
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1084,6 +1086,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
+        category_id(required: false, type: PropertyType.String, description: "Category Id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
     }
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
