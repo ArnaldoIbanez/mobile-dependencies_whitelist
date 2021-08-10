@@ -129,82 +129,70 @@ trackTests {
             account_type = "CO"
         }
 
-
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = true
             account_type = "CO"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             account_type = "BU"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = false
             account_type = "BU"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
             is_compliant = false
             account_type = "BU"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = false
             account_type = "CO"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = true
             account_type = "BU"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = true
             account_type = "BU"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
             is_compliant = true
             account_type = "BU"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
             is_compliant = false
             account_type = "CO"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
             is_compliant = true
             account_type = "BU"
-            target = "modified"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
             is_compliant = true
             account_type = "CO"
-            target = "modified"
         }
     }
 }
