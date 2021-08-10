@@ -17,7 +17,7 @@ tracks {
         dynamic_module_size( required: false, description: "the dynamic feature module size", type: PropertyType.String)
         failed_reason( required: false, description: "the dynamic feature module failed downloading / installed reason", type: PropertyType.String)
         static_deeplink( required: true, description: "the old deeplink to enter to dynamic feature module", type: PropertyType.String)
-        mode(required: true, description: "the mode of delivery", type: PropertyType.String)
+        mode(required: true, values: ["on_demand", "background"], description: "the mode of delivery", type: PropertyType.String)
     }
 
     // Dynamic Features Events

@@ -18,7 +18,7 @@ trackTests {
             module_name = "module_dynamic"
             failed_reason = "some failed reason"
             static_deeplink = "meli://old_deeplink"
-            mode="onDemand"
+            mode="on_demand"
         }
         "/dynamic_feature/started"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
@@ -39,13 +39,13 @@ trackTests {
         }
         "/dynamic_feature/dispatched"(platform: "/mobile", type: TrackType.Event) {
             static_deeplink = "meli://old_deeplink"
-            mode="onDemand"
+            mode="on_demand"
         }
         "/dynamic_feature/installed"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
             dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
-            mode="onDemand"
+            mode="on_demand"
         }
     }
 
@@ -57,13 +57,13 @@ trackTests {
             module_name = "module_dynamic"
             dynamic_module_size = "500k"
             static_deeplink = "meli://old_deeplink"
-            mode="onDemand"
+            mode="on_demand"
         }
         "/dynamic_feature/started"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
             dynamic_deeplink = "meli://new_deeplink"
             static_deeplink = "meli://old_deeplink"
-            mode="onDemand"
+            mode="on_demand"
         }
         "/dynamic_feature/launched"(platform: "/mobile", type: TrackType.Event) {
             module_name = "module_dynamic"
