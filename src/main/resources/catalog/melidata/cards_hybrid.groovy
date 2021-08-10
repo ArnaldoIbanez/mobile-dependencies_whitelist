@@ -2855,6 +2855,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
+            values: ["primary"],
             description: "Button tapped"
         )
     }
