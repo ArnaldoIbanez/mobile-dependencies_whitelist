@@ -70,7 +70,7 @@ tracks {
         type_congrats(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["success", "error"])
     }
 
-    "/insurtech/protections/claims/cancel/notCancellable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+    "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
 
