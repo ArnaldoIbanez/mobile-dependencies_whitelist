@@ -384,6 +384,16 @@ tracks {
     "/seller_central/news/keep"(platform: "/", type: TrackType.Event) {
         notice_id(required: true, description: "The id of selected notice")
     }
+    "/seller_central/news/lib/primary"(platform: "/", type: TrackType.Event) {
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
+    }
+    "/seller_central/news/lib/secondary"(platform: "/", type: TrackType.Event) {
+        notice_id(description: "The NoticeId of selected notice")
+        category(description: "The Category of selected notice")
+        sub_category(description: "The SubCategory of selected notice")
+    }
 
     // Summary
     "/seller_central/summary"(platform: "/", type: TrackType.View) {}
