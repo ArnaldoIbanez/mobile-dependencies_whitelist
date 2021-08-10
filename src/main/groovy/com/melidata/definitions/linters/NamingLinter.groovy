@@ -21,11 +21,11 @@ class NamingLinter extends AbstractLinter {
     @Override
     boolean validatePropertySet(List<TrackDefinitionProperty> props) {
         return props.every { TrackDefinitionProperty prop ->
-            prop.name.equals(shouldBeSnakeCase(prop.name))
+            shouldBeSnakeCase(prop.name)
         }
     }
 
-    static String shouldBeSnakeCase(String text) {
+    static boolean shouldBeSnakeCase(String text) {
         return text == text
                 .replaceAll( /([A-Z])/, /_$1/ )
                 .toLowerCase()
