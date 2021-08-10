@@ -12,17 +12,38 @@ class NamingLinterTest {
 
     def linter = new NamingLinter()
 
-    @Test void namingLinterFailsOnCamelCase() {
+    @Test void failsOnCamelCase() {
         def td = new TrackDefinition("/searchCamelCase")
         assertFalse(linter.validateTrack(td))
     }
 
-    @Test void namingLinterAllowsSnakeCase() {
+    @Test void allowsRootPath() {
+        def td = new TrackDefinition("/")
+        assertTrue(linter.validateTrack(td))
+    }
+
+    @Test void pathsShouldStartWithSlash() {
+        def validDefinition = new TrackDefinition("/search")
+        def invalidDefinition = new TrackDefinition("search")
+
+        assertTrue(linter.validateTrack(validDefinition))
+        assertFalse(linter.validateTrack(invalidDefinition))
+    }
+
+    @Test void pathsShouldntEndWithSlash() {
+        def validDefinition = new TrackDefinition("/search")
+        def invalidDefinition = new TrackDefinition("/search/")
+
+        assertTrue(linter.validateTrack(validDefinition))
+        assertFalse(linter.validateTrack(invalidDefinition))
+    }
+
+    @Test void allowsSnakeCase() {
         def td = new TrackDefinition("/search_snake_case")
         assertTrue(linter.validateTrack(td))
     }
 
-    @Test void namingLinterFailsCamelCaseProperties() {
+    @Test void failsCamelCaseProperties() {
         def td = new TrackDefinition("/search_snake_case")
         td.addProperty(new TrackDefinitionProperty(name: "queryCamelCase", required: true,
                 description: "searched string", type: PropertyType.String))
@@ -30,7 +51,7 @@ class NamingLinterTest {
         assertFalse(linter.validateProperties(td))
     }
 
-    @Test void namingLinterAllowsSnakeCaseProperties() {
+    @Test void allowsSnakeCaseProperties() {
         def td = new TrackDefinition("/search_snake_case")
         td.addProperty(new TrackDefinitionProperty(name: "query_snake_case", required: true,
                 description: "searched string", type: PropertyType.String))
