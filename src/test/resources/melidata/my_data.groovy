@@ -7,25 +7,25 @@ trackTests {
 
         "/my_data"(platform: "/", type: TrackType.View) {
             entity_type = "person"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
         }
 
         "/my_data"(platform: "/", type: TrackType.View) {
             entity_type = "company"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "BU"
         }
 
         "/my_data"(platform: "/", type: TrackType.View) {
             entity_type = "person"
-            is_compliant = true
+            compliant = "na"
             account_type = "CO"
         }
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
-            is_compliant = true
+            compliant = "valid"
             account_type = "CO"
             event_type = "click"
             target = "nickname"
@@ -33,7 +33,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "BU"
             event_type = "click"
             target = "user"
@@ -41,7 +41,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = true
+            compliant = "valid"
             account_type = "CO"
             event_type = "click"
             target = "phone"
@@ -49,7 +49,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
-            is_compliant = true
+            compliant = "valid"
             account_type = "CO"
             event_type = "click"
             target = "identity"
@@ -57,7 +57,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
-            is_compliant = false
+            compliant = "na"
             account_type = "CO"
             event_type = "click"
             target = "user"
@@ -65,7 +65,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
             event_type = "click"
             target = "preferred-name"
@@ -73,7 +73,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
-            is_compliant = false
+            compliant = "na"
             account_type = "BU"
             event_type = "click"
             target = "identity"
@@ -81,7 +81,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
             event_type = "click"
             target = "user"
@@ -89,7 +89,7 @@ trackTests {
 
         "/my_data/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "BU"
             event_type = "click"
             target = "email"
@@ -101,97 +101,97 @@ trackTests {
 
         "/my_data/identity"(platform: "/", type: TrackType.View) {
             entity_type = "person"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
         }
 
         "/my_data/identity"(platform: "/", type: TrackType.View) {
             entity_type = "company"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "BU"
         }
 
         "/my_data/identity"(platform: "/", type: TrackType.View) {
             entity_type = "person"
-            is_compliant = true
+            compliant = "valid"
             account_type = "CO"
         }
 
         "/my_data/identity"(platform: "/", type: TrackType.View) {
             entity_type = "unknown"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
         }
 
         "/my_data/identity"(platform: "/", type: TrackType.View) {
             entity_type = "unknown"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "CO"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
-            is_compliant = true
+            compliant = "valid"
             account_type = "CO"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "BU"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "BU"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "person"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "BU"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = false
+            compliant = "not-valid"
             account_type = "CO"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = true
+            compliant = "na"
             account_type = "BU"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "company"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
-            is_compliant = false
+            compliant = "na"
             account_type = "CO"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
-            is_compliant = true
+            compliant = "valid"
             account_type = "BU"
         }
 
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
-            is_compliant = true
+            compliant = "valid"
             account_type = "CO"
         }
     }
