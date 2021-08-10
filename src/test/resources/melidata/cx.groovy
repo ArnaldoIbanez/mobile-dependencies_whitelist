@@ -178,7 +178,7 @@ trackTests {
         
         "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
-            content_ids = "[123, 456, 7890]"
+            content_ids = [123, 456, 7890]
             object_model = "test"
         }
     }
@@ -500,7 +500,7 @@ trackTests {
 
         "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
-            content_ids = "[123, 456, 7890]"
+            content_ids = [123, 456, 7890]
             object_model = "test"
         }
   }

@@ -101,7 +101,7 @@ tracks {
         list_skip_button(required: true, type: PropertyType.Boolean, description: "Indicates if the list was skipped without selecting an item")
         list_type(required: true, type: PropertyType.String, description: "Indicates the content of the list")
         content_ids(required: true, type: PropertyType.String, description: "Contents id predicted by model NLP")
-        object_model(required: true, type: PropertyType.String, description: "Object model in model NLP response")
+        object_model(required: true, type: PropertyType.ArrayList, description: "Object model in model NLP response")
     }
 
     propertyGroups {
