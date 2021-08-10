@@ -2846,4 +2846,18 @@ tracks {
             description: "Cause of on-demand enrollment error"
         )
     }
+    
+    // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
+    // -----------------------
+    "/cards/nfc/identity_confirmation"(platform: "/", type: TrackType.View) {}
+
+    "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary"],
+            description: "Button tapped"
+        )
+    }
+    
 }

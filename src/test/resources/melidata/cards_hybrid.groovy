@@ -3224,5 +3224,12 @@ trackTests {
             error_message = "Empty nfc_command userId"
         }
     }
-
+    
+    // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
+    test("/cards/nfc/identity_confirmation") {
+        "/cards/nfc/identity_confirmation"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
+            action = "primary"
+        }
+    }
 }
