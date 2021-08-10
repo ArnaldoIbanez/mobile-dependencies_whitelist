@@ -30,7 +30,7 @@ class CatalogLinter {
         this.linters = lintersList
     }
 
-    boolean run(String catalogName) {
+    List<TrackDefinition> getDefinitionsToEvaluate(String catalogName) {
         def allLocalDefinitions = DslUtils.parseLocalCatalogByName(catalogName).platformTree.allDefinitions.toSet()
 
         CatalogDsl.setBaseDir("/")
@@ -38,21 +38,24 @@ class CatalogLinter {
         handlerProd.reload()
         def allProdDefinitions = handlerProd.catalog.platformTree.allDefinitions.toSet()
 
+        return allLocalDefinitions.findAll {newDefinition ->
+            !allProdDefinitions.any {alreadyDefined ->
+                alreadyDefined.equals(newDefinition)
+            }
+        }.toList()
+    }
+
+    boolean run(String catalogName) {
+        def touchedDefinitions = getDefinitionsToEvaluate(catalogName)
         boolean isValid = true
 
-        allLocalDefinitions.forEach { TrackDefinition definition ->
+        touchedDefinitions.forEach { TrackDefinition definition ->
             if(!linters.every {it.passValidation(definition)}) {
                 isValid = false
             }
         }
-
-
-        println(allLocalDefinitions.findAll {newDefinition ->
-            !allProdDefinitions.any {alreadyDefined ->
-                println(newDefinition.path + " - " + alreadyDefined.path)
-                alreadyDefined.equals(newDefinition)
-            }
-        }.collect {"${it.path}-${it.platform}"}.sort())
+        
+        println(touchedDefinitions.collect {"${it.path}-${it.platform}"}.sort())
 
         return isValid
     }
