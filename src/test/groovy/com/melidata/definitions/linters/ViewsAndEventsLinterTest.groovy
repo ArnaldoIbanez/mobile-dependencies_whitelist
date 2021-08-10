@@ -21,4 +21,10 @@ class ViewsAndEventsLinterTest {
 
         assertTrue(linter.validateTrack(td))
     }
+
+    @Test void propertiesValidatorAlwaysTrue() {
+        def td = new TrackDefinition("/search/filter/apply")
+
+        assertTrue(linter.validateProperties(td))
+    }
 }
