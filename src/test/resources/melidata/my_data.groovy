@@ -189,7 +189,7 @@ trackTests {
         "/my_data/identity/action"(platform: "/", type: TrackType.Event) {
             entity_type = "unknown"
             is_compliant = false
-            account_type = "CO"
+            account_type = "CU"
             target = "modified"
         }
 
