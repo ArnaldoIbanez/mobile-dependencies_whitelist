@@ -20,7 +20,7 @@ class RequireValuesLinter extends AbstractLinter {
     boolean validatePropertySet(List<TrackDefinitionProperty> properties) {
         return properties.every {property ->
             if(candidateProperties.any {candidateProperty -> property.name.contains(candidateProperty)}) {
-                return !property.values.isEmpty()
+                return property.values && !property.values.isEmpty()
             }
 
             return true
