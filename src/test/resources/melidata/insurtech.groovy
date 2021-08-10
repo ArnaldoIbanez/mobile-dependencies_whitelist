@@ -2330,6 +2330,15 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/roda/claim_detail/cancel_claim"(platform:"/web", type: TrackType.Event) {
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+                status_detail: "PENDING_SEND_PROVIDER"
+            ]
+        }
+
         "/insurtech/protections/detail/roda/phone_activation"(platform:"/web", type: TrackType.View) {}
 
         "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/web", type: TrackType.View) {}
