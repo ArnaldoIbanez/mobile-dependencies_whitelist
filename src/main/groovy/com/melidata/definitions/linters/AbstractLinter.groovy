@@ -22,12 +22,12 @@ abstract class AbstractLinter {
     abstract boolean validateTrack(TrackDefinition definition)
     abstract boolean validatePropertySet(List<TrackDefinitionProperty> properties)
 
-    def printFails(String message) {
+    private void printFails(String message) {
         print("\033[91m  -  "+message+"\033[0m\n")
     }
 
 
-    List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
+    private List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
         return ((Map<String,TrackDefinitionProperty>) definition.properties).values().toList()
     }
 
