@@ -10,8 +10,7 @@ class CatalogLintTask {
         def status = true
         CatalogLinter cl = new CatalogLinter()
         args.each { catalogName ->
-            Catalog catalog = DslUtils.parseLocalCatalogByName(catalogName)
-            status = status && cl.run(catalog)
+            status = status && cl.run(catalogName)
         }
 
         //If any test fails main program will exit with status=1
