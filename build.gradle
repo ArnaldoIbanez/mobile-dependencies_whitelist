@@ -688,7 +688,7 @@ task uploadWhitelist(type:JavaExec) {
 task lint(type:JavaExec) {
     main = "com.melidata.definitions.task.CatalogLintTask"
     classpath = sourceSets.main.runtimeClasspath
-    args = ["component_prints"]
+    args = ["melidata"]
 }
 
 task bootRepackage {
