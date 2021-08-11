@@ -189,7 +189,7 @@ catalog {
         include business, "authorization.groovy"
         include business, "hub_mshops.groovy"
         include business, "prepapp.groovy"
-        include business, "livecommerce.groovy"
+        include business, "melilive.groovy"
     }
 
     mercadopago.each { business ->

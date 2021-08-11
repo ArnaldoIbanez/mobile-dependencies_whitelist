@@ -1,0 +1,59 @@
+package catalog.melidata
+
+import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+
+tracks {
+    initiative = 1267
+
+    // Definitions
+
+    def stream_info_definition = objectSchemaDefinitions {
+        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+        template_id(required: true, type: PropertyType.String, description: "Template id configuration")
+        channel_id(required: true, type: PropertyType.Numeric, description: "Channel id where broadcast belongs")
+        started_at(required: true, type: PropertyType.String, description: "Date when stream has started")
+        status(required: true, type: PropertyType.String, description: "Current status of the broadcast: LIVE, PRE-LIVE, RECORDED")
+        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
+        time_elapsed(required: false, type: PropertyType.Numeric, description: "Time since stream started and user joined")
+    }
+
+    def product_info_definition = objectSchemaDefinitions {
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        seller_type(required: false, type: PropertyType.String, description: "Seller type: normal, real_estate_user, etc")
+        official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
+        free_shipping(required: true, type: PropertyType.Boolean, description: "Define is the shipping is free")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        discount(required: false, type: PropertyType.Numeric, description: "Indicates the discounts applied to the item")
+        currency_id(required: true, type: PropertyType.String, description: "Id that identify the currency type")
+        item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        domain_id(required: true, type: PropertyType.String, description: "Item's domain id")
+        catalog_product_id(required: false, type: PropertyType.String)
+        catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. It will be true when comes from VPP")
+        highlight(required: false, type: PropertyType.Boolean, description: "Flag if the item is highlighted")
+    }
+
+    def viewer_info_definition = objectSchemaDefinitions {
+        zipcode(required: false, type: PropertyType.String, description: "User's Zipcode")
+        muted(required: false, type: PropertyType.Boolean, description: "Flag if video is muted or not")
+        overlay_on(required: false, type: PropertyType.Boolean, description: "Flag if video has overlay on or not")
+        orientation(required: true, type: PropertyType.String, description: "Current orientation, landscape or portrait")
+    }
+
+    // Tracks
+
+    "/melilive"(platform: "/" , isAbstract:true ) {}
+
+    "/melilive/stream"(platform: "/", type: TrackType.View) {
+        tracking_id(required: true, type: PropertyType.String, description: "Unique ID to track if a Item comes from a LiveStream")
+        stream(required: true, type: PropertyType.Map(stream_info_definition), description: "Stream information")
+        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_info_definition)), description: "Products associated to the stream")
+        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
+    }
+}
+
+
