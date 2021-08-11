@@ -31,7 +31,9 @@ class CatalogLinter {
     }
 
     List<TrackDefinition> getDefinitionsToEvaluate(String catalogName) {
-        def allLocalDefinitions = DslUtils.parseLocalCatalogByName(catalogName).platformTree.allDefinitions.toSet()
+        CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
+
+        def allLocalDefinitions = DslUtils.parseCatalog(new File("src/main/resources/catalog/" + catalogName + "/catalog.groovy")).platformTree.allDefinitions.toSet()
 
         CatalogDsl.setBaseDir("/")
         def handlerProd = new CatalogHandler(catalogName)
@@ -40,7 +42,13 @@ class CatalogLinter {
 
         return allLocalDefinitions.findAll {newDefinition ->
             !allProdDefinitions.any {alreadyDefined ->
-                alreadyDefined.equals(newDefinition)
+                if(newDefinition.path == alreadyDefined.path && newDefinition.platform == alreadyDefined.platform &&
+                        !newDefinition.equals(alreadyDefined)) {
+                    println("I should be equal but im not")
+                    println("New: ${newDefinition.path}-${newDefinition.platform}-${newDefinition.type}-${newDefinition.businesses}-${newDefinition.trackInitiative}-${newDefinition.properties}-${newDefinition.defaultInitiative}-${newDefinition.initiative}-${newDefinition.parentPropertiesInherited}-${newDefinition.isAbstract}")
+                    println("Old: ${alreadyDefined.path}-${alreadyDefined.platform}-${alreadyDefined.type}-${alreadyDefined.businesses}-${alreadyDefined.trackInitiative}-${alreadyDefined.properties}-${alreadyDefined.defaultInitiative}-${alreadyDefined.initiative}-${alreadyDefined.parentPropertiesInherited}-${alreadyDefined.isAbstract}")
+                }
+                newDefinition.equals(alreadyDefined)
             }
         }.toList()
     }
