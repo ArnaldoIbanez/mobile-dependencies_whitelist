@@ -32,10 +32,11 @@ trackTests {
                     ]
             ]
             viewer_info = [
-                    "zipcode"   : "",
-                    "muted"     : false,
-                    "overlay_on": true,
-                    orientation : "landscape"
+                    "zipcode"    : "1416",
+                    "muted"      : false,
+                    "overlay_on" : true,
+                    "orientation": "landscape"
+
             ]
             tracking_id = "5441d655-f5a6-420a-868b-3700c356164a"
         }
