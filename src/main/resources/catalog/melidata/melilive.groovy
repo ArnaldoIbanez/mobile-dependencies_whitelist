@@ -54,6 +54,10 @@ tracks {
         products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_info_definition)), description: "Products associated to the stream")
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
+
+    "/melilive/webview"(platform: "/mobile", type: TrackType.View) {
+        url(required: true, type: PropertyType.String)
+    }
 }
 
 

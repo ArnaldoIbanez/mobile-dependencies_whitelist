@@ -41,4 +41,11 @@ trackTests {
             tracking_id = "5441d655-f5a6-420a-868b-3700c356164a"
         }
     }
+
+    test("MeliLive WebView") {
+
+        "/melilive/webview"(platform: "/mobile") {
+            url = "meli://live/ede1ad69-c277-4f60-90c8-b845ca804fbe"
+        }
+    }
 }
