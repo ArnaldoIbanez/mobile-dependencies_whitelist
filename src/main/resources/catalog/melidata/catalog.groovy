@@ -73,6 +73,7 @@ catalog {
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
+        include business, "my_data.groovy"
         include business, "privacy_preferences.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
@@ -281,6 +282,7 @@ catalog {
         include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "cdn_metrics.groovy"
         include business, "checkout.groovy"
         include business, "cookies_consent.groovy"
         include business, "cookie_disclaimer.groovy"
@@ -331,6 +333,7 @@ catalog {
         include business, "traffic.groovy"
         include business, "vip.groovy"
         include business, "splinter.groovy"
+        include business, "cdn_metrics.groovy"
     }
 
 }

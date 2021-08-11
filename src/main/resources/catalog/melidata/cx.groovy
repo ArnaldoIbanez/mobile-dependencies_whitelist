@@ -98,6 +98,8 @@ tracks {
         case_id(required: true, type: PropertyType.Numeric, description: "Id of case created")
         list_skip_button(required: true, type: PropertyType.Boolean, description: "Indicates if the list was skipped without selecting an item")
         list_type(required: true, type: PropertyType.String, description: "Indicates the content of the list")
+        content_ids(required: true, type: PropertyType.ArrayList, description: "Contents id predicted by model NLP")
+        object_model(required: true, type: PropertyType.String, description: "Object model in model NLP response")
     }
 
     propertyGroups {
@@ -140,6 +142,8 @@ tracks {
         case_id(case_id)
         list_skip_button(list_skip_button)
         list_type(list_type)
+        content_ids(content_ids)
+        object_model(object_model)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -427,11 +431,20 @@ tracks {
         portal_broken_link_destination_url
     }
 
-    "/support/widget/list"(platform: "/", isAbstract:  true) {}
+    "/support/widget/list"(platform: "/", type: TrackType.View) {
+        list_type
+    }
 
     "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
-        list_skip_button
-        list_type
+       list_skip_button
+    }
+
+    "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+
+    "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+        user_text
+        content_ids
+        object_model
     }
 
     // Mis Consultas
