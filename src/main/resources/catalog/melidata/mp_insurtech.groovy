@@ -623,8 +623,13 @@ tracks {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
         claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
+
     "/insurtech/protections/detail/roda/claim_detail/insurer_response"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+        claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
+    }
+
+    "/insurtech/protections/detail/roda/claim_detail/cancel_claim"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
 
