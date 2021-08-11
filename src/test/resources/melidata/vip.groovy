@@ -432,6 +432,7 @@ trackTests {
             mandatory()
             optionals()
             item_seller_type = "AB001"
+            source = "primary"
         }
 
 	  	"/vip/quote_demand_intention_lower"(platform: "/mobile", type: TrackType.Event) {
@@ -492,6 +493,7 @@ trackTests {
 	        item_seller_type = "AB001"
 	        from_view="vip"
 	        resolution = "high"
+            source = "primary"
     	}
 
         //with deals_ids
@@ -535,6 +537,7 @@ trackTests {
             item_seller_type = "AB001"
             from_view = "vip"
             resolution = "high"
+            source = "primary"
         }
     }
     test("Vip web mobile tracking without reviews") {

@@ -216,6 +216,10 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/package/detail/parcel"(platform: "/mobile", type: TrackType.View) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+
     "/flex/package/finish_delivery"(platform: "/mobile", type: TrackType.View) {
         location
         pack_status(required: true, type: PropertyType.String,  values: ["delivered", "not_delivered"],

@@ -298,6 +298,16 @@ trackTests {
     "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
     }
+    "/seller_central/news/lib/primary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
+    "/seller_central/news/lib/secondary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2494,6 +2504,113 @@ trackTests {
       user_type = "real_estate_agency"
       selected_problem = "ID_PROBLEM_1"
       problem_type = "L1"
+    }
+  }
+
+  // Delayed Shipping
+
+  test("metrics my attention delayed shipping section view for web") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      default_selected_period = "lastTwoMonth"
+    }
+  }
+
+  test("metrics my attention delayed shipping section view for web mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping section view for mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping, help button click track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "graphics"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open filter modal track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention delayed shipping apply filters track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      filters = ["FILTER1", "FILTER2"]
+    }
+  }
+
+  test("metrics my attention delayed shipping, start period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/start_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      start_period = "custom"
+    }
+  }
+
+  test("metrics my attention delayed shipping, finish period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/finish_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      finish_period = "custom"
+    }
+  }
+
+    test("metrics my attention delayed shipping, personalized period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
+  test("metrics my attention delayed shipping, top 30 action track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/products_actions"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      action_type = "modify"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open onboarding track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_onboarding"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
     }
   }
 

@@ -1295,6 +1295,7 @@ tracks {
                 type: PropertyType.Boolean,
                 description: "Item's catalog listing"
         )
+        source(required: true,  type: PropertyType.String, values: ["primary"], description: "Source of the referred")
     }
 
     "/vip/public_similar_intention"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {

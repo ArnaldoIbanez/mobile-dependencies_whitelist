@@ -165,9 +165,21 @@ trackTests {
             case_id = 1234
         }
 
+        "/support/widget/list"(platform: "/", type: TrackType.View) {
+            list_type = "oneclick_purchases"
+        }
+
         "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
             list_skip_button = true
             list_type = "oneclick_purchases"
+        }
+
+        "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+        
+        "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+            user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
+            content_ids = [123, 456, 7890]
+            object_model = "‘0.0.5-com208-ctx-training"
         }
     }
 
@@ -474,9 +486,20 @@ trackTests {
             case_id = 1234
         }
 
+        "/support/widget/list"(platform: "/", type: TrackType.View) {
+            list_type = "oneclick_purchases"
+        }
+
         "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
             list_skip_button = true
             list_type = "oneclick_purchases"
+        }
+        "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+            user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
+            content_ids = [123, 456, 7890]
+            object_model = "‘0.0.5-com208-ctx-training"
         }
   }
 
