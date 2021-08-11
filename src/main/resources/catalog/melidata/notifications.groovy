@@ -1674,6 +1674,11 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    "/notification_center/claim"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
       /**
        * NOTIFICATIONS TRAY
        **/
@@ -1771,6 +1776,12 @@ tracks {
     "/notification/alwayson_sirtach"(platform: "/") {
         sent_date(required: true, type: PropertyType.String, description: "Sent date")
     }
+
+    //Claims 2.0
+    //Collection
+    "/notification/claim_pdd_first_rescue"(platform: "/") {}
+    "/notification/claim_pdd_second_rescue"(platform: "/") {}
+
     // Credits - Credit Card
     // Collection
     "/notification/credit_card_adhoc_communication"(platform: "/") {}
@@ -1901,7 +1912,7 @@ tracks {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
-
+    "/notification/credits_consumer_opt_in_telcel_data_privacy"(platform: "/") {}
     "/notification/credits_consumer_congrats_microlines"(platform: "/") {}
 
       "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
@@ -2154,10 +2165,16 @@ tracks {
     "/notification/shipping_shipped_same_day"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
+    "/notification/shipping_shipped_same_day_scoring_key_pass"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
     "/notification/shipping_shipped_waiting_for_confirmation"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
     "/notification/shipping_soon_deliver_same_day"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
+    "/notification/shipping_soon_deliver_same_day_scoring_key_pass"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
     "/notification/shipping_wrong_address_driver_action"(platform: "/") {

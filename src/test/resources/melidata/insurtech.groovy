@@ -1736,7 +1736,9 @@ trackTests {
         }
 
         // INSURTECH Protections - my-fe
-        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {}
+
+        "/insurtech/protections/data_loaded"(platform:"/mobile", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model: "J7",
@@ -1753,19 +1755,31 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
+            claims = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
             roda = [
                 has_protections: true,
+                has_claims: false,
                 is_current_device_protected: false,
                 is_current_device_quotable: false,
                 offered: false
             ]
             garex = [
                 has_protections: true,
+                has_claims: false,
                 offered: false
             ]
         }
 
-        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/protections/data_loaded"(platform:"/mobile", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model: "J7",
@@ -1778,19 +1792,27 @@ trackTests {
                     insurance_purchase_key: "roda-ABC123",
                 ],
             ]
+            claims = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+            ]
             roda = [
                 has_protections: true,
+                has_claims: false,
                 is_current_device_protected: false,
                 is_current_device_quotable: true,
                 offered: true
             ]
             garex = [
                 has_protections: false,
+                has_claims: false,
                 offered: false
             ]
         }
 
-        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/protections/data_loaded"(platform:"/mobile", type: TrackType.Event) {
             client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
@@ -1802,34 +1824,50 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
+            claims = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
             roda = [
                 has_protections: false,
+                has_claims: false,
                 is_current_device_protected: false,
                 is_current_device_quotable: true,
                 offered: true
             ]
             garex = [
                 has_protections: true,
+                has_claims: false,
                 offered: false
             ]
         }
 
-        "/insurtech/protections"(platform:"/web", type: TrackType.View) {
+        "/insurtech/protections/data_loaded"(platform:"/web", type: TrackType.Event) {
             roda = [
                 has_protections: false,
+                has_claims: false,
                 is_current_device_protected: false,
                 is_current_device_quotable: false,
                 offered: false
             ]
             garex = [
                 has_protections: false,
+                has_claims: false,
                 offered: false
             ]
         }
 
 
-        "/insurtech/protections"(platform:"/web", type: TrackType.View) {
+        "/insurtech/protections/data_loaded"(platform:"/web", type: TrackType.Event) {
             protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+            ]
+            claims = [
                 [
                     product_id: "roda",
                     insurance_purchase_key: "roda-ABC123",
@@ -1837,12 +1875,14 @@ trackTests {
             ]
             roda = [
                 has_protections: true,
+                has_claims: false,
                 is_current_device_protected: false,
                 is_current_device_quotable: false,
                 offered: false
             ]
             garex = [
                 has_protections: false,
+                has_claims: false,
                 offered: false
             ]
         }
@@ -1868,6 +1908,7 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
+            selected_faq = "Selected FAQ?"
         }
 
 
@@ -1883,6 +1924,37 @@ trackTests {
                     insurance_purchase_key: "garex-ABC125",
                 ]
             ]
+            selected_faq = "Selected FAQ?"
+        }
+
+        "/insurtech/protections/tabs"(platform:"/mobile", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+            tab_name = "protections"
+        }
+
+        "/insurtech/protections/tabs"(platform:"/mobile", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            claims = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+            tab_name = "claims"
         }
 
         "/insurtech/protections/error"(platform:"/mobile", type: TrackType.View) {
@@ -2025,6 +2097,25 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/cancel_claim"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+                status_detail: "PENDING_SEND_PROVIDER"
             ]
         }
 
@@ -2236,6 +2327,15 @@ trackTests {
                 id: "ABC125-DEEF",
                 franchise_payment_id: 10021312312,
                 franchise_payment_amount:  10.72,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/claim_detail/cancel_claim"(platform:"/web", type: TrackType.Event) {
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+                status_detail: "PENDING_SEND_PROVIDER"
             ]
         }
 
@@ -2507,6 +2607,17 @@ trackTests {
                 ]
                 type_congrats= 'error'
             }
+
+
+            "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
             "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View) {
                 product_data =[
                     entity_type:"quote",

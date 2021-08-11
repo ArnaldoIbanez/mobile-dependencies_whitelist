@@ -379,6 +379,8 @@ tracks {
         result (type: PropertyType.String, required: true, values:['success', 'pending','fail'], description: "result of creating a campaign")
         campaign_id (type: PropertyType.String, required: false, description: "result of creating a campaign")
     }
+    
+    "/discount_sellers/v2/form/congrats/go_admin" (platform: "/", type: TrackType.Event) {}
 
     "/discount_sellers/v2/form/invalid_field" (platform: "/", type: TrackType.Event) {
         input (type: PropertyType.String, required: true, values:['discount', 'discount_cap','limit', 'name'], description: "input name")
