@@ -3232,4 +3232,24 @@ trackTests {
             action = "primary"
         }
     }
+    
+    // NFC_PREP_REPLENISHMENT
+    test("/cards/nfc/prep_replenishment") {
+        "/cards/nfc/prep_replenishment/success"(platform: "/", type: TrackType.Event) {}
+        "/cards/nfc/prep_replenishment/error"(platform: "/", type: TrackType.Event) {
+            action = "NO_INTERNET"
+            information = "User has no internet"
+        }
+        "/cards/nfc/prep_replenishment/status"(platform: "/", type: TrackType.Event) {
+            status = "needed"
+        }
+        "/cards/nfc/prep_replenishment/status"(platform: "/", type: TrackType.Event) {
+            status = "not_needed"
+        }
+        "/cards/nfc/prep_replenishment/status"(platform: "/", type: TrackType.Event) {
+            status = "null"
+        }
+
+
+    }
 }

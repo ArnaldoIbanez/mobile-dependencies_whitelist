@@ -56,6 +56,8 @@ tracks {
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/prep_replenishment"(platform: "/", isAbstract: true) { }
+
 
     // SHIPPING
     // --------
@@ -2860,4 +2862,26 @@ tracks {
         )
     }
     
+    // NFC_PREP_REPLENISHMENT
+    // -----------------------
+    "/cards/nfc/prep_replenishment/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/nfc/prep_replenishment/error"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "Prep Replenishment error code"
+        )
+        information (
+            required: true,
+            type: PropertyType.String,
+            description: "Prep Replenishment error message and extra info"
+        )
+    }
+    "/cards/nfc/prep_replenishment/status"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ['needed','not_needed', 'null']
+        )
+    }
 }
