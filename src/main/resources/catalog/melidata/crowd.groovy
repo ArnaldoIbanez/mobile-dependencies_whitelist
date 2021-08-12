@@ -261,7 +261,7 @@ tracks
 
             "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
                 location
-                city(required: true, type: PropertyType.String, description: "Specifies the current city selected")
+                city(required: true, type: PropertyType.String, description: "Specifies the current city geo suggestion")
             }
 
             "/crowd/registration/city/other"(platform: "/mobile", type: TrackType.View) {
