@@ -42,12 +42,6 @@ class CatalogLinter {
 
         return allLocalDefinitions.findAll {newDefinition ->
             !allProdDefinitions.any {alreadyDefined ->
-                if(newDefinition.path == alreadyDefined.path && newDefinition.platform == alreadyDefined.platform &&
-                        !newDefinition.equals(alreadyDefined)) {
-                    println("I should be equal but im not")
-                    println("New: ${newDefinition.path}-${newDefinition.platform}-${newDefinition.type}-${newDefinition.businesses}-${newDefinition.trackInitiative}-${newDefinition.properties}-${newDefinition.defaultInitiative}-${newDefinition.initiative}-${newDefinition.parentPropertiesInherited}-${newDefinition.isAbstract}")
-                    println("Old: ${alreadyDefined.path}-${alreadyDefined.platform}-${alreadyDefined.type}-${alreadyDefined.businesses}-${alreadyDefined.trackInitiative}-${alreadyDefined.properties}-${alreadyDefined.defaultInitiative}-${alreadyDefined.initiative}-${alreadyDefined.parentPropertiesInherited}-${alreadyDefined.isAbstract}")
-                }
                 newDefinition.equals(alreadyDefined)
             }
         }.toList()
