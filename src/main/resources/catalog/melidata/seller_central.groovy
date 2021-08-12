@@ -384,6 +384,16 @@ tracks {
     "/seller_central/news/keep"(platform: "/", type: TrackType.Event) {
         notice_id(required: true, description: "The id of selected notice")
     }
+    "/seller_central/news/lib/primary"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        category(required: true, type: PropertyType.String, description: "The Category of selected notice")
+        sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
+    }
+    "/seller_central/news/lib/secondary"(platform: "/", type: TrackType.Event) {
+        notice_id(required: true, type: PropertyType.String, description: "The NoticeId of selected notice")
+        category(required: true, type: PropertyType.String, description: "The Category of selected notice")
+        sub_category(required: true, type: PropertyType.String, description: "The SubCategory of selected notice")
+    }
 
     // Summary
     "/seller_central/summary"(platform: "/", type: TrackType.View) {}
@@ -512,14 +522,15 @@ tracks {
     }
     // End SLL SC
 
-
+    "/seller_central/listings/video_focus"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/listings/onboarding"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start", "reopen"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
         viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+        user_type(required: false, type: PropertyType.String, description: "Authenticated user type")
     }
 
     "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
@@ -799,6 +810,13 @@ tracks {
         sellerCentralModifyGroupTableForPdp
     }
 
+    "/seller_central/modify/update_mshops_price"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+        synced(required: true, type: PropertyType.Boolean, description: "if MercadoShops's price is synced with MarketPlace's price")
+    }
+
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
@@ -1048,6 +1066,12 @@ tracks {
     "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event) {
         attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
         value(required: true, type: PropertyType.String, description: "New attribute value")
+    }
+
+    "/seller_central/modify/broken_card"(platform: "/web", isAbstract: true) {}
+    "/seller_central/modify/broken_card/show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        broken_card_id(required: true, type: PropertyType.String, description: "Id of broken card")
     }
 
     "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event) {
@@ -1484,6 +1508,55 @@ tracks {
         sellerCentralUserSales
         selected_problem(required: true, type: PropertyType.String, description: "Problem selected ID")
         problem_type(required: true, type: PropertyType.String, description: "Problem type", values: ["L1", "L2"])
+    }
+    
+    // Delayed Shipping - My Attention
+
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        default_selected_period(required: false, type: PropertyType.String, description: "Seller's default reputation period")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/attention/delayed_shippings/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        section_name(required: true, type: PropertyType.String, description: "Section where the button is placed")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/apply_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        filters(required: true, PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/start_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        start_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/finish_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        finish_period(required: true, type: PropertyType.String, description: "Dropdown selected period")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/products_actions"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        action_type(required: true, type: PropertyType.String, description: "Product action selected")
+    }
+
+    "/seller_central/metrics/attention/delayed_shippings/open_onboarding"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
     }
 
     // CATALOG OPTIN SECTION

@@ -165,8 +165,16 @@ tracks
                 vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
+            "/crowd/feedback/modal"(platform: "/mobile", type: TrackType.View) {
+
+            }
+
+            "/crowd/feedback/modal/tap"(platform: "/mobile", type: TrackType.Event) {
+
+            }
+
             //Tracks lib flux
-            "flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
+            "/flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
                 user_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
@@ -302,6 +310,10 @@ tracks
             }
 
             "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
                 location
             }
         }

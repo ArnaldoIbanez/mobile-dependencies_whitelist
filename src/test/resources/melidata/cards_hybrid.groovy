@@ -36,6 +36,7 @@ trackTests {
 
     //Shipping: Delivered
     test("cards hybrid shipping delivered") {
+        "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {}
         "/cards/hybrid/shipping/delivered"(platform: "/", type: TrackType.View) {
             context = "receiver-2-mãe"
         }
@@ -116,6 +117,26 @@ trackTests {
         }
         "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
             action = "reissue"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-2-mãe"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-23-cunhado"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-24-genro"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-50-deixado_na_varanda"
+        }
+        "/cards/hybrid/shipping/delivered/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+            context = "receiver-51-caixa_de_correspondencia"
         }
     }
 
@@ -244,9 +265,20 @@ trackTests {
             overdue_days: 0,
         ],
         statement_status: "open",
-        pending_payments: false
+        pending_payments: false,
+        load_mode: "sync"
     ]
-    
+
+    def credit_card_data_skeleton = [
+        load_mode: "async"
+    ]
+
+    def credit_card_data_error = [
+            error: [
+                type: "failed_dependency",
+                cause: "payment"
+            ]
+    ]
 
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
@@ -272,6 +304,24 @@ trackTests {
             message_status = "warning"
             activities_status = "activities_with_error"
             credits = credit_card_data
+        }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credits = credit_card_data_skeleton
+        }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credits = credit_card_data_error
         }
         "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
@@ -331,6 +381,15 @@ trackTests {
         }
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "without_nfc"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "nfc_not_configured"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "nfc_configured"
         }
     }
     
@@ -405,6 +464,15 @@ trackTests {
         }
         "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
             action = "without_cards_and_card_request"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_physical_delivered"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "nfc_virtual_only"
+        }
+        "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_pending_default"
         }
     }
     
@@ -1607,6 +1675,30 @@ trackTests {
             action = "some deeplink"
         }
         "/cards/nfc/congrats/create_nfc_card_error"(platform: "/", type: TrackType.View) {}
+    }
+
+    // CROSS-SELLING NFC
+    test("cards nfc cross-selling carousel") {
+        "/cards/nfc/acquisition/cross_selling"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_back"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "show_more_button"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "back_button"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "item"
+        }
+        "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+            action = "item"
+            device = [
+                id: "MLB1889766498",
+                description: "Samsung Galaxy A12 Dual Sim 64 Gb Black 4 Gb Ram"
+            ]
+        }
     }
     
     // NFC-KYC
@@ -3618,6 +3710,9 @@ trackTests {
             action = "faq"
         }
         "/cards/nfc/payment/intention"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/payment/intention/tap"(platform: "/", type: TrackType.Event) {
+            action = "payment_intention_help"
+        }
         "/cards/nfc/payment/pos_contact"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/payment/waiting_payment/tap"(platform: "/", type: TrackType.Event) {
@@ -3632,6 +3727,9 @@ trackTests {
         }
         "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
             status = "unknown"
+        }
+        "/cards/nfc/payment/congrats"(platform: "/", type: TrackType.View) {
+            status = "generic"
         }
         "/cards/nfc/congrats/insufficient_money"(platform: "/", type: TrackType.View) {}
         "/cards/nfc/congrats/blocked_pin"(platform: "/", type: TrackType.View) {}
@@ -3791,5 +3889,12 @@ trackTests {
             error_message = "Empty nfc_command userId"
         }
     }
-
+    
+    // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
+    test("/cards/nfc/identity_confirmation") {
+        "/cards/nfc/identity_confirmation"(platform: "/", type: TrackType.View) {}
+        "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
+            action = "primary"
+        }
+    }
 }

@@ -73,6 +73,7 @@ catalog {
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
+        include business, "my_data.groovy"
         include business, "privacy_preferences.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
@@ -98,6 +99,7 @@ catalog {
         include business, "bulk_publish.groovy"
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
+        include business, "fraud_challenges.groovy"
     }
 
     mercadolibre.each { business ->
@@ -187,6 +189,7 @@ catalog {
         include business, "tendencies.groovy"
         include business, "authorization.groovy"
         include business, "hub_mshops.groovy"
+        include business, "prepapp.groovy"
     }
 
     mercadopago.each { business ->
@@ -268,6 +271,9 @@ catalog {
         include business, "mercadopago_corecheckouts.groovy"
         include business, "pog_landings.groovy"
         include business, "meliplaces.groovy"
+        include business, "cashin.groovy"
+        include business, "mercadopago_openbanking.groovy"
+        include business, "point_loyalty.groovy"
     }
 
     mercadoshops.each { business ->
@@ -276,6 +282,7 @@ catalog {
         include business, "buyIntention.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "cdn_metrics.groovy"
         include business, "checkout.groovy"
         include business, "cookies_consent.groovy"
         include business, "cookie_disclaimer.groovy"
@@ -283,6 +290,7 @@ catalog {
         include business, "landing_mshops.groovy"
         include business, "registrations.groovy"
         include business, "search.groovy"
+        include business, "social.groovy"
         include business, "vip.groovy"
     }
 
@@ -325,6 +333,7 @@ catalog {
         include business, "traffic.groovy"
         include business, "vip.groovy"
         include business, "splinter.groovy"
+        include business, "cdn_metrics.groovy"
     }
 
 }

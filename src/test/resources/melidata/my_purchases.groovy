@@ -97,6 +97,8 @@ trackTests {
 			order_id= 1234
 		}
 
+		def newPurchasesDataFullSet = purchasesEventDataSet >> newPurchasesDataSet
+
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 		// TEST TRACKS MY PURCHASES STATUS
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -107,31 +109,31 @@ trackTests {
 		}
 
 		"/my_purchases/status/show_action" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/show_help" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/show_faq" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_action" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_help" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_faq" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_view_item" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_view_messages" (platform:"/", type: TrackType.Event) {
@@ -166,7 +168,7 @@ trackTests {
         }
 
         "/my_purchases/status/items/click_view_item" (platform:"/", type: TrackType.Event) {
-            purchasesEventDataSet()
+			newPurchasesDataFullSet()
         }
 
 

@@ -14,4 +14,10 @@ tracks {
     "/notification/messages_driver_flex"(platform: "/") {}
     "/notification/messages_flex"(platform: "/") {}
     "/notification/messages_quotes"(platform: "/") {}
+
+    //Drive Logistics
+    "/notification/driver_logistics_changed_address"(platform: "/") {}
+    "/notification/driver_logistics_driver_with_route"(platform: "/") {}
+    "/notification/driver_logistics_retry_collect"(platform: "/") {}
+    "/notification/driver_logistics_retry_delivery"(platform: "/") {}
 }

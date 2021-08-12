@@ -164,6 +164,23 @@ trackTests {
             problem_id = 1234
             case_id = 1234
         }
+
+        "/support/widget/list"(platform: "/", type: TrackType.View) {
+            list_type = "oneclick_purchases"
+        }
+
+        "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+            list_skip_button = true
+            list_type = "oneclick_purchases"
+        }
+
+        "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+        
+        "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+            user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
+            content_ids = [123, 456, 7890]
+            object_model = "‘0.0.5-com208-ctx-training"
+        }
     }
 
     test("Support Widget having Content Type") {
@@ -261,7 +278,6 @@ trackTests {
         "/support/helpcard"(platform: "/", type: TrackType.View) {}
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [
                 [
                     title: "Ayuda con tus compras",
@@ -272,7 +288,6 @@ trackTests {
         }
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [:]
         }
     }
@@ -470,7 +485,23 @@ trackTests {
             problem_id = 1234
             case_id = 1234
         }
-    }
+
+        "/support/widget/list"(platform: "/", type: TrackType.View) {
+            list_type = "oneclick_purchases"
+        }
+
+        "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+            list_skip_button = true
+            list_type = "oneclick_purchases"
+        }
+        "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+            user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
+            content_ids = [123, 456, 7890]
+            object_model = "‘0.0.5-com208-ctx-training"
+        }
+  }
 
     test("Support Cases") {
         "/support/cases"(platform: "/", type: TrackType.View) {}
@@ -490,7 +521,6 @@ trackTests {
         "/support/helpcard"(platform: "/", type: TrackType.View) {}
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [
                 [
                     title: "Ayuda con tus compras",
@@ -501,7 +531,6 @@ trackTests {
         }
         "/support/helpcard/contents"(platform: "/", type: TrackType.View) {
             portal_source_id = 1628
-            helpcard_title = "Ayuda con tus compras"
             helpcard_contents = [:]
         }
     }

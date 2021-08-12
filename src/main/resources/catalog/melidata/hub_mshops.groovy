@@ -62,7 +62,7 @@ tracks {
         shop_name(required: true, type: PropertyType.String)
         shop_domain(required: true, type: PropertyType.String)
         domain_status(
-            required: true, 
+            required: false, 
             type: PropertyType.String,
             values: [
                 "own_domain", "shops_domain"
@@ -155,6 +155,10 @@ tracks {
     }
 
     "/shops/hub/add/listings"(platform: "/", type: TrackType.Event) {
+        card(required: false, type: PropertyType.String, values: ['listings'])
+    }
+
+    "/shops/hub/edit/prices_combos"(platform: "/", type: TrackType.Event) {
         card(required: false, type: PropertyType.String, values: ['listings'])
     }
 

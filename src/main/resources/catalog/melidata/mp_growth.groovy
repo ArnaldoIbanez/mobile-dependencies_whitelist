@@ -120,6 +120,9 @@ tracks {
     "/merchant_acquisition/flows/wrap_up/home/sellers_central/see_more"(platform:"/", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Link to execute")
     }
+    "/merchant_acquisition/flows/wrap_up/home/value_prop"(platform:"/", type: TrackType.Event) {
+        section(required: true, type: PropertyType.String, description: "Name of section where the user clicked the link.")
+    }
 
     //mgm
     "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {}

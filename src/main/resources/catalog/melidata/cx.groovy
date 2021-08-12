@@ -76,8 +76,6 @@ tracks {
             description: "Indicates the features used in the prediction")
         portal_predicted_contents(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
             description: "Indicates the ids of the contents predicted to a user")
-        helpcard_title(required: true, type: PropertyType.String,
-            description: "Indicates the title of the help card as viewed by the user")
         helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
             description: "Indicates the contents viewed by the user in the help card")
         portal_contents_result(required: true, description: "Content ids result from search page", type: PropertyType.ArrayList)
@@ -98,6 +96,10 @@ tracks {
         score(required: true, type: PropertyType.Numeric, description: "Score of NLP prediction")
         problem_id(required: true, type: PropertyType.Numeric, description: "ProblemId predicted by NLP algorithm")
         case_id(required: true, type: PropertyType.Numeric, description: "Id of case created")
+        list_skip_button(required: true, type: PropertyType.Boolean, description: "Indicates if the list was skipped without selecting an item")
+        list_type(required: true, type: PropertyType.String, description: "Indicates the content of the list")
+        content_ids(required: true, type: PropertyType.ArrayList, description: "Contents id predicted by model NLP")
+        object_model(required: true, type: PropertyType.String, description: "Object model in model NLP response")
     }
 
     propertyGroups {
@@ -126,7 +128,7 @@ tracks {
         portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
         portal_predicted_features(portal_predicted_features)
         portal_predicted_contents(portal_predicted_contents)
-        helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
+        helpcard_data(portal_source_id, helpcard_contents)
         portal_contents_result(portal_contents_result)
         portal_delayed_pack_id(portal_delayed_pack_id)
         portal_delayed_packs_ids(portal_delayed_packs_ids)
@@ -138,7 +140,10 @@ tracks {
         score(score)
         problem_id(problem_id)
         case_id(case_id)
-
+        list_skip_button(list_skip_button)
+        list_type(list_type)
+        content_ids(content_ids)
+        object_model(object_model)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -424,6 +429,22 @@ tracks {
         portal_broken_link_error
         portal_broken_link_source_url
         portal_broken_link_destination_url
+    }
+
+    "/support/widget/list"(platform: "/", type: TrackType.View) {
+        list_type
+    }
+
+    "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+       list_skip_button
+    }
+
+    "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+
+    "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+        user_text
+        content_ids
+        object_model
     }
 
     // Mis Consultas

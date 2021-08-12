@@ -17,10 +17,11 @@ tracks {
     def element_definition = objectSchemaDefinitions {
         elements(required: false, type: PropertyType.Numeric, description: "items quantity")
         status(required: false, type: PropertyType.String, description: "component status")
+        empty(required: false, type: PropertyType.Boolean, description: "quantity status")
     }
 
     def component_definition = objectSchemaDefinitions {
-        component_id(required: true, type: PropertyType.Numeric, description: "parent component id")
+        component_id(required: true, type: PropertyType.String, description: "parent component id")
         component_data(required: false, type: PropertyType.Map(element_definition), description: "child component relevant content data")
         content_id(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "children component ids")
     }
@@ -48,18 +49,18 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         // Components
-        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition))
         my_money_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_card_available(required: false, type: PropertyType.Map(component_definition))
+        my_money_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_card_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition))
         my_money_cross_selling_carousel(required: false, type: PropertyType.Map(component_definition))
         my_money_retained(required: false, type: PropertyType.Map(component_definition))
-        my_money_available(required: false, type: PropertyType.Map(component_definition))
-        my_money_to_release(required: false, type: PropertyType.Map(component_definition))
         my_money_to_advance(required: false, type: PropertyType.Map(component_definition))
-        my_money_activities(required: false, type: PropertyType.Map(component_definition))
-        my_money_calendar(required: false, type: PropertyType.Map(component_definition))
+        my_money_last_activities(required: false, type: PropertyType.Map(component_definition))
+        my_money_card_calendar(required: false, type: PropertyType.Map(component_definition))
         my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition))
-        my_money_balance_available(required: false, type: PropertyType.Map(component_definition))
-        my_money_balance_to_release(required: false, type: PropertyType.Map(component_definition))
+        my_money_cerc(required: false, type: PropertyType.Map(component_definition))
     }
 
     propertyGroups {
@@ -78,28 +79,48 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        cercEventClick (
+                action_type
+        )
         componentsViews (
-                my_money_shortcuts,
                 my_money_available,
+                my_money_card_available,
+                my_money_to_release,
+                my_money_card_to_release,
+                my_money_shortcuts,
                 my_money_cross_selling_carousel,
                 my_money_retained,
-                my_money_available,
-                my_money_to_release,
                 my_money_to_advance,
-                my_money_activities,
-                my_money_calendar,
+                my_money_last_activities,
+                my_money_card_calendar,
                 my_money_calendar_daily,
-                my_money_balance_available,
-                my_money_balance_to_release
+                my_money_cerc,
         )
     }
 
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
+    // Components Balance
+    "/banking/balance/available"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/card_available"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/retained"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/last_activities"(platform: "/", type: TrackType.View) { componentsViews }
+
+    // Components ToRelease
+    "/banking/to_release/to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/cerc"(platform: "/", type: TrackType.View) { componentsViews }
+
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release"(platform: "/", type: TrackType.View) {}
+    "/banking/to_release"(platform: "/", type: TrackType.View) { componentsViews }
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
@@ -112,13 +133,15 @@ tracks {
     "/banking/balance/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/balance/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/balance/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/error"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
@@ -182,4 +205,21 @@ tracks {
 
     // Vouchers - Help
     "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
+
+    // Regulations Cerc Views
+    "/regulations/cerc"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/contracts"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+
+    // Regulations Cerc Events
+    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
 }

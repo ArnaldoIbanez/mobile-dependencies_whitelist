@@ -4,13 +4,23 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-    '/' (platform: '/', isAbstract: true) { }
+    '/' (platform: '/', type: TrackType.View) { }
 
-    '/portability' (platform: '/', isAbstract: true) { }
-
+    '/portability' (platform: '/', type: TrackType.View) { }
+    
     '/portability/onboarding' (platform: '/', type: TrackType.View) { }
 
+    '/portability/kyc' (platform: '/', type: TrackType.View) { }
+
+    '/portability/kyc/onboarding' (platform: '/', type: TrackType.View) { }
+
+    '/portability/kyc/congrat' (platform: '/', type: TrackType.View) { }
+
     '/portability/request' (platform: '/', type: TrackType.View) { }
+
+    '/portability/request-error' (platform: '/', type: TrackType.View) { }
+
+    '/portability/review' (platform: '/', type: TrackType.View) { }
 
     '/portability/congratulations' (platform: '/', type: TrackType.View) { }
 
@@ -18,10 +28,9 @@ tracks {
 
     '/portability/stop' (platform: '/', type: TrackType.View) { }
 
+    '/portability/validation' (platform: '/', type: TrackType.View) { }
+
+    '/portability/validation/stop' (platform: '/', type: TrackType.View) { }
+
     '/portability/request-detail' (platform: '/', type: TrackType.View) { }
-
-    '/portability/request/employer' (platform: '/mobile', type: TrackType.View) { }
-
-    '/portability/request/bank' (platform: '/mobile', type: TrackType.View) { }
-
 }

@@ -33,4 +33,8 @@ tracks {
         mshopslClickGroup
     }
 
+    "/home/landing/already_active"(platform: "/", type: TrackType.Event){
+        mshopslClickGroup
+    }
+
 }

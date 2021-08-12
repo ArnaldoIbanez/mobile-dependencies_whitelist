@@ -111,7 +111,7 @@ tracks {
         accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
         debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
-        user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none"])
+        user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none", "precreated"])
         sales_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Selected sales channels")
     }
 
@@ -138,7 +138,7 @@ tracks {
         sellGroupMobile
         listingTypeFlowMobile
         seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
-        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
+        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none", "precreated"])
         sale_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's sale channel values accepted: ['private', 'proximity', 'marketplace', 'mshops']")
     }
     "/sell/list"(platform: "/", isAbstract: true){
@@ -1062,6 +1062,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
+        category_id(required: false, type: PropertyType.String, description: "Category Id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
     }
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1084,6 +1086,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
+        category_id(required: false, type: PropertyType.String, description: "Category Id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
     }
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}

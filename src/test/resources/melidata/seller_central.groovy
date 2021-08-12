@@ -104,6 +104,10 @@ trackTests {
     }
   }
 
+  test("seller central listing event of user focusing in youtube video") {
+    "/seller_central/listings/video_focus"(platform: "/", type: TrackType.Event) {}
+  }
+
   test("seller central listing onboarding view mobile") {
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
   }
@@ -123,6 +127,10 @@ trackTests {
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
       action = "start"
       page = 1
+    }
+    "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
+      action = "reopen"
+      user_type = "real_estate_agency"
     }
   }
 
@@ -289,6 +297,16 @@ trackTests {
     }
     "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
+    }
+    "/seller_central/news/lib/primary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
+    "/seller_central/news/lib/secondary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
   }
 
@@ -1042,6 +1060,21 @@ trackTests {
     }
   }
 
+  test("seller central render broken card"){
+    "/seller_central/modify/broken_card/show"(platform: "/web", type: TrackType.Event){
+      category_id = "MLA1055"
+      seller_profile = "ADVANCED"
+      category_domain = "MLA-CELLPHONES"
+      seller_reputation = "NO_REPUTATION"
+      item_id = "MLA796280085"
+      item_type = "default"
+      shipping_local_pickup = false
+      listing_type = "gold_special"
+      session_id = "446913427-update-b5050d625f77"
+      broken_card_id = "shipping"
+    }
+  }
+
   test("seller central render subflow"){
     "/seller_central/modify/subflow"(platform: "/", type: TrackType.View){
       item_type = "default"
@@ -1086,6 +1119,23 @@ trackTests {
       to = "1500"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+    }
+  }
+
+  test("seller central price value updated"){
+    "/seller_central/modify/update_mshops_price"(platform: "/", type: TrackType.Event){
+      seller_reputation = "5_green"
+      category_domain = "MLA-CELLPHONES"
+      item_id = "MLA682118081"
+      item_type = "product"
+      shipping_local_pickup = true
+      listing_type = "gold_pro"
+      session_id = "123-update-abc123"
+      category_id = "MLA390784"
+      seller_profile = "ADVANCED"
+      from = "1200"
+      to = "1500"
+      synced = true
     }
   }
 
@@ -2454,6 +2504,113 @@ trackTests {
       user_type = "real_estate_agency"
       selected_problem = "ID_PROBLEM_1"
       problem_type = "L1"
+    }
+  }
+
+  // Delayed Shipping
+
+  test("metrics my attention delayed shipping section view for web") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      default_selected_period = "lastTwoMonth"
+    }
+  }
+
+  test("metrics my attention delayed shipping section view for web mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping section view for mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping, help button click track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "graphics"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open filter modal track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention delayed shipping apply filters track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      filters = ["FILTER1", "FILTER2"]
+    }
+  }
+
+  test("metrics my attention delayed shipping, start period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/start_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      start_period = "custom"
+    }
+  }
+
+  test("metrics my attention delayed shipping, finish period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/finish_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      finish_period = "custom"
+    }
+  }
+
+    test("metrics my attention delayed shipping, personalized period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
+  test("metrics my attention delayed shipping, top 30 action track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/products_actions"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      action_type = "modify"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open onboarding track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_onboarding"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
     }
   }
 

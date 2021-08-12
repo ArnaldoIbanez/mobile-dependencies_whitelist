@@ -37,4 +37,11 @@ tracks {
         banking (required:false)
     }
 
+    "/vip/merch/show"(platform: "/") {
+        merch_data (required:false, type: PropertyType.Map(merchdata))
+    }
+
+    "/pdp/merch/show"(platform: "/") {
+        merch_data (required:false, type: PropertyType.Map(merchdata))
+    }
 }

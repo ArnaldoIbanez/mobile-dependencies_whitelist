@@ -150,6 +150,14 @@ trackTests {
             domain_status = "shops_domain"
         }
 
+        "/shops/hub/edit/prices_combos"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            card = "listings"
+        }
+
         "/shops/hub/manage_sales"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
