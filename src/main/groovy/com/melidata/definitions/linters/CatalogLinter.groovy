@@ -48,14 +48,15 @@ class CatalogLinter {
     }
 
     boolean run(String catalogName) {
-        def touchedDefinitions = getDefinitionsToEvaluate(catalogName)
         boolean isValid = true
-
+/*
+        def touchedDefinitions = getDefinitionsToEvaluate(catalogName)
         touchedDefinitions.forEach { TrackDefinition definition ->
             if(!linters.every {it.passValidation(definition)}) {
                 isValid = false
             }
         }
+ */
         return isValid
     }
 }
