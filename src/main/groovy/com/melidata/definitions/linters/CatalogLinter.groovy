@@ -56,9 +56,6 @@ class CatalogLinter {
                 isValid = false
             }
         }
-        
-        println(touchedDefinitions.collect {"${it.path}-${it.platform}"}.sort())
-
         return isValid
     }
 }
