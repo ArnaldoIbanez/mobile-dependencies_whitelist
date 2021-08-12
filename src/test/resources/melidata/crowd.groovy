@@ -361,5 +361,9 @@ trackTests {
         "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
+
+        "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
     }
 }

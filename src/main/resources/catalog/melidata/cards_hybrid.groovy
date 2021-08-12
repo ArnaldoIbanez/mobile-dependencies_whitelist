@@ -453,7 +453,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge"],
+            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge", "without_nfc", "nfc_not_configured", "nfc_configured"],
             description: "Mini card tapped"
           )
     }

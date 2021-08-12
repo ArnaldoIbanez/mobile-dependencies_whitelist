@@ -382,6 +382,15 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "user_need_challenge"
         }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "without_nfc"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "nfc_not_configured"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "nfc_configured"
+        }
     }
     
      //Physical acquisition stop: Tracking

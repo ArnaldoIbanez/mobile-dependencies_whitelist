@@ -30,6 +30,7 @@ tracks {
     "/cards/prepaid-detail/click-ask-for-card"(platform: "/", isAbstract: true) { }
 
     "/prepaid"(platform: "/", isAbstract: true) {
+        from (required: false, type: PropertyType.String, description: "Context from where its started")
         user_profile(
             required: false,
             type: PropertyType.String,
