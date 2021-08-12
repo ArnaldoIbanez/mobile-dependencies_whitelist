@@ -1782,6 +1782,12 @@ tracks {
                 required: true,
                 description: "Defines if the user accesses the FAQ of the button Know more",
                 type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
         )
     }
 

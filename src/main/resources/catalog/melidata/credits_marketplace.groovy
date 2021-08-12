@@ -219,6 +219,12 @@ tracks {
                 required: true,
                 description: "Defines if the user accesses the FAQ of the button Know more",
                 type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
         )
     }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
