@@ -43,6 +43,11 @@ trackTests {
     test("seller central bulk filters and search mp") {
         "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
             filters = ["active", "inactive"]
+        }
+    }
+        test("seller central bulk filters and search mp in EMON") {
+        "/seller_central/bulk/list/filters"(platform: "/", type: TrackType.Event) {
+            filters = ["active", "inactive"]
             seller_reputation = "5_green"
             user_type = "normal"
             user_shops_status = "active"
