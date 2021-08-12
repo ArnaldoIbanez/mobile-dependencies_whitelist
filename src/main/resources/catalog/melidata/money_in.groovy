@@ -31,7 +31,7 @@ tracks {
 
     //Calculator tracks
     "/money_in/calculator"(platform: "/", type: TrackType.View) {
-        payment_method (required:true, description: "Payment method selected on calculator")
+        payment_method (required:false, description: "Payment method selected on calculator")
     }
 
     //Calculator montos preseteados
@@ -55,6 +55,16 @@ tracks {
 
     "/money_in/onboarding"(platform: "/", isAbstract: true) {}
 
+    //money In - Home
+    "/money_in/home/td_pj_modal"(platform: "/", type: TrackType.View) {}
+    "/money_in/home/td_pj_modal/back_to_hub"(platform: "/", type: TrackType.Event) {}
+    "/money_in/home/td_pj_modal/back_to_home"(platform: "/", type: TrackType.Event) {}
+
+    //money In - Congrats(comming from Kyc)
+    "/money_in/congrats/success"(platform: "/", type: TrackType.View) {}
+    "/money_in/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_in/congrats/success/close"(platform: "/", type: TrackType.Event) {}
+
     //Onboarding
      "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
      "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
@@ -66,6 +76,7 @@ tracks {
 
     "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
     "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/onboarding/continue"(platform: "/", type: TrackType.Event) {}
 
     //TED
 
@@ -118,6 +129,9 @@ tracks {
     "/money_in/clabe/copy"(platform: "/", type: TrackType.Event) {}
     "/money_in/clabe/share"(platform: "/", type: TrackType.Event) {}
     "/money_in/clabe/help"(platform: "/", type: TrackType.Event) {}
+
+    // CLABE - Congrats
+    "/money_in/clabe/congrat/go_home"(platform: "/", type: TrackType.Event) {}
 
     // CLABE - Congrats Error
     "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
@@ -367,14 +381,14 @@ tracks {
 
     //Debin Congrats
     "/money_in/debin/congrats"(platform:"/", type: TrackType.View){
-        status(required:true, description:"status",values:["success", "pending", "error"])
+        status(required:false, description:"status",values:["success", "pending", "error"])
         error_type(required:false, description:"indicates the error of the debin")
     }
     "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
-         status(required:false, description:"status",values:["success", "pending", "error"])
+         status(required:false, description:"status",values:["success", "pending", "error", "rejected"])
     }
     "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
-         status(required:false, description:"status",values:["error"])
+         status(required:false, description:"status",values:["error", "rejected"])
     }
     "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
 

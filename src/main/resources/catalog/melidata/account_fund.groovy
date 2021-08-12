@@ -25,6 +25,9 @@ tracks {
         preset (required:true, description: "Amount preset button value", values: ["30", "60", "120", "240", "500", "1000", "2000", "5000"])
     }
 
+    // Home MoneyIn
+    "/account_fund/payment_types"(platform: "/", type: TrackType.View) {}
+
     // Amount warning modal
     "/account_fund/amount/warning"(platform: "/", type: TrackType.View) {}
     "/account_fund/amount/warning/continue"(platform: "/", type: TrackType.Event) {}
@@ -84,4 +87,8 @@ tracks {
         bank (required:true, description: "Bank to display instructions for")
     }
     "/account_fund/cvu/main/help"(platform: "/", type: TrackType.Event) {}
+
+    // Kyc
+    "/account_fund/kyc/continue"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/kyc/close"(platform: "/", type: TrackType.Event) {}
 }
