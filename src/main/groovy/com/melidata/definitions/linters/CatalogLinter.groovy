@@ -13,7 +13,7 @@ class CatalogLinter {
     List<AbstractLinter> linters = []
 
     CatalogLinter() {
-        linters.add(new PropertiesQuantityLinter(10))
+        linters.add(new PropertiesQuantityLinter(20))
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type", "name"]))
         linters.add(new NamingLinter())
         linters.add(new RequireValuesLinter(["mode", "type"]))
