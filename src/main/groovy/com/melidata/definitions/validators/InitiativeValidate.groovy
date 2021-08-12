@@ -4,7 +4,6 @@ import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.manager.CatalogHandlerWithMetrics
-import com.ml.melidata.manager.helpers.TrackMetricDTO
 import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
