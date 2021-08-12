@@ -259,7 +259,7 @@ tracks
                 location
             }
 
-            "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+            "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
                 location
                 city(required: true, type: PropertyType.String, description: "Specifies the current city selected")
             }

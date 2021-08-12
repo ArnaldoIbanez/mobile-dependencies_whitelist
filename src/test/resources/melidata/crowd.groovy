@@ -308,7 +308,7 @@ trackTests {
             defaultLocation()
         }
 
-        "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+        "crowd/registration/geo/suggetion"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             city = "La plata"
         }

@@ -2603,6 +2603,10 @@ tracks {
     "/notification/me_crowd_upcoming_trip_forewarn"(platform: "/") {}
     "/notification/me_crowd_canceled_order_warning"(platform: "/") {}
 
+    "/notification/me_crowd_cnh_registration"(platform: "/") {}
+    "/notification/me_crowd_tutorial_registration"(platform: "/") {}
+    "/notification/me_crowd_geo_city_registratoin"(platform: "/") {}
+
     //Money
     "/notification/money_advance_congrats"(platform: "/") {}
     "/notification/money_advance_fail"(platform: "/") {}
