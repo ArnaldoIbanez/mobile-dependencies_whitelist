@@ -169,16 +169,19 @@ trackTests {
         "/banking/balance/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/to_release/action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
         "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/balance/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
-        "/banking/balance/calendar_anual"(platform: "/", type: TrackType.Event) {
+        "/banking/to_release/calendar_anual"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
-        "/banking/balance/calendar"(platform: "/", type: TrackType.Event) {
+        "/banking/to_release/calendar"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/balance/error"(platform: "/", type: TrackType.Event) {
