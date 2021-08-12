@@ -2903,6 +2903,26 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
+
         "/notification/me_crowd_cnh_registration"(platform: "/mobile"){
             news_id = "me_crowd_cnh_registration-699997492-1611784275"
             event_type = "sent"
@@ -4167,6 +4187,26 @@ trackTests {
         }
         "/notification/me_crowd_canceled_order_warning"(platform: "/mobile/android"){
             news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_city_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
             event_type = "sent"
         }
 
@@ -9593,6 +9633,26 @@ trackTests {
 
         "/notification/me_crowd_canceled_order_warning"(platform: "/mobile"){
             news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
             event_type = "sent"
         }
 
