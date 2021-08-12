@@ -46,6 +46,8 @@ tracks {
                 description: "Free trial matching status bar"
         )
         mode(required: false, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+        shops(required: false, type: PropertyType.Boolean, description: "User's Shops")
+        shops_integration_status(required: false, type: PropertyType.Boolean, description: "User shared Ads with Shops")
     }
 
     "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
@@ -702,6 +704,8 @@ tracks {
     "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
         tab(required: true, description: "It could be: Campaigns or Ads tab", values: ['campaigns', 'ads'])
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_definition)), description: "Array campaigns")
+        shops(required: false, type: PropertyType.Boolean, description: "User's Shops")
+        shops_integration_status(required: false, type: PropertyType.Boolean, description: "User shared Ads with Shops")
     }
 
     "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {

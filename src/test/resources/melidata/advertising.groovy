@@ -877,6 +877,8 @@ trackTests {
                     budget: "333",
                     status: "active"
             ]
+            shops = false
+            shops_integration_status = true
         }
 
         "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event) {
@@ -1260,6 +1262,8 @@ trackTests {
             campaign_id = "2222222"
             budget = "4000"
             status = "active"
+            shops = true
+            shops_integration_status = true
         }
 
         "/advertising/pads2/manager/filters"(platform: "/", type: TrackType.Event) {
