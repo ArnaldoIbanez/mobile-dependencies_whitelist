@@ -690,20 +690,5 @@ trackTests {
         payment_method_id = "pix"
         }
         "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
-        "/money_in/hub/merch_engine"(platform:"/", type: TrackType.View){
-            status = "success"
-            audience = "all"
-            bu = "4"
-            bu_line = "7"
-            component_id = "money_in_hub_cross_selling_test"
-            content_id = "id_contenido_test"
-            flow = "-1"
-            logic = "user_journey"
-            position = "0"
-            xp_id = "experiments"
-        }
-        "/money_in/hub/merch_engine"(platform:"/", type: TrackType.View){
-            status = "error"
-        }
     }
 }

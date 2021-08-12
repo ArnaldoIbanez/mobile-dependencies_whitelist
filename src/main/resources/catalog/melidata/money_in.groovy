@@ -461,17 +461,6 @@ tracks {
         payment_method_id (required:false, PropertyType.String, description: "indicates the id of the payment method")
     }
     "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
-    "/money_in/hub/merch_engine"(platform:"/", type: TrackType.View){
-        status(required:true,type: PropertyType.String, description:"merch engine status", values:["success","error"])
-        audience(required:false,type: PropertyType.String, description:"indicates the audience")
-        bu(required:false,type: PropertyType.String, description:"Indicates the buisiness unit")
-        bu_line(required:false,type: PropertyType.String, description:"buisiness unit line")
-        component_id(required:false,type: PropertyType.String, description:"Id of the merch engine real state")
-        content_id(required:false,type: PropertyType.String, description:"id of the content")
-        flow(required:false,type: PropertyType.String, description:"flow of the merch engine")
-        logic(required:false,type: PropertyType.String, description:"logic of the merch engine")
-        position(required:false,type: PropertyType.String, description:"Position of the item")
-        xp_id(required:false,type: PropertyType.String, description:"id of the experiments")
-    }
+
 
 }
