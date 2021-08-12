@@ -664,6 +664,14 @@ tracks {
         walletHomePendingsFields
     }
 
+    "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+        from(required: false, type: PropertyType.String, description: "From where this pending shown")
+    }
+
+    "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {}
+
     "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields
     }

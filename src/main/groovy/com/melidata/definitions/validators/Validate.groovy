@@ -23,10 +23,8 @@ class Validate {
             String catalogName = options.catalog
             def catalogDir = BASE_CATALOG_DIR + catalogName + "/"
             pathCatalog = catalogDir + DEFAULT_CATALOG
-            DslUtils.setBaseDir(catalogDir)
         } else {
             pathCatalog = DEFAULT_CATALOG_DIR + DEFAULT_CATALOG
-            DslUtils.setBaseDir(DEFAULT_CATALOG_DIR)
         }
         def catalogScript = CatalogValidator.getScriptFromFile(pathCatalog)
         def catalog = CatalogValidator.runScript(catalogScript)

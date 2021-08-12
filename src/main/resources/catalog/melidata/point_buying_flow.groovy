@@ -120,6 +120,8 @@ tracks {
 
     "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
+    "/point/buyingflow/congrats"(platform: "/", isAbstract: true) {}
+    
     "/point/buyingflow/congrats"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
         payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
@@ -139,5 +141,17 @@ tracks {
         payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
         payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
     }
+
+    "/point/buyingflow/congrats/instructions"(platform:"/", type: TrackType.View) {}
+
+    "/point/buyingflow/congrats/print"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/copy"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/map"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/continue"(platform:"/", type: TrackType.Event) {}
+
+    "/point/buyingflow/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
 
 }

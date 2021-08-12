@@ -361,6 +361,25 @@ tracks {
         )
     }
 
+    def error_data = objectSchemaDefinitions {
+        type(
+            description: "Error type",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                "timeout",
+                "failed_dependency",
+                "internal_error"
+            ]
+        )
+        cause(
+            description: "Error cause",
+            type: PropertyType.String,
+            required: false
+        )
+
+    }
+
     def credits_data = objectSchemaDefinitions {
          account(
                 type: PropertyType.Map(account_data),
@@ -379,6 +398,20 @@ tracks {
                 description: "The pending payments",
                 type: PropertyType.Boolean,
                 required: false
+        )
+        error(
+            description: "Error Cause and Type on TC Dashboard",
+            type: PropertyType.Map(error_data),
+            required: false
+        )
+        load_mode(
+            description: "TC Dashboard can be loaded sync or async",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                "sync",
+                "async"
+            ]
         )
     }
 
@@ -420,7 +453,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge"],
+            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge", "without_nfc", "nfc_not_configured", "nfc_configured"],
             description: "Mini card tapped"
           )
     }
@@ -1650,6 +1683,27 @@ tracks {
             description: "Redirect deeplink"
         )
     }
+
+    // CROSS-SELLING NFC
+    def cross_selling_item_description = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String)
+        description(required: false, type: PropertyType.String)
+    }
+    
+    "/cards/nfc/acquisition/cross_selling"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/acquisition/cross_selling/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_back", "item", "show_more_button", "back_button"],
+            description: "Cross-selling action Taps"
+        )
+        device (
+            required: false,
+            type: PropertyType.Map(cross_selling_item_description),
+            description: "Cross-selling tapped devices"
+        )
+    }
     
     // NFC-KYC
     //-------------------
@@ -2792,4 +2846,18 @@ tracks {
             description: "Cause of on-demand enrollment error"
         )
     }
+    
+    // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
+    // -----------------------
+    "/cards/nfc/identity_confirmation"(platform: "/", type: TrackType.View) {}
+
+    "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary"],
+            description: "Button tapped"
+        )
+    }
+    
 }

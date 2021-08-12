@@ -371,6 +371,11 @@ trackTests {
             delivery_id = 123456
         }
 
+        //Detail Shipment Parcels success
+        "/flex/package/detail/parcel"(platform:"/mobile", type: TrackType.View) {
+            shipment_id = "123456"
+        }
+
         //Congrats page success
         "/flex/package/finish_delivery"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
