@@ -10,38 +10,40 @@ import static org.junit.Assert.assertTrue
 
 class AbstractLinterTest {
 
-    def linter = new NamingLinter()
+    def linterProp = new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList])
+    def linterPath = new NamingLinter()
 
     @Test void passValidationMeansTrackAndProperties() {
         def td = new TrackDefinition("/search_snake_case")
         td.addProperty(new TrackDefinitionProperty(name: "query_snake_case", required: true,
                 description: "searched string", type: PropertyType.String))
 
-        assertTrue(linter.passValidation(td))
+        assertTrue(linterProp.passValidation(td))
+        assertTrue(linterPath.passValidation(td))
     }
 
     @Test void failsValidationIfOneIsFalse() {
         def propertyFalse = new TrackDefinition("/search_snake_case")
-        propertyFalse.addProperty(new TrackDefinitionProperty(name: "invalidProperty", required: true,
-                description: "invalid", type: PropertyType.String))
+        propertyFalse.addProperty(new TrackDefinitionProperty(name: "invalid_type", required: true,
+                description: "invalid", type: PropertyType.Map))
 
-        assertFalse(linter.passValidation(propertyFalse))
+        assertFalse(linterProp.passValidation(propertyFalse))
 
         def pathFalse = new TrackDefinition("/searchInvalid")
         pathFalse.addProperty(new TrackDefinitionProperty(name: "query_snake_case", required: true,
                 description: "searched string", type: PropertyType.String))
 
-        assertFalse(linter.passValidation(pathFalse))
+        assertFalse(linterPath.passValidation(pathFalse))
     }
 
     @Test void propertyValidationGoesIteratesMaps() {
         def propertyFalse = new TrackDefinition("/search_snake_case")
-        def propertiesMap = ["name": new TrackDefinitionProperty(name: "invalidProperty", required: true,
-                description: "invalid", type: PropertyType.String)]
+        def propertiesMap = ["name": new TrackDefinitionProperty(name: "invalid_prop", required: true,
+                description: "invalid", type: PropertyType.Map)]
 
         propertyFalse.addProperty(new TrackDefinitionProperty(name: "products", required: true,
                 description: "products", type: PropertyType.Map(propertiesMap)))
 
-        assertFalse(linter.passValidation(propertyFalse))
+        assertFalse(linterProp.passValidation(propertyFalse))
     }
 }
