@@ -70,6 +70,11 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
+        "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
+    }
+
+    // *********** Editor masivo online ******
     "/seller_central/bulk/list/massive_action/price"(platform: "/", type: TrackType.Event) {
         price(required: true, PropertyType.Numeric, description: "New price value")
     }
@@ -111,10 +116,6 @@ tracks {
     "/seller_central/bulk/list/massive_action/sync_price"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/bulk/list/massive_action/status"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-        item_id(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
-    }
 }
 
 
