@@ -42,20 +42,4 @@ class NamingLinterTest {
         def td = new TrackDefinition("/search_snake_case")
         assertTrue(linter.validateTrack(td))
     }
-
-    @Test void failsCamelCaseProperties() {
-        def td = new TrackDefinition("/search_snake_case")
-        td.addProperty(new TrackDefinitionProperty(name: "queryCamelCase", required: true,
-                description: "searched string", type: PropertyType.String))
-
-        assertFalse(linter.validateProperties(td))
-    }
-
-    @Test void allowsSnakeCaseProperties() {
-        def td = new TrackDefinition("/search_snake_case")
-        td.addProperty(new TrackDefinitionProperty(name: "query_snake_case", required: true,
-                description: "searched string", type: PropertyType.String))
-
-        assertTrue(linter.validateProperties(td))
-    }
 }

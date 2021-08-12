@@ -20,9 +20,7 @@ class NamingLinter extends AbstractLinter {
 
     @Override
     boolean validatePropertySet(List<TrackDefinitionProperty> props) {
-        return props.every { TrackDefinitionProperty prop ->
-            shouldBeSnakeCase(prop.name)
-        }
+        return true
     }
 
     static boolean shouldBeSnakeCase(String text) {
