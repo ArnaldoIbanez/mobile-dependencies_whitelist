@@ -1692,13 +1692,13 @@ tracks {
         action_type(required: false,
             type: PropertyType.String,
             name: PropertyType.String,
-            values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"]
+            values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Action type")
           
         notification_type(required: false,
             type: PropertyType.String,
             name: PropertyType.String,
-            values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"]
+            values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of notification")
             
         deeplink(required: false, 
@@ -1710,7 +1710,7 @@ tracks {
         source(required: false,
             type: PropertyType.String,
             name: PropertyType.String,
-            values: ["notification_center","logout","overwrite","dismiss_notification"]
+            values: ["notification_center","logout","overwrite","dismiss_notification"],
             description: "Source of notification")
 
         discard_reason(required: false, 
