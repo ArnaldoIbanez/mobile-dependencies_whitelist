@@ -12995,10 +12995,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {
+        "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile", type: TrackType.Event) {
             news_id = "cards_whatsapp_enrollment_confirmation-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+            required: true,
+            description: "Type of notification event"
         }
 
         "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {
@@ -13429,10 +13431,12 @@ trackTests {
             notification_type= "deep_linking"
         }
                 
-        "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {
+        "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile", type: TrackType.Event) {
             news_id = "cards_whatsapp_enrollment_confirmation-186785675"
             event_type = "open"
             notification_type= "deep_linking"
+            required: true,
+            description: "Type of notification event"
         }
 
         "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
