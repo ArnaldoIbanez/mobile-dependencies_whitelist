@@ -312,4 +312,8 @@ tracks
             "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
                 location
             }
+
+            "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
         }
