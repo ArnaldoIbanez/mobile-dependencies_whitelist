@@ -639,7 +639,7 @@ tracks {
     "/advertising/pads2/manager/metrics_range"(
         platform: "/",
         type: TrackType.Event) {
-        campaign_id(required: false, type: PropertyType.String, description: "Id related to the campaign")
+        campaign_id(required: false, description: "Id related to the campaign")
         mode(required: false, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         days(required: true, type: PropertyType.Numeric)
         to(required: true, type: PropertyType.String)
