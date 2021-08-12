@@ -86,12 +86,10 @@ trackTests {
       // [Point Online Growth] Landing Multiproduct > Webview experiment
       "/pog/landings/multiproduct/go_taxes_section" (platform:"/", type: TrackType.Event) {
         product = "multiproduct MLB"
-        experiments = ["1234"]
       }
 
       "/pog/landings/multiproduct/device/more_information" (platform:"/", type: TrackType.Event) {
         product = "point-pro-2"
-        experiments = ["1234"]
       }
     }
 }
