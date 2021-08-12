@@ -298,6 +298,16 @@ trackTests {
     "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
     }
+    "/seller_central/news/lib/primary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
+    "/seller_central/news/lib/secondary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -333,7 +333,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test('Insurtech - test hub-on tacking on checkout'){
+    test('Insurtech - test hub-on tacking on checkout|VIP/PDP'){
         "/insurtech/qpage_on"(platform:"/web", type: TrackType.View) {
             item = [
                id: "MLB1539246793",
@@ -370,6 +370,7 @@ trackTests {
            ]
            has_roda = false
            has_garex = true
+           flow_id = "CHECKOUT"
         }
         "/insurtech/qpage_on/select"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -390,6 +391,7 @@ trackTests {
            ]
            has_roda = true
            has_garex = true
+           flow_id = "VIP/PDP"
         }
         "/insurtech/qpage_on/add"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -442,6 +444,7 @@ trackTests {
             ]
             has_roda = true
             has_garex = true
+            flow_id = 'CHECKOUT'
         }
         "/insurtech/qpage_on/quote_success"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -583,6 +586,7 @@ trackTests {
            ]
            has_roda = true
            has_garex = true
+           flow_id = 'VIP/PDP'
         }
         "/insurtech/qpage_on/help"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -603,20 +607,24 @@ trackTests {
            ]
            has_roda = true
            has_garex = false
+           flow_id = 'VIP/PDP'
          }
         "/insurtech/qpage_on/faq"(platform:"/web", type: TrackType.View) {
             product_id = "RODA"
             coverage = "screen"
             manufacturer_warranty = null
             period = null
+            flow_id = 'CHECKOUT'
          }
          "/insurtech/qpage_on/terms"(platform:"/web", type: TrackType.View) {
             product_id = "RODA"
             from = "insurance-fe-hub-off"
+            flow_id = 'VIP/PDP'
          }
          "/insurtech/qpage_on/particular_conditions"(platform:"/web", type: TrackType.View) {
             product_id = "GAREX"
             from = "insurance-fe-hub-off"
+            flow_id = 'VIP/PDP'
          }
         "/insurtech/marketplace/checkout/garex_flow"(platform:"/", type: TrackType.View) {
             item = [
@@ -2330,6 +2338,15 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/detail/roda/claim_detail/cancel_claim"(platform:"/web", type: TrackType.Event) {
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+                status_detail: "PENDING_SEND_PROVIDER"
+            ]
+        }
+
         "/insurtech/protections/detail/roda/phone_activation"(platform:"/web", type: TrackType.View) {}
 
         "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/web", type: TrackType.View) {}
@@ -2598,6 +2615,17 @@ trackTests {
                 ]
                 type_congrats= 'error'
             }
+
+
+            "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
             "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View) {
                 product_data =[
                     entity_type:"quote",
