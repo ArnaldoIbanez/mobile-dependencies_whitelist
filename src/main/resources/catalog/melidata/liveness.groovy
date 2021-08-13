@@ -71,13 +71,22 @@ tracks {
                 "close",
                 "back",
                 "start_liveness",
-                "redirect"
+                "redirect",
+                "activate_camera"
         ], description: "Type of actions")
     }
+
+    "/liveness/permissions/ask"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/liveness/permissions/denied"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/liveness/permissions/accepted"(platform: "/mobile", type: TrackType.Event) {}
 
     "/liveness/landing"(platform: "/", type: TrackType.View) {}
 
     "/liveness/fallback"(platform: "/", type: TrackType.View) {}
+
+    "/liveness/permission"(platform: "/", type: TrackType.View) {}
 
     "/liveness/unsupported"(platform: "/", type: TrackType.View) {}
 }
