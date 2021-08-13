@@ -73,7 +73,7 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) {
 task testAll (dependsOn: 'classes', type: JavaExec) {
     main = 'com.melidata.definitions.task.TestManager'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
+    args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "merch", "mlo-mon-fda-test-app",
             "mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-fda-items-plus-busi", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
             "mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
             "mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
@@ -87,7 +87,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
 task uploadAll(type:JavaExec) {
     main = 'com.melidata.definitions.task.UploadManager'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
+    args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "merch", "mlo-mon-fda-test-app",
     "mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-fda-items-plus-busi", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
     "mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
     "mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
@@ -138,6 +138,12 @@ task testRecommendations (dependsOn: 'classes', type: JavaExec) {
     main = 'com.melidata.definitions.task.CatalogTest'
     classpath = sourceSets.main.runtimeClasspath
     args = ["recommendations"]
+}
+
+task testMerch (dependsOn: 'classes', type: JavaExec) {
+    main = 'com.melidata.definitions.task.CatalogTest'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["merch"]
 }
 
 task testMonitoringTestAppCatalog(dependsOn: 'classes', type: JavaExec) {
@@ -394,7 +400,7 @@ task testMetrics (dependsOn: 'classes', type: JavaExec) {
 task uploadAllCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
+    args = ["melidata", "shipping", "point", "advertising", "component_prints", "cx_help_channels", "recommendations", "merch", "mlo-mon-fda-test-app",
     "mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-fda-items-plus-busi", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
     "mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
     "mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
@@ -445,6 +451,12 @@ task uploadRecommendationsCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["recommendations"]
+}
+
+task uploadMerchCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["merch"]
 }
 
 task uploadMonitoringTestAppCatalog(type:JavaExec) {
