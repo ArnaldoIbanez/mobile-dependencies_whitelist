@@ -259,6 +259,10 @@ tracks
                 location
             }
 
+            "/crowd/registration/onboarding"(platform: "/mobile", type: TrackType.Event) {
+                location
+            }
+
             "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
                 location
                 city(required: true, type: PropertyType.String, description: "Specifies the current city geo suggestion")
