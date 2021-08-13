@@ -13667,110 +13667,76 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
         }
+
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_cnh_registration"(platform: "/mobile"){
+            news_id = "me_crowd_cnh_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_tutorial_registration"(platform: "/mobile"){
+            news_id = "me_crowd_tutorial_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_geo_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_city_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_cnh_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_cnh_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_tutorial_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_tutorial_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_geo_city_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
+            event_type = "sent"
+        }
     }
 
-    "/notification/me_crowd_city_registration"(platform: "/mobile"){
-        news_id = "me_crowd_city_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
-        news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
-        news_id = "me_crowd_registration_incomplete-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_registration_complete"(platform: "/mobile"){
-        news_id = "me_crowd_registration_complete-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_cnh_registration"(platform: "/mobile"){
-        news_id = "me_crowd_cnh_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_tutorial_registration"(platform: "/mobile"){
-        news_id = "me_crowd_tutorial_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_geo_city_registration"(platform: "/mobile"){
-        news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_city_registration"(platform: "/mobile/android"){
-        news_id = "me_crowd_city_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_select_service_center_registration"(platform: "/mobile/android"){
-        news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_registration_incomplete"(platform: "/mobile/android"){
-        news_id = "me_crowd_registration_incomplete-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_registration_complete"(platform: "/mobile/android"){
-        news_id = "me_crowd_registration_complete-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_cnh_registration"(platform: "/mobile/android"){
-        news_id = "me_crowd_cnh_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_tutorial_registration"(platform: "/mobile/android"){
-        news_id = "me_crowd_tutorial_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_geo_city_registration"(platform: "/mobile/android"){
-        news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_city_registration"(platform: "/mobile"){
-        news_id = "me_crowd_city_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
-        news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
-        news_id = "me_crowd_registration_incomplete-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_registration_complete"(platform: "/mobile"){
-        news_id = "me_crowd_registration_complete-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_cnh_registration"(platform: "/mobile"){
-        news_id = "me_crowd_cnh_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_tutorial_registration"(platform: "/mobile"){
-        news_id = "me_crowd_tutorial_registration-699997492-1611784275"
-        event_type = "sent"
-    }
-
-    "/notification/me_crowd_geo_city_registration"(platform: "/mobile"){
-        news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
-        event_type = "sent"
-    }
 }
