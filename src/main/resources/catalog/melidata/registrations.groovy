@@ -8,6 +8,18 @@ tracks {
 
     initiative = "1254"
 
+    propertyDefinitions {
+        //Tracks MShops
+        shop_id(required: false, description: "content the id of the current shop", type: PropertyType.Numeric)
+        shop_name(required: false, description: "content the name of the current shop", type: PropertyType.String)
+        shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
+        shop_status(required: false, description: "shows if the shop is active or inactive", type: PropertyType.String, values: ["active", "inactive"])
+    }
+
+    propertyGroups {
+        mshopsGroup(shop_id, shop_name, shop_domain, shop_status)
+    }
+
     // REGISTER
 
     "/register"(platform: "/", isAbstract: true) {}
@@ -41,6 +53,7 @@ tracks {
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
         registration_version(type: PropertyType.String, required:false, description: "Registration Version")
+        mshopsGroup
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
@@ -54,11 +67,13 @@ tracks {
     "/register/form/error"(platform: "/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+        mshopsGroup
     }
 
     "/register/form/another-email"(platform: "/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+        mshopsGroup
     }
 
     "/register/form/site-identification"(platform: "/web", type: TrackType.View) {
