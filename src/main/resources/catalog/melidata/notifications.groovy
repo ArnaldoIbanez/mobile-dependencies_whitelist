@@ -3194,6 +3194,7 @@ tracks {
     "/notification/card_wallet_resume_token"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_extracash"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {}
+    "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
 
     //Prepaid
