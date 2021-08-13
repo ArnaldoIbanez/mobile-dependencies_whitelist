@@ -47,7 +47,13 @@ tracks {
 
     "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event) {
+        list_status(description: "List Status", type: PropertyType.String, required: true, values: ["black_list", "white_list"])
+        dashboard_status(description: "Dashboard Status", type: PropertyType.String, required: true,  values: ["empty_state", "on_time", "overdue", "finished"])
+    }
+    "/credits/consumer/upsell/shared_data_congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/upsell/shared_data_congrats/admin"(platform: "/", type: TrackType.Event) {}
+
     /******************************************
     *       End: Flujo Upsell Consumer
     ******************************************/
