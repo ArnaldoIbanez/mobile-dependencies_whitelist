@@ -2933,7 +2933,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/me_crowd_geo_city_registratoin"(platform: "/mobile"){
+        "/notification/me_crowd_geo_city_registration"(platform: "/mobile"){
             news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
             event_type = "sent"
         }
@@ -4220,7 +4220,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/me_crowd_geo_city_registratoin"(platform: "/mobile/android"){
+        "/notification/me_crowd_geo_city_registration"(platform: "/mobile/android"){
             news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
             event_type = "sent"
         }
@@ -9666,7 +9666,7 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/me_crowd_geo_city_registratoin"(platform: "/mobile"){
+        "/notification/me_crowd_geo_city_registration"(platform: "/mobile"){
             news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
             event_type = "sent"
         }
