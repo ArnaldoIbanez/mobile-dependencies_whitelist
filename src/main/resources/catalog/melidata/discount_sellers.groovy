@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative="1218"
+    initiative="1322"
 
     "/discount_sellers" (platform: "/mobile", isAbstract: true) {
         session_id(required: true, type: PropertyType.String, description: "Session identifier")
