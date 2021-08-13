@@ -43,6 +43,12 @@ trackTests {
     test("seller central bulk filters and search") {
         "/seller_central/bulk/filters"(platform: "/", type: TrackType.Event) {
             filters = ["active", "inactive"]
+        }
+    }
+
+    test("seller central bulk filters and search in EMON") {
+        "/seller_central/bulk/list/filters"(platform: "/", type: TrackType.Event) {
+            filters = ["active", "inactive"]
             seller_reputation = "5_green"
             user_type = "normal"
             user_shops_status = "active"
@@ -79,7 +85,7 @@ trackTests {
     }
 
    test("seller central bulk changes massive actions price") {
-        "/seller_central/bulk/massive_action/price"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/price"(platform: "/", type: TrackType.Event) {
             column_id = "price"
             operation_id = "increase_price_value"
             price = 200
@@ -91,7 +97,7 @@ trackTests {
     }
 
     test("seller central bulk changes massive actions channel") {
-        "/seller_central/bulk/massive_action/channel"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/channel"(platform: "/", type: TrackType.Event) {
             column_id = "channel"
             operation_id = "none"
             value_id = "ml_mshops"
@@ -103,7 +109,7 @@ trackTests {
     }
 
     test("seller central bulk changes massive actions quantity") {
-        "/seller_central/bulk/massive_action/quantity"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/quantity"(platform: "/", type: TrackType.Event) {
             column_id = "quantity"
             operation_id = "none"
             quantity = 2;
@@ -115,7 +121,7 @@ trackTests {
     }
     
     test("seller central bulk changes massive actions listing_type") {
-        "/seller_central/bulk/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/listing_type"(platform: "/", type: TrackType.Event) {
             column_id = "listing_type"
             operation_id = "none"
             listing_type = "gold_special";
@@ -127,7 +133,7 @@ trackTests {
     }
 
     test("seller central bulk changes massive actions secondary_action") {
-        "/seller_central/bulk/massive_action/secondary_action"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/secondary_action"(platform: "/", type: TrackType.Event) {
             column_id = "secondary_actions_column"
             operation_id = "DELETE"
             secondary_actions = "massive_secondary_action_modal_delete";
@@ -139,7 +145,7 @@ trackTests {
     }
 
       test("seller central bulk changes massive actions shipping_type") {
-        "/seller_central/bulk/massive_action/shipping_type"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/shipping_type"(platform: "/", type: TrackType.Event) {
             column_id = "shipping_type"
             operation_id = "UPDATE_SHIPPING_TYPE"
             local_pickup = true
@@ -151,7 +157,7 @@ trackTests {
     }
 
     test("seller central bulk changes massive actions manufacturing_time") {
-        "/seller_central/bulk/massive_action/manufacturing_time"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/manufacturing_time"(platform: "/", type: TrackType.Event) {
             column_id = "manufacturing_time"
             operation_id = "ADD_MANUFACTURING_TIME"
             time= 200
@@ -162,7 +168,7 @@ trackTests {
         }
     }
       test("seller central bulk changes massive actions warranty") {
-        "/seller_central/bulk/massive_action/warranty"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/warranty"(platform: "/", type: TrackType.Event) {
             column_id = "warranty"
             operation_id = "WARRANTY"
             type_value = "2230280"
@@ -176,7 +182,7 @@ trackTests {
     }
 
      test("seller central bulk changes massive actions shipping_method") {
-        "/seller_central/bulk/massive_action/shipping_method"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/shipping_method"(platform: "/", type: TrackType.Event) {
             column_id = "shipping_method"
             operation_id = "none"
             seller_reputation = "5_green"
@@ -187,7 +193,7 @@ trackTests {
     }
 
     test("seller central bulk changes massive actions status") {
-        "/seller_central/bulk/massive_action/status"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/status"(platform: "/", type: TrackType.Event) {
             column_id = "status"
             operation_id = "none"
             seller_reputation = "5_green"
@@ -197,7 +203,7 @@ trackTests {
         }
     }
     test("seller central bulk changes massive actions sync_price") {
-        "/seller_central/bulk/massive_action/sync_price"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/massive_action/sync_price"(platform: "/", type: TrackType.Event) {
             column_id = "sync_price"
             operation_id = "none"
             seller_reputation = "5_green"
