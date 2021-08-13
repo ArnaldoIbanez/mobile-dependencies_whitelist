@@ -24,7 +24,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         seller_type(required: false, type: PropertyType.String, description: "Seller type: normal, real_estate_user, etc")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        free_shipping(required: true, type: PropertyType.Boolean, description: "Define is the shipping is free")
+        is_free_shipping(required: true, type: PropertyType.Boolean, description: "Define is the shipping is free")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         discount(required: false, type: PropertyType.Numeric, description: "Indicates the discounts applied to the item")
@@ -33,7 +33,7 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         domain_id(required: true, type: PropertyType.String, description: "Item's domain id")
         catalog_product_id(required: false, type: PropertyType.String)
-        catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. It will be true when comes from VPP")
+        is_catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. It will be true when comes from VPP")
         highlight(required: false, type: PropertyType.Boolean, description: "Flag if the item is highlighted")
     }
 
