@@ -275,7 +275,7 @@ tracks {
 
     "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
-    "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
+    "/settings"(platform: "/mobile", isAbstract: true,initiative: "1074" ) {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
