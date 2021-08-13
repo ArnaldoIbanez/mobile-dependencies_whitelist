@@ -100,6 +100,8 @@ tracks {
         list_type(required: true, type: PropertyType.String, description: "Indicates the content of the list")
         content_ids(required: true, type: PropertyType.ArrayList, description: "Contents id predicted by model NLP")
         object_model(required: true, type: PropertyType.String, description: "Object model in model NLP response")
+        portal_effectivity_survey_reason(required: false, type: PropertyType.String,
+            description: "Indicates the reason for a negative vote given by a user to a certain faq")
     }
 
     propertyGroups {
@@ -144,6 +146,7 @@ tracks {
         list_type(list_type)
         content_ids(content_ids)
         object_model(object_model)
+        portal_effectivity_survey_reason(portal_effectivity_survey_reason)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -172,6 +175,7 @@ tracks {
         portal_content_transactional_data
         portal_effectivity_survey_value
         portal_content_destination_url
+        portal_effectivity_survey_reason
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -383,6 +387,7 @@ tracks {
         portal_content_transactional_data
         portal_effectivity_survey_value
         portal_content_destination_url
+        portal_effectivity_survey_reason
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {

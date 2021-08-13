@@ -1025,7 +1025,6 @@ trackTests {
         "/point/landings/click_to_call/resubmit_form" (platform:"/", type: TrackType.Event) {
           product = "point-pro-2"
         }
-        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
