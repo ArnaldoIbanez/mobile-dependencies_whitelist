@@ -701,6 +701,10 @@ trackTests {
     test("cards generic congrats") {
         "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
             type = "congrats_type"
+            has_insurance_offer = "true"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
+            type = "congrats_type"
         }
         "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
