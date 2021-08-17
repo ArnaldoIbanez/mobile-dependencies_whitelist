@@ -160,7 +160,7 @@ trackTests {
             new_advertiser = true
             has_items = true
             shops = true
-            shops_integration_status = true
+            has_shops_integration = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
@@ -878,7 +878,7 @@ trackTests {
                     status: "active"
             ]
             shops = false
-            shops_integration_status = true
+            has_shops_integration = true
         }
 
         "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event) {
@@ -1263,7 +1263,7 @@ trackTests {
             budget = "4000"
             status = "active"
             shops = true
-            shops_integration_status = true
+            has_shops_integration = true
         }
 
         "/advertising/pads2/manager/filters"(platform: "/", type: TrackType.Event) {
@@ -2113,12 +2113,12 @@ trackTests {
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
             shops = true
-            shops_integration_status = true
+            has_shops_integration = true
         }
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
             shops = false
-            shops_integration_status = false
+            has_shops_integration = false
         }
 
         "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.View) {
@@ -2504,17 +2504,17 @@ trackTests {
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
             shops = true
-            shops_integration_status = true
+            has_shops_integration = true
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
             shops = false
-            shops_integration_status = false
+            has_shops_integration = false
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "custom"
             shops = false
-            shops_integration_status = false
+            has_shops_integration = false
         }
         "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"
