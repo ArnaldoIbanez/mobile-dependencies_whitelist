@@ -1153,17 +1153,41 @@ trackTests {
 
     // Request: Pending Challenge
     test("cards hybrid request physical pending challenge") {
-        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d1"
+        }
+        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d1_ticket"
+        }
+        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d4"
+        }
     }
     test("cards hybrid request physical pending challenge tap") {
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "back"
+            context = "d1"
         }
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
+            context = "d1_ticket"
         }
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "info_payment"
+            context = "d4"
+        }
+    }
+
+    // Request: Expired Challenge
+    test("cards hybrid request physical expired challenge") {
+        "/cards/hybrid/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid request physical pending challenge tap") {
+        "/cards/hybrid/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/hybrid/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
         }
     }
 

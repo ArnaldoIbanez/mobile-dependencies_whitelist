@@ -1014,7 +1014,7 @@ tracks {
     }
 
     // Request: Challenge
-    "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) { }
 
     "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
         reasons (
@@ -1067,18 +1067,31 @@ tracks {
     }
 
     // Request: Pending Challenge
-    "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
+        )
+    }
     "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "add_money", "info_payment", "money_in"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the pending challenge view"
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
         )
     }
 
     // Request: Expired Challenge
-    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) { }
     "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
         action(
             required: true,
