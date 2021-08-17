@@ -1496,7 +1496,30 @@ trackTests {
             date = "20181211"
             female_gender = true
         }
-
+        "/notification/subscription_free_content_grace_period"(platform: "/mobile") {
+            news_id = "subscription_free_content_grace_period-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_free_content_payment_pending"(platform: "/mobile") {
+            news_id = "subscription_free_content_payment_pending-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_free_content_last_day_to_pay"(platform: "/mobile") {
+            news_id = "subscription_free_content_last_day_to_pay-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
@@ -7796,6 +7819,36 @@ trackTests {
             provider_name = "Disney"
             date = "20181211"
             female_gender = true
+        }
+        "/notification_center/subscription_free_content_grace_period"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_grace_period-186785675"
+            latest_news_id= "subscription_free_content_grace_period-186785675"
+            latest_news_type= "subscription_free_content_grace_period"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_free_content_payment_pending"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_payment_pending-186785675"
+            latest_news_id= "subscription_free_content_payment_pending-186785675"
+            latest_news_type= "subscription_free_content_payment_pending"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_free_content_last_day_to_pay"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_last_day_to_pay-186785675"
+            latest_news_id= "subscription_free_content_last_day_to_pay-186785675"
+            latest_news_type= "subscription_free_content_last_day_to_pay"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
         }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
