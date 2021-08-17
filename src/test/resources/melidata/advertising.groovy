@@ -877,7 +877,7 @@ trackTests {
                     budget: "333",
                     status: "active"
             ]
-            shops = false
+            has_shops = false
             has_shops_integration = true
         }
 
@@ -1262,7 +1262,7 @@ trackTests {
             campaign_id = "2222222"
             budget = "4000"
             status = "active"
-            shops = true
+            has_shops = true
             has_shops_integration = true
         }
 
@@ -2112,12 +2112,12 @@ trackTests {
 
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
-            shops = true
+            has_shops = true
             has_shops_integration = true
         }
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
-            shops = false
+            has_shops = false
             has_shops_integration = false
         }
 
@@ -2503,17 +2503,17 @@ trackTests {
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
-            shops = true
+            has_shops = true
             has_shops_integration = true
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
-            shops = false
+            has_shops = false
             has_shops_integration = false
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "custom"
-            shops = false
+            has_shops = false
             has_shops_integration = false
         }
         "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
