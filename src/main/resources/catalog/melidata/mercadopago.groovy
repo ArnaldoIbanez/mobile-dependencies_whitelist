@@ -119,7 +119,7 @@ tracks {
         extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
 
-    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1125" ) {}
+    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1096" ) {}
 
     "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
     "/shortcuts/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
@@ -279,7 +279,7 @@ tracks {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1096") {
         sent_again (required: false)
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         cost_type (required:false, type: PropertyType.String, description: "Cost type receive/charge")
@@ -354,7 +354,7 @@ tracks {
     "/campaigns/create"(platform: "/web", type: TrackType.View){}
     "/campaigns/confirm_create"(platform: "/web"){}
 
-    "/subscription_plan"(platform: "/web", isAbstract: true, initiative: "1036"){}
+    "/subscription_plan"(platform: "/web", isAbstract: true, initiative: "1248"){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){
         flow(required: true, PropertyType.String, description: "The flow of the track")
