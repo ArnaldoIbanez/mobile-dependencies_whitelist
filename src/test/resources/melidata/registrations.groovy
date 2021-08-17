@@ -792,6 +792,51 @@ trackTests {
         "/under_age_validation/tutor_landing"(platform: "/mobile", business: "mercadopago"){
             under_age_validation_id = "UAID"
             under_age_validation_responsible_id = "UARID"
+
+        }
+    }
+
+    test("User Registration from MShops Buyflow"){
+        "/register/form"(platform: "/web", type: TrackType.View) {
+            app = "buy"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+            registration_version = "regi_v0_web_buy"
+            shop_id = 258674486
+            shop_name = "Kärcher"
+            shop_domain = "www.karcherstore.com.ar"
+            shop_status = "active"
+        }
+        "/register/form/error"(platform: "/web", type: TrackType.View) {
+            app = "buy"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            registration_version = "regi_v0_web_buy"
+            errors_validation = "back"
+            shop_id = 258674486
+            shop_name = "Kärcher"
+            shop_domain = "www.karcherstore.com.ar"
+            shop_status = "active"
+        }
+        "/register/form/another-email"(platform: "/web", type: TrackType.View) {
+            app = "buy"
+            source = "email"
+            captcha_showed = true
+            errors = [
+                    [
+                            code : 8,
+                            field: "email"
+                    ]
+            ]
+            errors_validation = "back"
+            prog_reg_version = 0
+            registration_version = "regi_v0_web"
+            shop_id = 258674486
+            shop_name = "Kärcher"
+            shop_domain = "www.karcherstore.com.ar"
+            shop_status = "active"
         }
     }
 }
