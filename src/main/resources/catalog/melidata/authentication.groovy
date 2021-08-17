@@ -78,11 +78,13 @@ tracks {
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
         rememberme_enabled(type:PropertyType.Boolean, required: false)
+        account_model(type: PropertyType.String, required: false, description: "indicates the user account model", values: ["traditional", "registered_by_phone"])  
     }
 
     "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "Login step")
         tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
+        account_model(type: PropertyType.String, required: false, description: "indicates the user account model", values: ["traditional", "registered_by_phone"])
     }
 
     "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
@@ -126,6 +128,7 @@ tracks {
         flow(type: PropertyType.String, required: false, description: "indicates whether flow is native or generic", values: ["login_by_phone", "registration","change_user_phone", "login", "forgot_password"])
         channel(type: PropertyType.String, required: false, description: "indicates whether channel is SMS or call", values: ["sms", "call", "whatsApp"])
         reauthentication(type: PropertyType.Boolean, required: false, description: "indicates if the flow is reauth or login")
+        account_model(type: PropertyType.String, required: false, description: "indicates the user account model", values: ["traditional", "registered_by_phone"])
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {
