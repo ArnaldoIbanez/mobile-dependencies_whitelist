@@ -1001,9 +1001,8 @@ trackTests {
         "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {
             dataSet()
         }
-
         //Address Hub Message for CPG FRESH
-        "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {}
+        "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", dataSet) {}
     }
 
 }

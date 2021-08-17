@@ -151,7 +151,7 @@ tracks {
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user if known")
         error_code(required: false, type: PropertyType.String, description: "Code of the error that was shown to the user if known")
     }
-    
+
     //Address Hub Message for CPG FRESH
     "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {}
 
