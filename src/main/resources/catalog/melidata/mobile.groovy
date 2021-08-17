@@ -189,4 +189,12 @@ tracks {
     }
     "/apprater/remind_me_later"(platform: "/mobile") {
     }
+    "/apprater/remind_me_leter"(platform: "/mobile") {
+    }
+    "/inappreview/completed"(platform: "/mobile") {
+    }
+    "/inappreview/flow_error"(platform: "/mobile") {
+    }
+    "/inappreview/request_error"(platform: "/mobile") {
+    }
 }
