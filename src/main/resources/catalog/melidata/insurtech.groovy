@@ -23,8 +23,8 @@ tracks {
     // INSURTECH CLAIMS RODA
     "/insurtech/protections/claims"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
-    } 
-   
+    }
+
     "/insurtech/protections/claims/cancel"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
@@ -68,6 +68,10 @@ tracks {
     "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
         type_congrats(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["success", "error"])
+    }
+
+    "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
 
     "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {

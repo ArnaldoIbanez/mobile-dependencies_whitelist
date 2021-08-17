@@ -1,11 +1,10 @@
 package com.melidata.definitions.format
 
-import com.melidata.definitions.manager.CatalogHandler
 import com.melidata.definitions.uploaders.CatalogUploader
 import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.tree.PlatformTree
-
+import com.ml.melidata.catalog.utils.DslUtils
+import com.ml.melidata.manager.CatalogHandler
 
 abstract class CatalogFormatter {
 
@@ -17,12 +16,6 @@ abstract class CatalogFormatter {
 
     CatalogFormatter(String catalogName) {
         this.catalogName = catalogName
-    }
-
-    def generate() {
-        catalog.platformTrees.keySet().collect { business ->
-            [business, generate(business)]
-        }
     }
 
     def extractProps(def t) {

@@ -32,8 +32,23 @@ tracks {
         results_by_strategy(type: PropertyType.Map, required: true)
     }
 
+    def seo_experiment_item_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "experiment identifier")
+        is_enabled(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is enable by configuration")
+        is_active(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is active by configuration")
+        should_apply(type: PropertyType.Boolean, required: true, description: "indicates if the experiment should be apply for the URL")
+        executed_successfully(type: PropertyType.Boolean, required: true, description: "indicates if the experiment executed successfully or not")
+        group(type: PropertyType.String, required: true, description: "indicates comparison group to which the URL belongs")
+    }
+
+    def seo_experiments_definition = objectSchemaDefinitions {
+        status(type: PropertyType.String, required: true)
+        experiment_list(PropertyType.ArrayList(PropertyType.Map(seo_experiment_item_definition)), required: true, "list of seo experiments run")
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
+        seo_experiments(type: PropertyType.Map(seo_experiments_definition), required: false, description: "seo experiments data")
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -126,6 +141,7 @@ tracks {
         type(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         values_quantity(type: PropertyType.Numeric, required: true)
+        enhanced_position(type: PropertyType.Numeric, required: false, description: "position in the view where the enhanced filter will be displayed")
     }
 
     def original_search_filter_definition = objectSchemaDefinitions {
@@ -186,6 +202,12 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+
+        //Tracks MShops
+        shop_status(required: false, description: "shows if the shop is active or inactive", type: PropertyType.String, values: ["active", "inactive"])
+        shop_id(required: false, description: "content the id of the current shop", type: PropertyType.Numeric)
+        shop_name(required: false, description: "content the name of the current shop", type: PropertyType.String)
+        shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
     }
 
     "/search"(platform: "/web") {
@@ -404,6 +426,9 @@ tracks {
     }
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
+    }
+    "/search/map"(platform: "/", isAbstract: true) {}
+    "/search/map/carousel"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/search_map"(platform: "/", type: TrackType.Event) {

@@ -1702,6 +1702,21 @@ trackTests {
     // TRACKS MYML MyContact Section
     test("MyContact Main"){
         "/myml/mycontact/main"(platform: "/", type: TrackType.View){}
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){}
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            questions_filter = "UNANSWERED"
+        }
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            last = "15"
+        }
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            items_filter = "active"
+        }
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            questions_filter = "UNANSWERED"
+            last = "15"
+            items_filter = "active"
+        }
     }
 
     // TRACKS MYML Invoice Detail
@@ -1729,5 +1744,10 @@ trackTests {
         "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
+    }
+
+    //MYML - MARKETPLACE VIS
+    test('Test Marketplace tracks') {
+        "/myml/marketplace/subscription"(platform: "/", type: TrackType.Event) {}
     }
 }
