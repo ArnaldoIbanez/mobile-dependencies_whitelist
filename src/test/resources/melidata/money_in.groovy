@@ -58,9 +58,9 @@ trackTests {
         "/money_in/px/success"(platform: "/", type: TrackType.View) {}
 
         //money In - Home
-        "/money_in/home/td_pj_modal"(platform: "/", type: TrackType.View) {}
-        "/money_in/home/td_pj_modal/back_to_hub"(platform: "/", type: TrackType.Event) {}
-        "/money_in/home/td_pj_modal/back_to_home"(platform: "/", type: TrackType.Event) {}
+        "/money_in/home/debit_card_juridical_person_modal"(platform: "/", type: TrackType.View) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_hub"(platform: "/", type: TrackType.Event) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_home"(platform: "/", type: TrackType.Event) {}
 
         //money In - Congrats(comming from Kyc)
         "/money_in/congrats/success"(platform: "/", type: TrackType.View) {}
