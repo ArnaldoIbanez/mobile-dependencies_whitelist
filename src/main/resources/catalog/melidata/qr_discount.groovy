@@ -6,7 +6,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = '1139'
+    initiative = '1322'
 
     /**
     * QR Discount Screen Tracks

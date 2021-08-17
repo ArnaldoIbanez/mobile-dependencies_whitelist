@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1125"
+    initiative = "1074"
     defaultBusiness = "mercadopago"
 
     /**
