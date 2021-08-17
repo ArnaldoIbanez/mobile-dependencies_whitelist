@@ -1690,6 +1690,8 @@ tracks {
     //Events
     "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/", type: TrackType.Event) {}
 
+    "/credits/consumer/administrator/detail/see_tac"(platform: "/", type: TrackType.Event) {}
+
     "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
         installment_status(
                 type: PropertyType.String,
@@ -1775,6 +1777,19 @@ tracks {
     }
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
 
     //Mobile Events
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {

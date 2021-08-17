@@ -86,6 +86,24 @@ tracks {
         )
     }
 
+    def error_data = objectSchemaDefinitions {
+        type(
+                description: "Error type",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "timeout",
+                        "failed_dependency",
+                        "internal_error"
+                ]
+        )
+        cause(
+                description: "Error cause",
+                type: PropertyType.String,
+                required: true
+        )
+    }
+
     propertyDefinitions {
         amount_input(
             type: PropertyType.Map(amount_input_data),
@@ -100,8 +118,11 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                "closed",
-                "open"
+                    "closed",
+                    "open",
+                    "scheduled",
+                    "overdue",
+                    "paid"
             ]
         )
         payment_option(
@@ -147,7 +168,7 @@ tracks {
         pending_payments(
                 description: "The pending payments",
                 type: PropertyType.Boolean,
-                required: true
+                required: false
         )
         disable_option(
             description: "The account cancellation type",
@@ -168,19 +189,25 @@ tracks {
             type: PropertyType.String,
             required: false
         )
+        error(
+            description: "Error Cause and Type on TC Dashboard",
+            type: PropertyType.Map(error_data),
+            required: false
+        )
     }
 
     propertyGroups {
-        dashboard_view_group(account, statement_status, pending_payments)
+        dashboard_view_group(account, statement_status, pending_payments, error)
         dashboard_event_group(account, statement_status)
         payment_group(account, statement_status)
         upgrade_info(proposal, is_card_active)
         full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         bucket_group(bucket)
-        statement_status_group(statement_status)
+        statement_status_group(statement_status , account)
         statement_period(month, year)
         disable_group(account, disable_option)
         disable_full_group(account, disable_option, reasons, other_reason)
+        error_group(error)
     }
 
     /******************************************
@@ -454,6 +481,20 @@ tracks {
                 required: true
         )
     }
+
+    "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/fallback_dialer_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        error_group
+    }
+
+    "/credits/credit_card/dashboard/fallback_retry_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        error_group
+    }
+
+    "/credits/credit_card/dashboard/load_credit_sections_event"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) { }
 
     /*********************************************
      *       End: Credit Card Dashboard

@@ -805,6 +805,12 @@ trackTests {
         "/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Wrap Up Value prop section click see more") {
+        "/merchant_acquisition/flows/wrap_up/home/value_prop" (platform: "/", type: TrackType.Event) {
+            section = 'Opciones de financiamiento'
+        }
+    }
+
     test("// Associar Point - Micrositio - reseller") {
         "/merchant_acquisition/flows/resellers/point_register"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/resellers/point_register/associate"(platform: "/", type: TrackType.View) {}
@@ -847,110 +853,6 @@ trackTests {
     test("MP-MA Flow MCC") {
         "/merchant_acquisition/mydata/edit"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
-    }
-
-    test("Point Flow Congrats Instructions") {
-        "/point/flows/congrats/instructions"(platform:"/") {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-    }
-
-    test("Point Flow Congrats") {
-        "/point/flows/congrats"(platform:"/") {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-    }
-
-    test("Point Flow Congrats Instructions click events") {
-
-        "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-            discount_code = "GHZM"
-        }
-    }
-
-    test("Point Flow Congrats click events") {
-
-        "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-            discount_code = "GHZM"
-        }
     }
     
     test("Point Friction test") {
@@ -1123,7 +1025,6 @@ trackTests {
         "/point/landings/click_to_call/resubmit_form" (platform:"/", type: TrackType.Event) {
           product = "point-pro-2"
         }
-        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
@@ -4790,6 +4691,87 @@ trackTests {
 
     }
 
+    test("Biometrics / Reauth - Screenlock Challenge") {
+        "/screenlock/challenge"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            transaction_id = "123"
+            valid_params = true
+        }
+
+        "/screenlock/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            valid_params = false
+        }
+
+        "/screenlock/challenge/start"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            transaction_id = "123"
+        }
+
+        "/screenlock/challenge/start"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            transaction_id = "123"
+        }
+
+        "/screenlock/challenge/end"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            transaction_id = "123"
+            elapsed_time = 3
+            result = "success"
+        }
+
+        "/screenlock/challenge/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            transaction_id = "123"
+            error = "error in screenlock"
+            elapsed_time = 5
+            result = "error"
+        }
+
+        "/screenlock/challenge/finish"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            transaction_id = "123"
+            challenge_time = 10
+        }
+
+        "/screenlock/challenge/finish"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            transaction_id = "123"
+            challenge_time = 10
+        }
+
+        "/screenlock/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            transaction_id = "123"
+        }
+
+        "/screenlock/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+        }
+
+        "/screenlock/challenge/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            transaction_id = "123"
+        }
+
+        "/screenlock/challenge/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "none"
+            transaction_id = "123"
+        }
+    }
+
     test("Screenlock app opening lock feature") {
 
         "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
@@ -4841,6 +4823,49 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
+            ]
+        }
+
+        "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "0",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            vc_exists = false
+            modal_presented = false
+        }
+
+        "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "0",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            vc_exists = true
+            modal_presented = true
+        }
+
+        "/screenlock/opening_lock/error_routing"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "0",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
             ]
         }
 
@@ -5900,6 +5925,16 @@ trackTests {
             operation_id = "1"
             flow_type = "withdraw"
             amount = "10.0"
+        }
+        "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+        }
+        "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
         }
     }
 

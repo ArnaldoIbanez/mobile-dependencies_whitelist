@@ -178,6 +178,14 @@ trackTests {
             vehicle_id = "123456"
         }
 
+        "/crowd/feedback/modal"(platform: "/mobile", type: TrackType.View) {
+
+        }
+
+        "/crowd/feedback/modal/tap"(platform: "/mobile", type: TrackType.Event) {
+
+        }
+
         //Tracks lib flux
         "/flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
             user_id = "1234"
@@ -300,7 +308,11 @@ trackTests {
             defaultLocation()
         }
 
-        "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+        "/crowd/registration/onboarding"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             city = "La plata"
         }
@@ -351,6 +363,10 @@ trackTests {
         }
 
         "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
     }
