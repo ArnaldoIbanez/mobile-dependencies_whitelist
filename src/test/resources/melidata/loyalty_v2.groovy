@@ -433,6 +433,7 @@ trackTests {
             subscription_partner = "HBO"
             level = 4
             subscription_status = "active"
+            subscribedPlans = ["ESPN", "combo"]
         }
 
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -469,6 +470,42 @@ trackTests {
         "/loyalty/partners/teaser"(platform: "/", type: TrackType.View, business: "mercadopago") {
             subscription_partner = "HBO Go"
             discount_percent = 30
+        }
+
+        "/loyalty/partners/comboplus"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "modify-action"
+            level = 4
+            subscribedPlans = ["disneyplus"]
+        }
+
+        "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "modify-action"
+            level = 4
+            subscribedPlans = []
+        }
+
+        "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "modify-action"
+            level = 8
+            subscribedPlans = ["ESPN", "combo"]
+        }
+    }
+
+    test("Loyalty Level Buy") {
+        "/loyalty/buylevel"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 1
+        }
+        "/loyalty/buylevel/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "modify-action"
+            level = 2
+            subscription_status ="Overdue"
+        }
+        "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 4
+            subscription_status ="Cancelled"
+        }
+        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 6
         }
     }
 }
