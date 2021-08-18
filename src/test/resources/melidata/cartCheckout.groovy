@@ -1002,7 +1002,9 @@ trackTests {
             dataSet()
         }
         //Address Hub Message for CPG FRESH
-        "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", dataSet) {}
+        "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {
+            dataSet()
+        }
     }
 
 }
