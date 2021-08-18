@@ -36,7 +36,7 @@ trackTests {
             entity_type = "person"
             is_compliant = true
             account_type = "CO"
-            access = "fullrestricted"
+            access = "restricted"
             registered_by_phone = true
             has_identification = false
         }
