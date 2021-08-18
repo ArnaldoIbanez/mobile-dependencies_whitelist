@@ -80,7 +80,7 @@ tracks {
     
     "/permissions/idfa"(platform: "/mobile", isAbstract: true){}
     "/permissions/idfa/accept"(platform: "/mobile", type: TrackType.Event){}
-    "/permissions/idfa/deny"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/denied"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/idfa/shown"(platform: "/mobile", type: TrackType.Event){}
 
     "/settings"(platform: "/mobile", isAbstract: true){}
@@ -128,7 +128,12 @@ tracks {
         app_cache(required: false, type: PropertyType.Numeric, description: "Application cache occupied storage in bytes")
         app_data(required: false, type: PropertyType.Numeric, description: "Application data occupied storage in bytes")
         dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
-         description: "Dark Mode status")
+        description: "Dark Mode status")
+        font_scale(required: false, type: PropertyType.String, values: ["xsmall", "small", "medium", "large", "xlarge", "xxlarge", "xxxlarge", 
+        "accessibilityMedium", "accessibilityLarge", "accessibilityXLarge", "accessibilityXXLarge", "accessibilityXXXLarge", "undefined"], 
+        description: "Font scale")
+        voice_over(required: false, type: PropertyType.Boolean, description: "Voice over is enabled or not")
+        high_contrast(required: false, type: PropertyType.Boolean, description: "High contrast is enabled or not")
         battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
         data_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled", "whitelisted", "undefined"], description: "Data Save mode")
         do_not_disturb_mode(required: false, type: PropertyType.String, values: ["disabled", "important_interruptions", "no_interruptions", "alarms_only", "undefined"], description: "Do Not Disturb mode")
@@ -175,5 +180,13 @@ tracks {
     "/apprater/error_service_rules"(platform: "/mobile") {
     }
     "/apprater/popup"(platform: "/mobile") {
+    }
+    // Track is accepted, remind me leater or cancel(only mp) qualification in popup app rater.
+    "/apprater/accept"(platform: "/mobile") {
+    }
+    // Only track for MP.
+    "/apprater/cancel"(platform: "/mobile") {
+    }
+    "/apprater/remind_me_later"(platform: "/mobile") {
     }
 }

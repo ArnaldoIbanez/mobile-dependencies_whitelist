@@ -11,51 +11,53 @@ tracks {
     propertyDefinitions {
 
         items(required: true, type: PropertyType.ArrayList, description: "Items in this purchase")
-            // business
-            // page_vertical
-            // domain
-            // category_l1
-            // category_l2
-            // category_l3 (optional)
-            // category_l4 (optional)
-            // category_l5 (optional)
-            // listing_type
-            // item_id
-            // quantity
-            // variation_id (optional)
-            // condition
-            // product_id (optional)
-            // deals (optional)
+        // business
+        // page_vertical
+        // domain
+        // category_l1
+        // category_l2
+        // category_l3 (optional)
+        // category_l4 (optional)
+        // category_l5 (optional)
+        // listing_type
+        // item_id
+        // quantity
+        // variation_id (optional)
+        // condition
+        // product_id (optional)
+        // deals (optional)
 
         payments(required: false, type: PropertyType.ArrayList, description: "Payments in this purchase")
-            // payment_method_type
-            // payment_method_id
-            // payment_status
-            // payment_status_detail
+        // payment_method_type
+        // payment_method_id
+        // payment_status
+        // payment_status_detail
 
         shipping(required: false, type: PropertyType.ArrayList, description: "Shipments in this purchase")
-        	// shipping_method
-        	// shipping_mode
-        	// logistic_type
-        	// shipping_status
-        	// shipping_sub_status
+        // shipping_method
+        // shipping_mode
+        // logistic_type
+        // shipping_status
+        // shipping_sub_status
 
         seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-		    // id
-		    // nickname
-		    // mercado_lider
-		    // reputation_level
-	        // messages_count
+        // id
+        // nickname
+        // mercado_lider
+        // reputation_level
+        // messages_count
 
 	    buyer(required: true, type:PropertyType.ArrayList, description: "Array of buyers with their data")
-		    // id
-		    // nickname
-		    // loyalty_level
-	        // is_prime
+        // id
+        // nickname
+        // loyalty_level
+        // is_prime
 
     	purchase_status(required: true, type: PropertyType.String, description: "Purchase status")
     	purchases_flow(required: true, type: PropertyType.String, description: "Flow identification to know if it is the new or old flow")
     	checkout_flow(required: false, type: PropertyType.String, values: ["pack", "order"], description: "cart (pack) or direct (order) purchase")
+    	pack_ids(required: false, type: PropertyType.ArrayList, description: "Pack ids involved in the purchase")
+    	order_ids(required: false, type: PropertyType.ArrayList, description: "Order ids involved in the purchase")
         garex(required: false, type: PropertyType.String, values: ["yes", "no"], description: "the type of extended warranty of this purchase")
         vertical_case_id(required: true, type: PropertyType.String, description: "Case identified for the purchase status")
         vertical_sub_case_id(required: false, type: PropertyType.String, description: "Sub case identified for the purchase status")
@@ -67,7 +69,8 @@ tracks {
     }
 
     propertyGroups {
-        newPurchasesGroup(items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
+        newPurchasesGroup(items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, pack_ids, order_ids, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
+        newPurchasesEventGroupFull(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id, items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, pack_ids, order_ids, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
         newPurchasesEventGroup(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id)
     }
 
@@ -75,7 +78,7 @@ tracks {
 
     "/my_purchases"(platform:"/", isAbstract: true) {}
 
-    
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -85,31 +88,31 @@ tracks {
     }
 
     "/my_purchases/status/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
     "/my_purchases/status/show_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
     "/my_purchases/status/show_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
     "/my_purchases/status/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
     "/my_purchases/status/click_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
     "/my_purchases/status/click_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
     "/my_purchases/status/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
     "/my_purchases/status/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -124,6 +127,13 @@ tracks {
         newPurchasesEventGroup
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MY PURCHASES STATUS_DETAIL
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/my_purchases/status_detail"(platform:"/", type: TrackType.View) {
+        newPurchasesGroup
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS ITEMS
@@ -132,7 +142,7 @@ tracks {
     "/my_purchases/status/items"(platform:"/", type: TrackType.View) {}
 
 	"/my_purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
+        newPurchasesEventGroupFull
     }
 
 
@@ -189,6 +199,73 @@ tracks {
     }
 
     "/my_purchases/status/places/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MY PURCHASES DETAIL
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/my_purchases/detail"(platform:"/", type: TrackType.View) {
+        newPurchasesGroup
+    }
+
+    "/my_purchases/detail/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_shipment_detail"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_download_invoice"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_pack_link_modal"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/detail/click_go_to_insurance"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MY PURCHASES REFUND DETAIL
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/my_purchases/refund_detail"(platform:"/", type: TrackType.View) {
+    }
+
+    "/my_purchases/refund_detail/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/refund_detail/show_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/refund_detail/show_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/refund_detail/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/refund_detail/click_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/refund_detail/click_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
 

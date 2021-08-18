@@ -74,6 +74,7 @@ tracks {
     }
 
     "/mplayer/send_money/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/send_money/contact_picker/search/not_found"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/send_money/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/send_money/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
@@ -125,6 +126,9 @@ tracks {
     "/mplayer/closed_request/status/reject"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/reject/reject"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/reject/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/reject/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, values: ["close_button", "main_button"], description: "the button selected to exit")
+    }
 
     "/mplayer/closed_request/result"(platform: "/mobile", isAbstract: true) {}
 
@@ -141,6 +145,7 @@ tracks {
     "/mplayer/closed_request/result/in_process"(platform: "/mobile", type: TrackType.View) {}
 
     "/mplayer/closed_request/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/contact_picker/search/not_found"(platform: "/mobile", type: TrackType.Event) {}    
     "/mplayer/closed_request/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/closed_request/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
@@ -148,6 +153,11 @@ tracks {
     "/mplayer/closed_request/bottom_sheet/new_contact_phone"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/bottom_sheet/continue"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/mplayer/closed_request/redirector"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/closed_request/redirector/manual_amount"(platform: "/mobile", type: TrackType.View) {
+        flow(required: false, PropertyType.String, description: "the source flow")
+        contact_type(required: true, PropertyType.String, description: "the type of the contact")
+    }
 
     // Open Request
     "/mplayer/open_request"(platform: "/mobile", isAbstract: true) {}
@@ -241,6 +251,7 @@ tracks {
     "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}
 
     "/mplayer/money_split/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/contact_picker/search/not_found"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/money_split/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}

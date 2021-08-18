@@ -11,7 +11,7 @@ trackTests {
     }
 
     test("Landing view is loaded with errors") {
-        "/business_config/landing/error"(platform: "/", type: TrackType.Event) {
+        "/business_config/landing/error"(platform: "/", type: TrackType.View) {
             status = '123'
             message = 'error message'
         }
@@ -174,6 +174,21 @@ trackTests {
         }
     }
 
+    test("User clicks the tooltip/help of a card and the webview loads successfully") {
+        "/business_config/landing/card/help/success"(platform: "/", type: TrackType.Event) {
+            card = 'card_1'
+            url = 'http://url'
+        }
+    }
+
+    test("User clicks the tooltip/help of a card and the webview throws an error") {
+        "/business_config/landing/card/help/error"(platform: "/", type: TrackType.Event) {
+            card = 'card_1'
+            url = 'http://url'
+            error = "error message"
+        }
+    }
+
     test("User uploads a logo image successfully") {
         "/business_config/landing/form/image/success"(platform: "/web", type: TrackType.Event) {
             card = 'card_1'
@@ -220,6 +235,28 @@ trackTests {
             row = 'row_1'
             tooltip = 'tooltip_1'
             url = 'http://url'
+        }
+    }
+
+    test("Partner view is loaded successfully") {
+        "/business_config/partner/success"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Partner view is loaded with errors") {
+        "/business_config/partner/error"(platform: "/", type: TrackType.View) {
+            status = '123'
+            message = 'error message'
+        }
+    }
+
+    test("Legal-rep view is loaded successfully") {
+        "/business_config/legal-rep/success"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Legal-rep view is loaded with errors") {
+        "/business_config/legal-rep/error"(platform: "/", type: TrackType.View) {
+            status = '123'
+            message = 'error message'
         }
     }
 }

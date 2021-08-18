@@ -10,11 +10,13 @@ tracks {
     "/liveness"(platform: "/mobile", isAbstract: true) {
         transaction_id(type: PropertyType.String, required: false, description: "Transaction id for user identifier")
         transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
+        initiative_id(type: PropertyType.String, required: false, description: "Indicate the initiateive that called")
     }
 
     "/liveness"(platform: "/web", isAbstract: true) {
         transaction_id(type: PropertyType.String, required: true, description: "Transaction id for user identifier")
         transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
+        initiative_id(type: PropertyType.String, required: true, description: "Indicate the initiateive that called")
     }
 
     "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
@@ -22,6 +24,10 @@ tracks {
     }
 
     "/liveness/authentication"(platform: "/", type: TrackType.Event) {
+        params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
+    }
+
+    "/liveness/validation"(platform: "/", type: TrackType.Event) {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
@@ -64,13 +70,23 @@ tracks {
         type(type: PropertyType.String, required: true, values: [
                 "close",
                 "back",
-                "start_liveness"
+                "start_liveness",
+                "redirect",
+                "activate_camera"
         ], description: "Type of actions")
     }
+
+    "/liveness/permissions/ask"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/liveness/permissions/denied"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/liveness/permissions/accepted"(platform: "/mobile", type: TrackType.Event) {}
 
     "/liveness/landing"(platform: "/", type: TrackType.View) {}
 
     "/liveness/fallback"(platform: "/", type: TrackType.View) {}
+
+    "/liveness/permission"(platform: "/", type: TrackType.View) {}
 
     "/liveness/unsupported"(platform: "/", type: TrackType.View) {}
 }

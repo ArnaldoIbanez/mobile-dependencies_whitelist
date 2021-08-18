@@ -28,9 +28,11 @@ tracks {
     "/business_config/landing/form/input/tooltip"(platform: "/", isAbstract: true) {}
     "/business_config/landing/message"(platform: "/", isAbstract: true) {}
     "/business_config/landing"(platform: "/", isAbstract: true) {}
-    
+    "/business_config/partner"(platform: "/", isAbstract: true) {}
+    "/business_config/legal-rep"(platform: "/", isAbstract: true) {}
+
     "/business_config/landing/success"(platform: "/", type: TrackType.View) {}
-    "/business_config/landing/error"(platform: "/", type: TrackType.Event) {
+    "/business_config/landing/error"(platform: "/", type: TrackType.View) {
         status(required: true, type: PropertyType.String, description: "The code status")
         message(required: true, type: PropertyType.String, description: "The message error")
     }
@@ -132,6 +134,15 @@ tracks {
         card(required: true, type: PropertyType.String, description: "The card id")
         url(required: true, type: PropertyType.String, description: "The url")
     }
+    "/business_config/landing/card/help/success"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        url(required: true, type: PropertyType.String, description: "The url")
+    }
+    "/business_config/landing/card/help/error"(platform: "/", type: TrackType.Event) {
+        card(required: true, type: PropertyType.String, description: "The card id")
+        url(required: true, type: PropertyType.String, description: "The url")
+        error(required: true, type: PropertyType.String, description: "The error message")
+    }
     "/business_config/landing/form/image/success"(platform: "/web", type: TrackType.Event) {
         card(required: true, type: PropertyType.String, description: "The card id")
         row(required: true, type: PropertyType.String, description: "The row id")
@@ -162,5 +173,15 @@ tracks {
         row(required: true, type: PropertyType.String, description: "The row id")
         tooltip(required: true, type: PropertyType.String, description: "The tooltip id")
         url(required: true, type: PropertyType.String, description: "The url from the action button")
+    }
+    "/business_config/partner/success"(platform: "/", type: TrackType.View) {}
+    "/business_config/partner/error"(platform: "/", type: TrackType.View) {
+        status(required: true, type: PropertyType.String, description: "The code status")
+        message(required: true, type: PropertyType.String, description: "The message error")
+    }
+    "/business_config/legal-rep/success"(platform: "/", type: TrackType.View) {}
+    "/business_config/legal-rep/error"(platform: "/", type: TrackType.View) {
+        status(required: true, type: PropertyType.String, description: "The code status")
+        message(required: true, type: PropertyType.String, description: "The message error")
     }
 }
