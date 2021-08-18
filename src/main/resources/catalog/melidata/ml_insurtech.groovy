@@ -167,6 +167,7 @@ tracks {
 
     "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/select"(platform:"/mobile", type: TrackType.Event) {
@@ -180,11 +181,13 @@ tracks {
         revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/help"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/add"(platform:"/mobile", type: TrackType.Event) {
@@ -198,10 +201,12 @@ tracks {
         revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/skip"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/quote_fail"(platform:"/mobile", type: TrackType.Event) {
@@ -215,21 +220,25 @@ tracks {
         revenue_share_fee(required: false, type: PropertyType.Numeric, description: "Percentage of revenue for Meli")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for Meli")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/quote_success"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
         quote_id(required: false, type: PropertyType.String, description: "Quote id")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
         error_type(required: false, type: PropertyType.String, description: "Error type obtained")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
@@ -239,6 +248,7 @@ tracks {
         option_id(required: true, type: PropertyType.String, description: "Selected option id")
         cost(required: true, type: PropertyType.Numeric, description: "Product cost")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     // INSURTECH Webview
