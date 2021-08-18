@@ -896,11 +896,20 @@ trackTests {
         "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {
             from = 'withdraw'
         }
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {
+            from = 'money_advance'
+        }
         "/credits/merchant/money_advance/summary"(platform: "/mobile/android") {
             from = 'withdraw'
         }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/android") {
+            from = 'money_advance'
+        }
         "/credits/merchant/money_advance/summary"(platform: "/mobile/ios") {
             from = 'withdraw'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/ios") {
+            from = 'money_advance'
         }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
