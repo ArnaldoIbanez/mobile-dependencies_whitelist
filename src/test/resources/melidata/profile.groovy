@@ -122,6 +122,7 @@ trackTests {
             account_type = "CO"
             access = "full"
             registered_by_phone = true
+            has_identification = false
         }
 
         "/profile/identity"(platform: "/", type: TrackType.Event) {
@@ -130,6 +131,7 @@ trackTests {
             account_type = "CO"
             access = "restricted"
             registered_by_phone = false
+            has_identification = true
         }
 
         "/profile/identity"(platform: "/", type: TrackType.Event) {
@@ -138,6 +140,7 @@ trackTests {
             account_type = "CO"
             access = "denied"
             registered_by_phone = true
+            has_identification = false
         }
 
         "/profile/identity"(platform: "/", type: TrackType.Event) {
@@ -146,6 +149,7 @@ trackTests {
             account_type = "BU"
             access = "partial"
             registered_by_phone = false
+            has_identification = false
         }
 
         "/profile/identity"(platform: "/", type: TrackType.Event) {
@@ -154,6 +158,7 @@ trackTests {
             account_type = "CO"
             access = "denied"
             registered_by_phone = true
+            has_identification = true
         }
 
         "/profile/identity"(platform: "/", type: TrackType.Event) {
@@ -162,6 +167,7 @@ trackTests {
             account_type = "BU"
             access = "full"
             registered_by_phone = false
+            has_identification = true
         }
     }
 
