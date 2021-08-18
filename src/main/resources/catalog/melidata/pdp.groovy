@@ -263,6 +263,9 @@ tracks {
 
         // MERCH
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
+
+        // ITEM_ATTRIBUTES
+        item_attributes(required: false, type: PropertyType.String, description: "Attributes of the winner item")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
