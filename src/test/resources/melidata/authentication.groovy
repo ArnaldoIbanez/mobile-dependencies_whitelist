@@ -497,12 +497,14 @@ trackTests {
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
         has_error = false
+        account_model = "traditional"
       }
       "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
         reauthentication = false
         challenge = "pass"
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
+        account_model = "registered_by_phone"
       }
       "/login/auth/success"(platform: "/web", type: TrackType.View) {
         rememberme_enabled = true
@@ -510,6 +512,7 @@ trackTests {
         is_admin_otp = false
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
+        account_model = "traditional"
       }
     }
 
