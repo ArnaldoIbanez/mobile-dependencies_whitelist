@@ -24,7 +24,7 @@ tracks {
         entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "Indicates the entity type for KYC (person, company, unknown)")
         account_type(type: PropertyType.String, required: true, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
         is_compliant(type: PropertyType.Boolean, required: true, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:false)
-        status(type: PropertyTdype.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
     //Identity
@@ -42,7 +42,7 @@ tracks {
         account_type(type: PropertyType.String, required: true, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
         is_compliant(type: PropertyType.Boolean, required: true, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:false)
         registered_by_phone(type: PropertyType.Boolean, required: true, description: "Indicates if user was registered by new registration (true) or legacy (false)",  inheritable:false)
-        status(type: PropertyTdype.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
     //Phone alternative
@@ -51,7 +51,7 @@ tracks {
         account_type(type: PropertyType.String, required: true, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
         is_compliant(type: PropertyType.Boolean, required: true, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:false)
         registered_by_phone(type: PropertyType.Boolean, required: true, description: "Indicates if user was registered by new registration (true) or legacy (false)",  inheritable:false)
-        status(type: PropertyTdype.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
     //Preferred name
@@ -59,7 +59,7 @@ tracks {
         entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "Indicates the entity type for KYC (person, company, unknown)")
         is_compliant(type: PropertyType.Boolean, required: true, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:false)
         account_type(type: PropertyType.String, required: true, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
-        status(type: PropertyTdype.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
     //User name
@@ -67,7 +67,7 @@ tracks {
         entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "Indicates the entity type for KYC (person, company, unknown)")
         account_type(type: PropertyType.String, required: true, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
         is_compliant(type: PropertyType.Boolean, required: true, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:false)
-        status(type: PropertyTdype.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
     //Identity View
