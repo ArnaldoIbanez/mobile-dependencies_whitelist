@@ -1496,7 +1496,30 @@ trackTests {
             date = "20181211"
             female_gender = true
         }
-
+        "/notification/subscription_free_content_grace_period"(platform: "/mobile") {
+            news_id = "subscription_free_content_grace_period-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_free_content_payment_pending"(platform: "/mobile") {
+            news_id = "subscription_free_content_payment_pending-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification/subscription_free_content_last_day_to_pay"(platform: "/mobile") {
+            news_id = "subscription_free_content_last_day_to_pay-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
@@ -7797,6 +7820,36 @@ trackTests {
             date = "20181211"
             female_gender = true
         }
+        "/notification_center/subscription_free_content_grace_period"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_grace_period-186785675"
+            latest_news_id= "subscription_free_content_grace_period-186785675"
+            latest_news_type= "subscription_free_content_grace_period"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_free_content_payment_pending"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_payment_pending-186785675"
+            latest_news_id= "subscription_free_content_payment_pending-186785675"
+            latest_news_type= "subscription_free_content_payment_pending"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
+        "/notification_center/subscription_free_content_last_day_to_pay"(platform: "/mobile") {
+            newsgroup_id = "subscription_free_content_last_day_to_pay-186785675"
+            latest_news_id= "subscription_free_content_last_day_to_pay-186785675"
+            latest_news_type= "subscription_free_content_last_day_to_pay"
+            status= "read"
+            provider = "hbo"
+            provider_name = "Disney"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
@@ -9565,7 +9618,6 @@ trackTests {
             news_id = "me_crowd_canceled_order_warning-699997492-1611784275"
             event_type = "sent"
         }
-
 
         "/notification/messages_driver_flex"(platform: "/mobile"){
             news_id = "messages-driver_flex-321953606"
@@ -13667,6 +13719,76 @@ trackTests {
         "/notification/messages_driver_logistics"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "arrived"
+        }
+
+        "/notification/me_crowd_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_cnh_registration"(platform: "/mobile"){
+            news_id = "me_crowd_cnh_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_tutorial_registration"(platform: "/mobile"){
+            news_id = "me_crowd_tutorial_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_geo_city_registration"(platform: "/mobile"){
+            news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_city_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_city_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_select_service_center_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_select_service_center_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_incomplete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_incomplete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_registration_complete"(platform: "/mobile/android"){
+            news_id = "me_crowd_registration_complete-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_cnh_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_cnh_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_tutorial_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_tutorial_registration-699997492-1611784275"
+            event_type = "sent"
+        }
+
+        "/notification/me_crowd_geo_city_registration"(platform: "/mobile/android"){
+            news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
+            event_type = "sent"
         }
     }
 

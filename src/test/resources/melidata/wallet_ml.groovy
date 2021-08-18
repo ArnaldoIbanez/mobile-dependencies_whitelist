@@ -4,7 +4,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    initiative = "1125"
+    initiative = "1074"
     defaultBusiness = "mercadolibre"
 
     //Card Listing Flow
