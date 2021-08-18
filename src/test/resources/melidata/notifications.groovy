@@ -6469,6 +6469,10 @@ trackTests {
             event_type = "open"
         }
 
+         "/notification/abandoned_cart_link_payer"(platform: "/mobile") {
+            event_type = "open"
+        }
+
         "/notification/card_wallet_resume_token"(platform: "/mobile") {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
@@ -12852,6 +12856,10 @@ trackTests {
         }
 
         "/notification/abandoned_cart_buyer"(platform: "/mobile") {
+            event_type = "open"
+        }
+
+         "/notification/abandoned_cart_link_payer"(platform: "/mobile") {
             event_type = "open"
         }
 
