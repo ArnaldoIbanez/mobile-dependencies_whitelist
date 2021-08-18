@@ -100,7 +100,7 @@ tracks {
         matching(required: false, type: PropertyType.Boolean, description: "Indicates if the user is matching")
         new_advertiser(required: false, type: PropertyType.Boolean, description: "Indicates if the user is a new advertiser")
         has_items(required: false, type: PropertyType.Boolean, description: "Indicates if the user has items")
-        shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
+        has_shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
     }
 
     "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -110,7 +110,7 @@ tracks {
         position(required: false, values: ["home_desktop"], description: "indicates the position of the main slide")
         free_trial_ad(required: false, description: "Indicates if user is suitable for free trial")
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
-        shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
+        has_shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
     }
 
     "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
@@ -130,7 +130,7 @@ tracks {
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
-        shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
+        has_shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
         has_shops_integration(required: false, type: PropertyType.Boolean, description: "Shops integration")
 
     }

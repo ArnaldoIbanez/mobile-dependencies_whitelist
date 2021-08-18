@@ -86,7 +86,7 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
-            shops = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
@@ -97,7 +97,7 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
-            shops = false
+            has_shops = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -120,7 +120,7 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
-            shops = false
+            has_shops = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -132,7 +132,7 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
-            shops = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -147,7 +147,7 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
-            shops = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
@@ -159,7 +159,7 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
-            shops = true
+            has_shops = true
             has_shops_integration = true
         }
 
