@@ -187,8 +187,6 @@ tracks {
     // Only track for MP.
     "/apprater/cancel"(platform: "/mobile") {
     }
-    "/apprater/remind_me_later"(platform: "/mobile") {
-    }
     "/apprater/remind_me_leter"(platform: "/mobile") {
     }
     "/inappreview/completed"(platform: "/mobile") {
