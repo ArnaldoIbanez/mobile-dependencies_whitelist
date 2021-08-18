@@ -116,4 +116,13 @@ tracks {
     "/wallet/connect/on_change_card" (platform: "/web", type: TrackType.Event) {}
 
     "/wallet/connect/confirm_success" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet-connect/admin/home" (platform: "/web", type: TrackType.Event) {
+        applicationListing(required:true, type: PropertyType.String, description: "Application listing")
+    }
+
+    "/wallet-connect/admin/success" (platform: "/web", type: TrackType.Event) {
+        applicationListing(required:true, type: PropertyType.String, description: "Application listing")
+    }
+
 }
