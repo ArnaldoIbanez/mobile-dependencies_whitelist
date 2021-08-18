@@ -46,6 +46,8 @@ tracks {
                 description: "Free trial matching status bar"
         )
         mode(required: false, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+        has_shops(required: false, type: PropertyType.Boolean, description: "User's Shops")
+        has_shops_integration(required: false, type: PropertyType.Boolean, description: "User shared Ads with Shops")
     }
 
     "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
@@ -119,7 +121,7 @@ tracks {
     "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
         budget(required: true, description: "Budget related to the campaign", inheritable:false)
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
-        shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
+        has_shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
     }
 
     "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
@@ -129,7 +131,7 @@ tracks {
         position(required: false, description: "indicates the position of the main slide")
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
         shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
-        shops_integration_status(required: false, type: PropertyType.Boolean, description: "Shops integration")
+        has_shops_integration(required: false, type: PropertyType.Boolean, description: "Shops integration")
 
     }
 
@@ -702,6 +704,8 @@ tracks {
     "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
         tab(required: true, description: "It could be: Campaigns or Ads tab", values: ['campaigns', 'ads'])
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_definition)), description: "Array campaigns")
+        has_shops(required: false, type: PropertyType.Boolean, description: "User's Shops")
+        has_shops_integration(required: false, type: PropertyType.Boolean, description: "User shared Ads with Shops")
     }
 
     "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1756,8 +1760,8 @@ tracks {
 
     "/advertising/pads2/configuration"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         mode(required: true, type: PropertyType.String, description: "mode of transition", values: ['custom', 'automatic'])
-        shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
-        shops_integration_status(required: false, type: PropertyType.Boolean, description: "Shops integration")
+        has_shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
+        has_shops_integration(required: false, type: PropertyType.Boolean, description: "Shops integration")
     }
 
     "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
@@ -2075,8 +2079,8 @@ tracks {
     }
 
     "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
-        shops(required: true, type: PropertyType.Boolean, description: "Is Shops")
-        shops_integration_status(required: true, type: PropertyType.Boolean, description: "Shops integration")
+        has_shops(required: true, type: PropertyType.Boolean, description: "Is Shops")
+        has_shops_integration(required: true, type: PropertyType.Boolean, description: "Shops integration")
     }
 
     "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
