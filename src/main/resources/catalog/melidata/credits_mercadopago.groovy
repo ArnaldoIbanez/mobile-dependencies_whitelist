@@ -1209,10 +1209,9 @@ tracks {
     "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {
         from(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'withdraw',
-                'money_advance'
             ]
         )
     }
