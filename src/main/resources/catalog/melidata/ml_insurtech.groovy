@@ -417,4 +417,7 @@ tracks {
         item(required: true, type: PropertyType.Map(grd_protection_item), description: "information of the item to which protection has been purchased")
         payment(required: true, type: PropertyType.Map(congrats_payment), description: "payment information")
     }
+
+    //GarEx ON - Pricing Experiment
+    "/garex/policy_quote/pricing_selection"(platform:"/", type: TrackType.Event) {}
 }
