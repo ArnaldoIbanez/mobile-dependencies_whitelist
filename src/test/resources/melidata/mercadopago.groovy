@@ -609,16 +609,16 @@ trackTests {
         "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
 
         "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/more_info_device"(platform:"/", type: TrackType.Event) {
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/device/invite"(platform:"/", type: TrackType.Event) {
           media = "whastapp"
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", type: TrackType.Event) {}
