@@ -217,6 +217,7 @@ tracks {
     }
 
     "/flex/package/detail/parcel"(platform: "/mobile", type: TrackType.View) {
+        location
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
 
