@@ -1208,9 +1208,11 @@ tracks {
     //Summary money advance
     "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {
         from(
+            description: "Request Origin (could be from same flow or not)",
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
+                'default',
                 'withdraw',
             ]
         )
