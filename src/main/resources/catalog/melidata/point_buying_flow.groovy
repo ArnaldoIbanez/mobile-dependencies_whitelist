@@ -142,16 +142,97 @@ tracks {
         payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
     }
 
-    "/point/buyingflow/congrats/instructions"(platform:"/", type: TrackType.View) {}
+    "/point/buyingflow/congrats/instructions"(platform:"/", type: TrackType.View) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
 
-    "/point/buyingflow/congrats/print"(platform:"/", type: TrackType.Event) {}
-    "/point/buyingflow/congrats/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/buyingflow/congrats/map"(platform:"/", type: TrackType.Event) {}
-    "/point/buyingflow/congrats/continue"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/print"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+    "/point/buyingflow/congrats/copy"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+    "/point/buyingflow/congrats/map"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+    "/point/buyingflow/congrats/continue"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
 
-    "/point/buyingflow/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {}
-    "/point/buyingflow/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
-    "/point/buyingflow/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/buyingflow/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
+    "/point/buyingflow/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+    "/point/buyingflow/congrats/instructions/print"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+    "/point/buyingflow/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+    "/point/buyingflow/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
+    "/point/buyingflow/congrats/instructions/goto_bank"(platform:"/", type: TrackType.Event) {
+        groupCheckoutProperties
+        payment_method_id (type: PropertyType.String, required: true, description: "Selected Payment method ID")
+        payment_id (type: PropertyType.Numeric, required: true, description: "Payment ID")
+        payment_status (type: PropertyType.String, required: false, description: "Payment Status - Ex: approved, rejected")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Payment Status Detail")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Payment Installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Payment Type Id - Ex: ticket")
+    }
 
 }
