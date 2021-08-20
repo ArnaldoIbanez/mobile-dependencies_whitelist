@@ -38,6 +38,7 @@ tracks {
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
         visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
+        sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
     }
 
     // EVENTS
@@ -57,6 +58,7 @@ tracks {
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'no_sniffing'", type: PropertyType.String)
+        sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
     }
 
     // Login
@@ -64,6 +66,8 @@ tracks {
     "/checkout_off/logout"(platform: "/", type: TrackType.View) {}
 
     // Groups payment method data collection views
+
+
     "/checkout_off/payment"(platform: "/", isAbstract: true) {}
 
     "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {
@@ -155,6 +159,7 @@ tracks {
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
         visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
+        sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
     }
 
     // For this path, none is required
