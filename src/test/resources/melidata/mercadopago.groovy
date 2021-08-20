@@ -4336,7 +4336,7 @@ trackTests {
         "/profile"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
-            account_type = "BU"
+            user_type = "BU"
             access = "full"
             registered_by_phone = false
             has_identification = false
@@ -4345,7 +4345,7 @@ trackTests {
         "/profile"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = true
-            account_type = "CO"
+            user_type = "CO"
             access = "partial"
             registered_by_phone = false
             has_identification = false
@@ -4354,7 +4354,7 @@ trackTests {
         "/profile"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
-            account_type = "BU"
+            user_type = "BU"
             access = "full"
             registered_by_phone = false
             has_identification = true
@@ -4363,7 +4363,7 @@ trackTests {
         "/profile"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             is_compliant = true
-            account_type = "CO"
+            user_type = "CO"
             access = "restricted"
             registered_by_phone = true
             has_identification = false
@@ -4372,7 +4372,7 @@ trackTests {
         "/profile"(platform: "/", type: TrackType.View) {
             entity_type = "company"
             is_compliant = false
-            account_type = "BU"
+            user_type = "BU"
             access = "denied"
             registered_by_phone = false
             has_identification = true
@@ -4381,7 +4381,7 @@ trackTests {
         "/profile"(platform: "/", type: TrackType.View) {
             entity_type = "unknown"
             is_compliant = true
-            account_type = "CO"
+            user_type = "CO"
             access = "denied"
             registered_by_phone = false
             has_identification = true
@@ -4390,7 +4390,7 @@ trackTests {
         "/profile"(platform: "/", type: TrackType.View) {
             entity_type = "unknown"
             is_compliant = false
-            account_type = "BU"
+            user_type = "BU"
             access = "partial"
             registered_by_phone = true
             has_identification = false
