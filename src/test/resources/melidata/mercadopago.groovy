@@ -4332,71 +4332,6 @@ trackTests {
         }
     }
 
-    test("Profile") {
-        "/profile"(platform: "/", type: TrackType.View) {
-            entity_type = "person"
-            is_compliant = true
-            user_type = "BU"
-            access = "full"
-            registered_by_phone = false
-            has_identification = false
-        }
-
-        "/profile"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            is_compliant = true
-            user_type = "CO"
-            access = "partial"
-            registered_by_phone = false
-            has_identification = false
-        }
-
-        "/profile"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "BU"
-            access = "full"
-            registered_by_phone = false
-            has_identification = true
-        }
-
-        "/profile"(platform: "/", type: TrackType.View) {
-            entity_type = "person"
-            is_compliant = true
-            user_type = "CO"
-            access = "restricted"
-            registered_by_phone = true
-            has_identification = false
-        }
-
-        "/profile"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "BU"
-            access = "denied"
-            registered_by_phone = false
-            has_identification = true
-        }
-
-        "/profile"(platform: "/", type: TrackType.View) {
-            entity_type = "unknown"
-            is_compliant = true
-            user_type = "CO"
-            access = "denied"
-            registered_by_phone = false
-            has_identification = true
-        }
-
-        "/profile"(platform: "/", type: TrackType.View) {
-            entity_type = "unknown"
-            is_compliant = false
-            user_type = "BU"
-            access = "partial"
-            registered_by_phone = true
-            has_identification = false
-        }
-    }
-
     test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
             os_status = "biometrics"
@@ -5551,7 +5486,70 @@ trackTests {
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Profile") {
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            access = "full"
+            registered_by_phone = false
+            has_identification = false
+        }
 
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "CO"
+            access = "partial"
+            registered_by_phone = false
+            has_identification = false
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "BU"
+            access = "full"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            access = "restricted"
+            registered_by_phone = true
+            has_identification = false
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "BU"
+            access = "denied"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "unknown"
+            is_compliant = true
+            user_type = "CO"
+            access = "denied"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "unknown"
+            is_compliant = false
+            user_type = "BU"
+            access = "partial"
+            registered_by_phone = true
+            has_identification = false
+        }
+    }
 
     test("Reauth Native") {
         //Login Module

@@ -11,12 +11,12 @@ tracks {
 
     //Profile
     "/profile"(platform: "/", type: TrackType.View) {
-        entity_type(type: PropertyType.String, required: true, values: ["company", "person", "unknown"],  description: "Indicates the entity type for KYC (person, company, unknown)")
-        user_type(type: PropertyType.String, required: true, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
-        is_compliant(type: PropertyType.Boolean, required: true, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:false)
-        access(type: PropertyType.String, required: true, values:["full", "partial", "restricted", "denied"], description: "Check for soft_compliant users")
-        registered_by_phone(type: PropertyType.Boolean, required: true, description: "Indicates if user was registered by new registration (true) or legacy (false)", inheritable:false)
-        has_identification(type: PropertyType.Boolean, required: true, description: "Indicates if the user has a non-validated identity or there is no information", inheritable:false)
+        entity_type(type: PropertyType.String, required: false, values: ["company", "person", "unknown"],  description: "Indicates the entity type for KYC (person, company, unknown)")
+        user_type(type: PropertyType.String, required: false, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
+        is_compliant(type: PropertyType.Boolean, required: false, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:false)
+        access(type: PropertyType.String, required: false, values:["full", "partial", "restricted", "denied"], description: "Check for soft_compliant users")
+        registered_by_phone(type: PropertyType.Boolean, required: false, description: "Indicates if user was registered by new registration (true) or legacy (false)", inheritable:false)
+        has_identification(type: PropertyType.Boolean, required: false, description: "Indicates if the user has a non-validated identity or there is no information", inheritable:false)
     }
 
     //Email
