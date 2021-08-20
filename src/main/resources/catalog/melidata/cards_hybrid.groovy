@@ -287,10 +287,10 @@ tracks {
             type: PropertyType.String,
             description: "Type of Congrats"
         )
-        has_insurance_offer (
+        insurance_offer (
             required: false,
             type: PropertyType.String,
-            description: "Indicates if insurance offer is displayed"
+            description: "Indicates the insurance offer type that was displayed"
         )
     }
     "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
