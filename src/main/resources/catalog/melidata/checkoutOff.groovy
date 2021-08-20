@@ -66,8 +66,6 @@ tracks {
     "/checkout_off/logout"(platform: "/", type: TrackType.View) {}
 
     // Groups payment method data collection views
-
-
     "/checkout_off/payment"(platform: "/", isAbstract: true) {}
 
     "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {
