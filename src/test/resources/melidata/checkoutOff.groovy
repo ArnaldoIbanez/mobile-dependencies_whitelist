@@ -36,6 +36,7 @@ trackTests {
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
             visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
         }
 
         def launchingDefaultProperties = {
@@ -565,6 +566,7 @@ trackTests {
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
             visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
         }
 
         def launchingDefaultProperties = {
