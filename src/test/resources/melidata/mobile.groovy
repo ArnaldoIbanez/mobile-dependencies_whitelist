@@ -302,8 +302,8 @@ trackTests {
         "/apprater/accept"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/cancel"(platform: "/mobile") {}
         "/apprater/cancel"(platform: "/mobile", business: "mercadopago") {}
-        "/apprater/remind_me_leter"(platform: "/mobile") {}
-        "/apprater/remind_me_leter"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile", business: "mercadopago") {}
         "/inappreview/completed"(platform: "/mobile") {}
         "/inappreview/completed"(platform: "/mobile", business: "mercadopago") {}
         "/inappreview/flow_error"(platform: "/mobile") {}
@@ -315,7 +315,7 @@ trackTests {
     test("MercadoLibre apprater") {
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/accept"(platform: "/mobile") {}
-        "/apprater/remind_me_leter"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
         "/inappreview/completed"(platform: "/mobile") {}
         "/inappreview/flow_error"(platform: "/mobile") {}
         "/inappreview/request_error"(platform: "/mobile") {}
