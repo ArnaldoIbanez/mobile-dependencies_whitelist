@@ -293,7 +293,7 @@ trackTests {
                                                                 priority: 6
                                                         ]
                                                 ],
-                                                delivery = [
+                                                delivery: [
                                                         radius: 1000,
                                                         status: "paused",
                                                         status_reasons: [
