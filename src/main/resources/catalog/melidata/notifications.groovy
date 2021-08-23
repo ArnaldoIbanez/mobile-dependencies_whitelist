@@ -3243,11 +3243,14 @@ tracks {
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}
     "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_authorization_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_capture_exceed_amount"(platform: "/mobile") {}
     "/notification/card_transactions_first_transaction_chip_pin"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_authorization_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
