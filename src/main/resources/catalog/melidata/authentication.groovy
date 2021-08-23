@@ -140,6 +140,8 @@ tracks {
 
     "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
 
+    "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {}
+
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/phone_validation/rechallenge"(platform: "/mobile", type: TrackType.Event) {}
@@ -558,6 +560,13 @@ tracks {
     "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
         validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
         email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
+    }
+
+    // Face Validation Errors
+    "/authenticators/face_validation"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+      error_code(PropertyType.String, required: true, values:["validation_error", "max_attempts", "server_error"], description: "Errors after face validation against database")
     }
 
     def screenlockConfigStructure = objectSchemaDefinitions {

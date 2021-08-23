@@ -164,6 +164,12 @@ trackTests {
             source = "QUESTION"
             tracking_id = "123"
         }
+        "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {
+            challenge = "user"
+            source = "EXPLICIT"
+            tracking_id = "123"
+        }
+
         "/logout"(platform: "/", type: TrackType.Event) {
             source = "MSL"
         }
@@ -497,14 +503,12 @@ trackTests {
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
         has_error = false
-        account_model = "traditional"
       }
       "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
         reauthentication = false
         challenge = "pass"
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
-        account_model = "registered_by_phone"
       }
       "/login/auth/success"(platform: "/web", type: TrackType.View) {
         rememberme_enabled = true
@@ -512,7 +516,6 @@ trackTests {
         is_admin_otp = false
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
-        account_model = "traditional"
       }
     }
 
@@ -895,6 +898,18 @@ trackTests {
                 social_option = "Microsoft"
                 email_sign_in = false
             }
+        }
+
+        test("Face validation - Authentication") {
+          "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+                error_code = "server_error"
+          }
+          "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+                error_code = "validation_error"
+          }
+          "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+                error_code = "max_attempts"
+          }
         }
 
         test("Biometrics / Reauth - Screenlock Challenge") {
