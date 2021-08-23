@@ -1903,6 +1903,14 @@ trackTests {
             result = 3
         }
     }
+    
+    test("cards hybrid nfc userHasTokenizedCard method error") {
+        "/cards/nfc/core/user_has_tokenized_card/error"(platform: "/", type: TrackType.Event) {
+            status = "Token is present in local preferences but not in SDK"
+        }
+
+    }
+    
 
     // START SECURE ENROLLMENT
 
