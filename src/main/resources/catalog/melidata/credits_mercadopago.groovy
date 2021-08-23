@@ -1205,9 +1205,18 @@ tracks {
     //Hub money advance mobile
     "/credits/merchant/money_advance/hub"(platform: "/mobile", type: TrackType.View) {}
 
-
     //Summary money advance
-    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {
+        from(
+            description: "Request Origin (could be from same flow or not)",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'default',
+                'withdraw',
+            ]
+        )
+    }
 
     //No options money advance
     "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
