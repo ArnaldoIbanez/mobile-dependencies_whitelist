@@ -163,6 +163,14 @@ trackTests {
             has_shops_integration = true
         }
 
+        "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event) {
+            site_id = "MLA"
+            cust_id = 2222222
+            q_sll = 10
+            q_no_sll = 5
+            q_indexed_items = 10
+        }
+
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
             budget = "22.22"
             free_trial_ad = false
