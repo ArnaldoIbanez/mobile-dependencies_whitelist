@@ -288,7 +288,14 @@ tracks {
             type: PropertyType.String,
             description: "Type of Congrats"
         )
+        insurance_offer (
+            required: false,
+            type: PropertyType.String,
+            values: ["banner", "success", "pending"],
+            description: "Indicates the insurance offer type that was displayed"
+        )
     }
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,
