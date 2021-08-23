@@ -164,7 +164,7 @@ tracks {
 
     "/loyalty/partners/comboplus"(platform: "/", isAbstract: true, type: TrackType.View) {
         level(required: false, description: "Level", type: PropertyType.Numeric)
-        subscribedPlans(required: false, description: "Subscribed plans", type: PropertyType.ArrayList(PropertyType.String))
+        subscribed_plans(required: false, description: "Subscribed plans", type: PropertyType.ArrayList(PropertyType.String))
     }
 
     "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View) {
@@ -185,8 +185,8 @@ tracks {
     "/loyalty/partners/admin"(platform: "/", type: TrackType.View) {
         subscription_partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
         level(type: PropertyType.Numeric, required: false)
-        subscriptionStatus(required: false, description: "Subscription Status", values: ["inactive", "active", "pending"], type: PropertyType.String)
-        subscribedPlans(required: false, description: "Subscribed plans", type: PropertyType.ArrayList(PropertyType.String))
+        subscription_status(required: false, description: "Subscription Status", values: ["inactive", "active", "pending"], type: PropertyType.String)
+        subscribed_plans(required: false, description: "Subscribed plans", type: PropertyType.ArrayList(PropertyType.String))
     }
 
     "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event) {
@@ -199,7 +199,7 @@ tracks {
 
     "/loyalty/buylevel"(platform: "/", isAbstract: true, type: TrackType.View) {
         level( required: false, type: PropertyType.Numeric, description: "Level")
-        subscriptionStatus(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
     }
 
     "/loyalty/buylevel/action"(platform: "/", type: TrackType.Event) {
@@ -208,7 +208,7 @@ tracks {
     }
 
     "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View) {
-        subscriptionStatus(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
     }
 
     "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View) {

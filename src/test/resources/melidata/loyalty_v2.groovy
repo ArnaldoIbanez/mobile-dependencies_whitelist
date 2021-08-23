@@ -432,8 +432,8 @@ trackTests {
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
             level = 4
-            subscriptionStatus = "active"
-            subscribedPlans = ["ESPN", "combo"]
+            subscription_status = "active"
+            subscribed_plans = ["ESPN", "combo"]
         }
 
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -443,14 +443,14 @@ trackTests {
 
         "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "HBO"
-            subscriptionStatus = "active"
+            subscription_status = "active"
             level = 4
             type = "primary"
         }
 
         "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
-            subscriptionStatus = "inactive"
+            subscription_status = "inactive"
             level = 4
             type = "close"
         }
@@ -474,25 +474,25 @@ trackTests {
 
         "/loyalty/partners/comboplus"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 4
-            subscribedPlans = ["disneyplus"]
+            subscribed_plans = ["disneyplus"]
         }
 
         "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View, business: "mercadopago") {
             type = "secondary"
             level = 4
-            subscribedPlans = []
+            subscribed_plans = []
         }
 
         "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
             type = "login"
             level = 8
-            subscribedPlans = ["ESPN", "combo"]
+            subscribed_plans = ["ESPN", "combo"]
         }
 
         "/loyalty/partners/comboplus/modal/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
             type = "login"
             level = 8
-            subscribedPlans = ["ESPN", "STAR+"]
+            subscribed_plans = ["ESPN", "STAR+"]
         }
     }
 
@@ -503,11 +503,11 @@ trackTests {
         "/loyalty/buylevel/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
             type = "activate"
             level = 2
-            subscriptionStatus ="pending"
+            subscription_status ="pending"
         }
         "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 4
-            subscriptionStatus ="inactive"
+            subscription_status ="inactive"
         }
         "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 6
