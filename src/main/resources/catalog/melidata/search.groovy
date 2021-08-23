@@ -109,7 +109,7 @@ tracks {
         discount_volume(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
-        supermarket_partner(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        supermarket_partnership(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {

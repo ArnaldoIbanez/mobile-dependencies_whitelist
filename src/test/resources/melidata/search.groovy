@@ -80,7 +80,7 @@ trackTests {
         discount_volume : [],
         same_day : [],
         next_day : [],
-        supermarket_partner: [
+        supermarket_partnership: [
           [item_id: "MLB510446224", position: 3, type: "sometype", seller_id: 742220069]
         ]
     ]
