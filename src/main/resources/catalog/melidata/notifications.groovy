@@ -3238,6 +3238,8 @@ tracks {
     "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {}
     "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}

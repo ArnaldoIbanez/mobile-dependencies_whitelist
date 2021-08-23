@@ -13061,6 +13061,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {
             news_id = "card_transactions_approved_withdraw_extracash-186785675"
             event_type = "open"
@@ -13494,7 +13506,17 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
+        "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
             news_id = "card_transactions_approved_authorization_extracash_mute-186785675"
             event_type = "open"
