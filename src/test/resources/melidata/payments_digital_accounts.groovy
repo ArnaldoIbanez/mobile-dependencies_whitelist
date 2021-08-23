@@ -16,104 +16,104 @@ trackTests {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Track Components views") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {
+    test("Track Components Events") {
+        "/banking/balance/print"(platform: "/", type: TrackType.Event) {
             my_money_available = [
                 component_id: 'available',
                 content_id: ['available']
             ]
         }
 
-        "/banking/to_release"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/print"(platform: "/", type: TrackType.Event) {
             my_money_to_release = [
                  component_id: 'to_release',
-                 content_id: ['to_release']
+                 content_id: ['to_release_component']
             ]
         }
 
-        "/banking/balance/available"(platform: "/", type: TrackType.View) {
+        "/banking/balance/available_component"(platform: "/", type: TrackType.Event) {
             my_money_available = [
                 component_id: 'available',
             ]
         }
 
-        "/banking/balance/card_available"(platform: "/", type: TrackType.View) {
+        "/banking/balance/card_available_component"(platform: "/", type: TrackType.Event) {
             my_money_card_available = [
                 component_id: 'card_available',
             ]
         }
 
-        "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) {
+        "/banking/balance/shortcuts_component"(platform: "/", type: TrackType.Event) {
             my_money_shortcuts = [
                 component_id: 'shortcuts',
-                content_id: ['account_fund', 'withdraw']
+                content_id: ['account_fund_component', 'withdraw_component']
             ]
         }
 
-        "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) {
+        "/banking/balance/cross_selling_carousel_component"(platform: "/", type: TrackType.Event) {
             my_money_cross_selling_carousel = [
                 component_id: 'cross_selling_carousel',
-                content_id: ['portability']
+                content_id: ['portability_component']
            ]
         }
 
-        "/banking/balance/retained"(platform: "/", type: TrackType.View) {
+        "/banking/balance/retained_component"(platform: "/", type: TrackType.Event) {
             my_money_retained = [
                 component_id: 'retained',
-                content_id: ['reserve_for_dispute']
+                content_id: ['reserve_for_dispute_component']
             ]
         }
 
-        "/banking/balance/card_to_release"(platform: "/", type: TrackType.View) {
+        "/banking/balance/card_to_release_component"(platform: "/", type: TrackType.Event) {
             my_money_card_to_release = [
                  component_id: 'card_to_release',
                  content_id: []
             ]
         }
 
-        "/banking/to_release/to_release"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/to_release_component"(platform: "/", type: TrackType.Event) {
             my_money_to_release = [
                 component_id: 'to_release',
                 content_id: []
             ]
         }
 
-        "/banking/to_release/card_to_release"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/card_to_release_component"(platform: "/", type: TrackType.Event) {
             my_money_card_to_release = [
                 component_id: 'card_to_release',
                 content_id: []
             ]
         }
 
-        "/banking/to_release/to_advance"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/to_advance_component"(platform: "/", type: TrackType.Event) {
              my_money_to_advance = [
                 component_id: 'to_advance',
                 content_id: []
             ]
         }
 
-        "/banking/to_release/card_calendar"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/card_calendar_component"(platform: "/", type: TrackType.Event) {
              my_money_card_calendar = [
                 component_id: 'card_calendar',
                 content_id: []
             ]
         }
 
-        "/banking/to_release/calendar_daily"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/calendar_daily_component"(platform: "/", type: TrackType.Event) {
             my_money_calendar_daily = [
                 component_id: 'calendar_daily',
                 content_id: []
             ]
         }
 
-        "/banking/to_release/cerc"(platform: "/", type: TrackType.View) {
+        "/banking/to_release/cer_component"(platform: "/", type: TrackType.Event) {
              my_money_cerc = [
                  component_id: 'cerc',
                  content_id: []
              ]
         }
 
-        "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
+        "/banking/balance/last_activities_component"(platform: "/", type: TrackType.Event) {
             my_money_last_activities = [
                 component_id: 'last_activities',
                 component_data: [
@@ -122,7 +122,7 @@ trackTests {
             ]
         }
 
-        "/banking/balance/last_activities"(platform: "/", type: TrackType.View) {
+        "/banking/balance/last_activities_component"(platform: "/", type: TrackType.Event) {
             my_money_last_activities = [
                 component_id: 'last_activities',
                 component_data: [
@@ -138,7 +138,7 @@ trackTests {
     }
 
     test("Balance openbanking") {
-             "/banking/open_banking"(platform: "/", type: TrackType.View) {}
+          "/banking/open_banking"(platform: "/", type: TrackType.View) {}
     }
 
     test("Balance Calendar") {
