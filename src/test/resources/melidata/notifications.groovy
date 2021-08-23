@@ -879,6 +879,24 @@ trackTests {
             latest_news_type= "asset_management_warm_up"
             status= "read"
         }
+        "/notification_center/asset_management_investing"(platform: "/mobile"){
+            newsgroup_id= "asset_management-investing-186785675-76283123"
+            latest_news_id= "asset_management-investing-186785675-76283123"
+            latest_news_type= "asset_management_investing"
+            status= "read"
+        }
+        "/notification_center/asset_management_failed"(platform: "/mobile"){
+            newsgroup_id= "asset_management-failed-186785675-76283123"
+            latest_news_id= "asset_management-failed-186785675-76283123"
+            latest_news_type= "asset_management_failed"
+            status= "read"
+        }
+        "/notification_center/asset_management_rejected"(platform: "/mobile"){
+            newsgroup_id= "asset_management-rejected-186785675-76283123"
+            latest_news_id= "asset_management-rejected-186785675-76283123"
+            latest_news_type= "asset_management_rejected"
+            status= "read"
+        }
         "/notification_center/alwayson_bsas_a"(platform: "/") {
             latest_news_type= "alwayson_bsas_a"
             latest_news_id= "alwayson_bsas_a-143816022"
@@ -4993,6 +5011,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_failed"(platform: "/mobile") {
+            news_id = "asset-management_failed-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_rejected"(platform: "/mobile") {
+            news_id = "asset-management_rejected-12345678-123123"
+            event_type = "shown"
+        }
+
         "/notification/institutional_generic"(platform: "/mobile"){
             event_type = "open"
             campaign_id= "institutional_generic1"
@@ -7354,6 +7382,24 @@ trackTests {
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
             latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/asset_management_investing"(platform: "/mobile"){
+            newsgroup_id= "asset_management-investing-186785675-76283123"
+            latest_news_id= "asset_management-investing-186785675-76283123"
+            latest_news_type= "asset_management_investing"
+            status= "read"
+        }
+        "/notification_center/asset_management_failed"(platform: "/mobile"){
+            newsgroup_id= "asset_management-failed-186785675-76283123"
+            latest_news_id= "asset_management-failed-186785675-76283123"
+            latest_news_type= "asset_management_failed"
+            status= "read"
+        }
+        "/notification_center/asset_management_rejected"(platform: "/mobile"){
+            newsgroup_id= "asset_management-rejected-186785675-76283123"
+            latest_news_id= "asset_management-rejected-186785675-76283123"
+            latest_news_type= "asset_management_rejected"
             status= "read"
         }
         "/notification_center/alwayson_bsas_a"(platform: "/") {
@@ -11681,6 +11727,16 @@ trackTests {
 
         "/notification/asset_management_disabled"(platform: "/mobile") {
             news_id = "asset-management_disabled-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_failed"(platform: "/mobile") {
+            news_id = "asset-management_failed-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_rejected"(platform: "/mobile") {
+            news_id = "asset-management_rejected-12345678-123123"
             event_type = "shown"
         }
 
