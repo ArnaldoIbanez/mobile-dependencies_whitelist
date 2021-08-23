@@ -140,6 +140,8 @@ tracks {
         q_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are sll")
         q_no_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are not sll")
         q_indexed_items(required: true, type: PropertyType.Numeric, description: "Indicates the number of indexed items")
+        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+        model(required: false, description: "Indicates the number of indexed items", values: ['bids', 'cvr'])
     }
 
     "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {

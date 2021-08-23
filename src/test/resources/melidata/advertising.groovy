@@ -169,6 +169,8 @@ trackTests {
             q_sll = 10
             q_no_sll = 5
             q_indexed_items = 10
+            mode = "automatic"
+            model = 'cvr'
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
