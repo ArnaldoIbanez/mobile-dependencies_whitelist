@@ -59,19 +59,15 @@ metrics {
      * Credit Card Upgrade Adoption Metrics for Onboarding Order and Date Picker mode experimets
      */
 
-    "credits_credit_card_upgrade_adoption"(description: "Conversion under Upgrade process with variation on basic flow", deprecation_date:"2021/08/01") {
+    "credits_credit_card_upgrade_adoption"(description: "Conversion under Upgrade process with variation on basic flow") {
         startWith {
             experiment("credits-card/upgrade_onboarding_order", "credits-card/upgrade_date_picker_mode")
         }
 
         countsOn {
             condition {
-                path("/credits/credit_card/upgrade/congrats")
-                or (
-                    path("/credits/credit_card/upgrade/error")
-                )
+                path("/credits/credit_card/upgrade/congrats", "/credits/credit_card/upgrade/error")
             }
         }
     }
-
 }
