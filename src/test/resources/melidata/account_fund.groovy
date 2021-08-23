@@ -25,6 +25,9 @@ trackTests {
             preset = "30"
         }
 
+        // Home MoneyIn
+        "/account_fund/payment_types"(platform: "/", type: TrackType.View) {}
+
         // Amount warning modal
         "/account_fund/amount/warning"(platform: "/", type: TrackType.View) {}
         "/account_fund/amount/warning/continue"(platform: "/", type: TrackType.Event) {}
@@ -82,5 +85,9 @@ trackTests {
         "/account_fund/mi_cvu/share"(platform: "/", type: TrackType.Event) {}
         "/account_fund/mi_cvu/menu_help"(platform: "/", type: TrackType.Event) {}
         "/account_fund/mi_cvu/edit_alias/menu_help"(platform: "/", type: TrackType.Event) {}
+
+        // Kyc
+        "/account_fund/kyc/continue"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/kyc/close"(platform: "/", type: TrackType.Event) {}
     }
 }

@@ -497,12 +497,14 @@ trackTests {
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
         has_error = false
+        account_model = "traditional"
       }
       "/login/auth/challenge/submit"(platform: "/web", type: TrackType.View) {
         reauthentication = false
         challenge = "pass"
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
+        account_model = "registered_by_phone"
       }
       "/login/auth/success"(platform: "/web", type: TrackType.View) {
         rememberme_enabled = true
@@ -510,6 +512,7 @@ trackTests {
         is_admin_otp = false
         source = "MSL_EXPLICIT"
         tracking_id = "tracking_id"
+        account_model = "traditional"
       }
     }
 
@@ -891,6 +894,87 @@ trackTests {
                 validation_status = "success"
                 social_option = "Microsoft"
                 email_sign_in = false
+            }
+        }
+
+        test("Biometrics / Reauth - Screenlock Challenge") {
+            "/screenlock/challenge"(platform: "/mobile/android", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                valid_params = true
+            }
+
+            "/screenlock/challenge"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                valid_params = false
+            }
+
+            "/screenlock/challenge/start"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/start"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/end"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                elapsed_time = 3
+                result = "success"
+            }
+
+            "/screenlock/challenge/end"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                error = "error in screenlock"
+                elapsed_time = 5
+                result = "error"
+            }
+
+            "/screenlock/challenge/finish"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+                challenge_time = 10
+            }
+
+            "/screenlock/challenge/finish"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                transaction_id = "123"
+                challenge_time = 10
+            }
+
+            "/screenlock/challenge/error"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/error"(platform: "/mobile/android", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+            }
+
+            "/screenlock/challenge/error/retry"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                transaction_id = "123"
+            }
+
+            "/screenlock/challenge/error/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "none"
+                transaction_id = "123"
             }
         }
 
@@ -1954,6 +2038,16 @@ trackTests {
                 operation_id = "1"
                 flow_type = "withdraw"
                 amount = "10.0"
+            }
+            "/reauth/error"(platform: "/mobile/android", type: TrackType.View) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+            }
+            "/reauth/error"(platform: "/mobile/ios", type: TrackType.View) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
             }
         }
 

@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1033"
+    initiative = "1040"
 
     propertyDefinitions {
 	    cart_content(required:false, type: PropertyType.String)

@@ -702,6 +702,24 @@ trackTests {
             sales_percentage_loan_on_time()
         }
 
+        // HRC CLICK
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+
         "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/payment_history"(platform: "/web/desktop") {
@@ -893,7 +911,24 @@ trackTests {
             user_status = 'overdue'
         }
         "/credits/merchant/money_advance/hub"(platform: "/mobile/android") {}
-        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {
+            from = 'withdraw'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/android") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/android") {
+            from = 'withdraw'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/ios") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/ios") {
+            from = 'withdraw'
+        }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
@@ -1686,6 +1721,9 @@ trackTests {
         "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+        }
 
         /******************************************
             *       End: Consumers Admin Detail

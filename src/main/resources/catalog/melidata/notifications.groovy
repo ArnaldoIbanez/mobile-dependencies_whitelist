@@ -1125,6 +1125,34 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
     }
+
+    "/notification_center/subscription_free_content_grace_period"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Failure for the first payment attempt on the subscription.")
+    }
+
+    "/notification_center/subscription_free_content_payment_pending"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Failure due to secund payment attempt on subscription.")
+    }
+
+    "/notification_center/subscription_free_content_last_day_to_pay"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Failure for the last payment attempt on the subscription.")
+    }
+
     "/notification_center/subscription_payment_congrats"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1674,6 +1702,11 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    "/notification_center/claim"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
       /**
        * NOTIFICATIONS TRAY
        **/
@@ -1771,6 +1804,12 @@ tracks {
     "/notification/alwayson_sirtach"(platform: "/") {
         sent_date(required: true, type: PropertyType.String, description: "Sent date")
     }
+
+    //Claims 2.0
+    //Collection
+    "/notification/claim_pdd_first_rescue"(platform: "/") {}
+    "/notification/claim_pdd_second_rescue"(platform: "/") {}
+
     // Credits - Credit Card
     // Collection
     "/notification/credit_card_adhoc_communication"(platform: "/") {}
@@ -2154,10 +2193,16 @@ tracks {
     "/notification/shipping_shipped_same_day"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
+    "/notification/shipping_shipped_same_day_scoring_key_pass"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
     "/notification/shipping_shipped_waiting_for_confirmation"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
     "/notification/shipping_soon_deliver_same_day"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
+    "/notification/shipping_soon_deliver_same_day_scoring_key_pass"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
     "/notification/shipping_wrong_address_driver_action"(platform: "/") {
@@ -2847,6 +2892,28 @@ tracks {
         date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
         payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
     }
+
+    "/notification/subscription_free_content_grace_period"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Failure for the first payment attempt on the subscription.")
+    }
+
+    "/notification/subscription_free_content_payment_pending"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Failure due to second payment attempt on subscription.")
+    }
+
+    "/notification/subscription_free_content_last_day_to_pay"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Failure for the last payment attempt on the subscription.")
+    }
+
     "/notification/subscription_payment_congrats"(platform: "/mobile") {
         provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
         provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
@@ -3169,6 +3236,7 @@ tracks {
     "/notification/card_wallet_resume_token"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_extracash"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {}
+    "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
 
     //Prepaid
@@ -3469,6 +3537,8 @@ tracks {
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
+
+    "/notification/abandoned_cart_link_payer"(platform: "/mobile") {}
 
     //Registration
     "/notification/registration_under_age_authorized"(platform: "/mobile") {}

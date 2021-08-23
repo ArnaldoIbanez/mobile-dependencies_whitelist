@@ -53,8 +53,18 @@ trackTests {
         "/credits/consumer/upsell/stop"(platform: "/", type: TrackType.View, business:"mercadopago") {}
         "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
         "/credits/consumer/upsell/stop/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
-        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
-        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            list_status = "white_list"
+            dashboard_status = "on_time"
+        }
+        "/credits/consumer/upsell/cx"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            list_status = "black_list"
+            dashboard_status = "overdue"
+        }
+        "/credits/consumer/upsell/shared_data_congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/upsell/shared_data_congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/upsell/shared_data_congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/upsell/shared_data_congrats/admin"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
         /******************************************
         *       End: Flujo Upsell Consumer
         ******************************************/

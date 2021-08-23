@@ -55,7 +55,10 @@ tracks {
     "/cards/nfc/constraint"(platform: "/", isAbstract: true) { }
     "/cards/nfc/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/payment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/payments/congrats"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/prep_replenishment"(platform: "/", isAbstract: true) { }
+
 
     // SHIPPING
     // --------
@@ -285,7 +288,14 @@ tracks {
             type: PropertyType.String,
             description: "Type of Congrats"
         )
+        insurance_offer (
+            required: false,
+            type: PropertyType.String,
+            values: ["banner", "success", "pending"],
+            description: "Indicates the insurance offer type that was displayed"
+        )
     }
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,
@@ -453,7 +463,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge"],
+            values: ["options", "card_data", "kyc_compliance", "kyc_not_compliance", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "debit_active", "virtual_only", "physical_delivered", "physical_inactive", "user_need_challenge", "without_nfc", "nfc_not_configured", "nfc_configured"],
             description: "Mini card tapped"
           )
     }
@@ -2058,6 +2068,22 @@ tracks {
             type: PropertyType.String,
             description: "Context from where its sended"
         )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Info"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        localized_message(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Localized Message"
+        )
+        
     }
 
     "/cards/nfc/core/service/life_cycle_initialize"(platform: "/", type: TrackType.Event) { }
@@ -2139,6 +2165,26 @@ tracks {
             required: false,
             description: "Type of sdk error message"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
+        )
     }
 
     "/cards/nfc/enrollment/replenish_payment_keys/success"(platform: "/", type: TrackType.Event) {
@@ -2194,6 +2240,26 @@ tracks {
             required: false,
             description: "Type of sdk error message"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
+        )
     }
 
     "/cards/nfc/enrollment/device_enrollment/success"(platform: "/", type: TrackType.Event) {
@@ -2248,6 +2314,26 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Type of sdk error message"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        cps_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK CPS Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
+        sdk_additional_info(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Additional Info"
         )
     }
 
@@ -2349,6 +2435,21 @@ tracks {
             required: false,
             description: "Error message description"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
     }
 
     "/cards/nfc/enrollment/digitize_card/success"(platform: "/", type: TrackType.Event) {
@@ -2444,6 +2545,21 @@ tracks {
             type: PropertyType.String,
             required: false,
             description: "Type of sdk error message"
+        )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
         )
     }
 
@@ -2544,6 +2660,21 @@ tracks {
             required: false,
             description: "Error message description"
         )
+        http_status_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Status Code"
+        )
+        server_error_code(
+            type : PropertyType.Numeric,
+            required: true,
+            description: "SDK Server Error Code"
+        )
+        causing_exception(
+            type : PropertyType.String,
+            required: false,
+            description: "SDK Causing Exception"
+        )
     }
 
     "/cards/nfc/enrollment/tokenization/messageprocessor"(platform: "/", type: TrackType.Event) {
@@ -2557,24 +2688,83 @@ tracks {
 
     // PAYMENTS-NFC
     // -------------------
-    "/cards/nfc/payment"(platform: "/", type: TrackType.View) {
+    "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
+        is_nfc_payments_initialized (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if nfc service is initialized"
+        )
+        is_token_ready (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token is ready for payment"
+        )
+        is_token_active (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment token is active"
+        )
+        is_default_tap_n_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if MP is the default tap and pay app"
+        )
+        is_restrictive (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is in tap and pay restrictive mode"
+        )
+        is_tap_n_pay_admitted_to_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is properly configured to pay with mp"
+        )
+        is_default_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the nfc card is default on nfc service"
+        )
+        is_nfc_activated (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone nfc antenna is active"
+        )
+        are_payment_keys_available (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token has any available key for payment"
+        )
         from (
             required: true,
             type: PropertyType.String,
-            inheritable: false,
-            description: "Access location of NFCPayment call"
+            description: "Indicate the location from where the payment comes"
         )
-    }
-    "/cards/nfc/payment/tap_pos"(platform:"/", type: TrackType.Event) {
-        result (
+        tap_type (
             required: true,
             type: PropertyType.String,
-            description: "Tap payment error transaction"
+            values: ['first_tap', 'second_tap'],
+            description: "Indicates if is a first or second tap on POS"
         )
-        reasons (
+        is_in_foreground (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the tap action is from foreground or background"
+        )
+        is_phone_locked (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the tap action is from phone locked or unlocked state"
+        )
+        tap_status (
             required: true,
             type: PropertyType.String,
-            description: "Error code of the payment tap pos error"
+            values: ['success', 'failure'],
+            description: "Indicates if the tap action is success or failure"
+        )
+        additional_info (
+            required: false,
+            type: PropertyType.String,
+            description: "Adds more info for specials cases, like errors or fails"
         )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
@@ -2844,6 +3034,42 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Cause of on-demand enrollment error"
+        )
+    }
+    
+    // NFC_IDENTITY_CONFIRMATION_SCREEN AKA LUK_STOP
+    // -----------------------
+    "/cards/nfc/identity_confirmation"(platform: "/", type: TrackType.View) {}
+
+    "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary"],
+            description: "Button tapped"
+        )
+    }
+    
+    // NFC_PREP_REPLENISHMENT
+    // -----------------------
+    "/cards/nfc/prep_replenishment/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/nfc/prep_replenishment/error"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "Prep Replenishment error code"
+        )
+        information (
+            required: true,
+            type: PropertyType.String,
+            description: "Prep Replenishment error message and extra info"
+        )
+    }
+    "/cards/nfc/prep_replenishment/status"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ['needed','not_needed', 'null']
         )
     }
 }

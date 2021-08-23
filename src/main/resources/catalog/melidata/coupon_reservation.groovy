@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-  initiative="1218"
+  initiative="1322"
 
   def campaign = objectSchemaDefinitions {
     id(required: true, type: PropertyType.Numeric, description: "Cupon id")
