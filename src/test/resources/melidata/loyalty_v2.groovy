@@ -445,14 +445,14 @@ trackTests {
             subscription_partner = "HBO"
             subscription_status = "active"
             level = 4
-            type = "detail-action"
+            type = "primary"
         }
 
         "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
             subscription_status = "inactive"
             level = 4
-            type = "modify-action"
+            type = "close"
         }
 
         "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadolibre") {
@@ -501,7 +501,7 @@ trackTests {
             level = 1
         }
         "/loyalty/buylevel/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
-            type = "modify-action"
+            type = "activate"
             level = 2
             subscription_status ="pending"
         }

@@ -190,7 +190,7 @@ tracks {
     }
 
     "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event) {
-        type(required: false, description: "Action type (detail-action, modify-action, tyc-action, etc.)", type: PropertyType.String)
+        type(required: false, description: "Action type" ,values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
     }
 
     "/loyalty/partners/summary"(platform: "/", type: TrackType.View) {
@@ -199,11 +199,12 @@ tracks {
 
     "/loyalty/buylevel"(platform: "/", isAbstract: true, type: TrackType.View) {
         level( required: false, type: PropertyType.Numeric, description: "Level")
+        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
     }
 
     "/loyalty/buylevel/action"(platform: "/", type: TrackType.Event) {
-        type(required: false, type: PropertyType.String, description: "Action type (detail-action, modify-action, tyc-action, etc.)")
-        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+        type(required: false, values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String, description: "Action type")
+
     }
 
     "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View) {
