@@ -106,7 +106,7 @@ trackTests {
             ]
         }
 
-        "/banking/to_release/cer_component"(platform: "/", type: TrackType.Event) {
+        "/banking/to_release/cerc_component"(platform: "/", type: TrackType.Event) {
              my_money_cerc = [
                  component_id: 'cerc',
                  content_id: []
