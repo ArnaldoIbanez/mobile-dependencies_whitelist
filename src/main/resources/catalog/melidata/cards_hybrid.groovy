@@ -290,6 +290,7 @@ tracks {
         insurance_offer (
             required: false,
             type: PropertyType.String,
+            values: ["banner", "success", "pending"],
             description: "Indicates the insurance offer type that was displayed"
         )
     }
