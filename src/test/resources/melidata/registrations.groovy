@@ -724,6 +724,8 @@ trackTests {
             under_age_validation_responsible_id = "UARID"
             flow = "registration"
         }
+        "/under_age_validation/tutor_email/accepted/already_logged"(platform: "/mobile"){
+        }
         "/under_age_validation/tutor_authorization"(platform: "/mobile"){
             under_age_validation_id = "UAID"
             under_age_validation_responsible_id = "UARID"
@@ -773,6 +775,8 @@ trackTests {
             under_age_validation_id = "UAID"
             under_age_validation_responsible_id = "UARID"
             flow = "registration"
+        }
+        "/under_age_validation/tutor_email/accepted/already_logged"(platform: "/mobile", business: "mercadopago"){
         }
         "/under_age_validation/tutor_authorization"(platform: "/mobile", business: "mercadopago"){
             under_age_validation_id = "UAID"

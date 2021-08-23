@@ -298,6 +298,8 @@ tracks {
     "/under_age_validation/tutor_email/rejected/change_email"(platform: "/", type: TrackType.Event){
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
     }
+    "/under_age_validation/tutor_email/accepted"(platform: "/mobile", isAbstract: true, parentPropertiesInherited:false){}
+    "/under_age_validation/tutor_email/accepted/already_logged"(platform: "/mobile", type: TrackType.Event){}
     "/under_age_validation/tutor_authorization"(platform: "/",  isAbstract: true){
         under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
