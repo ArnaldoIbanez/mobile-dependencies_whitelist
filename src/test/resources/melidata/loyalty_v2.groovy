@@ -450,7 +450,7 @@ trackTests {
 
         "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
-            subscription_status = "ended"
+            subscription_status = "inactive"
             level = 4
             type = "modify-action"
         }
@@ -473,21 +473,26 @@ trackTests {
         }
 
         "/loyalty/partners/comboplus"(platform: "/", type: TrackType.View, business: "mercadopago") {
-            type = "modify-action"
             level = 4
             subscribedPlans = ["disneyplus"]
         }
 
         "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View, business: "mercadopago") {
-            type = "modify-action"
+            type = "secondary"
             level = 4
             subscribedPlans = []
         }
 
         "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
-            type = "modify-action"
+            type = "login"
             level = 8
             subscribedPlans = ["ESPN", "combo"]
+        }
+
+        "/loyalty/partners/comboplus/modal/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "login"
+            level = 8
+            subscribedPlans = ["ESPN", "STAR+"]
         }
     }
 
@@ -498,11 +503,11 @@ trackTests {
         "/loyalty/buylevel/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
             type = "modify-action"
             level = 2
-            subscription_status ="Overdue"
+            subscription_status ="pending"
         }
         "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 4
-            subscription_status ="Cancelled"
+            subscription_status ="inactive"
         }
         "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 6
