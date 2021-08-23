@@ -432,7 +432,7 @@ trackTests {
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
             level = 4
-            subscription_status = "active"
+            subscriptionStatus = "active"
             subscribedPlans = ["ESPN", "combo"]
         }
 
@@ -443,14 +443,14 @@ trackTests {
 
         "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "HBO"
-            subscription_status = "active"
+            subscriptionStatus = "active"
             level = 4
             type = "primary"
         }
 
         "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
-            subscription_status = "inactive"
+            subscriptionStatus = "inactive"
             level = 4
             type = "close"
         }
@@ -503,11 +503,11 @@ trackTests {
         "/loyalty/buylevel/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
             type = "activate"
             level = 2
-            subscription_status ="pending"
+            subscriptionStatus ="pending"
         }
         "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 4
-            subscription_status ="inactive"
+            subscriptionStatus ="inactive"
         }
         "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 6

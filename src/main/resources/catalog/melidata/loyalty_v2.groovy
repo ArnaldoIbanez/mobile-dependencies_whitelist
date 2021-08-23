@@ -185,7 +185,7 @@ tracks {
     "/loyalty/partners/admin"(platform: "/", type: TrackType.View) {
         subscription_partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
         level(type: PropertyType.Numeric, required: false)
-        subscription_status(required: false, description: "Subscription Status", values: ["inactive", "active", "pending"], type: PropertyType.String)
+        subscriptionStatus(required: false, description: "Subscription Status", values: ["inactive", "active", "pending"], type: PropertyType.String)
         subscribedPlans(required: false, description: "Subscribed plans", type: PropertyType.ArrayList(PropertyType.String))
     }
 
@@ -199,7 +199,7 @@ tracks {
 
     "/loyalty/buylevel"(platform: "/", isAbstract: true, type: TrackType.View) {
         level( required: false, type: PropertyType.Numeric, description: "Level")
-        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+        subscriptionStatus(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
     }
 
     "/loyalty/buylevel/action"(platform: "/", type: TrackType.Event) {
@@ -208,7 +208,7 @@ tracks {
     }
 
     "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View) {
-        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+        subscriptionStatus(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
     }
 
     "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View) {
