@@ -1210,7 +1210,7 @@ tracks {
         from(
             description: "Request Origin (could be from same flow or not)",
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'default',
                 'withdraw',
