@@ -527,7 +527,7 @@ tracks {
                 description: "Item ID"
         )
         from_view(required: false, type: PropertyType.String,
-                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", ""],
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
                 description: "Section where it's coming from"
         )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
@@ -767,6 +767,10 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has attributes highlighted sale specification")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
+                description: "Section where it's coming from"
+        )
     }
 
     "/vip/questions"(parentPropertiesInherited: false, isAbstract: true){
@@ -781,6 +785,10 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         has_highlighted_sale_specs(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has attributes highlighted sale specification")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
+                description: "Section where it's coming from"
+        )
     }
 
     "/vip/questions/quick_access"(platform: "/", parentPropertiesInherited: false) {
@@ -806,6 +814,10 @@ tracks {
                 values: ["vip", "technicalSpecs", "description", "button"],
                 description: "source of the event")
         source(required: false, description: "Source of the referred")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", "questions", ""],
+                description: "Section where it's coming from"
+        )
         item_seller_type(required: false, type: PropertyType.String,
                 description: "Seller type: normal, real_estate_user, etc"
         )
