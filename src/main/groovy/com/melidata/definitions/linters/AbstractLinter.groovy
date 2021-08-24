@@ -9,7 +9,7 @@ abstract class AbstractLinter {
     String errorMessage
 
     boolean passValidation(TrackDefinition definition) {
-        return (!validateTrackDefinition(definition) || !validateProperties(definition))
+        return validateTrackDefinition(definition) && validateProperties(definition)
     }
 
     boolean validateTrackDefinition(TrackDefinition definition) {
