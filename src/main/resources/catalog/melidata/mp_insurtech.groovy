@@ -620,7 +620,7 @@ tracks {
     }
 
     "/insurtech/protections/detail/roda/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+        insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
         claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
 
