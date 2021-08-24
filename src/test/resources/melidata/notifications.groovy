@@ -12868,6 +12868,11 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
         }
+
+        // Proximity Marketplace Order Manager
+        "/notification/pm_om_notification_store_opening"(platform: "/mobile") {
+            event_type = "sent"
+        }
     }
 
     defaultBusiness = "mercadolibre"
