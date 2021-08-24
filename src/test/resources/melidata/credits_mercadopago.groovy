@@ -559,6 +559,10 @@ trackTests {
             promise = 'none'
             accesses = 'open_market'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            need_optins = false
+            from_optins = true
+        }
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 

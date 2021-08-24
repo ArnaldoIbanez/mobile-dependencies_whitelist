@@ -238,7 +238,7 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'create_promise',
                 'view_promise',
@@ -257,6 +257,16 @@ tracks {
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
             required: false
+        )
+        need_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
+        )
+        from_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
