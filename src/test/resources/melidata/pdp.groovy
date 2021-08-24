@@ -205,8 +205,47 @@ trackTests {
             free_shipping = false
             local_pick_up = true
             store_pick_up = true
-            logistic_type = "default"
+            logistic_type = "self_service"
             shipping_conditions = "discount_mandatory"
+            shipping_promise = [
+                destination : "1430",
+                address_options : [
+                        [
+                            shipping_option_id : 7,
+                            method_type : "super_express",
+                            delivery_lower_bound : [
+                                date : "2021-07-30T03:00:00Z",
+                                days : 0,
+                            ],
+                            delivery_upper_bound : [],
+                            pay_before : "2021-07-31T16:00:00Z",
+                            offset_days : 0,
+                            price : [
+                                amount : 390.99,
+                                currency_id : "ARS",
+                                is_loyalty_discount : true
+                            ]
+                        ]
+                ],
+                agency_options : [
+                        [
+                            method_type : "standard",
+                            delivery_lower_bound : [
+                                date : "2021-08-05T03:00:00Z",
+                                days : 2
+                            ],
+                            delivery_upper_bound : [
+                                date : "2021-08-10T03:00:00Z",
+                                days : 7
+                            ],
+                            offset_days : 5,
+                            price : [
+                                currency_id : "ARS",
+                                is_loyalty_discount : false
+                            ]
+                        ]
+                ]
+            ]
         }
 
         def pickup = {
@@ -770,5 +809,71 @@ trackTests {
         "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
         }
+    }
+
+    test("PDP payment methods modal view") {
+        "/pdp/payment_methods"(platform: "/", type: TrackType.View) {
+            page_vertical = "CORE"
+            category_l1 = "{'MLA1574':'Hogar, Muebles y Jardín}"
+            category_l2 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar}"
+            category_l3 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar,'MLA1623':'Otros}"
+            shipping_mode = "not_specified"
+            free_shipping = false
+            international_delivery_mode = "none"
+            item_id = "MLA786428856"
+            item_condition = "NEW"
+            buying_mode = "BUY_IT_NOW"
+            variations = false
+            collector_id = "151804293"
+            category_domain = "MLA-HOME_FURNITURE"
+            listing_source = "mercadolibre"
+            listing_type = "gold_special"
+            fulfillment = false
+            item_attributes = "DEFERRED_STOCK"
+            item_state = "NONE"
+            item_city = "NONE"
+            item_neighborhood = "NONE"
+        }
+    }
+
+    // MERCH
+    test("PDP Merch ecosystem") {
+
+        def dataSet = {
+            item_id              = "MLA787787584"
+            price                = 8400
+            original_price       = 10000
+            currency_id          = "ARS"
+            installment_info     = "6f"
+            item_condition       = "new"
+            shipping_conditions  = "discount_gap"
+            bo_pick_up_conditions = "no_discount"
+            pushing_puis         = false
+            showing_puis         = false
+            official_store_id    = 231
+            seller_id            = 1234
+            seller_name          = "fulano"
+            available_quantity   = 31
+            cart_content         = true
+            logistic_type        = "cross_docking"
+            discount_reasons = ["deal"]
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            vertical = "core"
+            realestates = {
+                vip_pdp_ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/pdp"(platform: "/", dataSet)
     }
 }

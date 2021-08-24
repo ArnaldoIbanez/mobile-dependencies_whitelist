@@ -78,11 +78,13 @@ tracks {
         is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
         operator_id(type: PropertyType.String, required: false, description: "Indicates the id of the operator when login is carried out by one")
         rememberme_enabled(type:PropertyType.Boolean, required: false)
+        account_model(type: PropertyType.String, required: false, description: "indicates the user account model", values: ["traditional", "registered_by_phone"])  
     }
 
     "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "Login step")
         tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
+        account_model(type: PropertyType.String, required: false, description: "indicates the user account model", values: ["traditional", "registered_by_phone"])
     }
 
     "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
@@ -126,6 +128,7 @@ tracks {
         flow(type: PropertyType.String, required: false, description: "indicates whether flow is native or generic", values: ["login_by_phone", "registration","change_user_phone", "login", "forgot_password"])
         channel(type: PropertyType.String, required: false, description: "indicates whether channel is SMS or call", values: ["sms", "call", "whatsApp"])
         reauthentication(type: PropertyType.Boolean, required: false, description: "indicates if the flow is reauth or login")
+        account_model(type: PropertyType.String, required: false, description: "indicates the user account model", values: ["traditional", "registered_by_phone"])
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {
@@ -136,6 +139,8 @@ tracks {
     "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
+
+    "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -248,6 +253,8 @@ tracks {
     "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1127) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
+
+    "/auth/account_recovery/restrict"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
 
@@ -555,6 +562,13 @@ tracks {
         email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
     }
 
+    // Face Validation Errors
+    "/authenticators/face_validation"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+      error_code(PropertyType.String, required: true, values:["validation_error", "max_attempts", "server_error"], description: "Errors after face validation against database")
+    }
+
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
@@ -586,10 +600,39 @@ tracks {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
     }
+    
+    "/screenlock/challenge"(platform: "/mobile", type: TrackType.View) {
+        transaction_id(type: PropertyType.String, required: false)
+        valid_params(type: PropertyType.Boolean, required: false)
+    }
+
+    "/screenlock/challenge/start"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+    }
+
+    "/screenlock/challenge/end"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time since challenge start was called")
+        result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
+        error(type: PropertyType.String, required: false)
+    }
+
+    "/screenlock/challenge/finish"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+        challenge_time(type: PropertyType.Numeric, required: true, description: "elapsed time since challenge was showed")
+    }
+    
+    "/screenlock/challenge/error"(platform: "/mobile", type: TrackType.View) {
+        transaction_id(type: PropertyType.String, required: false)
+    }
+
+    "/screenlock/challenge/error/retry"(platform: "/mobile", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true)
+    }
 
     "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) {
         flow_id(type: PropertyType.String, required: true, description: "Flow identifier where validation is happening")
-     }
+    }
 
     "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
         flow_id(type: PropertyType.String, required: true)
@@ -625,13 +668,19 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
+    "/screenlock/opening_lock/error_presenting"(platform: "/mobile/ios", type: TrackType.Event) {
+        vc_exists(type: PropertyType.Boolean, required: true, description: "Whether a vc existed when blocker was being presented or not")
+        modal_presented(type: PropertyType.Boolean, required: true, description: "Whether a modal was currently presented on top vc or not")
+    }
+
+    "/screenlock/opening_lock/error_routing"(platform: "/mobile/ios", type: TrackType.Event) { }
+
     "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
     // Biometrics lib
-    "/screenlock/biometrics"(platform: "/mobile/android", isAbstract: true, parentPropertiesInherited: false) {
-    }
+    "/screenlock/biometrics"(platform: "/mobile/android", isAbstract: true, parentPropertiesInherited: false) {}
 
     "/screenlock/biometrics/failure"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
@@ -677,8 +726,6 @@ tracks {
         amount(type: PropertyType.String, required: false, description: "amount of the operation")
     }
 
-    "/reauth/error"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
-
     "/reauth/operation_start"(platform: "/mobile", type: TrackType.Event) {}
 
     "/reauth/operation_end"(platform: "/mobile", type: TrackType.Event) {
@@ -689,6 +736,8 @@ tracks {
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }
+    
+    "/reauth/error"(platform: "/mobile", type: TrackType.View) {}
 
     "/reauth/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 

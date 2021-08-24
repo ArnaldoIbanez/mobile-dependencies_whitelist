@@ -63,6 +63,13 @@ trackTests {
             overdue_days: 15,
     ]
 
+    def account_blocked_locked_product_data = [
+            rating: "D",
+            status: "blocked",
+            status_detail: "",
+            overdue_days: 60,
+    ]
+
     def reasons_data = ["A anuidade é muito alta", "O limite é muito baixo"]
 
     def other_reason_data = "A anuidade é muito alta"
@@ -70,6 +77,21 @@ trackTests {
     def disable_option_data_a = "one_payment"
 
     def disable_option_data_b = "monthly_payment"
+
+    def error_timeout_data = [
+            type: "timeout",
+            cause: "account"
+    ]
+
+    def error_internal_error_data = [
+            type: "internal_error",
+            cause: "dashboard"
+    ]
+
+    def error_failed_dependency_data = [
+            type: "failed_dependency",
+            cause: "payment"
+    ]
 
     test("Credits Credit Card - Payment tests") {
         /***********************************************
@@ -389,6 +411,21 @@ trackTests {
             account = account_cancelled_data
             statement_status = "closed"
             pending_payments = false
+        }
+
+        //Dashboard View Error with Fallback Timeout
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            error = error_timeout_data
+        }
+
+        //Dashboard View Error with Fallback Internal Error
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            error = error_internal_error_data
+        }
+
+        //Dashboard View Error with Fallback Failed Dependency
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            error = error_failed_dependency_data
         }
 
         //Event Payment
@@ -798,6 +835,31 @@ trackTests {
             available_limit = 900
             total_limit = 1000
         }
+
+        //Dashboard Event Collection Dialer Button when Account Status Overdue 60 days and Status Closed
+        "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event) {
+            account = account_blocked_locked_product_data
+            statement_status = "closed"
+        }
+
+        //Dashboard Event Collection Dialer Button when Account Status Overdue 60 days and Status Open
+        "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event) {
+            account = account_blocked_locked_product_data
+            statement_status = "open"
+        }
+
+        //Dashboard Event Dialer Button when Error by Internal Error and Status Closed
+        "/credits/credit_card/dashboard/fallback_dialer_button_action"(platform: "/", type: TrackType.Event) {
+            error = error_internal_error_data
+        }
+
+        //Dashboard Event Dialer Button when Error by Timeout and Status Closed
+        "/credits/credit_card/dashboard/fallback_retry_action"(platform: "/", type: TrackType.Event) {
+            error = error_timeout_data
+        }
+
+        //Dashboard Event Request calling dashboard when rendering skeleton is Empty
+        "/credits/credit_card/dashboard/load_credit_sections_event"(platform: "/", type: TrackType.Event) { }
     }
         /*********************************************
          *       End: Credit Card Dashboard

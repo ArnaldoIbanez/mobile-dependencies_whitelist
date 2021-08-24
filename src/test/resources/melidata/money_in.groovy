@@ -51,13 +51,21 @@ trackTests {
             amount = "30.0"
         }
 
-        "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {
-            payment_method = "bolbradesco"
-        }
+        "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event){}
 
         //Checkout PX
         "/money_in/px/error"(platform: "/", type: TrackType.View) {}
         "/money_in/px/success"(platform: "/", type: TrackType.View) {}
+
+        //money In - Home
+        "/money_in/home/debit_card_juridical_person_modal"(platform: "/", type: TrackType.View) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_hub"(platform: "/", type: TrackType.Event) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_home"(platform: "/", type: TrackType.Event) {}
+
+        //money In - Congrats(comming from Kyc)
+        "/money_in/congrats/success"(platform: "/", type: TrackType.View) {}
+        "/money_in/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/congrats/success/close"(platform: "/", type: TrackType.Event) {}
 
         //Onboarding
         "/money_in/onboarding/add_money"(platform: "/", type: TrackType.View) {}
@@ -67,6 +75,7 @@ trackTests {
 
         "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
         "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/onboarding/continue"(platform: "/", type: TrackType.Event) {}
         "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
         "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
         "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
@@ -132,6 +141,9 @@ trackTests {
         "/money_in/clabe/copy"(platform: "/", type: TrackType.Event) {}
         "/money_in/clabe/share"(platform: "/", type: TrackType.Event) {}
         "/money_in/clabe/help"(platform: "/", type: TrackType.Event) {}
+
+        // CLABE - Congrats
+        "/money_in/clabe/congrat/go_home"(platform: "/", type: TrackType.Event) {}
 
         // CLABE - Congrats Error
         "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
@@ -568,6 +580,8 @@ trackTests {
         "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
 
         //Debin Processing
         "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
@@ -592,12 +606,16 @@ trackTests {
         "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
             status = "error"
         }
+        "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
+            status = "rejected"
+        }
         "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
             status = "error"
         }
-        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){
-            status = "success"
+        "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
+            status = "rejected"
         }
+        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
 
         //Debin Merch engine
         "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
