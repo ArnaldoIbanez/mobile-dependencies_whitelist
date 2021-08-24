@@ -458,7 +458,7 @@ tracks {
     //Nuevo hub Money In v2
     "/money_in/hub"(platform:"/", type: TrackType.View){}
     "/money_in/hub/select"(platform:"/", type: TrackType.Event){
-        payment_method_id (required:false, PropertyType.String, description: "indicates the id of the payment method")
+        payment_method_id (required:false, type: PropertyType.String, description: "indicates the id of the payment method")
     }
     "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
 
