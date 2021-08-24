@@ -3546,5 +3546,5 @@ tracks {
     "/notification/registry_recovery"(platform: "/mobile") {}
 
     // Proximity Marketplace Order Manager
-    "/notification/pm_om_notification_store_opening"(platform: "/mobile") {}
+    "/notification/pm_om_notification_store_opening"(platform: "/") {}
 }
