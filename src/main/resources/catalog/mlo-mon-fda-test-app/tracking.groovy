@@ -5,16 +5,6 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
-    
-    "/"(platform: "/") {}
-
-    "/input"(platform: "/api") { 
-	    record(type: PropertyType.Map(record_info), required:true)
-    }
-
-    def record_info = objectSchemaDefinitions {
-        data(type: PropertyType.Map(record_data), required:true)
-    }
 
     def record_data = objectSchemaDefinitions {
         user_id(type: PropertyType.Numeric, required: true)
@@ -22,4 +12,13 @@ tracks {
         status(type: PropertyType.String, values: ["OK", "ERROR"], required: true)
     }
 
+    def record_info = objectSchemaDefinitions {
+        data(type: PropertyType.Map(record_data), required:true)
+    }
+    
+    "/"(platform: "/") {}
+
+    "/input"(platform: "/api") { 
+	    record(type: PropertyType.Map(record_info), required:true)
+    }
 }
