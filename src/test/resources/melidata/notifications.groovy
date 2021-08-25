@@ -2323,6 +2323,11 @@ trackTests {
             event_type = "shown"
             payment_method = 'boleto'
         }
+        "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_pre_expired-12345678"
+            event_type = "shown"
+            payment_method = 'boleto'
+        }
         "/notification/anses_payment_date"(platform: "/mobile") {
             news_id = "anses_payment_date-12345678-123"
             event_type = "shown"
@@ -11628,6 +11633,11 @@ trackTests {
         }
         "/notification/card_request_challenge_pending"(platform: "/mobile") {
             news_id = "card_request_challenge_pending-12345678"
+            event_type = "shown"
+            payment_method = 'boleto'
+        }
+        "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_pre_expired-12345678"
             event_type = "shown"
             payment_method = 'boleto'
         }
