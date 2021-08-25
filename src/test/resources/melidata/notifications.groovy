@@ -13136,6 +13136,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/card_transactions_approved_authorization_with_partitions"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization_with_partitions-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {
             news_id = "card_transactions_approved_withdraw-186785675"
             event_type = "open"
@@ -13143,6 +13148,12 @@ trackTests {
         }
         "/notification/card_transactions_cancelled_authorization"(platform: "/mobile") {
             news_id = "card_transactions_cancelled_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_authorization_with_partitions"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_with_partitions-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -13158,6 +13169,11 @@ trackTests {
         }
         "/notification/card_transactions_rejected_authorization_by_invalid_amount"(platform: "/mobile") {
             news_id = "card_transactions_rejected_authorization_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_partitions"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_by_invalid_amount_with_partitions-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
