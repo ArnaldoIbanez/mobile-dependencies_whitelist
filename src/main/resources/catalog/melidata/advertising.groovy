@@ -353,7 +353,6 @@ tracks {
         switch_status(required: true, description: "Current state of switch")
     }
 
-
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true ) {}
 
