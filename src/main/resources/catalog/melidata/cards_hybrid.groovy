@@ -2186,6 +2186,15 @@ tracks {
             description: "SDK Additional Info"
         )
     }
+    
+    "/cards/nfc/core/user_has_tokenized_card/error"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values:["Token is present in local preferences but not in SDK"],
+            description: "Error on userHasTokenizedCard method"
+        )
+    }
 
     "/cards/nfc/enrollment/replenish_payment_keys/success"(platform: "/", type: TrackType.Event) {
         action (
