@@ -102,23 +102,23 @@ tracks {
     "/banking"(platform: "/", isAbstract: true) {}
 
     // Components Balance
-    "/banking/balance/print"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/balance/available_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/balance/card_available_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/balance/shortcuts_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/balance/cross_selling_carousel_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/balance/retained_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/balance/card_to_release_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/balance/last_activities_component"(platform: "/", type: TrackType.Event) { componentsPrints }
+    "/banking/balance/print"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/available_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/card_available_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/shortcuts_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/cross_selling_carousel_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/retained_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/card_to_release_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) { componentsPrints }
 
     // Components ToRelease
-    "/banking/to_release/print"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/to_release/to_release_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/to_release/card_to_release_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/to_release/to_advance_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/to_release/card_calendar_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/to_release/calendar_daily_component"(platform: "/", type: TrackType.Event) { componentsPrints }
-    "/banking/to_release/cerc_component"(platform: "/", type: TrackType.Event) { componentsPrints }
+    "/banking/to_release/print"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/to_release_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/card_to_release_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/to_advance_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/card_calendar_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/calendar_daily_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/cerc_component"(platform: "/", type: TrackType.View) { componentsPrints }
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) {}
