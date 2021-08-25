@@ -171,10 +171,14 @@ tracks {
     }
 
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
-    "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+    "/portal/faq/effectivity_survey/vote"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
         portal_content_destination_url
+    }
+   
+    "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
+    "/portal/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
         portal_effectivity_survey_reason
     }
 
@@ -383,10 +387,14 @@ tracks {
         portal_content_destination_url
     }
     "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
-    "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+    "/support/widget/faq/effectivity_survey/vote"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
         portal_content_destination_url
+    }
+    
+    "/support/widget/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
+    "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
         portal_effectivity_survey_reason
     }
 
