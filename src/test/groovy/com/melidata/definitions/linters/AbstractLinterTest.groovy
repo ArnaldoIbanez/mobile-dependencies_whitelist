@@ -46,4 +46,10 @@ class AbstractLinterTest {
 
         assertFalse(linterProp.passValidation(propertyFalse))
     }
+
+    @Test void catalogLinter() {
+        def linter = new CatalogLinter()
+
+        assertFalse(linter.run("advertising"))
+    }
 }

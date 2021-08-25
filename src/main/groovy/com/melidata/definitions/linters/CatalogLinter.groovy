@@ -2,6 +2,7 @@ package com.melidata.definitions.linters
 
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.TrackDefinition
+import com.ml.melidata.catalog.TrackDefinitionProperty
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.manager.CatalogHandler
@@ -43,10 +44,13 @@ class CatalogLinter {
                     isValid = false
                 }
             } else {
-                TrackDefinition definition = prodDef.get(0)
-                if(!newDefinition.equals(definition)) {
+                if(!prodDef.any {newDefinition.equals(it)}) {
+                    Map<String, TrackDefinitionProperty> propertiesMerge = [:]
+                    prodDef.forEach {propertiesMerge.putAll(it.properties)}
+                    println("Propertis of new definition:${newDefinition.properties}")
+                    println("Properties already defined:${propertiesMerge}")
                     newDefinition.properties = [:] << newDefinition.properties.findAll { String name, prop ->
-                        definition.properties[name] == null || !prop.equals(definition.properties[name])
+                        propertiesMerge[name] == null || !prop.equals(propertiesMerge[name])
                     }
                     if(!linters.every {it.validateProperties(newDefinition)}) {
                         isValid = false
