@@ -879,6 +879,24 @@ trackTests {
             latest_news_type= "asset_management_warm_up"
             status= "read"
         }
+        "/notification_center/asset_management_investing"(platform: "/mobile"){
+            newsgroup_id= "asset_management-investing-186785675-76283123"
+            latest_news_id= "asset_management-investing-186785675-76283123"
+            latest_news_type= "asset_management_investing"
+            status= "read"
+        }
+        "/notification_center/asset_management_failed"(platform: "/mobile"){
+            newsgroup_id= "asset_management-failed-186785675-76283123"
+            latest_news_id= "asset_management-failed-186785675-76283123"
+            latest_news_type= "asset_management_failed"
+            status= "read"
+        }
+        "/notification_center/asset_management_rejected"(platform: "/mobile"){
+            newsgroup_id= "asset_management-rejected-186785675-76283123"
+            latest_news_id= "asset_management-rejected-186785675-76283123"
+            latest_news_type= "asset_management_rejected"
+            status= "read"
+        }
         "/notification_center/alwayson_bsas_a"(platform: "/") {
             latest_news_type= "alwayson_bsas_a"
             latest_news_id= "alwayson_bsas_a-143816022"
@@ -3708,6 +3726,11 @@ trackTests {
             event_type = "arrived"
             shipment_id = 21409256437
         }
+        "/notification/shipping_shipped_bad_address_on_way"(platform: "/mobile"){
+            news_id = "shipping-shipped_bad_address_on_way-21409256333"
+            event_type = "arrived"
+            shipment_id = 21409256333
+        }
         "/notification/shipping_shipped_same_day"(platform: "/mobile"){
             news_id = "shipping-shipped_same_day-21409256437"
             event_type = "arrived"
@@ -4990,6 +5013,16 @@ trackTests {
 
         "/notification/asset_management_disabled"(platform: "/mobile") {
             news_id = "asset-management_disabled-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_failed"(platform: "/mobile") {
+            news_id = "asset-management_failed-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_rejected"(platform: "/mobile") {
+            news_id = "asset-management_rejected-12345678-123123"
             event_type = "shown"
         }
 
@@ -7354,6 +7387,24 @@ trackTests {
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
             latest_news_type= "asset_management_warm_up"
+            status= "read"
+        }
+        "/notification_center/asset_management_investing"(platform: "/mobile"){
+            newsgroup_id= "asset_management-investing-186785675-76283123"
+            latest_news_id= "asset_management-investing-186785675-76283123"
+            latest_news_type= "asset_management_investing"
+            status= "read"
+        }
+        "/notification_center/asset_management_failed"(platform: "/mobile"){
+            newsgroup_id= "asset_management-failed-186785675-76283123"
+            latest_news_id= "asset_management-failed-186785675-76283123"
+            latest_news_type= "asset_management_failed"
+            status= "read"
+        }
+        "/notification_center/asset_management_rejected"(platform: "/mobile"){
+            newsgroup_id= "asset_management-rejected-186785675-76283123"
+            latest_news_id= "asset_management-rejected-186785675-76283123"
+            latest_news_type= "asset_management_rejected"
             status= "read"
         }
         "/notification_center/alwayson_bsas_a"(platform: "/") {
@@ -11684,6 +11735,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_failed"(platform: "/mobile") {
+            news_id = "asset-management_failed-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_rejected"(platform: "/mobile") {
+            news_id = "asset-management_rejected-12345678-123123"
+            event_type = "shown"
+        }
+
         "/notification/institutional_generic"(platform: "/mobile"){
             event_type = "open"
             campaign_id= "institutional_generic1"
@@ -13061,6 +13122,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {
             news_id = "card_transactions_approved_withdraw_extracash-186785675"
             event_type = "open"
@@ -13119,6 +13192,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/card_transactions_approved_authorization_with_partitions"(platform: "/mobile") {
+            news_id = "card_transactions_approved_authorization_with_partitions-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {
             news_id = "card_transactions_approved_withdraw-186785675"
             event_type = "open"
@@ -13126,6 +13204,12 @@ trackTests {
         }
         "/notification/card_transactions_cancelled_authorization"(platform: "/mobile") {
             news_id = "card_transactions_cancelled_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_authorization_with_partitions"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_with_partitions-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -13141,6 +13225,11 @@ trackTests {
         }
         "/notification/card_transactions_rejected_authorization_by_invalid_amount"(platform: "/mobile") {
             news_id = "card_transactions_rejected_authorization_by_invalid_amount-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_partitions"(platform: "/mobile") {
+            news_id = "card_transactions_rejected_authorization_by_invalid_amount_with_partitions-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -13494,7 +13583,17 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
+        "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {
+            news_id = "card_transactions_cancelled_authorization_whatsapp_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
             news_id = "card_transactions_approved_authorization_extracash_mute-186785675"
             event_type = "open"
