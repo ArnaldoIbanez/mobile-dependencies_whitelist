@@ -123,6 +123,18 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
         }
+         "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = 1
+        }
+        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = -1
+        }
         "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
             portal_effectivity_survey_reason = "Otro motivo"
         }
