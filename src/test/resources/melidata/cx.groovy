@@ -43,6 +43,8 @@ trackTests {
             portal_effectivity_survey_value = -1
         }
         "/portal/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 96
+            portal_has_channels_configured = true
             portal_effectivity_survey_reason = "Otro motivo"
         }
         "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -136,6 +138,8 @@ trackTests {
             portal_effectivity_survey_value = -1
         }
         "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 96
+            portal_has_channels_configured = true
             portal_effectivity_survey_reason = "Otro motivo"
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
