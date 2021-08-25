@@ -20,7 +20,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = '1125'
+    initiative = '1096'
 
     "/google_connect"(platform: "/mobile", isAbstract: true) {}
     "/google_connect/init_flow"(platform: "/mobile") {

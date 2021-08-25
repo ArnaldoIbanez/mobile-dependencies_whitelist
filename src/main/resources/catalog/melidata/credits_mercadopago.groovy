@@ -331,6 +331,10 @@ tracks {
         products_with_status
     }
 
+    "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
     "/credits/merchant/administrator/history"(platform:"/", type: TrackType.View) {}
 
     "/credits/merchant/administrator/payment_history"(platform:"/", type: TrackType.View) {
@@ -1205,9 +1209,18 @@ tracks {
     //Hub money advance mobile
     "/credits/merchant/money_advance/hub"(platform: "/mobile", type: TrackType.View) {}
 
-
     //Summary money advance
-    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {
+        from(
+            description: "Request Origin (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'default',
+                'withdraw',
+            ]
+        )
+    }
 
     //No options money advance
     "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}

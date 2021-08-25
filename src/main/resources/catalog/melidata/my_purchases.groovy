@@ -237,6 +237,9 @@ tracks {
     "/my_purchases/detail/click_go_to_insurance"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
+    "/my_purchases/detail/click_payment_link_modal"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES REFUND DETAIL
@@ -269,4 +272,10 @@ tracks {
         newPurchasesEventGroup
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MY PURCHASES LIST
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/my_purchases/list"(platform:"/", type: TrackType.View) {
+    }
 }

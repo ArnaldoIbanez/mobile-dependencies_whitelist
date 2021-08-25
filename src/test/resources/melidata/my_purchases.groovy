@@ -275,6 +275,9 @@ trackTests {
 		"/my_purchases/detail/click_go_to_insurance"(platform:"/", type: TrackType.Event) {
 			purchasesEventDataSet()
 		}
+		"/my_purchases/detail/click_payment_link_modal"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
 
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 		// TEST TRACKS MY PURCHASES REFUND DETAIL
@@ -305,6 +308,13 @@ trackTests {
 
 		"/my_purchases/refund_detail/click_faq"(platform:"/", type: TrackType.Event) {
 			purchasesEventDataSet()
+		}
+
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+		// TEST TRACKS MY PURCHASES LIST
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		"/my_purchases/list"(platform:"/", type: TrackType.View) {
 		}
 
 	}
