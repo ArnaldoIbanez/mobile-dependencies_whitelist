@@ -3708,6 +3708,11 @@ trackTests {
             event_type = "arrived"
             shipment_id = 21409256437
         }
+        "/notification/shipping_shipped_bad_address_on_way"(platform: "/mobile"){
+            news_id = "shipping-shipped_bad_address_on_way-21409256333"
+            event_type = "arrived"
+            shipment_id = 21409256333
+        }
         "/notification/shipping_shipped_same_day"(platform: "/mobile"){
             news_id = "shipping-shipped_same_day-21409256437"
             event_type = "arrived"

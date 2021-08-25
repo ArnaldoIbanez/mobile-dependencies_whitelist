@@ -3434,6 +3434,10 @@ tracks {
     "/notification/shipping_shipped_bad_address"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
+    "/notification/shipping_shipped_bad_address_on_way"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
+
     //Shipping-Scoring
     "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
