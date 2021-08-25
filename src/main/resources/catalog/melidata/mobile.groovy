@@ -191,8 +191,4 @@ tracks {
     }
     "/inappreview/completed"(platform: "/mobile") {
     }
-    "/inappreview/flow_error"(platform: "/mobile") {
-    }
-    "/inappreview/request_error"(platform: "/mobile") {
-    }
 }

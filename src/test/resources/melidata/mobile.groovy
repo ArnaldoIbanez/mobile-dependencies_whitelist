@@ -306,10 +306,6 @@ trackTests {
         "/apprater/remind_me_later"(platform: "/mobile", business: "mercadopago") {}
         "/inappreview/completed"(platform: "/mobile") {}
         "/inappreview/completed"(platform: "/mobile", business: "mercadopago") {}
-        "/inappreview/flow_error"(platform: "/mobile") {}
-        "/inappreview/flow_error"(platform: "/mobile", business: "mercadopago") {}
-        "/inappreview/request_error"(platform: "/mobile") {}
-        "/inappreview/request_error"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("MercadoLibre apprater") {
@@ -317,8 +313,6 @@ trackTests {
         "/apprater/accept"(platform: "/mobile") {}
         "/apprater/remind_me_later"(platform: "/mobile") {}
         "/inappreview/completed"(platform: "/mobile") {}
-        "/inappreview/flow_error"(platform: "/mobile") {}
-        "/inappreview/request_error"(platform: "/mobile") {}
     } 
 
     test("Landing Deeplinks in Mobile") {
