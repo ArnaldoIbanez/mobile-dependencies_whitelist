@@ -560,7 +560,6 @@ trackTests {
             accesses = 'open_market'
         }
         "/credits/merchant/administrator"(platform: "/") {
-            need_optins = false
             from_optins = true
         }
 

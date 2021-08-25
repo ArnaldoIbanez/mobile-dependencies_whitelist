@@ -258,11 +258,6 @@ tracks {
             type: PropertyType.ArrayList(accesses),
             required: false
         )
-        need_optins(
-            type: PropertyType.Boolean,
-            required: false,
-            inheritable: false
-        )
         from_optins(
             type: PropertyType.Boolean,
             required: false,
