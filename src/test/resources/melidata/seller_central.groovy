@@ -468,6 +468,80 @@ trackTests {
     }
   }
 
+    test("Seller coach card click") {
+    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "RECOMMENDATION",
+        key: "LIGHTNING_OFFER",
+        page: 1,
+        position: 3,
+        item_id: "15415445414",
+        rules_applied: "none",
+        with_random_order: true
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card dismiss") {
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "RECOMMENDATION",
+        key: "LIGHTNING_OFFER",
+        item_id: "15415445414",
+        rules_applied: "none",
+        with_random_order: false
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach cards view") {
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/mobile", type: TrackType.View) {
+      segment = "none"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      cards = [
+        [
+          type: "CONTENT",
+          key: "PB02",
+          page: 2,
+          rules_applied: "hard",
+          with_random_order: false
+        ],
+        [
+          type: "CONTENT",
+          key: "PB01",
+          page: 2,
+          rules_applied: "soft",
+          with_random_order: false
+        ]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+    test("Seller coach carousel scroll") {
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      page = 2
+      scroll_type = "next"
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Offline
   //------------------------------------------------------------------------------------------------------------------------------------------------------
