@@ -210,9 +210,13 @@ tracks {
     "/asset_management/invest_section/empty_no_returns"(platform: "/", type: TrackType.View) {}
     "/asset_management/invest_section/money_to_invest"(platform: "/", type: TrackType.View) {}
     "/asset_management/invest_section/all_invested"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/not_enough_money_nor_returns"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/enough_money_or_returns"(platform: "/", type: TrackType.View) {}
     "/asset_management/invest_section/automatic_invest_ready"(platform: "/", type: TrackType.View) {}
     "/asset_management/invest_section/auto_enabled"(platform: "/", type: TrackType.View) {}
-
+    "/asset_management/invest_section/max_udis_reached"(platform: "/", type: TrackType.View) {}
+    "/asset_management/invest_section/max_udis_not_reached"(platform: "/", type: TrackType.View) {}
+    
     "/asset_management/invest_section/show_estimated_yield"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_empty_no_money"(platform: "/", type: TrackType.Event) {}
     "/asset_management/invest_section/click_button_money_to_invest"(platform: "/", type: TrackType.Event) {}
@@ -232,4 +236,16 @@ tracks {
     "/asset_management/kyc_web_blocker/play_store"(platform: "/web", type: TrackType.Event) {}
     "/asset_management/kyc_web_blocker/app_store"(platform: "/web", type: TrackType.Event) {}
 
+
+    //Loading GBM
+    "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
+
+    // status-blocker
+    "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {}
+    "/asset_management/status_blocker/go_to_home"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker/send_form"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker/need_help"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {
+        status_id (required: false, type: PropertyType.String, description: "Status id", values: ["pending", "failed", "rejected"])
+    }
 }

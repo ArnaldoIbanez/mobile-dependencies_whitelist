@@ -4,7 +4,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-  "digital_account/app_download_button"(description: "define which type of download app button shows to see which converts better", deprecation_date:"2021/07/01") {
+  "digital_account/app_download_button"(description: "define which type of download app button shows to see which converts better", deprecation_date:"2021/09/01") {
     startWith {
       experiment("digital_account/stickyButton")
     }

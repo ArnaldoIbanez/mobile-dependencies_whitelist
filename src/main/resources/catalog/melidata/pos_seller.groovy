@@ -287,7 +287,7 @@ import com.ml.melidata.TrackType
 
         "/pos_seller/point"(platform: "/web", isAbstract: true) {}
         "/pos_seller/qr"(platform: "/web", isAbstract: true) {}
-        "/pos_seller/vouchers"(platform: "/web", isAbstract: true) {}
+        "/pos_seller/vouchers"(platform: "/", isAbstract: true) {}
 
         /**
         * pos seller web view tracks
@@ -317,9 +317,11 @@ import com.ml.melidata.TrackType
         }
 
         //Vouchers
-        "/pos_seller/vouchers/sodexo"(platform: "/web", type: TrackType.View) {}
-        "/pos_seller/vouchers/access-denied"(platform: "/web", type: TrackType.View) {}
-        "/pos_seller/vouchers/error"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/vouchers/detail"(platform: "/", type: TrackType.View) {
+            voucher_name (required: true, type: PropertyType.String, description: "Voucher name")
+        }
+        "/pos_seller/vouchers/access_denied"(platform: "/", type: TrackType.View) {}
+        "/pos_seller/vouchers/error"(platform: "/", type: TrackType.View) {}
 
         //Misc
         "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}

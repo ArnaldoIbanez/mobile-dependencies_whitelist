@@ -118,6 +118,14 @@ tracks {
     garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
     stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
 
+    //Contiene la informacion de cada descuento disponible.
+    available_promotions(required: false, type:PropertyType.ArrayList)
+    // campaign_id,
+    // type,
+    // original_value,
+    // value
+    // items
+
 }
 
 }

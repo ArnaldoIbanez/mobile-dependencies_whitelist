@@ -186,6 +186,7 @@ trackTests {
         shipment_type = "delivery"
         pickup_time = ""
         showed_payment_methods = "credit_card"
+        refund_account_money = true
         cart_order = false
         payment_refund_at = "shipped"
         flow_version = "return-mobile-0.0.1"
