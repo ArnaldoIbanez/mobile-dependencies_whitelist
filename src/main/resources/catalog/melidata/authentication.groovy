@@ -69,6 +69,7 @@ tracks {
 
     "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
         migration_is_ok(type: PropertyType.Boolean, required: true, description: "Migration was ok")
+        keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
         keepnite_remove_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if ignite is on")    
     }
 
