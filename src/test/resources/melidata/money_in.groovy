@@ -702,5 +702,11 @@ trackTests {
         "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
            error = "Error 404"
         }
+
+        "/money_in/hub"(platform:"/", type: TrackType.View){}
+        "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+        payment_method_id = "pix"
+        }
+        "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
     }
 }
