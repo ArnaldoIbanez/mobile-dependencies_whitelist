@@ -580,6 +580,8 @@ trackTests {
         "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
 
         //Debin Processing
         "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
