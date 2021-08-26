@@ -10,7 +10,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1218"
+    initiative = "1305"
 	
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
     "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
@@ -54,10 +54,22 @@ tracks {
         priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
     }
 
+    def delivery_offers_format_definition = objectSchemaDefinitions {
+        text_color(type: PropertyType.String, required: true, description: "The text color of delivery offers")
+        background_color(type: PropertyType.String, required: true, description: "The background color of delivery offers")
+    }
+
+    def delivery_offers_definition = objectSchemaDefinitions {
+        icon(type: PropertyType.String, required: false, description: "The icon name, of the delivery type of a store")
+        label(type: PropertyType.String, required: true, description: "The delivery offer label of a store")
+        format(type: PropertyType.Map(delivery_offers_format_definition), required: true, description: "The format of a delivery offer")
+    } 
+
     def store_delivery_definition = objectSchemaDefinitions {
         radius(type: PropertyType.Numeric, required: false, description: "The delivery radius")
-        delivery(type: PropertyType.Boolean, required: true, description: "If the store has delivery")
-        pickup(type: PropertyType.Boolean, required: true, description: "If the store has pickup")
+        status(type: PropertyType.String, required: false, description: "The delivery status of a store, is required false beacuse maybe a store does not have delivery")
+        status_reasons(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "The reason of the delivery status")
+        delivery_offers(type: PropertyType.ArrayList(PropertyType.Map(delivery_offers_definition)), required: false, description: "The delivery offers that a store can provide")
     }
 
     def context_info_definition = objectSchemaDefinitions {
@@ -180,6 +192,17 @@ tracks {
         index(type: PropertyType.Numeric, required: true, description: "The position of the image banner")
     }
 
+    def purchase_item_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        name(type: PropertyType.String, required: true, description: "The name")
+        purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
+        purchase_state(type: PropertyType.String, required: true, values: ['paid'], description: "The purchase state")
+        action_label(type: PropertyType.String, required: true, description: "Label text of the action link")
+        action_target(type: PropertyType.String, required: true, description: "Target of the action link")
+    }
+
     def marketplace_main_slider_definition = objectSchemaDefinitions {
         segment_id(type: PropertyType.String, required: true, description: "The section segment")
         marketplace_type(type: PropertyType.String, required: true, description: "The section type")
@@ -241,6 +264,13 @@ tracks {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(store_item_definition)), description: "Items shown in the carousel")
     }
 
+    def marketplace_purchases_status_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, values: ['purchases_status'], description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(purchase_item_definition)), description: "Items shown in the purchase carousel")
+    }
+
     def marketplace_components_definition = objectSchemaDefinitions {
         main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_slider_definition)), description: "Main slider components")
         main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
@@ -254,6 +284,7 @@ tracks {
         filters(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_definition)), description: "Filters components")
         filters_l2(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_filters_l2_definition)), description: "Filters L2 components")
         cover_carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_cover_carousel_definition)), description: "Cover carousel components")
+        purchases_status(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_purchases_status_definition)), description: "Purchases status components")
     }
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
@@ -276,4 +307,49 @@ tracks {
       marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
       components(required: true, type: PropertyType.Map(marketplace_components_definition), description: "Marketplace components")
     }
+
+    // ADDRESSES
+
+    "/discount_center/payers/addresses" (platform: "/mobile", type: TrackType.Event, isAbstract: true) {
+        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
+
+    "/discount_center/payers/addresses/bar/tap" (platform: "/mobile", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "The deeplink to open")
+    }
+
+    "/discount_center/payers/addresses/bar/tooltip/tap" (platform: "/mobile", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "The deeplink to open")
+    }
+
+    "/discount_center/payers/addresses/bar/tooltip/close" (platform: "/mobile", type: TrackType.Event) {}
+    
+    "/discount_center/payers/addresses/ftu" (platform: "/mobile", type: TrackType.View) {}
+
+    "/discount_center/payers/addresses/ftu/allow/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/ftu/secondary_button/tap" (platform: "/mobile", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "The title of the button")
+        action(required: true, type: PropertyType.String, description: "The deeplink to open")
+    }
+
+    "/discount_center/payers/addresses/ftu/back" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/request_location" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/request_location/result" (platform: "/mobile", type: TrackType.Event) {
+      result(required: true, type: PropertyType.String, values: ['enabled','disabled'] )
+    }
+
+    "/discount_center/payers/addresses/hub" (platform: "/mobile", type: TrackType.View) {}
+
+    "/discount_center/payers/addresses/hub/back" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/hub/address/tap" (platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.Numeric, description: "The id of the selected address" )
+    }
+
+    "/discount_center/payers/addresses/hub/current_location/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/discount_center/payers/addresses/hub/add_address/tap" (platform: "/mobile", type: TrackType.Event) {}
 }

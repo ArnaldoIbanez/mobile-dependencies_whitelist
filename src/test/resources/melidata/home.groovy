@@ -48,6 +48,20 @@ trackTests {
         }
     }
 
+    test("Test Official store tracking") {
+        def dataSet = {
+            official_store_name = "test123"
+            official_store_id = 123
+        }
+
+        "/home/category/real_estate/official_store/developer/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/developer/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/developer/all_brands"(platform: "/", type: TrackType.Event) {}
+        "/home/category/real_estate/official_store/realtor/action"(platform: "/", type: TrackType.Event, dataSet)
+        "/home/category/real_estate/official_store/realtor/print"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/official_store/realtor/all_brands"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("Home core tracking") {
         "/home"(platform: "/mobile") {
             mp_installed = true
@@ -180,6 +194,18 @@ trackTests {
         "/home/category/motors"(platform: "/web/mobile", dataSet)
         "/home/category/motors"(platform: "/web/desktop", dataSet)
 
+    }
+
+    test("Motors home popup show"){
+        "/home/category/motors/popup_meli"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Motors home popup accept"){
+        "/home/category/motors/popup_meli/accept"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Motors home popup deny"){
+        "/home/category/motors/popup_meli/deny"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Home Server Side") {

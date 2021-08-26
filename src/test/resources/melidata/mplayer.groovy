@@ -130,6 +130,10 @@ trackTests {
 
         "/mplayer/closed_request/reject/back"(platform: "/mobile") {}
 
+        "/mplayer/closed_request/reject/exit"(platform: "/mobile") {
+            button = "close_button"
+        }
+
         "/mplayer/closed_request/result/success"(platform: "/mobile") {
             payment_method_id = "1"
             transaction_amount = 100.5
@@ -150,6 +154,11 @@ trackTests {
         "/mplayer/closed_request/bottom_sheet/new_contact_email"(platform: "/mobile") {}
         "/mplayer/closed_request/bottom_sheet/new_contact_phone"(platform: "/mobile") {}
         "/mplayer/closed_request/bottom_sheet/continue"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/redirector/manual_amount"(platform: "/mobile") {
+            flow = "flow"
+            contact_type = "user_id"
+        }
 
 
         // Open Request

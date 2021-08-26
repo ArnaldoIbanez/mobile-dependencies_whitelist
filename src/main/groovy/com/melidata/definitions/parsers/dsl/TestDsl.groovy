@@ -41,7 +41,7 @@ class TestDsl{
     def assertValid(catalog){
 
         this.tracks.each { singleTrack ->
-            catalog.catalogCoverage.addTestRun(singleTrack.path,singleTrack.business)
+            catalog.catalogCoverage.addTestRun(singleTrack.path)
 
             validateEventData(catalog, singleTrack)
             validateInitiative(catalog, singleTrack)

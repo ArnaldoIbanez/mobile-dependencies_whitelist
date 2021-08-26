@@ -84,10 +84,10 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
-                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GENERAL', 'GRID',
+                values: ['AFIP', 'AFIP_FROM_SHOP_NAME', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
+                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FISCAL_DATA_FROM_SHOP_NAME', 'FOOTER', 'GENERAL', 'GRID',
                          'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE',
-                         'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
+                         'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SHOP_INFO', 'SLIDER', 'SOCIAL_NETWORKS',
                          'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA',
                          'FOOTER_MESSAGE', 'WHATSAPP']
         )
@@ -346,6 +346,22 @@ tracks {
     "/mercado_shops/marketing/google_analytics/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google_analytics/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_tag_manager/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_tag_manager/open_faqs"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/cancel"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_tag_manager/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 

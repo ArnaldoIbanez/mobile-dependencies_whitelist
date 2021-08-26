@@ -142,6 +142,56 @@ trackTests {
         }
     }
 
+    test("Inform NFe flow") {
+        "/myml/invoices/inform_nfe"(platform: "/") {}
+        "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/breadcrumb_back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/inform"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime="Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime = "Regime Normal"
+            shipments_quantity=1
+        }
+        "/myml/invoices/inform_nfe/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_tax_regime = "Simples Nacional"
+            shipments_quantity=2
+        }
+        "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Regime Normal"
+        }
+        "/myml/invoices/inform_nfe/not_found"(platform: "/", type: TrackType.View) {
+            seller_tax_regime="Simples Nacional"
+        }
+    }
+
     test("Optin flow") {
         "/myml/invoices/optin"(platform: "/") {}
         "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {}
@@ -733,24 +783,168 @@ trackTests {
             type = "nfe"
         }
 
-        "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {
-            start = '20181112'
-            end = '20181112'
-            printed = true
-        }
-
-        "/myml/invoices/documents/gnre/btn/export"(platform: "/", type: TrackType.Event) {
-            start = '20181112'
-            end = '20181112'
-            printed = true
-        }
-
         "/myml/invoices/documents/success"(platform: "/", type: TrackType.View) {
             query_data = ""
         }
 
-        "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/documents/success/btn/back"(platform: "/", type: TrackType.Event) {
+            url = "https://www.mercadolivre.com.br/listings"
+        }
+
+        // CTE page
+        "/myml/invoices/documents/cte"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/documents/cte/cancel"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/documents/cte/download/start"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+        }
+
+        "/myml/invoices/documents/cte/download/validate/empty"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            empty = true
+        }
+
+        "/myml/invoices/documents/cte/download/validate/error"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+        }
+
+        // NFE View
+        "/myml/invoices/documents/nfe"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/documents/nfe/cancel"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/documents/nfe/download/start"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            file_types = "XML"
+            simple_folder = true
+            sale = "authorized"
+            returns = "all"
+            full = "inbound"
+            others = "all"
+        }
+
+        "/myml/invoices/documents/nfe/download/validate/empty"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            empty = true
+            file_types = "XML"
+            simple_folder = true
+            sale = "authorized"
+            returns = "all"
+            full = "inbound"
+            others = "all"
+        }
+
+        "/myml/invoices/documents/nfe/download/validate/error"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            file_types = "XML"
+            simple_folder = true
+            sale = "authorized"
+            returns = "all"
+            full = "inbound"
+            others = "all"
+        }
+
+        // NFE Purchases View
+        "/myml/invoices/documents/nfe/purchases"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/documents/nfe/purchases/cancel"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/documents/nfe/purchases/download/start"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            file_types = "PDF"
+            simple_folder = false
+        }
+
+        "/myml/invoices/documents/nfe/purchases/download/validate/empty"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            empty = true
+            file_types = "PDF"
+            simple_folder = false
+        }
+
+        "/myml/invoices/documents/nfe/purchases/download/validate/error"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            file_types = "PDF"
+            simple_folder = false
+        }
+
+        // NFe Reports View
+        "/myml/invoices/documents/nfe/reports"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/documents/nfe/reports/cancel"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/documents/nfe/reports/download/start"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+        }
+
+        "/myml/invoices/documents/nfe/reports/download/validate/empty"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            empty = true
+        }
+
+        "/myml/invoices/documents/nfe/reports/download/validate/error"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+        }
+
+
+        // GNRE page
+        "/myml/invoices/documents/gnre"(platform: "/", type: TrackType.View) {}
+    
+        "/myml/invoices/documents/gnre/download/validate/empty"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            printed = true
+            paid = "ONLY_PAID"
+            empty = true
+        }
+
+        "/myml/invoices/documents/gnre/download/validate/error"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            printed = true
+            paid = "ONLY_PAID"
+        }
+
+        "/myml/invoices/documents/gnre/download/start"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            printed = true
+            paid = "ONLY_PAID"
+        }
+
+        // Gnre Unprocessed View
+        "/myml/invoices/documents/gnre/unprocessed"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/documents/gnre/unprocessed/download/validate/empty"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            failed = false
+            unsupported = true
+            empty = true
+        }
+
+        "/myml/invoices/documents/gnre/unprocessed/download/validate/error"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            failed = false
+            unsupported = true
+        }
+
+        "/myml/invoices/documents/gnre/unprocessed/download/start"(platform: "/", type: TrackType.Event) {
+            end = "28/04/2021"
+            start = "20/04/2021"
+            failed = false
+            unsupported = true
+        }
 
         "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
@@ -1508,6 +1702,21 @@ trackTests {
     // TRACKS MYML MyContact Section
     test("MyContact Main"){
         "/myml/mycontact/main"(platform: "/", type: TrackType.View){}
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){}
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            questions_filter = "UNANSWERED"
+        }
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            last = "15"
+        }
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            items_filter = "active"
+        }
+        "/myml/mycontact/export"(platform: "/", type: TrackType.Event){
+            questions_filter = "UNANSWERED"
+            last = "15"
+            items_filter = "active"
+        }
     }
 
     // TRACKS MYML Invoice Detail
@@ -1535,5 +1744,10 @@ trackTests {
         "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
+    }
+
+    //MYML - MARKETPLACE VIS
+    test('Test Marketplace tracks') {
+        "/myml/marketplace/subscription"(platform: "/", type: TrackType.Event) {}
     }
 }

@@ -34,6 +34,28 @@ tracks
                 order_id(required: true, type: PropertyType.String, description: "Specifies the offer id")
             }
 
+            def weekly_detail_definition = objectSchemaDefinitions {
+                preinvoice_id(required: true, type: PropertyType.String, description: "The id of the pre invoice")
+                preinvoice_status(required: true, type: PropertyType.String, description: "The status of the pre invoice")
+                period(required: true, type: PropertyType.String, description: "The period of the pre invoice")
+                type(required: true, type: PropertyType.String,
+                        values: ["regular", "complementary", "unused_vehicle"],
+                        description: "The type of the pre invoice")
+            }
+
+            def daily_detail_definition = objectSchemaDefinitions {
+                preinvoice_id(required: true, type: PropertyType.String, description: "The id of the pre invoice")
+                preinvoice_status(required: true, type: PropertyType.String, description: "The status of the pre invoice")
+                date(required: true, type: PropertyType.String, description: "The day of the detail")
+            }
+
+            def pagination_metadata_definition = objectSchemaDefinitions {
+                offset(required: true, type: PropertyType.Numeric, description: "The offset of the pagination")
+                limit(required: true, type: PropertyType.Numeric, description: "The limit of the pagination")
+                count(required: true, type: PropertyType.Numeric, description: "The count of the pagination")
+                latest_visible_period(required: true, type: PropertyType.String, description: "The latest visible period of the pagination")
+            }
+
             //Tracks for Offers Flow in Crowd App
 
             "/crowd/offers"(platform: "/mobile", type: TrackType.View) {
@@ -143,9 +165,159 @@ tracks
                 vehicle_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
+            "/crowd/feedback/modal"(platform: "/mobile", type: TrackType.View) {
+
+            }
+
+            "/crowd/feedback/modal/tap"(platform: "/mobile", type: TrackType.Event) {
+
+            }
+
             //Tracks lib flux
-            "flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
+            "/flux-client/list-shipments/geofence/mock"(platform: "/mobile", type: TrackType.Event) {
                 user_id(required: true, type: PropertyType.String, description: "Specifies the current vehicle id")
             }
 
+            /// EARNING FLOW TRACKS
+
+            "/crowd/earning_history/hub"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/earning_history/hub/paginate"(platform: "/mobile", type: TrackType.Event) {
+                location
+                pagination_metadata(type: PropertyType.Map(pagination_metadata_definition), required: true)
+            }
+
+            "/crowd/earning_history/hub/daily_detail"(platform: "/mobile", type: TrackType.View) {
+                location
+                daily_detail(type: PropertyType.Map(daily_detail_definition), required: true)
+            }
+
+            "/crowd/earning_history/hub/daily_detail/tooltip"(platform: "/mobile", type: TrackType.Event) {
+                location
+                daily_detail(type: PropertyType.Map(daily_detail_definition), required: true)
+            }
+
+            "/crowd/earning_history/hub/daily_detail/help"(platform: "/mobile", type: TrackType.Event) {
+                location
+                daily_detail(type: PropertyType.Map(daily_detail_definition), required: true)
+            }
+
+            "/crowd/earning_history/weekly_detail"(platform: "/mobile", type: TrackType.View) {
+                location
+                weekly_detail(type: PropertyType.Map(weekly_detail_definition), required: true)
+            }
+
+            "/crowd/earning_history/weekly_detail/invoice/tap"(platform: "/mobile", type: TrackType.Event) {
+                location
+                weekly_detail(type: PropertyType.Map(weekly_detail_definition), required: true)
+            }
+
+            "/crowd/earning_history/weekly_detail/payment/tap"(platform: "/mobile", type: TrackType.Event) {
+                location
+                weekly_detail(type: PropertyType.Map(weekly_detail_definition), required: true)
+            }
+
+            "/crowd/earning_history/weekly_detail/help"(platform: "/mobile", type: TrackType.Event) {
+                location
+                weekly_detail(type: PropertyType.Map(weekly_detail_definition), required: true)
+            }
+
+            "/crowd/earning_history/weekly_detail/tooltip"(platform: "/mobile", type: TrackType.Event) {
+                location
+                weekly_detail(type: PropertyType.Map(weekly_detail_definition), required: true)
+            }
+
+            // Registration
+            "/crowd/registration/tyc"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/hub"(platform: "/mobile", type: TrackType.View) {
+                bullet(required: true, type: PropertyType.String, description: "Specifies the current bullet available")
+                location
+            }
+
+            "/crowd/registration/kyc/start"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/kyc/end"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/blocked"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/kyc/failure/logistics"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/city"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/onboarding"(platform: "/mobile", type: TrackType.Event) {
+                location
+            }
+
+            "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
+                location
+                city(required: true, type: PropertyType.String, description: "Specifies the current city geo suggestion")
+            }
+
+            "/crowd/registration/city/other"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle/selected"(platform: "/mobile", type: TrackType.Event) {
+                location
+                vehicle(required: true, type: PropertyType.String, description: "Specifies the current vehicle selected")
+            }
+
+            "/crowd/registration/vehicle/other"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle/old"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle/data"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/billing/start"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/billing/city"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/billing/tralix"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/vehicle_verification"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/city/unavailable"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
         }

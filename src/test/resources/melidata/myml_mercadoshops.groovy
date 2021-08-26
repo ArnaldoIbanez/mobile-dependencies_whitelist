@@ -566,6 +566,12 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
         }
+        "/mercado_shops/marketing/google_tag_manager"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
         "/mercado_shops/marketing/google_ads"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -705,7 +711,7 @@ trackTests {
         }
     }
 
-    test("Mercadoshops Merketing Tools events") {
+    test("Mercadoshops Marketing Tools events") {
         "/mercado_shops/marketing/google_analytics/save"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -729,6 +735,33 @@ trackTests {
             shop_name = "Test Shop"
         }
         "/mercado_shops/marketing/google_analytics/context_help"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/google_tag_manager/save"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+        }
+        "/mercado_shops/marketing/google_tag_manager/delete"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+        }
+        "/mercado_shops/marketing/google_tag_manager/open_faqs"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/google_tag_manager/cancel"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/google_tag_manager/context_help"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"

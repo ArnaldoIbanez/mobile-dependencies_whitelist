@@ -13,6 +13,7 @@ tracks {
         entity_id(required: true, type: PropertyType.String, description: "Entity id of the insurtech product")
         product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex"])
         product_id(required: false, type: PropertyType.String, description: "Id insurtech product")
+        insurance_purchase_key(required: false, type: PropertyType.String, description: "Id insurtech purchase key")
     }
     def claim = objectSchemaDefinitions {
         claim_id(required: true, type: PropertyType.String, description: "Claim id of the insurtech policy")
@@ -41,6 +42,7 @@ tracks {
     "/insurtech/protections/claims/cancel_protection"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/help"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/read_certificate"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/feedback"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/need_help"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
@@ -88,6 +90,10 @@ tracks {
         product_data(required: true, type: PropertyType.Map(claim), description: "Claim data")
     }
 
+    "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+
     "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
@@ -112,10 +118,17 @@ tracks {
     "/insurtech/protections/claims/execute/address"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
+
    "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
-        address_id(required: true, type: PropertyType.String, description: "")
+        address_id(required: true, type: PropertyType.Numeric, description: "Id of the selected address")
     }
     "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/claims/execute/imei_lock_code"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+
+    "/insurtech/protections/claims/execute/imei_lock_code/confirm"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/execute/review"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
@@ -125,6 +138,11 @@ tracks {
    "/insurtech/protections/claims/execute/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
         type_congrats(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["success", "error"])
+    }
+
+    "/insurtech/protections/claims/execute/congrats/feedback"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+        type_congrats(required: false, type: PropertyType.String, description: "Congrats state", values: ["success", "error"])
     }
 
     "/insurtech/protections/claims/execute/certificate_update"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
@@ -137,4 +155,23 @@ tracks {
     }
     "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/execute/franchise/cancel"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/claims/execute/help"(platform: "/", isAbstract: true) {}
+    "/insurtech/protections/claims/execute/help/police_report"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+    "/insurtech/protections/claims/execute/help/police_report/confirm"(platform:"/", type: TrackType.Event) {}
+    
+    "/insurtech/protections/claims/execute/wipe_data"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+    "/insurtech/protections/claims/execute/wipe_data/confirm"(platform:"/", type: TrackType.Event) {}
+    
+    "/insurtech/protections/claims/execute/document"(platform: "/", isAbstract: true) {}
+    "/insurtech/protections/claims/execute/document/request"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        product_data(required: true, type: PropertyType.Map(product), description: "Product data")
+    }
+    "/insurtech/protections/claims/execute/document/request/select_continue"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/document/request/select_police_report"(platform:"/", type: TrackType.Event) {}
+
 }

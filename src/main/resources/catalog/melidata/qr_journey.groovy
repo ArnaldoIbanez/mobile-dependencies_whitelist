@@ -7,7 +7,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 */
 tracks {
 
-    '/qr'(platform: '/', isAbstract: true, initiative: '1046') { }
+    initiative = "1300"
+
+    '/qr'(platform: '/', isAbstract: true) { }
     '/qr/journey'(platform: '/', isAbstract: true) { }
 
     // ONBOARDING

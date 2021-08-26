@@ -32,12 +32,23 @@ tracks {
         results_by_strategy(type: PropertyType.Map, required: true)
     }
 
+    def seo_experiment_item_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "experiment identifier")
+        is_enabled(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is enable by configuration")
+        is_active(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is active by configuration")
+        should_apply(type: PropertyType.Boolean, required: true, description: "indicates if the experiment should be apply for the URL")
+        executed_successfully(type: PropertyType.Boolean, required: true, description: "indicates if the experiment executed successfully or not")
+        group(type: PropertyType.String, required: true, description: "indicates comparison group to which the URL belongs")
+    }
+
+    def seo_experiments_definition = objectSchemaDefinitions {
+        status(type: PropertyType.String, required: true)
+        experiment_list(PropertyType.ArrayList(PropertyType.Map(seo_experiment_item_definition)), required: true, "list of seo experiments run")
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
-        is_whitelisted(type: PropertyType.Boolean, required: false)
-        check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: false)
-        value(type: PropertyType.Numeric, required: false)
-        is_default(type: PropertyType.Boolean, required: false)
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
+        seo_experiments(type: PropertyType.Map(seo_experiments_definition), required: false, description: "seo experiments data")
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -86,6 +97,7 @@ tracks {
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: false)
+        seller_id(type: PropertyType.Numeric, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
@@ -97,9 +109,15 @@ tracks {
         discount_volume(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        supermarket_partnership(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
+        carousel_id(type: PropertyType.String, required: true)
+        selected(type: PropertyType.Map(selected_definition), required: false)
+    }
+
+    def filter_definition = objectSchemaDefinitions {
         carousel_id(type: PropertyType.String, required: true)
         selected(type: PropertyType.Map(selected_definition), required: false)
     }
@@ -125,6 +143,12 @@ tracks {
         type(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         values_quantity(type: PropertyType.Numeric, required: true)
+        enhanced_position(type: PropertyType.Numeric, required: false, description: "position in the view where the enhanced filter will be displayed")
+    }
+
+    def original_search_filter_definition = objectSchemaDefinitions {
+        filter_id(type: PropertyType.String, required: true, description: "original search filter id applied")
+        filter_value(type: PropertyType.String, required: true, description: "original search filter value applied")
     }
 
     //SEARCH FLOW
@@ -141,7 +165,7 @@ tracks {
         filters(required: true, description: "filters applied")
         displayed_filters(required: false, descrition: "Information about displayed filters that can be applied by the user", PropertyType.ArrayList(PropertyType.Map(displayed_filter_object)))
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
-        view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
+        view_mode(required: true, description: "MOSAIC, LIST or GALLERY, MAP on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY","MAP"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
         promise_items(required: false, description:  "items with shipping promise", type: PropertyType.Map(promise_item_definition))
 
@@ -156,7 +180,7 @@ tracks {
         best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
         highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
-
+        original_search_filter(required: false, description: 'original search filter (a fallback search may be performed with certain filters unapplied in case of zero results)', type: PropertyType.Map(original_search_filter_definition))
 
         //Tracks from Search Backend:
         backend_data(required: false)
@@ -180,6 +204,12 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
+
+        //Tracks MShops
+        shop_status(required: false, description: "shows if the shop is active or inactive", type: PropertyType.String, values: ["active", "inactive"])
+        shop_id(required: false, description: "content the id of the current shop", type: PropertyType.Numeric)
+        shop_name(required: false, description: "content the name of the current shop", type: PropertyType.String)
+        shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
     }
 
     "/search"(platform: "/web") {
@@ -239,6 +269,7 @@ tracks {
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
+        filter_carousel_shown(required: false, description: 'filter carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -341,12 +372,22 @@ tracks {
         url(required: true, description: "Url of landing associated with the logo click event")
     }
 
+    "/search/official_store"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+        official_store_id(required: true, type: PropertyType.String, description: "Link's Official store id")
+    }
+
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
     }
 
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
         carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
+    }
+
+    "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        carousels(required:true, PropertyType.ArrayList(PropertyType.Map(filter_definition)))
     }
 
     "/search/input/back"(platform: "/mobile") {}
@@ -388,11 +429,38 @@ tracks {
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
+    "/search/map"(platform: "/", isAbstract: true) {}
+    "/search/map/carousel"(platform: "/", type: TrackType.Event) {
+    }
 
     "/search/search_map"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/back_listing"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/map_link"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+    }
+
+    "/search/search_map"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
+    }
+
+    "/search/back_listing"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        limit(required: false, description: "override required property")
+        offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
+        filters(required: false, description: "override required property")
+        billboards(required: false, description: "override required property")
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
