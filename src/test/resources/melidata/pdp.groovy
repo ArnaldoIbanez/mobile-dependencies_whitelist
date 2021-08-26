@@ -309,6 +309,8 @@ trackTests {
             multiple_offer_type="BEST_PRICE"
             multiple_offer_default_winner_item_id="MLB1432864987"
 
+            item_attributes="AVAILABLE_STOCK,DISCOUNT"
+
             cart()
             shipping()
             pickup()

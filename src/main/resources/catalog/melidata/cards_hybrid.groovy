@@ -288,7 +288,14 @@ tracks {
             type: PropertyType.String,
             description: "Type of Congrats"
         )
+        insurance_offer (
+            required: false,
+            type: PropertyType.String,
+            values: ["banner", "success", "pending"],
+            description: "Indicates the insurance offer type that was displayed"
+        )
     }
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,
@@ -2177,6 +2184,15 @@ tracks {
             type : PropertyType.String,
             required: false,
             description: "SDK Additional Info"
+        )
+    }
+    
+    "/cards/nfc/core/user_has_tokenized_card/error"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values:["Token is present in local preferences but not in SDK"],
+            description: "Error on userHasTokenizedCard method"
         )
     }
 

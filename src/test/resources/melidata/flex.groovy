@@ -373,6 +373,7 @@ trackTests {
 
         //Detail Shipment Parcels success
         "/flex/package/detail/parcel"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
             shipment_id = "123456"
         }
 

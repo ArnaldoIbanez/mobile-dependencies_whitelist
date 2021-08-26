@@ -94,7 +94,7 @@ tracks {
 
     "/loyalty/partners/vdp"(platform: "/", type: TrackType.View) {
         content(required: true, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
-        subscription_status(required: false, description: "Subscrition Status", type: PropertyType.String)
+        subscription_status(required: false, description: "Subscription Status", type: PropertyType.String)
     }
 
     "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event) {
@@ -162,19 +162,55 @@ tracks {
         server_error(required: false, description: "Server error", type: PropertyType.String)
     }
 
+    "/loyalty/partners/comboplus"(platform: "/", isAbstract: true, type: TrackType.View) {
+        level(required: false, description: "Level", type: PropertyType.Numeric)
+        subscribed_plans(required: false, description: "Subscribed plans", type: PropertyType.ArrayList(PropertyType.String))
+    }
+
+    "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View) {
+        type(required: false, description: "Action type"
+                ,values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
+    }
+
+    "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.Event) {
+        type(required: false, description: "Action type"
+                ,values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
+    }
+    "/loyalty/partners/comboplus/modal/action"(platform: "/", type: TrackType.Event) {
+        type(required: false, description: "Action type"
+                ,values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
+    }
+
     // Loyalty Subscription Admin
     "/loyalty/partners/admin"(platform: "/", type: TrackType.View) {
         subscription_partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
         level(type: PropertyType.Numeric, required: false)
-        subscription_status(required: false, description: "Subscrition Status", type: PropertyType.String)
+        subscription_status(required: false, description: "Subscription Status", values: ["inactive", "active", "pending"], type: PropertyType.String)
+        subscribed_plans(required: false, description: "Subscribed plans", type: PropertyType.ArrayList(PropertyType.String))
     }
 
     "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event) {
-        type(required: false, description: "Action type (detail-action, modify-action, tyc-action, etc.)", type: PropertyType.String)
+        type(required: false, description: "Action type" ,values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
     }
 
     "/loyalty/partners/summary"(platform: "/", type: TrackType.View) {
         level(type: PropertyType.Numeric, required: false)
     }
 
+    "/loyalty/buylevel"(platform: "/", isAbstract: true, type: TrackType.View) {
+        level( required: false, type: PropertyType.Numeric, description: "Level")
+        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+    }
+
+    "/loyalty/buylevel/action"(platform: "/", type: TrackType.Event) {
+        type(required: false, values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String, description: "Action type")
+
+    }
+
+    "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View) {
+        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+    }
+
+    "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View) {
+    }
 }
