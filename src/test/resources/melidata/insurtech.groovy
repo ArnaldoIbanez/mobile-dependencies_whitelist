@@ -240,6 +240,12 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    test("Garex ON policy quote by pricing experiment") {
+	"/garex/policy_quote/pricing_selection"(platform:"/", type: TrackType.Event) {}
+    }
+
+    defaultBusiness = "mercadolibre"
+
     test('Insurtech - test qpage_on tacking on checkout') {
 
         //Mobile
@@ -2896,6 +2902,6 @@ trackTests {
                     size: "64GB",
                 ]
             }
-        }
+	 }
     }
 }
