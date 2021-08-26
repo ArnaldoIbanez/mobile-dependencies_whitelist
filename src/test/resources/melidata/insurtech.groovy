@@ -1873,6 +1873,25 @@ trackTests {
             ]
         }
 
+        "/insurtech/protections/claims/cancel/review_claim"(platform:"/", type: TrackType.View){
+            product_data =[
+                claim_id:"63652ks",
+                product_type:"garex",
+            ]
+        }
+
+        "/insurtech/protections/claims/cancel/review_claim/confirm"(platform:"/", type: TrackType.Event){
+            product_data =[
+                claim_id:"63652ks",
+                product_type:"garex",
+            ]
+        }
+        "/insurtech/protections/claims/cancel/review_claim/keep_claim"(platform:"/", type: TrackType.Event){
+            product_data =[
+                claim_id:"63652ks",
+                product_type:"garex",
+            ]
+        }
         "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
             product_data =[
                 entity_type:"quote",
@@ -1883,15 +1902,26 @@ trackTests {
             type_congrats= 'success'
         }
 
-        "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
+        "/insurtech/protections/claims/cancel/congrats_claim"(platform:"/", type: TrackType.View) {
             product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                claim_id:"63652ks",
+                product_type:"garex",
             ]
             type_congrats= 'error'
         }
+          "/insurtech/protections/claims/cancel/congrats_claim/retry"(platform:"/", type: TrackType.Event){
+            product_data =[
+                claim_id:"63652ks",
+                product_type:"garex",
+            ]
+        }
+           "/insurtech/protections/claims/cancel/congrats_claim/claims"(platform:"/", type: TrackType.Event){
+            product_data =[
+                claim_id:"63652ks",
+                product_type:"garex",
+            ]
+        }
+
         "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View) {
             product_data =[
                 entity_type:"quote",
