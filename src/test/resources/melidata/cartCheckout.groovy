@@ -749,6 +749,7 @@ trackTests {
             ]
         }
         "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/cart/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
