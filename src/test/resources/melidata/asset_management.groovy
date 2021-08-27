@@ -537,15 +537,11 @@ trackTests {
         "/asset_management/loading_gbm"(platform: "/", business: "mercadolibre") {}
 
         //status blocker
-        "/asset_management/status_blocker"(platform: "/mobile", type: TrackType.View) {}
-        "/asset_management/status_blocker"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/status_blocker/go_to_home"(platform: "/mobile", type: TrackType.Event) {}
-        "/asset_management/status_blocker/go_to_home"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/status_blocker/know_requirements"(platform: "/mobile", type: TrackType.Event) {}
-        "/asset_management/status_blocker/know_requirements"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/status_blocker/contact_bind"(platform: "/mobile", type: TrackType.Event) {}
-        "/asset_management/status_blocker/contact_bind"(platform: "/mobile", business: "mercadolibre") {}
-
+        "/asset_management/status_blocker"(platform: "/mobile", type: TrackType.View, business: "mercadolibre") {}
+        "/asset_management/status_blocker/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/status_blocker/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/status_blocker/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        
         "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {}
         "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {
             status_id = 'pending'
