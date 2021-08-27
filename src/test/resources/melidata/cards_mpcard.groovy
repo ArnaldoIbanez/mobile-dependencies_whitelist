@@ -1065,7 +1065,7 @@ trackTests {
     }
     test("cards mpcard request physical challenge tap") {
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "close"
+            action = "back"
         }
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"

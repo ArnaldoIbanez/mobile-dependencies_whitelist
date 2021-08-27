@@ -1033,7 +1033,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add_money"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the challenge"
         )
     }

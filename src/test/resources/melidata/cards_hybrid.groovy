@@ -1144,7 +1144,7 @@ trackTests {
     }
     test("cards hybrid request physical challenge tap") {
         "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "close"
+            action = "back"
         }
         "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
