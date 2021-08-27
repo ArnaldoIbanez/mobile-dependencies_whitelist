@@ -3568,5 +3568,6 @@ tracks {
     "/notification/registration_under_age_rejected"(platform: "/mobile") {}
     "/notification/registry_recovery"(platform: "/mobile") {}
 
-
+    // Proximity Marketplace Order Manager
+    "/notification/pm_om_notification_store_opening"(platform: "/") {}
 }
