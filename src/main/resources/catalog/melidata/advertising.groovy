@@ -308,48 +308,52 @@ tracks {
     "/advertising/privacy/target"(platform: "/", type: TrackType.View) {
     }
 
-    "/advertising/privacy/target/switch"(platform: "/", type: TrackType.View) {
+    "/advertising/privacy/target/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
     }
 
-    "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.View) {
+    "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/target/confirmation_modal"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/target/confirmation_modal/show"(platform: "/", type: TrackType.Event) {
         switch_status(required: true, description: "Current state of switch")
     }
 
-    "/advertising/privacy/target/modal/show"(platform: "/", type: TrackType.View) {
-        switch_status(required: true, description: "Current state of switch")
+    "/advertising/privacy/target/confirmation_modal/keep_ads_active"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/target/modal/keep_ads_active"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    "/advertising/privacy/target/confirmation_modal/deactivate_ads"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/target/modal/deactivate_ads"(platform: "/", type: TrackType.Event, isAbstract: true) {
-    }
-
-    "/advertising/privacy/target/modal/dismiss"(platform: "/", type: TrackType.Event) {
+    "/advertising/privacy/target/confirmation_modal/dismiss"(platform: "/", type: TrackType.Event) {
         switch_status(required: true, description: "Current state of switch")
     }
 
     "/advertising/privacy/business_partners"(platform: "/", type: TrackType.View) {
     }
 
-    "/advertising/privacy/business_partners/switch"(platform: "/", type: TrackType.View) {
+    "/advertising/privacy/business_partners/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
     }
 
     "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/business_partners/confirmation_modal"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/business_partners/confirmation_modal/show"(platform: "/", type: TrackType.Event) {
         switch_status(required: true, description: "Current state of switch")
     }
 
-    "/advertising/privacy/business_partners/modal/show"(platform: "/", type: TrackType.Event) {
-        switch_status(required: true, description: "Current state of switch")
+    "/advertising/privacy/business_partners/confirmation_modal/keep_ads_active"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/business_partners/modal/keep_ads_active"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    "/advertising/privacy/business_partners/confirmation_modal/deactivate_ads"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/business_partners/modal/deactivate_ads"(platform: "/", type: TrackType.Event, isAbstract: true) {
-    }
-
-    "/advertising/privacy/business_partners/modal/dismiss"(platform: "/", type: TrackType.Event) {
+    "/advertising/privacy/business_partners/confirmation_modal/dismiss"(platform: "/", type: TrackType.Event) {
         switch_status(required: true, description: "Current state of switch")
     }
 
