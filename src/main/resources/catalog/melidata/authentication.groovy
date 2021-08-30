@@ -745,7 +745,6 @@ tracks {
     "/reauth/operation_end"(platform: "/mobile", type: TrackType.Event) {
         result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
         error(type: PropertyType.String, required: false)
-        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
         status
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
