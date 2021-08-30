@@ -2,6 +2,7 @@ package catalog.melidata
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
+import javafx.beans.property.Property
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -680,6 +681,38 @@ tracks {
     //LISTING - Secondary Actions Click
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    //Listing empty state
+    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.Event){
+        item_id(required: true, type: PropertyType.String, description: "Item to activate")
+        view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        reason(required: true, type: PropertyType.String, description: "Reason")
+    }
+
+    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.View){
+        item_id(required: true, type: PropertyType.String, description: "Item to activate")
+        view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        reason(required: true, type: PropertyType.String, description: "Reason")
+    }
+
+    "/seller_central/listings/empty_channel"(platform: "/", type: TrackType.View){
+        action(required: true, type: PropertyType.String, description: "Action performed")
+        sub_view_id(required: true, type: PropertyType.String, description: "Rendered view id")
+    }
+
+    "/seller_centra/listings/empty_state/action"(platform: "/", type: TrackType.Event){
+        activate(required: true, type: PropertyType.String, description:"Channel to activate", values: ["mshops", "marketplace"])
+    }
+
+    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
+        url(required: false, type: PropertyType.String, description: "Url of the shop")
+        type(required: false, type: PropertyType.String, description: "Shop type")
+        selected_view(required: true, type: PropertyType.String, description: "View selected")
+    }
+
+    "/seller_central/listings/activate"(platform: "/", type: TrackType.Event){
+        activate(required: true, type: PropertyType.String, description: "Selected view to activate")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
