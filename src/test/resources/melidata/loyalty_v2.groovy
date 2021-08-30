@@ -1,5 +1,7 @@
 package src.test.resources.melidata
 
+import com.ml.melidata.catalog.PropertyType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType;
 
@@ -508,9 +510,28 @@ trackTests {
         "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 4
             subscription_status ="inactive"
+            subscription_partner = "level-6"
         }
+
+        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            level = 5
+            subscription_type = "pack-6-months"
+            loyalty_level = 3
+            payment_status_detail = "freetrial-activated"
+            payment_id = "42323"
+            payment_status = "success"
+        }
+
         "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
-            level = 6
+            level = 5
+            subscription_type = "pack-6-months"
+            loyalty_level = 3
+            payment_status_detail = "freetrial-activated"
+            payment_id = "42323"
+            payment_status = "success"
+
+
         }
+
     }
 }
