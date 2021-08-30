@@ -259,6 +259,9 @@ trackTests {
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
         }
+        "/auth/account_recovery/expired"(platform: "/web", type: TrackType.View) {
+            id = "id--fury"
+        }
         "/auth/account_recovery/confirm"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
         }
@@ -276,6 +279,11 @@ trackTests {
             target = "go_home_button"
         }
         "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
+            id = "id--fury"
+            event_type = "click"
+            target = "go_home_button"
+        }
+        "/auth/account_recovery/expired/action"(platform: "/web", type: TrackType.Event) {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"

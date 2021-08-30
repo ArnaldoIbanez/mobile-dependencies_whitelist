@@ -260,6 +260,8 @@ tracks {
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
+    "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {}
+
     "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
@@ -270,6 +272,11 @@ tracks {
     }
 
     "/auth/account_recovery/on_hold/action"(platform: "/", type: TrackType.Event) {
+        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
+        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
+    }
+
+    "/auth/account_recovery/expired/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
