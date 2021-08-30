@@ -2,7 +2,6 @@ package catalog.melidata
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
-import javafx.beans.property.Property
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -699,10 +698,6 @@ tracks {
     "/seller_central/listings/empty_channel"(platform: "/", type: TrackType.View){
         action(required: true, type: PropertyType.String, description: "Action performed")
         sub_view_id(required: true, type: PropertyType.String, description: "Rendered view id")
-    }
-
-    "/seller_centra/listings/empty_state/action"(platform: "/", type: TrackType.Event){
-        activate(required: true, type: PropertyType.String, description:"Channel to activate", values: ["mshops", "marketplace"])
     }
 
     "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
