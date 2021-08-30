@@ -201,8 +201,7 @@ trackTests {
   }
 
   test("seller central listing quantity action") {
-    "/seller_central/listings/quantity/action"(platform: "/", type: TrackType.Event) {
-      action_id = "action_id"
+    "/seller_central/listings/quantity/change_tab"(platform: "/", type: TrackType.Event) {
       view_id = "fulfillment"
       target_view_id = "stranded"
     }

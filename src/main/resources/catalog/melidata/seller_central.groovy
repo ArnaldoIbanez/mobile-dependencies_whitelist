@@ -624,8 +624,7 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    "/seller_central/listings/quantity/action"(platform: "/", type: TrackType.Event) {
-        action_id(required: true, type: PropertyType.String, description: "Action id")
+    "/seller_central/listings/quantity/change_tab"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         target_view_id(required: false, type: PropertyType.String, description: "View to which the event has changed")
     }
