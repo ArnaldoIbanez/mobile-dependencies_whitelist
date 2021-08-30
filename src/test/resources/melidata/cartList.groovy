@@ -6,7 +6,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "mercadolibre"
+    defaultBusiness = "mercadopago"
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -176,6 +176,21 @@ trackTests {
         }
 
         "/cart/my_cart/delete_item"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/my_cart/update_item_kit"(platform: "/mobile"){
             item = [
                     id: "MLA754486062",
                     listing_type: "gold_special",
