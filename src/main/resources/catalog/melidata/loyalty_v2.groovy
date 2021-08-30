@@ -212,5 +212,10 @@ tracks {
     }
 
     "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View) {
+        subscription_type(required: false, description: "Subscription pack type", type: PropertyType.String)
+        loyalty_level(required: false ,type: PropertyType.Numeric )
+        payment_status_detail(required: false, description: "Payment detail", type: PropertyType.String)
+        payment_id(required: true, description: "Payment id", type: PropertyType.String)
+        payment_status(required: true, description: "Payment status", type: PropertyType.String)
     }
 }
