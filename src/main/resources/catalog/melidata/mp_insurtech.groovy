@@ -671,7 +671,8 @@ tracks {
     }
     "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
     }
-
+    "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+    }
 
     //Landing-fe
     "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {

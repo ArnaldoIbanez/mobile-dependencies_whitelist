@@ -240,6 +240,12 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    test("Garex ON policy quote by pricing experiment") {
+	"/garex/policy_quote/pricing_selection"(platform:"/", type: TrackType.Event) {}
+    }
+
+    defaultBusiness = "mercadolibre"
+
     test('Insurtech - test qpage_on tacking on checkout') {
 
         //Mobile
@@ -2418,6 +2424,14 @@ trackTests {
                 product_id:"MLB_RD00000000000065134TEST"
             ]
         }
+        "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"garex",
+                product_id:"MLA_RD00000000000065134TEST"
+            ]
+        }
 
         //landing-fe
         "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View) {
@@ -2896,6 +2910,6 @@ trackTests {
                     size: "64GB",
                 ]
             }
-        }
+	 }
     }
 }
