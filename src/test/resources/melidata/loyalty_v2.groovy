@@ -510,6 +510,7 @@ trackTests {
         "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 4
             subscription_status ="inactive"
+            subscription_partner = "level-6"
         }
 
         "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadolibre") {
