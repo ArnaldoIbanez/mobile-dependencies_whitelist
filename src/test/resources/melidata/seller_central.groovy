@@ -468,7 +468,7 @@ trackTests {
     }
   }
 
-    test("Seller coach card click") {
+  test("Seller coach card click") {
     "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
@@ -530,7 +530,7 @@ trackTests {
     }
   }
 
-    test("Seller coach carousel scroll") {
+  test("Seller coach carousel scroll") {
     "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
