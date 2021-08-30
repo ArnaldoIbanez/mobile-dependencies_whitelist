@@ -163,7 +163,7 @@ class Validate {
     private static String buildQuery(options) {
         def from = getFromDate(options)
         def to = getToDate(options)
-        def date = "AND ds >= '${from}' AND ds < '2021-08-26' \n"
+        def date = "AND ds >= '${from}' AND ds < '${to}' \n"
         def path = ""
         def exact_path = ""
         def business = ""
