@@ -274,6 +274,9 @@ trackTests {
         "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
         }
 
+        "/advertising/privacy/target/confirmation_modal"(platform: "/", type: TrackType.Event) {
+        }
+
         "/advertising/privacy/target/confirmation_modal/show"(platform: "/", type: TrackType.Event) {
             switch_status = "enabled"
         }
@@ -295,6 +298,9 @@ trackTests {
         }
 
         "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/confirmation_modal"(platform: "/", type: TrackType.Event) {
         }
 
         "/advertising/privacy/business_partners/confirmation_modal/show"(platform: "/", type: TrackType.Event) {
