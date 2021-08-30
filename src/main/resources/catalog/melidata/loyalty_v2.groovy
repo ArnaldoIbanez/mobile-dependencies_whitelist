@@ -200,6 +200,7 @@ tracks {
     "/loyalty/buylevel"(platform: "/", isAbstract: true, type: TrackType.View) {
         level( required: false, type: PropertyType.Numeric, description: "Level")
         subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+        subscription_partner(required: false, description: "Partner name (HBO, Paramount, Disney, etc.)", type: PropertyType.String)
     }
 
     "/loyalty/buylevel/action"(platform: "/", type: TrackType.Event) {
@@ -208,7 +209,6 @@ tracks {
     }
 
     "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View) {
-        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
     }
 
     "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View) {
