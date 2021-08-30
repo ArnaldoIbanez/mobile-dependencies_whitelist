@@ -721,7 +721,12 @@ tracks {
     // Native Reauth Mobile
 
     propertyDefinitions {
+        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
         reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error", "server_error", "client_error"], description: "Identify 201, 204 o error status by api result workflow decide")
+    }
+
+    propertyGroups {
+        status(reauth_status, transaction_id)
     }
 
     "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {
@@ -734,15 +739,14 @@ tracks {
     "/reauth/operation_start"(platform: "/mobile", type: TrackType.Event) {}
 
     "/reauth/operation_status"(platform: "/mobile", type: TrackType.Event) {
-        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
-        reauth_status
+        status
     }
 
     "/reauth/operation_end"(platform: "/mobile", type: TrackType.Event) {
         result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
         error(type: PropertyType.String, required: false)
         transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
-        reauth_status
+        status
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }
