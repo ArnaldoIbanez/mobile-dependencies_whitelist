@@ -187,6 +187,7 @@ tracks {
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
+         dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
     
     "/cards/mpcard/dashboard/virtual"(platform: "/", isAbstract: true) {}
@@ -349,6 +350,39 @@ tracks {
             type: PropertyType.String,
             values: ["page_0", "page_1", "page_2", "page_3", "page_4"],
             description: "Carousel item swiped"
+          )
+    }
+        //Dynamic Carousel Tracking
+    def dynamic_carousel_description = objectSchemaDefinitions {
+        audience(required: false, type: PropertyType.String)
+        bu(required: false, type: PropertyType.String)
+        bu_line(required: false, type: PropertyType.String)
+        component_id(required: false, type: PropertyType.String)
+        content_id(required: false, type: PropertyType.String)
+        flow(required: false, type: PropertyType.String)
+        logic(required: false, type: PropertyType.String)
+        position(required: true, type: PropertyType.Numeric)
+    }
+    "/cards/mpcard/dashboard/dynamic_carousel"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/dashboard/dynamic_carousel/tap"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item tapped"
+          )
+    }
+    "/cards/mpcard/dashboard/dynamic_carousel/swipe"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item swiped"
+          )
+    }
+    "/cards/mpcard/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item closed"
           )
     }
     
@@ -827,6 +861,15 @@ tracks {
             description: "Unlock Physical Button Tapped"
           )
     }
+    "/cards/mpcard/physical/unlock/status"(platform:"/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["success", "error"],
+            description: "Unlock Physical transaction status"
+          )
+    }
+
     
     // CHANGE-PIN
     // --------
@@ -908,7 +951,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["understand", "atm_away"],
+            values: ["understands", "atm_away"],
             description: "Button tapped",
         )
     }
@@ -971,7 +1014,7 @@ tracks {
     }
 
     // Request: Challenge
-    "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) { }
 
     "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
         reasons (
@@ -990,7 +1033,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add_money"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the challenge"
         )
     }
@@ -1024,18 +1067,31 @@ tracks {
     }
 
     // Request: Pending Challenge
-    "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
+        )
+    }
     "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "add_money", "info_payment", "money_in"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the pending challenge view"
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
         )
     }
 
     // Request: Expired Challenge
-    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) { }
     "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
         action(
             required: true,

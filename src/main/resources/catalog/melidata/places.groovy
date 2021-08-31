@@ -211,4 +211,28 @@ tracks {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
     }
+
+    "/places/operations/containers/container_identification_step"(platform: "/web",
+            type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/containers/container_scanner_step"(platform: "/web",
+            type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/containers/container_inbound_congrats_view"(platform: "/web",
+            type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
+
+    "/places/operations/containers/inbound_error_congrats_view"(platform: "/web",
+            type: TrackType.View) {
+        place_id(required: true, type: PropertyType.String,
+                description: "ID of place (agency) user operates in.")
+    }
 }

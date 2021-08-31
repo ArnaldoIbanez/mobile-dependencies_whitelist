@@ -82,5 +82,12 @@ trackTests {
             context = "/search"
         }
 
+        "/bookmarks/change_page" (type: TrackType.Event) {
+            page = 1
+            context = "/myml"
+        }
+
+        "/bookmarks/widget/see_all" (type: TrackType.Event) {}
+
     }
 }

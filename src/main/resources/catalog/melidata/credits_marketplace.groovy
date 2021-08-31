@@ -53,7 +53,6 @@ tracks {
     }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy name", type: PropertyType.String, required: true)
     }
@@ -215,6 +214,19 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(
                 required: true,
@@ -285,6 +297,15 @@ tracks {
     //Events
     "/credits/consumer/administrator/history/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/history/educational_landing"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding view
+    "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {}
+
+    //Events
+    "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
+
 
     /******************************************
      *       End: Consumers Administrator

@@ -113,7 +113,7 @@ tracks {
 
     // siguientes tracks no pertenecen a mobile-arquitectura, sino que es de otro team que trackea sobre /landing
 
-    "/landing/brands"(platform: "/mobile", isAbstract: true, initiative : "1063"){}
+    "/landing/brands"(platform: "/mobile", isAbstract: true, initiative : "1104"){}
 
     "/landing/brands/abort"(platform: "/mobile") {
         query(required:true, type: PropertyType.String, descripcion:"Query used in screen")

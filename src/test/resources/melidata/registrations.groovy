@@ -561,6 +561,26 @@ trackTests {
                     ["field": "pass", "code": 1]
             ]
         }
+
+        "/register/company/email_validation/success"(platform: "/web", type: TrackType.Event) {}
+    }
+
+    test("Company Registration Desktop MP") {
+        "/register/company/form"(platform: "/web", type: TrackType.View, business: "mercadopago") {
+        }
+        "/register/company/congrats"(platform: "/web", type: TrackType.View, business: "mercadopago") {
+        }
+        "/register/company/form/error"(platform: "/web", type: TrackType.Event, business: "mercadopago") {
+            errors = [
+                    ["field": "cuit", "code": 1],
+                    ["field": "socialReason", "code": 1],
+                    ["field": "email", "code": 1],
+                    ["field": "pass", "code": 1]
+            ]
+        }
+
+        "/register/company/email_validation/success"(platform: "/web", type: TrackType.Event, business: "mercadopago") {
+        }
     }
 
     test("Account Recovery tracking event") {
@@ -672,5 +692,151 @@ trackTests {
         
         "/register/v3/challenge/tyc/standard"(platform: "/mobile", business: "mercadopago"){}
         "/register/v3/challenge/tyc/standard/submit"(platform: "/mobile", business: "mercadopago"){}   
+    }
+
+    test("Underage") {
+        "/under_age_validation/tutor_email"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/submit"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+            status = "pending_authorization"
+        }
+        "/under_age_validation/tutor_email/congrats"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/congrats/change_email"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected/change_email"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_authorization"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/rejected"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/congrats"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_landing"(platform: "/mobile"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+        }
+
+        // MP
+        "/under_age_validation/tutor_email"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/submit"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            flow = "registration"
+            status = "pending_authorization"
+        }
+        "/under_age_validation/tutor_email/congrats"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/congrats/change_email"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_email/rejected/change_email"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            flow = "registration"
+        }
+        "/under_age_validation/tutor_authorization"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/rejected"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_authorization/congrats"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+            from_kyc = true
+        }
+        "/under_age_validation/tutor_landing"(platform: "/mobile", business: "mercadopago"){
+            under_age_validation_id = "UAID"
+            under_age_validation_responsible_id = "UARID"
+
+        }
+    }
+
+    test("User Registration from MShops Buyflow"){
+        "/register/form"(platform: "/web", type: TrackType.View) {
+            app = "buy"
+            source = "email"
+            captcha_showed = false
+            prog_reg_version = 0
+            registration_version = "regi_v0_web_buy"
+            shop_id = 258674486
+            shop_name = "Kärcher"
+            shop_domain = "www.karcherstore.com.ar"
+            shop_status = "active"
+        }
+        "/register/form/error"(platform: "/web", type: TrackType.View) {
+            app = "buy"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+            registration_version = "regi_v0_web_buy"
+            errors_validation = "back"
+            shop_id = 258674486
+            shop_name = "Kärcher"
+            shop_domain = "www.karcherstore.com.ar"
+            shop_status = "active"
+        }
+        "/register/form/another-email"(platform: "/web", type: TrackType.View) {
+            app = "buy"
+            source = "email"
+            captcha_showed = true
+            errors = [
+                    [
+                            code : 8,
+                            field: "email"
+                    ]
+            ]
+            errors_validation = "back"
+            prog_reg_version = 0
+            registration_version = "regi_v0_web"
+            shop_id = 258674486
+            shop_name = "Kärcher"
+            shop_domain = "www.karcherstore.com.ar"
+            shop_status = "active"
+        }
     }
 }

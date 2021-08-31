@@ -200,6 +200,9 @@ trackTests {
             app_cache = 76800
             app_data = 230400
             dark_mode_status = "enabled"
+            font_scale = "large"
+            voice_over = false
+            high_contrast = true
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"
@@ -216,6 +219,9 @@ trackTests {
             app_cache = 76800
             app_data = 230400
             dark_mode_status = "enabled"
+            font_scale = "medium"
+            voice_over = true
+            high_contrast = false
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"

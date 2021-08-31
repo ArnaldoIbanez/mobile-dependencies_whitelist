@@ -4,17 +4,22 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    initiative = "1125"
+    initiative = "1074"
     defaultBusiness = "mercadolibre"
 
     //Card Listing Flow
     test("Cards Wallet tracking ML") {
 
-        "/wallet/cards/listing"(platform:"/mobile", {})
+        "/wallet/cards/listing"(platform:"/mobile", {
+            version = "2.0"
+        })
 
         "/wallet/cards/detail"(platform:"/mobile", {})
 
-        "/wallet/cards/add_card"(platform:"/mobile", {})
+        "/wallet/cards/add_card"(platform:"/mobile", {
+            id_banner = "cards_list_prepaid_banner_acquisition"
+            other_cards = true
+        })
         "/wallet/cards/add_card/success"(platform:"/mobile", {})
         "/wallet/cards/add_card/failed"(platform:"/mobile", {})
 

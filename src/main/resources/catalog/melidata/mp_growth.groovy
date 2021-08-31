@@ -109,9 +109,19 @@ tracks {
 	"/merchant_acquisition/flows/wrap_up"(platform: "/", isAbstract: true) {}
 	"/merchant_acquisition/flows/wrap_up/home"(platform:"/", type: TrackType.View) {}
 	"/merchant_acquisition/flows/wrap_up/home/x_sell"(platform:"/", type: TrackType.View) {}
-	"/merchant_acquisition/flows/wrap_up/home/x_sell/click_see_more"(platform:"/", type: TrackType.Event) {
+	"/merchant_acquisition/flows/wrap_up/home/closing"(platform:"/", type: TrackType.View) {}
+	"/merchant_acquisition/flows/wrap_up/home/x_sell/see_more"(platform:"/", type: TrackType.Event) {
         product_sell_name(required: true, type: PropertyType.String, description: "The product sell name")
         link(required: true, type: PropertyType.String, description: "Link to execute")
+    }
+    "/merchant_acquisition/flows/wrap_up/home/closing/like"(platform:"/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/wrap_up/home/closing/dislike"(platform:"/", type: TrackType.Event) {}
+	"/merchant_acquisition/flows/wrap_up/home/sellers_central"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/wrap_up/home/sellers_central/see_more"(platform:"/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link to execute")
+    }
+    "/merchant_acquisition/flows/wrap_up/home/value_prop"(platform:"/", type: TrackType.Event) {
+        section(required: true, type: PropertyType.String, description: "Name of section where the user clicked the link.")
     }
 
     //mgm
@@ -161,16 +171,16 @@ tracks {
     "/merchant_acquisition/flows/share_mgm/about_share"(platform: "/", type: TrackType.Event) {}
 
     "/merchant_acquisition/flows/share_mgm/share_device_button"(platform: "/", type: TrackType.Event) {
-        product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+        device (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
     "/merchant_acquisition/flows/share_mgm/more_info_device"(platform: "/", type: TrackType.Event) {
-        product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+        device (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
     "/merchant_acquisition/flows/share_mgm/device/invite"(platform: "/", type: TrackType.Event) {
         media (type: PropertyType.String, required: true, description: "In which channel did the user shared the coupon (ex: Whatsapp)")
-        product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+        device (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
     }
 
     "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}

@@ -140,7 +140,7 @@ trackTests {
             itemData()
             chosen_categorization_model = "ZORDON"
         })
-        
+
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
 
     }
@@ -262,6 +262,15 @@ trackTests {
             defaultCatalogFlowMobile()
         }
         "/sell/list/hub"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+            user_shops_status = "none"
+            sale_channels = ["mshops", "marketplace"]
+        }
+        "/sell/list/hub/select_vertical"(platform: "/mobile", type: TrackType.Event) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -1406,6 +1415,36 @@ trackTests {
         }
     }
 
+    test("flujo de Delete Feedback "){
+        "/sell/update/delete_feedback/survey" (platform: "/mobile", type: TrackType.View) {
+            seller_segment ="NONE"
+            item_id ="MLA925588746"
+            seller_profile = "NEWBIE"
+            vertical = "motors"
+        }
+        "/sell/update/delete_feedback/other_reason" (platform: "/mobile", type: TrackType.View) {
+            seller_segment ="NONE"
+            item_id ="MLA925588746"
+            seller_profile = "NEWBIE"
+            vertical = "motors"
+        }
+        "/sell/update/delete_feedback/landing" (platform: "/mobile", type: TrackType.View) {
+            seller_segment ="NONE"
+            item_id ="MLA925588746"
+            seller_profile = "NEWBIE"
+            vertical = "motors"
+            option_selected = 4
+            other_reason = "se daño el vehiculo"
+        }
+        "/sell/update/delete_feedback/landing/confirm" (platform: "/mobile", type: TrackType.Event) {
+            seller_segment ="NONE"
+            item_id ="MLA925588746"
+            seller_profile = "NEWBIE"
+            vertical = "motors"
+            option_selected = 3
+        }
+    }
+
     test("Native Sell List Real State flow steps") {
         "/sell/list/congrats"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1656,6 +1695,20 @@ trackTests {
             vertical = "real_estate"
         }
         "/sell/list/kyc_landing"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
+        "/sell/list/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
+        "/sell/list/draft/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -3341,7 +3394,7 @@ trackTests {
                 result_type: "QUERY_DOMAIN_SUGGESTIONS"
             }]
             products_selected_index = -1
-            debug_domain_discovery = [{ 
+            debug_domain_discovery = [{
                       debug_model_name: { model_name: "DOMAINSEARCH"
                       score: 0.33333334}
                       }]
@@ -4048,6 +4101,32 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
+    test("SYI v4 prices card showed"){
+        "/sell/item_conditions/prices/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+    test("SYI v4 prices card confirmed"){
+        "/sell/item_conditions/prices/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
     test("SYI v4 price and currency card showed"){
         "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -4645,6 +4724,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
         }
     }
 

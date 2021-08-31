@@ -25,6 +25,10 @@ tracks {
 
     "/addresses/input_address/map"(platform:"/", type: TrackType.View) {}
 
+    "/addresses/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the map open case")
+    }
+
     // VIEWS ACTIONS
     "/addresses/input_address/back"(platform: "/", type: TrackType.Event) {}
 

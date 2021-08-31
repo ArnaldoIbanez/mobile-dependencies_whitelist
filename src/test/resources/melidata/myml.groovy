@@ -1745,4 +1745,9 @@ trackTests {
         "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
     }
+
+    //MYML - MARKETPLACE VIS
+    test('Test Marketplace tracks') {
+        "/myml/marketplace/subscription"(platform: "/", type: TrackType.Event) {}
+    }
 }

@@ -383,6 +383,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source = "description"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
@@ -392,6 +393,7 @@ trackTests {
             event_source = "technicalSpecs"
             source = "htmlView"
             item_seller_type="car_dealer"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/mobile", type: TrackType.Event, {
@@ -411,6 +413,7 @@ trackTests {
             unregistered_contact_context= false
             has_good_price= false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -432,6 +435,7 @@ trackTests {
             mandatory()
             optionals()
             item_seller_type = "AB001"
+            source = "primary"
         }
 
 	  	"/vip/quote_demand_intention_lower"(platform: "/mobile", type: TrackType.Event) {
@@ -492,6 +496,7 @@ trackTests {
 	        item_seller_type = "AB001"
 	        from_view="vip"
 	        resolution = "high"
+            source = "primary"
     	}
 
         //with deals_ids
@@ -535,6 +540,7 @@ trackTests {
             item_seller_type = "AB001"
             from_view = "vip"
             resolution = "high"
+            source = "primary"
         }
     }
     test("Vip web mobile tracking without reviews") {
@@ -622,6 +628,60 @@ trackTests {
         }
         "/vip/video_focus"(platform: "/mobile") {
             video_type = "VIDEO"
+        }
+    }
+
+    test("vip - view 360") {
+
+        def dataSet = {
+            item_id = "MLA924707090"
+            category_id = "MLA1744"
+            buying_mode = "classified"
+            category_path = [
+                    "MLA1743",
+                    "MLA1744"]
+            vertical = "motors"
+            item_condition = "used"
+            listing_type_id = "gold"
+            item_status = "active"
+            deal_ids = []
+            catalog_listing = false
+            city = "Alberti"
+            neighborhood = "Alberti"
+            state = "Buenos Aires Interior"
+            seller_id = 692365350
+            contract_available = false
+            comparator_available = false
+            gallery_pattern = "X"
+            price_comparison_available = null
+            price_comparison_position = null
+            whatsapp_available = "false"
+            quote_demand_available = false
+            description_type = "plain_text"
+            quantity_models = null
+            domain_id = "MLA-CARS_AND_VANS"
+            item_seller_type = "normal"
+        }
+
+        def viewOption = {
+            dataSet()
+            video_type = "VIEW360"
+        }
+
+        def noneOption = {
+            dataSet()
+            video_type = "NONE"
+        }
+
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            viewOption()
+        }
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIEW360"
         }
     }
 
@@ -863,6 +923,7 @@ trackTests {
             vip_version = "new"
             has_good_price = false
             has_highlighted_sale_specs=false
+            is_highlighted = false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -878,6 +939,7 @@ trackTests {
             ]
             has_good_price = true
             has_highlighted_sale_specs=true
+            is_highlighted = false
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -900,6 +962,7 @@ trackTests {
             vip_version = "new"
             has_good_price = false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -907,6 +970,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source= "description"
+            from_view = "questions"
         }
 
         "/vip/questions/show"(platform: "/", type: TrackType.View) {
@@ -915,6 +979,7 @@ trackTests {
             vip_version = "new"
             has_good_price = true
             has_highlighted_sale_specs=true
+            from_view = "questions"
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -940,6 +1005,8 @@ trackTests {
         "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
             item_id = "MLA112341"
         }
+
+        "/vip/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {}
     }
 
     test("New Shipping calculator"){
@@ -1257,18 +1324,6 @@ trackTests {
     }
 
     test("VIP fulfillment onboardings") {
-
-        "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            item_condition = "new"
-            seller_id = 131662738
-            price = 15.3
-            currency_id = "ARS"
-            original_price = 18.0
-            vip_version = "new"
-        }
 
         "/vip/show_fulfillment_tooltip"(platform: "/") {
             item_id = "MLA533657947"
@@ -2086,5 +2141,67 @@ trackTests {
         "/vip/back_to_top"(platform: "/", type: TrackType.View) {
             item_id = "MLB533657947"
         }
+    }
+
+    test("VIP payment methods modal view") {
+        "/vip/payment_methods"(platform: "/", type: TrackType.View) {
+            page_vertical = "CORE"
+            category_l1 = "{'MLA1574':'Hogar, Muebles y Jardín}"
+            category_l2 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar}"
+            category_l3 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar,'MLA1623':'Otros}"
+            shipping_mode = "not_specified"
+            free_shipping = false
+            international_delivery_mode = "none"
+            item_id = "MLA786428856"
+            item_condition = "NEW"
+            buying_mode = "BUY_IT_NOW"
+            variations = false
+            collector_id = "151804293"
+            category_domain = "MLA-HOME_FURNITURE"
+            listing_source = "mercadolibre"
+            listing_type = "gold_special"
+            fulfillment = false
+            item_attributes = "DEFERRED_STOCK"
+            item_state = "NONE"
+            item_city = "NONE"
+            item_neighborhood = "NONE"
+        }
+    }
+
+    // MERCH
+    test("Vip Merch ecosystem") {
+
+        def dataSet = {
+            item_id = "MLB533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+            catalog_listing = false
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
+            realestates = {
+                vip_pdp_ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/vip"(platform: "/", dataSet)
     }
 }
