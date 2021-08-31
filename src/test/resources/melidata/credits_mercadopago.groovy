@@ -397,6 +397,8 @@ trackTests {
             product_type = 'fixed_term_loan'
             has_prepaid = true
             through_kyc = true
+            loan_status = 'cancelled'
+            loan_status_detail = 'payment_rejected'
         }
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
             requested_amount = 10000
@@ -407,6 +409,7 @@ trackTests {
             product_type = 'sales_percentage_loan'
             has_prepaid = false
             through_kyc = true
+            loan_status_detail = 'pending'
         }
 
         //Access
