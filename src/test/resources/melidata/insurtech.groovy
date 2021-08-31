@@ -240,6 +240,12 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    test("Garex ON policy quote by pricing experiment") {
+	"/garex/policy_quote/pricing_selection"(platform:"/", type: TrackType.Event) {}
+    }
+
+    defaultBusiness = "mercadolibre"
+
     test('Insurtech - test qpage_on tacking on checkout') {
 
         //Mobile
@@ -2287,16 +2293,7 @@ trackTests {
         }
 
         "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
-            protection = [
-                insurance_purchase_key: "roda-ABC125",
-                amount_total: 100.72,
-                amount_fee:  10.72,
-                option_check: "total",
-                option_coverage: "theft_break",
-                deductible_amount: 10.72,
-                has_open_claim: false,
-                is_current_device_protection: false,
-            ]
+            insurance_purchase_key = "roda-ABC125"
             claim = [
                 id: "ABC125-DEEF",
                 franchise_payment_id: 10021312312,
@@ -2305,16 +2302,7 @@ trackTests {
         }
 
         "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
-            protection = [
-                insurance_purchase_key: "roda-ABC125",
-                amount_total: 100.72,
-                amount_fee:  10.72,
-                option_check: "total",
-                option_coverage: "theft_break",
-                deductible_amount: 10.72,
-                has_open_claim: false,
-                is_current_device_protection: false,
-            ]
+            insurance_purchase_key = "roda-ABC125"
             claim = [
                 id: "ABC125-DEEF",
             ]
@@ -2416,6 +2404,14 @@ trackTests {
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"garex",
+                product_id:"MLA_RD00000000000065134TEST"
             ]
         }
 
@@ -2934,6 +2930,6 @@ trackTests {
                     size: "64GB",
                 ]
             }
-        }
+	 }
     }
 }

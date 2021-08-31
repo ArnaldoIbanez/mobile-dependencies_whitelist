@@ -1235,6 +1235,12 @@ trackTests {
             latest_news_type= "merchants_growth_sameday"
             status= "read"
         }
+        "/notification_center/merchants_growth_reverse_screening"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_reverse_screening-186785675-76283123"
+            latest_news_id= "merchants_growth_reverse_screening-186785675-76283123"
+            latest_news_type= "merchants_growth_reverse_screening"
+            status= "read"
+        }        
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -2066,8 +2072,16 @@ trackTests {
             latest_news_id= "single_player_payg_blocked_device_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_payg_cashback_mp"(platform: "/", type: TrackType.Event) {
-            latest_news_type= "single_player_payg_cashback_device_mp"
+            latest_news_type= "single_player_payg_cashback_mp"
             latest_news_id= "single_player_payg_cashback_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_change_device_number_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_success_mp"
+            latest_news_id= "single_player_payg_change_device_number_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_change_device_number_fail_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_fail_mp"
+            latest_news_id= "single_player_payg_change_device_number_fail_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_scheduled_payment_utility"
@@ -3716,6 +3730,25 @@ trackTests {
             event_type = "arrived"
             shipment_id = 123
         }
+
+        "/notification/shipping_shipped_same_day"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_soon_deliver_same_day"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
         "/notification/shipping_rts_in_packing_list"(platform: "/mobile"){
             news_id = "shipping-rts_in_packing_list-21409256437"
             event_type = "arrived"
@@ -5454,6 +5487,12 @@ trackTests {
         "/notification/merchants_growth_sameday"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_reverse_screening_fraud"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
+            event_type = "open"
+        }     
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -6033,6 +6072,21 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/claim_return_allowed_seller_action_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_seller_action_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_reminder_timeout_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_closed_seller_refund_decorator"(platform: "/mobile"){
+            news_id = "claim_closed_seller_refund_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -6331,6 +6385,14 @@ trackTests {
         }
         "/notification/single_player_payg_cashback_mp"(platform: "/mobile") {
             news_id = "single_player_payg_cashback_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_change_device_number_success_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_change_device_number_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_fail_mp_123"
             event_type = "open"
         }
         "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {
@@ -7768,6 +7830,12 @@ trackTests {
             latest_news_type= "merchants_growth_sameday"
             status= "read"
         }
+        "/notification_center/merchants_growth_reverse_screening"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_reverse_screening-186785675-76283123"
+            latest_news_id= "merchants_growth_reverse_screening-186785675-76283123"
+            latest_news_type= "merchants_growth_reverse_screening"
+            status= "read"
+        }        
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -8483,6 +8551,14 @@ trackTests {
         "/notification_center/single_player_payg_cashback_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_payg_cashback_mp"
             latest_news_id= "single_player_payg_cashback_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_change_device_number_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_success_mp"
+            latest_news_id= "single_player_payg_change_device_number_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_change_device_number_fail_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_fail_mp"
+            latest_news_id= "single_player_payg_change_device_number_fail_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_scheduled_payment_utility"
@@ -10287,6 +10363,14 @@ trackTests {
             news_id = "single_player_payg_cashback_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_payg_change_device_number_success_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_change_device_number_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_fail_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {
             news_id = "single_player_scheduled_payment_utility_grouped_rejected"
             event_type = "open"
@@ -10424,6 +10508,24 @@ trackTests {
         }
 
         "/notification/shipping_shipped"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_shipped_same_day"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_soon_deliver_same_day"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
             shipment_id = 1234
@@ -12186,6 +12288,12 @@ trackTests {
         "/notification/merchants_growth_sameday"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_reverse_screening_fraud"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
+            event_type = "open"
+        }        
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -12643,6 +12751,21 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/claim_return_allowed_seller_action_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_seller_action_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_reminder_timeout_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_closed_seller_refund_decorator"(platform: "/mobile"){
+            news_id = "claim_closed_seller_refund_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -12928,6 +13051,12 @@ trackTests {
             news_id = "card_wallet_resume_token-51AO96HEQBssK6rdZvm"
             event_type = "auto_dismiss"
             notification_type = "deep_linking"
+        }
+
+        // Proximity Marketplace Order Manager
+        "/notification/pm_om_notification_store_opening"(platform: "/") {
+            news_id = "pm_om_notification-store_opening-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "sent"
         }
     }
 

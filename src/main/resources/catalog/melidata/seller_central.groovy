@@ -634,6 +634,11 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
+    "/seller_central/listings/quantity/change_tab"(platform: "/", type: TrackType.Event) {
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+        target_view_id(required: false, type: PropertyType.String, description: "View to which the event has changed")
+    }
+
     "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, descritpion: "Id of the remedy applied to solve moderation")
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
