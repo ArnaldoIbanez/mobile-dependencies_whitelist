@@ -1308,6 +1308,34 @@ trackTests {
             pricingTwoPointO()
             vip_version = "new"
          }
+
+        //Insurtech
+        "/vip/buy_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            credits_opensea = true
+            vip_version = "new"
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
+
+        "/vip/add_cart_action"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            variationInformation()
+            shipping_pay_before = false
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
+
     }
 
     test("VIP zipcode") {

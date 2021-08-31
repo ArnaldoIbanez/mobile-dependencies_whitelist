@@ -491,6 +491,39 @@ trackTests {
         "/pdp/html_description/show"(platform: "/", {catalog_product_id = "MLA1234"})
 
         "/pdp/html_description/view_all_action"(platform: "/", {catalog_product_id = "MLA1234"})
+
+        //Insurtech
+
+        "/pdp/buy_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            seller_id = 1234
+            shipping_conditions = "free_special"
+            bo_pick_up_conditions = "free_other"
+            price = 8400
+            currency_id = "ARS"
+            credits_opensea = true
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        })
+
+        "/pdp/add_to_cart_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            seller_id = 1234
+            shipping_conditions = "free_loyal"
+            bo_pick_up_conditions = "free_loyal"
+            price = 8400
+            currency_id = "ARS"
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        })
     }
 
     test("mobile special actions") {
