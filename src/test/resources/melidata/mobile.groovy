@@ -304,12 +304,15 @@ trackTests {
         "/apprater/cancel"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/remind_me_later"(platform: "/mobile") {}
         "/apprater/remind_me_later"(platform: "/mobile", business: "mercadopago") {}
+        "/inappreview/completed"(platform: "/mobile") {}
+        "/inappreview/completed"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("MercadoLibre apprater") {
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/accept"(platform: "/mobile") {}
         "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/inappreview/completed"(platform: "/mobile") {}
     } 
 
     test("Landing Deeplinks in Mobile") {
