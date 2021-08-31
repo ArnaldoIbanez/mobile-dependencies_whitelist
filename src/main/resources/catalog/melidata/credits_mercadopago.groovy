@@ -849,6 +849,16 @@ tracks {
             type: PropertyType.String,
             required: false,
         )
+        loan_status_detail(
+            description: "The detail of status of the created loan",
+            type: PropertyType.String,
+            required: false,
+        )
+        loan_request_status(
+            description: "The status of the created loan request",
+            type: PropertyType.String,
+            required: false,
+        )
         loan_created_with_retry(
                 description: "Metric to track user who accept the credit in a second attempt",
                 type: PropertyType.Boolean,

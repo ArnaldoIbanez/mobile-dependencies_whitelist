@@ -199,6 +199,7 @@ tracks {
     "/loyalty/buylevel"(platform: "/", isAbstract: true, type: TrackType.View) {
         level( required: false, type: PropertyType.Numeric, description: "Level")
         subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
+        subscription_partner(required: false, description: "Partner name (HBO, Paramount, Disney, etc.)", type: PropertyType.String)
     }
 
     "/loyalty/buylevel/action"(platform: "/", type: TrackType.Event) {
@@ -206,16 +207,15 @@ tracks {
     }
 
     "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View) {
-        subscription_status(required: false, type: PropertyType.String, values: ["inactive", "active", "pending"], description: "Subscription Status")
     }
 
     "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View) {
-        subscription_partner(required: true, description: "Buy Level Subscription", values: ["nivel-6"], type: PropertyType.String)
         discount_percent(required: false, description: "User discount", type: PropertyType.Numeric)
-        payment_status(required: false, description: "Payment status", type: PropertyType.String)
+        subscription_type(required: false, description: "Subscription pack type", type: PropertyType.String)
+        loyalty_level(required: false , descripcion: "loyalty level",type: PropertyType.Numeric )
         payment_status_detail(required: false, description: "Payment detail", type: PropertyType.String)
         payment_id(required: false, description: "Payment id", type: PropertyType.String)
-        subscription_type(required: false, description: "Subscription pack type", type: PropertyType.String)
-        loyalty_level(type: PropertyType.Numeric, required: false)
+        payment_status(required: false, description: "Payment status", type: PropertyType.String)
+        content(required: false, description: "Specific content (banner, promo, etc.) shown in VDP (first step)", type: PropertyType.String)
     }
 }

@@ -1,5 +1,7 @@
 package src.test.resources.melidata
 
+import com.ml.melidata.catalog.PropertyType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType;
 
@@ -503,20 +505,27 @@ trackTests {
         "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 4
             subscription_status ="inactive"
+            subscription_partner = "level-6"
         }
-        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
-            loyalty_level = 2
-            subscription_partner = "nivel-6"
-            payment_status_detail = "activated"
-            payment_status = "approved"
-            discount_percent = 10
-            subscription_type = "standard"
-            payment_id = "1231231"
-        }
-        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
+
+        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            level = 5
+            subscription_type = "pack-6-months"
             loyalty_level = 3
-            subscription_partner = "nivel-6"
-            subscription_type = "free"
+            payment_status_detail = "freetrial-activated"
+            payment_id = "42323"
+            payment_status = "success"
         }
+
+        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 5
+            subscription_type = "pack-6-months"
+            loyalty_level = 3
+            payment_status_detail = "freetrial-activated"
+            payment_id = "42323"
+            payment_status = "success"
+            content = "special-promo"
+        }
+
     }
 }

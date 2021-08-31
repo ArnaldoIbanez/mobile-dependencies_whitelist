@@ -2957,6 +2957,18 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/schedule_payment/create/pix"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/pix/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/pix/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // schedule payment success
         "/bill_payments/schedule_payment/create/success"(platform: "/mobile") {
             mandatory()
