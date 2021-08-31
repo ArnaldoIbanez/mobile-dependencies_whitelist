@@ -525,7 +525,8 @@ trackTests {
             ]
         })
 
-        "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event)
+        "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event){
+        }
     }
 
     test("mobile special actions") {

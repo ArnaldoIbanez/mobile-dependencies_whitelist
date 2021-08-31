@@ -781,5 +781,5 @@ tracks {
     }
 
     //Insurtech
-    "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event) {}
+    "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
 }

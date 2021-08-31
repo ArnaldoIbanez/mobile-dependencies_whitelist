@@ -1336,7 +1336,8 @@ trackTests {
             ]
         }
 
-        "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event)
+        "/vip/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event){
+        }
 
     }
 
