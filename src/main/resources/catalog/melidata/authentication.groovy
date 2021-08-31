@@ -276,7 +276,7 @@ tracks {
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
 
-    "/auth/account_recovery/expired/action"(platform: "/", type: TrackType.Event) {
+    "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
