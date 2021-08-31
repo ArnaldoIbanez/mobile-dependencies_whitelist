@@ -19,16 +19,18 @@ metrics {
     }
   }
 
-  "home/app_download_button"(description: "define if to show the download app button or not", deprecation_date:"2021/07/01") {
+  "app_download_intention"(description: "Measure the intention of downloading the App by clicking in several spots/buttons distributed in different sites", deprecation_date:"2021/11/01") {
     startWith {
-      experiment("home/stickyButton")
+      experiment("home-landing/appDownloadDesktop", "home-landing/appDownloadMobile", "business-landing/stickyButton")
     }
   
     countsOn {
       condition {
-        path("/landing/home/click")
-        and(
-          equals("event_data.id", "sticky-button-register")
+        path("/landing/home/click", "/business_site/click")
+        or(
+          equals("event_data.id", "sms-button"),
+          equals("event_data.id", "incentive-button"),
+          equals("event_data.item", "sticky-button")
         )
       }
     }
