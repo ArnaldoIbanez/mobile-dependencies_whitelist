@@ -375,6 +375,9 @@ tracks {
     "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
     "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
+    "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
+
 
     //Debin Processing
     "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
@@ -468,4 +471,13 @@ tracks {
     "/money_in/static_resources/network_error"(platform:"/", type: TrackType.Event){
         error(required:true, description:"Network Error Message")
     }
+
+    //Nuevo hub Money In v2
+    "/money_in/hub"(platform:"/", type: TrackType.View){}
+    "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+        payment_method_id (required:false, type: PropertyType.String, description: "indicates the id of the payment method")
+    }
+    "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+
+
 }

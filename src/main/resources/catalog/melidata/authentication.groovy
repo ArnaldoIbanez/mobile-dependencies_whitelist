@@ -140,6 +140,8 @@ tracks {
 
     "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
 
+    "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {}
+
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/phone_validation/rechallenge"(platform: "/mobile", type: TrackType.Event) {}
@@ -258,6 +260,8 @@ tracks {
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
+    "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {}
+
     "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
@@ -271,6 +275,8 @@ tracks {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
+
+    "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {}
 
     "/auth/account_recovery/confirm/action"(platform: "/", type: TrackType.View) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
@@ -558,6 +564,13 @@ tracks {
     "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
         validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
         email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
+    }
+
+    // Face Validation Errors
+    "/authenticators/face_validation"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+      error_code(PropertyType.String, required: true, values:["validation_error", "max_attempts", "server_error"], description: "Errors after face validation against database")
     }
 
     def screenlockConfigStructure = objectSchemaDefinitions {

@@ -710,6 +710,10 @@ trackTests {
     test("cards generic congrats") {
         "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
             type = "congrats_type"
+            insurance_offer = "banner"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
+            type = "congrats_type"
         }
         "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
@@ -1144,7 +1148,7 @@ trackTests {
     }
     test("cards hybrid request physical challenge tap") {
         "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "close"
+            action = "back"
         }
         "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
@@ -1153,17 +1157,41 @@ trackTests {
 
     // Request: Pending Challenge
     test("cards hybrid request physical pending challenge") {
-        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d1"
+        }
+        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d1_ticket"
+        }
+        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d4"
+        }
     }
     test("cards hybrid request physical pending challenge tap") {
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "back"
+            context = "d1"
         }
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
+            context = "d1_ticket"
         }
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "info_payment"
+            context = "d4"
+        }
+    }
+
+    // Request: Expired Challenge
+    test("cards hybrid request physical expired challenge") {
+        "/cards/hybrid/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid request physical pending challenge tap") {
+        "/cards/hybrid/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/hybrid/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "continue"
         }
     }
 
@@ -1903,6 +1931,14 @@ trackTests {
             result = 3
         }
     }
+    
+    test("cards hybrid nfc userHasTokenizedCard method error") {
+        "/cards/nfc/core/user_has_tokenized_card/error"(platform: "/", type: TrackType.Event) {
+            status = "Token is present in local preferences but not in SDK"
+        }
+
+    }
+    
 
     // START SECURE ENROLLMENT
 

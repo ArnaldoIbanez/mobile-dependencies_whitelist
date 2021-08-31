@@ -580,6 +580,8 @@ trackTests {
         "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
 
         //Debin Processing
         "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
@@ -700,5 +702,11 @@ trackTests {
         "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
            error = "Error 404"
         }
+
+        "/money_in/hub"(platform:"/", type: TrackType.View){}
+        "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+        payment_method_id = "pix"
+        }
+        "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
     }
 }

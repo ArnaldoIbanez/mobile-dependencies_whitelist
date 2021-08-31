@@ -152,6 +152,9 @@ tracks {
         error_code(required: false, type: PropertyType.String, description: "Code of the error that was shown to the user if known")
     }
 
+    //Address Hub Message for CPG FRESH
+    "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {}
+
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
     "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
 
@@ -610,6 +613,11 @@ tracks {
     }
 
     "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
+    "/cart/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }

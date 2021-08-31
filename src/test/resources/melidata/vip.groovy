@@ -383,6 +383,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source = "description"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
@@ -392,6 +393,7 @@ trackTests {
             event_source = "technicalSpecs"
             source = "htmlView"
             item_seller_type="car_dealer"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/mobile", type: TrackType.Event, {
@@ -411,6 +413,7 @@ trackTests {
             unregistered_contact_context= false
             has_good_price= false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -959,6 +962,7 @@ trackTests {
             vip_version = "new"
             has_good_price = false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -966,6 +970,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source= "description"
+            from_view = "questions"
         }
 
         "/vip/questions/show"(platform: "/", type: TrackType.View) {
@@ -974,6 +979,7 @@ trackTests {
             vip_version = "new"
             has_good_price = true
             has_highlighted_sale_specs=true
+            from_view = "questions"
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {

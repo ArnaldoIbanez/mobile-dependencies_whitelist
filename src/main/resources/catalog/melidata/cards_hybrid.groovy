@@ -288,7 +288,14 @@ tracks {
             type: PropertyType.String,
             description: "Type of Congrats"
         )
+        insurance_offer (
+            required: false,
+            type: PropertyType.String,
+            values: ["banner", "success", "pending"],
+            description: "Indicates the insurance offer type that was displayed"
+        )
     }
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,
@@ -1148,24 +1155,48 @@ tracks {
             description: "If reissue was request by warning address"
         )
     }
-    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) { }
     "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add_money"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the challenge"
         )
     }
 
     // Request: Pending Challenge
-    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
+        )
+    }
     "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
             values: ["back", "add_money", "info_payment"],
             description: "action tap by the user in the pending challenge view"
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
+        )
+    }
+
+    // Request: Expired Challenge
+    "/cards/hybrid/request/physical/expired_challenge"(platform: "/", type: TrackType.View) { }
+    "/cards/hybrid/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "continue"],
+            description: "action tap by the user in the expired challenge view"
         )
     }
 
@@ -2177,6 +2208,15 @@ tracks {
             type : PropertyType.String,
             required: false,
             description: "SDK Additional Info"
+        )
+    }
+    
+    "/cards/nfc/core/user_has_tokenized_card/error"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values:["Token is present in local preferences but not in SDK"],
+            description: "Error on userHasTokenizedCard method"
         )
     }
 

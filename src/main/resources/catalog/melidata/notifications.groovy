@@ -661,6 +661,18 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/asset_management_investing"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/asset_management_failed"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/asset_management_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/billing_mpoff"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -892,6 +904,10 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/merchants_growth_sameday"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/merchants_growth_reverse_screening"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1548,6 +1564,14 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/single_player_payg_change_device_number_success_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_payg_change_device_number_fail_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1809,6 +1833,9 @@ tracks {
     //Collection
     "/notification/claim_pdd_first_rescue"(platform: "/") {}
     "/notification/claim_pdd_second_rescue"(platform: "/") {}
+    "/notification/claim_return_allowed_seller_action_decorator"(platform: "/") {}
+    "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/") {}
+    "/notification/claim_closed_seller_refund_decorator"(platform: "/") {}
 
     // Credits - Credit Card
     // Collection
@@ -2209,6 +2236,18 @@ tracks {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
     "/notification/shipping_agency_receiver_for_failed_delivery"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
+    //Same day
+
+    "/notification/shipping_shipped_same_day"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_soon_deliver_same_day"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+    "/notification/shipping_rts_in_packing_list"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
 
@@ -2853,6 +2892,8 @@ tracks {
     "/notification/asset_management_investing"(platform: "/mobile") {}
     "/notification/asset_management_pending"(platform: "/mobile") {}
     "/notification/asset_management_disabled"(platform: "/mobile") {}
+    "/notification/asset_management_failed"(platform: "/mobile") {}
+    "/notification/asset_management_rejected"(platform: "/mobile") {}
 
     //Campañas
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
@@ -3120,6 +3161,8 @@ tracks {
     "/notification/merchants_growth_resellers_pro2_launch"(platform: "/mobile") {}
     "/notification/merchants_growth_resellers_smart_launch"(platform: "/mobile") {}
     "/notification/merchants_growth_sameday"(platform: "/mobile") {}
+    "/notification/merchants_growth_reverse_screening_fraud"(platform: "/mobile") {}
+    "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {}
 
     //Flows
     "/notification/flows_default"(platform: "/mobile") {
@@ -3238,16 +3281,21 @@ tracks {
     "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {}
     "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
 
     //Prepaid
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}
     "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_authorization_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_authorization_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_capture_exceed_amount"(platform: "/mobile") {}
     "/notification/card_transactions_first_transaction_chip_pin"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_authorization_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_authorization_by_invalid_amount_with_unavailable_balance"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_authorization_international_by_invalid_amount"(platform: "/mobile") {}
     "/notification/card_transactions_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
@@ -3415,6 +3463,8 @@ tracks {
     "/notification/single_player_payg_create_device_fail_mp"(platform: "/") {}
     "/notification/single_player_payg_blocked_device_mp"(platform: "/mobile") {}
     "/notification/single_player_payg_cashback_mp"(platform: "/mobile") {}
+    "/notification/single_player_payg_change_device_number_success_mp"(platform: "/mobile") {}
+    "/notification/single_player_payg_change_device_number_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_utility_grouped_reminder"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_utility_grouped_success"(platform: "/mobile") {}
@@ -3432,6 +3482,10 @@ tracks {
     "/notification/shipping_shipped_bad_address"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
     }
+    "/notification/shipping_shipped_bad_address_on_way"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
+
     //Shipping-Scoring
     "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
@@ -3545,5 +3599,6 @@ tracks {
     "/notification/registration_under_age_rejected"(platform: "/mobile") {}
     "/notification/registry_recovery"(platform: "/mobile") {}
 
-
+    // Proximity Marketplace Order Manager
+    "/notification/pm_om_notification_store_opening"(platform: "/") {}
 }

@@ -9,15 +9,6 @@ trackTests {
 
     test("test path") {
         "/"(platform: "/") {}
-
-        "/input"(platform: "/api") {
-            record = [
-                data : [
-                    user_id: 123412,
-                    status: "OK"
-                ]
-            ]
-        }
     }
 
 }
