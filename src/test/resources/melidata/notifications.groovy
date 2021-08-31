@@ -6415,6 +6415,22 @@ trackTests {
             news_id = "single_player_scheduled_payment_utility_solo_reminder"
             event_type = "open"
         }
+        "/notification/single_player_scheduled_payment_pixtransfer_grouped_insufficient_amount"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_grouped_insufficient_amount"
+            event_type = "open"
+        }
+        "/notification/single_player_scheduled_payment_pixtransfer_solo_insufficient_amount"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_solo_insufficient_amount"
+            event_type = "open"
+        }
+        "/notification/single_player_scheduled_payment_pixtransfer_grouped_reminder"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_grouped_reminder"
+            event_type = "open"
+        }
+        "/notification/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_solo_reminder"
+            event_type = "open"
+        }
         "/notification/single_player_scheduled_payment_utility_solo_success"(platform: "/mobile") {
             news_id = "single_player_scheduled_payment_utility_solo_success"
             event_type = "open"
@@ -10389,6 +10405,22 @@ trackTests {
         }
         "/notification/single_player_scheduled_payment_utility_solo_reminder"(platform: "/mobile") {
             news_id = "single_player_scheduled_payment_utility_solo_reminder"
+            event_type = "open"
+        }
+        "/notification/single_player_scheduled_payment_pixtransfer_grouped_insufficient_amount"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_grouped_insufficient_amount"
+            event_type = "open"
+        }
+        "/notification/single_player_scheduled_payment_pixtransfer_solo_insufficient_amount"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_solo_insufficient_amount"
+            event_type = "open"
+        }
+        "/notification/single_player_scheduled_payment_pixtransfer_grouped_reminder"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_grouped_reminder"
+            event_type = "open"
+        }
+        "/notification/single_player_scheduled_payment_pixtransfer_solo_reminder"(platform: "/mobile") {
+            news_id = "single_player_scheduled_payment_pixtransfer_solo_reminder"
             event_type = "open"
         }
         "/notification/single_player_scheduled_payment_utility_solo_success"(platform: "/mobile") {
