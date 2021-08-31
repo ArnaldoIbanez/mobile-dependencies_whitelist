@@ -37,6 +37,12 @@ tracks {
         shipping_promoted_amount(required:true, type: PropertyType.Numeric, description:  "Total cost of shipping without discount")
     }
 
+    def protection_option = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
+        option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
+        option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
+    }
+
 
 
     "/cart"(platform: "/", isAbstract: true) {
@@ -156,6 +162,11 @@ tracks {
 
 "/cart/item_add/error"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
     error_type(required: true, type: PropertyType.String)
+}
+
+//Insurtech
+"/cart/item_add/snackbar_insurance_deleted"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
 }
 
 
