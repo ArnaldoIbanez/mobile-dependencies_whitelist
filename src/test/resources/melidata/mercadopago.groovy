@@ -2705,7 +2705,7 @@ trackTests {
             categoryProperties()
         }
 
-        // Scanner
+        // scanner permission
         "/bill_payments/enable_camera"(platform: "/mobile") {
             mandatory()
         }
@@ -2713,8 +2713,9 @@ trackTests {
         "/bill_payments/permission_camera"(platform: "/mobile") {
             mandatory()
         }
-
-         "/bill_payments/scan"(platform: "/mobile") {
+        
+        // Scanner    
+        "/bill_payments/scan"(platform: "/mobile") {
             mandatory()
         }
 
@@ -2738,29 +2739,64 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
         "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             label = "lable warning"
         }
 
+        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // New Scanner    
+        "/bill_payments/new_scan"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/flash"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_qr"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/click"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/info_message"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "lable warning"
+        }
+
+        "/bill_payments/new_scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // Scanner error 
         "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
         "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
-        }
-
-        "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
-            camera_flash = false
-            timestamp = 1043
-            barcode_format = "ITR40"
         }
 
         "/bill_payments/fixed_amount"(platform: "/mobile") {
