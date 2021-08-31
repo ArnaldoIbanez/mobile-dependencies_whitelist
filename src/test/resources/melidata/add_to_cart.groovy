@@ -121,9 +121,6 @@ trackTests {
                             ],
                     ]
             ]
-            carousel_type = "normal"
-            carousel_label = "Limpieza"
-            component = 3
             context = "proximity"
         }
 
@@ -137,9 +134,6 @@ trackTests {
                             ],
                     ]
             ]
-            carousel_type = 'home'
-            carousel_label = 'Bebés'
-            component = 3
             context = 'proximity'
         }
     }

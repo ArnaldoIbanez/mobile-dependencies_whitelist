@@ -6,7 +6,7 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "mercadopago"
+    defaultBusiness = "mercadolibre"
 
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
