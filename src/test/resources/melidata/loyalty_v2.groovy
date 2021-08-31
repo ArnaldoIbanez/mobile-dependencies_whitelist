@@ -169,12 +169,10 @@ trackTests {
 
     test("Loyalty CrossSellingComponent") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
-            origin = "home"
             item_number = 2
         }
 
         "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
-            origin = "central-descuentos"
             title = "HBO"
             level = 3
             button_deeplink = "deeplink"
@@ -183,18 +181,15 @@ trackTests {
 
     test("Loyalty CrossSellingComponent in mercadopago") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "deals"
             item_number = 2
         }
 
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "deals"
             item_number = 0
             item_link = "meli://loyalty"
         }
 
         "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "central-descuentos"
             title = "Paramount"
             level = 1
             button_deeplink = "deeplink"
@@ -510,7 +505,18 @@ trackTests {
             subscription_status ="inactive"
         }
         "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
-            level = 6
+            loyalty_level = 2
+            subscription_partner = "nivel-6"
+            payment_status_detail = "activated"
+            payment_status = "approved"
+            discount_percent = 10
+            subscription_type = "standard"
+            payment_id = "1231231"
+        }
+        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            loyalty_level = 3
+            subscription_partner = "nivel-6"
+            subscription_type = "free"
         }
     }
 }
