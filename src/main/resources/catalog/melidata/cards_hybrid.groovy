@@ -711,6 +711,12 @@ tracks {
             description: "The action type tapped"
         )
     }
+
+    // Setup virtual reauth
+    "/cards/hybrid/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {

@@ -830,6 +830,13 @@ trackTests {
         }
     }
 
+    // Setup virtual reauth
+    test("cards hybrid setup virtual tracking") {
+        "/cards/hybrid/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    }
+
     //Highlighted Row
     test("cards hybrid setup virtual Highlighted Row") {
         "/cards/hybrid/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
