@@ -49,7 +49,7 @@ tracks {
         item_seller_type(required: false, type: PropertyType.String, description: "Seller type: normal, real_estate_user, etc", values: ["branch", "brand", "car_dealer", "franchise", "normal", "real_estate_agency"])
         map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "Map of items attributes")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
-        vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services", "none"], description: "Vertical of the item")
     }
 
     propertyGroups {

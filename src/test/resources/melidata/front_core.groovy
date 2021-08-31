@@ -871,6 +871,18 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - BANKING v2 Open Banking") {
+        "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://cards-list/list?from=home_mp"
+            section_id="banking_v2-open_banking_accounts"
+            component_id="open_banking_accounts"
+            quantity=1
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
+
     test("Mercadopago Home Tap v3 - BANKING v2 balance") {
         "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://balance"
@@ -1078,6 +1090,26 @@ trackTests {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
 
     test("Mercadopago shortcut sheet page view") {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
@@ -1578,6 +1610,10 @@ trackTests {
             banking_v2=[
                 hidden : true
             ]
+            pendings= [
+                    ordinal: 2,
+                    content_type : 'partial'
+            ]
             main_actions = [
                     content_type : 'complete',
                     ordinal: 2,
@@ -2028,6 +2064,15 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - BANKING v2 Open Banking") {
+        "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://cards-list/list?from=home_mp"
+            section_id="banking_v2-open_banking_accounts"
+            component_id="open_banking_accounts"
+            quantity=1
+        }
+    }
+
     test("Mercadopago Home Tap v3 - BANKING v2 balance") {
         "/wallet_home/section/tap/banking_v2-balance" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://balance"
@@ -2184,6 +2229,27 @@ trackTests {
 
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
     }
 
     test("Mercadopago shortcut sheet page view") {
@@ -2365,6 +2431,35 @@ trackTests {
                 bu_line = "default"
                 logic = "user_journey"
                 flow = "default"
+            }
+        }
+
+        test("Mercadopago Home Tap v3 - Advertising [${business}]") {
+            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_item1"
+                section_id = "advertising"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+                criticality = 1
+                from = "section"
+            }
+            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_payers_recharge_sube_mp"
+                section_id = "advertising"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+                criticality = 1
+                from = "section"
             }
         }
 

@@ -1,6 +1,5 @@
 import com.melidata.definitions.validators.CatalogValidator
 import com.melidata.definitions.outs.DefinitionsOut
-import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import org.junit.Before
@@ -31,7 +30,7 @@ class TestRunnerTest {
                     "/mobile/web",
             ]
 
-            defaultBusiness = "mercadolibre"
+            defaultBusinesses = ["mercadolibre"]
 
             tracks {
                 initiative = "1148"

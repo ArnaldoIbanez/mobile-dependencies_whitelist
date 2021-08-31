@@ -239,6 +239,13 @@ trackTests {
             problem_description = "vehicle_problem"
         }
 
+        "/driver/stops/next_modal"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            suggested_stop = "4"
+            defaultLocation()
+        }
+
         "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
             defaultDeliveryData()
             defaultPackInfo()

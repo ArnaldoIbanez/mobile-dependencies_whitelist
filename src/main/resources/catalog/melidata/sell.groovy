@@ -111,7 +111,7 @@ tracks {
         accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
         debug_domain_discovery(required: false, type: PropertyType.ArrayList(PropertyType.Map(debug_domain_discovery_map)), description: "Domain Discovery Model")
-        user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none"])
+        user_shops_status(required: false, type: PropertyType.String, description: "MShops status", values: ["active", "inactive", "none", "precreated"])
         sales_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Selected sales channels")
     }
 
@@ -138,7 +138,7 @@ tracks {
         sellGroupMobile
         listingTypeFlowMobile
         seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
-        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none"])
+        user_shops_status(required: false, type: PropertyType.String, description: "Mercado Shops status for de users", values: ["active", "inactive", "none", "precreated"])
         sale_channels(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's sale channel values accepted: ['private', 'proximity', 'marketplace', 'mshops']")
     }
     "/sell/list"(platform: "/", isAbstract: true){
@@ -367,14 +367,20 @@ tracks {
     "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){
         catalogFlowMobile
     }
+    "/sell/list/draft/goldlist_landing"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/prohibited_item_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
         catalogFlowMobile
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
+
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
@@ -394,6 +400,9 @@ tracks {
     "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -445,6 +454,8 @@ tracks {
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
+    "/sell/list/goldlist_landing"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/prohibited_item_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
         catalogFlowMobile
@@ -580,7 +591,7 @@ tracks {
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
         is_catalog_listing(required: false, description: "If core item is a catalog listing", type: PropertyType.Boolean)
-        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type"])
+        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type", "sharing_first_place"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {
@@ -697,6 +708,19 @@ tracks {
     "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/inscription_number"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback" (platform: "/mobile", isAbstract: true) {
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        item_id(required: true, description: "Item id")
+        vertical(required: true, description: "Item Vertical: core/service/motor/real_estate/etc...")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+    }
+    "/sell/update/delete_feedback/other_reason" (platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback/survey" (platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/delete_feedback/landing" (platform: "/mobile", type: TrackType.View) {
+        option_selected(required: true, type: PropertyType.Numeric, description: "Option selected in deleted feedback survey")
+        other_reason(required: false, type: PropertyType.String, description: "in case that the user selecte other reason, a explanation is required ")
+    }
+    "/sell/update/delete_feedback/landing/confirm" (platform: "/mobile", type: TrackType.Event) {}
 
     "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
         item_id(required: true, description: "Item id")
@@ -820,6 +844,9 @@ tracks {
         vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
+    }
+    "/sell/list/hub/select_vertical"(platform: "/mobile", type: TrackType.Event) {
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
     }
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
@@ -1035,6 +1062,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
+        category_id(required: false, type: PropertyType.String, description: "Category Id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
     }
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1057,6 +1086,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
+        category_id(required: false, type: PropertyType.String, description: "Category Id")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Category path")
     }
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1102,6 +1133,9 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
     }
+    "/sell/item_conditions/prices"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/prices/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/prices/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1273,6 +1307,7 @@ tracks {
         sellGroup
         listingTypeFlow
         item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        mshopsGroup
     }
     "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}

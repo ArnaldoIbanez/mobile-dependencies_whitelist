@@ -21,6 +21,8 @@ trackTests {
              payment_method = "ted"
          }
 
+         "/money_in/payment_methods/my_cvu"(platform: "/",type: TrackType.Event){}
+
         "/money_in/payment_methods/help"(platform: "/", type: TrackType.Event) {}
 
         //Calculator
@@ -49,13 +51,21 @@ trackTests {
             amount = "30.0"
         }
 
-        "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event) {
-            payment_method = "bolbradesco"
-        }
-        
+        "/money_in/calculator/tooltip"(platform: "/", type: TrackType.Event){}
+
         //Checkout PX
         "/money_in/px/error"(platform: "/", type: TrackType.View) {}
         "/money_in/px/success"(platform: "/", type: TrackType.View) {}
+
+        //money In - Home
+        "/money_in/home/debit_card_juridical_person_modal"(platform: "/", type: TrackType.View) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_hub"(platform: "/", type: TrackType.Event) {}
+        "/money_in/home/debit_card_juridical_person_modal/back_to_home"(platform: "/", type: TrackType.Event) {}
+
+        //money In - Congrats(comming from Kyc)
+        "/money_in/congrats/success"(platform: "/", type: TrackType.View) {}
+        "/money_in/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/congrats/success/close"(platform: "/", type: TrackType.Event) {}
 
         //Onboarding
         "/money_in/onboarding/add_money"(platform: "/", type: TrackType.View) {}
@@ -65,6 +75,7 @@ trackTests {
 
         "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
         "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/onboarding/continue"(platform: "/", type: TrackType.Event) {}
         "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
         "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
         "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
@@ -131,6 +142,9 @@ trackTests {
         "/money_in/clabe/share"(platform: "/", type: TrackType.Event) {}
         "/money_in/clabe/help"(platform: "/", type: TrackType.Event) {}
 
+        // CLABE - Congrats
+        "/money_in/clabe/congrat/go_home"(platform: "/", type: TrackType.Event) {}
+
         // CLABE - Congrats Error
         "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
         "/money_in/clabe/error/continue"(platform: "/", type: TrackType.Event) {}
@@ -149,18 +163,18 @@ trackTests {
         "/money_in/caixa/success"(platform: "/", type: TrackType.View) {}
         "/money_in/caixa/success/go_home_button_clicked"(platform: "/", type: TrackType.Event) {}
 
-        // Caixa - Disclaimer 
+        // Caixa - Disclaimer
         "/money_in/caixa/disclaimer"(platform: "/", type: TrackType.View) {}
         "/money_in/caixa/disclaimer/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
         "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 
-         // Cash Tickets - Locations 
+         // Cash Tickets - Locations
         "/money_in/cash/location_list"(platform: "/", type: TrackType.View) {}
         "/money_in/cash/location/location_selected"(platform: "/", type: TrackType.Event) {
             id = "paycash_7-eleven"
         }
 
-        // Cash Tickets - Amount 
+        // Cash Tickets - Amount
         "/money_in/cash/amount"(platform: "/", type: TrackType.View) {
             type = "oxxo"
         }
@@ -169,7 +183,7 @@ trackTests {
             amount = "23"
         }
 
-        // Cash Tickets - Info 
+        // Cash Tickets - Info
         "/money_in/cash/ticket"(platform: "/", type: TrackType.View) {
             type = "paycash"
         }
@@ -177,7 +191,7 @@ trackTests {
             type = "paycash"
         }
 
-        // Cash Tickets - Camcel Modal 
+        // Cash Tickets - Camcel Modal
         "/money_in/cash/cancel_ticket_modal"(platform: "/", type: TrackType.View) {
             type = "paycash"
         }
@@ -209,8 +223,8 @@ trackTests {
         "/money_in/cash/view_ticket"(platform: "/", type: TrackType.Event) {
             payment_method = "pec"
         }
-        
-        // Oxxo Tickets - Disuassive Modal 
+
+        // Oxxo Tickets - Disuassive Modal
         "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
         "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
         "/money_in/cash/location/warning_ticket_modal/back_button_clicked"(platform: "/", type: TrackType.Event) {}
@@ -230,7 +244,7 @@ trackTests {
         "/money_in/cash/review_and_confirm/edit_amount"(platform: "/", type: TrackType.Event) {
             payment_method = "pec"
         }
-        
+
         //PIX keys - Congrats
         "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
         //PIX keys - Admin
@@ -460,12 +474,12 @@ trackTests {
             key_type = "evp"
         }
         "/money_in/pix_keys/delete_confirm/cancel"(platform: "/", type: TrackType.Event) {
-            key_type = "evp"		
+            key_type = "evp"
         }
         "/money_in/pix_keys/cpf_confirm"(platform: "/", type: TrackType.View) {
             key_value_from_profile = true
         }
-        
+
         //PIX onboarding tests
         "/money_in/pix/onboarding"(platform:"/", type: TrackType.View){}
         "/money_in/pix/onboarding/continue"(platform: "/", type: TrackType.Event){}
@@ -540,6 +554,7 @@ trackTests {
         }
         "/money_in/debin/hub/new_account"(platform:"/",type: TrackType.Event){}
         "/money_in/debin/hub/help"(platform:"/",type: TrackType.Event){}
+        "/money_in/debin/hub/my_cvu"(platform:"/",type: TrackType.Event){}
 
         //Debin Onboarding
         "/money_in/debin/onboarding"(platform:"/", type: TrackType.View){}
@@ -551,7 +566,7 @@ trackTests {
         "/money_in/debin/calculator"(platform:"/", type: TrackType.View){}
         "/money_in/debin/calculator/continue"(platform:"/", type: TrackType.Event){
             amount = "124.33"
-        }   
+        }
         "/money_in/debin/calculator/preset"(platform:"/", type: TrackType.Event){
             amount = "500"
         }
@@ -565,6 +580,8 @@ trackTests {
         "/money_in/debin/ryc/edit_account"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/reason"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/ryc/create_debin"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/reauth"(platform:"/", type: TrackType.Event){}
+        "/money_in/debin/ryc/screen_lock"(platform:"/", type: TrackType.Event){}
 
         //Debin Processing
         "/money_in/debin/processing"(platform:"/", type: TrackType.View){}
@@ -589,12 +606,16 @@ trackTests {
         "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
             status = "error"
         }
+        "/money_in/debin/congrats/go_home"(platform:"/", type: TrackType.Event){
+            status = "rejected"
+        }
         "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
-            status = "error"        
+            status = "error"
         }
-        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){
-            status = "success"
+        "/money_in/debin/congrats/retry"(platform:"/", type: TrackType.Event){
+            status = "rejected"
         }
+        "/money_in/debin/congrats/feedback"(platform:"/", type: TrackType.Event){}
 
         //Debin Merch engine
         "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
@@ -612,6 +633,14 @@ trackTests {
         "/money_in/debin/congrats/merch_engine"(platform:"/", type: TrackType.View){
             status = "error"
         }
+
+        //Debin RyC contingency error
+        "/money_in/debin/ryc/contingency_error"(platform:"/", type: TrackType.View){}
+        "/money_in/debin/ryc/contingency_error/go_init"(platform:"/", type: TrackType.Event){}
+
+        //Debin RyC contingency error
+        "/money_in/debin/calculator/contingency_error"(platform:"/", type: TrackType.View){}
+        "/money_in/debin/calculator/contingency_error/go_init"(platform:"/", type: TrackType.Event){}
 
         //Debin Search account
         "/money_in/debin/search"(platform:"/", type: TrackType.View){}
@@ -661,8 +690,23 @@ trackTests {
         "/money_in/debin/calculator/cvu_modal"(platform:"/", type: TrackType.View){}
         "/money_in/debin/calculator/cvu_modal/go_to_cvu"(platform:"/", type: TrackType.Event){}
         "/money_in/debin/calculator/cvu_modal/edit_amount"(platform:"/", type: TrackType.Event){}
-        
+
         //Money In Error View - Enchufe
-        "/money_in/error_view"(platform: "/", type: TrackType.View) {}
+        "/money_in/error_view"(platform: "/", type: TrackType.View) {
+           error = "Error 404"
+           view = "Payment Methods Dashboard"
+        }
+
+        //Static Resources Network Error in Money In
+        "/money_in/static_resources"(platform:"/", type: TrackType.View){}
+        "/money_in/static_resources/network_error"(platform: "/", type: TrackType.Event) {
+           error = "Error 404"
+        }
+
+        "/money_in/hub"(platform:"/", type: TrackType.View){}
+        "/money_in/hub/select"(platform:"/", type: TrackType.Event){
+        payment_method_id = "pix"
+        }
+        "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
     }
 }

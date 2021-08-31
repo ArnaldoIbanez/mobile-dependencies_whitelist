@@ -1,7 +1,7 @@
 package com.melidata.definitions.validators
 
 import com.ml.melidata.metrics.MetricsFactory
-import com.melidata.metrics.format.MetricsFormatter
+import com.ml.melidata.metrics.format.MetricsFormatter
 
 class MetricsValidator {
 

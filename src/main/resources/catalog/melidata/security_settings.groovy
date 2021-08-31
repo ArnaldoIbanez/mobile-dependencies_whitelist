@@ -97,4 +97,10 @@ tracks {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
+
+    "/security_settings/screenlock/granularity_closing"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "Screenlock Operating System status upon view")
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
 }

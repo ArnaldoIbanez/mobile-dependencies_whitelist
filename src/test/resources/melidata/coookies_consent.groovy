@@ -14,24 +14,24 @@ trackTests {
         ]
 
         test("navigation cookies-consent show track") {
-            "/navigation/cookies_consent/show"(platform: "/web/mobile", type: TrackType.View) {
+            "/navigation/cookies_consent/show"(platform: "/web/mobile", type: TrackType.Event) {
                 consent_type = consent_types.disclaimer
             }
-            "/navigation/cookies_consent/show"(platform: "/web/desktop", type: TrackType.View) {
+            "/navigation/cookies_consent/show"(platform: "/web/desktop", type: TrackType.Event) {
                 consent_type = consent_types.disclaimer
             }
 
-            "/navigation/cookies_consent/show"(platform: "/web/mobile", type: TrackType.View) {
+            "/navigation/cookies_consent/show"(platform: "/web/mobile", type: TrackType.Event) {
                 consent_type = consent_types.bottom
             }
-            "/navigation/cookies_consent/show"(platform: "/web/desktop", type: TrackType.View) {
+            "/navigation/cookies_consent/show"(platform: "/web/desktop", type: TrackType.Event) {
                 consent_type = consent_types.bottom
             }
 
-            "/navigation/cookies_consent/show"(platform: "/web/mobile", type: TrackType.View) {
+            "/navigation/cookies_consent/show"(platform: "/web/mobile", type: TrackType.Event) {
                 consent_type = consent_types.modal
             }
-            "/navigation/cookies_consent/show"(platform: "/web/desktop", type: TrackType.View) {
+            "/navigation/cookies_consent/show"(platform: "/web/desktop", type: TrackType.Event) {
                 consent_type = consent_types.modal
             }
         }
@@ -67,6 +67,15 @@ trackTests {
                 consent_type = consent_types.bottom
             }
             "/navigation/cookies_consent/personalize"(platform: "/web/desktop", type: TrackType.Event) {
+                consent_type = consent_types.modal
+            }
+        }
+
+        test("navigation cookies-consent close event") {
+            "/navigation/cookies_consent/close"(platform: "/web/mobile", type: TrackType.Event) {
+                consent_type = consent_types.modal
+            }
+            "/navigation/cookies_consent/close"(platform: "/web/desktop", type: TrackType.Event) {
                 consent_type = consent_types.modal
             }
         }

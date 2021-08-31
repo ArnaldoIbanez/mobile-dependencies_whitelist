@@ -20,10 +20,14 @@ tracks {
     }
 
     "/addresses/input_address"(platform: "/", type: TrackType.View) {
-        editing_address(required: false, description: "The address that the user is editing or null if it's a new address", type: PropertyType.Numeric)
+        address_id(required: false, description: "The address that the user is editing or null if it's a new address", type: PropertyType.Numeric)
     }
 
     "/addresses/input_address/map"(platform:"/", type: TrackType.View) {}
+
+    "/addresses/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the map open case")
+    }
 
     // VIEWS ACTIONS
     "/addresses/input_address/back"(platform: "/", type: TrackType.Event) {}

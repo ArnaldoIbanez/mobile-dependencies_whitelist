@@ -19,6 +19,7 @@ trackTests {
             checkout_type= "one_tap"
             security_enabled= false
             session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
+            device_secured = true
             session_time= 58
             flow_detail= [
                 store_id: "30974197",
@@ -40,6 +41,7 @@ trackTests {
             checkout_type= "one_tap"
             security_enabled= false
             session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
+            device_secured = true
             session_time= 58
             flow_detail= [
                 store_id: "30974197",
@@ -61,6 +63,7 @@ trackTests {
             checkout_type= "one_tap"
             security_enabled= false
             session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
+            device_secured = true
             session_time= 58
             flow_detail= [
                     store_id: "30974197",

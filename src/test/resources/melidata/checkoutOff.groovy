@@ -35,6 +35,12 @@ trackTests {
             app_candidate = true
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
         }
 
         def launchingDefaultProperties = {
@@ -44,6 +50,11 @@ trackTests {
             operation_type = "regular_payment"
             app_candidate = true
             client_id = 470234553122
+        }
+
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
         }
 
         def finishDefaultProperties = {
@@ -103,6 +114,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -139,6 +151,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -283,6 +296,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -477,6 +495,11 @@ trackTests {
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
         }
 
         // Properties not necessary but minimum
@@ -546,6 +569,12 @@ trackTests {
             app_candidate = true
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
         }
 
         def launchingDefaultProperties = {
@@ -555,6 +584,11 @@ trackTests {
             operation_type = "regular_payment"
             app_candidate = true
             client_id = 470234553122
+        }
+
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
         }
 
         def finishDefaultProperties = {
@@ -587,7 +621,7 @@ trackTests {
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
-            payment_id = "5408994392"        
+            payment_id = "5408994392"
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
@@ -615,6 +649,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -651,6 +686,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -795,6 +831,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -989,6 +1030,11 @@ trackTests {
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
         }
 
         // Properties not necessary but minimum
