@@ -524,6 +524,8 @@ trackTests {
                     option_id: "GAR0010213123MLA"
             ]
         })
+
+        "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event)
     }
 
     test("mobile special actions") {

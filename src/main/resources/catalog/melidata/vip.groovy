@@ -1660,4 +1660,7 @@ tracks {
         item_city(required: false, type: PropertyType.String, description: "Item city")
         item_neighborhood(required: false, type: PropertyType.String, description: "Item neighborhood")
     }
+
+    //Insurtech
+    "/vip/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event) {}
 }
