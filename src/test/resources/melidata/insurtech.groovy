@@ -2611,7 +2611,6 @@ trackTests {
                 ]
                 type_congrats= 'error'
             }
-
             "/insurtech/protections/claims/cancel/review_claim"(platform:"/", type: TrackType.View){
                 product_data =[
                     claim_id:"63652ks",
