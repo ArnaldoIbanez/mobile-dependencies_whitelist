@@ -1560,6 +1560,14 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/single_player_payg_change_device_number_success_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_payg_change_device_number_fail_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -3446,6 +3454,8 @@ tracks {
     "/notification/single_player_payg_create_device_fail_mp"(platform: "/") {}
     "/notification/single_player_payg_blocked_device_mp"(platform: "/mobile") {}
     "/notification/single_player_payg_cashback_mp"(platform: "/mobile") {}
+    "/notification/single_player_payg_change_device_number_success_mp"(platform: "/mobile") {}
+    "/notification/single_player_payg_change_device_number_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_utility_grouped_reminder"(platform: "/mobile") {}
     "/notification/single_player_scheduled_payment_utility_grouped_success"(platform: "/mobile") {}
