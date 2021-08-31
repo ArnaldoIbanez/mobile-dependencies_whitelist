@@ -6064,6 +6064,21 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/claim_return_allowed_seller_action_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_seller_action_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_reminder_timeout_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_closed_seller_refund_decorator"(platform: "/mobile"){
+            news_id = "claim_closed_seller_refund_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -12701,6 +12716,21 @@ trackTests {
 
         "/notification/claim_pdd_second_rescue"(platform: "/mobile"){
             news_id = "claim_pdd_second_rescue-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_return_allowed_seller_action_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_seller_action_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/mobile"){
+            news_id = "claim_return_allowed_reminder_timeout_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_closed_seller_refund_decorator"(platform: "/mobile"){
+            news_id = "claim_closed_seller_refund_decorator-186785675-76283123"
             event_type = "open"
         }
 

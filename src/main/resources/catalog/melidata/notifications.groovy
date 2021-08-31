@@ -1825,6 +1825,9 @@ tracks {
     //Collection
     "/notification/claim_pdd_first_rescue"(platform: "/") {}
     "/notification/claim_pdd_second_rescue"(platform: "/") {}
+    "/notification/claim_return_allowed_seller_action_decorator"(platform: "/") {}
+    "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/") {}
+    "/notification/claim_closed_seller_refund_decorator"(platform: "/") {}
 
     // Credits - Credit Card
     // Collection
