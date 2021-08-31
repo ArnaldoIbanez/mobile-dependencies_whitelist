@@ -24,7 +24,7 @@ trackTests {
             portal_content_id = 96
             portal_has_channels_configured = true
         }
-        "/portal/faq/effectivity_survey/vote"(platform: "/", type: TrackType.Event) {
+        "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
             portal_contact = [
                     channels: [:],
                     contact_config: false
@@ -33,7 +33,7 @@ trackTests {
             portal_has_channels_configured = true
             portal_effectivity_survey_value = 1
         }
-        "/portal/faq/effectivity_survey/vote"(platform: "/", type: TrackType.Event) {
+        "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
             portal_contact = [
                     channels: [:],
                     contact_config: false
@@ -475,18 +475,6 @@ trackTests {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
-        }
-        "/support/widget/faq/effectivity_survey/vote"(platform: "/", type: TrackType.Event) {
-            portal_content_id = 987
-            portal_source_id = 123
-            portal_has_channels_configured = true
-            portal_effectivity_survey_value = 1
-        }
-        "/support/widget/faq/effectivity_survey/vote"(platform: "/", type: TrackType.Event) {
-            portal_content_id = 987
-            portal_source_id = 123
-            portal_has_channels_configured = true
-            portal_effectivity_survey_value = -1
         }
         "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
             portal_content_id = 987
