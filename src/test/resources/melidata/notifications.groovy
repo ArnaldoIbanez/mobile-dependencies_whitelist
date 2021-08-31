@@ -2072,8 +2072,16 @@ trackTests {
             latest_news_id= "single_player_payg_blocked_device_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_payg_cashback_mp"(platform: "/", type: TrackType.Event) {
-            latest_news_type= "single_player_payg_cashback_device_mp"
+            latest_news_type= "single_player_payg_cashback_mp"
             latest_news_id= "single_player_payg_cashback_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_change_device_number_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_success_mp"
+            latest_news_id= "single_player_payg_change_device_number_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_change_device_number_fail_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_fail_mp"
+            latest_news_id= "single_player_payg_change_device_number_fail_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_scheduled_payment_utility"
@@ -6379,6 +6387,14 @@ trackTests {
             news_id = "single_player_payg_cashback_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_payg_change_device_number_success_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_change_device_number_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_fail_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {
             news_id = "single_player_scheduled_payment_utility_grouped_rejected"
             event_type = "open"
@@ -8536,6 +8552,14 @@ trackTests {
             latest_news_type= "single_player_payg_cashback_mp"
             latest_news_id= "single_player_payg_cashback_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_payg_change_device_number_success_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_success_mp"
+            latest_news_id= "single_player_payg_change_device_number_success_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payg_change_device_number_fail_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_payg_change_device_number_fail_mp"
+            latest_news_id= "single_player_payg_change_device_number_fail_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_scheduled_payment_utility"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_scheduled_payment_utility"
             latest_news_id= "single_player_scheduled_payment_utility-143816022-MLB1013046714"
@@ -10337,6 +10361,14 @@ trackTests {
         }
         "/notification/single_player_payg_cashback_mp"(platform: "/mobile") {
             news_id = "single_player_payg_cashback_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_change_device_number_success_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payg_change_device_number_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_payg_change_device_number_fail_mp_123"
             event_type = "open"
         }
         "/notification/single_player_scheduled_payment_utility_grouped_rejected"(platform: "/mobile") {
