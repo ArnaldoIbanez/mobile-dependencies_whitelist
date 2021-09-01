@@ -269,6 +269,7 @@ tracks {
     "/register/v3/hub/regulations/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/tyc/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/saved_session"(platform: "/", type: TrackType.Event){}
 
     "/register/v3/challenge"(platform: "/", isAbstract: true){}
     "/register/v3/challenge/tyc"(platform: "/", isAbstract: true){}
@@ -304,8 +305,8 @@ tracks {
     "/under_age_validation/notification/rejected"(platform: "/mobile"){}
     "/under_age_validation/notification/accepted"(platform: "/mobile"){}
     "/under_age_validation/notification/accepted/already_logged"(platform: "/mobile"){}
-    "/under_age_validation/notification/tutor-authorization"(platform: "/mobile", isAbstract: true){}
-    "/under_age_validation/notification/tutor-authorization/redirect"(platform: "/mobile"){}
+    "/under_age_validation/notification/tutor_authorization"(platform: "/mobile", isAbstract: true){}
+    "/under_age_validation/notification/tutor_authorization/redirect"(platform: "/mobile"){}
     "/under_age_validation/tutor_authorization"(platform: "/",  isAbstract: true){
         under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
         under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
