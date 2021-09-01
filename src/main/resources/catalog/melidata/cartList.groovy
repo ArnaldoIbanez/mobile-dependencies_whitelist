@@ -166,7 +166,7 @@ tracks {
 
 //Insurtech
 "/cart/item_add/snackbar_insurance_deleted"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
-    option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+    option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
 }
 
 
