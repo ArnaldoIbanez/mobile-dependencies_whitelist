@@ -171,6 +171,7 @@ tracks {
         product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
         option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
         option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
+    }
 
     def protection_price = objectSchemaDefinitions {
         final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
