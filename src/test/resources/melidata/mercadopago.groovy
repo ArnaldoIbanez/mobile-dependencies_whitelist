@@ -2744,6 +2744,14 @@ trackTests {
             label = "lable warning"
         }
 
+        "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
         "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"

@@ -182,6 +182,14 @@ tracks {
     "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.View) {
         label(required: true, type: PropertyType.String, description: "the label the info message")
     }
+    
+    "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
+        barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
+        camera_flash(required: true, type: PropertyType.Boolean, description: "the camera flash is active")
+        timestamp(required: true, type: PropertyType.Numeric, description: "the time to scan")
+        barcode_format(required: true, type: PropertyType.String, description: "barcode format")
+    }
+
     "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
         camera_flash(required: true, type: PropertyType.Boolean, description: "the camera flash is active")
