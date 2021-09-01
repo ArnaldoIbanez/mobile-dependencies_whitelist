@@ -294,8 +294,8 @@ trackTests {
         "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="WITHDRAW"
         }
-        "/apprater/error_service_rules"(platform: "/mobile") {}
-        "/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/accept"(platform: "/mobile") {}
@@ -310,6 +310,7 @@ trackTests {
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/accept"(platform: "/mobile") {}
         "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile") {}
     } 
 
     test("Landing Deeplinks in Mobile") {
