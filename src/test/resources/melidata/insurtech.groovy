@@ -2611,7 +2611,44 @@ trackTests {
                 ]
                 type_congrats= 'error'
             }
+            "/insurtech/protections/claims/cancel/review_claim"(platform:"/", type: TrackType.View){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
 
+            "/insurtech/protections/claims/cancel/review_claim/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/review_claim/keep_claim"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+                type_congrats= 'error'
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim/retry"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim/claims"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
 
             "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View) {
                 product_data =[
