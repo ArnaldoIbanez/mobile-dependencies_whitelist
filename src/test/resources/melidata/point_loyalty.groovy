@@ -12,13 +12,13 @@ trackTests {
 
     test("Point loyalty register view") {
         "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
-            status = "1"
+            status = "active"
         }
     }
 
     test("Point loyalty register view token expired") {   
         "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
-            status = "2"
+            status = "expired"
         }
     }
 
@@ -61,7 +61,7 @@ trackTests {
     }
 
     test("Point loyalty modal component in cashback exchange view") {   
-        "/point/loyalty/cashback/modal"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/modal"(platform: "/web", type: TrackType.View) {
             context = "/cashback-exchange"
         }
     }
@@ -102,20 +102,20 @@ trackTests {
         }
     }
 
-    test("Point loyalty salvavidas screen") {   
-        "/point/loyalty/salvavidas"(platform: "/web", type: TrackType.View) {
+    test("Point loyalty offer cashback in middle flow screen") {   
+        "/point/loyalty/cashback/middle"(platform: "/web", type: TrackType.View) {
         }
     }
 
-     test("Point loyalty continue with payment with cashback in cashback exchange view") {   
-        "/point/loyalty/salvavidas/continue"(platform: "/web", type: TrackType.Event) {
-            context = "/salvavidas"
+     test("Point loyalty continue with payment with cashback in middle flow screen") {   
+        "/point/loyalty/cashback/middle/continue"(platform: "/web", type: TrackType.Event) {
+            context = "/cashback-middle"
         }
     }
 
-    test("Point loyalty quit cashback in cashback exchange view") {   
-        "/point/loyalty/salvavidas/reject"(platform: "/web", type: TrackType.Event) {
-            context = "/salvavidas"
+    test("Point loyalty continue with payment without cashback in middle flow screen") {   
+        "/point/loyalty/cashback/middle/reject"(platform: "/web", type: TrackType.Event) {
+            context = "/cashback-middle"
         }
     }
 }

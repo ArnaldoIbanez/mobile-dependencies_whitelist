@@ -8,7 +8,7 @@ tracks {
     "/point/loyalty/register/congrats"(platform:"/web", type: TrackType.View) { }
 
     "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
-        status(required: true, description: "Status of token user", values: ["1", "2"])
+        status(required: true, description: "Status of token user", values: ["active", "expired"])
     }
 
     "/point/loyalty/register/failure"(platform: "/web", type: TrackType.Event) {
@@ -30,9 +30,8 @@ tracks {
 
     "/point/loyalty/feedback_sms"(platform: "/web", type: TrackType.Event) { }
 
-    "/point/loyalty/cashback/modal"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/modal"(platform: "/web", type: TrackType.View) { 
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
-
     }
 
     "/point/loyalty/cashback/tooltip"(platform: "/web", type: TrackType.Event) {
@@ -59,14 +58,14 @@ tracks {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 
-    "/point/loyalty/salvavidas"(platform: "/web", type: TrackType.View) {
+    "/point/loyalty/cashback/middle"(platform: "/web", type: TrackType.View) {
     }
 
-     "/point/loyalty/salvavidas/continue"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/cashback/middle/continue"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 
-    "/point/loyalty/salvavidas/reject"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/cashback/middle/reject"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 }
