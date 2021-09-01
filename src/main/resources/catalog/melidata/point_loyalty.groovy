@@ -8,7 +8,7 @@ tracks {
     "/point/loyalty/register/congrats"(platform:"/web", type: TrackType.View) { }
 
     "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
-        status(required: true, type: PropertyType.Numeric, description: "Status of token user")
+        status(required: true, description: "Status of token user", values: ["1", "2"])
     }
 
     "/point/loyalty/register/failure"(platform: "/web", type: TrackType.Event) {
@@ -26,36 +26,47 @@ tracks {
 
     "/point/loyalty/phone_register"(platform: "/web", type: TrackType.View) { }
     
-    "/point/loyalty/cashback_exchange"(platform: "/web", type: TrackType.View) { }
+    "/point/loyalty/cashback/exchange"(platform: "/web", type: TrackType.View) { }
 
     "/point/loyalty/feedback_sms"(platform: "/web", type: TrackType.Event) { }
 
-    "/point/loyalty/cashback_modal"(platform: "/web", type: TrackType.Event) { 
+    "/point/loyalty/cashback/modal"(platform: "/web", type: TrackType.Event) { 
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
 
     }
 
-    "/point/loyalty/cashback_tooltip"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/cashback/tooltip"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
      }
 
-    "/point/loyalty/cashback_continue"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/cashback/continue"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 
-    "/point/loyalty/cashback_apply"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/cashback/apply"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 
-    "/point/loyalty/cashback_quit"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/cashback/quit"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 
-    "/point/loyalty/customer_change"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/customer/change"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 
-    "/point/loyalty/quit_customer"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/customer/quit"(platform: "/web", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    }
+
+    "/point/loyalty/salvavidas"(platform: "/web", type: TrackType.View) {
+    }
+
+     "/point/loyalty/salvavidas/continue"(platform: "/web", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    }
+
+    "/point/loyalty/salvavidas/reject"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 }

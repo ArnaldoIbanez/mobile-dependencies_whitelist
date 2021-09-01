@@ -12,13 +12,13 @@ trackTests {
 
     test("Point loyalty register view") {
         "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
-            status = 1
+            status = "1"
         }
     }
 
     test("Point loyalty register view token expired") {   
         "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
-            status = 2
+            status = "2"
         }
     }
 
@@ -51,7 +51,7 @@ trackTests {
     }
 
     test("Point loyalty cashback exchange view") {   
-        "/point/loyalty/cashback_exchange"(platform: "/web", type: TrackType.View) {
+        "/point/loyalty/cashback/exchange"(platform: "/web", type: TrackType.View) {
         }
     }
 
@@ -61,44 +61,61 @@ trackTests {
     }
 
     test("Point loyalty modal component in cashback exchange view") {   
-        "/point/loyalty/cashback_modal"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/modal"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
         }
     }
 
     test("Point loyalty tooltip component in cashback exchange view") {   
-        "/point/loyalty/cashback_tooltip"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/tooltip"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
         }
     }
 
     test("Point loyalty continue with payment whitout cashback in cashback exchange view") {   
-        "/point/loyalty/cashback_continue"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/continue"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
         }
     }
 
     test("Point loyalty continue with payment with cashback in cashback exchange view") {   
-        "/point/loyalty/cashback_apply"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/apply"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
         }
     }
 
     test("Point loyalty quit cashback in cashback exchange view") {   
-        "/point/loyalty/cashback_quit"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/cashback/quit"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
         }
     }
 
     test("Point loyalty change customer") {   
-        "/point/loyalty/customer_change"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/customer/change"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
         }
     }
 
     test("Point loyalty quit customer") {   
-        "/point/loyalty/quit_customer"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/customer/quit"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
+        }
+    }
+
+    test("Point loyalty salvavidas screen") {   
+        "/point/loyalty/salvavidas"(platform: "/web", type: TrackType.View) {
+        }
+    }
+
+     test("Point loyalty continue with payment with cashback in cashback exchange view") {   
+        "/point/loyalty/salvavidas/continue"(platform: "/web", type: TrackType.Event) {
+            context = "/salvavidas"
+        }
+    }
+
+    test("Point loyalty quit cashback in cashback exchange view") {   
+        "/point/loyalty/salvavidas/reject"(platform: "/web", type: TrackType.Event) {
+            context = "/salvavidas"
         }
     }
 }
