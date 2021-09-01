@@ -2705,7 +2705,7 @@ trackTests {
             categoryProperties()
         }
 
-        // Scanner
+        // scanner permission
         "/bill_payments/enable_camera"(platform: "/mobile") {
             mandatory()
         }
@@ -2713,8 +2713,9 @@ trackTests {
         "/bill_payments/permission_camera"(platform: "/mobile") {
             mandatory()
         }
-
-         "/bill_payments/scan"(platform: "/mobile") {
+        
+        // Scanner    
+        "/bill_payments/scan"(platform: "/mobile") {
             mandatory()
         }
 
@@ -2738,21 +2739,9 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
         "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             label = "lable warning"
-        }
-
-        "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
-        "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
         }
 
         "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
@@ -2761,6 +2750,61 @@ trackTests {
             camera_flash = false
             timestamp = 1043
             barcode_format = "ITR40"
+        }
+
+        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // New Scanner    
+        "/bill_payments/new_scan"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/flash"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_qr"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/click"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/info_message"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "lable warning"
+        }
+
+        "/bill_payments/new_scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // Scanner error 
+        "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
         "/bill_payments/fixed_amount"(platform: "/mobile") {
@@ -5675,6 +5719,76 @@ trackTests {
             reauth_mods_id = "2"
             operation_id = "2"
             flow_type = "withdraw"
+            amount = "10.0"
+        }
+
+        //Operation Status        
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "created"
+            transaction_id = "1"
+        
+        }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "created"
+            transaction_id = "1"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "not_needed"
+            transaction_id = "3"
+        }
+
+       "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "2"
+            flow_type = "other"
+            reauth_status = "not_needed"
+            transaction_id = "3"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            reauth_status = "created"
+            transaction_id = "3"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            reauth_status = "created"
+            transaction_id = "4"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "client_error"
+            transaction_id = "3"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "2"
+            flow_type = "other"
+            reauth_status = "server_error"
+            transaction_id = "3"
             amount = "10.0"
         }
 
