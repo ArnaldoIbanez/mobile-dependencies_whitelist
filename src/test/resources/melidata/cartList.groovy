@@ -317,7 +317,7 @@ trackTests {
         "/cart/item_add/insurtech_protection_deleted"(platform: "/"){
             item = [
                     quantity: 1,
-                    id: "MLA12415535"
+                    id: "MLA12415535",
             ]
             option_selected = [
                     product_id: "GAREX",
