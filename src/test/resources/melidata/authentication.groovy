@@ -1737,6 +1737,75 @@ trackTests {
                 amount = "10.0"
             }
 
+            //Operation Status
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "created"
+                transaction_id = "1"
+            }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "created"
+                transaction_id = "1"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "not_needed"
+                transaction_id = "3"
+            }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "2"
+                flow_type = "other"
+                reauth_status = "not_needed"
+                transaction_id = "3"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                reauth_status = "created"
+                transaction_id = "3"
+                amount = "10.0"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "2"
+                operation_id = "2"
+                flow_type = "payment"
+                reauth_status = "created"
+                transaction_id = "4"
+                amount = "10.0"
+            }
+
+            "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "1"
+                flow_type = "other"
+                reauth_status = "client_error"
+                transaction_id = "3"
+                amount = "10.0"
+            }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+                reauth_mods_id = "1"
+                operation_id = "2"
+                flow_type = "other"
+                reauth_status = "server_error"
+                transaction_id = "3"
+                amount = "10.0"
+            }
+
             //Operation End - Success
             "/reauth/operation_end"(platform: "/mobile/android", type: TrackType.Event) {
                 reauth_mods_id = "1"
