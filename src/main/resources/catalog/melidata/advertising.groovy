@@ -137,9 +137,9 @@ tracks {
     "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         site_id(required: true, description: "Site of user who contract advertising")
         cust_id(required: true, type: PropertyType.Numeric, description: "User who contract advertising")
-        q_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are sll")
-        q_no_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are not sll")
-        q_indexed_items(required: true, type: PropertyType.Numeric, description: "Indicates the number of indexed items")
+        cantidad_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are sll")
+        cantidad_no_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are not sll")
+        cantidad_indexed_items(required: true, type: PropertyType.Numeric, description: "Indicates the number of indexed items")
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         model(required: false, type: PropertyType.String, description: "Indicates the number of indexed items", values: ['bids', 'cvr'])
     }
