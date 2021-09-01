@@ -260,6 +260,8 @@ tracks {
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
+    "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {}
+
     "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
@@ -273,6 +275,8 @@ tracks {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
+
+    "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {}
 
     "/auth/account_recovery/confirm/action"(platform: "/", type: TrackType.View) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
@@ -719,6 +723,16 @@ tracks {
     "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     // Native Reauth Mobile
+
+    propertyDefinitions {
+        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
+        reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error", "server_error", "client_error"], description: "Identify 201, 204 o error status by api result workflow decide")
+    }
+
+    propertyGroups {
+        status(reauth_status, transaction_id)
+    }
+
     "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
@@ -728,11 +742,14 @@ tracks {
 
     "/reauth/operation_start"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/reauth/operation_status"(platform: "/mobile", type: TrackType.Event) {
+        status
+    }
+
     "/reauth/operation_end"(platform: "/mobile", type: TrackType.Event) {
         result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
         error(type: PropertyType.String, required: false)
-        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
-        reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error"], description: "Identify 201, 204 o error status by api result workflow decide")
+        status
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }

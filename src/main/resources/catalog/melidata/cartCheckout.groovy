@@ -617,6 +617,11 @@ tracks {
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
+    "/cart/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
     "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)

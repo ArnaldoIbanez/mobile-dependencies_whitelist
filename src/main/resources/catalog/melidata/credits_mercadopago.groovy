@@ -238,7 +238,7 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'create_promise',
                 'view_promise',
@@ -257,6 +257,11 @@ tracks {
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
             required: false
+        )
+        from_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
@@ -846,6 +851,16 @@ tracks {
         )
         loan_status(
             description: "The status of the created loan",
+            type: PropertyType.String,
+            required: false,
+        )
+        loan_status_detail(
+            description: "The detail of status of the created loan",
+            type: PropertyType.String,
+            required: false,
+        )
+        loan_request_status(
+            description: "The status of the created loan request",
             type: PropertyType.String,
             required: false,
         )

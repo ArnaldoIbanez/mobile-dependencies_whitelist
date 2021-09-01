@@ -383,6 +383,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source = "description"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
@@ -392,6 +393,7 @@ trackTests {
             event_source = "technicalSpecs"
             source = "htmlView"
             item_seller_type="car_dealer"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/mobile", type: TrackType.Event, {
@@ -411,6 +413,7 @@ trackTests {
             unregistered_contact_context= false
             has_good_price= false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -959,6 +962,7 @@ trackTests {
             vip_version = "new"
             has_good_price = false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -966,6 +970,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source= "description"
+            from_view = "questions"
         }
 
         "/vip/questions/show"(platform: "/", type: TrackType.View) {
@@ -974,6 +979,7 @@ trackTests {
             vip_version = "new"
             has_good_price = true
             has_highlighted_sale_specs=true
+            from_view = "questions"
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -2228,5 +2234,163 @@ trackTests {
         }
 
         "/vip"(platform: "/", dataSet)
+    }
+
+    test("Vip tracking for item with protections"){
+        def mandatory= {
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+            catalog_listing = false
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
+        }
+
+        def insurtech_fields = {
+            has_roda = true
+            has_garex = false
+        }
+
+        "/vip"(platform: "/", {
+            mandatory()
+            insurtech_fields()
+        })
+    }
+
+    test("Vip events tracking for item with protections"){
+        "/vip/insurtech_opened"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_selected"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "BOTTOM_SHEET"
+        }
+
+        "/vip/insurtech_added"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "GAREX",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_closed"(platform: "/", type: TrackType.Event){
+            has_roda = true
+            has_garex = true
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_terms"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "BOTTOM_SHEET"
+        }
+
+        "/vip/insurtech_help"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000,
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
     }
 }
