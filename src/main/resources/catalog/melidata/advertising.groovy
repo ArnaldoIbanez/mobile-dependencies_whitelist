@@ -132,7 +132,16 @@ tracks {
         experiment(required: false, description: "progressive rollout experiment", inheritable:false)
         has_shops(required: false, type: PropertyType.Boolean, description: "Is Shops")
         has_shops_integration(required: false, type: PropertyType.Boolean, description: "Shops integration")
+    }
 
+    "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        site_id(required: true, description: "Site of user who contract advertising")
+        cust_id(required: true, type: PropertyType.Numeric, description: "User who contract advertising")
+        cantidad_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are sll")
+        cantidad_no_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are not sll")
+        cantidad_indexed_items(required: true, type: PropertyType.Numeric, description: "Indicates the number of indexed items")
+        mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
+        model(required: false, type: PropertyType.String, description: "Indicates the number of indexed items", values: ['bids', 'cvr'])
     }
 
     "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
