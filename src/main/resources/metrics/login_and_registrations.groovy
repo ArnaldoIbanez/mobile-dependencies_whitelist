@@ -1,4 +1,5 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 
 metrics {
@@ -13,7 +14,7 @@ metrics {
         }
     }
 
-    "registrations"(description: "registrations count", categorization:"important") {
+    "registrations"(description: "registrations count", tags:[TagType.Important]) {
         countsOn {
             condition {
                 path("/register/success")
