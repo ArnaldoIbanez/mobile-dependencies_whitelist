@@ -2293,16 +2293,7 @@ trackTests {
         }
 
         "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
-            protection = [
-                insurance_purchase_key: "roda-ABC125",
-                amount_total: 100.72,
-                amount_fee:  10.72,
-                option_check: "total",
-                option_coverage: "theft_break",
-                deductible_amount: 10.72,
-                has_open_claim: false,
-                is_current_device_protection: false,
-            ]
+            insurance_purchase_key = "roda-ABC125"
             claim = [
                 id: "ABC125-DEEF",
                 franchise_payment_id: 10021312312,
@@ -2311,16 +2302,7 @@ trackTests {
         }
 
         "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
-            protection = [
-                insurance_purchase_key: "roda-ABC125",
-                amount_total: 100.72,
-                amount_fee:  10.72,
-                option_check: "total",
-                option_coverage: "theft_break",
-                deductible_amount: 10.72,
-                has_open_claim: false,
-                is_current_device_protection: false,
-            ]
+            insurance_purchase_key = "roda-ABC125"
             claim = [
                 id: "ABC125-DEEF",
             ]
@@ -2422,6 +2404,14 @@ trackTests {
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+             product_data =[
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"garex",
+                product_id:"MLA_RD00000000000065134TEST"
             ]
         }
 
@@ -2621,7 +2611,44 @@ trackTests {
                 ]
                 type_congrats= 'error'
             }
+            "/insurtech/protections/claims/cancel/review_claim"(platform:"/", type: TrackType.View){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
 
+            "/insurtech/protections/claims/cancel/review_claim/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/review_claim/keep_claim"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+                type_congrats= 'error'
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim/retry"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim/claims"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
 
             "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View) {
                 product_data =[

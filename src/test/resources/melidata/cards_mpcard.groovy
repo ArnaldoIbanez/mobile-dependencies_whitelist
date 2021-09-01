@@ -1065,7 +1065,7 @@ trackTests {
     }
     test("cards mpcard request physical challenge tap") {
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "close"
+            action = "back"
         }
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
@@ -1074,17 +1074,28 @@ trackTests {
 
     // Request: Pending Challenge
     test("cards mpcard request physical pending challenge") {
-        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d1"
+        }
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d1_ticket"
+        }
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "d4"
+        }
     }
     test("cards mpcard request physical pending challenge tap") {
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "back"
+            context = "d1"
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
+            context = "d1_ticket"
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "info_payment"
+            action = "add_money"
+            context = "d4"
         }
     }
 

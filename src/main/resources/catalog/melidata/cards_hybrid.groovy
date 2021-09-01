@@ -711,6 +711,12 @@ tracks {
             description: "The action type tapped"
         )
     }
+
+    // Setup virtual reauth
+    "/cards/hybrid/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
@@ -1155,24 +1161,48 @@ tracks {
             description: "If reissue was request by warning address"
         )
     }
-    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) { }
     "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add_money"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the challenge"
         )
     }
 
     // Request: Pending Challenge
-    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
+        )
+    }
     "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
             values: ["back", "add_money", "info_payment"],
             description: "action tap by the user in the pending challenge view"
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["d1", "d1_ticket", "d4"],
+            description: "type of screen"
+        )
+    }
+
+    // Request: Expired Challenge
+    "/cards/hybrid/request/physical/expired_challenge"(platform: "/", type: TrackType.View) { }
+    "/cards/hybrid/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "continue"],
+            description: "action tap by the user in the expired challenge view"
         )
     }
 

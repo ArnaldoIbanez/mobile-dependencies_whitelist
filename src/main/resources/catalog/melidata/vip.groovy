@@ -109,6 +109,30 @@ tracks {
         has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
     }
 
+    def protection_price = objectSchemaDefinitions {
+        final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
+    }
+    def device_option_data = objectSchemaDefinitions {
+        brand(required: false, type: PropertyType.String, description: "brand of insured device")
+        coverage(required: false, type: PropertyType.String, description: "selected coverage type")
+        deductible_amount(required: false, type: PropertyType.Numeric, description: "deductible amount or franchise")
+        model(required: false, type: PropertyType.String, description: "model of insured device")
+        size(required: false, type: PropertyType.String, description: "size of device storage")
+        manufacturer_warranty(required: false, type: PropertyType.Numeric, description: "factory warranty time")
+    }
+    def protection_option = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "id of the warranty option")
+        price(required: true, type: PropertyType.Map(protection_price), description: "price of the warranty option")
+        period(required: false, type: PropertyType.Numeric, description: "period of the warranty option")
+        option_data(required: false, type: PropertyType.Map(device_option_data), description: "extra information of the warranty option")
+    }
+    def protection_item_info = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "id of the item that is offered a protection")
+        domain_id(required: true, type: PropertyType.String, description: "domain of the item that is offered a protection")
+        price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
+    }
+
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -291,6 +315,10 @@ tracks {
 
         // Apparel
         apparel(required: false, type: PropertyType.Map(apparel_definition), description: "Apparel tracks")
+
+        // Insurtech fields
+        has_roda(required: false, type: PropertyType.Boolean, description: "The item have RODA protection options")
+        has_garex(required: false, type: PropertyType.Boolean, description: "The item have GAREX protection options")
     }
 
     "/vip"(platform: "/web") {
@@ -1663,5 +1691,52 @@ tracks {
         item_state(required: false, type: PropertyType.String, description: "Item state")
         item_city(required: false, type: PropertyType.String, description: "Item city")
         item_neighborhood(required: false, type: PropertyType.String, description: "Item neighborhood")
+    }
+
+    // Insurtech
+
+    "/vip/insurtech_opened"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_selected"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_added"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: false, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_closed"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_terms"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    "/vip/insurtech_help"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
+        option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
+        has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
+        has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
     }
 }
