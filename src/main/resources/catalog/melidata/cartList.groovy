@@ -43,6 +43,11 @@ tracks {
         option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
     }
 
+    def protection_item_info = objectSchemaDefinitions {
+        quantity(required: true, type: PropertyType.Numeric, description: "Current quantity of the item at carrito")
+        id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
 
 
     "/cart"(platform: "/", isAbstract: true) {
@@ -165,7 +170,8 @@ tracks {
 }
 
 //Insurtech
-"/cart/item_add/snackbar_insurance_deleted"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+"/cart/item_add/insurtech_protection_deleted"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+    item(required: true, type: PropertyMap(protection_item_info), description: "information about chosen item")
     option_selected(required: true, type: PropertyType.Map(protection_option), description: "information about the chosen protection")
 }
 

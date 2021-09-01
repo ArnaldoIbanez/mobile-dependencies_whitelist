@@ -114,7 +114,7 @@ tracks {
         product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
         option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
         option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
-
+    }
     def protection_price = objectSchemaDefinitions {
         final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
         discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
@@ -137,7 +137,6 @@ tracks {
         id(required: true, type: PropertyType.String, description: "id of the item that is offered a protection")
         domain_id(required: true, type: PropertyType.String, description: "domain of the item that is offered a protection")
         price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
->>>>>>> upstream_master
     }
 
     //VIP FLOW
