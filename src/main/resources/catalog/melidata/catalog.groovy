@@ -335,6 +335,7 @@ catalog {
         include business, "vip.groovy"
         include business, "splinter.groovy"
         include business, "cdn_metrics.groovy"
+        include business, "kyc.groovy"
     }
 
 }
