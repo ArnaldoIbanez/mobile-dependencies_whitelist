@@ -21,7 +21,7 @@ metrics {
 
   "app_download_intention"(description: "Measure the intention of downloading the App by clicking in several spots/buttons distributed in different sites", deprecation_date:"2021/11/01") {
     startWith {
-      experiment("home-landing/appDownloadDesktop", "home-landing/appDownloadMobile", "business-landing/stickyButton")
+      experiment("home-landing/appDownloadDesktop", "home-landing/appDownloadMobile", "business-landing/stickyButton", "digital-account-landing/appDownloadDesktop", "digital-account-landing/appDownloadMobile")
     }
   
     countsOn {
