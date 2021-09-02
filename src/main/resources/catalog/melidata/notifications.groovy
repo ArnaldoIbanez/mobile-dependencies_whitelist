@@ -1375,6 +1375,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/wallet_connect_rejected_payment"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/transaction_rejected_international_authorization_by_invalid_amount"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -3524,6 +3528,7 @@ tracks {
     "/notification/wallet_connect_binding_error"(platform: "/") {}
     "/notification/wallet_connect_binding_with_card_and_cash"(platform: "/") {}
     "/notification/wallet_connect_binding_with_cash"(platform: "/") {}
+    "/notification/wallet_connect_rejected_payment"(platform: "/") {}
 
     //Withdraw
     "/notification/withdraw_approved_contingency"(platform: "/", type: TrackType.Event) {} //At web, only mp business
