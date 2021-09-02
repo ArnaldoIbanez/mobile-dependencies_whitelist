@@ -235,9 +235,11 @@ tracks {
                 values: [
                         "Amicar",
                         "Autofin",
+                        "Banco De Bogota S.A.",
                         "Banco do Brasil",
                         "Bbva",
                         "Bradesco",
+                        "Credicuotas",
                         "Caixa",
                         "Credihome",
                         "Credimejora",
@@ -250,6 +252,7 @@ tracks {
                         "Santander",
                         "Scotiabank",
                         "Votorantim",
+                        "Volkswagen",
                         "BBVA",
                         "CrediHome",
                 ]
