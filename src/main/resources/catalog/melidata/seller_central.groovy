@@ -213,6 +213,12 @@ tracks {
         meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
         adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
     }
+
+    def rowItemStructure = objectSchemaDefinitions {
+        item_id(type: PropertyType.String, required: true)
+        reason(type: PropertyType.String, required: true)
+    }
+
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -683,32 +689,23 @@ tracks {
     }
 
     //Listing empty state
+
     "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(rowItemStructure)), description: "List of items with empty state action")
+    }
+
+    "/seller_central/listings/activate_row"(platform: "/", type: TrackType.Event){
         item_id(required: true, type: PropertyType.String, description: "Item to activate")
-        view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
         reason(required: true, type: PropertyType.String, description: "Reason")
     }
 
-    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.View){
-        item_id(required: true, type: PropertyType.String, description: "Item to activate")
-        view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
-        reason(required: true, type: PropertyType.String, description: "Reason")
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "Rendered or activated view id")
+        action(values: ["show", "click"])
     }
 
-    "/seller_central/listings/empty_channel"(platform: "/", type: TrackType.View){
-        action(required: true, type: PropertyType.String, description: "Action performed")
-        sub_view_id(required: true, type: PropertyType.String, description: "Rendered view id")
-    }
-
-    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
-        url(required: false, type: PropertyType.String, description: "Url of the shop")
-        type(required: false, type: PropertyType.String, description: "Shop type")
-        selected_view(required: true, type: PropertyType.String, description: "View selected")
-    }
-
-    "/seller_central/listings/activate"(platform: "/", type: TrackType.Event){
-        activate(required: true, type: PropertyType.String, description: "Selected view to activate")
-    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline

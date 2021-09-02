@@ -5738,76 +5738,58 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
-  test("Click publish item in MShops from empty state row") {
+  test("Track empty state items") {
     "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.Event){
+        sub_view_id = "mshops"
+        items = [
+            [
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ],[
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ],[
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ]
+        ]
+    }
+  }
+
+  test("Click publish item in MShops from empty state row") {
+    "/seller_central/listings/activate_row"(platform: "/", type: TrackType.Event){
       item_id = "MLA10335295"
-      view_id = "marketplace"
+      sub_view_id = "mshops"
       reason = "PUBLICAR_EN_MI_MERCADO_SHOP"
     }
   }
 
-  test("Click publish item in mercado libre from empty state row") {
-    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.Event) {
-      item_id = "MLA10335295"
-      view_id = "marketplace"
-      reason = "VENDER_EN_MERCADO_LIBRE"
-    }
-  }
 
-  test("Render publish item in Mercado libre") {
-    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.View){
-      item_id = "MLA10335295"
-      view_id = "marketplace"
-      reason = "VENDER_EN_MERCADO_LIBRE"
-    }
-  }
-
-  test("Render publish item in mshops") {
-    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.View){
-      item_id = "MLA10335295"
-      view_id = "marketplace"
-      reason = "VENDER_EN_MI_MERCADO_SHOP"
-    }
-  }
-
-  test("Render inactive channel mercado libre") {
-    "/seller_central/listings/empty_channel"(platform: "/", type: TrackType.View){
-      action = "render"
-      sub_view_id = "markeplace"
-    }
-  }
-
-  test("Render inactive channel mshops") {
-    "/seller_central/listings/empty_channel"(platform: "/", type: TrackType.View){
-      action = "render"
+  test("Show MShops inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
       sub_view_id = "mshops"
+      action = "show"
     }
   }
 
-  test("Click activate inactive channel mshops") {
-    "/seller_central/listings/activate"(platform: "/", type: TrackType.Event){
-      activate = "mshops"
+  test("Show marketplace inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "markeplace"
+      action = "show"
     }
   }
 
-  test("Click activate inactive channel marketplace") {
-    "/seller_central/listings/activate"(platform: "/", type: TrackType.Event){
-      activate = "marketplace"
+  test("Click marketplace inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "markeplace"
+      action = "show"
     }
   }
 
-  test("Click Mshops sub view tab"){
-    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
-      url = "http://test.com"
-      type = "type"
-      selected_view = "mshops"
+  test("Click mshops inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "mshops"
+      action = "click"
     }
   }
-
-  test("Click marketplace sub view tab"){
-    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
-      selected_view = "marketplace"
-    }
-  }
-
 }
