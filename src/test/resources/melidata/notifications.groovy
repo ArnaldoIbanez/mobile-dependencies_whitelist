@@ -1907,6 +1907,10 @@ trackTests {
             latest_news_type= "wallet_connect_binding_with_cash"
             latest_news_id= "wallet_connect-binding_with_cash-84060496"
         }
+        "/notification_center/wallet_connect_rejected_payment"(platform: "/") {
+            latest_news_type= "wallet_connect_rejected_payment"
+            latest_news_id= "wallet_connect-rejected_payment-84060496"
+        }
         "/notification_center/wallet_integrator_insufficient_amount"(platform: "/mobile"){
             newsgroup_id= "wallet_integrator-insufficient_amount-186785675-76283123"
             latest_news_id= "wallet_integrator-insufficient_amount-186785675-76283123"
@@ -6669,6 +6673,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/wallet_connect_rejected_payment"(platform: "/") {
+            news_id = "wallet_connect-rejected_payment-84060496"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -8762,6 +8771,10 @@ trackTests {
         "/notification_center/wallet_connect_binding_with_cash"(platform: "/") {
             latest_news_type= "wallet_connect_binding_with_cash"
             latest_news_id= "wallet_connect-binding_with_cash-84060496"
+        }
+        "/notification_center/wallet_connect_rejected_payment"(platform: "/") {
+            latest_news_type= "wallet_connect_rejected_payment"
+            latest_news_id= "wallet_connect-rejected_payment-84060496"
         }
         "/notification_center/wallet_integrator_insufficient_amount"(platform: "/mobile"){
             newsgroup_id= "wallet_integrator-insufficient_amount-186785675-76283123"
@@ -13975,6 +13988,11 @@ trackTests {
         }
         "/notification/wallet_connect_binding_with_cash"(platform: "/") {
             news_id = "wallet_connect-binding_with_cash-84060496"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/wallet_connect_rejected_payment"(platform: "/") {
+            news_id = "wallet_connect-rejected_payment-84060496"
             event_type = "open"
             notification_type= "deep_linking"
         }
