@@ -323,14 +323,14 @@ tracks {
     "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+    "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View, inheritable:false) {
         switch_status(required: true, description: "Current state of switch")
     }
 
-    "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event, inheritable:false) {
+    "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/target/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event, inheritable:false) {
+    "/advertising/privacy/target/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
     }
 
     "/advertising/privacy/target/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
@@ -346,14 +346,14 @@ tracks {
     "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+    "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View, inheritable:false) {
         switch_status(required: true, description: "Current state of switch")
     }
 
-    "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event, inheritable:false) {
+    "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/privacy/business_partners/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event, inheritable:false) {
+    "/advertising/privacy/business_partners/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
     }
 
     "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
