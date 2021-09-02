@@ -2152,27 +2152,27 @@ tracks {
 
     "/seller_central/promotions/massive/editor/open"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
-        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
         useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
     }
 
     "/seller_central/promotions/massive/editor/confirm"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
-        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
         useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
         deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
     }
 
     "/seller_central/promotions/massive/editor/cancel"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
-        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
         useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
         deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
     }
 
     "/seller_central/promotions/massive/editor/delete"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
-        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tier", "co_founded", "volume"])
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
         useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
     }
 
