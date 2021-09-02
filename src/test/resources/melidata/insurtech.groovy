@@ -2415,6 +2415,34 @@ trackTests {
             ]
         }
 
+        //CARDS
+        "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+        "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {}
+        "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/mobile", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            call_from = "fromCapital"
+        }
+
+        "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/mobile", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            call_from = "notFromCapital"
+        }
+
+
         //landing-fe
         "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View) {
            type = "desktop"
