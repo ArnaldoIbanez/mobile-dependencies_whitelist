@@ -1762,13 +1762,6 @@ trackTests {
             latest_news_type= "card_unlock_incentive_twentyfifth_day"
             status= "read"
         }
-        "/notification_center/card_delivery_tracking"(platform: "/mobile"){
-            newsgroup_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
-            latest_news_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
-            latest_news_type= "card_delivery_tracking-soon_deliver"
-            status= "read"
-            branch_time_elapsed = true
-        }
         "/notification_center/claim"(platform: "/mobile"){
             newsgroup_id= "claim_186785675-76283123"
             latest_news_id= "claim_186785675-76283123"
@@ -6014,38 +6007,6 @@ trackTests {
             news_id = "card_unlock_incentive_twentyfifth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
-        }
-
-        "/notification/card_delivery_tracking_ready_to_ship"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-        "/notification/card_delivery_tracking_shipped"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_shipped-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-        "/notification/card_delivery_tracking_soon_deliver"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_soon_deliver-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-        "/notification/card_delivery_tracking_delayed"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-        "/notification/card_delivery_tracking_branch"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_branch-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-        "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_not_delivered-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-            branch_time_elapsed = true
         }
 
         "/notification/claim_pdd_first_rescue"(platform: "/mobile"){
