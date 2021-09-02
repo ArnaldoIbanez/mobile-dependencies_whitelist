@@ -109,6 +109,12 @@ tracks {
         has_size_chart(required: false, type: PropertyType.Boolean, description: "Indicates whether the item has size chart")
     }
 
+
+    def protection_quote_data = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
+        option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
+        option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
+    }
     def protection_price = objectSchemaDefinitions {
         final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
         discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
@@ -447,6 +453,7 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
@@ -483,6 +490,7 @@ tracks {
         shipping_info
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {
@@ -1696,7 +1704,8 @@ tracks {
         item_neighborhood(required: false, type: PropertyType.String, description: "Item neighborhood")
     }
 
-    // Insurtech
+    //Insurtech
+    "/vip/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/vip/insurtech_opened"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
         item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")

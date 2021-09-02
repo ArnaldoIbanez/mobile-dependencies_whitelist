@@ -166,6 +166,13 @@ tracks {
         melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
     }
 
+
+    def protection_quote_data = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, description: "Type of warranty selected by user")
+        option_price(required: true, type: PropertyType.Numeric, description: "Price of warranty option")
+        option_id(required: true, type: PropertyType.String, description: "Id of warranty option")
+    }
+
     def protection_price = objectSchemaDefinitions {
         final_amount(required: true, type: PropertyType.Numeric, description: "final amount")
         discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate")
@@ -325,6 +332,7 @@ tracks {
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/pdp/add_to_cart_action"(platform: "/", parentPropertiesInherited: false) {
@@ -357,6 +365,7 @@ tracks {
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
         pricing_info
+        option_selected(required: false, type: PropertyType.Map(protection_quote_data), description: "information about the chosen protection")
     }
 
     "/pdp/multiple_offer"(platform: "/", isAbstract:true) {}
@@ -801,7 +810,8 @@ tracks {
         item_neighborhood(required: false, type: PropertyType.String, description: "Item neighborhood")
     }
 
-    // Insurtech events
+    //Insurtech
+    "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/pdp/insurtech_opened"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event){
         item(required: true, type: PropertyType.Map(protection_item_info), description: "information of the item to which protection is offered")
