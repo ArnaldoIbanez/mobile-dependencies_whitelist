@@ -1,4 +1,5 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 def instoreMarketplaceExperiments = "(wallet/)?cdd/.*"
 
@@ -16,7 +17,7 @@ metrics {
     }
   }
 
-  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, categorization:"important") {
+  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, tags:[TagType.Important]) {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -54,7 +55,7 @@ metrics {
       }
     }
 
-  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, categorization:"important") {
+  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, tags:[TagType.Important]) {
     startWith {
       experiment(regex("wallet/.*"))
     }

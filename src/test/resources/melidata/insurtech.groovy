@@ -258,11 +258,12 @@ trackTests {
 
         "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/select"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
+            product_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
             period = 12
             cost = 270
@@ -271,16 +272,18 @@ trackTests {
             revenue_share_fee = 30
             revenue = 78
             currency_id = "BR"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/help"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
+            product_id = "RODA"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/add"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
+            product_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
             period = 12
             cost = 270
@@ -289,15 +292,17 @@ trackTests {
             revenue_share_fee = 30
             revenue = 78
             currency_id = "BR"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/skip"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/quote_fail"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
+            product_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
             period = 12
             cost = 270
@@ -305,22 +310,34 @@ trackTests {
             discount_rate = 10
             revenue = 78
             currency_id = "BR"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/quote_success"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
-            flow_id = "RODA"
+            product_id = "RODA"
             quote_id = "343cae11-d2ef-4115-b284-96c7e69fb1d8"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
         }
 
+        "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "VIP"
+        }
 
         "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             error_type = "timeout"
+        }
+
+        "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            error_type = "timeout"
+            flow_id = "VIP"
         }
 
         "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
@@ -2293,16 +2310,7 @@ trackTests {
         }
 
         "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
-            protection = [
-                insurance_purchase_key: "roda-ABC125",
-                amount_total: 100.72,
-                amount_fee:  10.72,
-                option_check: "total",
-                option_coverage: "theft_break",
-                deductible_amount: 10.72,
-                has_open_claim: false,
-                is_current_device_protection: false,
-            ]
+            insurance_purchase_key = "roda-ABC125"
             claim = [
                 id: "ABC125-DEEF",
                 franchise_payment_id: 10021312312,
@@ -2311,16 +2319,7 @@ trackTests {
         }
 
         "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
-            protection = [
-                insurance_purchase_key: "roda-ABC125",
-                amount_total: 100.72,
-                amount_fee:  10.72,
-                option_check: "total",
-                option_coverage: "theft_break",
-                deductible_amount: 10.72,
-                has_open_claim: false,
-                is_current_device_protection: false,
-            ]
+            insurance_purchase_key = "roda-ABC125"
             claim = [
                 id: "ABC125-DEEF",
             ]
@@ -2432,6 +2431,34 @@ trackTests {
                 product_id:"MLA_RD00000000000065134TEST"
             ]
         }
+
+        //CARDS
+        "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+        "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {}
+        "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/mobile", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            call_from = "fromCapital"
+        }
+
+        "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/mobile", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            call_from = "notFromCapital"
+        }
+
 
         //landing-fe
         "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View) {
@@ -2629,7 +2656,44 @@ trackTests {
                 ]
                 type_congrats= 'error'
             }
+            "/insurtech/protections/claims/cancel/review_claim"(platform:"/", type: TrackType.View){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
 
+            "/insurtech/protections/claims/cancel/review_claim/confirm"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/review_claim/keep_claim"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+                type_congrats= 'error'
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim/retry"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
+            "/insurtech/protections/claims/cancel/congrats_claim/claims"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    claim_id:"63652ks",
+                    product_type:"garex",
+                ]
+            }
 
             "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View) {
                 product_data =[

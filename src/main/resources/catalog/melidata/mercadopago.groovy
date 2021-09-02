@@ -48,6 +48,10 @@ tracks {
         coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+        bu (type: PropertyType.String, required: false, description: "business unit, value: 'POINT', null")
+        ch (type: PropertyType.String, required: false, description: "sales channel, values: ['MGM', 'ORG', 'MPOS', 'XSELL', null]")
+        camp (type: PropertyType.String, required: false, description: "campaign, values: string or null")
+        strategy (type: PropertyType.String, required: false, description: "strategy, values: string or null")
     }
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}

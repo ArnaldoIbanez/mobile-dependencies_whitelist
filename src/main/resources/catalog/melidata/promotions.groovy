@@ -105,6 +105,7 @@ tracks {
       deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
       dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
       pos(required: false, type: PropertyType.Numeric, description: "Position of the item in the response")
+      international_delivery_mode(required: false, type: PropertyType.String, description: "International delivery mode")
     }
 
     def shortcutsStructure = objectSchemaDefinitions {

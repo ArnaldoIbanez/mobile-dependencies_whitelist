@@ -830,6 +830,13 @@ trackTests {
         }
     }
 
+    // Setup virtual reauth
+    test("cards hybrid setup virtual tracking") {
+        "/cards/hybrid/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    }
+
     //Highlighted Row
     test("cards hybrid setup virtual Highlighted Row") {
         "/cards/hybrid/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
@@ -1158,27 +1165,27 @@ trackTests {
     // Request: Pending Challenge
     test("cards hybrid request physical pending challenge") {
         "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
-            context = "d1"
+            context = "D1"
         }
         "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
-            context = "d1_ticket"
+            context = "D1_ticket"
         }
         "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
-            context = "d4"
+            context = "D4"
         }
     }
     test("cards hybrid request physical pending challenge tap") {
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "back"
-            context = "d1"
+            context = "D1"
         }
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
-            context = "d1_ticket"
+            context = "D1_ticket"
         }
         "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "info_payment"
-            context = "d4"
+            context = "D4"
         }
     }
 

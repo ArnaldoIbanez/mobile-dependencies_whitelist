@@ -620,7 +620,7 @@ tracks {
     }
 
     "/insurtech/protections/detail/roda/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+        insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
         claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
 
@@ -672,6 +672,15 @@ tracks {
     "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
     }
     "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+    }
+
+    //CARDS
+    "/insurtech/protections/detail/begin_claim"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+    }
+     "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/", type: TrackType.Event) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        call_from(required: true, type: PropertyType.String, values: ['fromCapital', 'notFromCapital'], description: "Which of both phones was clicked.");
     }
 
     //Landing-fe
