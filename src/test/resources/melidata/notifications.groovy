@@ -8364,7 +8364,7 @@ trackTests {
             latest_news_id= "card_tracking_mla-soon_deliver-186785675-76283123"
             latest_news_type= "card_tracking_mla-soon_deliver"
             status= "read"
-            branch_time_elapsed = true
+            branch_case = true
         }
         "/notification_center/claim"(platform: "/mobile"){
             newsgroup_id= "claim_186785675-76283123"
@@ -12773,19 +12773,17 @@ trackTests {
             news_id = "card_tracking_mla_not_delivered-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
-            branch_time_elapsed = true
+            branch_case = true
         }
         "/notification/card_tracking_mla_delivered"(platform: "/mobile") {
             news_id = "card_tracking_mla_delivered-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
-            branch_time_elapsed = true
         }
         "/notification/card_tracking_mla_reprogrammed"(platform: "/mobile") {
             news_id = "card_tracking_mla_reprogrammed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
-            branch_time_elapsed = true
         }
 
         "/notification/claim_pdd_first_rescue"(platform: "/mobile"){
