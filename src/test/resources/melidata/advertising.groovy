@@ -284,10 +284,7 @@ trackTests {
         "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
         }
 
-        "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.Event) {
-        }
-
-        "/advertising/privacy/target/ads_desactivation_notice/show"(platform: "/", type: TrackType.Event) {
+        "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
             switch_status = "enabled"
         }
 
@@ -310,10 +307,7 @@ trackTests {
         "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
         }
 
-        "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.Event) {
-        }
-
-        "/advertising/privacy/business_partners/ads_desactivation_notice/show"(platform: "/", type: TrackType.Event) {
+        "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
             switch_status = "enabled"
         }
 
