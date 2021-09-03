@@ -211,7 +211,7 @@ trackTests {
         "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
-        "/banking/debts"(platform: "/", type: TrackType.Event) {
+        "/banking/debts/actions"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
     }
