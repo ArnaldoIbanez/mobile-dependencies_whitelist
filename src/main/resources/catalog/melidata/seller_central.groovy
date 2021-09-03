@@ -480,6 +480,7 @@ tracks {
     "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
         view_id(required: false, type: PropertyType.String, descritpion: "View that has been called")
+        sub_view_id(required: false, type: PropertyType.String, description: "Sub view that has been called", values: ["mshops", "markeplace"])
     }
 
     // Start SLL SC
@@ -704,6 +705,11 @@ tracks {
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
         sub_view_id(required: true, type: PropertyType.String, description: "Rendered or activated view id")
         action(values: ["show", "click"])
+    }
+
+    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "Sub view")
+        action(required: true, type: PropertyType.String, description: "Action performed", values: ["show", "click"])
     }
 
 

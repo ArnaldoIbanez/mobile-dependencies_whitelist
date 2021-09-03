@@ -16,6 +16,13 @@ trackTests {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
   }
 
+  test("seller central listing main page") {
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id = "listing"
+      sub_view_id = "mshops"
+    }
+  }
+
   test("seller central listing differents tabs") {
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
   }
@@ -5789,6 +5796,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("Click mshops inactive channel card"){
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
       sub_view_id = "mshops"
+      action = "click"
+    }
+  }
+
+  test("Change sub view"){
+    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
+      sub_view_id = "marketplace"
       action = "click"
     }
   }
