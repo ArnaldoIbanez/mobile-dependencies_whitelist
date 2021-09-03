@@ -29,7 +29,7 @@ tracks {
     //Definitions
     propertyDefinitions {
         // Global variables
-        action_id(required: false, type: PropertyType.String, description: "The action executed")
+        action_id(required: true, type: PropertyType.String, description: "The action executed")
 
         // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
