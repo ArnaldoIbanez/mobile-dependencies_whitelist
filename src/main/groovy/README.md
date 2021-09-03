@@ -1,4 +1,4 @@
-``# Internal
+# Internal
 
 ## Running Internal tests
 
