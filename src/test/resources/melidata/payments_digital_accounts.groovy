@@ -199,7 +199,7 @@ trackTests {
         "/banking/activity/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
-        "/banking/balance/debts"(platform: "/", type: TrackType.Event) {
+        "/banking/debts"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/balance/cerc"(platform: "/", type: TrackType.Event) {
@@ -209,6 +209,12 @@ trackTests {
             action_id = 'test'
         }
         "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        },
+        "/banking/debts"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/debts/detail"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
     }
