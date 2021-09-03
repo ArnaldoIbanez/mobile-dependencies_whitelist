@@ -36,6 +36,11 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/pre_analysis/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/simulator"(platform: "/", type: TrackType.View) {
             mandatory()
             optionals()
@@ -67,6 +72,27 @@ trackTests {
         }
 
         "/vis_credits/congrats"(platform: "/", type: TrackType.View) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/whatsapp_intention"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/call_intention"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/contact_intention"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
             context = "high_score"
             mandatory()

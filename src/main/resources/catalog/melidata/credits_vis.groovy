@@ -80,8 +80,13 @@ tracks {
     /******************************************
      *       Start: Vis Credits
      ******************************************/
-    // Page-views
+
     "/vis_credits/pre_analysis"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/pre_analysis/next_button"(platform: "/", type: TrackType.Event) {
         vis_credits_required
         vis_credits_optional
     }
@@ -117,6 +122,30 @@ tracks {
     }
 
     "/vis_credits/congrats"(platform: "/", type: TrackType.View) {
+        congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/congrats/whatsapp_intention"(platform: "/", type: TrackType.Event) {
+        congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/congrats/call_intention"(platform: "/", type: TrackType.Event) {
+        congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/congrats/contact_intention"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
         context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
