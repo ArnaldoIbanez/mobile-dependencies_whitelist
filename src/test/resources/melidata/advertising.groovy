@@ -285,7 +285,7 @@ trackTests {
         }
 
         "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
-            switch_status = "enabled"
+            switch_status = "active"
         }
 
         "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
@@ -295,7 +295,7 @@ trackTests {
         }
 
         "/advertising/privacy/target/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
-            switch_status = "deactivate"
+            switch_status = "active"
         }
 
         "/advertising/privacy/business_partners"(platform: "/", type: TrackType.View) {
@@ -308,7 +308,7 @@ trackTests {
         }
 
         "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
-            switch_status = "enabled"
+            switch_status = "inactive"
         }
 
         "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
@@ -318,7 +318,7 @@ trackTests {
         }
 
         "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
-            switch_status = "deactivate"
+            switch_status = "inactive"
         }
     }
 
