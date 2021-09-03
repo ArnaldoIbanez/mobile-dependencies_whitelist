@@ -202,6 +202,9 @@ trackTests {
         "/banking/debts/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/calendar/action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
         "/banking/balance/cerc"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
