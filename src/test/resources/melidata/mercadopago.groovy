@@ -1362,18 +1362,6 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
-            to_flow = "fcu"
-            reason = "user_in_whitelist"
-        }
-        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
-            to_flow = "legacy"
-            reason = "network_request_failed"
-        }
-        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
-            to_flow = "legacy"
-            reason = "user_not_in_whitelist"
-        }
         "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
             flow_origin = 'point'
         }
