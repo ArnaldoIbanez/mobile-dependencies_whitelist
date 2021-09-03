@@ -2609,6 +2609,24 @@ trackTests {
                 ]
             }
 
+            "/insurtech/protections/claims/cancel/not_cancellable/read_certificate"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/not_cancellable/see_protection_detail"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
             "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View) {
                 product_data =[
                     entity_type:"quote",
