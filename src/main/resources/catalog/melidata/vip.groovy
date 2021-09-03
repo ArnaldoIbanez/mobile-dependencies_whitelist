@@ -233,6 +233,8 @@ tracks {
                 description: "Indicates if seller has checked by kyc in level 5 or above")
         points_interest_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has points of interest available")
+        is_ltr(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item is LTR type")
         available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
         bank(
                 required: false,
