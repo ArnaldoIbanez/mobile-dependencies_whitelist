@@ -29,6 +29,11 @@ tracks {
     "/meliplaces/transaction/start"(platform: "/", type: TrackType.Event) {
         service_id(required: true, type: PropertyType.String, description: "The service id of the new transaction")
     }
+    "/meliplaces/transaction/start/shield"(platform: "/", type: TrackType.View) {
+        shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
+        error(required: false, type: PropertyType.Numeric, description: "The error code")
+        message(required: true, type: PropertyType.String, description: "The error message")
+    }
 
     /* PERFORMANCE */
     "/meliplaces/performance"(platform: "/", type: TrackType.View) {}
