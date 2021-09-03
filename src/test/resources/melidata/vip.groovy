@@ -74,6 +74,7 @@ trackTests {
             apparel = [
                     "has_size_chart": true
             ]
+            is_ltr: false
         }
 
         Object items_attributes = {
