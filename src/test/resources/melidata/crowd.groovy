@@ -308,7 +308,11 @@ trackTests {
             defaultLocation()
         }
 
-        "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+        "/crowd/registration/onboarding"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             city = "La plata"
         }
@@ -359,6 +363,10 @@ trackTests {
         }
 
         "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
     }

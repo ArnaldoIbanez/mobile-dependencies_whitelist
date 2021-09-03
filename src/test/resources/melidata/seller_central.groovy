@@ -200,6 +200,13 @@ trackTests {
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {}
   }
 
+  test("seller central listing quantity action") {
+    "/seller_central/listings/quantity/change_tab"(platform: "/", type: TrackType.Event) {
+      view_id = "fulfillment"
+      target_view_id = "stranded"
+    }
+  }
+
   test("Seller central banner go, hide, show") {
     "/seller_central/listings/go"(platform: "/", type: TrackType.Event) {
       placement = "publicidad_banner"
@@ -297,6 +304,16 @@ trackTests {
     }
     "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
+    }
+    "/seller_central/news/lib/primary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
+    "/seller_central/news/lib/secondary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
     }
   }
 
@@ -448,6 +465,80 @@ trackTests {
 
     test("Seller coach carousel scroll") {
     "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      page = 2
+      scroll_type = "next"
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card click") {
+    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "RECOMMENDATION",
+        key: "LIGHTNING_OFFER",
+        page: 1,
+        position: 3,
+        item_id: "15415445414",
+        rules_applied: "none",
+        with_random_order: true
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card dismiss") {
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "RECOMMENDATION",
+        key: "LIGHTNING_OFFER",
+        item_id: "15415445414",
+        rules_applied: "none",
+        with_random_order: false
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach cards view") {
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/mobile", type: TrackType.View) {
+      segment = "none"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      cards = [
+        [
+          type: "CONTENT",
+          key: "PB02",
+          page: 2,
+          rules_applied: "hard",
+          with_random_order: false
+        ],
+        [
+          type: "CONTENT",
+          key: "PB01",
+          page: 2,
+          rules_applied: "soft",
+          with_random_order: false
+        ]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach carousel scroll") {
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -2494,6 +2585,113 @@ trackTests {
       user_type = "real_estate_agency"
       selected_problem = "ID_PROBLEM_1"
       problem_type = "L1"
+    }
+  }
+
+  // Delayed Shipping
+
+  test("metrics my attention delayed shipping section view for web") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      default_selected_period = "lastTwoMonth"
+    }
+  }
+
+  test("metrics my attention delayed shipping section view for web mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping section view for mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping, help button click track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "graphics"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open filter modal track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention delayed shipping apply filters track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      filters = ["FILTER1", "FILTER2"]
+    }
+  }
+
+  test("metrics my attention delayed shipping, start period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/start_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      start_period = "custom"
+    }
+  }
+
+  test("metrics my attention delayed shipping, finish period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/finish_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      finish_period = "custom"
+    }
+  }
+
+    test("metrics my attention delayed shipping, personalized period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
+  test("metrics my attention delayed shipping, top 30 action track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/products_actions"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      action_type = "modify"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open onboarding track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_onboarding"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
     }
   }
 

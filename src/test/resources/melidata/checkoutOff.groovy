@@ -36,6 +36,11 @@ trackTests {
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
             visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
         }
 
         def launchingDefaultProperties = {
@@ -565,6 +570,11 @@ trackTests {
             client_id = 470234553122
             errors = ["code: 13253, description: Collector user without key enabled for QR render"]
             visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
         }
 
         def launchingDefaultProperties = {

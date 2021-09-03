@@ -98,6 +98,10 @@ tracks {
         case_id(required: true, type: PropertyType.Numeric, description: "Id of case created")
         list_skip_button(required: true, type: PropertyType.Boolean, description: "Indicates if the list was skipped without selecting an item")
         list_type(required: true, type: PropertyType.String, description: "Indicates the content of the list")
+        content_ids(required: true, type: PropertyType.ArrayList, description: "Contents id predicted by model NLP")
+        object_model(required: true, type: PropertyType.String, description: "Object model in model NLP response")
+        portal_effectivity_survey_reason(required: false, type: PropertyType.String,
+            description: "Indicates the reason for a negative vote given by a user to a certain faq")
     }
 
     propertyGroups {
@@ -140,6 +144,9 @@ tracks {
         case_id(case_id)
         list_skip_button(list_skip_button)
         list_type(list_type)
+        content_ids(content_ids)
+        object_model(object_model)
+        portal_effectivity_survey_reason(portal_effectivity_survey_reason)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -162,12 +169,15 @@ tracks {
         portal_content_transactional_data
         portal_content_destination_url
     }
-
+   
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
-    "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
         portal_content_destination_url
+    }
+    "/portal/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+        portal_effectivity_survey_reason
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -380,6 +390,9 @@ tracks {
         portal_effectivity_survey_value
         portal_content_destination_url
     }
+    "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+        portal_effectivity_survey_reason
+    }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
         portal_content_id
@@ -427,11 +440,20 @@ tracks {
         portal_broken_link_destination_url
     }
 
-    "/support/widget/list"(platform: "/", isAbstract:  true) {}
+    "/support/widget/list"(platform: "/", type: TrackType.View) {
+        list_type
+    }
 
     "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
-        list_skip_button
-        list_type
+       list_skip_button
+    }
+
+    "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+
+    "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+        user_text
+        content_ids
+        object_model
     }
 
     // Mis Consultas

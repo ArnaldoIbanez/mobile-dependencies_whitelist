@@ -64,4 +64,8 @@ tracks {
     "/pog/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {}
     "/pog/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {}
 
+    // [Point Online Growth] Landing Multiproduct  > Webview experiment
+    "/pog/landings/multiproduct/go_taxes_section" (platform:"/", type: TrackType.Event) {}
+    "/pog/landings/multiproduct/device" (platform:"/", isAbstract: true) {}
+    "/pog/landings/multiproduct/device/more_information" (platform:"/", type: TrackType.Event) {}
 }

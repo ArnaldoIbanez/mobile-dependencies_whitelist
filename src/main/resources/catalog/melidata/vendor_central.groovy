@@ -130,6 +130,10 @@ tracks {
 
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
 
+    "/vendor_central/invoices/upload/error" (platform: "/web", type: TrackType.View) {
+        error_type(required: true, type: PropertyType.String, description: "Type of the error the user received when trying to upload a file", values:["fileInvalidType","fileTooLarge", "tooManyFiles", "unexpectedError"])
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central Inbound creator
     //------------------------------------------------------------------------------------------------------------------------------------------------------

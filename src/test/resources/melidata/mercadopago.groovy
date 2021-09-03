@@ -609,16 +609,16 @@ trackTests {
         "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
 
         "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/more_info_device"(platform:"/", type: TrackType.Event) {
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/device/invite"(platform:"/", type: TrackType.Event) {
           media = "whastapp"
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", type: TrackType.Event) {}
@@ -854,110 +854,6 @@ trackTests {
         "/merchant_acquisition/mydata/edit"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/mydata/success"(platform:"/", type: TrackType.View) {}
     }
-
-    test("Point Flow Congrats Instructions") {
-        "/point/flows/congrats/instructions"(platform:"/") {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-    }
-
-    test("Point Flow Congrats") {
-        "/point/flows/congrats"(platform:"/") {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-    }
-
-    test("Point Flow Congrats Instructions click events") {
-
-        "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-            discount_code = "GHZM"
-        }
-    }
-
-    test("Point Flow Congrats click events") {
-
-        "/point/flows/congrats/print"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {
-          payment_id = 4334902696
-          payment_method = "bolbradesco"
-          device_id = "9"
-          amount = 118.11
-          is_guest = false
-          e2e_test = false
-          discount_code = "GHZM"
-        }
-        "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {
-            payment_id = 4334902696
-            payment_method = "bolbradesco"
-            device_id = "9"
-            amount = 118.11
-            is_guest = false
-            e2e_test = false
-            discount_code = "GHZM"
-        }
-    }
     
     test("Point Friction test") {
         "/pos_mobile"(platform: "/mobile", type: TrackType.Event) {}
@@ -1129,7 +1025,6 @@ trackTests {
         "/point/landings/click_to_call/resubmit_form" (platform:"/", type: TrackType.Event) {
           product = "point-pro-2"
         }
-        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
@@ -2810,7 +2705,7 @@ trackTests {
             categoryProperties()
         }
 
-        // Scanner
+        // scanner permission
         "/bill_payments/enable_camera"(platform: "/mobile") {
             mandatory()
         }
@@ -2818,8 +2713,9 @@ trackTests {
         "/bill_payments/permission_camera"(platform: "/mobile") {
             mandatory()
         }
-
-         "/bill_payments/scan"(platform: "/mobile") {
+        
+        // Scanner    
+        "/bill_payments/scan"(platform: "/mobile") {
             mandatory()
         }
 
@@ -2843,21 +2739,9 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
         "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             label = "lable warning"
-        }
-
-        "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
-        "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
         }
 
         "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
@@ -2866,6 +2750,61 @@ trackTests {
             camera_flash = false
             timestamp = 1043
             barcode_format = "ITR40"
+        }
+
+        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // New Scanner    
+        "/bill_payments/new_scan"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/flash"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_qr"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/click"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/info_message"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "lable warning"
+        }
+
+        "/bill_payments/new_scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // Scanner error 
+        "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
         "/bill_payments/fixed_amount"(platform: "/mobile") {
@@ -3059,6 +2998,18 @@ trackTests {
         }
 
         "/bill_payments/schedule_payment/create/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/pix"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/pix/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/pix/confirm"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -5591,7 +5542,70 @@ trackTests {
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Profile") {
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            access = "full"
+            registered_by_phone = false
+            has_identification = false
+        }
 
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "CO"
+            access = "partial"
+            registered_by_phone = false
+            has_identification = false
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "BU"
+            access = "full"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            access = "restricted"
+            registered_by_phone = true
+            has_identification = false
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "BU"
+            access = "denied"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "unknown"
+            is_compliant = true
+            user_type = "CO"
+            access = "denied"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "unknown"
+            is_compliant = false
+            user_type = "BU"
+            access = "partial"
+            registered_by_phone = true
+            has_identification = false
+        }
+    }
 
     test("Reauth Native") {
         //Login Module
@@ -5705,6 +5719,76 @@ trackTests {
             reauth_mods_id = "2"
             operation_id = "2"
             flow_type = "withdraw"
+            amount = "10.0"
+        }
+
+        //Operation Status        
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "created"
+            transaction_id = "1"
+        
+        }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "created"
+            transaction_id = "1"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "not_needed"
+            transaction_id = "3"
+        }
+
+       "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "2"
+            flow_type = "other"
+            reauth_status = "not_needed"
+            transaction_id = "3"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            reauth_status = "created"
+            transaction_id = "3"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            reauth_status = "created"
+            transaction_id = "4"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "client_error"
+            transaction_id = "3"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "2"
+            flow_type = "other"
+            reauth_status = "server_error"
+            transaction_id = "3"
             amount = "10.0"
         }
 

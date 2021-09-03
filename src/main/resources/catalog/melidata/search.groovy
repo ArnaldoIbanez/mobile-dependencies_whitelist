@@ -32,8 +32,23 @@ tracks {
         results_by_strategy(type: PropertyType.Map, required: true)
     }
 
+    def seo_experiment_item_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "experiment identifier")
+        is_enabled(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is enable by configuration")
+        is_active(type: PropertyType.Boolean, required: true, description: "indicates if the experiment is active by configuration")
+        should_apply(type: PropertyType.Boolean, required: true, description: "indicates if the experiment should be apply for the URL")
+        executed_successfully(type: PropertyType.Boolean, required: true, description: "indicates if the experiment executed successfully or not")
+        group(type: PropertyType.String, required: true, description: "indicates comparison group to which the URL belongs")
+    }
+
+    def seo_experiments_definition = objectSchemaDefinitions {
+        status(type: PropertyType.String, required: true)
+        experiment_list(PropertyType.ArrayList(PropertyType.Map(seo_experiment_item_definition)), required: true, "list of seo experiments run")
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
         allowlist(type: PropertyType.Map(seo_allowlist_item_definition), required: true, description: "seo allowlist data")
+        seo_experiments(type: PropertyType.Map(seo_experiments_definition), required: false, description: "seo experiments data")
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -82,6 +97,7 @@ tracks {
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: false)
+        seller_id(type: PropertyType.Numeric, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
@@ -93,6 +109,7 @@ tracks {
         discount_volume(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        supermarket_partnership(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {

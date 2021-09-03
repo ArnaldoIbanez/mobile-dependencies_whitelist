@@ -79,7 +79,10 @@ tracks {
         balanceEventClick (
                 action_id
         )
-        componentsViews (
+        cercEventClick (
+                action_type
+        )
+        componentsPrints (
                 my_money_available,
                 my_money_card_available,
                 my_money_to_release,
@@ -99,25 +102,27 @@ tracks {
     "/banking"(platform: "/", isAbstract: true) {}
 
     // Components Balance
-    "/banking/balance/available"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/card_available"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/shortcuts"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/cross_selling_carousel"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/retained"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/balance/last_activities"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance/print"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/available_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/card_available_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/shortcuts_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/cross_selling_carousel_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/retained_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/card_to_release_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) { componentsPrints }
 
     // Components ToRelease
-    "/banking/to_release/to_release"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release/card_to_release"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release/to_advance"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release/card_calendar"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release/calendar_daily"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release/cerc"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/to_release/print"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/to_release_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/card_to_release_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/to_advance_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/card_calendar_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/calendar_daily_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/to_release/cerc_component"(platform: "/", type: TrackType.View) { componentsPrints }
 
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) { componentsViews }
-    "/banking/to_release"(platform: "/", type: TrackType.View) { componentsViews }
+    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/to_release"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
     "/banking/cerc"(platform: "/", type: TrackType.View) {}
@@ -130,14 +135,15 @@ tracks {
     "/banking/balance/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/balance/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/balance/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/error"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
@@ -201,4 +207,21 @@ tracks {
 
     // Vouchers - Help
     "/banking/vouchers/help"(platform: "/", type: TrackType.Event) {}
+
+    // Regulations Cerc Views
+    "/regulations/cerc"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/contracts"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+
+    // Regulations Cerc Events
+    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
 }

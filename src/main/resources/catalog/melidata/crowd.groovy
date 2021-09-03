@@ -259,9 +259,13 @@ tracks
                 location
             }
 
-            "/crowd/registration/city/selected"(platform: "/mobile", type: TrackType.Event) {
+            "/crowd/registration/onboarding"(platform: "/mobile", type: TrackType.Event) {
                 location
-                city(required: true, type: PropertyType.String, description: "Specifies the current city selected")
+            }
+
+            "/crowd/registration/geo/suggestion"(platform: "/mobile", type: TrackType.Event) {
+                location
+                city(required: true, type: PropertyType.String, description: "Specifies the current city geo suggestion")
             }
 
             "/crowd/registration/city/other"(platform: "/mobile", type: TrackType.View) {
@@ -310,6 +314,10 @@ tracks
             }
 
             "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
                 location
             }
         }
