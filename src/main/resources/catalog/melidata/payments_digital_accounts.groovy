@@ -29,7 +29,7 @@ tracks {
     //Definitions
     propertyDefinitions {
         // Global variables
-        action_id(required: true, type: PropertyType.String, description: "The action executed")
+        action_id(required: false, type: PropertyType.String, description: "The action executed")
 
         // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
@@ -148,7 +148,7 @@ tracks {
     "/banking/to_release/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // Other Events
-    "/banking/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/debts/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/calendar/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/activity/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
