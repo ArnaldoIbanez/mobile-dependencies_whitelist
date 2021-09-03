@@ -96,7 +96,32 @@ tracks {
         vis_credits_optional
     }
 
+    "/vis_credits/simulator/downpayment_simulation_input"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/simulator/installment_selection_button"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/simulator/details_button"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/simulator/next_button"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
     "/vis_credits/simulation_details"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/simulation_details/next_button"(platform: "/", type: TrackType.Event) {
         vis_credits_required
         vis_credits_optional
     }
@@ -106,7 +131,17 @@ tracks {
         vis_credits_optional
     }
 
+    "/vis_credits/application_form/step_1/next_button"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
     "/vis_credits/application_form/step_2"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/application_form/step_2/next_button"(platform: "/", type: TrackType.Event) {
         vis_credits_required
         vis_credits_optional
     }
@@ -116,7 +151,17 @@ tracks {
         vis_credits_optional
     }
 
+    "/vis_credits/application_form/step_3/next_button"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
     "/vis_credits/application_form/step_4"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/application_form/step_4/next_button"(platform: "/", type: TrackType.Event) {
         vis_credits_required
         vis_credits_optional
     }
@@ -146,6 +191,38 @@ tracks {
     }
 
     "/vis_credits/congrats/contact_intention"(platform: "/", type: TrackType.Event) {
+        congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/congrats/dni_retry_button"(platform: "/", type: TrackType.Event) {
+        congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/congrats/similar_items_button"(platform: "/", type: TrackType.Event) {
+        congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/congrats/item_return_button"(platform: "/", type: TrackType.Event) {
+        congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/congrats/dni_change_button"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
         context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")

@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -46,7 +47,32 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/simulator/downpayment_simulation_input"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulator/installment_selection_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulator/details_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulator/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/simulation_details"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulation_details/next_button"(platform: "/", type: TrackType.Event) {
             mandatory()
             optionals()
         }
@@ -56,7 +82,17 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/application_form/step_1/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/application_form/step_2"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/application_form/step_2/next_button"(platform: "/", type: TrackType.Event) {
             mandatory()
             optionals()
         }
@@ -66,7 +102,17 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/application_form/step_3/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/application_form/step_4"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/application_form/step_4/next_button"(platform: "/", type: TrackType.Event) {
             mandatory()
             optionals()
         }
@@ -93,6 +139,34 @@ trackTests {
         }
 
         "/vis_credits/congrats/contact_intention"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/dni_retry_button"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/similar_items_button"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/item_return_button"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/dni_change_button"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
             context = "high_score"
             mandatory()
