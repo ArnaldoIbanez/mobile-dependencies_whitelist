@@ -36,6 +36,14 @@ trackTests {
         }
     }
 
+    test("Transaction start shield view is shown") {
+        "/meliplaces/transaction/start/shield"(platform: "/", type: TrackType.View) {
+            shield_id = "shield_1"
+            error = 404
+            message = "error message"
+        }
+    }
+
     test("Performance view loads successfully") {
         "/meliplaces/performance"(platform: "/", type: TrackType.View) {}
     }
