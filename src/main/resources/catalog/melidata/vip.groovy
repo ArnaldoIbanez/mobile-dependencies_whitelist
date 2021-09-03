@@ -1592,7 +1592,13 @@ tracks {
 
     //END -  Classifieds Credits
 
-    "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description:"Item ID")
+        context(required: true, type: PropertyType.String, values: ["/vip"], description: "Indicates where the page was opened from")
+        reason(required: false, type: PropertyType.String, description:"the reason for denouncing", values: ["UNKNOWN","unavailable_property"]) 
+        vertical(required: true, type: PropertyType.String,
+        values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
 
     "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")

@@ -1722,6 +1722,24 @@ trackTests {
         }
     }
 
+    test("VIP link denounce RealEstate"){
+
+        def properties = {
+            item_id = "MLC123456"
+            context = "/vip"
+            reason = "unavailable_property"
+            vertical = "realEstate"            
+        }
+        
+        "/vip/denounce"(platform: "/web", type: TrackType.View){
+           properties()
+        }
+
+        "/vip/denounce"(platform: "/mobile", type: TrackType.View){
+           properties()
+        }
+    }
+
     test("VIP preload MainAction Contact from search"){
         def properties = {
             item_id = "MLA792156560"
@@ -1861,10 +1879,6 @@ trackTests {
     }
 
    //END - Classifieds Credits
-
-    test("VIP denounce") {
-        "/vip/denounce"(platform: "/", type: TrackType.Event) {}
-    }
 
     test("VIP cbt") {
         "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event) {

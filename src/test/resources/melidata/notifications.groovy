@@ -1907,6 +1907,10 @@ trackTests {
             latest_news_type= "wallet_connect_binding_with_cash"
             latest_news_id= "wallet_connect-binding_with_cash-84060496"
         }
+        "/notification_center/wallet_connect_rejected_payment"(platform: "/") {
+            latest_news_type= "wallet_connect_rejected_payment"
+            latest_news_id= "wallet_connect-rejected_payment-84060496"
+        }
         "/notification_center/wallet_integrator_insufficient_amount"(platform: "/mobile"){
             newsgroup_id= "wallet_integrator-insufficient_amount-186785675-76283123"
             latest_news_id= "wallet_integrator-insufficient_amount-186785675-76283123"
@@ -2027,6 +2031,10 @@ trackTests {
         "/notification_center/single_player_antenna_fail_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_antenna_fail_mp"
             latest_news_id= "single_player_antenna_fail_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_balance_expiration_transport_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_transport_mp"
+            latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
         }
         "/notification_center/single_player_expired_debt_utility_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_expired_debt_utility_mp"
@@ -6348,6 +6356,10 @@ trackTests {
             news_id = "single_player_antenna_fail_mp_123"
             event_type = "open"
         }
+        "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_transport_mp_123"
+            event_type = "open"
+        }
         "/notification/single_player_new_debt_utility_mp"(platform: "/mobile") {
             news_id = "single_player_new_debt_utility_mp_123"
             event_type = "open"
@@ -6666,6 +6678,11 @@ trackTests {
         }
         "/notification/wallet_connect_binding_with_cash"(platform: "/") {
             news_id = "wallet_connect-binding_with_cash-84060496"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/wallet_connect_rejected_payment"(platform: "/") {
+            news_id = "wallet_connect-rejected_payment-84060496"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -8534,6 +8551,10 @@ trackTests {
             latest_news_type= "single_player_antenna_success_mp"
             latest_news_id= "single_player_antenna_success_mp-143816022-MLB1013046714"
         }
+        "/notification_center/single_player_balance_expiration_transport_mp"(platform: "/", type: TrackType.Event) {
+            latest_news_type= "single_player_balance_expiration_transport_mp"
+            latest_news_id= "single_player_balance_expiration_transport_mp-143816022-MLB1013046714"
+        }
         "/notification_center/single_player_antenna_fail_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_antenna_fail_mp"
             latest_news_id= "single_player_antenna_fail_mp-143816022-MLB1013046714"
@@ -8762,6 +8783,10 @@ trackTests {
         "/notification_center/wallet_connect_binding_with_cash"(platform: "/") {
             latest_news_type= "wallet_connect_binding_with_cash"
             latest_news_id= "wallet_connect-binding_with_cash-84060496"
+        }
+        "/notification_center/wallet_connect_rejected_payment"(platform: "/") {
+            latest_news_type= "wallet_connect_rejected_payment"
+            latest_news_id= "wallet_connect-rejected_payment-84060496"
         }
         "/notification_center/wallet_integrator_insufficient_amount"(platform: "/mobile"){
             newsgroup_id= "wallet_integrator-insufficient_amount-186785675-76283123"
@@ -10357,6 +10382,10 @@ trackTests {
         }
         "/notification/single_player_antenna_success_mp"(platform: "/mobile") {
             news_id = "single_player_antenna_success_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_balance_expiration_transport_mp"(platform: "/mobile") {
+            news_id = "single_player_balance_expiration_transport_mp_123"
             event_type = "open"
         }
         "/notification/single_player_generic_balance_expiration"(platform: "/mobile") {
@@ -13975,6 +14004,11 @@ trackTests {
         }
         "/notification/wallet_connect_binding_with_cash"(platform: "/") {
             news_id = "wallet_connect-binding_with_cash-84060496"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/wallet_connect_rejected_payment"(platform: "/") {
+            news_id = "wallet_connect-rejected_payment-84060496"
             event_type = "open"
             notification_type= "deep_linking"
         }
