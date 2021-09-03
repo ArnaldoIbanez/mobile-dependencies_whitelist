@@ -172,13 +172,22 @@ trackTests {
         "/banking/to_release/action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/to_release/footer_action"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
         "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/balance/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
+        "/banking/to_release/row"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
         "/banking/to_release/calendar_anual"(platform: "/", type: TrackType.Event) {
+            action_id = 'test'
+        }
+        "/banking/calendar/calendar_anual"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/to_release/calendar"(platform: "/", type: TrackType.Event) {
@@ -187,7 +196,7 @@ trackTests {
         "/banking/balance/error"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
-        "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) {
+        "/banking/activity/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/balance/debts"(platform: "/", type: TrackType.Event) {
