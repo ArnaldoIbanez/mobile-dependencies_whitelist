@@ -312,6 +312,54 @@ tracks {
         switch_status(required: true, description: "Current state of switch")
     }
 
+    // Privacy Frontend
+
+    "/advertising/privacy/target"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/privacy/target/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View,) {
+        switch_status(required: true, description: "Current state of switch", inheritable:false, values: ['active', 'inactive'])
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch", values: ['active', 'inactive'])
+    }
+
+    "/advertising/privacy/business_partners"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/privacy/business_partners/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+        switch_status(required: true, description: "Current state of switch", inheritable:false, values: ['active', 'inactive'])
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch", values: ['active', 'inactive'])
+    }
+
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true ) {}
 
