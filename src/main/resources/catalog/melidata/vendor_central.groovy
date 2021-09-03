@@ -130,15 +130,31 @@ tracks {
 
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
 
+    "/vendor_central/invoices/upload/error" (platform: "/web", type: TrackType.View) {
+        error_type(required: true, type: PropertyType.String, description: "Type of the error the user received when trying to upload a file", values:["fileInvalidType","fileTooLarge", "tooManyFiles", "unexpectedError"])
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central Inbound creator
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/vendor_central/inbound-shipment"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound-shipment/creator"(platform: "/web",  type: TrackType.View) {}
+    "/vendor_central/inbound-shipment/creator"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound-shipment/creator/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound-shipment/creator/download"(platform: "/web",  type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/download/error"(platform: "/web",  type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound-shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
 
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------

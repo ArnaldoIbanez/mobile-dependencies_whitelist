@@ -1090,6 +1090,26 @@ trackTests {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
 
     test("Mercadopago shortcut sheet page view") {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
@@ -1589,6 +1609,10 @@ trackTests {
             credits=[]
             banking_v2=[
                 hidden : true
+            ]
+            pendings= [
+                    ordinal: 2,
+                    content_type : 'partial'
             ]
             main_actions = [
                     content_type : 'complete',
@@ -2205,6 +2229,27 @@ trackTests {
 
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
     }
 
     test("Mercadopago shortcut sheet page view") {

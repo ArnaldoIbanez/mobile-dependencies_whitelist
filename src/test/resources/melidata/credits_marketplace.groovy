@@ -27,7 +27,6 @@ trackTests {
         }
         "/credits/consumer/public_landing/application_start"(platform: "/web/desktop") {}
         "/credits/consumer/public_landing/error"(platform: "/web/desktop") {}
-        "/credits/consumer/public_landing/paused"(platform: "/web/desktop") {}
         "/credits/consumer/public_landing/remedy"(platform: "/web/desktop") {
             remedy_name = 'declarative_info'
         }
@@ -188,6 +187,9 @@ trackTests {
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+        }
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {

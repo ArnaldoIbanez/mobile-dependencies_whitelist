@@ -1,6 +1,7 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 def searchVipClassifiedExperiments = "((search|vip|classifieds|vis|sparkle)/.*)|(pdp/viewItemPageMigration.*)"
+def viewItemPageMigration = "pdp/viewItemPageMigration.*"
 def visRegex="(vis|vip)/.*"
 
 metrics {
@@ -38,7 +39,7 @@ metrics {
 		}
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/vip/contact_seller", "/vip/contact_whatsapp", "/contact_seller")
+				path("/vip/call_seller", "/vip/contact_seller", "/vip/contact_whatsapp", "/contact_seller", "/vip/coordinate_availability")
 			}
 		}
 	}
@@ -99,7 +100,7 @@ metrics {
 
 		countsOn {
 			condition {
-				path("/vip/contact_seller", "/contact_seller")
+				path("/vip/contact_seller", "/contact_seller", "/vip/coordinate_availability")
 			}
 		}
 	}
@@ -150,4 +151,51 @@ metrics {
 		}
 	}
 
+	"quotations.services"(description: "track quotation as success for services (classifieds)") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/quote_demand/buyer/create/submit_quote_demand")
+			}
+		}
+	}
+
+	"contract_intention"(description: "track contract intention for classifieds") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/contract_intention")
+			}
+		}
+	}
+
+	"quotation.intention"(description: "track quotation intention for classifieds") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/quotation_intention")
+			}
+		}
+	}
+
+	"quotation.details"(description: "track quotation details of models for classifieds") {
+		startWith {
+			experiment(regex(viewItemPageMigration))
+		}
+
+		countsOn {
+			condition {
+				path("/quotation/details")
+			}
+		}
+	}
 }

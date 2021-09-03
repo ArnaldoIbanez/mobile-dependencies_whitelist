@@ -120,6 +120,27 @@ trackTests {
                             ]
                     ]
             ]
+
+            available_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
+
+            applied_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
+            
             context = "vip_combo"
             checkout_flow = "cart"
 
@@ -332,6 +353,9 @@ trackTests {
         "/cart/checkout/shipping/input_address/map"(platform:"/web") {
             dataSet()
             edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
         }
         "/cart/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event) {}
         // Event
@@ -725,6 +749,7 @@ trackTests {
             ]
         }
         "/cart/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/cart/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
         "/cart/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
@@ -975,6 +1000,10 @@ trackTests {
             dataSet()
         }
         "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {
+            dataSet()
+        }
+        //Address Hub Message for CPG FRESH
+        "/cart/checkout/address_hub/hide_no_coverage_address"(platform: "/", type: TrackType.Event) {
             dataSet()
         }
     }

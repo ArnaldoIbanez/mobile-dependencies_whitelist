@@ -66,4 +66,18 @@ trackTests {
             type = "LEGAL_DOCUMENTS_DOWNLOAD_BUTTON_CLICK"
         }
     }
+
+    test("Payment") {
+        "/billing/payment"(platform: "/", type: TrackType.Event) {
+          total_debt = 550
+          amount_to_pay = 500
+          periods_count = 3
+          periods_to_pay_count = 2
+        }
+
+        "/billing/payment/congrats"(platform: "/", type: TrackType.View) {
+          amount = 500
+          has_automatic_debit = false
+        }
+    }
 }

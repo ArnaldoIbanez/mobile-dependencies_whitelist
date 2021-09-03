@@ -22,4 +22,7 @@ tracks {
         browser_id (type: PropertyType.String, required: false, description: "Specifies the browser id")
     }
 
+    // MP Landing Online Payments Shopify
+    "/landing/shopify"(platform: "/web"){}
+
 }

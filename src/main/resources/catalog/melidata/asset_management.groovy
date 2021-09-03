@@ -239,4 +239,13 @@ tracks {
 
     //Loading GBM
     "/asset_management/loading_gbm"(platform: "/", type: TrackType.View) {}
+
+    // status-blocker
+    "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {}
+    "/asset_management/status_blocker/go_to_home"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker/know_requirements"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker/contact_bind"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {
+        status_id (required: false, type: PropertyType.String, description: "Status id", values: ["pending", "failed", "rejected", "banned"])
+    }
 }

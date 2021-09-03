@@ -292,7 +292,6 @@ trackTests {
         def itemAddErrorDataSet ={
             error_type = "cart_full"
         }
-
         "/cart/saved_for_later/cant_add_to_cart"(platform: "/web", cannotAddModalDataSet)
 
         "/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/web", cannotAddModalDataSet)
@@ -314,6 +313,18 @@ trackTests {
         "/cart/item_add"(platform: "/web", dataSet)
 
         "/cart/item_add/error"(platform: "/web", itemAddErrorDataSet)
+
+        "/cart/item_add/insurtech_protection_deleted"(platform: "/"){
+            item = [
+                    quantity: 1,
+                    id: "MLA12415535",
+            ]
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
 
         def errorsForModal = {
             cart_ratio = "applies"

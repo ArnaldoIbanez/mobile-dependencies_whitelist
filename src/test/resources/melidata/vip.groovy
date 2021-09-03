@@ -383,6 +383,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source = "description"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
@@ -392,6 +393,7 @@ trackTests {
             event_source = "technicalSpecs"
             source = "htmlView"
             item_seller_type="car_dealer"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/mobile", type: TrackType.Event, {
@@ -411,6 +413,7 @@ trackTests {
             unregistered_contact_context= false
             has_good_price= false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -432,6 +435,7 @@ trackTests {
             mandatory()
             optionals()
             item_seller_type = "AB001"
+            source = "primary"
         }
 
 	  	"/vip/quote_demand_intention_lower"(platform: "/mobile", type: TrackType.Event) {
@@ -492,6 +496,7 @@ trackTests {
 	        item_seller_type = "AB001"
 	        from_view="vip"
 	        resolution = "high"
+            source = "primary"
     	}
 
         //with deals_ids
@@ -535,6 +540,7 @@ trackTests {
             item_seller_type = "AB001"
             from_view = "vip"
             resolution = "high"
+            source = "primary"
         }
     }
     test("Vip web mobile tracking without reviews") {
@@ -622,6 +628,60 @@ trackTests {
         }
         "/vip/video_focus"(platform: "/mobile") {
             video_type = "VIDEO"
+        }
+    }
+
+    test("vip - view 360") {
+
+        def dataSet = {
+            item_id = "MLA924707090"
+            category_id = "MLA1744"
+            buying_mode = "classified"
+            category_path = [
+                    "MLA1743",
+                    "MLA1744"]
+            vertical = "motors"
+            item_condition = "used"
+            listing_type_id = "gold"
+            item_status = "active"
+            deal_ids = []
+            catalog_listing = false
+            city = "Alberti"
+            neighborhood = "Alberti"
+            state = "Buenos Aires Interior"
+            seller_id = 692365350
+            contract_available = false
+            comparator_available = false
+            gallery_pattern = "X"
+            price_comparison_available = null
+            price_comparison_position = null
+            whatsapp_available = "false"
+            quote_demand_available = false
+            description_type = "plain_text"
+            quantity_models = null
+            domain_id = "MLA-CARS_AND_VANS"
+            item_seller_type = "normal"
+        }
+
+        def viewOption = {
+            dataSet()
+            video_type = "VIEW360"
+        }
+
+        def noneOption = {
+            dataSet()
+            video_type = "NONE"
+        }
+
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            viewOption()
+        }
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIEW360"
         }
     }
 
@@ -902,6 +962,7 @@ trackTests {
             vip_version = "new"
             has_good_price = false
             has_highlighted_sale_specs=false
+            from_view = "questions"
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -909,6 +970,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source= "description"
+            from_view = "questions"
         }
 
         "/vip/questions/show"(platform: "/", type: TrackType.View) {
@@ -917,6 +979,7 @@ trackTests {
             vip_version = "new"
             has_good_price = true
             has_highlighted_sale_specs=true
+            from_view = "questions"
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -1251,6 +1314,37 @@ trackTests {
             pricingTwoPointO()
             vip_version = "new"
          }
+
+        //Insurtech
+        "/vip/buy_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            credits_opensea = true
+            vip_version = "new"
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
+
+        "/vip/add_cart_action"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            variationInformation()
+            shipping_pay_before = false
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
+
+        "/vip/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event){
+        }
+
     }
 
     test("VIP zipcode") {
@@ -1261,18 +1355,6 @@ trackTests {
     }
 
     test("VIP fulfillment onboardings") {
-
-        "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            item_condition = "new"
-            seller_id = 131662738
-            price = 15.3
-            currency_id = "ARS"
-            original_price = 18.0
-            vip_version = "new"
-        }
 
         "/vip/show_fulfillment_tooltip"(platform: "/") {
             item_id = "MLA533657947"
@@ -1640,6 +1722,24 @@ trackTests {
         }
     }
 
+    test("VIP link denounce RealEstate"){
+
+        def properties = {
+            item_id = "MLC123456"
+            context = "/vip"
+            reason = "unavailable_property"
+            vertical = "realEstate"            
+        }
+        
+        "/vip/denounce"(platform: "/web", type: TrackType.View){
+           properties()
+        }
+
+        "/vip/denounce"(platform: "/mobile", type: TrackType.View){
+           properties()
+        }
+    }
+
     test("VIP preload MainAction Contact from search"){
         def properties = {
             item_id = "MLA792156560"
@@ -1779,10 +1879,6 @@ trackTests {
     }
 
    //END - Classifieds Credits
-
-    test("VIP denounce") {
-        "/vip/denounce"(platform: "/", type: TrackType.Event) {}
-    }
 
     test("VIP cbt") {
         "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event) {
@@ -2089,6 +2185,226 @@ trackTests {
 
         "/vip/back_to_top"(platform: "/", type: TrackType.View) {
             item_id = "MLB533657947"
+        }
+    }
+
+    test("VIP payment methods modal view") {
+        "/vip/payment_methods"(platform: "/", type: TrackType.View) {
+            page_vertical = "CORE"
+            category_l1 = "{'MLA1574':'Hogar, Muebles y Jardín}"
+            category_l2 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar}"
+            category_l3 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar,'MLA1623':'Otros}"
+            shipping_mode = "not_specified"
+            free_shipping = false
+            international_delivery_mode = "none"
+            item_id = "MLA786428856"
+            item_condition = "NEW"
+            buying_mode = "BUY_IT_NOW"
+            variations = false
+            collector_id = "151804293"
+            category_domain = "MLA-HOME_FURNITURE"
+            listing_source = "mercadolibre"
+            listing_type = "gold_special"
+            fulfillment = false
+            item_attributes = "DEFERRED_STOCK"
+            item_state = "NONE"
+            item_city = "NONE"
+            item_neighborhood = "NONE"
+        }
+    }
+
+    // MERCH
+    test("Vip Merch ecosystem") {
+
+        def dataSet = {
+            item_id = "MLB533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+            catalog_listing = false
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
+            realestates = {
+                vip_pdp_ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/vip"(platform: "/", dataSet)
+    }
+
+    test("Vip tracking for item with protections"){
+        def mandatory= {
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+            catalog_listing = false
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
+        }
+
+        def insurtech_fields = {
+            has_roda = true
+            has_garex = false
+        }
+
+        "/vip"(platform: "/", {
+            mandatory()
+            insurtech_fields()
+        })
+    }
+
+    test("Vip events tracking for item with protections"){
+        "/vip/insurtech_opened"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_selected"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "BOTTOM_SHEET"
+        }
+
+        "/vip/insurtech_added"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "GAREX",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_closed"(platform: "/", type: TrackType.Event){
+            has_roda = true
+            has_garex = true
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_terms"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "BOTTOM_SHEET"
+        }
+
+        "/vip/insurtech_help"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000,
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
         }
     }
 }

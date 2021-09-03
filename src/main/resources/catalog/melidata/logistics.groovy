@@ -120,8 +120,12 @@ tracks {
         vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
     }
     "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: true)
+        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: true)
+    }
+    "/logistics/login/driver_on_route/duplicate"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String, description: "Specifies the current logistic type of the driver", inheritable: false)
     }
     "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
@@ -359,7 +363,7 @@ tracks {
         checked_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id checked to deliver", inheritable: false)
         dismissed_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id dismissed to deliver", inheritable: false)
     }
-    "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
+    "/logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         error_type(required: true, type: PropertyType.String, description: "Specifies the current error type", inheritable: false, values: ["document_form", "regex"])

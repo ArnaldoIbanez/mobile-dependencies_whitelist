@@ -189,4 +189,6 @@ tracks {
     }
     "/apprater/remind_me_later"(platform: "/mobile") {
     }
+    "/inappreview/completed"(platform: "/mobile") {
+    }
 }

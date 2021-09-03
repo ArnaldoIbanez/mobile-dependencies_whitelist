@@ -38,6 +38,8 @@ tracks {
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
         item_id(required: true, type:PropertyType.String,description: "Item id")
+        source(required: false, type:PropertyType.String, values: ["vip", "primary", "carousel"],
+                description: "Source where item models are called")
     }
 
     "/quotation/details"(platform: "/web") {

@@ -63,6 +63,13 @@ trackTests {
             overdue_days: 15,
     ]
 
+    def account_blocked_locked_product_data = [
+            rating: "D",
+            status: "blocked",
+            status_detail: "",
+            overdue_days: 60,
+    ]
+
     def reasons_data = ["A anuidade é muito alta", "O limite é muito baixo"]
 
     def other_reason_data = "A anuidade é muito alta"
@@ -70,6 +77,21 @@ trackTests {
     def disable_option_data_a = "one_payment"
 
     def disable_option_data_b = "monthly_payment"
+
+    def error_timeout_data = [
+            type: "timeout",
+            cause: "account"
+    ]
+
+    def error_internal_error_data = [
+            type: "internal_error",
+            cause: "dashboard"
+    ]
+
+    def error_failed_dependency_data = [
+            type: "failed_dependency",
+            cause: "payment"
+    ]
 
     test("Credits Credit Card - Payment tests") {
         /***********************************************
@@ -157,9 +179,12 @@ trackTests {
         def congrats_status_not_requested = "physical_not_requested"
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
+        def stop_page_kyc_not_compliant = "kyc_not_compliant"
+        def stop_page_physical_card_request = "physical_card_request"
+        def stop_page_kyc_api_failed = "kyc_api_failed"
         def stop_page_already_active = "user_has_active_account"
-        def stop_page_kyc_not_compliant= "kyc_not_compliant"
         def hybrid_dashboard_source = "hybrid-dashboard"
+        def facebook_source = "facebook"
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
@@ -201,6 +226,7 @@ trackTests {
             is_card_active = true
             status = congrats_approved_status
             congrats_status = congrats_status_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -208,6 +234,7 @@ trackTests {
             is_card_active = true
             status = congrats_approved_status
             congrats_status = congrats_status_not_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -215,6 +242,7 @@ trackTests {
             is_card_active = true
             status = congrats_approved_status
             congrats_status = congrats_status_not_requested
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -222,6 +250,7 @@ trackTests {
             is_card_active = true
             status = congrats_pending_status
             congrats_status = congrats_status_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -229,6 +258,7 @@ trackTests {
             is_card_active = true
             status = congrats_pending_status
             congrats_status = congrats_status_not_linked
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -236,6 +266,7 @@ trackTests {
             is_card_active = true
             status = congrats_pending_status
             congrats_status = congrats_status_not_requested
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
@@ -243,6 +274,7 @@ trackTests {
             is_card_active = true
             status = congrats_rejected_status
             congrats_status = congrats_status_not_requested
+            from = facebook_source
         }
 
         "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
@@ -280,11 +312,17 @@ trackTests {
         }
 
         "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
-            reason = stop_page_already_active
+            reason = stop_page_kyc_not_compliant
+        }
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_physical_card_request
+        }
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_kyc_api_failed
         }
 
-        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
-            reason = stop_page_kyc_not_compliant
+        "/credits/credit_card/upgrade/stop_page/redirect_to_dashboard"(platform: "/", type: TrackType.Event) {
+            status = stop_page_already_active
         }
 
         /*********************************************
@@ -303,18 +341,22 @@ trackTests {
         // Statement
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_closed_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
             statement_status = statement_open_status
+            account = account_pending_data
         }
 
         "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event) {
@@ -369,6 +411,21 @@ trackTests {
             account = account_cancelled_data
             statement_status = "closed"
             pending_payments = false
+        }
+
+        //Dashboard View Error with Fallback Timeout
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            error = error_timeout_data
+        }
+
+        //Dashboard View Error with Fallback Internal Error
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            error = error_internal_error_data
+        }
+
+        //Dashboard View Error with Fallback Failed Dependency
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            error = error_failed_dependency_data
         }
 
         //Event Payment
@@ -778,6 +835,31 @@ trackTests {
             available_limit = 900
             total_limit = 1000
         }
+
+        //Dashboard Event Collection Dialer Button when Account Status Overdue 60 days and Status Closed
+        "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event) {
+            account = account_blocked_locked_product_data
+            statement_status = "closed"
+        }
+
+        //Dashboard Event Collection Dialer Button when Account Status Overdue 60 days and Status Open
+        "/credits/credit_card/dashboard/collection_dialer_button_action"(platform: "/", type: TrackType.Event) {
+            account = account_blocked_locked_product_data
+            statement_status = "open"
+        }
+
+        //Dashboard Event Dialer Button when Error by Internal Error and Status Closed
+        "/credits/credit_card/dashboard/fallback_dialer_button_action"(platform: "/", type: TrackType.Event) {
+            error = error_internal_error_data
+        }
+
+        //Dashboard Event Dialer Button when Error by Timeout and Status Closed
+        "/credits/credit_card/dashboard/fallback_retry_action"(platform: "/", type: TrackType.Event) {
+            error = error_timeout_data
+        }
+
+        //Dashboard Event Request calling dashboard when rendering skeleton is Empty
+        "/credits/credit_card/dashboard/load_credit_sections_event"(platform: "/", type: TrackType.Event) { }
     }
         /*********************************************
          *       End: Credit Card Dashboard

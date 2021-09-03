@@ -97,6 +97,8 @@ trackTests {
 			order_id= 1234
 		}
 
+		def newPurchasesDataFullSet = purchasesEventDataSet >> newPurchasesDataSet
+
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 		// TEST TRACKS MY PURCHASES STATUS
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -107,31 +109,31 @@ trackTests {
 		}
 
 		"/my_purchases/status/show_action" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/show_help" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/show_faq" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_action" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_help" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_faq" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_view_item" (platform:"/", type: TrackType.Event) {
-			purchasesEventDataSet()
+			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/status/click_view_messages" (platform:"/", type: TrackType.Event) {
@@ -166,7 +168,7 @@ trackTests {
         }
 
         "/my_purchases/status/items/click_view_item" (platform:"/", type: TrackType.Event) {
-            purchasesEventDataSet()
+			newPurchasesDataFullSet()
         }
 
 
@@ -273,6 +275,9 @@ trackTests {
 		"/my_purchases/detail/click_go_to_insurance"(platform:"/", type: TrackType.Event) {
 			purchasesEventDataSet()
 		}
+		"/my_purchases/detail/click_payment_link_modal"(platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
+		}
 
 		//------------------------------------------------------------------------------------------------------------------------------------------------------
 		// TEST TRACKS MY PURCHASES REFUND DETAIL
@@ -303,6 +308,13 @@ trackTests {
 
 		"/my_purchases/refund_detail/click_faq"(platform:"/", type: TrackType.Event) {
 			purchasesEventDataSet()
+		}
+
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+		// TEST TRACKS MY PURCHASES LIST
+		//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		"/my_purchases/list"(platform:"/", type: TrackType.View) {
 		}
 
 	}

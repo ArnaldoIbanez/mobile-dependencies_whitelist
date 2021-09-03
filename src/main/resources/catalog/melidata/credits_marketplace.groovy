@@ -53,7 +53,6 @@ tracks {
     }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy name", type: PropertyType.String, required: true)
     }
@@ -215,6 +214,19 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(
                 required: true,

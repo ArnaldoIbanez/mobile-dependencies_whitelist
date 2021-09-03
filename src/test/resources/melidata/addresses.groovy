@@ -17,6 +17,9 @@ trackTests {
             context = "MY_ML"
             address_id = null
         }
+        "/addresses/input_address/map/open_map"(platform: "/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
+        }
     }
 
     test("Addresses - Test the views actions") {
@@ -169,6 +172,7 @@ trackTests {
             address_id = 12312312312
         }
         "/addresses/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/addresses/input_address/map/edit"(platform: "/", type: TrackType.Event) { }
         "/addresses/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
         "/addresses/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
         "/addresses/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
@@ -186,6 +190,9 @@ trackTests {
         "/addresses/input_address/map"(platform: "/", type: TrackType.View) {
             context = "MY_ML"
             address_id = null
+        }
+        "/addresses/input_address/map/open_map"(platform: "/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
         }
     }
 
@@ -339,6 +346,7 @@ trackTests {
             address_id = 12312312312
         }
         "/addresses/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/addresses/input_address/map/edit"(platform: "/", type: TrackType.Event) { }
         "/addresses/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
         "/addresses/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
         "/addresses/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {

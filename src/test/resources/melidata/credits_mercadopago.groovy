@@ -397,6 +397,8 @@ trackTests {
             product_type = 'fixed_term_loan'
             has_prepaid = true
             through_kyc = true
+            loan_status = 'cancelled'
+            loan_status_detail = 'payment_rejected'
         }
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
             requested_amount = 10000
@@ -407,6 +409,7 @@ trackTests {
             product_type = 'sales_percentage_loan'
             has_prepaid = false
             through_kyc = true
+            loan_status_detail = 'pending'
         }
 
         //Access
@@ -559,6 +562,9 @@ trackTests {
             promise = 'none'
             accesses = 'open_market'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            from_optins = true
+        }
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 
@@ -699,6 +705,24 @@ trackTests {
             sales_percentage_on_time()
         }
         "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+
+        // HRC CLICK
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/web/desktop") {
             sales_percentage_loan_on_time()
         }
 
@@ -893,7 +917,24 @@ trackTests {
             user_status = 'overdue'
         }
         "/credits/merchant/money_advance/hub"(platform: "/mobile/android") {}
-        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {}
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/web/desktop") {
+            from = 'withdraw'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/android") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/android") {
+            from = 'withdraw'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/ios") {
+            from = 'default'
+        }
+        "/credits/merchant/money_advance/summary"(platform: "/mobile/ios") {
+            from = 'withdraw'
+        }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
@@ -1607,6 +1648,8 @@ trackTests {
         //Events
         "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/mobile", type: TrackType.Event) {}
 
+        "/credits/consumer/administrator/detail/see_tac"(platform: "/mobile", type: TrackType.Event) {}
+
         "/credits/consumer/administrator_v2/details_button"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
@@ -1684,6 +1727,9 @@ trackTests {
         "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+        }
 
         /******************************************
             *       End: Consumers Admin Detail
