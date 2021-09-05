@@ -196,7 +196,7 @@ trackTests {
         "/banking/balance/error"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
-        "/banking/activity/row"(platform: "/", type: TrackType.Event) {
+        "/banking/activities/row"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
         }
         "/banking/debts/action"(platform: "/", type: TrackType.Event) {
