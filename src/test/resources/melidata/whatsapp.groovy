@@ -13,6 +13,8 @@ trackTests {
             template_name = "testtemp"
             event_type = "answered"
             message_id = "abc123"
+            news_id = "news123"
+            communication_id = "comm1234"
         }
     }
 }
