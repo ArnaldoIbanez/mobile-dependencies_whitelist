@@ -5039,7 +5039,12 @@ trackTests {
             news_id = "card_transactions-approved_authorization_whatsapp-debit_authorization_1ba2b28e8a12db8c1c7e27e7c07fd7ns6a28"
             event_type = "open"
             notification_type= "deep_linking"
-        }
+        },
+        "/notification/card_transactions_payment_authorization"(platform: "/mobile") {
+            news_id = "card_transactions-payment_authorization-2018120931-12345689"
+            event_type = "open"
+            notification_type= "deep_linking"
+        },
         "/notification/card_transactions_fund_money_in_whatsapp"(platform: "/mobile") {
             news_id = "card_transactions-fund_money_in_whatsapp-debit_authorization_1ba2b28e8a12db8c1c7e27e7c07fd7ns6a28"
             event_type = "open"

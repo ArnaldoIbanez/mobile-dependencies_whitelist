@@ -3322,9 +3322,13 @@ tracks {
     "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
 
+    // PREPAID, HYBRID, MPCARD
+    "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}
+
     //Prepaid
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}
     "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {}
+
     "/notification/card_transactions_approved_authorization"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {}
