@@ -5494,10 +5494,6 @@ trackTests {
             action = "activate"
         }
     }
-
-    test("About screen") {
-        "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
-    }
     
     test("Register Point Plus") {
         // Register device
