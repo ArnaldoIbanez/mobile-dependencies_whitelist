@@ -77,7 +77,7 @@ metrics {
 	
 	"bids.cbt.paid"(description: "/orders/ordercreated that belong to our CBT vertical and are currently paid", compute_order: true) {
 		startWith {
-			experiment(regex("cbt/.*"))
+			experiment(regex(".*(cbt/|/cbt).*"))
 		}
 		
 		
