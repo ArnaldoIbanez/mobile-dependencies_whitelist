@@ -49,6 +49,9 @@ tracks {
     // [Merchants Growth] Landings Navigation > Event
     "/pog/landings/navigation"(platform:"/", type: TrackType.Event) {}
 
+    // [Merchants Growth] Landings Shortcuts > Event
+    "/pog/landings/shortcuts"(platform:"/", type: TrackType.Event) {}
+
     // [Merchants Growth] Landings Navigation > Calculator link
     "/pog/landings/calculator"(platform:"/", type: TrackType.Event) {}
 

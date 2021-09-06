@@ -53,6 +53,11 @@ trackTests {
         coupon_type = "default"
       }
 
+      // Landing shortcuts
+      "/pog/landings/shortcuts"(platform:"/", type: TrackType.Event) {
+        product = "credits"
+      }
+
       // Landing go to calculator event
       "/pog/landings/calculator"(platform:"/", type: TrackType.Event) {
         product = "Point Newland"
