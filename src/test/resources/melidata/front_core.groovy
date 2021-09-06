@@ -356,6 +356,9 @@ trackTests {
             header = [
                     link: "mercadopago://link",
                     button_link: "mercadopago://link",
+                    buttons: [
+                            "data","help"
+                    ],
                     loyalty: [
                             level: 5
                     ],
@@ -805,11 +808,17 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
+            buttons = ["data","help"]
         }
     }
 
     test("Button header tap") {
         "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/header_buttons/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "help"
+            link = "mercadopago://link"
+        }
     }
 
     /*****************************
@@ -1577,6 +1586,9 @@ trackTests {
             header = [
                     link: "mercadopago://link",
                     button_link: "mercadopago://link",
+                    buttons: [
+                            "data","help"
+                    ],
                     loyalty: [
                             level: 5
                     ],
@@ -2004,11 +2016,17 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
+            buttons = ["data","help"]
         }
     }
 
     test("Button header tap") {
         "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/header_buttons/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "help"
+            link = "mercadopago://link"
+        }
     }
 
     /*****************************
