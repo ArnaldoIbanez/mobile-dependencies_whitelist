@@ -711,6 +711,12 @@ tracks {
             description: "The action type tapped"
         )
     }
+
+    // Setup virtual reauth
+    "/cards/hybrid/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
@@ -1170,7 +1176,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }
@@ -1184,7 +1190,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }

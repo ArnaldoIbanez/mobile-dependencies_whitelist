@@ -171,12 +171,12 @@ trackTests {
 
     test("Loyalty CrossSellingComponent") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
-            origin = "home"
+            origin = "ml_home"
             item_number = 2
         }
 
         "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
-            origin = "central-descuentos"
+            origin = "mp_home"
             title = "HBO"
             level = 3
             button_deeplink = "deeplink"
@@ -185,18 +185,18 @@ trackTests {
 
     test("Loyalty CrossSellingComponent in mercadopago") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "deals"
+            origin = "ml_home"
             item_number = 2
         }
 
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "deals"
+            origin = "mp_home"
             item_number = 0
             item_link = "meli://loyalty"
         }
 
         "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "central-descuentos"
+            origin = "mp_home"
             title = "Paramount"
             level = 1
             button_deeplink = "deeplink"
@@ -529,8 +529,7 @@ trackTests {
             payment_status_detail = "freetrial-activated"
             payment_id = "42323"
             payment_status = "success"
-
-
+            content = "special-promo"
         }
 
     }

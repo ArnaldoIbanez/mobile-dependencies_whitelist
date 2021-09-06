@@ -22,7 +22,6 @@ class MetricsUploader {
     def upload() {
         println("Compiling local metrics")
         String json = new MetricsFormatter(MetricsFactory.metrics).output
-
         println("Uploading metrics")
         s3Service.saveMetrics(json)
     }

@@ -171,7 +171,7 @@ tracks {
         collector_id(required: false, type: PropertyType.String, description: "provider collector id")
     }
 
-    // Scanner
+    // Scanner Screen (Old)
     "/bill_payments/scan"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/flash"(platform: "/mobile", type: TrackType.Event) {}
@@ -182,16 +182,44 @@ tracks {
     "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.View) {
         label(required: true, type: PropertyType.String, description: "the label the info message")
     }
-    "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/permission_camera"(platform: "/mobile") {}
-    "/bill_payments/enable_camera"(platform: "/mobile") {}
-        "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
+    
+    "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
         camera_flash(required: true, type: PropertyType.Boolean, description: "the camera flash is active")
         timestamp(required: true, type: PropertyType.Numeric, description: "the time to scan")
         barcode_format(required: true, type: PropertyType.String, description: "barcode format")
     }
+
+    "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
+        barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
+        camera_flash(required: true, type: PropertyType.Boolean, description: "the camera flash is active")
+        timestamp(required: true, type: PropertyType.Numeric, description: "the time to scan")
+        barcode_format(required: true, type: PropertyType.String, description: "barcode format")
+    }
+
+    // New Scanner Screen
+        "/bill_payments/new_scan"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/new_scan/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/new_scan/flash"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/new_scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/new_scan/type_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/new_scan/click"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/new_scan/read"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/new_scan/info_message"(platform: "/mobile", type: TrackType.View) {
+        label(required: true, type: PropertyType.String, description: "the label the info message")
+    }
+    "/bill_payments/new_scan/read"(platform: "/mobile", type: TrackType.Event) {
+        barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
+        camera_flash(required: true, type: PropertyType.Boolean, description: "the camera flash is active")
+        timestamp(required: true, type: PropertyType.Numeric, description: "the time to scan")
+        barcode_format(required: true, type: PropertyType.String, description: "barcode format")
+    }
+
+    // Error Scanner Screen
+    "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/permission_camera"(platform: "/mobile") {}
+    "/bill_payments/enable_camera"(platform: "/mobile") {}
 
     // Entities and categories
     "/bill_payments/main_category"(platform: "/mobile", type: TrackType.View) {}

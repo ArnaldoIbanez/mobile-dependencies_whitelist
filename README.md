@@ -23,14 +23,14 @@ This repository contains all the definitions for the information tracked in *mel
 
 - Always remember to define how your tracking "should be" not "as it is". We want this catalog to represent "the tracking we want" and not "the one we have". The catalog helps us to keep governance on our data and making it more predictable and easy to exploit
 
-- Before making PR. Try to follow other definition examples and make sure your data is not already tracked. 
+- Before making PR. Try to follow other definition examples and make sure your data is not already tracked.
 
 ### REQUIREMENT
 
 Download JDK 8 (u212) and set JAVA_HOME variable. In your terminal, run:
 
 ```
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home 
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home
 ```
 
 If your JAVA_HOME is set to JDK 9+, it might trigger incompatibility problems.
@@ -43,7 +43,7 @@ If you want to run the tests, you should execute **```make test```**
 
 1. 📖  👉 [**Tracking Definitions**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Tracking-Style-Guide)
 
-2. 📖  👉 [**FAQ**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/FAQ) 
+2. 📖  👉 [**FAQ**](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/FAQ)
 
 3. [Metrics Definitions](https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/New-Metric)
 

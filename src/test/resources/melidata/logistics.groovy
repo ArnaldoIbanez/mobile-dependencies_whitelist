@@ -100,6 +100,15 @@ trackTests {
             vehicle_id = "786"
         }
 
+        //Login driver on route duplicate
+        "/logistics/login/driver_on_route/duplicate"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"
+            vehicle_id = "1234"
+            logistic_type = "last_mile"
+        }
+
         //Profile
         "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()

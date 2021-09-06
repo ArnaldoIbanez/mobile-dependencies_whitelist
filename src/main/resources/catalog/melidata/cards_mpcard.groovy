@@ -1071,7 +1071,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }
@@ -1085,7 +1085,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }

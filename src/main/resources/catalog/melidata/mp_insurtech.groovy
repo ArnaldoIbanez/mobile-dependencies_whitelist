@@ -674,6 +674,15 @@ tracks {
     "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
     }
 
+    //CARDS
+    "/insurtech/protections/detail/begin_claim"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+    }
+     "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/", type: TrackType.Event) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        call_from(required: true, type: PropertyType.String, values: ['fromCapital', 'notFromCapital'], description: "Which of both phones was clicked.");
+    }
+
     //Landing-fe
     "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
             type(required: true, type:PropertyType.String,values: ['mobile', 'desktop', 'tablet'], description: "Device type")
