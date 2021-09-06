@@ -2696,6 +2696,23 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_eighty_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_eighty_mp_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_two_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_two_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_two_mp_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
             news_id = "chargeback-payer_high_agree_repayment_mp-14363307744123"
             event_type = "shown"
