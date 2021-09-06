@@ -13176,6 +13176,11 @@ trackTests {
         // Proximity Marketplace Order Manager
         "/notification/pm_om_notification_store_opening"(platform: "/") {
             news_id = "pm_om_notification-store_opening-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "open"
+            notification_type = "deep_linking"
+        }
+        "/notification/pm_om_notification_store_opening_whatsapp"(platform: "/") {
+            news_id = "pm_om_notification-store_opening-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "sent"
         }
     }

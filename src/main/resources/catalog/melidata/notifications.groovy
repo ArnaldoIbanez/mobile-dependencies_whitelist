@@ -3645,4 +3645,5 @@ tracks {
 
     // Proximity Marketplace Order Manager
     "/notification/pm_om_notification_store_opening"(platform: "/") {}
+    "/notification/pm_om_notification_store_opening_whatsapp"(platform: "/") {}
 }
