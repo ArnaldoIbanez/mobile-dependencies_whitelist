@@ -1996,6 +1996,7 @@ tracks {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
+    
     "/notification/credits_consumer_opt_in_telcel_data_privacy"(platform: "/") {}
     "/notification/credits_consumer_congrats_microlines"(platform: "/") {}
 
@@ -2006,6 +2007,11 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
+    
+    "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_two_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {}
 
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
