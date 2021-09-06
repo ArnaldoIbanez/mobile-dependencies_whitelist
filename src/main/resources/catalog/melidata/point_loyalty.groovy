@@ -5,14 +5,17 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
     initiative = "1299"
 
-    "/point/loyalty/register/congrats"(platform:"/web", type: TrackType.View) { }
+    "/point/loyalty/congrats"(platform:"/web", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+     }
 
     "/point/loyalty/register/status"(platform: "/web", type: TrackType.View) {
         status(required: true, description: "Status of token user", values: ["active", "expired"])
     }
 
-    "/point/loyalty/register/failure"(platform: "/web", type: TrackType.Event) {
+    "/point/loyalty/failure"(platform: "/web", type: TrackType.Event) {
         error_message(required: true, type: PropertyType.String, description: "Generic error message")
+        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 
     "/point/loyalty/register/form_field/invalid"(platform: "/web", type: TrackType.Event) { 
@@ -28,9 +31,9 @@ tracks {
     
     "/point/loyalty/cashback/exchange"(platform: "/web", type: TrackType.View) { }
 
-    "/point/loyalty/feedback_sms"(platform: "/web", type: TrackType.Event) { }
+    "/point/loyalty/feedback_sms"(platform: "/web", type: TrackType.View) { }
 
-    "/point/loyalty/modal"(platform: "/web", type: TrackType.View) { 
+    "/point/loyalty/modal"(platform: "/web", type: TrackType.Event) { 
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
 

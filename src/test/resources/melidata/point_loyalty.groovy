@@ -7,7 +7,9 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Point loyalty congrats view") {
-        "/point/loyalty/register/congrats"(platform: "/web", type: TrackType.View) {}
+        "/point/loyalty/congrats"(platform: "/web", type: TrackType.Event) {
+            context = "/register"
+        }
     }
 
     test("Point loyalty register view") {
@@ -23,8 +25,9 @@ trackTests {
     }
 
     test("Point loyalty generic error") {
-        "/point/loyalty/register/failure"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/failure"(platform: "/web", type: TrackType.Event) {
             error_message= "Timeout request"
+            context= "register"
         }
     }
 
@@ -56,12 +59,12 @@ trackTests {
     }
 
     test("Point loyalty feedback sms") {   
-        "/point/loyalty/feedback_sms"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/feedback_sms"(platform: "/web", type: TrackType.View) {
         }
     }
 
     test("Point loyalty modal component in cashback exchange view") {   
-        "/point/loyalty/modal"(platform: "/web", type: TrackType.View) {
+        "/point/loyalty/modal"(platform: "/web", type: TrackType.Event) {
             context = "/cashback-exchange"
         }
     }
