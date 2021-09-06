@@ -359,6 +359,20 @@ trackTests {
             cause = "warning"
             message_id = "error-01"
         }
+
+
+        // Tracing Status
+        "/mplayer/request/status"(platform: "/mobile") {
+            type = "closed_request"
+            type_person = "payer"
+        }
+
+        "/mplayer/request/status/event"(platform: "/mobile", type: TrackType.Event) {
+            type = "money_split"
+            type_person = "collector"
+            action = "send"
+        }
+
     }
 }
 
