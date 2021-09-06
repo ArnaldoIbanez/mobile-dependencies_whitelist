@@ -2035,7 +2035,7 @@ trackTests {
 
 
 
-        "/insurtech/protections/finished-claims"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/protections/finished_claims"(platform:"/mobile", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
@@ -2049,7 +2049,7 @@ trackTests {
             ]
         }
 
-        "/insurtech/protections/finished-claims"(platform:"/web", type: TrackType.View) {
+        "/insurtech/protections/finished_claims"(platform:"/web", type: TrackType.View) {
             claims = [
                 [
                     product_id: "garex",
