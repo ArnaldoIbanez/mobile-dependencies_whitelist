@@ -393,7 +393,6 @@ tracks {
 
     // About events
     "/about"(platform: "/mobile", isAbstract: true) {}
-    "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
     * Register Point Devices
