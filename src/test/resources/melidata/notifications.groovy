@@ -1037,6 +1037,13 @@ trackTests {
             case_id = "158213000000"
             status= "read"
         }
+        "/notification_center/chargeback_payer_high_n_chargebacks_agree_repayment_mp"(platform: "/mobile"){
+            newsgroup_id= "chargeback-payer_high_n_chargebacks_agree_repayment_mp-186785675-76283123"
+            latest_news_id= "chargeback-payer_high_n_chargebacks_agree_repayment_mp-186785675-76283123"
+            latest_news_type= "chargeback_payer_high_n_chargebacks_agree_repayment_mp"
+            case_id = "158213000000"
+            status= "read"
+        }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
             newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
@@ -2687,6 +2694,11 @@ trackTests {
         }
         "/notification/chargeback_payer_high_agree_repayment_ml"(platform: "/mobile") {
             news_id = "chargeback_payer_high_agree_repayment_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
+        "/notification/chargeback_payer_high_n_chargebacks_agree_repayment_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_high_n_chargebacks_agree_repayment_ml-21680059-20180516"
             event_type = "shown"
             case_id = "158213000000"
         }
@@ -7658,6 +7670,13 @@ trackTests {
             case_id = "158213000000"
             status= "read"
         }
+        "/notification_center/chargeback_payer_high_n_chargebacks_agree_repayment_mp"(platform: "/mobile"){
+            newsgroup_id= "chargeback-payer_high_n_chargebacks_agree_repayment_mp-186785675-76283123"
+            latest_news_id= "chargeback-payer_high_n_chargebacks_agree_repayment_mp-186785675-76283123"
+            latest_news_type= "chargeback_payer_high_n_chargebacks_agree_repayment_mp"
+            case_id = "158213000000"
+            status= "read"
+        }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
             newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
@@ -9513,6 +9532,11 @@ trackTests {
         }
         "/notification/chargeback_payer_high_agree_repayment_ml"(platform: "/mobile") {
             news_id = "chargeback_payer_high_agree_repayment_ml-21680059-20180516"
+            event_type = "shown"
+            case_id = "158213000000"
+        }
+        "/notification/chargeback_payer_high_n_chargebacks_agree_repayment_ml"(platform: "/mobile") {
+            news_id = "chargeback_payer_high_n_chargebacks_agree_repayment_ml-21680059-20180516"
             event_type = "shown"
             case_id = "158213000000"
         }
