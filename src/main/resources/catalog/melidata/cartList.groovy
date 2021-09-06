@@ -99,6 +99,10 @@ tracks {
     item_info
 }
 
+"/cart/my_cart/update_item_kit"(platform: "/", type: TrackType.Event) {
+    item_info
+}
+
 "/cart/my_cart/more_seller_items"(platform: "/", type: TrackType.Event) {
     item_info
 }

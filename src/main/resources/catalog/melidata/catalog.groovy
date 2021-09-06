@@ -275,6 +275,8 @@ catalog {
         include business, "cashin.groovy"
         include business, "mercadopago_openbanking.groovy"
         include business, "point_loyalty.groovy"
+        include business, "cartList.groovy"
+        include business, "add_to_cart.groovy"
     }
 
     mercadoshops.each { business ->
