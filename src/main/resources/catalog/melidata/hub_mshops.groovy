@@ -215,4 +215,48 @@ tracks {
     "/shops/hub/tips_news/link"(platform: "/", type: TrackType.Event) {
         tool(required: true, type: PropertyType.String, values: tools)
     }
+
+    // SIDEBARS
+
+    "/shops/hub/sidebar"(platform: "/", isAbstract: true) {
+        event_category(required: false, type: PropertyType.String)
+        event_action(required: false, type: PropertyType.String)
+        event_label(required: false, type: PropertyType.String)
+    }
+
+    "/shops/hub/sidebar/whatsapp/success"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/whatsapp/error"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/shop_name/success"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/shop_name/error"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/logo/success"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/logo/error"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/contact"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/contact/success"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/contact/error"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/social_networks"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/social_networks/success"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/social_networks/error"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/afip"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/afip/success"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/afip/error"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/fiscal_data"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/fiscal_data/success"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/sidebar/fiscal_data/error"(platform: "/", type: TrackType.Event) {}
 }
