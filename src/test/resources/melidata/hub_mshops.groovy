@@ -272,7 +272,18 @@ trackTests {
     }
 
     test("Mercado Shops sidebars") {
-        "/shops/hub/sidebar/whatsapp/success"(platform: "/", type: TrackType.Event) {
+        "/shops/hub/sidebar"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            event_category = "sidebar"
+            event_action = "show"
+            event_label = "logo"
+            sidebar_name = "logo"
+        }
+
+        "/shops/hub/sidebar/whatsapp"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
@@ -280,29 +291,10 @@ trackTests {
             event_category = "sidebar"
             event_action = "success"
             event_label = "whatsapp"
+            success = true
         }
 
-        "/shops/hub/sidebar/whatsapp/error"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
-            event_action = "error"
-            event_label = "whatsapp"
-        }
-
-        "/shops/hub/sidebar/shop_name/success"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
-            event_action = "success"
-            event_label = "shop_name"
-        }
-
-        "/shops/hub/sidebar/shop_name/error"(platform: "/", type: TrackType.Event) {
+        "/shops/hub/sidebar/shop_name"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
@@ -310,9 +302,10 @@ trackTests {
             event_category = "sidebar"
             event_action = "error"
             event_label = "shop_name"
+            success = false
         }
 
-        "/shops/hub/sidebar/logo/success"(platform: "/", type: TrackType.Event) {
+        "/shops/hub/sidebar/logo"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
             shop_domain = "test.mercadolibre.com.co"
@@ -320,16 +313,7 @@ trackTests {
             event_category = "sidebar"
             event_action = "success"
             event_label = "logo"
-        }
-
-        "/shops/hub/sidebar/logo/error"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
-            event_action = "error"
-            event_label = "logo"
+            success = true
         }
 
         "/shops/hub/sidebar/contact"(platform: "/", type: TrackType.Event) {
@@ -338,28 +322,9 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             event_category = "sidebar"
-            event_action = "show"
-            event_label = "contact"
-        }
-
-        "/shops/hub/sidebar/contact/success"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
-            event_action = "success"
-            event_label = "contact"
-        }
-
-        "/shops/hub/sidebar/contact/error"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
             event_action = "error"
             event_label = "contact"
+            success = false
         }
 
         "/shops/hub/sidebar/social_networks"(platform: "/", type: TrackType.Event) {
@@ -368,28 +333,9 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             event_category = "sidebar"
-            event_action = "show"
-            event_label = "social_networks"
-        }
-
-        "/shops/hub/sidebar/social_networks/success"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
             event_action = "success"
             event_label = "social_networks"
-        }
-
-        "/shops/hub/sidebar/social_networks/error"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
-            event_action = "error"
-            event_label = "social_networks"
+            success = true
         }
 
         "/shops/hub/sidebar/afip"(platform: "/", type: TrackType.Event) {
@@ -398,28 +344,9 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             event_category = "sidebar"
-            event_action = "show"
-            event_label = "afip"
-        }
-
-        "/shops/hub/sidebar/afip/success"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
-            event_action = "success"
-            event_label = "afip"
-        }
-
-        "/shops/hub/sidebar/afip/error"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
             event_action = "error"
             event_label = "afip"
+            success = false
         }
 
         "/shops/hub/sidebar/fiscal_data"(platform: "/", type: TrackType.Event) {
@@ -428,28 +355,9 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             event_category = "sidebar"
-            event_action = "show"
-            event_label = "fiscal_data"
-        }
-
-        "/shops/hub/sidebar/fiscal_data/success"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
             event_action = "success"
             event_label = "fiscal_data"
-        }
-
-        "/shops/hub/sidebar/fiscal_data/error"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            event_category = "sidebar"
-            event_action = "error"
-            event_label = "fiscal_data"
+            success = true
         }
     }
 }
