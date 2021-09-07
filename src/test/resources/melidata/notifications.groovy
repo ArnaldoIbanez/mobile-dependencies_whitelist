@@ -2710,6 +2710,14 @@ trackTests {
             news_id = "credits-consumer_expired_two_mp_notice-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_expired_nine_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_nine_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_nine_mp_notice-21680059-20180516"
+            event_type = "shown"
+        }
 
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
             news_id = "chargeback-payer_high_agree_repayment_mp-14363307744123"
