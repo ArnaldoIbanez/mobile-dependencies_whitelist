@@ -2711,11 +2711,11 @@ trackTests {
             event_type = "shown"
         }
         "/notification/credits_consumer_expired_nine_notice"(platform: "/") {
-            news_id = "credits-consumer_expired_two_notice-21680059-20180516"
+            news_id = "credits-consumer_expired_nine_notice-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {
-            news_id = "credits-consumer_expired_two_mp_notice-21680059-20180516"
+            news_id = "credits-consumer_expired_nine_mp_notice-21680059-20180516"
             event_type = "shown"
         }
 
