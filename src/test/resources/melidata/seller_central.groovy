@@ -5818,4 +5818,457 @@ test("seller central confirm leave suggestion task - optin moderated") {
       ]
     }
   }
+
+  /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    |                                               OPTIN V2                                                      |
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    test("seller central catalog optin v2") {
+      "/seller_central/catalog/optin_v2"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 init") {
+      "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 congrats") {
+      "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        confirmed_item_plus = false
+        suggested_correction = true
+      }
+    }
+
+    test("seller central catalog optin v2 congrats") {
+      "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        reason = "INACTIVE_PRODUCT"
+        suggested_correction = true
+      }
+    }
+
+    test("seller central catalog optin v2 product comparator") {
+      "/seller_central/catalog/optin_v2/product_comparator"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product comparator") {
+      "/seller_central/catalog/optin_v2/product_comparator"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product comparator show") {
+      "/seller_central/catalog/optin_v2/product_comparator/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product comparator confirm") {
+      "/seller_central/catalog/optin_v2/product_comparator/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        comparison_selection = "SAME_PRODUCT"
+      }
+    }
+
+    test("seller central catalog optin v2 invoice") {
+      "/seller_central/catalog/optin_v2/invoice"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        invoice_type = "ITEM_PLUS"
+      }
+    }
+
+    test("seller central catalog optin v2 invoice show") {
+      "/seller_central/catalog/optin_v2/invoice/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        invoice_type = "ITEM_PLUS"
+      }
+    }
+
+    test("seller central catalog optin v2 invoice confirm") {
+      "/seller_central/catalog/optin_v2/invoice/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        invoice_type = "ITEM_PLUS"
+        invoice_selection = true
+      }
+    }
+
+    test("seller central catalog optin v2 suggested corrections") {
+      "/seller_central/catalog/optin_v2/suggested_corrections"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 suggested corrections show") {
+      "/seller_central/catalog/optin_v2/suggested_corrections/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 suggested corrections confirm") {
+      "/seller_central/catalog/optin_v2/suggested_corrections/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        suggested_correction = true
+      }
+    }
+
+    test("seller central catalog optin v2 item plus card") {
+      "/seller_central/catalog/optin_v2/item_plus_card"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 item plus card show") {
+      "/seller_central/catalog/optin_v2/item_plus_card/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 item plus card confirm") {
+      "/seller_central/catalog/optin_v2/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 item plus card return") {
+      "/seller_central/catalog/optin_v2/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 variation selection") {
+      "/seller_central/catalog/optin_v2/variation_selection"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 variation selection show") {
+      "/seller_central/catalog/optin_v2/variation_selection/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 variation selection confirm") {
+      "/seller_central/catalog/optin_v2/variation_selection/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product search") {
+      "/seller_central/catalog/optin_v2/product_search"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product search show") {
+      "/seller_central/catalog/optin_v2/product_search/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product search confirm") {
+      "/seller_central/catalog/optin_v2/product_search/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        product_selected = "MLA15149333"
+        product_index_selected = 0
+      }
+    }
+
+    test("seller central catalog optin v2 product search update") {
+      "/seller_central/catalog/optin_v2/product_search/update"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        search_value = "yalung tang"
+      }
+    }
+
+    test("seller central catalog optin v2 iterative search") {
+      "/seller_central/catalog/optin_v2/iterative_search"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 iterative search show") {
+      "/seller_central/catalog/optin_v2/iterative_search/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 iterative search confirm") {
+      "/seller_central/catalog/optin_v2/iterative_search/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        product_selected = "MLA15149333"
+      }
+    }
+
+    test("seller central catalog optin v2 iterative search update") {
+      "/seller_central/catalog/optin_v2/iterative_search/update"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+        iteration_count = 3
+      }
+    }
+
+    test("seller central catalog optin v2 product problem") {
+      "/seller_central/catalog/optin_v2/product_problem"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product problem show") {
+      "/seller_central/catalog/optin_v2/product_problem/show"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product problem confirm") {
+      "/seller_central/catalog/optin_v2/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    test("seller central catalog optin v2 product problem return") {
+      "/seller_central/catalog/optin_v2/product_problem/return"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+        is_test_user = true
+      }
+    }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    |                                             END OPTIN V2                                                    |
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 }
