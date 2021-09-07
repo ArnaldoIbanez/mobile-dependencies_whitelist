@@ -367,7 +367,7 @@ trackTests {
             type_person = "payer"
         }
 
-        "/mplayer/request/status/event"(platform: "/mobile", type: TrackType.Event) {
+        "/mplayer/request/status/event"(platform: "/mobile") {
             type = "money_split"
             type_person = "collector"
             action = "send"
