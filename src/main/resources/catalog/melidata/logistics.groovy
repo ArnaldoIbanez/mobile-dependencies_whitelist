@@ -177,7 +177,7 @@ tracks {
     "/logistics/profile/fiscalization_disclaimer"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: true)
     }
-    "/logistics/profile/fiscalization_disclaimer/invoice_webview"(platform: "/mobile", type: TrackType.View) {
+    "/logistics/profile/fiscalization_disclaimer/invoice"(platform: "/mobile", type: TrackType.View) {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
     "/logistics/profile/fiscalization_disclaimer/invoice_not_found"(platform: "/mobile", type: TrackType.View) {

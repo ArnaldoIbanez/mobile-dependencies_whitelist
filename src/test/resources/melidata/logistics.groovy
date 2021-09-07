@@ -195,7 +195,7 @@ trackTests {
         "/logistics/profile/fiscalization_disclaimer"(platform: "/mobile", type: TrackType.View) {
             driver_id = "123"
         }
-        "/logistics/profile/fiscalization_disclaimer/invoice_webview"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/profile/fiscalization_disclaimer/invoice"(platform: "/mobile", type: TrackType.View) {
             driver_id = "123"
             shipment_id = "123"
         }
