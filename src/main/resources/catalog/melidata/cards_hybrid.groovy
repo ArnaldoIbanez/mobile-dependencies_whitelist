@@ -2299,25 +2299,6 @@ tracks {
             required: false,
             description: "SDK Additional Info"
         )
-        token_id(
-            type: PropertyType.String,
-            required: true,
-            description: "TokenId value when the error was thrown"
-        )
-        wallet_id(
-            type: PropertyType.String,
-            required: true,
-            description: "WalletId value when the error was thrown"
-        )
-    }
-    
-    "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
-        status (
-            required: true,
-            type: PropertyType.String,
-            values:["enrollment_needed","enrollment_completed","enrollment_in_progress"],
-            description: "Device enrollment success"
-        )
     }
 
     "/cards/nfc/enrollment/device_enrollment/success"(platform: "/", type: TrackType.Event) {
@@ -2382,11 +2363,6 @@ tracks {
             type : PropertyType.Numeric,
             required: true,
             description: "SDK CPS Error Code"
-        )
-        wallet_id(
-            type : PropertyType.String,
-            required: true,
-            description: "SDK Additional Info"
         )
         causing_exception(
             type : PropertyType.String,
@@ -2746,54 +2722,6 @@ tracks {
                 type: PropertyType.String,
                 description: "Message processor information",
                 inheritable: false
-        )
-    }
-    
-    "/cards/nfc/enrollment/tokenization/messageprocessor/constraints"(platform: "/", type: TrackType.Event) {
-        is_nfc_payments_initialized (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if nfc service is initialized"
-        )
-        is_token_ready (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if the token is ready for payment"
-        )
-        is_token_active (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if the payment token is active"
-        )
-        is_default_tap_n_pay (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if MP is the default tap and pay app"
-        )
-        is_restrictive (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if the phone is in tap and pay restrictive mode"
-        )
-        is_tap_n_pay_admitted_to_pay (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if the phone is properly configured to pay with mp"
-        )
-        is_default_card (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if the nfc card is default on nfc service"
-        )
-        is_nfc_activated (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if the phone nfc antenna is active"
-        )
-        are_payment_keys_available (
-            required: true,
-            type: PropertyType.Boolean,
-            description: "Indicates if the token has any available key for payment"
         )
     }
 
