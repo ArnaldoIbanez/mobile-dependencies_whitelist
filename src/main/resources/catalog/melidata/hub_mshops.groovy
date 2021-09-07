@@ -219,9 +219,9 @@ tracks {
     // SIDEBARS
 
     "/shops/hub/sidebar"(platform: "/", isAbstract: true) {
-        event_category(required: false, type: PropertyType.String)
-        event_action(required: false, type: PropertyType.String)
-        event_label(required: false, type: PropertyType.String)
+        event_category(required: true, type: PropertyType.String, description: "Category that is sent in the equivalent event on GA")
+        event_action(required: true, type: PropertyType.String, description: "Action that is sent in the equivalent event on GA")
+        event_label(required: true, type: PropertyType.String, description: "Label that is sent in the equivalent event on GA")
     }
 
     "/shops/hub/sidebar/whatsapp/success"(platform: "/", type: TrackType.Event) {}
