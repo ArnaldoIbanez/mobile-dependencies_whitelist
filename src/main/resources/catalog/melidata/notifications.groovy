@@ -2013,6 +2013,8 @@ tracks {
     "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_nine_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {}
 
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
