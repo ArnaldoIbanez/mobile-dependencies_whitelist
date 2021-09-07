@@ -600,6 +600,12 @@ trackTests {
         }
     }
 
+    test("cards mpcard setup virtual tracking") {
+        "/cards/mpcard/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    }
+
     //Highlighted Row
     test("cards mpcard setup virtual Highlighted Row") {
         "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {

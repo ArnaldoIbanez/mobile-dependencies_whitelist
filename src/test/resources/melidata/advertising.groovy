@@ -166,9 +166,9 @@ trackTests {
         "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event) {
             site_id = "MLA"
             cust_id = 2222222
-            cantidad_sll = 10
-            cantidad_no_sll = 5
-            cantidad_indexed_items = 10
+            quantity_sll = 10
+            quantity_no_sll = 5
+            quantity_indexed_items = 10
             mode = "automatic"
             model = 'cvr'
         }

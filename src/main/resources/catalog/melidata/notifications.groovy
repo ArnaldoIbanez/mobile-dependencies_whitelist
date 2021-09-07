@@ -1238,10 +1238,6 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
-    "/notification_center/prepaid_card_delivery"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
     "/notification_center/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1251,6 +1247,10 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/prepaid_card_transaction_rejected_activation_reminder"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/prepaid_card_delivery"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1271,6 +1271,11 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         branch_time_elapsed(required: false, type: PropertyType.Boolean, description: "Branch Time Elapsed")
+    }
+    "/notification_center/card_prepaid_tracking"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        branch_case(required: false, type: PropertyType.Boolean, description: "Has been in a branch office before")
     }
     "/notification_center/card_unlock_incentive"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1313,10 +1318,6 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/card_reminders"(platform: "/", type: TrackType.Event) {
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-    }
-    "/notification_center/card_request_challenge"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -2012,6 +2013,8 @@ tracks {
     "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_nine_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {}
 
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
@@ -3256,8 +3259,11 @@ tracks {
         notification_id(required: true, type: PropertyType.String)
     }
 
-    //Hybrid
+    //Cards Hybrid
     "/notification/card_request_challenge_pending"(platform: "/") {
+        payment_method(required: true, type: PropertyType.String, description: "Payment method")
+    }
+    "/notification/card_request_challenge_pre_expired"(platform: "/") {
         payment_method(required: true, type: PropertyType.String, description: "Payment method")
     }
     "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
@@ -3322,9 +3328,13 @@ tracks {
     "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
 
-    //Prepaid
+    // PREPAID, HYBRID, MPCARD
+    "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}
+
+    //Cards Prepaid
     "/notification/card_transactions_balance_atm"(platform: "/mobile") {}
     "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {}
+
     "/notification/card_transactions_approved_authorization"(platform: "/mobile") {}
     "/notification/card_transactions_approved_authorization_with_partitions"(platform: "/mobile") {}
     "/notification/card_transactions_approved_withdraw"(platform: "/mobile") {}
@@ -3358,7 +3368,20 @@ tracks {
 
     "/notification/card_wallet_insufficient_account_balance"(platform: "/mobile") {}
 
-    //NFC
+    "/notification/card_prepaid_tracking_ready_to_ship"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_ready_to_ship_challenged"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_shipped"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_delivered"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_reprogrammed"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_soon_deliver"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_delayed"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_delayed_extended"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_branch_with_address"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_not_delivered"(platform: "/") {
+        branch_case(required: true, type: PropertyType.Boolean, description: "Has been in a branch office before")
+    }
+
+    //Cards NFC
     "/notification/nfc_wallet"(platform: "/") {
         correlation_id(required: true, type: PropertyType.String, description: "Correlation Id")
     }
@@ -3372,6 +3395,11 @@ tracks {
     "/notification/prepaid_card_delivered"(platform: "/mobile") {}
     "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {}
     "/notification/prepaid_card_not_delivered"(platform: "/mobile") {}
+    "/notification/prepaid_card_delivery"(platform: "/mobile") {}
+    "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {}
+    "/notification/prepaid_card_reprogrammed"(platform: "/mobile") {}
+
+    "/notification/prepaid_card_transaction_rejected_for_not_transaction"(platform: "/mobile") {}
     "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
@@ -3388,16 +3416,12 @@ tracks {
     "/notification/prepaid_card_transaction_rejected_by_kyc"(platform: "/mobile") {}
     "/notification/prepaid_card_compliant_kyc"(platform: "/mobile") {}
     "/notification/prepaid_card_reissue_reminder"(platform: "/mobile") {}
-    "/notification/prepaid_card_delivery"(platform: "/mobile") {}
     "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_red_link_bug"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
-    "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {}
-    "/notification/prepaid_card_transaction_rejected_for_not_transaction"(platform: "/mobile") {}
-    "/notification/prepaid_card_reprogrammed"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_invalid_amount_option_credit"(platform: "/mobile") {}
 
     //Protected Purchase

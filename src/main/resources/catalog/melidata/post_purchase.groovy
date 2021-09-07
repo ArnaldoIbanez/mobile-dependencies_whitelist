@@ -30,4 +30,8 @@ tracks {
     "/post_purchase/kyc_onboarding"(platform: "/", type: TrackType.View) { }
     "/post_purchase/kyc_onboarding/validate"(platform: "/", type: TrackType.Event) { }
     "/post_purchase/kyc_onboarding/back"(platform: "/", type: TrackType.Event) { }
+
+    "/post_purchase/channel_selection_hub"(platform: "/", type: TrackType.Event) {
+        med_on_user_action(required: true, type: PropertyType.String,  description: "The action took by the user when the claim is able to go by online channel", values: ['online', 'offline', 'back'])
+    }
 }

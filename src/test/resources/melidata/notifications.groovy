@@ -1769,13 +1769,6 @@ trackTests {
             latest_news_type= "card_unlock_incentive_twentyfifth_day"
             status= "read"
         }
-        "/notification_center/card_delivery_tracking"(platform: "/mobile"){
-            newsgroup_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
-            latest_news_id= "card_delivery_tracking-soon_deliver-186785675-76283123"
-            latest_news_type= "card_delivery_tracking-soon_deliver"
-            status= "read"
-            branch_time_elapsed = true
-        }
         "/notification_center/claim"(platform: "/mobile"){
             newsgroup_id= "claim_186785675-76283123"
             latest_news_id= "claim_186785675-76283123"
@@ -1790,12 +1783,6 @@ trackTests {
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_type= "prepaid_card_delayed_p1"
-            status= "read"
-        }
-        "/notification_center/prepaid_card_delivery"(platform: "/mobile"){
-            newsgroup_id= "prepaid_card_delivery-186785675-76283123"
-            latest_news_id= "prepaid_card_delivery-186785675-76283123"
-            latest_news_type= "prepaid_card_delivery"
             status= "read"
         }
         "/notification_center/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile"){
@@ -1814,12 +1801,6 @@ trackTests {
             newsgroup_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
             latest_news_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
-            status= "read"
-        }
-        "/notification_center/prepaid_card_reprogrammed"(platform: "/mobile"){
-            newsgroup_id= "prepaid_card_reprogrammed-186785675-76283123"
-            latest_news_id= "prepaid_card_reprogrammed-186785675-76283123"
-            latest_news_type= "prepaid_card_reprogrammed"
             status= "read"
         }
         "/notification_center/point_qr_login_new"(platform: "/mobile") {
@@ -2388,6 +2369,11 @@ trackTests {
             event_type = "shown"
             payment_method = 'boleto'
         }
+        "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_pre_expired-12345678"
+            event_type = "shown"
+            payment_method = 'boleto'
+        }
         "/notification/anses_payment_date"(platform: "/mobile") {
             news_id = "anses_payment_date-12345678-123"
             event_type = "shown"
@@ -2722,6 +2708,14 @@ trackTests {
         }
         "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {
             news_id = "credits-consumer_expired_two_mp_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_nine_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_nine_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_nine_mp_notice-21680059-20180516"
             event_type = "shown"
         }
 
@@ -5040,6 +5034,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/card_transactions_payment_authorization"(platform: "/mobile") {
+            news_id = "card_transactions-payment_authorization-2018120931-12345689"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/card_transactions_fund_money_in_whatsapp"(platform: "/mobile") {
             news_id = "card_transactions-fund_money_in_whatsapp-debit_authorization_1ba2b28e8a12db8c1c7e27e7c07fd7ns6a28"
             event_type = "open"
@@ -5756,36 +5755,6 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
-        "/notification/prepaid_card_shipped"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_delivered"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
         "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-third_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
@@ -5800,12 +5769,6 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "open"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_reprogrammed"(platform: "/mobile"){
-            news_id = "prepaid_card_reprogrammed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -5864,6 +5827,36 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_shipped"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_delivered"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_reprogrammed"(platform: "/mobile"){
+            news_id = "prepaid_card_reprogrammed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
         "/notification/prepaid_card_delivery"(platform: "/mobile") {
             news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
@@ -5953,11 +5946,6 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification/prepaid_card_delivery"(platform: "/mobile") {
-            news_id = "prepaid_card-delivery-186785675"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
         "/notification/prepaid_card_transaction_rejected_withdraw_freeze"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_withdraw_freeze-186785675"
             event_type = "auto_dismiss"
@@ -5977,10 +5965,6 @@ trackTests {
             news_id = "prepaid_card_reissue_reminder-186785675"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
-        }
-        "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {
-            news_id = "prepaid_card_soon_deliver-186785675"
-            event_type = "auto_dismiss"
         }
         "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile") {
             news_id = "card_kyc_data_completed_physical_acquisition-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
@@ -6078,43 +6062,6 @@ trackTests {
             news_id = "card_unlock_incentive_twentyfifth_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
-        }
-
-        "/notification/card_delivery_tracking_ready_to_ship"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/card_delivery_tracking_shipped"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_shipped-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/card_delivery_tracking_soon_deliver"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_soon_deliver-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/card_delivery_tracking_delayed"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/card_delivery_tracking_branch"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_branch-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {
-            news_id = "card_delivery_tracking_not_delivered-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-            branch_time_elapsed = true
         }
 
         "/notification/claim_pdd_first_rescue"(platform: "/mobile"){
@@ -8483,6 +8430,13 @@ trackTests {
             status= "read"
             branch_time_elapsed = true
         }
+        "/notification_center/card_prepaid_tracking"(platform: "/mobile"){
+            newsgroup_id= "card_prepaid_tracking-soon_deliver-186785675-76283123"
+            latest_news_id= "card_prepaid_tracking-soon_deliver-186785675-76283123"
+            latest_news_type= "card_prepaid_tracking-soon_deliver"
+            status= "read"
+            branch_case = true
+        }
         "/notification_center/claim"(platform: "/mobile"){
             newsgroup_id= "claim_186785675-76283123"
             latest_news_id= "claim_186785675-76283123"
@@ -8493,10 +8447,18 @@ trackTests {
             latest_news_type= "fraud_kyc_validation"
             latest_news_id= "fraud-kyc_validation-186785675"
         }
+
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_type= "prepaid_card_delayed_p1"
+            status= "read"
+        }
+        
+        "/notification_center/prepaid_card_reprogrammed"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card_reprogrammed-186785675-76283123"
+            latest_news_id= "prepaid_card_reprogrammed-186785675-76283123"
+            latest_news_type= "prepaid_card_reprogrammed"
             status= "read"
         }
         "/notification_center/prepaid_card_delivery"(platform: "/mobile"){
@@ -8505,6 +8467,7 @@ trackTests {
             latest_news_type= "prepaid_card_delivery"
             status= "read"
         }
+
         "/notification_center/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile"){
             newsgroup_id= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
             latest_news_id= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
@@ -11904,6 +11867,11 @@ trackTests {
             event_type = "shown"
             payment_method = 'boleto'
         }
+        "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
+            news_id = "card_request_challenge_pre_expired-12345678"
+            event_type = "shown"
+            payment_method = 'boleto'
+        }
         "/notification/card_offering_physical_card"(platform: "/mobile") {
             news_id = "card_offering_physical_card-12345678"
             event_type = "shown"
@@ -12525,28 +12493,43 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/prepaid_card_delivered"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {
+            news_id = "prepaid_card_soon_deliver-186785675"
+            event_type = "auto_dismiss"
+        }
         "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/prepaid_card_not_delivered"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_reprogrammed"(platform: "/mobile"){
+            news_id = "prepaid_card_reprogrammed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
             notification_type= "deep_linking"
         }
 
@@ -12568,20 +12551,8 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/prepaid_card_reprogrammed"(platform: "/mobile"){
-            news_id = "prepaid_card_reprogrammed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "open"
-            notification_type= "deep_linking"
-        }
-
         "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-challenge_bolbradesco_reminder-43545334234"
-            event_type = "open"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_delivery"(platform: "/mobile") {
-            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -12829,36 +12800,83 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/card_delivery_tracking_shipped"(platform: "/mobile") {
             news_id = "card_delivery_tracking_shipped-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/card_delivery_tracking_soon_deliver"(platform: "/mobile") {
             news_id = "card_delivery_tracking_soon_deliver-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/card_delivery_tracking_delayed"(platform: "/mobile") {
             news_id = "card_delivery_tracking_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/card_delivery_tracking_branch"(platform: "/mobile") {
             news_id = "card_delivery_tracking_branch-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-
         "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {
             news_id = "card_delivery_tracking_not_delivered-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
             branch_time_elapsed = true
+        }
+
+        "/notification/card_prepaid_tracking_ready_to_ship"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_ready_to_ship_challenged"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_ready_to_ship_challenged-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_shipped"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_shipped-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_soon_deliver"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_soon_deliver-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_delayed"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_delayed_extended"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_delayed_extended-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_branch_with_address"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_branch_with_address-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_not_delivered"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_not_delivered-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+            branch_case = true
+        }
+        "/notification/card_prepaid_tracking_delivered"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_delivered-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_prepaid_tracking_reprogrammed"(platform: "/mobile") {
+            news_id = "card_prepaid_tracking_reprogrammed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
         }
 
         "/notification/claim_pdd_first_rescue"(platform: "/mobile"){
