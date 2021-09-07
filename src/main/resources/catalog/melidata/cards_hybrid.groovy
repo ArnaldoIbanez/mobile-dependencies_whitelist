@@ -3132,6 +3132,15 @@ tracks {
                 "not_default"
             ]
         )
+        foreground(
+            required: false,
+            type: PropertyType.String,
+            values: [
+                'foreground',
+                'default',
+                'unknown'
+            ]
+        )
     }
 
     // NFC_ONDEMAND_ENROLLMENT

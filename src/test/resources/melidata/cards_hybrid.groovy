@@ -4026,18 +4026,62 @@ trackTests {
         "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
             restrictiveness = 'restrictive'
             default_app = 'default'
+            foreground = 'foreground'
         }
         "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
             restrictiveness = 'not_restrictive'
             default_app = 'default'
+            foreground = 'foreground'
         }
         "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
             restrictiveness = 'restrictive'
             default_app = 'not_default'
+            foreground = 'foreground'
         }
         "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
             restrictiveness = 'not_restrictive'
             default_app = 'not_default'
+            foreground = 'foreground'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'restrictive'
+            default_app = 'default'
+            foreground = 'default'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'not_restrictive'
+            default_app = 'default'
+            foreground = 'default'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'restrictive'
+            default_app = 'not_default'
+            foreground = 'default'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'not_restrictive'
+            default_app = 'not_default'
+            foreground = 'default'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'restrictive'
+            default_app = 'default'
+            foreground = 'unknown'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'not_restrictive'
+            default_app = 'default'
+            foreground = 'unknown'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'restrictive'
+            default_app = 'not_default'
+            foreground = 'unknown'
+        }
+        "/cards/nfc/status"(platform: "/", type: TrackType.Event) {
+            restrictiveness = 'not_restrictive'
+            default_app = 'not_default'
+            foreground = 'unknown'
         }
     }
 
