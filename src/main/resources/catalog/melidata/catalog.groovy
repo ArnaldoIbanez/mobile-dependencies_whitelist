@@ -296,6 +296,7 @@ catalog {
         include business, "social.groovy"
         include business, "vip.groovy"
         include business, "hub_mshops.groovy"
+        include business, "myml_mercadoshops.groovy"
     }
 
     mercadoads.each { business ->
