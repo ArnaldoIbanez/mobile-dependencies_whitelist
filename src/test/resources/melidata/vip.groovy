@@ -2411,4 +2411,20 @@ trackTests {
             label = "PICKER"
         }
     }
+
+    test("VIS scheduling item") {
+        "/vip/scheduling_intention"(platform: "/", type: TrackType.Event) {
+            item_id = "MLC123123"
+            item_condition = "new"
+            item_status = "active"
+            item_seller_type = "real_estate_agency"
+            seller_id = 799550807
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            vertical = "realEstate"
+            source = "main-action"
+            unregistered_contact = false
+            is_ltr = true
+        }
+    }
 }
