@@ -182,7 +182,7 @@ tracks {
     "/money_out/transfers/review_and_confirm/immediate_transfer_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirms/scheduled_transfer_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/edit_date_clicked"(platform: "/", type: TrackType.Event) {}
-    "/money_out/transfers/review_and_confirm/calendar"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/calendar"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/review_and_confirm/calendar/confirm"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Congrats
