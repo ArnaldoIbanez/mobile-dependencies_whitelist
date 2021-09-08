@@ -5827,7 +5827,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
   }
 
   test("Track empty state items") {
-    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row_empty_state"(platform: "/", type: TrackType.Event){
         sub_view_id = "mshops"
         items = [
             [
@@ -5856,21 +5856,21 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("Show MShops inactive channel card"){
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
       sub_view_id = "mshops"
-      action = "show"
+      action = "render"
     }
   }
 
   test("Show marketplace inactive channel card"){
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
       sub_view_id = "markeplace"
-      action = "show"
+      action = "render"
     }
   }
 
   test("Click marketplace inactive channel card"){
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
       sub_view_id = "markeplace"
-      action = "show"
+      action = "render"
     }
   }
 
@@ -5883,8 +5883,9 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("Change sub view"){
     "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
-      sub_view_id = "marketplace"
-      action = "click"
+      selected_view = "marketplace"
+      type = "optin"
+      url = "https://mishop.com"
     }
   }
 }
