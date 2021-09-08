@@ -145,7 +145,7 @@ tracks {
     "/money_out/transfers/scheduled_transfer_detail/money_in_click"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/scheduled_transfer_detail/show_receipt_click"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/scheduled_transfer_detail/cancel_transfer_click"(platform: "/", type: TrackType.Event) {}
-    "/money_out/transfers/scheduled_transfer_detail/modal"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfer_detail/modal"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/scheduled_transfer_detail/modal/confirm"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/scheduled_transfer_detail/modal/dismiss"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/scheduled_transfer_detail/modal/close"(platform: "/", type: TrackType.Event) {}
@@ -216,7 +216,7 @@ tracks {
     "/money_out/transfers/onboarding"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/onboarding/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/onboarding/close_button_clicked"(platform: "/", type: TrackType.Event) {}
-    "/money_out/scheduled_transfers/onboarding"(platform: "/", type: TrackType.Event) {}
+    "/money_out/scheduled_transfers/onboarding"(platform: "/", type: TrackType.View) {}
     "/money_out/scheduled_transfers/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/scheduled_transfers/onboarding/close"(platform: "/", type: TrackType.Event) {}
 
