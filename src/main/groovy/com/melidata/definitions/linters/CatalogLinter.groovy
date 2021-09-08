@@ -47,8 +47,6 @@ class CatalogLinter {
                 if(!prodDef.any {newDefinition.equals(it)}) {
                     Map<String, TrackDefinitionProperty> propertiesMerge = [:]
                     prodDef.forEach {propertiesMerge.putAll(it.properties)}
-                    println("Propertis of new definition:${newDefinition.properties}")
-                    println("Properties already defined:${propertiesMerge}")
                     newDefinition.properties = [:] << newDefinition.properties.findAll { String name, prop ->
                         propertiesMerge[name] == null || !prop.equals(propertiesMerge[name])
                     }
