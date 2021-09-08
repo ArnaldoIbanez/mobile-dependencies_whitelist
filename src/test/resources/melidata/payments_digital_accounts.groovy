@@ -12,7 +12,7 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance") {
+    test("Balance available") {
         "/banking/balance"(platform: "/", type: TrackType.View) {
             available: true
             debts: true
@@ -24,8 +24,6 @@ trackTests {
             shortcuts: ['money_in', 'money_out']
             activities: false
         }
-    test("Balance available") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
 
     test("Track Components Events") {
