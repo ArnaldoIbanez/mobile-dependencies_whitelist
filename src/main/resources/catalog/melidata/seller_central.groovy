@@ -245,7 +245,6 @@ tracks {
         shipping_local_pickup(required: false, type: PropertyType.Boolean, description: "The product local pick up")
         winner_item_id(required: false, type: PropertyType.String, description: "The item id of the winner")
         price_to_win(required: false, type: PropertyType.Numeric, description: "The price to win that we suggest to the user")
-        is_test_user(required: false, type: PropertyType.Boolean, description: "User is a test user")
 
         to(required: true, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
@@ -334,7 +333,7 @@ tracks {
         sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, rejected_products, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
-        sellerCentralCatalogOptinGroupV2(item_id, category_id, domain_id, variation_id, moderated, catalog_product_id, is_test_user, site_id)
+        sellerCentralCatalogOptinGroupV2(item_id, category_id, domain_id, variation_id, moderated, catalog_product_id, site_id)
 
         sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type)
 
@@ -1982,6 +1981,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true) {}
+    "/seller_central/catalog/optin_v2/congrats"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true) {}
 
     "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
         confirmed_item_plus(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
