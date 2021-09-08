@@ -16,13 +16,18 @@ tracks {
     // VIEWS
     "/addresses"(platform: "/", isAbstract: true) {
         context(required: false, description: "The client which is using the addresses flow", values: ["MY_ML","PM"], type: PropertyType.String)
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
     "/addresses/input_address"(platform: "/", type: TrackType.View) {
-        editing_address(required: false, description: "The address that the user is editing or null if it's a new address", type: PropertyType.Numeric)
+        address_id(required: false, description: "The address that the user is editing or null if it's a new address", type: PropertyType.Numeric)
     }
 
     "/addresses/input_address/map"(platform:"/", type: TrackType.View) {}
+
+    "/addresses/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the map open case")
+    }
 
     // VIEWS ACTIONS
     "/addresses/input_address/back"(platform: "/", type: TrackType.Event) {}
@@ -101,6 +106,8 @@ tracks {
     }
 
     "/addresses/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) {}
+
+    "/addresses/input_address/map/edit"(platform: "/", type: TrackType.Event) {}
 
     "/addresses/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) {}
 

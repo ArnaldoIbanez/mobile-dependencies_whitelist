@@ -12,7 +12,7 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Where the flow start")
         method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap", "chip"])
         currency (required: false, type: PropertyType.String, description: "Transaction currency")
-        amount (required: false, type: PropertyType.String, description: "Transaction amount")
+        amount (required: false, type: PropertyType.Numeric, description: "Transaction amount")
         installments (required: false, type: PropertyType.String, description: "Installments amount")
         payment_status (required: false, type: PropertyType.String, description: "Payment result status")
         payment_detail (required: false, type: PropertyType.String, description: "Payment result detail")
@@ -33,6 +33,9 @@ tracks {
     "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+        card_type (required: true, type: PropertyType.String, values: ["credit_card", "debit_card", "voucher_card","amex"])
+    }
     "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
@@ -137,7 +140,7 @@ tracks {
         label (required: false, values: ["whatsapp", "facebook", "twitter", "email", "instagram", "other"], description: "Type of share_link event")
         pref_id (required: false, type: PropertyType.String, description: "Preference id")
     }
-
+    
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
         user_id (required: false, type: PropertyType.String, description: "User id.")

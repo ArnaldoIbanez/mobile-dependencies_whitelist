@@ -2094,6 +2094,26 @@ trackTests {
                     ]
             ]
 
+            available_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
+
+            applied_promotions = [
+                    [
+                            campaign_id: "P-MLB123",
+                            type: "rebate",
+                            original_value: 250,
+                            value: 50,
+                            items: ["MLB1561278487"]
+                    ]
+            ]
+
             operation_status = "ok"
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
@@ -2233,6 +2253,10 @@ trackTests {
         "/checkout/shipping/input_address/submit"(platform:"/", dataSet, type: TrackType.Event)
         "/checkout/shipping/input_address/map"(platform:"/", dataSet)
         "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
+
+        "/checkout/shipping/input_address/map/open_map"(platform:"/", type: TrackType.Event) {
+            label = "static-map-for-sanitize-for-required-application"
+        }
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
         "/checkout/shipping/input_address/map/back"(platform:"/", type: TrackType.Event, dataSet)
 
@@ -2698,6 +2722,7 @@ trackTests {
             session_id = "1234567"
         }
         "/checkout/shipping/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) { }
+        "/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event) { }
         "/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) { }
         "/checkout/shipping/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) { }
         "/checkout/shipping/input_address/map/complete_loading"(platform: "/", type: TrackType.Event) {
@@ -2869,10 +2894,6 @@ trackTests {
         "/checkout/onetap/error" (platform:"/mobile/android", type: TrackType.View) {}
 
         "/checkout/onetap/loading" (platform:"/mobile/android", type: TrackType.View) {}
-
-        "/checkout/onetap/congrats" (platform:"/mobile/android", type: TrackType.View) {
-            purchase_id = 11111
-        }
 
         "/checkout/onetap/main" (platform:"/mobile/android", type: TrackType.View) {}
 

@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -13,14 +14,14 @@ trackTests {
             bank = "votorantim"
             category_id = "MLB1744"
             category_path = ["MLB1743", "MLB1744"]
-            domain_id = "MLB-CARS_AND_VANS"
-            item_id = 86829767
+            item_id = "MLB1445621120"
             seller_id = 167086843
             vertical = "motors"
         }
 
         def optionals = {
             city = "Santo André"
+            domain_id = "MLB-CARS_AND_VANS"
             flow_type = "INVALID"
             map_item_attributes = [
                     [ attribute_id:"BRAND", value_id:"60297", value_name:"Toyota"],
@@ -36,7 +37,32 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/pre_analysis/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/simulator"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulator/downpayment_simulation_input"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulator/installment_selection_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulator/details_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/simulator/next_button"(platform: "/", type: TrackType.Event) {
             mandatory()
             optionals()
         }
@@ -46,7 +72,17 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/simulation_details/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/application_form/step_1"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/application_form/step_1/next_button"(platform: "/", type: TrackType.Event) {
             mandatory()
             optionals()
         }
@@ -56,7 +92,17 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/application_form/step_2/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/application_form/step_3"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/application_form/step_3/next_button"(platform: "/", type: TrackType.Event) {
             mandatory()
             optionals()
         }
@@ -66,7 +112,61 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/application_form/step_4/next_button"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/congrats"(platform: "/", type: TrackType.View) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/whatsapp_intention"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/call_intention"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/contact_intention"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/dni_retry_button"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/similar_items_button"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/item_return_button"(platform: "/", type: TrackType.Event) {
+            congrats_status = "APPROVED"
+            context = "high_score"
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/congrats/dni_change_button"(platform: "/", type: TrackType.Event) {
             congrats_status = "APPROVED"
             context = "high_score"
             mandatory()

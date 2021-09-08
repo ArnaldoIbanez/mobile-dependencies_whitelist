@@ -37,6 +37,12 @@ tracks {
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
+        visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
+        sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
+        shipping_mode(required: false, description: "The roles of Meli, seller and payer into the shipping process", type: PropertyType.String, values: ["not_specified", "me1", "me2", "custom"])
+        shipping_method(required: false, description: "The shipping method selected by the user, e.g: 'standard|express|six_days'", type: PropertyType.String, values: ["super_express", "same_day", "next_day", "two_days", "express", "three_days", "four_days", "five_days", "six_days", "sedex", "standard"])
+        shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
+        shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
     }
 
     // EVENTS
@@ -55,6 +61,8 @@ tracks {
         operation_type(required: false, description: "Operation type, e.g: 'regular_payment'", type: PropertyType.String, values: ["regular_payment", "account_fund", "money_transfer", "pos_payment", "payment_addition"])
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
+        flow_context(required: false, description: "Information about current flow's status, e.g: 'no_sniffing'", type: PropertyType.String)
+        sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
     }
 
     // Login
@@ -64,7 +72,11 @@ tracks {
     // Groups payment method data collection views
     "/checkout_off/payment"(platform: "/", isAbstract: true) {}
 
-    "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/select_type"(platform: "/", type: TrackType.View) {
+        opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
+        opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+    }
+
     "/checkout_off/payment/select_stores"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/select_transfer"(platform: "/", type: TrackType.View) {}
 
@@ -97,7 +109,12 @@ tracks {
 
     // Groups consumer credits data collection views
     "/checkout_off/payment/input_credits"(platform: "/", isAbstract: true) {}
-    "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {
+        opensea_status(required: false, description: "The status of the Open Sea pre approved credit line", type: PropertyType.String, values: ["approved", "cancelled", "pending", "rejected"])
+        opensea_message_shown(required: false, description: "Indicates whether or not a user sees a message about its credit line", type: PropertyType.Boolean)
+    }
+
     "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
 
     // Tokenizer product final screen.
@@ -143,6 +160,12 @@ tracks {
         app_candidate(required: false, description: "Indicates if this flow could be caught by px", type: PropertyType.Boolean)
         client_id(required: false, description: "Current client id, only available for marketplace flow types", type: PropertyType.Numeric)
         errors(required: false, description: "relevant description of errors that ocurred on the flow, e.g: ['code: 13253, description: Collector user without key enabled for QR render']", type: PropertyType.ArrayList(PropertyType.String))
+        visible_components(required: false, description: "Important Components visible on the screen ['qr', 'button', 'none']", type: PropertyType.Map)
+        sponsor_id(required: false, description: "Identifies the plugin platform as shopify, magento", type: PropertyType.Numeric)
+        shipping_mode(required: false, description: "The roles of Meli, seller and payer into the shipping process", type: PropertyType.String, values: ["not_specified", "me1", "me2", "custom"])
+        shipping_method(required: false, description: "The shipping method selected by the user, e.g: 'standard|express|six_days'", type: PropertyType.String, values: ["super_express", "same_day", "next_day", "two_days", "express", "three_days", "four_days", "five_days", "six_days", "sedex", "standard"])
+        shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
+        shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
     }
 
     // For this path, none is required
@@ -182,6 +205,9 @@ tracks {
     "/checkout_off/congrats/call_for_auth/how_to"(platform: "/", type: TrackType.View) {}
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 
+    "/checkout_off/congrats/recovered"(platform: "/", type: TrackType.View) {
+    }
+
     //MP personalFrontend
     "/tools"(platform: "/", isAbstract: true) {}
 
@@ -194,9 +220,15 @@ tracks {
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
 
+    //Paypal Views
     "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
 
+    //Open Sea Views
+    "/checkout_off/payment/opensea_credits_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/opensea_credits_redirect"(platform: "/", type: TrackType.View) {}
+
+    //One Click Views
     "/checkout_off/payment/one_click_redirect"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/one_click_processing"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/one_click_return"(platform: "/", type: TrackType.View) {}

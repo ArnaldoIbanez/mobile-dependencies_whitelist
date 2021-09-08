@@ -120,8 +120,12 @@ tracks {
         vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
     }
     "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
-        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: true)
+        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: true)
+    }
+    "/logistics/login/driver_on_route/duplicate"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String, description: "Specifies the current logistic type of the driver", inheritable: false)
     }
     "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
@@ -169,6 +173,15 @@ tracks {
         route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         training_id(required: true, type: PropertyType.String, description: "Specifies the training id for the view", inheritable: false)
         logistic_type(required: false, type: PropertyType.String, description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
+    "/logistics/profile/fiscalization_disclaimer"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: true)
+    }
+    "/logistics/profile/fiscalization_disclaimer/invoice"(platform: "/mobile", type: TrackType.View) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+    "/logistics/profile/fiscalization_disclaimer/invoice_not_found"(platform: "/mobile", type: TrackType.View) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
     "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
         pack_id(required: true, type: PropertyType.String, description: "Specifies the pack id that had an error", inheritable: false)
@@ -336,7 +349,30 @@ tracks {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
     }
-    "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
+    "/logistics/last_mile/deliver/deliverable_selection_modal"(platform: "/mobile", type: TrackType.View) {
+        shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id to deliver", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+    }
+    "/logistics/last_mile/deliver/holder_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+        checked_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id checked to deliver", inheritable: false)
+        dismissed_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id dismissed to deliver", inheritable: false)
+    }
+    "/logistics/last_mile/deliver/another_receiver/continue"(platform: "/mobile", type: TrackType.Event) {
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+        checked_shipments(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id checked to deliver", inheritable: false)
+        dismissed_shipments(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Specifies the list of shipments id dismissed to deliver", inheritable: false)
+    }
+    "/logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         error_type(required: true, type: PropertyType.String, description: "Specifies the current error type", inheritable: false, values: ["document_form", "regex"])
@@ -358,22 +394,19 @@ tracks {
 
     // Scoring LM
     "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
-        receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
     }
     "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        shipments(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of shipments id")
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the route id")
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "Specifies the current vehicle id")
+        delivery_type(required: false, type: PropertyType.String, description: "Specifies the delivery type", values: ["delivery_keyword", "cart_group_keyword"])
     }
-    "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
-    }
-    "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
-    }
-    "/logistics/last_mile/package/security_keyword/not_delivery"(platform: "/mobile", type: TrackType.Event) {
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
-        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
-    }
+    "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/package/security_keyword/confirm_no_keyword_modal/not_delivery"(platform: "/mobile", type: TrackType.Event) {}
 
     //Control Tower LM
     "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
@@ -500,6 +533,7 @@ tracks {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
+        full_vehicle_incident_id(required: false, type: PropertyType.String, description: "Specifies if there is an incident in the incomplete pickup", inheritable: false)
     }
     "/logistics/first_mile/pickup/partial"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: true)
@@ -549,5 +583,23 @@ tracks {
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
         vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
         logistic_type(required: false, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
+    "/logistics/custom_clearence/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
+    "/logistics/custom_clearence/unsuccessful"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
+    "/logistics/custom_clearence/successful"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_type(required: true, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
     }
 }

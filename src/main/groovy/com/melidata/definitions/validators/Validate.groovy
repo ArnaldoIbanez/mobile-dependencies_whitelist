@@ -1,6 +1,8 @@
 package com.melidata.definitions.validators
 
-import com.ml.melidata.catalog.DslUtils
+import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
+import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import groovy.json.*
 import groovy.sql.Sql
@@ -21,16 +23,14 @@ class Validate {
         String pathCatalog
         if (options.catalog) {
             String catalogName = options.catalog
+            CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
             def catalogDir = BASE_CATALOG_DIR + catalogName + "/"
             pathCatalog = catalogDir + DEFAULT_CATALOG
-            DslUtils.setBaseDir(catalogDir)
         } else {
             pathCatalog = DEFAULT_CATALOG_DIR + DEFAULT_CATALOG
-            DslUtils.setBaseDir(DEFAULT_CATALOG_DIR)
         }
-        def catalogScript = CatalogValidator.getScriptFromFile(pathCatalog)
-        def catalog = CatalogValidator.runScript(catalogScript)
 
+        Catalog catalog = DslUtils.parseCatalog(new File(pathCatalog))
         println "Done. Will fetch for tracks for validating..."
         
         def result = generateResult(options, catalog)
@@ -178,7 +178,12 @@ class Validate {
 	def platform_column = "device.platform"
 
 	if (options.catalog) {
-		table = "shipping"
+        String catalogName = options.catalog
+        if(catalogName in ["advertising", "component_prints", "cx_help_channels", "merch"]) {
+            table = catalogName + '_parquet'
+        } else {
+            table = catalogName.replaceAll("-", "_")
+        }
 		platform_column = "platform"
 	}
         if (options.exact_path) exact_path = "AND path = '/${options.exact_path}' \n"

@@ -65,6 +65,14 @@ trackTests {
         "/profile" (platform: "/", type: TrackType.View) {}
     }
 
+    test("Mercadopago Activities Detail") {
+        "/activity/detail" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Activities Detail Component Not Parsed") {
+        "/activity/detail/component_not_parsed" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
     test("Mercadopago Activities List") {
         "/listing/activities" (platform: "/web", type: TrackType.View) {}
     }
@@ -143,6 +151,9 @@ trackTests {
             id = "digital-account"
             hierarchy = "header"
         }
+        "/navigation/footer/link"(platform: "/web", type: TrackType.Event) {
+            id = "digital-account"
+        }
     }
 
     test("Digital Wallet") {
@@ -211,10 +222,14 @@ trackTests {
             product = "kit-qr-standalone"
         }
 
-         "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {
+        "/landing/qr_kit/component/tap" (platform: "/", type: TrackType.Event) {
             component_id = "open_modal"
             component_type = "button"
             value = "Open Modal"
+        }
+
+        "/landing/qr_kit/error" (platform: "/", type: TrackType.Event) {
+            value = "Something went terribly wrong on our site"
         }
     }
 }

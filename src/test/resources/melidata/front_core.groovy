@@ -356,6 +356,9 @@ trackTests {
             header = [
                     link: "mercadopago://link",
                     button_link: "mercadopago://link",
+                    buttons: [
+                            "data","help"
+                    ],
                     loyalty: [
                             level: 5
                     ],
@@ -805,11 +808,17 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
+            buttons = ["data","help"]
         }
     }
 
     test("Button header tap") {
         "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/header_buttons/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "help"
+            link = "mercadopago://link"
+        }
     }
 
     /*****************************
@@ -868,6 +877,18 @@ trackTests {
             content_id="Actions"
             position=3
             enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Open Banking") {
+        "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://cards-list/list?from=home_mp"
+            section_id="banking_v2-open_banking_accounts"
+            component_id="open_banking_accounts"
+            quantity=1
+            metadata_user:[
+                type: "payer"
+            ]
         }
     }
 
@@ -1078,6 +1099,26 @@ trackTests {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
 
     test("Mercadopago shortcut sheet page view") {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
@@ -1132,6 +1173,54 @@ trackTests {
         "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
             favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
             from = "modal"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/add" (platform: "/mobile", type: TrackType.Event) {
+            user_profile="newbie"
+            group_id = "seller"
+            enabled = true
+            is_favorite = false
+            position = 3
+            has_aware = false
+            content_id = "business"
+            group_position = 6
+            component_id="user_survey"
+            has_label = true
+            has_ripple = false
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
+            user_profile="newbie"
+            group_id = "seller"
+            enabled = true
+            is_favorite = false
+            position = 3
+            has_aware = false
+            content_id = "business"
+            group_position = 6
+            component_id="user_survey"
+            has_label = true
+            has_ripple = false
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/modal/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/modal/view" (platform: "/mobile", type: TrackType.View) {
             metadata_user:[
                 type: "payer"
             ]
@@ -1497,6 +1586,9 @@ trackTests {
             header = [
                     link: "mercadopago://link",
                     button_link: "mercadopago://link",
+                    buttons: [
+                            "data","help"
+                    ],
                     loyalty: [
                             level: 5
                     ],
@@ -1529,6 +1621,10 @@ trackTests {
             credits=[]
             banking_v2=[
                 hidden : true
+            ]
+            pendings= [
+                    ordinal: 2,
+                    content_type : 'partial'
             ]
             main_actions = [
                     content_type : 'complete',
@@ -1920,11 +2016,17 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
+            buttons = ["data","help"]
         }
     }
 
     test("Button header tap") {
         "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/header_buttons/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "help"
+            link = "mercadopago://link"
+        }
     }
 
     /*****************************
@@ -1977,6 +2079,15 @@ trackTests {
             content_id="Actions"
             position=3
             enabled=true
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - BANKING v2 Open Banking") {
+        "/wallet_home/section/tap/banking_v2-open_banking_accounts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://cards-list/list?from=home_mp"
+            section_id="banking_v2-open_banking_accounts"
+            component_id="open_banking_accounts"
+            quantity=1
         }
     }
 
@@ -2138,6 +2249,27 @@ trackTests {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
+
     test("Mercadopago shortcut sheet page view") {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
             group_ids = ["payer", "business", "seller", "favorites"]
@@ -2170,6 +2302,52 @@ trackTests {
 
         "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
             favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
+
+        "/wallet_home/shortcuts_sheet/add" (platform: "/mobile", type: TrackType.Event) {
+            user_profile="newbie"
+            group_id = "seller"
+            enabled = true
+            is_favorite = false
+            position = 3
+            has_aware = false
+            content_id = "business"
+            group_position = 6
+            component_id="user_survey"
+            has_label = true
+            has_ripple = false
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/remove" (platform: "/mobile", type: TrackType.Event) {
+            user_profile="newbie"
+            group_id = "seller"
+            enabled = true
+            is_favorite = false
+            position = 3
+            has_aware = false
+            content_id = "business"
+            group_position = 6
+            component_id="user_survey"
+            has_label = true
+            has_ripple = false
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/modal/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/shortcuts_sheet/modal/view" (platform: "/mobile", type: TrackType.View) {
+            metadata_user:[
+                type: "payer"
+            ]
         }
     }
 
@@ -2274,6 +2452,35 @@ trackTests {
             }
         }
 
+        test("Mercadopago Home Tap v3 - Advertising [${business}]") {
+            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_item1"
+                section_id = "advertising"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+                criticality = 1
+                from = "section"
+            }
+            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "advertising_payers_recharge_sube_mp"
+                section_id = "advertising"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+                criticality = 1
+                from = "section"
+            }
+        }
+
         test("Mercadopago Home Tap v3 - Prepaid Banner [${business}]") {
             "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
@@ -2299,6 +2506,33 @@ trackTests {
                 flow = "default"
             }
         }
+
+        test("Mercadopago Home Tap v3 - Prepaid Banner [${business}]") {
+            "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+
         test("Mercadopago Home Tap v3 - Benefits [${business}]") {
             "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"

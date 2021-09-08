@@ -13,6 +13,51 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "none"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "permission"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing_vanilla"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing_error"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "camera"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "confirmation"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "uploading"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "result"
+        }
+
         "/kyc/iv/challenge_time"(platform: "/mobile") {
             challenge_type = "doc_front"
             challenge_time = 24000
@@ -137,6 +182,20 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "ok"
+            value = "detection OK"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
+            error = "error al descargar"
+        }
+
         "/kyc/iv/activity/custom_camera/error"(platform: "/mobile/android")  {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -208,6 +267,18 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
+            error = "error al descargar"
+        }
 
         "/kyc/iv/unsupported_deeplink"(platform: "/mobile") {
             unsupported_deeplink = "meli://unsupported_deeplink"
@@ -502,6 +573,17 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/documentation/error"(platform: "/web/desktop") {
+            error_type = "business"
+            error_message = "La foto estaba cortada"
+            transaction_user_id = 109479273
+            flow = "flow_doc"
+        }
+
+        "/kyc/iv/documentation/cross_acceptance"(platform: "/web/desktop") {
+            flow = "flow_doc"
+        }
+
         "/kyc/iv/documentation/uploader_click"(platform: "/") {
             flow = "flow_doc"
             transaction_user_id = 109479273
@@ -541,6 +623,11 @@ trackTests {
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
             extra_params = "meli://identity_validation/?flow=uniqueness"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "none"
         }
 
         "/kyc/iv/challenge_time"(platform: "/mobile") {
@@ -633,6 +720,19 @@ trackTests {
                 left_eye: 0.99,
                 right_eye: 0.98
             ]
+        }
+
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "confidence"
+            value = "0.54"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
+            error = "error al descargar"
         }
 
         "/kyc/iv/activity/check_step"(platform: "/mobile/android") {}
@@ -734,6 +834,18 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "label_check"
+            value = "other"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
+            error = "error al descargar"
+        }
 
         "/kyc/iv/unsupported_deeplink"(platform: "/mobile") {
             unsupported_deeplink = "meli://unsupported_deeplink"
@@ -1029,6 +1141,17 @@ trackTests {
             flow = "flow_doc"
             option = "continue_from_desktop"
             transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/error"(platform: "/web/desktop") {
+            error_type = "business"
+            error_message = "La foto estaba cortada"
+            transaction_user_id = 109479273
+            flow = "flow_doc"
+        }
+
+        "/kyc/iv/documentation/cross_acceptance"(platform: "/web/desktop") {
+            flow = "flow_doc"
         }
 
         "/kyc/iv/documentation/uploader_click"(platform: "/") {

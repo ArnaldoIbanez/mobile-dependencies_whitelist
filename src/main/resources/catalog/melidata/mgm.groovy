@@ -23,7 +23,7 @@ tracks {
     "/mgm"(platform: "/", isAbstract: true) {}
 
 
-    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event,  initiative: "1059") {
+    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event,  initiative: "1064") {
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
     }
 
