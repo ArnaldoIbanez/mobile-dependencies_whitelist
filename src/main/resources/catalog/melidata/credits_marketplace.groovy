@@ -720,12 +720,18 @@ tracks {
 
     "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
         sk(description: "Source key", type: PropertyType.String, required: false)
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
+
     }
 
     "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
     }
 
     "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {}

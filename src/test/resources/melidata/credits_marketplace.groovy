@@ -602,6 +602,8 @@ trackTests {
 
         "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
+            virtual_card = false
+            physical_card = false
             sk = 'sk1234'
         }
 
@@ -611,6 +613,8 @@ trackTests {
 
         "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
+            virtual_card = false
+            physical_card = false
         }
 
         "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {
