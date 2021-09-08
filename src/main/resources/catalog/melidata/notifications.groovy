@@ -2601,11 +2601,21 @@ tracks {
       }
 
       //MediationsV2
-      "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/") {}
-      "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {}
-      "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/") {}
-      "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/") {}
-      "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/") {}
+      "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
 
 
       //Moderation
