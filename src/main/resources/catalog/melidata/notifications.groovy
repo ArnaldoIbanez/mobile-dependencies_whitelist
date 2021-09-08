@@ -2600,6 +2600,14 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
+      //MediationsV2
+      "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/") {}
+      "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {}
+      "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/") {}
+      "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/") {}
+      "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/") {}
+
+
       //Moderation
       "/notification/moderations_item_to_patch"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
