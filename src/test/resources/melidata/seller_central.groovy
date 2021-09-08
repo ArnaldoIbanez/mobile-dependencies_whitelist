@@ -5870,7 +5870,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("Click marketplace inactive channel card"){
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
       sub_view_id = "markeplace"
-      action = "render"
+      action = "click"
     }
   }
 
