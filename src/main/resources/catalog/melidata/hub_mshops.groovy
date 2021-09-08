@@ -94,6 +94,8 @@ tracks {
         cards(required: true, type: PropertyType.Map(cardsData), inheritable: false)
     }
 
+    "/shops/hub/onboarding"(platform: "/", type: TrackType.Event) {}
+
     // SHOP CONFIGURATION    
     "/shops/hub/edit"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, values: [
