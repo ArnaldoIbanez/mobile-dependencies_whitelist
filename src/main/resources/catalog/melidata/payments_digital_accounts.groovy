@@ -49,7 +49,7 @@ tracks {
 
         //Banking
         available(required: true, type: PropertyType.Boolean, description: "Indicates if the user has money available")
-        account(required: true, type: PropertyType.Boolean, description: "Indicates if the user has account available")
+        account(required: true, type: PropertyType.Boolean, description: "Indicates if the user has money in MP account")
         debts(required: true, type: PropertyType.Boolean, description: "Indicates if user has debt card")
         retained(required: false, type: PropertyType.Boolean, description: "Indicates if user has money retained")
         embargo_invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money retained by embargo")
