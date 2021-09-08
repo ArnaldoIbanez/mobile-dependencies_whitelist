@@ -7,8 +7,7 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Point loyalty congrats view") {
-        "/point/loyalty/congrats"(platform: "/web", type: TrackType.Event) {
-            context = "/register"
+        "/point/loyalty/register/congrats"(platform: "/web", type: TrackType.View) {
         }
     }
 
@@ -25,9 +24,8 @@ trackTests {
     }
 
     test("Point loyalty generic error") {
-        "/point/loyalty/failure"(platform: "/web", type: TrackType.Event) {
+        "/point/loyalty/register/failure"(platform: "/web", type: TrackType.View) {
             error_message= "Timeout request"
-            context= "register"
         }
     }
 
