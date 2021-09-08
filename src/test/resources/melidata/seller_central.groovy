@@ -5802,8 +5802,18 @@ test("seller central confirm leave suggestion task - optin moderated") {
         site_id = "MCO"
       }
   }
-
   test("seller central catalog optin v2 congrats") {
+      "/seller_central/catalog/optin_v2/congrats"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        site_id = "MCO"
+      }
+  }
+  test("seller central catalog optin v2 congrats success") {
       "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
         moderated = true
         item_id = "MLA835425554"
@@ -5817,7 +5827,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
       }
   }
 
-  test("seller central catalog optin v2 congrats") {
+  test("seller central catalog optin v2 congrats warning") {
       "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.Event) {
         moderated = true
         item_id = "MLA835425554"
