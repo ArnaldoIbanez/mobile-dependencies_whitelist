@@ -1981,8 +1981,8 @@ tracks {
     }
 
     "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true) {}
-    "/seller_central/catalog/optin_v2/congrats"(platform: "/web", type: TrackType.View, parentPropertiesInherited: true) {}
 
+    "/seller_central/catalog/optin_v2/congrats"(platform: "/web", isAbstract: true, parentPropertiesInherited: true) {} {}
     "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
         confirmed_item_plus(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
         suggested_correction(required: false, description: "Suggested Correction", type: PropertyType.Boolean)
