@@ -396,14 +396,14 @@ tracks {
     }
 
     // Tracing Status
+    "/mplayer/request"(platform: "/mobile", isAbstract: true) {}
+
     "/mplayer/request/status"(platform: "/mobile", type: TrackType.View) {
         type(required: true, PropertyType.String, values: ["money_split", "money_transfer", "closed_request"], description: "Describe request type")
         type_person(required: true, PropertyType.String, values: ["payer", "collector"], description: "Describe person who open the request")
     }
 
     "/mplayer/request/status/event"(platform: "/mobile", type: TrackType.Event) {
-        type(required: true, PropertyType.String, values: ["money_split", "money_transfer", "closed_request"], description: "Describe request type")
-        type_person(required: true, PropertyType.String, values: ["payer", "collector"], description: "Describe person who open the request")
         action(required: true, PropertyType.String, values: ["deeplink", "close", "send", "reminder", "reject", "not_return"], description: "Action type")
     }
 
