@@ -5779,18 +5779,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
   |                                               OPTIN V2                                                      |
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-  test("seller central catalog optin v2") {
-      "/seller_central/catalog/optin_v2"(platform: "/web", type: TrackType.View) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
-      }
-  }
-
   test("seller central catalog optin v2 init") {
       "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View) {
         moderated = true
@@ -5831,29 +5819,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       }
   }
 
-  test("seller central catalog optin v2 product comparator") {
-      "/seller_central/catalog/optin_v2/product_comparator"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
-      }
-  }
-
-  test("seller central catalog optin v2 product comparator") {
-      "/seller_central/catalog/optin_v2/product_comparator"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
-      }
-  }
 
   test("seller central catalog optin v2 product comparator show") {
       "/seller_central/catalog/optin_v2/product_comparator/show"(platform: "/web", type: TrackType.Event) {
@@ -5920,18 +5885,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       }
   }
 
-  test("seller central catalog optin v2 suggested corrections") {
-      "/seller_central/catalog/optin_v2/suggested_corrections"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
-      }
-  }
-
   test("seller central catalog optin v2 suggested corrections show") {
       "/seller_central/catalog/optin_v2/suggested_corrections/show"(platform: "/web", type: TrackType.Event) {
         moderated = true
@@ -5954,18 +5907,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
         catalog_product_id = "MLA15149561"
         site_id = "MCO"
         suggested_correction = true
-      }
-  }
-
-  test("seller central catalog optin v2 item plus card") {
-      "/seller_central/catalog/optin_v2/item_plus_card"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
       }
   }
 
@@ -6005,18 +5946,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       }
   }
 
-  test("seller central catalog optin v2 variation selection") {
-      "/seller_central/catalog/optin_v2/variation_selection"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
-      }
-  }
-
   test("seller central catalog optin v2 variation selection show") {
       "/seller_central/catalog/optin_v2/variation_selection/show"(platform: "/web", type: TrackType.Event) {
         moderated = true
@@ -6031,18 +5960,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central catalog optin v2 variation selection confirm") {
       "/seller_central/catalog/optin_v2/variation_selection/confirm"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
-      }
-  }
-
-  test("seller central catalog optin v2 product search") {
-      "/seller_central/catalog/optin_v2/product_search"(platform: "/web", type: TrackType.Event) {
         moderated = true
         item_id = "MLA835425554"
         domain_id = "MLA-CELLPHONES"
@@ -6092,18 +6009,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       }
   }
 
-  test("seller central catalog optin v2 iterative search") {
-      "/seller_central/catalog/optin_v2/iterative_search"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
-      }
-  }
-
   test("seller central catalog optin v2 iterative search show") {
       "/seller_central/catalog/optin_v2/iterative_search/show"(platform: "/web", type: TrackType.Event) {
         moderated = true
@@ -6139,18 +6044,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
         catalog_product_id = "MLA15149561"
         site_id = "MCO"
         iteration_count = 3
-      }
-  }
-
-  test("seller central catalog optin v2 product problem") {
-      "/seller_central/catalog/optin_v2/product_problem"(platform: "/web", type: TrackType.Event) {
-        moderated = true
-        item_id = "MLA835425554"
-        domain_id = "MLA-CELLPHONES"
-        category_id = "MLA1055"
-        variation_id = 49478478975
-        catalog_product_id = "MLA15149561"
-        site_id = "MCO"
       }
   }
 
