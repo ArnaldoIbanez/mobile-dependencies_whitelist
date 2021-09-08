@@ -2694,6 +2694,15 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credits_consumer_onboarding_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_onboarding_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_onboarding_mp_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_onboarding_mp_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
         "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {
             news_id = "credits-consumer_expired_eighty_notice-21680059-20180516"
             event_type = "shown"
