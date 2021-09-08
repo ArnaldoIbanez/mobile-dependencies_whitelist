@@ -2033,6 +2033,31 @@ trackTests {
             ]
         }
 
+
+
+        "/insurtech/protections/finished_claims"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            claims = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/finished_claims"(platform:"/web", type: TrackType.View) {
+            claims = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
         // INSURTECH Protections Detail - my-detail-fe
         //RODA
         "/insurtech/protections/detail/roda"(platform:"/mobile", type: TrackType.View) {

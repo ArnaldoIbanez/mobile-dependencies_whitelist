@@ -540,6 +540,11 @@ tracks {
         protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
     }
 
+    "/insurtech/protections/finished_claims"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claim_short)), description: "List of current user claims")
+    }
+
     "/insurtech/protections/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }

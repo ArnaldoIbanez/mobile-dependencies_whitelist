@@ -213,6 +213,12 @@ tracks {
         meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
         adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
     }
+
+    def rowItemStructure = objectSchemaDefinitions {
+        item_id(type: PropertyType.String, required: true)
+        reason(type: PropertyType.String, required: true)
+    }
+
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -477,6 +483,7 @@ tracks {
     "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
         view_id(required: false, type: PropertyType.String, descritpion: "View that has been called")
+        sub_view_id(required: false, type: PropertyType.String, description: "Sub view that has been called", values: ["mshops", "markeplace"])
     }
 
     // Start SLL SC
@@ -689,6 +696,30 @@ tracks {
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
+
+    //Listing empty state
+
+    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(rowItemStructure)), description: "List of items with empty state action")
+    }
+
+    "/seller_central/listings/activate_row"(platform: "/", type: TrackType.Event){
+        item_id(required: true, type: PropertyType.String, description: "Item to activate")
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        reason(required: true, type: PropertyType.String, description: "Reason")
+    }
+
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "Rendered or activated view id")
+        action(values: ["show", "click"])
+    }
+
+    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "Sub view")
+        action(required: true, type: PropertyType.String, description: "Action performed", values: ["show", "click"])
+    }
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline

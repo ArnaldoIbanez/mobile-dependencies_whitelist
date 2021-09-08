@@ -1272,7 +1272,7 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         branch_time_elapsed(required: false, type: PropertyType.Boolean, description: "Branch Time Elapsed")
     }
-    "/notification_center/card_tracking_mla"(platform: "/", type: TrackType.Event) {
+    "/notification_center/card_prepaid_tracking"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         branch_case(required: false, type: PropertyType.Boolean, description: "Has been in a branch office before")
@@ -2013,6 +2013,8 @@ tracks {
     "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_nine_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {}
 
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
@@ -3366,16 +3368,16 @@ tracks {
 
     "/notification/card_wallet_insufficient_account_balance"(platform: "/mobile") {}
 
-    "/notification/card_tracking_mla_ready_to_ship"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_ready_to_ship_challenged"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_shipped"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_delivered"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_reprogrammed"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_soon_deliver"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_delayed"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_delayed_extended"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_branch_with_address"(platform: "/mobile") {}
-    "/notification/card_tracking_mla_not_delivered"(platform: "/") {
+    "/notification/card_prepaid_tracking_ready_to_ship"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_ready_to_ship_challenged"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_shipped"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_delivered"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_reprogrammed"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_soon_deliver"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_delayed"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_delayed_extended"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_branch_with_address"(platform: "/mobile") {}
+    "/notification/card_prepaid_tracking_not_delivered"(platform: "/") {
         branch_case(required: true, type: PropertyType.Boolean, description: "Has been in a branch office before")
     }
 
