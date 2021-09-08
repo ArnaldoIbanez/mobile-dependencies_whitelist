@@ -279,17 +279,17 @@ tracks {
 
 
     //Transfer Hub - Modal Restrictions
-    "/money_out/transfers/home/estrictions"(platform:"/", type: TrackType.View){
-        type(required:false, description:"Indicate type of restriction for example: credits")
+    "/money_out/transfers/home/restrictions"(platform:"/", type: TrackType.View){
+        type(required:true, description:"Indicate type of restriction for example: credits")
     }
     "/money_out/transfers/home/restrictions/continue"(platform: "/", type: TrackType.Event) {
-        type(required:false, description:"Indicate type of restriction for example: credits")
+        type(required:true, description:"Indicate type of restriction for example: credits")
     }
     "/money_out/transfers/home/restrictions/back"(platform: "/", type: TrackType.Event) {
-        type(required:false, description:"Indicate type of restriction for example: credits")
+        type(required:true, description:"Indicate type of restriction for example: credits")
     }
     "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {
-        type(required:false, description:"Indicate type of restriction for example: credits")
+        type(required:true, description:"Indicate type of restriction for example: credits")
     }
     
     //Transfer Hub - Modal KYC

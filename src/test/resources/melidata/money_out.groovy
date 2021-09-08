@@ -305,7 +305,7 @@ trackTests {
       "/money_out/transfers/recents/modal_persuasion_pix/dismiss"(platform: "/", type: TrackType.Event) {}
 
       //Transfer Hub - Modal Restrictions
-      "/money_out/transfers/home/estrictions"(platform:"/", type: TrackType.View){
+      "/money_out/transfers/home/restrictions"(platform:"/", type: TrackType.View){
          type="credits"
       }
       "/money_out/transfers/home/restrictions/continue"(platform: "/", type: TrackType.Event) {
