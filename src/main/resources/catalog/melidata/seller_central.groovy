@@ -1978,7 +1978,7 @@ tracks {
 
     "/seller_central/catalog/optin_v2"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View, ) {
+    "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View ) {
         sellerCentralCatalogOptinGroupV2
     }
 
