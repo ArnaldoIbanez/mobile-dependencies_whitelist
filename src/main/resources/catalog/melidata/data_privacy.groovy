@@ -5,6 +5,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+  initiative = "1208"
+
   "/landing_data_privacy"(platform: "/", isAbstract: true) {}
   "/landing_data_privacy/event"(platform: "/", isAbstract: true) {}
 

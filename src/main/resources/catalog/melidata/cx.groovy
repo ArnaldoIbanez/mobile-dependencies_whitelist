@@ -54,6 +54,8 @@ tracks {
             description: "Indicates the criteria used in the search in the help portal")
         portal_custom_order_id(required: false, type: PropertyType.Numeric, 
             description: "Indicates the order shown to the user according to the predicted problem")
+        portal_custom_orders_ids(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the cancelled orders shown to the user")
         portal_prediction_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the id of the prediction for the user problem")        
         portal_content_destination_url(required: false, type: PropertyType.String, 
@@ -74,8 +76,6 @@ tracks {
             description: "Indicates the features used in the prediction")
         portal_predicted_contents(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
             description: "Indicates the ids of the contents predicted to a user")
-        helpcard_title(required: true, type: PropertyType.String,
-            description: "Indicates the title of the help card as viewed by the user")
         helpcard_contents(required: true, type: PropertyType.ArrayList(PropertyType.Map(helpCardContent)),
             description: "Indicates the contents viewed by the user in the help card")
         portal_contents_result(required: true, description: "Content ids result from search page", type: PropertyType.ArrayList)
@@ -83,6 +83,25 @@ tracks {
             description: "Indicates the single pack id of the card clicked by the user")
         portal_delayed_packs_ids(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
             description: "Indicates the delayed packs shown to the user")
+        portal_oneclick_cluster_id(required: false, type: PropertyType.Numeric,
+            description: "Indicates the cluster of the oneclick prediction for a user")
+        portal_oneclick_contents_predicted(required: false, type: PropertyType.ArrayList(PropertyType.Numeric),
+            description: "Indicates the contents of oneclick predicted for a user")
+        portal_oneclick_features(required: false, type: PropertyType.Map,
+            description: "Indicates the features used in the oneclick prediction")
+        user_text(required: true, type: PropertyType.String,
+            description: "Text entered by user in oneclick MP contact")
+        team_name(required: true, type: PropertyType.String,
+            description: "Team predicted by NLP algorithm")
+        score(required: true, type: PropertyType.Numeric, description: "Score of NLP prediction")
+        problem_id(required: true, type: PropertyType.Numeric, description: "ProblemId predicted by NLP algorithm")
+        case_id(required: true, type: PropertyType.Numeric, description: "Id of case created")
+        list_skip_button(required: true, type: PropertyType.Boolean, description: "Indicates if the list was skipped without selecting an item")
+        list_type(required: true, type: PropertyType.String, description: "Indicates the content of the list")
+        content_ids(required: true, type: PropertyType.ArrayList, description: "Contents id predicted by model NLP")
+        object_model(required: true, type: PropertyType.String, description: "Object model in model NLP response")
+        portal_effectivity_survey_reason(required: false, type: PropertyType.String,
+            description: "Indicates the reason for a negative vote given by a user to a certain faq")
     }
 
     propertyGroups {
@@ -100,6 +119,7 @@ tracks {
         portal_effectivity_survey_value(portal_effectivity_survey_value)
         portal_search_criteria(portal_search_criteria)
         portal_custom_order_id(portal_custom_order_id)
+        portal_custom_orders_ids(portal_custom_orders_ids)
         portal_prediction_id(portal_prediction_id)
         portal_content_destination_url(portal_content_destination_url)
         portal_show_cancel_card(portal_show_cancel_card)
@@ -110,10 +130,23 @@ tracks {
         portal_contact_predicted_problem_id(portal_contact_predicted_problem_id)
         portal_predicted_features(portal_predicted_features)
         portal_predicted_contents(portal_predicted_contents)
-        helpcard_data(portal_source_id, helpcard_title, helpcard_contents)
+        helpcard_data(portal_source_id, helpcard_contents)
         portal_contents_result(portal_contents_result)
         portal_delayed_pack_id(portal_delayed_pack_id)
         portal_delayed_packs_ids(portal_delayed_packs_ids)
+        portal_oneclick_cluster_id(portal_oneclick_cluster_id)
+        portal_oneclick_contents_predicted(portal_oneclick_contents_predicted)
+        portal_oneclick_features(portal_oneclick_features)
+        user_text(user_text)
+        team_name(team_name)
+        score(score)
+        problem_id(problem_id)
+        case_id(case_id)
+        list_skip_button(list_skip_button)
+        list_type(list_type)
+        content_ids(content_ids)
+        object_model(object_model)
+        portal_effectivity_survey_reason(portal_effectivity_survey_reason)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -136,12 +169,15 @@ tracks {
         portal_content_transactional_data
         portal_content_destination_url
     }
-
+   
     "/portal/faq/effectivity_survey"(platform: "/", isAbstract:  true) {}
-    "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+     "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
         portal_content_transactional_data
         portal_effectivity_survey_value
         portal_content_destination_url
+    }
+    "/portal/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+        portal_effectivity_survey_reason
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -196,6 +232,14 @@ tracks {
         portal_content_destination_url
     }
 
+    "/portal/action"(platform: "/", isAbstract:  true) {}
+
+    "/portal/action/click"(platform: "/", type: TrackType.Event) {
+        portal_content_id
+        portal_content_destination_url
+        portal_problem_id
+    }
+
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
         portal_form_id
         portal_content_id(required: false, type: PropertyType.Numeric,
@@ -248,9 +292,13 @@ tracks {
         portal_show_cancel_card
         portal_show_delay_cards
         portal_delayed_packs_ids
+        portal_custom_orders_ids
         portal_prediction_id
         portal_has_one_click
         portal_predicted_contents
+        portal_oneclick_cluster_id
+        portal_oneclick_contents_predicted
+        portal_oneclick_features
     }
 
     "/portal/zrp"(platform: "/", type: TrackType.View) {
@@ -267,6 +315,7 @@ tracks {
         portal_source_id
         portal_custom_order_id
         portal_prediction_id
+        portal_predicted_label
     }
 
     "/portal/delay_card"(platform: "/", type: TrackType.Event) {
@@ -341,6 +390,9 @@ tracks {
         portal_effectivity_survey_value
         portal_content_destination_url
     }
+    "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+        portal_effectivity_survey_reason
+    }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
         portal_content_id
@@ -388,6 +440,22 @@ tracks {
         portal_broken_link_destination_url
     }
 
+    "/support/widget/list"(platform: "/", type: TrackType.View) {
+        list_type
+    }
+
+    "/support/widget/list/click"(platform: "/", type: TrackType.Event) {
+       list_skip_button
+    }
+
+    "/support/widget/nlp"(platform: "/", type: TrackType.View) {}
+
+    "/support/widget/nlp/click"(platform: "/", type: TrackType.Event) {
+        user_text
+        content_ids
+        object_model
+    }
+
     // Mis Consultas
 
     "/support/cases"(platform: "/", type: TrackType.View) {}
@@ -405,6 +473,15 @@ tracks {
         expired(required: true, type: PropertyType.Boolean,
             description: "Case has SLA expired")
     }
+
+    "/support/cases/nlp"(platform: "/", type: TrackType.Event) {
+        user_text
+        team_name
+        score
+        problem_id
+        case_id
+    }
+
 
     "/support/cases/new_contact"(platform: "/", type: TrackType.Event) {
         case_id(required: true, type: PropertyType.Numeric,

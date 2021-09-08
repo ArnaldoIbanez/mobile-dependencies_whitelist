@@ -53,7 +53,6 @@ tracks {
     }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/remedy"(platform: "/", type: TrackType.View) {
         remedy_name(description: "Remedy name", type: PropertyType.String, required: true)
     }
@@ -192,6 +191,15 @@ tracks {
             description: "Self service option shown to the user",
             type: PropertyType.ArrayList(PropertyType.String)
         )
+        opt_in_separator(
+                required: false,
+                description: "It is only shown when user needs to allow notifications",
+                type: PropertyType.String,
+                values: [
+                        "visible",
+                        "not visible"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -206,6 +214,26 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
+        status(
+                required: true,
+                description: "Define if user allows or not whatsapp notifications",
+                type: PropertyType.Boolean,
+        )
+    }
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
         installments_group
         advance_installment(
@@ -243,7 +271,10 @@ tracks {
     }
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_uses_modal"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_how_to_use_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
@@ -255,6 +286,9 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/go_installments_detail"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
 
+    //Event PX Congrats Extra Component
+    "/credits/consumer/administrator_v2/dashboard/opt_in_wsp_px_access"(platform: "/mobile", type: TrackType.Event) {}
+
     //Admin History (Compras Finalizadas)
 
     //Page views
@@ -263,6 +297,15 @@ tracks {
     //Events
     "/credits/consumer/administrator/history/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/history/educational_landing"(platform: "/", type: TrackType.Event) {}
+
+    //Onboarding view
+    "/credits/consumer/administrator_v2/onboarding"(platform: "/mobile", type: TrackType.View) {}
+
+    //Events
+    "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
+
 
     /******************************************
      *       End: Consumers Administrator
@@ -475,7 +518,7 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: false, values: ["search", "vip", "pdp", "home"],
+        context(required: false, values: ["search", "vip", "pdp", "pdpd", "home"],
                 description: "The page or section where the nav action is taking place")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
@@ -654,78 +697,6 @@ tracks {
      ******************************************/
 
     /******************************************
-     *   Start: Personal Loans Adoption
-     ******************************************/
-    "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
-        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
-        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(
-            description: "Status of the user prepaid",
-            type: PropertyType.String,
-            required: true,
-            values: [
-                "no_prepaid",
-                "prepaid_enabled",
-                "prepaid_disabled",
-                "physical_card",
-                "virtual_card"
-            ]
-        )
-    }
-
-    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
-    }
-
-    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-
-    /******************************************
-     *   End: Personal Loans Adoption
-     ******************************************/
-
-    /******************************************
      *    Start: Consumers Experiments
      ******************************************/
 
@@ -761,6 +732,66 @@ tracks {
      /******************************************
      *    End: Consumers Change Due Date FLow
      ******************************************/
+
+    /******************************************
+     *    Start: Consumers Early Repayments FLow
+     ******************************************/
+    "/credits/consumer/early_repayments"(platform: "/", type: TrackType.View) {
+        total_amount(
+            required: false,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: false,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: false,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: false,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+    "/credits/consumer/early_repayments/success"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/warning"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/early_repayments/accept"(platform: "/", type: TrackType.Event) {
+        total_amount(
+            required: true,
+            description: "total installments amount",
+            type: PropertyType.Numeric
+        )
+        total_amount_with_discount(
+            required: true,
+            description: "total amount offerted to user",
+            type: PropertyType.Numeric
+        )
+        total_discount(
+            required: true,
+            description: "Total discount",
+            type: PropertyType.Numeric
+        )
+        installments_ids(
+            required: true,
+            description: "Array of Installments",
+            type: PropertyType.ArrayList
+        )
+    }
+
+     /******************************************
+     *    End: Consumers Early Repayments FLow
+     ******************************************/
+
 
      /******************************************
      *    Start: Self service

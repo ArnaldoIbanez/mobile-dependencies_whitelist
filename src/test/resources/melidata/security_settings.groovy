@@ -45,11 +45,13 @@ trackTests {
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "single"
             target = "unlink_button"
         }
 
         "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
             event_type = "click"
+            unlink_type = "all"
             target = "confirm_unlink_button"
         }
     }
@@ -91,7 +93,22 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            os_status = "biometrics"
+            enrollment_status = "enabled"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -102,7 +119,35 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "basic_screenlock"
+            enrollment_status = "enabled"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "none"
+            enrollment_status = "disabled"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -113,7 +158,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -124,7 +171,22 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            os_status = "none"
+            enrollment_status = "disabled"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -137,7 +199,24 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -150,7 +229,39 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "disable"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "enable"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -163,7 +274,24 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -176,7 +304,9 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -189,7 +319,39 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "disable"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -202,7 +364,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -215,7 +379,24 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -228,7 +409,24 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -241,7 +439,24 @@ trackTests {
                 "transaction": "disabled",
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "disable"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -254,7 +469,39 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -267,9 +514,27 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
 
         "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "disabled"
@@ -280,7 +545,9 @@ trackTests {
                 "transaction": "enabled",
                 "opening_lock": "disabled",
                 "transaction_custom": "0",
-                "opening_custom": "0"
+                "opening_custom": "0",
+                "transaction_granularity_option": "daily_amount",
+                "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -291,7 +558,23 @@ trackTests {
                     "transaction": "disabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+            config_name = "transaction"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "none"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "transaction"
         }
@@ -303,7 +586,23 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+            config_name = "opening_lock"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "opening_lock"
         }
@@ -315,7 +614,9 @@ trackTests {
                     "transaction": "disabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "transaction"
         }
@@ -327,7 +628,9 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
             ]
             config_name = "opening_lock"
         }
@@ -339,7 +642,22 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -350,7 +668,22 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "100",
-                    "opening_custom": "5"
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -361,7 +694,22 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "disabled",
                     "transaction_custom": "0",
-                    "opening_custom": "0"
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_opening"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
 
@@ -372,7 +720,74 @@ trackTests {
                     "transaction": "enabled",
                     "opening_lock": "enabled",
                     "transaction_custom": "100",
-                    "opening_custom": "5"
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_opening"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "10.0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_closing"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5",
+                    "transaction_granularity_option": "daily_amount",
+                    "transaction_accumulated_amount": "10.0"
             ]
         }
     }

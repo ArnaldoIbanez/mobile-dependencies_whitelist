@@ -187,7 +187,9 @@ tracks {
     }
 
     // Tracks Ahora 12
-    "/pricing_section/a12/error" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/a12/error" (platform: "/", type: TrackType.View) {
+        result_request_group
+    }
     "/pricing_section/a12/success" (platform: "/", type: TrackType.View) { }
     "/pricing_section/a12/optin" (platform: "/", type: TrackType.View) { }
     "/pricing_section/a12/shield" (platform: "/", type: TrackType.View) {
@@ -207,7 +209,9 @@ tracks {
     "/pricing_section/a12/cuit_verification/accept" (platform: "/", type: TrackType.Event) { }
 
     // Tracks PSJ
-    "/pricing_section/psj/error" (platform: "/", type: TrackType.View) { }
+    "/pricing_section/psj/error" (platform: "/", type: TrackType.View) {
+        result_request_group
+    }
     "/pricing_section/psj/success" (platform: "/", type: TrackType.View) { }
     "/pricing_section/psj/optin" (platform: "/", type: TrackType.View) { }
     "/pricing_section/psj/shield" (platform: "/", type: TrackType.View) {
@@ -223,5 +227,8 @@ tracks {
     }
     "/pricing_section/psj/save/error" (platform: "/", type: TrackType.Event) {
         result_request_group
+    }
+    "/pricing_section/psj_activity"(platform: "/mobile", type: TrackType.Event) {
+        caller(required: true, type: PropertyType.String, description: "The class where the deeplink is called")
     }
 }

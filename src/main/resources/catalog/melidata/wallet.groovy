@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1125"
+    initiative = "1074"
     defaultBusiness = "mercadopago"
 
     /**
@@ -116,4 +116,8 @@ tracks {
     "/wallet/connect/on_change_card" (platform: "/web", type: TrackType.Event) {}
 
     "/wallet/connect/confirm_success" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/admin/home" (platform: "/web", type: TrackType.Event) {}
+
+    "/wallet/connect/admin/success" (platform: "/web", type: TrackType.Event) {}
 }

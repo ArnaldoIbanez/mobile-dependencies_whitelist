@@ -8,6 +8,18 @@ tracks {
 
     initiative = "1254"
 
+    propertyDefinitions {
+        //Tracks MShops
+        shop_id(required: false, description: "content the id of the current shop", type: PropertyType.Numeric)
+        shop_name(required: false, description: "content the name of the current shop", type: PropertyType.String)
+        shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
+        shop_status(required: false, description: "shows if the shop is active or inactive", type: PropertyType.String, values: ["active", "inactive"])
+    }
+
+    propertyGroups {
+        mshopsGroup(shop_id, shop_name, shop_domain, shop_status)
+    }
+
     // REGISTER
 
     "/register"(platform: "/", isAbstract: true) {}
@@ -41,6 +53,7 @@ tracks {
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
         registration_version(type: PropertyType.String, required:false, description: "Registration Version")
+        mshopsGroup
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
@@ -54,11 +67,13 @@ tracks {
     "/register/form/error"(platform: "/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+        mshopsGroup
     }
 
     "/register/form/another-email"(platform: "/web", type: TrackType.View) {
         errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
         errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+        mshopsGroup
     }
 
     "/register/form/site-identification"(platform: "/web", type: TrackType.View) {
@@ -216,7 +231,7 @@ tracks {
     }
 
     // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
-    "/progressive_registration"(platform: "/mobile", type: TrackType.View, initiative:'1125') {}
+    "/progressive_registration"(platform: "/mobile", type: TrackType.View, initiative:'1096') {}
 
 
     // Company Registration
@@ -226,6 +241,8 @@ tracks {
     "/register/company/form/error"(platform: "/web", type: TrackType.Event){
         errors(type: PropertyType.ArrayList, description: "Errores en el formulario", required: true)
     }
+     "/register/company/email_validation"(platform: "/", isAbstract: true){}
+     "/register/company/email_validation/success"(platform: "/web", type: TrackType.Event){}
 
     "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
     "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
@@ -242,8 +259,64 @@ tracks {
     "/register/v3/hub/email_validation"(platform: "/", isAbstract: true){}
     "/register/v3/hub/phone_validation"(platform: "/", isAbstract: true){}
     "/register/v3/hub/kyc"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/pix"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/regulations"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/tyc"(platform: "/", isAbstract: true){}
     "/register/v3/hub/email_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/pix/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/regulations/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/tyc/congrats"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/saved_session"(platform: "/", type: TrackType.Event){}
+
+    "/register/v3/challenge"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc"(platform: "/", isAbstract: true){}
+    "/register/v3/challenge/tyc/wallet"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/wallet/submit"(platform: "/", type: TrackType.Event){}
+    "/register/v3/challenge/tyc/standard"(platform: "/", type: TrackType.View){}
+    "/register/v3/challenge/tyc/standard/submit"(platform: "/", type: TrackType.Event){}
+
+    "/under_age_validation"(platform: "/", isAbstract: true){}
+    "/under_age_validation/tutor_email"(platform: "/", isAbstract: true){
+        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
+        flow(type: PropertyType.String, , required:true, values: ["registration", "login"], description: "Indicating where it comes")
+    }
+    "/under_age_validation/tutor_email"(platform: "/", type: TrackType.View){}
+    "/under_age_validation/tutor_email/submit"(platform: "/", type: TrackType.Event){
+        status(type: PropertyType.String, , required:true, values: ["pending_authorization"], description: "Indicating the status of the process")
+    }
+    "/under_age_validation/tutor_email/congrats"(platform: "/", type: TrackType.View){
+        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
+    }
+    "/under_age_validation/tutor_email/congrats/change_email"(platform: "/", type: TrackType.Event){
+        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
+    }
+    "/under_age_validation/tutor_email/rejected"(platform: "/", type: TrackType.View){
+        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
+    }
+    "/under_age_validation/tutor_email/rejected/change_email"(platform: "/", type: TrackType.Event){
+        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
+    }
+    "/under_age_validation/notification"(platform: "/mobile",  type: TrackType.Event, isAbstract: true){
+        source(type: PropertyType.String, required: true, description: "From where notification was opened")
+    }
+    "/under_age_validation/notification/rejected"(platform: "/mobile"){}
+    "/under_age_validation/notification/accepted"(platform: "/mobile"){}
+    "/under_age_validation/notification/accepted/already_logged"(platform: "/mobile"){}
+    "/under_age_validation/notification/tutor_authorization"(platform: "/mobile", isAbstract: true){}
+    "/under_age_validation/notification/tutor_authorization/redirect"(platform: "/mobile"){}
+    "/under_age_validation/tutor_authorization"(platform: "/",  isAbstract: true){
+        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
+        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
+        from_kyc(type: PropertyType.Boolean, , required:true, description: "If kyc have been completed")
+    }
+    "/under_age_validation/tutor_authorization"(platform: "/", type: TrackType.View){}
+    "/under_age_validation/tutor_authorization/rejected"(platform: "/", type: TrackType.View){}
+    "/under_age_validation/tutor_authorization/congrats"(platform: "/", type: TrackType.View){}
+    "/under_age_validation/tutor_landing"(platform: "/", type: TrackType.View){
+        under_age_validation_id(type: PropertyType.String, required: true, description: "Minor identifier")
+        under_age_validation_responsible_id(type: PropertyType.String, required: true, description: "Adult identifier")
+    }
 }

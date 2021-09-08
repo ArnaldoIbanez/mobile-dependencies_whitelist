@@ -12,7 +12,7 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Where the flow start")
         method (required: false, type: PropertyType.String, description: "Card reading method swipe/dip/tap", values: ["swipe", "dip", "tap", "chip"])
         currency (required: false, type: PropertyType.String, description: "Transaction currency")
-        amount (required: false, type: PropertyType.String, description: "Transaction amount")
+        amount (required: false, type: PropertyType.Numeric, description: "Transaction amount")
         installments (required: false, type: PropertyType.String, description: "Installments amount")
         payment_status (required: false, type: PropertyType.String, description: "Payment result status")
         payment_detail (required: false, type: PropertyType.String, description: "Payment result detail")
@@ -33,6 +33,9 @@ tracks {
     "/point_payment/card"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/installments"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/card_type"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/card_type/card_selected"(platform: "/mobile", type: TrackType.Event) {
+        card_type (required: true, type: PropertyType.String, values: ["credit_card", "debit_card", "voucher_card","amex"])
+    }
     "/point_payment/signature"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
@@ -87,11 +90,29 @@ tracks {
     "/point_payment/pairing/problem"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing/problem/help"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/bbpos_connectivity_help_web_view"(platform: "/mobile", type: TrackType.View) {}
-    "/point_payment/qr_congrats"(platform: "/mobile", type: TrackType.View) {}
+    //TODO: These parameters must be changed to required when fcu starts handling 100% of the traffic (pf legacy can't access this parameters in the congrats)
+    "/point_payment/qr_congrats"(platform: "/mobile", type: TrackType.View) {
+        external_reference (required:false, type: PropertyType.String, description: "Public id of the QR order used to recover payment data")
+        pos_id (required:false, type: PropertyType.String, description: "Seller's POS id that received the payment or 'default' if it has none created used to recover payment data")
+    }
     "/point_payment/qr_congrats_nofee"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/bank_detail"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing_ftu"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/qr_network_error"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/qr_generic_error"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/qr_timeout_error"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/try_again"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/show_code"(platform: "/mobile", type: TrackType.Event) {
+        kind(required: true, type: PropertyType.String, description: 'Type of QR code to generate the user will see')
+        order_id(required: true, type: PropertyType.String, description: 'Order Id derived from the QR code shown to the user')
+    }
+    "/point_payment/new_payment/qr/payment_notification"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/show_cancel_modal"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/qr/cancel_dismiss"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/qr/cancel_continue"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/new_payment/deals"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/new_payment/pix"(platform: "/mobile", type: TrackType.View) {}
@@ -103,6 +124,9 @@ tracks {
     }
     "/point_payment/new_payment/pix/shield_dismiss"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/new_payment/pix/show_tos"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/shield_ota_update"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/new_payment/shield_ota_update/skip"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/new_payment/shield_ota_update/update"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
@@ -116,7 +140,7 @@ tracks {
         label (required: false, values: ["whatsapp", "facebook", "twitter", "email", "instagram", "other"], description: "Type of share_link event")
         pref_id (required: false, type: PropertyType.String, description: "Preference id")
     }
-
+    
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
         user_id (required: false, type: PropertyType.String, description: "User id.")

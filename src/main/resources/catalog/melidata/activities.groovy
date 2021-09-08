@@ -54,5 +54,9 @@ tracks {
         activity_id(required: true, type: PropertyType.String, description: "The id's activity")
         date_created(required: true, type: PropertyType.String, description: "The date it was created")
     }
+
+    "/listing/activities/show_rta" (platform: "/mobile", type: TrackType.Event) {
+        has_rta(required: true, type: PropertyType.Boolean, description: "Describes whether or not there is a rta")        
+    }   
     
 }

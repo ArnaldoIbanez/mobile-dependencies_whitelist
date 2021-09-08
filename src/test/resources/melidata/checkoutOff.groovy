@@ -31,6 +31,30 @@ trackTests {
             discount_type = "cosmetic"
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
+            app_candidate = true
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
+        }
+
+        def launchingDefaultProperties = {
+            productive = true
+            collector_id = 1010101001
+            preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
+            operation_type = "regular_payment"
+            app_candidate = true
+            client_id = 470234553122
+        }
+
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
         }
 
         def finishDefaultProperties = {
@@ -41,6 +65,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
             congrats_status = "success"
         }
 
@@ -52,6 +77,11 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
+        }
+
+        def launchingOnlyRequiredProperties = {
+            productive = true
         }
 
         def finishOnlyRequiredProperties = {
@@ -84,6 +114,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -120,6 +151,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -132,6 +164,10 @@ trackTests {
 
         "/checkout_off/payment/card/split_second"(platform: "/web/mobile") {
             defaultProperties()
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingDefaultProperties()
         }
 
         // Tokenizer product final screen.
@@ -172,6 +208,14 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -226,6 +270,16 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -242,6 +296,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -349,6 +408,14 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -400,6 +467,16 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
@@ -420,6 +497,11 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         // Properties not necessary but minimum
         "/checkout_off/error"(platform: "/web/mobile") {
             product_id = "BC32A4JU643001OI3920"
@@ -432,6 +514,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/loading"(platform: "/web/mobile") {
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingOnlyRequiredProperties()
         }
 
         // MP personalFrontend
@@ -479,6 +565,30 @@ trackTests {
             discount_type = "cosmetic"
             discount_percent = 10
             checkout_open_mode = "v2_checkout_redirect"
+            items_quantity = 2
+            app_candidate = true
+            client_id = 470234553122
+            errors = ["code: 13253, description: Collector user without key enabled for QR render"]
+            visible_components = ["discharge": "qr"]
+            sponsor_id: 12345678
+            shipping_mode = "me2"
+            shipping_method = "standard"
+            shipping_local_pickup = false
+            shipping_free = true
+        }
+
+        def launchingDefaultProperties = {
+            productive = true
+            collector_id = 1010101001
+            preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
+            operation_type = "regular_payment"
+            app_candidate = true
+            client_id = 470234553122
+        }
+
+        def openSeaDefaultProperties = {
+            opensea_status = "approved"
+            opensea_message_shown = true
         }
 
         def finishDefaultProperties = {
@@ -501,15 +611,21 @@ trackTests {
             payment_quantity = 1
             total_amount = 100.00
             currency_id = "ARS"
+            items_quantity = 2
+        }
+
+        def launchingOnlyRequiredProperties = {
+            productive = true
         }
 
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
-            payment_id = "5408994392"        
+            payment_id = "5408994392"
             total_amount = 100.00
             currency_id = "ARS"
             total_amount_usd = 1000.00
+            items_quantity = 2
             congrats_status = "success"
         }
 
@@ -533,6 +649,7 @@ trackTests {
 
         "/checkout_off/payment/select_type"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/select_stores"(platform: "/web/mobile") {
@@ -569,6 +686,7 @@ trackTests {
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
             defaultProperties()
+            openSeaDefaultProperties()
         }
 
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
@@ -581,6 +699,10 @@ trackTests {
 
         "/checkout_off/payment/card/split_second"(platform: "/web/mobile") {
             defaultProperties()
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingDefaultProperties()
         }
 
         // Tokenizer product final screen.
@@ -621,6 +743,14 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -675,6 +805,16 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -691,6 +831,11 @@ trackTests {
         }
 
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -798,6 +943,14 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/opensea_credits_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/opensea_credits_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -849,6 +1002,16 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/express_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/offline_recover"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
         "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
@@ -869,6 +1032,11 @@ trackTests {
             finishOnlyRequiredProperties()
         }
 
+        "/checkout_off/congrats/recovered"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         // Properties not necessary but minimum
         "/checkout_off/error"(platform: "/web/mobile") {
             product_id = "BC32A4JU643001OI3920"
@@ -881,6 +1049,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/loading"(platform: "/web/mobile") {
+        }
+
+        "/checkout_off/routing"(platform: "/web/mobile") {
+            launchingOnlyRequiredProperties()
         }
 
         // MP personalFrontend

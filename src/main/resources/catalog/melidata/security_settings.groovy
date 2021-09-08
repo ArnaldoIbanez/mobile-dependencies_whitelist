@@ -37,6 +37,7 @@ tracks {
 
     "/security_settings/devices/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a button in the Devices Admin page")
+        unlink_type(type: PropertyType.String, required: true, values: ["single", "all"], description: "Whether the user is unlinking one or all devices")
         target(type: PropertyType.String, required: true, values: ["unlink_button", "confirm_unlink_button"], description: "Button clicked by the user in the Devices Admin page")
     }
 
@@ -55,6 +56,8 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction_granularity_option(required: true, type: PropertyType.String, values: ["always", "daily_amount"], description: "Granularity option selected by user")
+        transaction_accumulated_amount(required: true, type: PropertyType.String, description: "User tx accumulated amount")
         transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
         opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
@@ -90,6 +93,12 @@ tracks {
     }
 
     "/security_settings/screenlock/granularity_opening"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "Screenlock Operating System status upon view")
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    "/security_settings/screenlock/granularity_closing"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "Screenlock Operating System status upon view")
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")

@@ -13,6 +13,51 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "none"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "permission"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing_vanilla"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "landing_error"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "camera"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "confirmation"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "uploading"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "result"
+        }
+
         "/kyc/iv/challenge_time"(platform: "/mobile") {
             challenge_type = "doc_front"
             challenge_time = 24000
@@ -137,6 +182,20 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "ok"
+            value = "detection OK"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
+            error = "error al descargar"
+        }
+
         "/kyc/iv/activity/custom_camera/error"(platform: "/mobile/android")  {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -208,6 +267,18 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "aspect_ratio"
+            value = "1.3"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
+            error = "error al descargar"
+        }
 
         "/kyc/iv/unsupported_deeplink"(platform: "/mobile") {
             unsupported_deeplink = "meli://unsupported_deeplink"
@@ -311,23 +382,21 @@ trackTests {
             challenge_time = 24000
         }
 
-        "/kyc/iv/phone_landing"(platform: "/web") {
+        "/kyc/iv/phone_landing"(platform: "/") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
-        "/kyc/iv/phone_validation"(platform: "/web") {
+        "/kyc/iv/phone_validation"(platform: "/") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
         "/kyc/iv/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
-            custom_cam_offered = true
         }
         "/kyc/iv/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
-            custom_cam_offered = true
         }
         "/kyc/iv/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
@@ -384,7 +453,7 @@ trackTests {
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/vanilla"(platform: "/web") {
+        "/kyc/iv/vanilla"(platform: "/") {
             vanilla_document_id = "passport"
             transaction_user_id = 109479273
         }
@@ -396,7 +465,6 @@ trackTests {
         "/kyc/iv/camera/open_camera"(platform: "/web") {
             devices = 2
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
@@ -408,7 +476,6 @@ trackTests {
         "/kyc/iv/camera/capture_image"(platform: "/web") {
             is_landscape = false
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
@@ -420,7 +487,6 @@ trackTests {
 
         "/kyc/iv/camera/pick_from_gallery"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
@@ -428,7 +494,6 @@ trackTests {
 
         "/kyc/iv/camera/unavailable"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             reason = "broken_camera"
         }
@@ -437,35 +502,30 @@ trackTests {
 
         "/kyc/iv/camera/take_another_picture"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             is_landscape = false
         }
 
         "/kyc/iv/camera/change_camera"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             is_landscape = false
         }
 
         "/kyc/iv/camera/change_camera"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479272
             is_landscape = true
         }
 
         "/kyc/iv/camera/take_picture"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             is_landscape = false
         }
 
         "/kyc/iv/camera/open_camera_error"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             error = "epic_error"
             error_reason = "permission_denied"
@@ -473,36 +533,68 @@ trackTests {
 
         "/kyc/iv/camera/exit_camera"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+        "/kyc/iv/cc_scan/landing"(platform: "/web") { 
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/start_camera"(platform: "/web") {  
             flow = "flow_doc"
-            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/cc_scan/start_scan"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/scan_error"(platform: "/web") {  
+            error_reason = "Wrong card issuer"
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/upload_image"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/documentation/uploader_change"(platform: "/") {
+            flow = "flow_doc"
             transaction_user_id = 109479273
         }
 
         "/kyc/iv/documentation/select_option"(platform: "/web/desktop") {
             flow = "flow_doc"
-            custom_cam_offered = false
             option = "continue_from_desktop"
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+        "/kyc/iv/documentation/error"(platform: "/web/desktop") {
+            error_type = "business"
+            error_message = "La foto estaba cortada"
+            transaction_user_id = 109479273
             flow = "flow_doc"
-            custom_cam_offered = false
+        }
+
+        "/kyc/iv/documentation/cross_acceptance"(platform: "/web/desktop") {
+            flow = "flow_doc"
+        }
+
+        "/kyc/iv/documentation/uploader_click"(platform: "/") {
+            flow = "flow_doc"
             transaction_user_id = 109479273
         }
 
         "/kyc/iv/camera/unavailable"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479272
             reason = "thereason"
         }
-        "/kyc/iv/trust_vote_recommender"(platform: "/web") {
+        "/kyc/iv/trust_vote_recommender"(platform: "/") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
@@ -531,6 +623,11 @@ trackTests {
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
             extra_params = "meli://identity_validation/?flow=uniqueness"
+        }
+
+        "/kyc/iv/step_time"(platform: "/mobile") {
+            step_time = 10000
+            step_name = "none"
         }
 
         "/kyc/iv/challenge_time"(platform: "/mobile") {
@@ -623,6 +720,19 @@ trackTests {
                 left_eye: 0.99,
                 right_eye: 0.98
             ]
+        }
+
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/android")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "confidence"
+            value = "0.54"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
+            error = "error al descargar"
         }
 
         "/kyc/iv/activity/check_step"(platform: "/mobile/android") {}
@@ -724,6 +834,18 @@ trackTests {
             element_selected = "V"
         }
 
+        "/kyc/iv/object_detection/model_download"(platform: "/mobile/ios")  {
+            success = true
+            model_name = "test"
+            time = 141231
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "label_check"
+            value = "other"
+        }
+        "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
+            error = "error al descargar"
+        }
 
         "/kyc/iv/unsupported_deeplink"(platform: "/mobile") {
             unsupported_deeplink = "meli://unsupported_deeplink"
@@ -838,12 +960,10 @@ trackTests {
         "/kyc/iv/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
-            custom_cam_offered = true
         }
         "/kyc/iv/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
-            custom_cam_offered = true
         }
         "/kyc/iv/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
@@ -885,7 +1005,7 @@ trackTests {
             transaction_user_id = 109479273
             doc_type = "address_company"
         }
-        "/kyc/iv/trust_vote_recommender"(platform: "/web") {
+        "/kyc/iv/trust_vote_recommender"(platform: "/") {
             flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
@@ -915,7 +1035,6 @@ trackTests {
         "/kyc/iv/camera/open_camera"(platform: "/web") {
             devices = 2
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
@@ -927,7 +1046,6 @@ trackTests {
         "/kyc/iv/camera/capture_image"(platform: "/web") {
             is_landscape = false
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
@@ -939,7 +1057,6 @@ trackTests {
 
         "/kyc/iv/camera/pick_from_gallery"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
@@ -947,7 +1064,6 @@ trackTests {
 
         "/kyc/iv/camera/unavailable"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             reason = "broken_camera"
         }
@@ -956,35 +1072,30 @@ trackTests {
 
         "/kyc/iv/camera/take_another_picture"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             is_landscape = false
         }
 
         "/kyc/iv/camera/change_camera"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             is_landscape = false
         }
 
         "/kyc/iv/camera/change_camera"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479272
             is_landscape = true
         }
 
         "/kyc/iv/camera/take_picture"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             is_landscape = false
         }
 
         "/kyc/iv/camera/open_camera_error"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
             error = "epic_error"
             error_reason = "permission_denied"
@@ -992,38 +1103,70 @@ trackTests {
 
         "/kyc/iv/camera/exit_camera"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+        "/kyc/iv/cc_scan/landing"(platform: "/web") { 
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/start_camera"(platform: "/web") {  
             flow = "flow_doc"
-            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/cc_scan/start_scan"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/scan_error"(platform: "/web") {  
+            error_reason = "Wrong card issuer"
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/cc_scan/upload_image"(platform: "/web") {  
+            flow = "ss_cc_scan"
+            transaction_user_id = 109479273 
+        }
+
+        "/kyc/iv/documentation/uploader_change"(platform: "/") {
+            flow = "flow_doc"
             transaction_user_id = 109479273
         }
 
         "/kyc/iv/documentation/select_option"(platform: "/web/desktop") {
             flow = "flow_doc"
-            custom_cam_offered = false
             option = "continue_from_desktop"
             transaction_user_id = 109479273
         }
 
-        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+        "/kyc/iv/documentation/error"(platform: "/web/desktop") {
+            error_type = "business"
+            error_message = "La foto estaba cortada"
+            transaction_user_id = 109479273
             flow = "flow_doc"
-            custom_cam_offered = false
+        }
+
+        "/kyc/iv/documentation/cross_acceptance"(platform: "/web/desktop") {
+            flow = "flow_doc"
+        }
+
+        "/kyc/iv/documentation/uploader_click"(platform: "/") {
+            flow = "flow_doc"
             transaction_user_id = 109479273
         }
 
         "/kyc/iv/camera/unavailable"(platform: "/web") {
             flow = "flow_doc"
-            custom_cam_offered = true
             transaction_user_id = 109479272
             reason = "thereason"
         }
 
         "/kyc/iv/handoff"(platform: "/web") {
-            flow = "poc_trust_vote_tc"
+            flow = "documentation"
             transaction_user_id = 109479273
             url = "https://www.mercadolibre.com.ar"
             challenge = "documentation"
