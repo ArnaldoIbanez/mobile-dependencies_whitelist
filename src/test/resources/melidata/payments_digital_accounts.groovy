@@ -14,17 +14,18 @@ trackTests {
 
     test("Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {
-            available: true,
-            account: false,
+            available: true
             debts: true
             retained: false
             embargo_invested: false
             invested: false
-            to_release: false
+            not_invested: false
+            release: false
             shortcuts: ['money_in', 'money_out']
-            activities: false,
-            cerc: false,
+            activities: false
         }
+    test("Balance available") {
+        "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
 
     test("Track Components Events") {
