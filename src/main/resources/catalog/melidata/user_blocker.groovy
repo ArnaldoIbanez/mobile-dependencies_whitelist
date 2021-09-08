@@ -4,7 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1127"
+    initiative = "1172"
 
     "/user_blocker"(platform: "/", isAbstract: true) {}
 
@@ -52,6 +52,8 @@ tracks {
     //Finish events
     "/user_blocker/finish"(platform: "/", type: TrackType.Event) {
         deeplink(required: true, type: PropertyType.String, description: "the redirect deeplink")
+        dismiss_shield(required: false, type: PropertyType.String, description: "if an optional shield was dismissed")
+        duration(required: false, type: PropertyType.String, description: "the duration in which the shield will not be shown in seconds")
     }
 
     //async mode events

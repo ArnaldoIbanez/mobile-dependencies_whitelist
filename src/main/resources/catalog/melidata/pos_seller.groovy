@@ -20,7 +20,7 @@ import com.ml.melidata.TrackType
             poi_id(required: false, type: PropertyType.String, description: "poi device id")
             poi_type(required: false, type: PropertyType.String, description: "poi device type")
             mode(required: false, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-            payment_channel(required: false, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
+            payment_channel(required: false, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser","caixa"])
             amount(required: false, type: PropertyType.Numeric, description: "payment amount")
             currency(required: false, type: PropertyType.String, description: "payment currency")
             installments(required: false, type: PropertyType.Numeric, description: "payment amount")
@@ -36,7 +36,7 @@ import com.ml.melidata.TrackType
 
 
         propertyDefinitions {
-            card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
+            card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc","swipe_nfc","chip_nfc"])
             first_six(required: true, type: PropertyType.String,description: "first six card numbers")
             last_four(required: true, type: PropertyType.String,description: "last four card numbers")
             is_fallback(required: true, type: PropertyType.Boolean,description: "is a payment through fallback")
@@ -186,7 +186,7 @@ import com.ml.melidata.TrackType
           flow_id (required: true, type: PropertyType.String, description: "Flow id.")
           payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card", "voucher_card"])
           mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-          payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
+          payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser","external_payments"])
           amount(required: true, type: PropertyType.Numeric, description: "payment amount")
           currency(required: true, type: PropertyType.String, description: "payment currency")
           installments(required: false, type: PropertyType.Numeric, description: "installments")
@@ -228,7 +228,7 @@ import com.ml.melidata.TrackType
             error_type(PropertyType.String, required: true)
             paymentData
             poi_id(required: true, type: PropertyType.String, description: "poi device id")
-            card_read_tag(required: false, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
+            card_read_tag(required: false, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc","swipe_nfc","chip_nfc"])
             first_six(required: false, type: PropertyType.String,description: "first six card numbers")
             last_four(required: false, type: PropertyType.String,description: "last four card numbers")
             is_fallback(required: false, type: PropertyType.Boolean,description: "is a payment through fallback")
@@ -287,6 +287,7 @@ import com.ml.melidata.TrackType
 
         "/pos_seller/point"(platform: "/web", isAbstract: true) {}
         "/pos_seller/qr"(platform: "/web", isAbstract: true) {}
+        "/pos_seller/vouchers"(platform: "/", isAbstract: true) {}
 
         /**
         * pos seller web view tracks
@@ -315,6 +316,13 @@ import com.ml.melidata.TrackType
             paymentDataWeb
         }
 
+        //Vouchers
+        "/pos_seller/vouchers/detail"(platform: "/", type: TrackType.View) {
+            voucher_name (required: true, type: PropertyType.String, description: "Voucher name")
+        }
+        "/pos_seller/vouchers/access_denied"(platform: "/", type: TrackType.View) {}
+        "/pos_seller/vouchers/error"(platform: "/", type: TrackType.View) {}
+
         //Misc
         "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
 
@@ -336,4 +344,10 @@ import com.ml.melidata.TrackType
 
         //Misc
         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
+
+        // fcu vs legacy router
+        "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow(required: true, type: PropertyType.String, description: "Contains the result of the router's redirection", values: ["fcu","legacy"])
+            reason(required: true, type: PropertyType.String, description: "Why the router chose that flow", values: ["user_in_whitelist","user_not_in_whitelist","network_request_failed"])
+        }
 }

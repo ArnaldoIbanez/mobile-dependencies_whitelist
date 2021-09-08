@@ -39,4 +39,29 @@ trackTests {
             email_template = "MCRDT_OPTOUT"
         }
     }
+
+    test("optout") {
+        def defaultTrackInformation = {
+            email_template = "EMKT"
+            event_type = "unsubscribe"
+        }
+
+        "/email/form_optout"(platform: "/web"){
+            defaultTrackInformation()
+        }
+
+        "/email/form_optout"(platform: "/web/mobile"){
+            defaultTrackInformation()
+        }
+
+        "/email/form_optout/unsubscribe"(platform: "/web"){
+            defaultTrackInformation()
+            selected_option = 1
+        }
+
+        "/email/form_optout/unsubscribe"(platform: "/web/mobile"){
+            defaultTrackInformation()
+            selected_option = 1
+        }
+    }
 }

@@ -16,6 +16,7 @@ trackTests {
             is_carrito = true
             reservation = true
             subscription = true
+            auto_purchase = true
 
             seller = [[ id: 135201044, nickname: "XXXXXX" ]]
             buyer = [ id: 75961818, nickname: "YYYYYY" ]
@@ -76,7 +77,7 @@ trackTests {
     test("purchases feed from commons tracker"){
 
 
-        def defaultOrderinformation = {
+        def defaultPurchaseinformation = {
             purchase_id= 1000000015087185
             orders = [ "2523973546", "2523973553"]
             packs = ["2000000610762786", "2000000610762785"]
@@ -100,6 +101,8 @@ trackTests {
             payments = [
 
             ]
+            
+            orders = ['1234', '12345521']
 
             items = [
                     [
@@ -166,10 +169,10 @@ trackTests {
             ]
         }
 
-        "/purchases/purchasecreated" (platform:"/mobile/ios", type: TrackType.View,  ) {defaultOrderinformation()}
-        "/purchases/purchasecreated" (platform:"/mobile/android", type: TrackType.View) {defaultOrderinformation()}
-        "/purchases/purchasecreated" (platform:"/web/desktop", type: TrackType.View) {defaultOrderinformation()}
-        "/purchases/purchasecreated" (platform:"/web/mobile", type: TrackType.View) {defaultOrderinformation()}
+        "/purchases/purchasecreated" (platform:"/mobile/ios", type: TrackType.View) {defaultPurchaseinformation()}
+        "/purchases/purchasecreated" (platform:"/mobile/android", type: TrackType.View) {defaultPurchaseinformation()}
+        "/purchases/purchasecreated" (platform:"/web/desktop", type: TrackType.View) {defaultPurchaseinformation()}
+        "/purchases/purchasecreated" (platform:"/web/mobile", type: TrackType.View) {defaultPurchaseinformation()}
 
     }
 

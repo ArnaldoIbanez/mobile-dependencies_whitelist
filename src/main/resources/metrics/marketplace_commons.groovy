@@ -1,7 +1,8 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 metrics {
-	"vip"(description: "vip count") {
+	"vip"(description: "vip count", tags:[TagType.Important]) {
 		countsOn {
 			condition {
 				path("/vip", "/vip/abort", "/vip/failure")

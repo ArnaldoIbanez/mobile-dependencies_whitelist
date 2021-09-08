@@ -54,8 +54,8 @@ trackTests {
     }
 
     test("flex configuration events"){
-        def handlingTimeSelected = {
-            handling_time = "SameDay"
+        def deliveryTimeSelected = {
+            delivery_time = "SameDay"
         }
 
         def zonesSelected = {
@@ -77,8 +77,8 @@ trackTests {
 
 
 
-        "/flex/configuration/select_handling_time"(platform: "/", type: TrackType.Event) {
-            handlingTimeSelected()
+        "/flex/configuration/select_delivery_time"(platform: "/", type: TrackType.Event) {
+            deliveryTimeSelected()
         }
 
         "/flex/configuration/select_zones"(platform: "/", type: TrackType.Event) {
@@ -257,6 +257,14 @@ trackTests {
             delivery_id = 123456
         }
 
+        "/flex/package/start"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
+        "/flex/package/add_more_packages"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
         //QR detected but already registered event in Scanner edition success
         "/flex/package/add_more_packages/qr_detected"(platform:"/mobile", type: TrackType.Event) {
             defaultLocation()
@@ -361,6 +369,12 @@ trackTests {
         "/flex/package/detail/receipt_other_person"(platform:"/mobile", type: TrackType.View) {
             defaultLocation()
             delivery_id = 123456
+        }
+
+        //Detail Shipment Parcels success
+        "/flex/package/detail/parcel"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            shipment_id = "123456"
         }
 
         //Congrats page success

@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -36,7 +37,8 @@ trackTests {
             comparator_available = false
             gallery_pattern = ""
             description_type = "plain_text"
-            price_comparison_available = false
+            price_comparison_available = true
+            has_good_price = true
         }
 
     }
