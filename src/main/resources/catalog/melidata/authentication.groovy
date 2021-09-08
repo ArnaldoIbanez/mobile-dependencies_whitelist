@@ -394,11 +394,11 @@ tracks {
 
     // Password
     "/auth/password_enrollment"(platform: "/", isAbstract: true, initiative: 1127) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
     "/auth/password_enrollment/action"(platform: "/", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, values: ["continue"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, description: "Type of event")
     }

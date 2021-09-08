@@ -424,10 +424,10 @@ trackTests {
 
     test("PASSWORD enrollment flow") {
         "/auth/password_enrollment"(platform: "/", type: TrackType.View) {
-            id = "id"
+            transaction_id = "id"
         }
         "/auth/password_enrollment/action"(platform: "/", type: TrackType.Event) {
-            id = "id"
+            transaction_id = "id"
             target = "continue"
             event_type = "click"
         }
