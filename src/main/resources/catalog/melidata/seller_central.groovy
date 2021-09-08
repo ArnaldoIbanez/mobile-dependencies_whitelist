@@ -709,7 +709,7 @@ tracks {
 
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
         sub_view_id(required: true, type: PropertyType.String, description: "Rendered or activated view id")
-        action(required: true, type: PropertyType.String ,values: ["render", "click"])
+        action(required: true, type: PropertyType.String, values: ["render", "click"], description: "Action performed")
     }
 
     "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
