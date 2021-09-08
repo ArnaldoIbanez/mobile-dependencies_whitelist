@@ -314,6 +314,48 @@ tracks {
         event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
+    //TOTP-IN-APP
+    "/auth/totp_in_app"(platform: "/", isAbstract: true, initiative: 1127) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/totp_in_app/validation"(platform: "/", isAbstract: true) {}
+
+    "/auth/totp_in_app/validation/scan"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp_in_app/validation/rejected"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp_in_app/validation/max_attempts"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp_in_app/validation/scan/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        status(type: PropertyType.String, required: true, values: ["approved", "rejected", "expired", "update_qr", "decline_challenge"], description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, values: ["polling", "click"], description: "Type of event")
+    }
+
+    "/auth/totp_in_app/validation/rejected/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, values: ["try_again", "decline_challenge"], description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
+    }
+
+    "/auth/totp_in_app/validation/max_attempts/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, values: ["go_home", "decline_challenge"], description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
+    }
+
+    // Password
+    "/auth/password-enrollment"(platform: "/", isAbstract: true, initiative: 1127) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/password-enrollment/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, values: ["continue"], description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
+    }
+
     //Attestation App
     "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
 

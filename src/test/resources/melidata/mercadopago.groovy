@@ -3329,6 +3329,17 @@ trackTests {
         }
     }
 
+    test("PASSWORD enrollment flow") {
+        "/auth/password-enrollment"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/password-enrollment/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
+            event_type = "click"
+        }
+    }
+
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
             mode = "prefetch_only"

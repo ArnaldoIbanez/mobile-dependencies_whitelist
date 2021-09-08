@@ -431,6 +431,17 @@ trackTests {
         }
     }
 
+    test("PASSWORD enrollment flow") {
+        "/auth/password-enrollment"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/password-enrollment/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "continue"
+            event_type = "click"
+        }
+    }
+
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
             challenge = "nickname_or_email"
