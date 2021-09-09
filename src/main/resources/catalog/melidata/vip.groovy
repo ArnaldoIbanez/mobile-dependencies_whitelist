@@ -265,6 +265,7 @@ tracks {
                         "CrediHome",
                 ]
         )
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -1758,5 +1759,20 @@ tracks {
         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
         label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    // VIS Scheduling
+    "/vip/scheduling_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"], description: "Whether the item is new, used or refurbished")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"], description: "Whenever the items is active, closed or paused")
+        item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"], description: "Seller type: normal, car_dealer, etc")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String, values: ["motors", "realEstate", "services"], description: "Vertical of the item")
+        source(required: true, type: PropertyType.String, description: "Indicates from which component within VIP comes the event")
+        unregistered_contact(required: true, type: PropertyType.Boolean, description: "User is unregister type")
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
     }
 }
