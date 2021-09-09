@@ -37,11 +37,6 @@ tracks {
         "promotions",
     ]
 
-    def status = [
-        "active",
-        "inactive",
-    ]
-
     def confData = objectSchemaDefinitions {
         whatsapp(required: true, type: PropertyType.String, values: toolStatus)
         facebook_shop(required: true, type: PropertyType.String, values: toolStatus)
@@ -195,8 +190,6 @@ tracks {
         sale_status(required: true, type: PropertyType.String, values: ['ready_to_deliver', 'in_transit', 'to_review', 'to_prepare'])
     }
 
-    "/shops/hub/desactivate_store"(platform: "/", type: TrackType.Event) {}
-
     // SHOP METRICS
 
     "/shops/hub/metrics"(platform: "/", isAbstract: true) {}
@@ -222,62 +215,4 @@ tracks {
     "/shops/hub/tips_news/link"(platform: "/", type: TrackType.Event) {
         tool(required: true, type: PropertyType.String, values: tools)
     }
-
-    // Marketing tools
-
-    "/shops/marketing"(platform: "/", isAbstract: true) {}
-
-    "/shops/marketing/google_analytics"(platform: "/", type: TrackType.View) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-    }
-
-    "/shops/marketing/google_ads"(platform: "/", type: TrackType.View) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-    }
-
-    "/shops/marketing/google_ads/success"(platform: "/", type: TrackType.Event) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-        codes(required: true, type: PropertyType.ArrayList(PropertyType.String))
-    }
-
-    "/shops/marketing/facebook_pixel"(platform: "/", type: TrackType.View) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-    }
-
-    "/shops/marketing/facebook_store"(platform: "/", type: TrackType.View) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-    }
-
-    "/shops/seller_goals"(platform: "/", isAbstract: true) {}
-
-    "/shops/seller_goals/marketing/google_analytics/success"(platform: "/", type: TrackType.Event) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/seller_goals/marketing/google_ads/buy_confirmation/success"(platform: "/", type: TrackType.Event) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/seller_goals/marketing/google_ads/buy_intention/success"(platform: "/", type: TrackType.Event) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/seller_goals/marketing/google_ads/remarketing/success"(platform: "/", type: TrackType.Event) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/seller_goals/marketing/facebook_pixel/success"(platform: "/", type: TrackType.Event) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/seller_goals/marketing/facebook_store/success"(platform: "/", type: TrackType.Event) {
-        shop_status(required: true, type: PropertyType.String, values: status)
-        success(required: true, type: PropertyType.Boolean)
-    }
-
 }

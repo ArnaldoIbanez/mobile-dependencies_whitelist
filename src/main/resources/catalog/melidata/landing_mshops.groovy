@@ -37,4 +37,10 @@ tracks {
         mshopslClickGroup
     }
 
+    "/home/landing/expand"(platform: "/", type: TrackType.Event){}
+
+    "/home/landing/youtube_tutorial"(platform: "/", type: TrackType.Event){}
+
+    "/home/landing/webinar"(platform: "/", type: TrackType.Event){}
+
 }
