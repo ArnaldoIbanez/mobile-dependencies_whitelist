@@ -231,37 +231,10 @@ tracks {
     // SIDEBARS
 
     "/shops/hub/sidebar"(platform: "/") {
-        event_category(required: true, type: PropertyType.String, description: "Category that is sent in the equivalent event on GA")
-        event_action(required: true, type: PropertyType.String, description: "Action that is sent in the equivalent event on GA")
-        event_label(required: true, type: PropertyType.String, description: "Label that is sent in the equivalent event on GA")
-        sidebar_name(required: true, type: PropertyType.String, values: sidebars, inheritable: false)
+        sidebar_name(required: true, type: PropertyType.String, values: sidebars, description: "Sidebar that is being tracking")
     }
 
-    "/shops/hub/sidebar/whatsapp"(platform: "/", type: TrackType.Event) {
+    "/shops/hub/sidebar/save_changes"(platform: "/", type: TrackType.Event) {
         success(required: true, type: PropertyType.Boolean, description: "If the request to update the info succeeded or not")
-    }
-
-    "/shops/hub/sidebar/shop_name"(platform: "/", type: TrackType.Event) {
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/hub/sidebar/logo"(platform: "/", type: TrackType.Event) {
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/hub/sidebar/contact"(platform: "/", type: TrackType.Event) {
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/hub/sidebar/social_networks"(platform: "/", type: TrackType.Event) {
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/hub/sidebar/afip"(platform: "/", type: TrackType.Event) {
-        success(required: true, type: PropertyType.Boolean)
-    }
-
-    "/shops/hub/sidebar/fiscal_data"(platform: "/", type: TrackType.Event) {
-        success(required: true, type: PropertyType.Boolean)
     }
 }
