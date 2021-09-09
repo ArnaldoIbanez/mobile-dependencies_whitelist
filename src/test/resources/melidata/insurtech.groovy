@@ -2033,6 +2033,31 @@ trackTests {
             ]
         }
 
+
+
+        "/insurtech/protections/finished_claims"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            claims = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/finished_claims"(platform:"/web", type: TrackType.View) {
+            claims = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
         // INSURTECH Protections Detail - my-detail-fe
         //RODA
         "/insurtech/protections/detail/roda"(platform:"/mobile", type: TrackType.View) {
@@ -2696,6 +2721,24 @@ trackTests {
             }
 
             "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/not_cancellable/read_certificate"(platform:"/", type: TrackType.Event){
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+            }
+
+            "/insurtech/protections/claims/cancel/not_cancellable/see_protection_detail"(platform:"/", type: TrackType.Event){
                 product_data =[
                     entity_type:"quote",
                     entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",

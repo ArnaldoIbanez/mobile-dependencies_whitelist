@@ -192,6 +192,17 @@ trackTests {
             training_id = "123"
             logistic_type = "last_mile"
         }
+        "/logistics/profile/fiscalization_disclaimer"(platform: "/mobile", type: TrackType.View) {
+            driver_id = 123
+        }
+        "/logistics/profile/fiscalization_disclaimer/invoice"(platform: "/mobile", type: TrackType.View) {
+            driver_id = 123
+            shipment_id = "123"
+        }
+        "/logistics/profile/fiscalization_disclaimer/invoice_not_found"(platform: "/mobile", type: TrackType.View) {
+            driver_id = 123
+            shipment_id = "123"
+        }
         "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
             pack_id = "124"
             defaultLocation()

@@ -74,6 +74,7 @@ trackTests {
             apparel = [
                     "has_size_chart": true
             ]
+            is_ltr: false
         }
 
         Object items_attributes = {
@@ -1553,6 +1554,7 @@ trackTests {
         }
 
         "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
         }
 
         "/vip/new_shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
@@ -1568,6 +1570,7 @@ trackTests {
         }
 
         "/vip/new_shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+            item_id = "MLA533657947"
         }
 
         //Apps
@@ -1578,6 +1581,7 @@ trackTests {
         }
 
         "/vip/new_shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
+            item_id = "MLA533657947"
         }
 
 
@@ -1722,6 +1726,24 @@ trackTests {
         }
     }
 
+    test("VIP link denounce RealEstate"){
+
+        def properties = {
+            item_id = "MLC123456"
+            context = "/vip"
+            reason = "unavailable_property"
+            vertical = "realEstate"
+        }
+
+        "/vip/denounce"(platform: "/web", type: TrackType.View){
+           properties()
+        }
+
+        "/vip/denounce"(platform: "/mobile", type: TrackType.View){
+           properties()
+        }
+    }
+
     test("VIP preload MainAction Contact from search"){
         def properties = {
             item_id = "MLA792156560"
@@ -1861,10 +1883,6 @@ trackTests {
     }
 
    //END - Classifieds Credits
-
-    test("VIP denounce") {
-        "/vip/denounce"(platform: "/", type: TrackType.Event) {}
-    }
 
     test("VIP cbt") {
         "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event) {
@@ -2391,6 +2409,22 @@ trackTests {
             has_roda = true
             has_garex = false
             label = "PICKER"
+        }
+    }
+
+    test("VIS scheduling item") {
+        "/vip/scheduling_intention"(platform: "/", type: TrackType.Event) {
+            item_id = "MLC123123"
+            item_condition = "new"
+            item_status = "active"
+            item_seller_type = "real_estate_agency"
+            seller_id = 799550807
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            vertical = "realEstate"
+            source = "main-action"
+            unregistered_contact = false
+            is_ltr = true
         }
     }
 }

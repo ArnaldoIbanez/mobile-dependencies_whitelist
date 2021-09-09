@@ -137,9 +137,9 @@ tracks {
     "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         site_id(required: true, description: "Site of user who contract advertising")
         cust_id(required: true, type: PropertyType.Numeric, description: "User who contract advertising")
-        cantidad_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are sll")
-        cantidad_no_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are not sll")
-        cantidad_indexed_items(required: true, type: PropertyType.Numeric, description: "Indicates the number of indexed items")
+        quantity_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are sll")
+        quantity_no_sll(required: true, type: PropertyType.Numeric, description: "Indicates the number of items that are not sll")
+        quantity_indexed_items(required: true, type: PropertyType.Numeric, description: "Indicates the number of indexed items")
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         model(required: false, type: PropertyType.String, description: "Indicates the number of indexed items", values: ['bids', 'cvr'])
     }
@@ -310,6 +310,54 @@ tracks {
 
     "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
         switch_status(required: true, description: "Current state of switch")
+    }
+
+    // Privacy Frontend
+
+    "/advertising/privacy/target"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/privacy/target/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View,) {
+        switch_status(required: true, description: "Current state of switch", inheritable:false, values: ['active', 'inactive'])
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/target/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch", values: ['active', 'inactive'])
+    }
+
+    "/advertising/privacy/business_partners"(platform: "/", type: TrackType.View) {
+    }
+
+    "/advertising/privacy/business_partners/switch"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    }
+
+    "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+        switch_status(required: true, description: "Current state of switch", inheritable:false, values: ['active', 'inactive'])
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+        switch_status(required: true, description: "Current state of switch", values: ['active', 'inactive'])
     }
 
     //Lift

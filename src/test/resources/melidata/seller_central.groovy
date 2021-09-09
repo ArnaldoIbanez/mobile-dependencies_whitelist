@@ -16,6 +16,13 @@ trackTests {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
   }
 
+  test("seller central listing main page") {
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id = "listing"
+      sub_view_id = "mshops"
+    }
+  }
+
   test("seller central listing differents tabs") {
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
   }
@@ -407,7 +414,7 @@ trackTests {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
-        type: "RECOMMENDATION",
+        type: "ITEM",
         key: "LIGHTNING_OFFER",
         page: 1,
         position: 3,
@@ -5816,6 +5823,69 @@ test("seller central confirm leave suggestion task - optin moderated") {
            row_index: 2
         ]
       ]
+    }
+  }
+
+  test("Track empty state items") {
+    "/seller_central/listings/row_empty_state"(platform: "/", type: TrackType.Event){
+        sub_view_id = "mshops"
+        items = [
+            [
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ],[
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ],[
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ]
+        ]
+    }
+  }
+
+  test("Click publish item in MShops from empty state row") {
+    "/seller_central/listings/activate_row"(platform: "/", type: TrackType.Event){
+      item_id = "MLA10335295"
+      sub_view_id = "mshops"
+      reason = "PUBLICAR_EN_MI_MERCADO_SHOP"
+    }
+  }
+
+
+  test("Show MShops inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "mshops"
+      action = "render"
+    }
+  }
+
+  test("Show marketplace inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "markeplace"
+      action = "render"
+    }
+  }
+
+  test("Click marketplace inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "markeplace"
+      action = "click"
+    }
+  }
+
+  test("Click mshops inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "mshops"
+      action = "click"
+    }
+  }
+
+  test("Change sub view"){
+    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
+      selected_view = "marketplace"
+      type = "optin"
+      url = "https://mishop.com"
     }
   }
 }

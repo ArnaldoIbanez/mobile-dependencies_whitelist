@@ -136,14 +136,22 @@ tracks {
     "/banking/balance/footer_action"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/error"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/balance/activity_row"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/balance/debts"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/to_release/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/banking/to_release/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
+
+    // ToRelease Events
     "/banking/to_release/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/footer_action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/to_release/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+
+    // Other Events
+    "/banking/debts/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/calendar/action"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/calendar/calendar_anual"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/activities/row"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}

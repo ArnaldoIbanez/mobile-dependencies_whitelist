@@ -1,12 +1,11 @@
 package com.melidata.definitions.linters
 
-import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.catalog.TrackDefinition
+import com.ml.melidata.catalog.TrackDefinitionProperty
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 import com.ml.melidata.catalog.utils.DslUtils
 import com.ml.melidata.manager.CatalogHandler
-import com.ml.melidata.manager.CatalogManager
 
 class CatalogLinter {
 
@@ -16,8 +15,8 @@ class CatalogLinter {
         linters.add(new PropertiesQuantityLinter(20))
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type", "name"]))
         linters.add(new NamingLinter())
-        linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
+        linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data", "id"],
@@ -30,33 +29,48 @@ class CatalogLinter {
         this.linters = lintersList
     }
 
-    List<TrackDefinition> getDefinitionsToEvaluate(String catalogName) {
+    boolean run(String catalogName) {
+        boolean isValid = true
+
+        def localDefinitions = getLocalDefinitions(catalogName)
+        def prodDefinitions = getProdDefinitions(catalogName)
+
+        localDefinitions.forEach {newDefinition ->
+            def prodDef = prodDefinitions.findAll {it -> it.path == newDefinition.path && it.platform == newDefinition.platform}.toList()
+
+            //Local definition is new to prod
+            if(prodDef.isEmpty()) {
+                if(!linters.every {it.passValidation(newDefinition)}) {
+                    isValid = false
+                }
+            } else {
+                if(!prodDef.any {newDefinition.equals(it)}) {
+                    Map<String, TrackDefinitionProperty> propertiesMerge = [:]
+                    prodDef.forEach {propertiesMerge.putAll(it.properties)}
+                    newDefinition.properties = [:] << newDefinition.properties.findAll { String name, prop ->
+                        propertiesMerge[name] == null || !prop.equals(propertiesMerge[name])
+                    }
+                    if(!linters.every {it.validateProperties(newDefinition)}) {
+                        isValid = false
+                    }
+                }
+            }
+        }
+
+        return isValid
+    }
+
+    private Set getLocalDefinitions(String catalogName) {
         CatalogDsl.setBaseDir("src/main/resources/catalog/" + catalogName + "/")
 
-        def allLocalDefinitions = DslUtils.parseCatalog(new File("src/main/resources/catalog/" + catalogName + "/catalog.groovy")).platformTree.allDefinitions.toSet()
+        return DslUtils.parseCatalog(new File("src/main/resources/catalog/" + catalogName + "/catalog.groovy")).platformTree.allDefinitions.toSet()
+    }
 
+    private Set getProdDefinitions(String catalogName) {
         CatalogDsl.setBaseDir("/")
         def handlerProd = new CatalogHandler(catalogName)
         handlerProd.reload()
-        def allProdDefinitions = handlerProd.catalog.platformTree.allDefinitions.toSet()
 
-        return allLocalDefinitions.findAll {newDefinition ->
-            !allProdDefinitions.any {alreadyDefined ->
-                newDefinition.equals(alreadyDefined)
-            }
-        }.toList()
-    }
-
-    boolean run(String catalogName) {
-        boolean isValid = true
-/*
-        def touchedDefinitions = getDefinitionsToEvaluate(catalogName)
-        touchedDefinitions.forEach { TrackDefinition definition ->
-            if(!linters.every {it.passValidation(definition)}) {
-                isValid = false
-            }
-        }
- */
-        return isValid
+        return handlerProd.catalog.platformTree.allDefinitions.toSet()
     }
 }

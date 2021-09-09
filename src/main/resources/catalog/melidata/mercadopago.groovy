@@ -24,7 +24,7 @@ tracks {
     }
 
     "/"(platform: "/mobile", isAbstract: true) {
-        sent_again(required: false)
+        sent_again(required: false, description: "If track has already been sent")
     }
 
     "/blog"(platform: "/web", isAbstract: true, initiative: "1145") {
@@ -393,7 +393,6 @@ tracks {
 
     // About events
     "/about"(platform: "/mobile", isAbstract: true) {}
-    "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
     * Register Point Devices

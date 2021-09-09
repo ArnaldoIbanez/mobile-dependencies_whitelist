@@ -93,6 +93,8 @@ tracks {
     "/insurtech/protections/claims/cancel/not_cancellable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
+    "/insurtech/protections/claims/cancel/not_cancellable/read_certificate"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/cancel/not_cancellable/see_protection_detail"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")

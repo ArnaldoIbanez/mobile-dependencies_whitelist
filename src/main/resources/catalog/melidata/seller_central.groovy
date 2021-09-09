@@ -138,7 +138,7 @@ tracks {
     }
 
     def sellerCoachCard = objectSchemaDefinitions {
-        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['RECOMMENDATION', 'CONTENT', 'TASK'])
+        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['RECOMMENDATION', 'CONTENT', 'TASK', 'ITEM'])
         key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
         page(required: false, type: PropertyType.Numeric, description: "Number of page where the card is shown")
         position(required: false, type: PropertyType.Numeric, description: "Position of the card (relative to the page)")
@@ -213,6 +213,12 @@ tracks {
         meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
         adv_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount in advertising credit that is given to the seller")
     }
+
+    def rowItemStructure = objectSchemaDefinitions {
+        item_id(type: PropertyType.String, required: true)
+        reason(type: PropertyType.String, required: true)
+    }
+
     //  FINAL LANDING PRODUCTS STRUCTURE
 
     propertyDefinitions {
@@ -474,6 +480,7 @@ tracks {
     "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
         view_id(required: false, type: PropertyType.String, descritpion: "View that has been called")
+        sub_view_id(required: false, type: PropertyType.String, description: "Sub view that has been called", values: ["mshops", "markeplace"])
     }
 
     // Start SLL SC
@@ -686,6 +693,31 @@ tracks {
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
+
+    //Listing empty state
+
+    "/seller_central/listings/row_empty_state"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(rowItemStructure)), description: "List of items with empty state action")
+    }
+
+    "/seller_central/listings/activate_row"(platform: "/", type: TrackType.Event){
+        item_id(required: true, type: PropertyType.String, description: "Item to activate")
+        sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
+        reason(required: true, type: PropertyType.String, description: "Reason")
+    }
+
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+        sub_view_id(required: true, type: PropertyType.String, description: "Rendered or activated view id")
+        action(required: true, type: PropertyType.String, values: ["render", "click"], description: "Action performed")
+    }
+
+    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
+        selected_view(required: true, type: PropertyType.String, description: "Sub view selected")
+        type(required: false, type: PropertyType.String, description: "Mshops shop state", values: ["optin", "admin"])
+        url(required: false, type: PropertyType.String, description: "Shop url")
+    }
+
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline

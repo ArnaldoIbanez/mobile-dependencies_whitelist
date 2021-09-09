@@ -9,7 +9,11 @@ abstract class AbstractLinter {
     String errorMessage
 
     boolean passValidation(TrackDefinition definition) {
-        if(!validateTrack(definition) || !validateProperties(definition)) {
+        return validateTrackDefinition(definition) && validateProperties(definition)
+    }
+
+    boolean validateTrackDefinition(TrackDefinition definition) {
+        if(!validateTrack(definition)) {
             printFails("Track ${definition.path} with platform ${definition.platform} " +
                     "didn't pass validation => ${errorMessage}")
 
@@ -18,6 +22,18 @@ abstract class AbstractLinter {
 
         return true
     }
+
+    boolean validateProperties(TrackDefinition definition) {
+        if(!validateProperties(getPropertiesFromDefinition(definition))) {
+            printFails("Track ${definition.path} with platform ${definition.platform} " +
+                    "didn't pass properties validation => ${errorMessage}")
+
+            return false
+        }
+
+        return true
+    }
+
 
     abstract boolean validateTrack(TrackDefinition definition)
     abstract boolean validatePropertySet(List<TrackDefinitionProperty> properties)
@@ -31,8 +47,7 @@ abstract class AbstractLinter {
         return ((Map<String,TrackDefinitionProperty>) definition.properties).values().toList()
     }
 
-    boolean validateProperties(TrackDefinition trackDefinition) {
-        def definitionsProperties = getPropertiesFromDefinition(trackDefinition)
+    boolean validateProperties(List<TrackDefinitionProperty> definitionsProperties) {
         def isValid = validatePropertySet(definitionsProperties)
 
         def allNestedStructures = definitionsProperties.findAll{it.type instanceof MapProperty}.toList()

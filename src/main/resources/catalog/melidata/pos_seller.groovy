@@ -344,4 +344,10 @@ import com.ml.melidata.TrackType
 
         //Misc
         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
+
+        // fcu vs legacy router
+        "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+            to_flow(required: true, type: PropertyType.String, description: "Contains the result of the router's redirection", values: ["fcu","legacy"])
+            reason(required: true, type: PropertyType.String, description: "Why the router chose that flow", values: ["user_in_whitelist","user_not_in_whitelist","network_request_failed"])
+        }
 }
