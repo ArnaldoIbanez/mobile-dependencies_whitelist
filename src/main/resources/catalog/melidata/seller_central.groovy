@@ -696,7 +696,7 @@ tracks {
 
     //Listing empty state
 
-    "/seller_central/listings/empty_state_row"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row_empty_state"(platform: "/", type: TrackType.Event){
         sub_view_id(required: true, type: PropertyType.String, description: "View to activate", values: ["marketplace", "mshops"])
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(rowItemStructure)), description: "List of items with empty state action")
     }
@@ -709,12 +709,13 @@ tracks {
 
     "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
         sub_view_id(required: true, type: PropertyType.String, description: "Rendered or activated view id")
-        action(values: ["show", "click"])
+        action(required: true, type: PropertyType.String, values: ["render", "click"], description: "Action performed")
     }
 
     "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
-        sub_view_id(required: true, type: PropertyType.String, description: "Sub view")
-        action(required: true, type: PropertyType.String, description: "Action performed", values: ["show", "click"])
+        selected_view(required: true, type: PropertyType.String, description: "Sub view selected")
+        type(required: false, type: PropertyType.String, description: "Mshops shop state", values: ["optin", "admin"])
+        url(required: false, type: PropertyType.String, description: "Shop url")
     }
 
 
