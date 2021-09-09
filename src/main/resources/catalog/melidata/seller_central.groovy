@@ -138,7 +138,7 @@ tracks {
     }
 
     def sellerCoachCard = objectSchemaDefinitions {
-        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['RECOMMENDATION', 'CONTENT', 'TASK'])
+        type(required: true,  type: PropertyType.String, description: "Type of the card", values: ['RECOMMENDATION', 'CONTENT', 'TASK', 'ITEM'])
         key(required: true,  type: PropertyType.String, description: "Key of the card defined in the backoffice")
         page(required: false, type: PropertyType.Numeric, description: "Number of page where the card is shown")
         position(required: false, type: PropertyType.Numeric, description: "Position of the card (relative to the page)")

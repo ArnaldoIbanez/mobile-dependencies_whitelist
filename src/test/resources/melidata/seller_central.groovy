@@ -414,7 +414,7 @@ trackTests {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
-        type: "RECOMMENDATION",
+        type: "ITEM",
         key: "LIGHTNING_OFFER",
         page: 1,
         position: 3,
