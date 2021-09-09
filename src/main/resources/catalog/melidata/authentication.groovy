@@ -392,6 +392,16 @@ tracks {
         event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
+    // Password
+    "/auth/password_enrollment"(platform: "/", isAbstract: true, initiative: 1127) {
+        transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, values: ["continue"], description: "Describes element related to user action")
+    }
+
     //Attestation App
     "/auth/attestation"(platform: "/mobile", isAbstract: true, initiative: 1127) {}
 
