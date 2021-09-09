@@ -154,7 +154,7 @@ metrics {
 		}
 	}
 
-	"vis_credits/contact_intention"(description: "track contact intention as success for vis") {
+	"vis_credits.contact_intention"(description: "track contact intention as success for vis") {
 		startWith {
 			experiment(regex(visRegex))
 		}
