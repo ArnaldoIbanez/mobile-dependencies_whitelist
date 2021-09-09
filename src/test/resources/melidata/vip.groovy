@@ -1554,6 +1554,7 @@ trackTests {
         }
 
         "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
         }
 
         "/vip/new_shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
@@ -1569,6 +1570,7 @@ trackTests {
         }
 
         "/vip/new_shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+            item_id = "MLA533657947"
         }
 
         //Apps
@@ -1579,6 +1581,7 @@ trackTests {
         }
 
         "/vip/new_shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
+            item_id = "MLA533657947"
         }
 
 
@@ -1729,9 +1732,9 @@ trackTests {
             item_id = "MLC123456"
             context = "/vip"
             reason = "unavailable_property"
-            vertical = "realEstate"            
+            vertical = "realEstate"
         }
-        
+
         "/vip/denounce"(platform: "/web", type: TrackType.View){
            properties()
         }
