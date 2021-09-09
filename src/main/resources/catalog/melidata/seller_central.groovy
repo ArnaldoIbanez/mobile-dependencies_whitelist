@@ -714,7 +714,7 @@ tracks {
 
     "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
         selected_view(required: true, type: PropertyType.String, description: "Sub view selected")
-        type(required: false, type: PropertyType.String, description: "Mshops shop state")
+        type(required: false, type: PropertyType.String, description: "Mshops shop state", values: ["optin", ["admin"]])
         url(required: false, type: PropertyType.String, description: "Shop url")
     }
 
