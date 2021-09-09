@@ -1249,7 +1249,7 @@ trackTests {
             latest_news_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_type= "merchants_growth_reverse_screening"
             status= "read"
-        }        
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -5601,7 +5601,7 @@ trackTests {
         }
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
             event_type = "open"
-        }     
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -7932,7 +7932,7 @@ trackTests {
             latest_news_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_type= "merchants_growth_reverse_screening"
             status= "read"
-        }        
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -8517,7 +8517,7 @@ trackTests {
             latest_news_type= "prepaid_card_delayed_p1"
             status= "read"
         }
-        
+
         "/notification_center/prepaid_card_reprogrammed"(platform: "/mobile"){
             newsgroup_id= "prepaid_card_reprogrammed-186785675-76283123"
             latest_news_id= "prepaid_card_reprogrammed-186785675-76283123"
@@ -9199,6 +9199,10 @@ trackTests {
             news_id = "credit_card_transaction_withdrawal-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_transaction_kyc_onboarding"(platform: "/mobile") {
+            news_id = "credit_card_transaction_kyc_onboarding-12345678"
+            event_type = "shown"
+        }
         "/notification/card_first_use_incentive_thirdth_day"(platform: "/mobile") {
             news_id = "card_first_use_incentive_thirdth_day-12345678"
             event_type = "shown"
@@ -9700,7 +9704,7 @@ trackTests {
             news_id = "credits_consumer-opt_in_telcel_data_privacy-21680059-20180516"
             event_type = "shown"
         }
-        
+
         "/notification/credits_consumer_congrats_microlines"(platform: "/mobile") {
             news_id = "credits-credits_consumer_congrats_microlines-21680059-20180516"
             event_type = "shown"
@@ -12482,7 +12486,7 @@ trackTests {
         }
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
             event_type = "open"
-        }        
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -13958,7 +13962,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-                
+
         "/notification/cards_whatsapp_enrollment_confirmation"(platform: "/mobile") {
             news_id = "cards_whatsapp_enrollment_confirmation-186785675"
             event_type = "open"
@@ -13980,7 +13984,7 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-        
+
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
