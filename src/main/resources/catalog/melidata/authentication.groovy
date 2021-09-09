@@ -397,10 +397,9 @@ tracks {
         transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
-    "/auth/password_enrollment/action"(platform: "/", type: TrackType.Event) {
+    "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
         transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
-        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
-        event_type(type: PropertyType.String, required: true, description: "Type of event")
+        target(type: PropertyType.String, required: true, values: ["continue"], description: "Describes element related to user action")
     }
 
     //Attestation App

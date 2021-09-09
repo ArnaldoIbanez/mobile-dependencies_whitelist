@@ -3833,10 +3833,9 @@ trackTests {
         "/auth/password_enrollment"(platform: "/", type: TrackType.View) {
             transaction_id = "id"
         }
-        "/auth/password_enrollment/action"(platform: "/", type: TrackType.Event) {
+        "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
             transaction_id = "id"
             target = "continue"
-            event_type = "click"
         }
     }
 
