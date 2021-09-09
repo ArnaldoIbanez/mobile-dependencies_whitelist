@@ -9,6 +9,7 @@ class RequireValuesLinter extends AbstractLinter {
 
     RequireValuesLinter(List<String> candidateProperties) {
         this.candidateProperties = candidateProperties
+        this.errorMessage = "Please consider adding values:[] to properties with a discrete values"
     }
 
     @Override
