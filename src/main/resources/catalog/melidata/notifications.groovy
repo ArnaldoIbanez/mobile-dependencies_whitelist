@@ -1778,7 +1778,7 @@ tracks {
 
           //For event_type:autodismiss, indicates why the notification was dismissed
           source(required: false,
-                 values: ["notification_center","logout","overwrite","dismiss_notification"])
+                 values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
 
           discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
 
@@ -1792,7 +1792,7 @@ tracks {
           device_id(required: false, description: "The real device_id, may differ from device field")
           device_status(required: false, values: ["active", "not_engaged"], description: "Device status at the moment")
 
-          context(required: false, type: PropertyType.String)
+          context(required: false, type: PropertyType.String, description: "Context of the notification")
 
           send_health_check(required: false, type: PropertyType.Boolean, description: "Indicates if notification has associated a health check's sent")
       }
