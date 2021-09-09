@@ -32,6 +32,7 @@ trackTests {
                     ]
             ]
             viewer_info = [
+                    "loyalty_level": 1,
                     "zipcode"    : "1416",
                     "muted"      : false,
                     "overlay_on" : true,
@@ -54,6 +55,7 @@ trackTests {
         "/melilive/stream/exit"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             viewer_info = [
+                    "loyalty_level": 1,
                     "zipcode"    : "1416",
                     "orientation": "landscape"
             ]
@@ -66,6 +68,7 @@ trackTests {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             start_at = "2021-01-23T17:00:48Z"
             viewer_info = [
+                    "loyalty_level": 1,
                     "zipcode"    : "1416",
                     "orientation": "landscape"
             ]
@@ -78,10 +81,6 @@ trackTests {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             status = "LIVE"
             group_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
-            viewer_info = [
-                    "zipcode"    : "1416",
-                    "orientation": "landscape"
-            ]
             products = [
                 [
                    "item_id" : "MLA750284572",
@@ -96,10 +95,6 @@ trackTests {
         "/melilive/stream/share"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             url = "http://2ecee02e-49fc-48d7-94b0-1a19adb2a1fb"
-            viewer_info = [
-                    "zipcode"    : "1416",
-                    "orientation": "landscape"
-            ]
         }
     }
 
@@ -109,10 +104,6 @@ trackTests {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             item_id = "MLA5646513"
             context = "/melilive"
-            viewer_info = [
-                    "zipcode"    : "1416",
-                    "orientation": "landscape"
-            ]
         }
     }
 
@@ -122,10 +113,6 @@ trackTests {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             item_id = "MLA5646513"
             context = "/melilive"
-            viewer_info = [
-                    "zipcode"    : "1416",
-                    "orientation": "landscape"
-            ]
         }
     }
 }

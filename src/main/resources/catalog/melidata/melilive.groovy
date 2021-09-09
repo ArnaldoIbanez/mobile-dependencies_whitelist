@@ -44,7 +44,8 @@ tracks {
     }
 
     def viewer_info_definition = objectSchemaDefinitions {
-        zipcode(required: false, type: PropertyType.String, description: "User's Zipcode")
+        loyalty_level(required: true, type: PropertyType.Numeric, description: "Current Loyalty Level")
+        zipcode(required: true, type: PropertyType.String, description: "User's Zipcode")
         muted(required: false, type: PropertyType.Boolean, description: "Flag if video is muted or not")
         overlay_on(required: false, type: PropertyType.Boolean, description: "Flag if video has overlay on or not")
         orientation(required: true, type: PropertyType.String, description: "Current orientation, landscape or portrait")
@@ -83,14 +84,13 @@ tracks {
         status(required: true, type: PropertyType.String, description: "Current status of the broadcast: LIVE, RECORDED")
         group_id(required: true, type: PropertyType.String, description: "Group ID selected")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
-        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
         products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_group_info_definition)), description: "Product added to the group")
     }
 
     "/melilive/stream/share"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
         url(required: true, type: PropertyType.String, description: "Shared URL")
-        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
+        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
 
     "/melilive/stream/bookmark"("platform": "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
@@ -99,7 +99,6 @@ tracks {
         product_id(required: false, type: PropertyType.String, description:  "Product Id")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
         context(required: true, type: PropertyType.String, description: "Melilive Context")
-        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
 
     "/melilive/stream/bookmark/add"("platform": "/", type: TrackType.Event) {
