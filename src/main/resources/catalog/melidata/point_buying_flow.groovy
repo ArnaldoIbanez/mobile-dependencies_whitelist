@@ -90,11 +90,11 @@ tracks {
         groupCheckoutProperties
         has_account_money (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has enough money in account")
         has_consumer_credits (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has credit balance")
-        payment_status_detail (type: PropertyType.Boolean, required: false, description: "Flag that shows payment status detail")
-        payment_status (type: PropertyType.Boolean, required: false, description: "Flag that shows payment status detail")
-        payment_method_id (type: PropertyType.Boolean, required: false, description: "Flag that shows the selected payment method")
-        payment_installments (type: PropertyType.Boolean, required: false, description: "Flag that shows the quantity of installments")
-        payment_type_id (type: PropertyType.Boolean, required: false, description: "Flag that shows the type of selected payment")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Flag that shows payment status detail")
+        payment_status (type: PropertyType.String, required: false, description: "Flag that shows payment status detail")
+        payment_method_id (type: PropertyType.String, required: false, description: "Flag that shows the selected payment method")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Flag that shows the quantity of installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Flag that shows the type of selected payment")
     }
 
     "/point/buyingflow/shipping/invalid_address"(platform: "/", type: TrackType.View) {

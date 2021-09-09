@@ -2694,6 +2694,15 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credits_consumer_onboarding_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_onboarding_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_onboarding_mp_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_onboarding_mp_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
         "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {
             news_id = "credits-consumer_expired_eighty_notice-21680059-20180516"
             event_type = "shown"
@@ -2716,6 +2725,14 @@ trackTests {
         }
         "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {
             news_id = "credits-consumer_expired_nine_mp_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_fifteen_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_fifteen_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_fifteen_mp_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_fifteen_mp_notice-21680059-20180516"
             event_type = "shown"
         }
 
@@ -3938,6 +3955,30 @@ trackTests {
             action_type = "favorite"
         }
 
+        "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
+        "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
+        "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
         "/notification/mediations_legacy_complainant"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
@@ -3949,6 +3990,20 @@ trackTests {
 
         "/notification/mediations_respondent"(platform: "/mobile") {
             news_id = "mediations-respondent-1013715421-5b0d7ee426e063333fe0c582"
+            event_type = "shown"
+            notification_style = "c"
+            claim_id = 1013715459
+        }
+
+        "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations-pdd_dispute_with_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
+            event_type = "shown"
+            notification_style = "c"
+            claim_id = 1013715459
+        }
+
+        "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations-pdd_dispute_without_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
             notification_style = "c"
             claim_id = 1013715459
@@ -10988,6 +11043,30 @@ trackTests {
             action_type = "favorite"
         }
 
+        "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
+        "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
+        "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "auto_dismiss"
+            notification_style = "BigTextStyle"
+            claim_id = 3123
+            action_type = "favorite"
+        }
+
         "/notification/mediations_legacy_complainant"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
@@ -10999,6 +11078,20 @@ trackTests {
 
         "/notification/mediations_respondent"(platform: "/mobile") {
             news_id = "mediations-respondent-1013715421-5b0d7ee426e063333fe0c582"
+            event_type = "shown"
+            notification_style = "c"
+            claim_id = 1013715459
+        }
+
+        "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations-pdd_dispute_with_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
+            event_type = "shown"
+            notification_style = "c"
+            claim_id = 1013715459
+        }
+
+        "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations-pdd_dispute_without_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
             notification_style = "c"
             claim_id = 1013715459
