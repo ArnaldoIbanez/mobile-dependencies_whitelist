@@ -6717,6 +6717,14 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
+        // Delay Compensation
+        "/notification/shipping_delay_compensation_cashback"(platform: "/mobile"){
+            news_id = "shipping_delay_compensation-cashback-786729047-40778713229"
+            event_type = "open"
+            notification_type= "deep_linking"
+            shipment_id = 123
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -13348,6 +13356,14 @@ trackTests {
             case_id= 12345678
             event_type = "sent"
         }
+
+        // Delay Compensation
+        "/notification/shipping_delay_compensation_cashback"(platform: "/web"){
+            news_id = "shipping_delay_compensation-cashback-786729047-40778713229"
+            event_type = "open"
+            shipment_id = 123
+        }
+
 
         "/notification/openplatform_sellers_inhouse"(platform: "/mobile"){
             notification_id= "12345"
