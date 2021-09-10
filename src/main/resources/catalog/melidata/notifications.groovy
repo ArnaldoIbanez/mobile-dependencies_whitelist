@@ -1769,7 +1769,7 @@ tracks {
             values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
             description: "Type of notification event")
           action_type(required: false,
-            values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"], 
+            values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification action")
           notification_type(required: false,
             values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
@@ -1895,6 +1895,7 @@ tracks {
     "/notification/credit_card_transaction_statement_payment"(platform: "/") {}
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
+    "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
 
       //ChargeBack
       "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/") {
@@ -1999,7 +2000,10 @@ tracks {
         loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
-    
+
+    "/notification/credits_consumer_onboarding_mp_notice"(platform: "/") {}
+    "/notification/credits_consumer_onboarding_notice"(platform: "/") {}
+
     "/notification/credits_consumer_opt_in_telcel_data_privacy"(platform: "/") {}
     "/notification/credits_consumer_congrats_microlines"(platform: "/") {}
 
@@ -2010,7 +2014,7 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
-    
+
     "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_notice"(platform: "/") {}
@@ -2603,6 +2607,24 @@ tracks {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
           order_id(required: true, type: PropertyType.Numeric)
       }
+
+      //MediationsV2
+      "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+      "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/") {
+          claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+      }
+
 
       //Moderation
       "/notification/moderations_item_to_patch"(platform: "/") {
@@ -3674,4 +3696,9 @@ tracks {
     // Proximity Marketplace Order Manager
     "/notification/pm_om_notification_store_opening"(platform: "/") {}
     "/notification/pm_om_notification_store_opening_whatsapp"(platform: "/") {}
+
+    // Delay Compensation
+    "/notification/shipping_delay_compensation_cashback"(platform: "/"){
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
 }
