@@ -23,7 +23,7 @@ tracks {
     def component_definition = objectSchemaDefinitions {
         component_id(required: true, type: PropertyType.String, description: "parent component id")
         component_data(required: false, type: PropertyType.Map(element_definition), description: "child component relevant content data")
-        content_id(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "children component ids")
+        content_id(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "children component ids")
     }
 
     //Definitions
