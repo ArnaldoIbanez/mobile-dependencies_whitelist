@@ -23,7 +23,7 @@ tracks {
 
     "/home"(platform: "/", type: TrackType.View){}
 
-    "/home/landing"(platform: "/", type: TrackType.View){}
+    "/home/landing"(platform: "/", type: TrackType.View, parentPropertiesInherited:false){}
 
     "/home/landing/click"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
