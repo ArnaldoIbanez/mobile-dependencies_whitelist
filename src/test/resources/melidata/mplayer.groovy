@@ -372,13 +372,15 @@ trackTests {
         }
         "/funds_movements/new_transfer/pill/tapped/format_match"(platform: "/mobile") {
             success = true
+            type = "CPF"
         }
         "/funds_movements/new_transfer/pill/tapped/account_match"(platform: "/mobile") {
             success = false
+            type = "CNPJ"
         }
-        "/funds_movements/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
 
         // Unification - Bottom Sheet
+        "/funds_movements/bottom_sheet"(platform: "/mobile") {}
         "/funds_movements/bottom_sheet/warnings"(platform: "/mobile") {
             types = ["next_step"]
         }
