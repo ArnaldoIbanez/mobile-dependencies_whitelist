@@ -110,6 +110,8 @@ tracks {
     "/banking/balance/retained_component"(platform: "/", type: TrackType.View) { componentsPrints }
     "/banking/balance/card_to_release_component"(platform: "/", type: TrackType.View) { componentsPrints }
     "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) { componentsPrints }
+    "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) { componentsPrints }
 
     // Components ToRelease
     "/banking/to_release/print"(platform: "/", type: TrackType.View) { componentsPrints }

@@ -131,6 +131,27 @@ trackTests {
                 ]
             ]
         }
+
+       "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) {
+            my_money_last_activities = [
+                 component_id: 'open_banking',
+                 component_data: [
+                     content_id: [
+                        'Mercado Pago',
+                        'Cadastrar conta'
+                     ]
+                 ]
+             ]
+        }
+
+        "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) {
+             my_money_last_activities = [
+                  component_id: 'debt_balance',
+                  component_data: [
+                      status: 'printed'
+                 ]
+             ]
+         }
     }
 
     test("Balance to release") {
