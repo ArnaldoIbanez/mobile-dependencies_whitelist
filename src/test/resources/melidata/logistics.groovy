@@ -100,19 +100,19 @@ trackTests {
             vehicle_id = "786"
         }
 
-        //Login driver on route duplicate
-        "/logistics/login/driver_on_route/duplicate"(platform: "/mobile", type: TrackType.View) {
-            defaultLocation()
-            route_id = "1234"
-            driver_id = "1234"
-            vehicle_id = "1234"
-            logistic_type = "last_mile"
-        }
-
         //Profile
         "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             driver_id = "987"
+        }
+
+        //Login duplicate driver warning
+        "/logistics/login/duplicate_driver_warning"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = 1234
+            vehicle_id = 1234
+            logistic_id = "last_mile"
         }
 
         //Geolocation permission
