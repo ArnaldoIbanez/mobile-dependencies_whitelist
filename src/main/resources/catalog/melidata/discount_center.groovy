@@ -148,12 +148,53 @@ tracks {
         original_price(type: PropertyType.Numeric, required: false, description: "The price without discount")
     }
 
+    def option_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "The option's identifier")
+        title(type: PropertyType.String, required: true, description: "The options's title")
+        quantity(type: PropertyType.Numeric, required: true, description: "The option's default quantity")
+        min_quantity(type: PropertyType.Numeric, required: false, description: "The min quantity required")
+        max_quantity(type: PropertyType.Numeric, required: false, description: "The option's max quantity possible")
+        value(type: PropertyType.Numeric, required: false, description: "The option's price")
+    }
+
+    def section_option_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "The option's identifier")
+        title(type: PropertyType.String, required: true, description: "The options's title")
+        opctions(type: PropertyType.ArrayList(PropertyType.Map(option_definition)), required: true, "The section option's options")
+    }
+
+    def section_definition = objectSchemaDefinitions{
+        id(type: PropertyType.String, required: true, description: "The section's identifier")
+        type(type: PropertyType.String, required: true, description: "The section's type")
+        min_quantity(type: PropertyType.Numeric, required: false, description: "The min quantity required for the section")
+        max_quantity(type: PropertyType.Numeric, required: false, description: "The max possible quantity for the section")
+        disabled(type: PropertyType.Boolean, required: false, description: "Either the section is enabled or not")
+        options(type: PropertyType.ArrayList(PropertyType.Map(section_option_definition)), required: true, description: "The array of options for the section")
+    }
+
+    def selected_option_definition = objectSchemaDefinitions{
+        item_id(type: PropertyType.String, required: true, description: "Option's identifier")
+        quantity(type: PropertyType.Numeric, required: true, description: "Option'' quantity selected")
+    }
+    def selected_bundle_definition = objectSchemaDefinitions{
+        bundle_id(type: PropertyType.String, required:true, description: "Kit identifier")
+        selected_options(type: PropertyType.ArrayList(PropertyType.Map(selected_option_definition)), required: false, description: "Option selected")
+    }
+
     // VIP
 
     "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
         vipGroup
         amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
         context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
+        quantity(type: PropertyType.Numeric, required: true, description: "The item quantity default value")
+        element_id(type: PropertyType.Numeric, required: false, description: "The identifier for a item with kit configuration")
+        sections(type: PropertyType.ArrayList(PropertyType.Map(section_definition)), required: false, description: "The kit available for the item")
+    }
+
+    "/discount_center/payers/vip/add_item/frictions/no_compliance" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(type: PropertyType.String, required: true, description: "Item's identifier")
+        options(type: PropertyType.ArrayList(PropertyType.Map(selected_bundle_definition)), required: true, description: "Option selected")
     }
 
 
