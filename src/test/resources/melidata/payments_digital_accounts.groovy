@@ -118,7 +118,7 @@ trackTests {
         "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) {
             my_money_last_activities = [
                 component_id: 'last_activities',
-                content_id: []
+                content_id: [],
                 component_data: [
                     elements: 5
                 ]
@@ -128,7 +128,7 @@ trackTests {
         "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) {
             my_money_last_activities = [
                 component_id: 'last_activities',
-                content_id: []
+                content_id: [],
                 component_data: [
                     elements: 5,
                     status: 'disabled'
@@ -152,7 +152,7 @@ trackTests {
         "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) {
              my_money_debt_balance = [
                   component_id: 'debt_balance',
-                  content_id: []
+                  content_id: [],
                   component_data: [
                       status: 'printed'
                  ]
