@@ -152,7 +152,6 @@ trackTests {
         "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) {
              my_money_debt_balance = [
                   component_id: 'debt_balance',
-                  content_id: [],
                   component_data: [
                       status: 'printed'
                  ]
