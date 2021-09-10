@@ -10,3 +10,6 @@ You need to fill all these checks in order to merge your Pull Request
 - [ ] I know (or at least believe) no one is tracking this  	
 - [ ] By reading the path I can tell what the track is about	
 - [ ] I've read all melidata documentation on how to track, and I'm fulfilling all standards
+
+## Catalog documentation
+https://sites.google.com/mercadolibre.com/melidata/tracking/melidata-catalog
