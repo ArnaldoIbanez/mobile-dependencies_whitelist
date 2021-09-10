@@ -120,15 +120,17 @@ tracks {
         vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
     }
     "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
-        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: true)
-        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: true)
-    }
-    "/logistics/login/driver_on_route/duplicate"(platform: "/mobile", type: TrackType.View) {
-        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
-        logistic_type(required: true, type: PropertyType.String, description: "Specifies the current logistic type of the driver", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
     }
     "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+    }
+    "/logistics/login/duplicate_driver_warning"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        logistic_id(required: true, type: PropertyType.String, description: "Specifies the current logistic type of the driver", inheritable: false)
     }
 
     "/logistics/flow_decision/start"(platform: "/mobile", type: TrackType.View) {}
