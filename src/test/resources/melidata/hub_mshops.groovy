@@ -39,6 +39,15 @@ trackTests {
         }
     }
 
+    test("Mercado Shops hub onboarding") {
+        "/shops/hub/onboarding"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+    }
+
     test("Mercado Shops edit section") {
         "/shops/hub/edit"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
@@ -268,6 +277,25 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             tool = "google_shopping"
+        }
+    }
+
+    test("Mercado Shops sidebars") {
+        "/shops/hub/sidebar"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            sidebar_name = "logo"
+        }
+
+        "/shops/hub/sidebar/save_changes"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            success = true
+            sidebar_name = "whatsapp"
         }
     }
 }
