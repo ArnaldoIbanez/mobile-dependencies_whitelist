@@ -49,18 +49,20 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         // Components
-        my_money_available(required: false, type: PropertyType.Map(component_definition))
-        my_money_card_available(required: false, type: PropertyType.Map(component_definition))
-        my_money_to_release(required: false, type: PropertyType.Map(component_definition))
-        my_money_card_to_release(required: false, type: PropertyType.Map(component_definition))
-        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition))
-        my_money_cross_selling_carousel(required: false, type: PropertyType.Map(component_definition))
-        my_money_retained(required: false, type: PropertyType.Map(component_definition))
-        my_money_to_advance(required: false, type: PropertyType.Map(component_definition))
-        my_money_last_activities(required: false, type: PropertyType.Map(component_definition))
-        my_money_card_calendar(required: false, type: PropertyType.Map(component_definition))
-        my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition))
-        my_money_cerc(required: false, type: PropertyType.Map(component_definition))
+        my_money_available(required: false, type: PropertyType.Map(component_definition), description: "Available component print")
+        my_money_card_available(required: false, type: PropertyType.Map(component_definition), description: "Card Available component print")
+        my_money_to_release(required: false, type: PropertyType.Map(component_definition), description: "ToRelease component print")
+        my_money_card_to_release(required: false, type: PropertyType.Map(component_definition), description: "Card ToRelease component print")
+        my_money_shortcuts(required: false, type: PropertyType.Map(component_definition), description: "Shorts Component print")
+        my_money_cross_selling_carousel(required: false, type: PropertyType.Map(component_definition), description: "Cross Selling carousel print")
+        my_money_retained(required: false, type: PropertyType.Map(component_definition), description: "Retained component print")
+        my_money_to_advance(required: false, type: PropertyType.Map(component_definition), description: "ToAdvance component print")
+        my_money_last_activities(required: false, type: PropertyType.Map(component_definition), description: "Last Activities component print")
+        my_money_card_calendar(required: false, type: PropertyType.Map(component_definition), description: "CardCalendar component print")
+        my_money_calendar_daily(required: false, type: PropertyType.Map(component_definition), description: "Calendar Daily component ptint")
+        my_money_cerc(required: false, type: PropertyType.Map(component_definition), description: "Card CERC component print")
+        my_money_open_banking(required: false, type: PropertyType.Map(component_definition), description: "Open Banking component print")
+        my_money_debt_balance(required: false, type: PropertyType.Map(component_definition), description: "Debt balance component print")
     }
 
     propertyGroups {
