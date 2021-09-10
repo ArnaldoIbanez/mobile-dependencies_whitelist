@@ -85,60 +85,47 @@ tracks {
                 action_type
         )
         availablePrint (
-                my_money_available,
+                my_money_available
         )
-        cardAvailablePrint {
-                my_money_card_available,
-
-        }
-        toReleasePrint {
-                my_money_to_release,
-
-        }
-        cardToReleasePrint {
+        cardAvailablePrint (
+                my_money_card_available
+        )
+        toReleasePrint (
+                my_money_to_release
+        )
+        cardToReleasePrint (
                 my_money_card_to_release
-
-        }
-        shortcutsPrint {
+        )
+        shortcutsPrint (
                 my_money_shortcuts
-
-        }
-        crossSellingCarouselPrint {
+        )
+        crossSellingCarouselPrint (
                 my_money_cross_selling_carousel
-
-        }
-        retainedPrint {
+        )
+        retainedPrint (
                 my_money_retained
-
-        }
-        toAdvancePrint {
+        )
+        toAdvancePrint (
                 my_money_to_advance
-
-        }
-        lastActivitiesPrint {
+        )
+        lastActivitiesPrint (
                 my_money_last_activities
-
-        }
-        cardCalendarPrint {
+        )
+        cardCalendarPrint (
                 my_money_card_calendar
-
-        }
-        calendarDailyPrint {
+        )
+        calendarDailyPrint (
                 my_money_calendar_daily
-
-        }
-        cercPrint {
+        )
+        cercPrint (
                 my_money_cerc
-
-        }
-        openBankingPrint {
+        )
+        openBankingPrint (
                 my_money_open_banking
-        }
-
-        debtBalancePrint {
+        )
+        debtBalancePrint (
                 my_money_debt_balance
-
-        }
+        )
     }
 
     // MP Banking
