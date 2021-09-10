@@ -104,7 +104,7 @@ tracks {
     "/melilive/stream/bookmark/add"("platform": "/", type: TrackType.Event) {
     }
 
-    "/melilive/stream/bookmark/delete"("platform": "/", type: TrackType.Event) {
+    "/melilive/stream/bookmark/remove"("platform": "/", type: TrackType.Event) {
     }
 
 }

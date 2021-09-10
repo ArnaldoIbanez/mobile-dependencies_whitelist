@@ -107,9 +107,9 @@ trackTests {
         }
     }
 
-    test("Melilive Bookmark Deleted") {
+    test("Melilive Bookmark Removed") {
 
-        "/melilive/stream/bookmark/delete"(platform: "/") {
+        "/melilive/stream/bookmark/remove"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             item_id = "MLA5646513"
             context = "/melilive"
