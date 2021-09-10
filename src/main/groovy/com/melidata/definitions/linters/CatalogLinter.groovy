@@ -46,10 +46,16 @@ class CatalogLinter {
             } else {
                 if(!prodDef.any {newDefinition.equals(it)}) {
                     Map<String, TrackDefinitionProperty> propertiesMerge = [:]
-                    prodDef.forEach {propertiesMerge.putAll(it.properties)}
-                    newDefinition.properties = [:] << newDefinition.properties.findAll { String name, prop ->
-                        propertiesMerge[name] == null || !prop.equals(propertiesMerge[name])
+
+                    newDefinition.properties.each {String name, TrackDefinitionProperty prop ->
+                        if(!prodDef.collect {((Map) it.properties).values()}.flatten().contains(prop)) {
+                            propertiesMerge.put(name, prop)
+                        }
                     }
+
+
+                    newDefinition.properties = propertiesMerge
+
                     if(!linters.every {it.validateProperties(newDefinition)}) {
                         isValid = false
                     }
