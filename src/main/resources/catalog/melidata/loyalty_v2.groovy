@@ -168,8 +168,8 @@ tracks {
     }
 
     "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View) {
-        type(required: false, description: "Action type"
-                ,values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
+        type(required: false, description: "Action type",values: ["widgetBuyLevel", "floating", "primary", "secondary", "close", "login", "activate"], type: PropertyType.String)
+        selected_option(required: false, description: "Option to pay if there is more than one", values: ["option-1", "option-2", "option-3", "option-4", "option-5", "option-6"], type: PropertyType.String)
     }
 
     "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.Event) {
