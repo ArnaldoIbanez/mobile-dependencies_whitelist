@@ -397,4 +397,105 @@ tracks {
     "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // home Adhesion/Invoices
+    "/bill_payments/home/adhesion_search"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/home/invoices"(platform: "/mobile", type: TrackType.Event) {}
+
+    // main category Scheduling
+    "/bill_payments/main_category/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/main_category/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/main_category/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/main_category/scheduling/item"(platform: "/mobile", type: TrackType.Event) {
+        entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+    }
+    "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
+        search (required:true, type: PropertyType.String, description: "The searched string")
+    }
+    "/bill_payments/main_category/scheduling/result_search"(platform: "/mobile", type: TrackType.Event) {
+        search (required:true, type: PropertyType.String, description: "The searched string")
+    }
+
+    // Scheduling
+    // empty state ftu
+    "/bill_payments/empty_state_ftu/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/empty_state_ftu/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/empty_state_ftu/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {}
+
+    // empty state
+    "/bill_payments/empty_state/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/empty_state/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/empty_state/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/empty_state/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    // ftu kyc
+    "/bill_payments/ftu_kyc/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/ftu_kyc/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/ftu_kyc/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    // required data
+    "/bill_payments/required_data/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/required_data/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/required_data/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/required_data/scheduling/button_continue"(platform: "/mobile", type: TrackType.Event) {}
+
+    // confirm optin
+    "/bill_payments/confirm_optin/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/confirm_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/confirm_optin/scheduling/checkbox_selected"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/confirm_optin/scheduling/checkbox_unselected"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/confirm_optin/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {}
+
+    // optin list
+    "/bill_payments/optin_list/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/optin_list/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/optin_list/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/optin_list/scheduling/search_entities_scheduling"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/optin_list/scheduling"(platform: "/mobile", type: TrackType.Event) {
+        entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+    }
+
+    // optout
+    "/bill_payments/optout/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/optout/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/optout/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+    // optout dda
+    "/bill_payments/optout_dda/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/optout_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/optout_dda/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+    // adhesion detail
+    "/bill_payments/adhesion_detail/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/adhesion_detail/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/adhesion_detail/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/adhesion_detail/scheduling/message_button"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/adhesion_detail/scheduling/notification_preference"(platform: "/mobile", type: TrackType.Event) {}
+
+    // adhesion detail dda
+    "/bill_payments/adhesion_detail_dda/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/adhesion_detail_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/adhesion_detail_dda/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/adhesion_detail_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+    // congrat optout
+    "/bill_payments/congrats_optout/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/congrats_optout/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats_optout/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // congrat optout dda
+    "/bill_payments/congrats_optout_dda/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/congrats_optout_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats_optout_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // congrat optin
+    "/bill_payments/congrats_optin/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/congrats_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats_optin/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    // congrat optin dda
+    "/bill_payments/congrats_optin_dda/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/congrats_optin_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats_optin_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
 }
