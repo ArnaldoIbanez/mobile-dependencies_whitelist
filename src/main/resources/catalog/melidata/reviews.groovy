@@ -13,7 +13,6 @@ tracks {
 
     //REVIEWS FRONTEND
     "/reviews/form"(platform: "/") {
-        step(required: false)
         flow(required: false)
         action(required: false)
     }
