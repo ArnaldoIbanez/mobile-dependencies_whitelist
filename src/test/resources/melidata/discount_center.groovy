@@ -186,7 +186,7 @@ trackTests {
     test("Mercado Pago discount center payers marketplace") {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            product_type="delivery"
+            product_type = "delivery"
         }
     }
 
@@ -574,7 +574,7 @@ trackTests {
                             ]
                 ],
             ]
-            product_type="proximity"
+            product_type = "proximity"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
@@ -895,7 +895,7 @@ trackTests {
                     ]
                 ]
             ]
-            product_type= "delivery"
+            product_type = "delivery"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
