@@ -13,6 +13,7 @@ tracks {
 
     //REVIEWS FRONTEND
     "/reviews/form"(platform: "/") {
+        step(required: false, description: "executed action in the reviews form")
         flow(required: false)
         action(required: false)
     }
