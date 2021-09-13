@@ -22,11 +22,9 @@ trackTests {
         }
         "/funds_movements/new_transfer/pill/tapped/format_match"(platform: "/mobile") {
             success = true
-            type = "CPF"
         }
         "/funds_movements/new_transfer/pill/tapped/account_match"(platform: "/mobile") {
             success = false
-            type = "CNPJ"
         }
 
         // Unification - Bottom Sheet
