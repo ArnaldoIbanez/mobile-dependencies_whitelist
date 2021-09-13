@@ -2014,7 +2014,7 @@ tracks {
 
     "/seller_central/catalog/optin_v2/product_comparator/selected"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        comparison_selected(required: false, description: "Comparison selected", type: PropertyType.String,  values: ["SAME_PRODUCT", "WRONG_PRODUCT"])
+        comparison_selected(required: true, description: "Comparison selected", type: PropertyType.String,  values: ["SAME_PRODUCT", "WRONG_PRODUCT"])
     }
 
     "/seller_central/catalog/optin_v2/suggested_corrections"(platform: "/web", type: TrackType.View) {
@@ -2023,7 +2023,7 @@ tracks {
 
     "/seller_central/catalog/optin_v2/suggested_corrections/selected"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        suggested_correction(required: false, description: "Suggested Correction", type: PropertyType.Boolean)
+        suggested_correction(required: true, description: "Suggested Correction", type: PropertyType.Boolean)
     }
 
     "/seller_central/catalog/optin_v2/item_plus_card"(platform: "/web", type: TrackType.View) {
@@ -2044,8 +2044,8 @@ tracks {
 
     "/seller_central/catalog/optin_v2/product_search/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        product_selected(required: false, description: "Product Selection", type: PropertyType.String)
-        product_index_selected(required: false, description: "Product Index Selection", type: PropertyType.Numeric)
+        product_selected(required: true, description: "Product Selection", type: PropertyType.String)
+        product_index_selected(required: true, description: "Product Index Selection", type: PropertyType.Numeric)
     }
 
     "/seller_central/catalog/optin_v2/product_search/update"(platform: "/web", type: TrackType.Event) {
@@ -2059,7 +2059,7 @@ tracks {
 
     "/seller_central/catalog/optin_v2/iterative_search/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        product_selected(required: false, description: "Product Selection", type: PropertyType.String)
+        product_selected(required: true, description: "Product Selection", type: PropertyType.String)
     }
 
     "/seller_central/catalog/optin_v2/iterative_search/update"(platform: "/web", type: TrackType.Event) {
@@ -2081,13 +2081,14 @@ tracks {
     }
 
     "/seller_central/catalog/optin_v2/invoice"(platform: "/web", type: TrackType.View) {
-      sellerCentralCatalogOptinGroupV2
-        invoice_type(required: false, description: "Invoice Type", type: PropertyType.String,  values: ["ITEM_PLUS", "OPTIN"])
+        sellerCentralCatalogOptinGroupV2
+        invoice_type(required: true, description: "Invoice Type", type: PropertyType.String,  values: ["ITEM_PLUS", "OPTIN"])
     }
 
     "/seller_central/catalog/optin_v2/invoice/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        invoice_selection(required: false, description: "Invoice Selection", type: PropertyType.Boolean)
+        invoice_type(required: true, description: "Invoice Type", type: PropertyType.String,  values: ["ITEM_PLUS", "OPTIN"])
+        invoice_selection(required: true, description: "Invoice Selection", type: PropertyType.Boolean)
     }
 
 
