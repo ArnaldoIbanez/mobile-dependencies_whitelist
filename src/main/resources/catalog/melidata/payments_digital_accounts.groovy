@@ -55,7 +55,7 @@ tracks {
         embargo_invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money retained by embargo")
         invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money invested")
         to_release(required: true, type: PropertyType.Boolean, description: "Indicates if user has money to release")
-        shortcuts(required: true, type: PropertyType.ArrayList, description: "Indicates the shortcuts available for the user")
+        shortcuts(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Indicates the shortcuts available for the user")
         activities(required: true, type: PropertyType.Boolean, description: "Indicates if user has money activities")
         cerc(required: true, type: PropertyType.Boolean, description: "Indicates if user has cerc capability")
 
