@@ -483,6 +483,7 @@ trackTests {
             type = "secondary"
             level = 4
             subscribed_plans = []
+            selected_option = "option-1"
         }
 
         "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -495,6 +496,7 @@ trackTests {
             type = "login"
             level = 8
             subscribed_plans = ["ESPN", "STAR+"]
+            selected_option = "option-3"
         }
     }
 
