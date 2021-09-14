@@ -24,7 +24,7 @@ tracks {
     }
 
     "/"(platform: "/mobile", isAbstract: true) {
-        sent_again(required: false)
+        sent_again(required: false, description: "If track has already been sent")
     }
 
     "/blog"(platform: "/web", isAbstract: true, initiative: "1145") {
@@ -48,6 +48,10 @@ tracks {
         coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+        bu (type: PropertyType.String, required: false, description: "business unit, value: 'POINT', null")
+        ch (type: PropertyType.String, required: false, description: "sales channel, values: ['MGM', 'ORG', 'MPOS', 'XSELL', null]")
+        camp (type: PropertyType.String, required: false, description: "campaign, values: string or null")
+        strategy (type: PropertyType.String, required: false, description: "strategy, values: string or null")
     }
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
@@ -119,7 +123,7 @@ tracks {
         extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
 
-    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1125" ) {}
+    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1096" ) {}
 
     "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
     "/shortcuts/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
@@ -161,7 +165,7 @@ tracks {
 
     // MP Mobile Point Catalog
 
-    "/catalog"(platform: "/mobile", type: TrackType.View, initiative: "1033") {}
+    "/catalog"(platform: "/mobile", type: TrackType.View, initiative: "1029") {}
     "/catalog/create_product"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/create_product/picture"(platform: "/mobile", type: TrackType.View) {}
     "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
@@ -275,11 +279,11 @@ tracks {
 
     "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
-    "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
+    "/settings"(platform: "/mobile", isAbstract: true,initiative: "1074" ) {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1096") {
         sent_again (required: false)
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         cost_type (required:false, type: PropertyType.String, description: "Cost type receive/charge")
@@ -354,7 +358,7 @@ tracks {
     "/campaigns/create"(platform: "/web", type: TrackType.View){}
     "/campaigns/confirm_create"(platform: "/web"){}
 
-    "/subscription_plan"(platform: "/web", isAbstract: true, initiative: "1036"){}
+    "/subscription_plan"(platform: "/web", isAbstract: true, initiative: "1248"){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
     "/subscription_plan/confirm_create"(platform: "/web"){
         flow(required: true, PropertyType.String, description: "The flow of the track")
@@ -389,7 +393,6 @@ tracks {
 
     // About events
     "/about"(platform: "/mobile", isAbstract: true) {}
-    "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
     /**
     * Register Point Devices

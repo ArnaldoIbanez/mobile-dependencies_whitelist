@@ -23,7 +23,7 @@ tracks {
 
     "/home"(platform: "/", type: TrackType.View){}
 
-    "/home/landing"(platform: "/", type: TrackType.View){}
+    "/home/landing"(platform: "/", type: TrackType.View, parentPropertiesInherited:false){}
 
     "/home/landing/click"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
@@ -36,5 +36,11 @@ tracks {
     "/home/landing/already_active"(platform: "/", type: TrackType.Event){
         mshopslClickGroup
     }
+
+    "/home/landing/expand"(platform: "/", type: TrackType.Event){}
+
+    "/home/landing/youtube_tutorial"(platform: "/", type: TrackType.Event){}
+
+    "/home/landing/webinar"(platform: "/", type: TrackType.Event){}
 
 }

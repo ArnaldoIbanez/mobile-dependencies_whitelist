@@ -79,7 +79,10 @@ trackTests {
         ],
         discount_volume : [],
         same_day : [],
-        next_day : []
+        next_day : [],
+        supermarket_partnership: [
+          [item_id: "MLB510446224", position: 3, type: "sometype", seller_id: 742220069]
+        ]
     ]
 
     def promiseInfo = [
@@ -219,6 +222,44 @@ trackTests {
                                     query_and_category_strategy : true,
                                     exact_query_strategy        : true
                             ]
+                    ],
+                    seo_experiments: [
+                            status: "OK",
+                            experiment_list:
+                                    [
+                                            {
+                                                id: "EXP1"
+                                                is_enabled: true
+                                                is_active: true
+                                                should_apply: true
+                                                executed_successfully: true
+                                                group: "Control"
+                                            },
+                                            {
+                                                id: "EXP2"
+                                                is_enabled: true
+                                                is_active: false
+                                                should_apply: false
+                                                executed_successfully: true
+                                                group: "A"
+                                            },
+                                            {
+                                                id: "EXP3"
+                                                is_enabled: false
+                                                is_active: false
+                                                should_apply: false
+                                                executed_successfully: true
+                                                group: "B"
+                                            },
+                                            {
+                                                id: "EXP4"
+                                                is_enabled: true
+                                                is_active: true
+                                                should_apply: true
+                                                executed_successfully: true
+                                                group: "A"
+                                            }
+                                    ]
                     ]
             ]
             merch_data = [
@@ -372,6 +413,11 @@ trackTests {
                                     query_and_category_strategy : true,
                                     exact_query_strategy        : true
                             ]
+                    ],
+                    seo_experiments: [
+                            status: "ERROR",
+                            experiment_list:
+                                    []
                     ]
             ]
             merch_data = [
@@ -408,7 +454,6 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
-            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)

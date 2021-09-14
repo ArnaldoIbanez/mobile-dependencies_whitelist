@@ -177,7 +177,7 @@ tracks {
     "/apprater/add_track"(platform: "/mobile") {
         type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
     }
-    "/apprater/error_service_rules"(platform: "/mobile") {
+    "/apprater/appstore_rate_app"(platform: "/mobile") {
     }
     "/apprater/popup"(platform: "/mobile") {
     }
@@ -188,5 +188,7 @@ tracks {
     "/apprater/cancel"(platform: "/mobile") {
     }
     "/apprater/remind_me_later"(platform: "/mobile") {
+    }
+    "/inappreview/completed"(platform: "/mobile") {
     }
 }

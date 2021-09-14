@@ -39,5 +39,17 @@ trackTests {
         "/post_purchase/kyc_onboarding/validate"(platform: "/", type: TrackType.Event){}
 
         "/post_purchase/kyc_onboarding/back"(platform: "/", type: TrackType.Event){}
+
+        "/post_purchase/channel_selection_hub"(platform: "/") {
+            med_on_user_action = "online"
+        }
+
+        "/post_purchase/channel_selection_hub"(platform: "/") {
+            med_on_user_action = "offline"
+        }
+
+        "/post_purchase/channel_selection_hub"(platform: "/") {
+            med_on_user_action = "back"
+        }
     }
 }

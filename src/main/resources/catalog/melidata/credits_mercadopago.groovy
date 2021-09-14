@@ -238,7 +238,7 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'create_promise',
                 'view_promise',
@@ -257,6 +257,11 @@ tracks {
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
             required: false
+        )
+        from_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
@@ -328,6 +333,10 @@ tracks {
     }
 
     "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
+    "/credits/merchant/administrator/detail/conditions/hrc_click"(platform: "/", type: TrackType.Event) {
         products_with_status
     }
 
@@ -845,6 +854,16 @@ tracks {
             type: PropertyType.String,
             required: false,
         )
+        loan_status_detail(
+            description: "The detail of status of the created loan",
+            type: PropertyType.String,
+            required: false,
+        )
+        loan_request_status(
+            description: "The status of the created loan request",
+            type: PropertyType.String,
+            required: false,
+        )
         loan_created_with_retry(
                 description: "Metric to track user who accept the credit in a second attempt",
                 type: PropertyType.Boolean,
@@ -1205,9 +1224,18 @@ tracks {
     //Hub money advance mobile
     "/credits/merchant/money_advance/hub"(platform: "/mobile", type: TrackType.View) {}
 
-
     //Summary money advance
-    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/money_advance/summary"(platform: "/", type: TrackType.View) {
+        from(
+            description: "Request Origin (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'default',
+                'withdraw',
+            ]
+        )
+    }
 
     //No options money advance
     "/credits/merchant/money_advance/no_options"(platform: "/", type: TrackType.View) {}
@@ -1579,78 +1607,6 @@ tracks {
      *   End: Express money
      ******************************************/
 
-    /******************************************
-     *   Start: Personal Loans Adoption
-     ******************************************/
-    "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
-        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
-        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(
-            description: "Status of the user prepaid",
-            type: PropertyType.String,
-            required: true,
-            values: [
-                "no_prepaid",
-                "prepaid_enabled",
-                "prepaid_disabled",
-                "physical_card",
-                "virtual_card"
-            ]
-        )
-    }
-
-    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
-    }
-
-    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-
-    /******************************************
-     *   End: Personal Loans Adoption
-     ******************************************/
-
      /******************************************
      *   Start: Consumer Admin Detail
      ******************************************/
@@ -1777,6 +1733,19 @@ tracks {
     }
 
     //Events
+    "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
 
     //Mobile Events
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {

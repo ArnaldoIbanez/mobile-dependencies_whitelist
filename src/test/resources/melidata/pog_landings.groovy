@@ -53,6 +53,11 @@ trackTests {
         coupon_type = "default"
       }
 
+      // Landing shortcuts
+      "/pog/landings/shortcuts"(platform:"/", type: TrackType.Event) {
+        product = "credits"
+      }
+
       // Landing go to calculator event
       "/pog/landings/calculator"(platform:"/", type: TrackType.Event) {
         product = "Point Newland"
@@ -83,5 +88,13 @@ trackTests {
         product = "Point Plus"
       }
 
+      // [Point Online Growth] Landing Multiproduct > Webview experiment
+      "/pog/landings/multiproduct/go_taxes_section" (platform:"/", type: TrackType.Event) {
+        product = "multiproduct MLB"
+      }
+
+      "/pog/landings/multiproduct/device/more_information" (platform:"/", type: TrackType.Event) {
+        product = "point-pro-2"
+      }
     }
 }

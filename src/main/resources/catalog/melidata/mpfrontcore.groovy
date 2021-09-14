@@ -289,7 +289,7 @@ tracks {
     }
 
     // MP Landing - Landing KIT QR
-    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1216") {
+    "/landing/qr_kit"(platform: "/", type: TrackType.View, initiative: "1322") {
         product (type: PropertyType.String, required: false, description: "Name of device, example: 'kit-standalone'")
         currency (type: PropertyType.String, required: false, description: "Currency")
         price (type: PropertyType.Numeric, required: false, description: "Price of device")

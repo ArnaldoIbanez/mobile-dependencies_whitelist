@@ -187,6 +187,9 @@ trackTests {
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+        }
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
@@ -564,96 +567,6 @@ trackTests {
        /******************************************
         *    End: Consumers Enhance Adoption
         ******************************************/
-
-        /******************************************
-         *   Start: Personal Loans Adoption
-         ******************************************/
-
-        "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = "on_time"
-        }
-
-        "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {
-        }
-
-        "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
-            prepaid = true
-            virtual_card = true
-            physical_card = false
-        }
-
-        "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
-            prepaid = false
-            page = 1
-            sk = 'sk1234'
-        }
-
-        "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
-            prepaid = false
-            page = 4
-        }
-
-        "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
-            prepaid = true
-        }
-
-        "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-            prepaid = false
-            sk = 'sk1234'
-        }
-
-        "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {
-            prepaid = false
-        }
-
-        "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {
-            prepaid = false
-        }
-
-        "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {
-            prepaid = false
-        }
-
-        "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {
-            prepaid = false
-        }
-
-        "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {
-            prepaid = false
-        }
-
-        "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {
-            prepaid = false
-        }
-
-        "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
-            status = 'no_prepaid'
-        }
-
-        "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {
-            status = 'prepaid_enabled'
-        }
-
-        "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
-            status = 'prepaid_disabled'
-        }
-
-        "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {
-            status = 'prepaid_enabled'
-        }
-
-        "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
-            status = 'prepaid_enabled'
-        }
-
-        "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
-            status = 'prepaid_disabled'
-        }
-
-
-        /******************************************
-         *   End: Personal Loans Adoption
-         ******************************************/
 
         /******************************************
          *    Start: Consumers Experiments
