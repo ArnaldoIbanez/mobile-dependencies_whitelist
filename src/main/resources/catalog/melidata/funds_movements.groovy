@@ -24,11 +24,11 @@ tracks {
     "/funds_movements/new_transfer"(platform: "/mobile", type: TrackType.View) {}
     "/funds_movements/new_transfer/search"(platform: "/mobile", type: TrackType.Event) {}
     "/funds_movements/new_transfer/search_result"(platform: "/mobile", type: TrackType.Event) {
-        is_empty(required: true, type:  PropertyType.Boolean, description: "true if search results are empty")
+        is_empty(required: true, type: PropertyType.Boolean, description: "true if search results are empty")
     }
     "/funds_movements/new_transfer/contact_selected"(platform: "/mobile", type: TrackType.Event) {}
     "/funds_movements/new_transfer/pill/tapped"(platform: "/mobile", type: TrackType.Event) {
-        type(required: true, inheritable: false, type:  PropertyType.String, description: "Selected pill type. Values come from backend and depends on site")
+        type(required: true, inheritable: false, type: PropertyType.String, description: "Selected pill type. Values come from backend and depends on site")
     }
     "/funds_movements/new_transfer/pill/tapped/format_match"(platform: "/mobile", type: TrackType.Event) {
         success(required: true, type: PropertyType.Boolean, description: "true if format input matches with the pill’s type")
