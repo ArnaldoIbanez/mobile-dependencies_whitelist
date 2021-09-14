@@ -2073,7 +2073,8 @@ tracks {
 
     "/seller_central/catalog/optin_v2/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        wrong_type(required: false, description: "Wrong Type", type: PropertyType.String,  values: ["KIT", "PRODUCT_ERRORS", "OTHER"])
+        wrong_type(required: true, description: "Wrong Type", type: PropertyType.String,  values: ["KIT", "PRODUCT_ERRORS", "OTHER"])
+        v0:(required: true, description: "Is v0", type: PropertyType.Boolean)
     }
 
     "/seller_central/catalog/optin_v2/product_problem/return"(platform: "/web", type: TrackType.Event) {
