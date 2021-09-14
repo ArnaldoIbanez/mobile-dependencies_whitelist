@@ -43,4 +43,5 @@ tracks {
 
     "/home/landing/webinar"(platform: "/", type: TrackType.Event){}
 
+    "/home/landing/seller_central"(platform: "/", type: TrackType.Event){}
 }
