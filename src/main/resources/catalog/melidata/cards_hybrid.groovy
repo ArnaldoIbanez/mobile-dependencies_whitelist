@@ -3093,7 +3093,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["primary"],
+            values: ["primary", "close"],
             description: "Button tapped"
         )
     }
