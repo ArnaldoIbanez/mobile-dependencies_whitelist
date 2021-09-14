@@ -14,16 +14,16 @@ trackTests {
 
     test("Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {
-            available: true
-            account: false
-            invested: false
-            to_release: false
-            embargo_invested: false
-            retained: false
-            shortcuts: ['money_in', 'money_out']
-            debts: true
-            cerc: true
-            activities: false
+            available = true
+            account = false
+            invested = false
+            to_release = false
+            embargo_invested = false
+            retained = false
+            shortcuts = ['money_in', 'money_out']
+            debts = true
+            cerc = true
+            activities = false
         }
     }
 
