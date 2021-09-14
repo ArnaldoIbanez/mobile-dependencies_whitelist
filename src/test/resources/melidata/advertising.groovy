@@ -86,7 +86,7 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
-            shops = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
@@ -97,7 +97,7 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
-            shops = false
+            has_shops = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -120,7 +120,7 @@ trackTests {
             matching = false
             new_advertiser = false
             has_items = false
-            shops = false
+            has_shops = false
         }
 
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -132,7 +132,7 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
-            shops = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -147,7 +147,7 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
-            shops = true
+            has_shops = true
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
@@ -159,8 +159,18 @@ trackTests {
             matching = true
             new_advertiser = true
             has_items = true
-            shops = true
-            shops_integration_status = true
+            has_shops = true
+            has_shops_integration = true
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event) {
+            site_id = "MLA"
+            cust_id = 2222222
+            quantity_sll = 10
+            quantity_no_sll = 5
+            quantity_indexed_items = 10
+            mode = "automatic"
+            model = 'cvr'
         }
 
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
@@ -263,6 +273,52 @@ trackTests {
 
         "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
             switch_status = "activated"
+        }
+
+        "/advertising/privacy/target"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/privacy/target/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+            switch_status = "active"
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "active"
+        }
+
+        "/advertising/privacy/business_partners"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/privacy/business_partners/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+            switch_status = "inactive"
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "inactive"
         }
     }
 
@@ -877,6 +933,8 @@ trackTests {
                     budget: "333",
                     status: "active"
             ]
+            has_shops = false
+            has_shops_integration = true
         }
 
         "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event) {
@@ -1260,6 +1318,8 @@ trackTests {
             campaign_id = "2222222"
             budget = "4000"
             status = "active"
+            has_shops = true
+            has_shops_integration = true
         }
 
         "/advertising/pads2/manager/filters"(platform: "/", type: TrackType.Event) {
@@ -2108,13 +2168,13 @@ trackTests {
 
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
-            shops = true
-            shops_integration_status = true
+            has_shops = true
+            has_shops_integration = true
         }
         "/advertising/pads2/configuration"(platform: "/", type: TrackType.View) {
             mode = "custom"
-            shops = false
-            shops_integration_status = false
+            has_shops = false
+            has_shops_integration = false
         }
 
         "/advertising/pads2/configuration/mode"(platform: "/", type: TrackType.View) {
@@ -2499,18 +2559,18 @@ trackTests {
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
-            shops = true
-            shops_integration_status = true
+            has_shops = true
+            has_shops_integration = true
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "automatic"
-            shops = false
-            shops_integration_status = false
+            has_shops = false
+            has_shops_integration = false
         }
         "/advertising/pads2/configuration/shops/help"(platform: "/", type: TrackType.Event) {
             mode = "custom"
-            shops = false
-            shops_integration_status = false
+            has_shops = false
+            has_shops_integration = false
         }
         "/advertising/pads2/configuration/shops/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"

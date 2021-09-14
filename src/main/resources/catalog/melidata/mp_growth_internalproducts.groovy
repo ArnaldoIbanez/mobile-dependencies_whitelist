@@ -12,4 +12,7 @@ tracks {
 
     // MP Landing Internal Products Checkouts
     "/landing/checkouts"(platform: "/web"){}
+
+    // MP Landing Internal Products Buyer Credits
+    "/landing/buyers"(platform: "/web"){}
 }

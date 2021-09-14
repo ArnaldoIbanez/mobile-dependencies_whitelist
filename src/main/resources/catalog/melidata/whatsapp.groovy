@@ -10,6 +10,8 @@ tracks {
         template_name(required: true, type: PropertyType.String, description: "Message template name")
         event_type(required: true, type: PropertyType.String, values: ["sent", "delivered", "failed", "read", "sending", "deleted", "answered"], description: "Message status")
         message_id(required: false, type: PropertyType.String, description: "Message Id")
+        news_id(required: false, type: PropertyType.String, description: "News Id")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id")
     }
 
     "/whatsapp/generic"(platform: "/") {

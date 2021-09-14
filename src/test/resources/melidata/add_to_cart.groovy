@@ -110,6 +110,32 @@ trackTests {
             component = 3
             context = 'supermarket_home'
         }
+
+        "/add_to_cart"(platform: "/mobile/android", type: TrackType.Event) {
+            items = [
+                    [
+                            quantity   : 1,
+                            item       : [
+                                    category_id: "MLB63385",
+                                    id         : "MLB754486062"
+                            ],
+                    ]
+            ]
+            context = "proximity"
+        }
+
+        "/add_to_cart"(platform: "/mobile/ios", type: TrackType.Event) {
+            items = [
+                    [
+                            quantity   : 1,
+                            item       : [
+                                    category_id: "MLB63385",
+                                    id         : "MLB754486062"
+                            ],
+                    ]
+            ]
+            context = 'proximity'
+        }
     }
 
      test("Add to cart intention tracks") {

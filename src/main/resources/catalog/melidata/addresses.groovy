@@ -107,6 +107,8 @@ tracks {
 
     "/addresses/input_address/map/moved_to_my_location"(platform: "/", type: TrackType.Event) {}
 
+    "/addresses/input_address/map/edit"(platform: "/", type: TrackType.Event) {}
+
     "/addresses/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event) {}
 
     "/addresses/input_address/map/location_permission_requested"(platform: "/", type: TrackType.Event) {}

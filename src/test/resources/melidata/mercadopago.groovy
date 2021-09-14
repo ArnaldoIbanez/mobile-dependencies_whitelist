@@ -609,16 +609,16 @@ trackTests {
         "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
 
         "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/more_info_device"(platform:"/", type: TrackType.Event) {
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/device/invite"(platform:"/", type: TrackType.Event) {
           media = "whastapp"
-          product = "point-h"
+          device = "point-h"
         }
 
         "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", type: TrackType.Event) {}
@@ -1025,7 +1025,6 @@ trackTests {
         "/point/landings/click_to_call/resubmit_form" (platform:"/", type: TrackType.Event) {
           product = "point-pro-2"
         }
-        
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
@@ -1363,18 +1362,6 @@ trackTests {
     test("Point Payment") {
 
         "/point_payment"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
-            to_flow = "fcu"
-            reason = "user_in_whitelist"
-        }
-        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
-            to_flow = "legacy"
-            reason = "network_request_failed"
-        }
-        "/point_payment/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
-            to_flow = "legacy"
-            reason = "user_not_in_whitelist"
-        }
         "/point_payment/main"(platform: "/mobile", type: TrackType.View) {
             flow_origin = 'point'
         }
@@ -2706,7 +2693,7 @@ trackTests {
             categoryProperties()
         }
 
-        // Scanner
+        // scanner permission
         "/bill_payments/enable_camera"(platform: "/mobile") {
             mandatory()
         }
@@ -2714,8 +2701,9 @@ trackTests {
         "/bill_payments/permission_camera"(platform: "/mobile") {
             mandatory()
         }
-
-         "/bill_payments/scan"(platform: "/mobile") {
+        
+        // Scanner    
+        "/bill_payments/scan"(platform: "/mobile") {
             mandatory()
         }
 
@@ -2739,21 +2727,9 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
         "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             label = "lable warning"
-        }
-
-        "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
-        }
-
-        "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
-            mandatory()
         }
 
         "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
@@ -2762,6 +2738,61 @@ trackTests {
             camera_flash = false
             timestamp = 1043
             barcode_format = "ITR40"
+        }
+
+        "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // New Scanner    
+        "/bill_payments/new_scan"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/flash"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/type_qr"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/click"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/new_scan/info_message"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            label = "lable warning"
+        }
+
+        "/bill_payments/new_scan/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
+        }
+
+        // Scanner error 
+        "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
         "/bill_payments/fixed_amount"(platform: "/mobile") {
@@ -2958,6 +2989,18 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/schedule_payment/create/pix"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/pix/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/schedule_payment/create/pix/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // schedule payment success
         "/bill_payments/schedule_payment/create/success"(platform: "/mobile") {
             mandatory()
@@ -3099,6 +3142,271 @@ trackTests {
         "/bill_payments/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+
+        //home invoices/adhesion
+        "/bill_payments/home/adhesion_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/invoices"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // main category Scheduling
+        "/bill_payments/main_category/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/main_category/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/scheduling/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        "/bill_payments/main_category/scheduling/result_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        //scheduling
+        // empty state ftu
+        "/bill_payments/empty_state_ftu/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // empty state
+        "/bill_payments/empty_state/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // ftu kyc
+        "/bill_payments/ftu_kyc/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        //required data
+        "/bill_payments/required_data/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/button_continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // confirm optin
+        "/bill_payments/confirm_optin/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/checkbox_selected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/checkbox_unselected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optin list
+        "/bill_payments/optin_list/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/search_entities_scheduling"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        // optout
+        "/bill_payments/optout/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optout dda
+        "/bill_payments/optout_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout_dda/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // adhesion detail
+        "/bill_payments/adhesion_detail/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/message_button"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/notification_preference"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // adhesion detail dda
+        "/bill_payments/adhesion_detail_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout
+        "/bill_payments/congrats_optout/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout dda
+        "/bill_payments/congrats_optout_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin
+        "/bill_payments/congrats_optin/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin dda
+        "/bill_payments/congrats_optin_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
 
     }
 
@@ -3783,6 +4091,16 @@ trackTests {
             id = "id"
             target = "go_home"
             event_type = "click"
+        }
+    }
+
+    test("PASSWORD enrollment flow") {
+        "/auth/password_enrollment"(platform: "/", type: TrackType.View) {
+            transaction_id = "id"
+        }
+        "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
+            transaction_id = "id"
+            target = "continue"
         }
     }
 
@@ -5451,10 +5769,6 @@ trackTests {
             action = "activate"
         }
     }
-
-    test("About screen") {
-        "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
-    }
     
     test("Register Point Plus") {
         // Register device
@@ -5487,7 +5801,70 @@ trackTests {
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Profile") {
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "BU"
+            access = "full"
+            registered_by_phone = false
+            has_identification = false
+        }
 
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = true
+            user_type = "CO"
+            access = "partial"
+            registered_by_phone = false
+            has_identification = false
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "BU"
+            access = "full"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "person"
+            is_compliant = true
+            user_type = "CO"
+            access = "restricted"
+            registered_by_phone = true
+            has_identification = false
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "company"
+            is_compliant = false
+            user_type = "BU"
+            access = "denied"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "unknown"
+            is_compliant = true
+            user_type = "CO"
+            access = "denied"
+            registered_by_phone = false
+            has_identification = true
+        }
+
+        "/profile"(platform: "/", type: TrackType.View) {
+            entity_type = "unknown"
+            is_compliant = false
+            user_type = "BU"
+            access = "partial"
+            registered_by_phone = true
+            has_identification = false
+        }
+    }
 
     test("Reauth Native") {
         //Login Module
@@ -5601,6 +5978,76 @@ trackTests {
             reauth_mods_id = "2"
             operation_id = "2"
             flow_type = "withdraw"
+            amount = "10.0"
+        }
+
+        //Operation Status        
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "created"
+            transaction_id = "1"
+        
+        }
+
+           "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "created"
+            transaction_id = "1"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "not_needed"
+            transaction_id = "3"
+        }
+
+       "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "2"
+            flow_type = "other"
+            reauth_status = "not_needed"
+            transaction_id = "3"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            reauth_status = "created"
+            transaction_id = "3"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "2"
+            operation_id = "2"
+            flow_type = "payment"
+            reauth_status = "created"
+            transaction_id = "4"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/android", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "1"
+            flow_type = "other"
+            reauth_status = "client_error"
+            transaction_id = "3"
+            amount = "10.0"
+        }
+
+        "/reauth/operation_status"(platform: "/mobile/ios", type: TrackType.Event) {
+            reauth_mods_id = "1"
+            operation_id = "2"
+            flow_type = "other"
+            reauth_status = "server_error"
+            transaction_id = "3"
             amount = "10.0"
         }
 

@@ -37,6 +37,16 @@ tracks {
         "promotions",
     ]
 
+    def sidebars = [
+        "whatsapp",
+        "shop_name",
+        "contact",
+        "social_networks",
+        "afip",
+        "logo",
+        "fiscal_data",
+    ]
+
     def confData = objectSchemaDefinitions {
         whatsapp(required: true, type: PropertyType.String, values: toolStatus)
         facebook_shop(required: true, type: PropertyType.String, values: toolStatus)
@@ -62,7 +72,7 @@ tracks {
         shop_name(required: true, type: PropertyType.String)
         shop_domain(required: true, type: PropertyType.String)
         domain_status(
-            required: true, 
+            required: false, 
             type: PropertyType.String,
             values: [
                 "own_domain", "shops_domain"
@@ -83,6 +93,8 @@ tracks {
         configuration(required: true, type: PropertyType.Map(confData), inheritable: false)
         cards(required: true, type: PropertyType.Map(cardsData), inheritable: false)
     }
+
+    "/shops/hub/onboarding"(platform: "/", type: TrackType.Event) {}
 
     // SHOP CONFIGURATION    
     "/shops/hub/edit"(platform: "/", type: TrackType.Event) {
@@ -214,5 +226,15 @@ tracks {
     
     "/shops/hub/tips_news/link"(platform: "/", type: TrackType.Event) {
         tool(required: true, type: PropertyType.String, values: tools)
+    }
+
+    // SIDEBARS
+
+    "/shops/hub/sidebar"(platform: "/") {
+        sidebar_name(required: true, type: PropertyType.String, values: sidebars, description: "Sidebar that is being tracking")
+    }
+
+    "/shops/hub/sidebar/save_changes"(platform: "/", type: TrackType.Event) {
+        success(required: true, type: PropertyType.Boolean, description: "If the request to update the info succeeded or not")
     }
 }

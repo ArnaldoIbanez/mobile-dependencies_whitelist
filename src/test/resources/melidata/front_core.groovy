@@ -356,6 +356,9 @@ trackTests {
             header = [
                     link: "mercadopago://link",
                     button_link: "mercadopago://link",
+                    buttons: [
+                            "data","help"
+                    ],
                     loyalty: [
                             level: 5
                     ],
@@ -805,11 +808,17 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
+            buttons = ["data","help"]
         }
     }
 
     test("Button header tap") {
         "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/header_buttons/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "help"
+            link = "mercadopago://link"
+        }
     }
 
     /*****************************
@@ -1090,6 +1099,26 @@ trackTests {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+    }
 
     test("Mercadopago shortcut sheet page view") {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
@@ -1557,6 +1586,9 @@ trackTests {
             header = [
                     link: "mercadopago://link",
                     button_link: "mercadopago://link",
+                    buttons: [
+                            "data","help"
+                    ],
                     loyalty: [
                             level: 5
                     ],
@@ -1984,11 +2016,17 @@ trackTests {
         "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://link"
             button_link = "mercadopago://link"
+            buttons = ["data","help"]
         }
     }
 
     test("Button header tap") {
         "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/header_buttons/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "help"
+            link = "mercadopago://link"
+        }
     }
 
     /*****************************
@@ -2209,6 +2247,27 @@ trackTests {
 
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago pendings sheet page view") {
+        "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+            from = "sheet"
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
+
+        "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {
+            metadata_user:[
+                type: "payer"
+            ]
+        }
     }
 
     test("Mercadopago shortcut sheet page view") {

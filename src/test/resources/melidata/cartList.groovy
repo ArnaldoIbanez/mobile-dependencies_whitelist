@@ -190,6 +190,21 @@ trackTests {
             unit_price = 173
         }
 
+        "/cart/my_cart/update_item_kit"(platform: "/mobile"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
         "/cart/my_cart/more_seller_items"(platform: "/web"){
             item = [
                     id: "MLA754486062",
@@ -292,7 +307,6 @@ trackTests {
         def itemAddErrorDataSet ={
             error_type = "cart_full"
         }
-
         "/cart/saved_for_later/cant_add_to_cart"(platform: "/web", cannotAddModalDataSet)
 
         "/cart/saved_for_later/cant_add_to_cart/buy_now"(platform: "/web", cannotAddModalDataSet)
@@ -314,6 +328,18 @@ trackTests {
         "/cart/item_add"(platform: "/web", dataSet)
 
         "/cart/item_add/error"(platform: "/web", itemAddErrorDataSet)
+
+        "/cart/item_add/insurtech_protection_deleted"(platform: "/"){
+            item = [
+                    quantity: 1,
+                    id: "MLA12415535",
+            ]
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
 
         def errorsForModal = {
             cart_ratio = "applies"

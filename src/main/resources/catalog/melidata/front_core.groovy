@@ -224,6 +224,7 @@ tracks {
     def header_definition = objectSchemaDefinitions {
         link(required: false, type: PropertyType.String, description: "If header is tapeable")
         button_link(required: false, type: PropertyType.String, description: "If button is present")
+        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "If have buttons")
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info") // TODO: Will be deprecated for newer versions
         metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
@@ -497,9 +498,17 @@ tracks {
     "/wallet_home/header_profile/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "If header is tapeable")
         button_link(required: false, type: PropertyType.String, description: "If button is present")
+        buttons(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "If have buttons")
     }
 
     "/wallet_home/header_data_button/tap" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/header_buttons" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/header_buttons/tap" (platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Header button id")
+        link(required: true, type: PropertyType.String, description: "Header button link")
+    }
 
     /**********************************/
     //    NEW TRACKS HOME TAP v3      //
@@ -663,6 +672,14 @@ tracks {
     "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomePendingsFields
     }
+
+    "/wallet_home/pendings_sheet" (platform: "/mobile", type: TrackType.View) {
+        from(required: false, type: PropertyType.String, description: "From where this pending shown")
+    }
+
+    "/wallet_home/pendings_sheet/dismissed" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/pendings_sheet/expanded" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/prepaid_banner/dismiss" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields

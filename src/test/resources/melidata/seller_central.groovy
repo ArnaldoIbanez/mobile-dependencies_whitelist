@@ -16,6 +16,13 @@ trackTests {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
   }
 
+  test("seller central listing main page") {
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id = "listing"
+      sub_view_id = "mshops"
+    }
+  }
+
   test("seller central listing differents tabs") {
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
   }
@@ -200,6 +207,13 @@ trackTests {
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {}
   }
 
+  test("seller central listing quantity action") {
+    "/seller_central/listings/quantity/change_tab"(platform: "/", type: TrackType.Event) {
+      view_id = "fulfillment"
+      target_view_id = "stranded"
+    }
+  }
+
   test("Seller central banner go, hide, show") {
     "/seller_central/listings/go"(platform: "/", type: TrackType.Event) {
       placement = "publicidad_banner"
@@ -298,6 +312,16 @@ trackTests {
     "/seller_central/news/keep"(platform: "/web", type: TrackType.Event) {
       notice_id = "2426"
     }
+    "/seller_central/news/lib/primary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
+    "/seller_central/news/lib/secondary"(platform: "/web", type: TrackType.Event) {
+      notice_id = "2426"
+      category = "NEW"
+      sub_category = "CHANGE_IN_BUSINESS_RULES"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -390,7 +414,7 @@ trackTests {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
-        type: "RECOMMENDATION",
+        type: "ITEM",
         key: "LIGHTNING_OFFER",
         page: 1,
         position: 3,
@@ -448,6 +472,80 @@ trackTests {
 
     test("Seller coach carousel scroll") {
     "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      page = 2
+      scroll_type = "next"
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card click") {
+    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "RECOMMENDATION",
+        key: "LIGHTNING_OFFER",
+        page: 1,
+        position: 3,
+        item_id: "15415445414",
+        rules_applied: "none",
+        with_random_order: true
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card dismiss") {
+    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/mobile", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "RECOMMENDATION",
+        key: "LIGHTNING_OFFER",
+        item_id: "15415445414",
+        rules_applied: "none",
+        with_random_order: false
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach cards view") {
+    "/seller_central/seller_coach/summary/cards_view"(platform: "/mobile", type: TrackType.View) {
+      segment = "none"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      cards = [
+        [
+          type: "CONTENT",
+          key: "PB02",
+          page: 2,
+          rules_applied: "hard",
+          with_random_order: false
+        ],
+        [
+          type: "CONTENT",
+          key: "PB01",
+          page: 2,
+          rules_applied: "soft",
+          with_random_order: false
+        ]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach carousel scroll") {
+    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -2494,6 +2592,113 @@ trackTests {
       user_type = "real_estate_agency"
       selected_problem = "ID_PROBLEM_1"
       problem_type = "L1"
+    }
+  }
+
+  // Delayed Shipping
+
+  test("metrics my attention delayed shipping section view for web") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      default_selected_period = "lastTwoMonth"
+    }
+  }
+
+  test("metrics my attention delayed shipping section view for web mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping section view for mobile") {
+    "/seller_central/metrics/attention/delayed_shippings"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics my attention delayed shipping, help button click track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "graphics"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open filter modal track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_filter_modal"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention delayed shipping apply filters track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      filters = ["FILTER1", "FILTER2"]
+    }
+  }
+
+  test("metrics my attention delayed shipping, start period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/start_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      start_period = "custom"
+    }
+  }
+
+  test("metrics my attention delayed shipping, finish period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/finish_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      finish_period = "custom"
+    }
+  }
+
+    test("metrics my attention delayed shipping, personalized period track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
+  test("metrics my attention delayed shipping, top 30 action track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/products_actions"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      action_type = "modify"
+    }
+  }
+
+  test("metrics my attention delayed shipping, open onboarding track for web") {
+    "/seller_central/metrics/attention/delayed_shippings/open_onboarding"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
     }
   }
 
@@ -5570,6 +5775,313 @@ test("seller central confirm leave suggestion task - optin moderated") {
       }
   }
 
+  /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  |                                               OPTIN V2                                                      |
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+  test("seller central catalog optin v2 variation selection show") {
+      "/seller_central/catalog/optin_v2/variation_selection"(platform: "/web", type: TrackType.View) {
+          item_id = "MLA835425554"
+          catalog_product_id = "MLA15149561"
+          category_id = "MLA1055"
+          domain_id = "MLA-CELLPHONES"
+          variations_id = [
+              91658971456,
+              91658971451,
+              91658971460,
+              91658971464,
+              91658971468,
+              91658971472,
+              91658971476,
+              91658971480,
+              91658971486
+          ]
+      }
+  }
+
+  test("seller central catalog optin v2 variation selected") {
+      "/seller_central/catalog/optin_v2/variation_selection/selected"(platform: "/web", type: TrackType.Event) {
+        item_id = "MLA835425554"
+          catalog_product_id = "MLA15149561"
+          category_id = "MLA1055"
+          domain_id = "MLA-CELLPHONES"
+          variations_id = [
+              91658971456,
+              91658971451,
+              91658971460,
+              91658971464,
+              91658971468,
+              91658971472,
+              91658971476,
+              91658971480,
+              91658971486
+          ]
+          selected_variation = 91658971456
+      }
+  }
+
+  test("seller central catalog optin v2 congrats success") {
+      "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        confirmed_item_plus = false
+        suggested_correction = true
+      }
+  }
+
+  test("seller central catalog optin v2 congrats warning") {
+      "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        reason = "INACTIVE_PRODUCT"
+        suggested_correction = true
+      }
+  }
+
+  test("seller central catalog optin v2 product comparator show") {
+      "/seller_central/catalog/optin_v2/product_comparator"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 product comparator confirm") {
+      "/seller_central/catalog/optin_v2/product_comparator/selected"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        comparison_selected = "SAME_PRODUCT"
+      }
+  }
+
+  test("seller central catalog optin v2 product comparator confirm") {
+      "/seller_central/catalog/optin_v2/product_comparator/selected"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        comparison_selected = "WRONG_PRODUCT"
+      }
+  }
+
+  test("seller central catalog optin v2 suggested corrections show") {
+      "/seller_central/catalog/optin_v2/suggested_corrections"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 suggested corrections confirm") {
+      "/seller_central/catalog/optin_v2/suggested_corrections/selected"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        suggested_correction = true
+      }
+  }
+
+  test("seller central catalog optin v2 suggested corrections confirm") {
+      "/seller_central/catalog/optin_v2/suggested_corrections/selected"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        suggested_correction = false
+      }
+  }
+
+  test("seller central catalog optin v2 item plus card show") {
+      "/seller_central/catalog/optin_v2/item_plus_card"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 item plus card confirm") {
+      "/seller_central/catalog/optin_v2/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 item plus card return") {
+      "/seller_central/catalog/optin_v2/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 product search show") {
+      "/seller_central/catalog/optin_v2/product_search"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 product search confirm") {
+      "/seller_central/catalog/optin_v2/product_search/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        product_selected = "MLA15149333"
+        product_index_selected = 0
+      }
+  }
+
+  test("seller central catalog optin v2 product search update") {
+      "/seller_central/catalog/optin_v2/product_search/update"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        search_value = "New value search"
+      }
+  }
+
+  test("seller central catalog optin v2 iterative search show") {
+      "/seller_central/catalog/optin_v2/iterative_search"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 iterative search confirm") {
+      "/seller_central/catalog/optin_v2/iterative_search/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        product_selected = "MLA15149333"
+      }
+  }
+
+  test("seller central catalog optin v2 iterative search update") {
+      "/seller_central/catalog/optin_v2/iterative_search/update"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        iteration_count = 3
+      }
+  }
+
+  test("seller central catalog optin v2 product problem show") {
+      "/seller_central/catalog/optin_v2/product_problem"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 product problem confirm") {
+      "/seller_central/catalog/optin_v2/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 product problem return") {
+      "/seller_central/catalog/optin_v2/product_problem/return"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+      }
+  }
+
+  test("seller central catalog optin v2 invoice show") {
+      "/seller_central/catalog/optin_v2/invoice"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        invoice_type = "ITEM_PLUS"
+      }
+  }
+
+  test("seller central catalog optin v2 invoice confirm") {
+      "/seller_central/catalog/optin_v2/invoice/confirm"(platform: "/web", type: TrackType.Event) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        catalog_product_id = "MLA15149561"
+        invoice_type = "ITEM_PLUS"
+        invoice_selection = true
+      }
+  }
+
+  /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  |                                             END OPTIN V2                                                    |
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
   test("Products Landing - Copied product row") {
     "/seller_central/products_landing/search/copied_product_row"(platform: "/web", type: TrackType.Event) {
       query = "Samsung Galaxy s s10 negro prisma"
@@ -5618,6 +6130,69 @@ test("seller central confirm leave suggestion task - optin moderated") {
            row_index: 2
         ]
       ]
+    }
+  }
+
+  test("Track empty state items") {
+    "/seller_central/listings/row_empty_state"(platform: "/", type: TrackType.Event){
+        sub_view_id = "mshops"
+        items = [
+            [
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ],[
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ],[
+              item_id: "MLA10335297",
+              reason: "VENDER_EN_MERCADOLIBRE"
+            ]
+        ]
+    }
+  }
+
+  test("Click publish item in MShops from empty state row") {
+    "/seller_central/listings/activate_row"(platform: "/", type: TrackType.Event){
+      item_id = "MLA10335295"
+      sub_view_id = "mshops"
+      reason = "PUBLICAR_EN_MI_MERCADO_SHOP"
+    }
+  }
+
+
+  test("Show MShops inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "mshops"
+      action = "render"
+    }
+  }
+
+  test("Show marketplace inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "markeplace"
+      action = "render"
+    }
+  }
+
+  test("Click marketplace inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "markeplace"
+      action = "click"
+    }
+  }
+
+  test("Click mshops inactive channel card"){
+    "/seller_central/listings/inactive_channel"(platform: "/", type: TrackType.Event){
+      sub_view_id = "mshops"
+      action = "click"
+    }
+  }
+
+  test("Change sub view"){
+    "/seller_central/listings/change_sub_view"(platform: "/", type: TrackType.Event){
+      selected_view = "marketplace"
+      type = "optin"
+      url = "https://mishop.com"
     }
   }
 }

@@ -49,6 +49,9 @@ tracks {
     // [Merchants Growth] Landings Navigation > Event
     "/pog/landings/navigation"(platform:"/", type: TrackType.Event) {}
 
+    // [Merchants Growth] Landings Shortcuts > Event
+    "/pog/landings/shortcuts"(platform:"/", type: TrackType.Event) {}
+
     // [Merchants Growth] Landings Navigation > Calculator link
     "/pog/landings/calculator"(platform:"/", type: TrackType.Event) {}
 
@@ -64,4 +67,8 @@ tracks {
     "/pog/landings/multiproduct/compare"(platform:"/", type: TrackType.Event) {}
     "/pog/landings/multiproduct/go"(platform:"/", type: TrackType.Event) {}
 
+    // [Point Online Growth] Landing Multiproduct  > Webview experiment
+    "/pog/landings/multiproduct/go_taxes_section" (platform:"/", type: TrackType.Event) {}
+    "/pog/landings/multiproduct/device" (platform:"/", isAbstract: true) {}
+    "/pog/landings/multiproduct/device/more_information" (platform:"/", type: TrackType.Event) {}
 }

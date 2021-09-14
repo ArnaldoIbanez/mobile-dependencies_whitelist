@@ -1,10 +1,11 @@
 package metrics
 
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 metrics {
 
-	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, categorization:"important") {
+	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, tags:[TagType.Important, TagType.CoreMetric]) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -12,7 +13,7 @@ metrics {
 		}
 	}
 
-	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, categorization:"important") {
+	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, tags:[TagType.Important]) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -32,7 +33,7 @@ metrics {
 		}
 	}
 
-	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, categorization:"important") {
+	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, tags:[TagType.Important]) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -76,7 +77,7 @@ metrics {
 	
 	"bids.cbt.paid"(description: "/orders/ordercreated that belong to our CBT vertical and are currently paid", compute_order: true) {
 		startWith {
-			experiment(regex("cbt/.*"))
+			experiment(regex(".*(cbt/|/cbt).*"))
 		}
 		
 		
@@ -125,7 +126,7 @@ metrics {
 		}
 	}
 
-	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, tags:[TagType.Important]) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -265,7 +266,7 @@ metrics {
 		}
 	}
 
-	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
+	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, tags:[TagType.Important]) {
 		startWith {
 			experiment(regex("qadb/.*"))
 		}
