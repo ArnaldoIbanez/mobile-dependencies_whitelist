@@ -18,7 +18,9 @@ tracks {
         action(required: false)
     }
 
-    "/reviews/edit"(platform: "/") {}
+    "/reviews/edit"(platform: "/") {
+        step(required: false, description: "executed action in the reviews form")
+    }
 
     "/reviews/congrats/delete"(platform: "/") {}
 
