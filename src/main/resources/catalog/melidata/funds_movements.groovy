@@ -13,6 +13,12 @@ tracks {
     * Unification Screen Tracks
     */
 
+
+    def account = objectSchemaDefinitions {
+        type(type: PropertyType.String, required: true, values: ["MP", "BANKING", "PIX"], description: "Possible types of accounts")
+        warning(type: PropertyType.String, required: false, values: ["WARNING", "BLOCKER"], description: "The type of warning for the account, this value is optional")
+    }
+    
     // Unification - New Transfer
     "/funds_movements"(platform: "/mobile", isAbstract: true) {}
     "/funds_movements/new_transfer"(platform: "/mobile", type: TrackType.View) {}
@@ -33,16 +39,12 @@ tracks {
 
     // Unification - Bottom Sheet
     "/funds_movements/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
-    "/funds_movements/bottom_sheet/warnings"(platform: "/mobile", type: TrackType.Event) {
-        types(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "Warning types")
-    }
-    "/funds_movements/bottom_sheet/without_warnings"(platform: "/mobile", type: TrackType.Event) {}
     "/funds_movements/bottom_sheet/accounts"(platform: "/mobile", type: TrackType.Event) {
         total(required: true, type: PropertyType.Numeric, description: "Total number of accounts")
-        type(required: true, type: PropertyType.String, values: ["MP", "BANKING", "VIA PIX", "MP_BANKING"],description: "account type")
+        accounts(required: true, type: PropertyType.ArrayList(PropertyType.Map(account)), description: "Account information")
     }
     "/funds_movements/bottom_sheet/contact_selected"(platform: "/mobile", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, values: ["EMAIL", "PHONE"],description: "Contact selected type")
+        type(required: true, type: PropertyType.String, values: ["EMAIL", "PHONE"], description: "Contact selected type")
     }
 
     // Unification - Manual Amount

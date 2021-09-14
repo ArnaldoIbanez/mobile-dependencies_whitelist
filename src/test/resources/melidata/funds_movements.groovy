@@ -29,13 +29,9 @@ trackTests {
 
         // Unification - Bottom Sheet
         "/funds_movements/bottom_sheet"(platform: "/mobile") {}
-        "/funds_movements/bottom_sheet/warnings"(platform: "/mobile") {
-            types = ["next_step"]
-        }
-        "/funds_movements/bottom_sheet/without_warnings"(platform: "/mobile") {}
         "/funds_movements/bottom_sheet/accounts"(platform: "/mobile") {
             total = 2
-            type = "MP_BANKING"
+            accounts = [[type: "MP"], [type: "BANKING", warning: "BLOCKER"]]
         }
         "/funds_movements/bottom_sheet/contact_selected"(platform: "/mobile") {
             type = "EMAIL"
