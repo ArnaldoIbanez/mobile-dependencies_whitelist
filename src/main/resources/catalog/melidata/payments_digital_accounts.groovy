@@ -50,14 +50,14 @@ tracks {
         //Banking
         available(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if the user has money available")
         account(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if the user has money in MP account")
-        debts(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has debt card")
-        retained(required: false, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained")
-        embargo_invested(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained by embargo")
         invested(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money invested")
         to_release(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money to release")
+        embargo_invested(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained by embargo")
+        retained(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained")
         shortcuts(required: true, type: PropertyType.ArrayList(PropertyType.String), inheritable:false, description: "Indicates the shortcuts available for the user")
-        activities(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money activities")
+        debts(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has debt card")
         cerc(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has cerc capability")
+        activities(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money activities")
 
         // Components
         my_money_available(required: true, type: PropertyType.Map(component_definition), description: "Available component print")

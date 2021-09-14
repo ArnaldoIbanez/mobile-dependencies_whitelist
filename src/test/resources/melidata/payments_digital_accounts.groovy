@@ -12,16 +12,17 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance available") {
+    test("Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {
             available: true
-            debts: true
-            retained: false
-            embargo_invested: false
+            account: false
             invested: false
-            not_invested: false
-            release: false
+            to_release: false
+            embargo_invested: false
+            retained: false
             shortcuts: ['money_in', 'money_out']
+            debts: true
+            cerc: true
             activities: false
         }
     }
