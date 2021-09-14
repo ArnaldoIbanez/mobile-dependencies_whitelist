@@ -194,7 +194,7 @@ tracks {
 
     "/discount_center/payers/vip/add_item/frictions/no_compliance" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(type: PropertyType.String, required: true, description: "Item's identifier")
-        options(type: PropertyType.ArrayList(PropertyType.Map(selected_bundle_definition)), required: true, description: "Option selected")
+        option(type: PropertyType.Map(selected_bundle_definition), required: true, description: "Option selected")
     }
 
 
