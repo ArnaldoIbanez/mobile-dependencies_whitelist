@@ -171,7 +171,7 @@ metrics {
         }
     }
 
-    "credits_merchant_enrollment_entries.total"(description: "Credits merchant entries under enrollmment flow") {
+    "credits_merchant_enrollment_entries"(description: "Credits merchant entries under enrollmment flow") {
         countsOn {
             condition {
                 path("/credits/merchant/enrollment")
