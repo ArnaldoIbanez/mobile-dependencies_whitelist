@@ -297,6 +297,21 @@ tracks {
     "/money_out/transfers/recents/modal_persuasion_pix/continue_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/recents/modal_persuasion_pix/dismiss"(platform: "/", type: TrackType.Event) {}
 
+
+    //Transfer Hub - Modal Restrictions
+    "/money_out/transfers/home/restrictions"(platform:"/", type: TrackType.View){
+        type(required:true, description:"Indicate type of restriction for example: credits")
+    }
+    "/money_out/transfers/home/restrictions/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/restrictions/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
+    
+    //Transfer Hub - Modal KYC
+    "/money_out/transfers/home/kyc_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/kyc_modal/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/kyc_modal/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/kyc_modal/dismiss"(platform: "/", type: TrackType.Event) {}
+    
     //Pix Limits MLB
     "/pix"(platform: "/", isAbstract: true) {}
     "/pix/limits"(platform: "/", isAbstract: true) {}

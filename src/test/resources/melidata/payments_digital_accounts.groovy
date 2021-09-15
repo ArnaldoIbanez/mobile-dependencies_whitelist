@@ -12,8 +12,19 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance available") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {}
+    test("Balance") {
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            available = true
+            account = false
+            invested = false
+            to_release = false
+            embargo_invested = false
+            retained = false
+            shortcuts = ['money_in', 'money_out']
+            debts = true
+            cerc = true
+            activities = false
+        }
     }
 
     test("Track Components Events") {
@@ -34,12 +45,14 @@ trackTests {
         "/banking/balance/available_component"(platform: "/", type: TrackType.View) {
             my_money_available = [
                 component_id: 'available',
+                content_id: ['to_release_component']
             ]
         }
 
         "/banking/balance/card_available_component"(platform: "/", type: TrackType.View) {
             my_money_card_available = [
                 component_id: 'card_available',
+                content_id: ['to_release_component']
             ]
         }
 
@@ -116,6 +129,7 @@ trackTests {
         "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) {
             my_money_last_activities = [
                 component_id: 'last_activities',
+                content_id: [],
                 component_data: [
                     elements: 5
                 ]
@@ -125,12 +139,35 @@ trackTests {
         "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) {
             my_money_last_activities = [
                 component_id: 'last_activities',
+                content_id: [],
                 component_data: [
                     elements: 5,
                     status: 'disabled'
                 ]
             ]
         }
+
+       "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) {
+            my_money_open_banking = [
+                component_id: 'open_banking',
+                component_data: [
+                     elements: 5
+                ],
+                content_id: [
+                        'Mercado Pago',
+                        'Cadastrar conta'
+                ]
+             ]
+        }
+
+        "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) {
+             my_money_debt_balance = [
+                  component_id: 'debt_balance',
+                  component_data: [
+                      status: 'printed'
+                 ]
+             ]
+         }
     }
 
     test("Balance to release") {
