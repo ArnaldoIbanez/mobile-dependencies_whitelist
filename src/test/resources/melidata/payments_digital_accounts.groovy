@@ -414,19 +414,19 @@ trackTests {
         }
 
         "/regulations/cerc/optin_form/confirm/form_edit"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'buton_click'
+            cerc_action_id = 'button_click'
         }
 
         "/regulations/cerc/optin_form/confirm/form_confirm"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'buton_click'
+            cerc_action_id = 'button_click'
         }
         
         "/regulations/cerc/optin_form/confirm/form_error_close"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'buton_click'
+            cerc_action_id = 'button_click'
         }
         
         "/regulations/cerc/optin_form/congrats/help"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'buton_click'
+            cerc_action_id = 'button_click'
         }
 
         "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {

@@ -285,8 +285,8 @@ tracks {
     "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { balanceEventClick }
 
-    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
     "/regulations/cerc/optin/button_faqs"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
     "/regulations/cerc/optin/go_optin_form"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
     "/regulations/cerc/optin/opt-out_confirm"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
