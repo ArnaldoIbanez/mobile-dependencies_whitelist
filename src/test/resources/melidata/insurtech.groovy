@@ -520,6 +520,7 @@ trackTests {
             ]
             has_roda = true
             has_garex = true
+            flow_id = 'CHECKOUT'
         }
         "/insurtech/qpage_on/quote_fail"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -572,6 +573,7 @@ trackTests {
             ]
             has_roda = true
             has_garex = true
+            flow_id = 'VIP/PDP'
         }
         "/insurtech/qpage_on/skip"(platform:"/web", type: TrackType.Event) {
            item = [
