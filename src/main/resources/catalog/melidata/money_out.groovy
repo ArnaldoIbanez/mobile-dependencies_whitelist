@@ -300,7 +300,7 @@ tracks {
 
     //Transfer Hub - Modal Restrictions
     "/money_out/transfers/home/restrictions"(platform:"/", type: TrackType.View){
-        type(required:true, description:"Indicate type of restriction for example: credits")
+        type(required:true, description:"Indicate type of restriction for example: credits", values=["credits", "chargeback", "p2p", "generic", "manual_review_open_cases"])
     }
     "/money_out/transfers/home/restrictions/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/restrictions/back"(platform: "/", type: TrackType.Event) {}
