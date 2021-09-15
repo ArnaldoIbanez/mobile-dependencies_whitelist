@@ -429,6 +429,10 @@ trackTests {
             cerc_action_id = 'button_click'
         }
 
+        "/regulations/cerc/optin_form/congrats/form_close"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
         "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
