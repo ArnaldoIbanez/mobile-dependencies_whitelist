@@ -29,7 +29,16 @@ tracks {
     propertyDefinitions {
         // Global variables
         action_id(required: true, type: PropertyType.String, description: "The action executed")
-        cerc_action_id(required: true, type: PropertyType.String, values: ["test"], description: "The action executed")
+        cerc_action_id(required: true, type: PropertyType.String, values: [
+                "go_optin_form", 
+                "button_help", 
+                "form_submit", 
+                "form_error_close", 
+                "form_confirm", 
+                "form_edit", 
+                "form_close", 
+                "form_help"
+                ], description: "The action executed")
 
         // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
