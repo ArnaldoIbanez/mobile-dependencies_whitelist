@@ -373,6 +373,34 @@ trackTests {
 
         "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
 
+        "/regulations/cerc/optin_form"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin_form/confirm"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
+
+        "/regulations/cerc/optin"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/optin_form"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/optin_form/confirm"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
         "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
