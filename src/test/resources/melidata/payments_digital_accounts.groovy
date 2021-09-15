@@ -402,35 +402,35 @@ trackTests {
         }
 
         "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
 
         "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
 
         "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
 
         "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
 
         "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
 
         "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
 
         "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
 
         "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
+            cerc_action_id = 'form_submit'
         }
     }
 }
