@@ -278,12 +278,12 @@ tracks {
     "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
 
     // Regulations Cerc Events
-    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { balanceEventClick }
-    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
 
     "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
     "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
