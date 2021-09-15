@@ -381,23 +381,23 @@ trackTests {
 
         "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
 
-        "/regulations/cerc/optin"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin/action"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'form_submit'
         }
 
-        "/regulations/cerc/optin_form"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin_form/action"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'form_submit'
         }
 
-        "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin_form/select/action"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'form_submit'
         }
 
-        "/regulations/cerc/optin_form/confirm"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin_form/confirm/action"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'form_submit'
         }
 
-        "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin_form/congrats/action"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'form_submit'
         }
 
