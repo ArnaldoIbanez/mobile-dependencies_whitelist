@@ -29,16 +29,7 @@ tracks {
     propertyDefinitions {
         // Global variables
         action_id(required: true, type: PropertyType.String, description: "The action executed")
-        cerc_action_id(required: true, type: PropertyType.String, values: [
-                "go_optin_form", 
-                "button_help", 
-                "form_submit", 
-                "form_error_close", 
-                "form_confirm", 
-                "form_edit", 
-                "form_close", 
-                "form_help"
-                ], description: "The action executed")
+        cerc_action_id(required: true, type: PropertyType.String, values: ["buton_click"], description: "The action executed")
 
         // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
@@ -106,6 +97,9 @@ tracks {
                 available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
         )
         cercEventClick (
+                action_type
+        )
+        cercOptinEventClick (
                 cerc_action_id
         )
         availablePrint (
@@ -284,17 +278,24 @@ tracks {
     "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
 
     // Regulations Cerc Events
-    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { balanceEventClick }
+
     "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
     "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/action"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin_form/action"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin_form/select/action"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin_form/congrats/action"(platform: "/", type: TrackType.Event) { cercEventClick }
-
+    "/regulations/cerc/optin/button_faqs"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/go_optin_form"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/opt-out_confirm"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/opt-out_cancel"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/opt-out"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/select/form_submit"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_edit"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_confirm"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_error_close"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/congrats/form_close"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/congrats/help"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
 }

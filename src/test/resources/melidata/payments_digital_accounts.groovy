@@ -381,56 +381,84 @@ trackTests {
 
         "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
 
-        "/regulations/cerc/optin/action"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/optin_form/action"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/optin_form/select/action"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/optin_form/confirm/action"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/optin_form/congrats/action"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
-        "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
-        }
-
         "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
+            cerc_action_id = 'button_click'
         }
 
         "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
-            cerc_action_id = 'form_submit'
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/button_faqs"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/go_optin_form"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/opt-out_confirm"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/opt-out_cancel"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin/opt-out"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/select/form_submit"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'button_click'
+        }
+
+        "/regulations/cerc/optin_form/confirm/form_edit"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'buton_click'
+        }
+
+        "/regulations/cerc/optin_form/confirm/form_confirm"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'buton_click'
+        }
+        
+        "/regulations/cerc/optin_form/confirm/form_error_close"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'buton_click'
+        }
+        
+        "/regulations/cerc/optin_form/congrats/help"(platform: "/", type: TrackType.Event) {
+            cerc_action_id = 'buton_click'
+        }
+
+        "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/contracts/help"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/reply/reason"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
+        }
+
+        "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
+            action_type = 'test'
         }
     }
 }
