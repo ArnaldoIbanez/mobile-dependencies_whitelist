@@ -29,6 +29,7 @@ tracks {
     propertyDefinitions {
         // Global variables
         action_id(required: true, type: PropertyType.String, description: "The action executed")
+        cerc_action_id(required: true, type: PropertyType.String, values: ["test"], description: "The action executed")
 
         // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
@@ -96,7 +97,7 @@ tracks {
                 available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
         )
         cercEventClick (
-                action_type
+                cerc_action_id
         )
         availablePrint (
                 my_money_available
