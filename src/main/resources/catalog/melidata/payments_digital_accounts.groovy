@@ -94,7 +94,7 @@ tracks {
         )
         bankingTrack (
                 available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
-        )        
+        )
         cercEventClick (
                 action_type
         )
@@ -268,6 +268,10 @@ tracks {
     "/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
     "/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
     "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/confirm"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
 
     // Regulations Cerc Events
     "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
@@ -278,4 +282,9 @@ tracks {
     "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
     "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
     "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin_form"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.Event) { cercEventClick }
+    "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.Event) { cercEventClick }
+
 }
