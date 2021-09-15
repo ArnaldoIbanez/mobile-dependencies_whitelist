@@ -393,15 +393,15 @@ trackTests {
             cerc_action_id = 'button_click'
         }
 
-        "/regulations/cerc/optin/opt-out_confirm"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin/optout_confirm"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'button_click'
         }
 
-        "/regulations/cerc/optin/opt-out_cancel"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin/optout_cancel"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'button_click'
         }
 
-        "/regulations/cerc/optin/opt-out"(platform: "/", type: TrackType.Event) {
+        "/regulations/cerc/optin/optout"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'button_click'
         }
 
