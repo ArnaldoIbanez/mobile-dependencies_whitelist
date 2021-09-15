@@ -170,4 +170,21 @@ metrics {
             }
         }
     }
+
+    "credits_merchant_enrollment_entries"(description: "Credits merchant entries under enrollmment flow") {
+        countsOn {
+            condition {
+                path("/credits/merchant/enrollment")
+                or (
+                    path("/credits/merchant/enrollment/onboarding")
+                )
+                or (
+                    path("/credits/merchant/enrollment/hub")
+                )
+                or (
+                    path("/credits/merchant/enrollment/simulator")
+                )             
+            }
+        }
+    }
 }
