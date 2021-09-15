@@ -452,13 +452,5 @@ trackTests {
         "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) {
             action_type = 'test'
         }
-
-        "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
-        }
-
-        "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) {
-            action_type = 'test'
-        }
     }
 }
