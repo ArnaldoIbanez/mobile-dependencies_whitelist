@@ -170,4 +170,15 @@ metrics {
             }
         }
     }
+
+    "credits_merchant_enrollment_entries"(description: "Credits merchant entries under enrollmment flow") {
+        startWith {
+            experiment(regex("(wallet|credits)/.*"))
+        }
+        countsOn { 
+            condition { 
+                path("/credits/merchant/enrollment", "/credits/merchant/enrollment/onboarding", "/credits/merchant/enrollment/hub", "/credits/merchant/enrollment/simulator") 
+            } 
+        }
+    }
 }
