@@ -712,7 +712,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric)
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
     "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
