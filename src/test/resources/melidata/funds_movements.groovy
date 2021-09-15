@@ -43,6 +43,8 @@ trackTests {
             transaction_amount = 200
             has_reason = true
         }
-        "/funds_movements/manual_amount/emoji_selected"(platform: "/mobile") {}
+        "/funds_movements/manual_amount/emoji_selected"(platform: "/mobile") {
+            position = 0
+        }
     }
 }

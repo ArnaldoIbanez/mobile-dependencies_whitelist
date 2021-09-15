@@ -50,8 +50,11 @@ tracks {
     // Unification - Manual Amount
     "/funds_movements/manual_amount"(platform: "/mobile", type: TrackType.View) {}
     "/funds_movements/manual_amount/continue"(platform: "/mobile", type: TrackType.Event) {
-        transaction_amount(required: true, PropertyType.Numeric, description: "The transaction amount")
-        has_reason(required: false, PropertyType.Boolean, description: "If the transaction has a reason message")
+        transaction_amount(required: true, type: PropertyType.Numeric, description: "The transaction amount")
+        has_reason(required: false, type: PropertyType.Boolean, description: "If the transaction has a reason message")
     }
-    "/funds_movements/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
+    "/funds_movements/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
+        position(required: true, PropertyType.Numeric, description: "Position of the default emojis")
+        emoji_id(required: false, PropertyType.String, description: "The emoji identifier")
+    }
 }
