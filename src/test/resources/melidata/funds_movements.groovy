@@ -18,7 +18,7 @@ trackTests {
         }
         "/funds_movements/new_transfer/contact_selected"(platform: "/mobile") {}
         "/funds_movements/new_transfer/pill/tapped"(platform: "/mobile") {
-	        type = "CNPJ"
+	        type_id = "CNPJ"
         }
         "/funds_movements/new_transfer/pill/tapped/format_match"(platform: "/mobile") {
             success = true
