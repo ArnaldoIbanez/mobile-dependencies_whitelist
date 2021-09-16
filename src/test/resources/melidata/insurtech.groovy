@@ -2488,6 +2488,7 @@ trackTests {
                 product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
             ]
         }
+
         "/insurtech/protections/detail/cards"(platform:"/web", type: TrackType.View) {
             product_data =[
                 entity_type:"quote",
