@@ -2,7 +2,6 @@ package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
-
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -48,6 +47,18 @@ tracks {
         begin_date(required: true, type: PropertyType.String, description: "Start date of the selected period")
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
+        //Banking
+        available(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if the user has money available")
+        account(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if the user has money in MP account")
+        invested(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money invested")
+        to_release(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money to release")
+        embargo_invested(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained by embargo")
+        retained(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained")
+        shortcuts(required: true, type: PropertyType.ArrayList(PropertyType.String), inheritable:false, description: "Indicates the shortcuts available for the user")
+        debts(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has debt card")
+        cerc(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has cerc capability")
+        activities(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money activities")
+
         // Components
         my_money_available(required: true, type: PropertyType.Map(component_definition), description: "Available component print")
         my_money_card_available(required: true, type: PropertyType.Map(component_definition), description: "Card Available component print")
@@ -81,6 +92,9 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        bankingTrack (
+                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
+        )        
         cercEventClick (
                 action_type
         )
@@ -153,7 +167,7 @@ tracks {
     "/banking/to_release/cerc_component"(platform: "/", type: TrackType.View) { cercPrint }
 
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/balance"(platform: "/", type: TrackType.View) { bankingTrack }
     "/banking/to_release"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}

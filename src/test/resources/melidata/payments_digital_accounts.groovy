@@ -12,8 +12,19 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Balance available") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {}
+    test("Balance") {
+        "/banking/balance"(platform: "/", type: TrackType.View) {
+            available = true
+            account = false
+            invested = false
+            to_release = false
+            embargo_invested = false
+            retained = false
+            shortcuts = ['money_in', 'money_out']
+            debts = true
+            cerc = true
+            activities = false
+        }
     }
 
     test("Track Components Events") {
