@@ -2140,7 +2140,7 @@ trackTests {
   }
 
   test("seller central sales detail payment payments") {
-    "/seller_central/sales/detail/payment/more"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/payments"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail payment products") {
