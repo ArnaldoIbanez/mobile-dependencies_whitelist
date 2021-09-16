@@ -49,16 +49,16 @@ tracks {
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
         //Banking
-        available(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if the user has money available")
-        account(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if the user has money in MP account")
-        invested(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money invested")
-        to_release(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money to release")
-        embargo_invested(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained by embargo")
-        retained(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money retained")
-        shortcuts(required: true, type: PropertyType.ArrayList(PropertyType.String), inheritable:false, description: "Indicates the shortcuts available for the user")
-        debts(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has debt card")
-        cerc(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has cerc capability")
-        activities(required: true, type: PropertyType.Boolean, inheritable:false, description: "Indicates if user has money activities")
+        available(required: true, type: PropertyType.Boolean, description: "Indicates if the user has money available")
+        account(required: true, type: PropertyType.Boolean, description: "Indicates if the user has money in MP account")
+        invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money invested")
+        to_release(required: true, type: PropertyType.Boolean, description: "Indicates if user has money to release")
+        embargo_invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money retained by embargo")
+        retained(required: true, type: PropertyType.Boolean, description: "Indicates if user has money retained")
+        shortcuts(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Indicates the shortcuts available for the user")
+        debts(required: true, type: PropertyType.Boolean, description: "Indicates if user has debt card")
+        cerc(required: true, type: PropertyType.Boolean, description: "Indicates if user has cerc capability")
+        activities(required: true, type: PropertyType.Boolean, description: "Indicates if user has money activities")
 
         // Components
         my_money_available(required: true, type: PropertyType.Map(component_definition), description: "Available component print")
@@ -151,6 +151,7 @@ tracks {
 
     // Components Balance
     "/banking/balance/print"(platform: "/", type: TrackType.View) { availablePrint }
+    "/banking/balance/sections"(platform: "/", type: TrackType.View) { bankingTrack }
     "/banking/balance/available_component"(platform: "/", type: TrackType.View) { availablePrint }
     "/banking/balance/card_available_component"(platform: "/", type: TrackType.View) { cardAvailablePrint }
     "/banking/balance/shortcuts_component"(platform: "/", type: TrackType.View) { shortcutsPrint }
@@ -171,7 +172,7 @@ tracks {
     "/banking/to_release/cerc_component"(platform: "/", type: TrackType.View) { cercPrint }
 
     // Balance Views
-    "/banking/balance"(platform: "/", type: TrackType.View) { bankingTrack }
+    "/banking/balance"(platform: "/", type: TrackType.View) {}
     "/banking/to_release"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}

@@ -13,7 +13,12 @@ trackTests {
     ******************************************/
 
     test("Balance") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {
+        "/banking/balance"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Track Components Events") {
+
+        "/banking/balance/sections"(platform: "/", type: TrackType.View) {
             available = true
             account = false
             invested = false
@@ -25,9 +30,7 @@ trackTests {
             cerc = true
             activities = false
         }
-    }
 
-    test("Track Components Events") {
         "/banking/balance/print"(platform: "/", type: TrackType.View) {
             my_money_available = [
                 component_id: 'available',
