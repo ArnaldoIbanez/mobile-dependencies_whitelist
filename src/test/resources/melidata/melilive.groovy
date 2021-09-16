@@ -61,7 +61,7 @@ trackTests {
 
         "/melilive/prelive"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
-            start_at = "2021-01-23T17:00:48Z"
+            starts_at = "2021-01-23T17:00:48Z"
             viewer_info = [
                     "loyalty_level": 1,
                     "zipcode"    : "1416",

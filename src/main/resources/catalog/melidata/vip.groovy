@@ -697,7 +697,7 @@ tracks {
                 description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
-        from_view(required: true, type: PropertyType.String,
+        from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form", "howToContract", "reputation"],
                 description: "Section where it's coming from"
         )
@@ -712,7 +712,8 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric)
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
     "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
