@@ -458,9 +458,11 @@ tracks {
         object_model
     }
 
-    "/support/widget/details"(platform: "/", type: TrackType.View) {}
+    "/support/widget/purchases"(platform: "/", isAbstract:  true) {}
 
-    "/support/widget/details/click"(platform: "/", type: TrackType.Event) {
+    "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+    "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
         button_label
     }
 

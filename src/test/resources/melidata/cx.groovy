@@ -208,10 +208,10 @@ trackTests {
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
         }
-        
-        "/support/widget/details"(platform: "/", type: TrackType.Event) {}
 
-        "/support/widget/details/click"(platform: "/", type: TrackType.Event) {
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
         button_label = "Volver a ayuda"
         }
     }
@@ -535,9 +535,9 @@ trackTests {
             object_model = "‘0.0.5-com208-ctx-training"
         }
 
-        "/support/widget/details"(platform: "/", type: TrackType.Event) {}
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
 
-        "/support/widget/details/click"(platform: "/", type: TrackType.Event) {
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
         button_label = "Volver a ayuda"
         }
   }
