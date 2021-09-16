@@ -151,7 +151,6 @@ tracks {
 
     // Components Balance
     "/banking/balance/print"(platform: "/", type: TrackType.View) { availablePrint }
-    "/banking/balance/sections"(platform: "/", type: TrackType.View) { bankingTrack }
     "/banking/balance/available_component"(platform: "/", type: TrackType.View) { availablePrint }
     "/banking/balance/card_available_component"(platform: "/", type: TrackType.View) { cardAvailablePrint }
     "/banking/balance/shortcuts_component"(platform: "/", type: TrackType.View) { shortcutsPrint }
@@ -190,6 +189,7 @@ tracks {
     "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/sections"(platform: "/", type: TrackType.Event) { bankingTrack }
 
     // ToRelease Events
     "/banking/to_release/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }

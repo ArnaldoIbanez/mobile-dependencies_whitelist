@@ -18,19 +18,6 @@ trackTests {
 
     test("Track Components Events") {
 
-        "/banking/balance/sections"(platform: "/", type: TrackType.View) {
-            available = true
-            account = false
-            invested = false
-            to_release = false
-            embargo_invested = false
-            retained = false
-            shortcuts = ['money_in', 'money_out']
-            debts = true
-            cerc = true
-            activities = false
-        }
-
         "/banking/balance/print"(platform: "/", type: TrackType.View) {
             my_money_available = [
                 component_id: 'available',
@@ -253,6 +240,18 @@ trackTests {
         }
         "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) {
             action_id = 'test'
+        }
+        "/banking/balance/sections"(platform: "/", type: TrackType.Event) {
+            available = true
+            account = false
+            invested = false
+            to_release = false
+            embargo_invested = false
+            retained = false
+            shortcuts = ['money_in', 'money_out']
+            debts = true
+            cerc = true
+            activities = false
         }
     }
 
