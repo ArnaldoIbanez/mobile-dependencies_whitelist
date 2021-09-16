@@ -46,6 +46,7 @@ tracks {
     def protection_item_info = objectSchemaDefinitions {
         quantity(required: true, type: PropertyType.Numeric, description: "Current quantity of the item at carrito")
         id(required: true, type: PropertyType.String, description: "Item ID")
+        variation_id(required: false, type: PropertyType.Numeric, description: "Variation ID")
     }
 
 

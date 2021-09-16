@@ -3996,6 +3996,9 @@ trackTests {
         "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
             action = "primary"
         }
+        "/cards/nfc/identity_confirmation/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
     }
     
     // NFC_PREP_REPLENISHMENT
