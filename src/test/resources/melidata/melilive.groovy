@@ -121,22 +121,24 @@ trackTests {
         "/melilive/creator/start_live"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
             groups = [
-                    group_id: "ede1ad69-c277-4f60-90c8-b845ca804fbe",
-                    products: [
-                            [
-                                    "item_id" : "MLA750284572",
-                                    "visible": true,
-                                    "highlighted": false,
-                                    "position": 0
-                            ]
+                [
+                    "group_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
+                    "products": [
+                        [
+                            "item_id" : "MLA750284572",
+                            "visible": true,
+                            "highlighted": false,
+                            "position": 0
+                        ]
                     ]
+                ]
             ]
         }
     }
 
     test("Melilive End Live From Creator") {
 
-        "/melilive/creator/start_live"(platform: "/") {
+        "/melilive/creator/end_live"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
         }
     }
@@ -151,7 +153,7 @@ trackTests {
 
     test("Melilive Item Event") {
 
-        "/melilive/creator/share"(platform: "/") {
+        "/melilive/creator/item/event"(platform: "/") {
             event_type = "HIGHLIGHT"
             item_id = "MLA231546"
             group_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
