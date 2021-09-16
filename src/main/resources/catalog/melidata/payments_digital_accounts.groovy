@@ -29,6 +29,7 @@ tracks {
     propertyDefinitions {
         // Global variables
         action_id(required: true, type: PropertyType.String, description: "The action executed")
+        cerc_action_id(required: true, type: PropertyType.String, values: ["button_click"], description: "The action executed")
 
         // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
@@ -94,9 +95,12 @@ tracks {
         )
         bankingTrack (
                 available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
-        )        
+        )
         cercEventClick (
                 action_type
+        )
+        cercOptinEventClick (
+                cerc_action_id
         )
         availablePrint (
                 my_money_available
@@ -268,6 +272,10 @@ tracks {
     "/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
     "/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
     "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/confirm"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
 
     // Regulations Cerc Events
     "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
@@ -276,6 +284,17 @@ tracks {
     "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
     "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
     "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+
+    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/go_optin_form"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/optout_confirm"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/optout_cancel"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/optout"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/select/form_submit"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_edit"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_confirm"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_error_close"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/congrats/form_close"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/congrats/help"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
 }
