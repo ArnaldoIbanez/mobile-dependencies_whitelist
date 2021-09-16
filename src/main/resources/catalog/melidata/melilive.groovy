@@ -135,7 +135,7 @@ tracks {
     }
 
     "/melilive/creator/item/event"("platform": "/", type: TrackType.Event) {
-        event_type(required: true, type: PropertyType.String, "Event type name sent")
+        event_type(required: true, type: PropertyType.String, description: "Event type name sent")
         item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
         product_id(required: false, type: PropertyType.String, description:  "Product Id")
         group_id(required: true, type: PropertyType.String, description: "Group Id")
