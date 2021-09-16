@@ -1634,7 +1634,6 @@ trackTests {
             latest_news_id= "card_request_challenge-pending-186785675-76283123"
             latest_news_type= "card_request_challenge-pending"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_correios_strike"(platform: "/mobile"){
             newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
@@ -1677,7 +1676,6 @@ trackTests {
             latest_news_id= "card_request_challenge-186785675-76283123"
             latest_news_type= "card_request_challenge"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_wallet"(platform: "/mobile"){
             newsgroup_id= "card_wallet-186785675-76283123"
@@ -2367,12 +2365,10 @@ trackTests {
         "/notification/card_request_challenge_pending"(platform: "/mobile") {
             news_id = "card_request_challenge_pending-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
             news_id = "card_request_challenge_pre_expired-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/anses_payment_date"(platform: "/mobile") {
             news_id = "anses_payment_date-12345678-123"
@@ -8351,7 +8347,6 @@ trackTests {
             latest_news_id= "card_request_challenge-pending-186785675-76283123"
             latest_news_type= "card_request_challenge-pending"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_correios_strike"(platform: "/mobile"){
             newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
@@ -8394,7 +8389,6 @@ trackTests {
             latest_news_id= "card_request_challenge-186785675-76283123"
             latest_news_type= "card_request_challenge"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_wallet"(platform: "/mobile"){
             newsgroup_id= "card_wallet-186785675-76283123"
@@ -11970,12 +11964,10 @@ trackTests {
         "/notification/card_request_challenge_pending"(platform: "/mobile") {
             news_id = "card_request_challenge_pending-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
             news_id = "card_request_challenge_pre_expired-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/card_offering_physical_card"(platform: "/mobile") {
             news_id = "card_offering_physical_card-12345678"

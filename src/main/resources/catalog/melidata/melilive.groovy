@@ -88,7 +88,7 @@ tracks {
 
     "/melilive/prelive"(platform: "/", type: TrackType.View) {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        start_at(required: true, type: PropertyType.String, description: "Date when stream has is supposed to start")
+        starts_at(required: true, type: PropertyType.String, description: "Date when stream has is supposed to start")
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
 
