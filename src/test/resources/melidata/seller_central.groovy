@@ -86,6 +86,20 @@ trackTests {
   test("seller central listing filters view") {
     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
       checkedFilters = ["inactive", "premium"]
+      page = 1
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+    }
+     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+      page = 2
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+    }
+    "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+      page = 3
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+      origin = "filters_modal"
     }
   }
 
