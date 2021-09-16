@@ -1349,6 +1349,8 @@ tracks {
     }
 
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/modal/payments"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/modal/products"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
 
@@ -1357,6 +1359,8 @@ tracks {
     }
 
     "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
