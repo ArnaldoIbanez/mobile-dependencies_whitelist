@@ -20,11 +20,6 @@ trackTests {
             products = [
                     [
                             "seller_id"      : 46772732,
-                            "is_free_shipping"  : true,
-                            "price"          : 4998.87,
-                            "original_price" : 5554.3,
-                            "discount"       : 10,
-                            "currency_id"    : "ARS",
                             "item_id"        : "MLA750284572",
                             "category_id"    : "MLA413229",
                             "domain_id"      : "MLA-LATEX_ENAMEL_AND_ACRYLIC_PAINTS",
