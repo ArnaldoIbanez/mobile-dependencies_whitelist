@@ -102,6 +102,7 @@ tracks {
         object_model(required: true, type: PropertyType.String, description: "Object model in model NLP response")
         portal_effectivity_survey_reason(required: false, type: PropertyType.String,
             description: "Indicates the reason for a negative vote given by a user to a certain faq")
+        button_label(required: true, type: PropertyType.String, description: "Indicates the button text")
     }
 
     propertyGroups {
@@ -147,6 +148,7 @@ tracks {
         content_ids(content_ids)
         object_model(object_model)
         portal_effectivity_survey_reason(portal_effectivity_survey_reason)
+        button_label(button_label)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -454,6 +456,12 @@ tracks {
         user_text
         content_ids
         object_model
+    }
+
+    "/support/widget/details"(platform: "/", type: TrackType.View) {}
+
+    "/support/widget/details/click"(platform: "/", type: TrackType.Event) {
+        button_label
     }
 
     // Mis Consultas
