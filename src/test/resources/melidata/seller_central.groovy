@@ -2139,8 +2139,8 @@ trackTests {
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
   }
 
-  test("seller central sales detail payment payments") {
-    "/seller_central/sales/detail/payment/payments"(platform: "/mobile", type: TrackType.View) {}
+  test("seller central sales detail payment more payments") {
+    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail payment products") {
