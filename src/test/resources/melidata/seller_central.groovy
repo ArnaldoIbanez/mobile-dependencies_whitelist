@@ -2139,12 +2139,12 @@ trackTests {
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
   }
 
-  test("seller central sales detail payment payments") {
-    "/seller_central/sales/detail/payment/payments"(platform: "/mobile", type: TrackType.View) {}
+  test("seller central sales detail payments") {
+    "/seller_central/sales/detail/payments"(platform: "/mobile", type: TrackType.View) {}
   }
 
-  test("seller central sales detail payment products") {
-    "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
+  test("seller central sales detail products") {
+    "/seller_central/sales/detail/products"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail shipping") {
