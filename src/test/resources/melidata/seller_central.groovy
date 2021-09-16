@@ -2153,6 +2153,14 @@ trackTests {
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("seller central sales detail payment more payments") {
+    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail payment products") {
+    "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
+  }
+
   test("seller central sales detail shipping") {
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
   }
@@ -2165,6 +2173,10 @@ trackTests {
 
   test("seller central sales detail invoice information") {
     "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail billing information") {
+    "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail buyer information") {
