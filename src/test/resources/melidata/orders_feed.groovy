@@ -18,6 +18,9 @@ trackTests {
             subscription = true
             auto_purchase = true
 
+            is_cbt = false
+            is_cpg = false
+
             seller = [[ id: 135201044, nickname: "XXXXXX" ]]
             buyer = [ id: 75961818, nickname: "YYYYYY" ]
 
