@@ -1349,7 +1349,7 @@ tracks {
     }
 
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
-    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/more"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
