@@ -122,7 +122,7 @@ tracks {
 
     "/melilive/creator/start_live"("platform": "/", type: TrackType.Event) {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        groups(required: true, PropertyType.ArrayList(PropertyType.Map(group_definition), description: "Groups associated to the broadcast"))
+        groups(required: true, PropertyType.ArrayList(PropertyType.Map(group_definition)), description: "Groups associated to the broadcast"))
     }
 
     "/melilive/creator/end_live"("platform": "/", type: TrackType.Event) {
