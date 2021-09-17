@@ -23,9 +23,7 @@ trackTests {
         "/funds_movements/new_transfer/pill/tapped/format_match"(platform: "/mobile") {
             success = true
         }
-        "/funds_movements/new_transfer/pill/tapped/account_match"(platform: "/mobile") {
-            success = false
-        }
+        "/funds_movements/new_transfer/continue"(platform: "/mobile") {}
 
         // Unification - Bottom Sheet
         "/funds_movements/bottom_sheet"(platform: "/mobile") {}

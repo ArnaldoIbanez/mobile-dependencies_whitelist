@@ -33,9 +33,7 @@ tracks {
     "/funds_movements/new_transfer/pill/tapped/format_match"(platform: "/mobile", type: TrackType.Event) {
         success(required: true, type: PropertyType.Boolean, description: "true if format input matches with the pill’s type")
     }
-    "/funds_movements/new_transfer/pill/tapped/account_match"(platform: "/mobile", type: TrackType.Event) {
-        success(required: true, type: PropertyType.Boolean, description: "true if input has an account")
-    }
+    "/funds_movements/new_transfer/continue"(platform: "/mobile", type: TrackType.Event) {}
 
     // Unification - Bottom Sheet
     "/funds_movements/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
@@ -55,6 +53,6 @@ tracks {
     }
     "/funds_movements/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
         position(required: true, PropertyType.Numeric, description: "Position of the default emojis")
-        emoji_id(required: false, PropertyType.String, description: "The emoji identifier")
+        emoji_id(required: false, PropertyType.String, description: "The emoji identifier, if available")
     }
 }
