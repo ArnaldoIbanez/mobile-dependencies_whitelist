@@ -174,6 +174,8 @@ trackTests {
         }
         "/cart/checkout/payment/input_card/edit_payment"(platform: "/", dataSet)
         "/cart/checkout/payment/input_card/security_code_tooltip"(platform: "/", dataSet)
+        "/checkout/session_expired"(platform: "/", dataSet)
+        "/checkout/generic_error"(platform: "/", dataSet)
         "/cart/checkout/payment/select_installments"(platform: "/", dataSet)
         "/cart/checkout/payment/select_installments/close_splitter_message"(platform: "/", dataSet)
         "/cart/checkout/payment/select_installments/click_payment_detail"(platform: "/", dataSet)
