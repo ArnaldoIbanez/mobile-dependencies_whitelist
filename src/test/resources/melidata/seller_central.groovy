@@ -434,7 +434,8 @@ trackTests {
         position: 3,
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: true
+        with_random_order: true,
+        tags: ["publications"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -451,7 +452,8 @@ trackTests {
         key: "LIGHTNING_OFFER",
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: false
+        with_random_order: false,
+        tags: ["shipping"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -469,15 +471,51 @@ trackTests {
           key: "PB02",
           page: 2,
           rules_applied: "hard",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["important"]
         ],
         [
           type: "CONTENT",
           key: "PB01",
           page: 2,
           rules_applied: "soft",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["important"]
         ]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach tags view") {
+    "/seller_central/seller_coach/summary/tags_view"(platform: "/web", type: TrackType.View) {
+      segment = "none"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      tags = [
+        [
+          key: "important",
+          position: 1,
+        ],
+        [
+          key: "publications",
+          position: 2,
+        ]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach tag click") {
+    "/seller_central/seller_coach/summary/tag_click"(platform: "/web", type: TrackType.Event) {
+      segment = "none"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      tag = [
+        key: "shipping",
+        position: 3,
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -508,7 +546,8 @@ trackTests {
         position: 3,
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: true
+        with_random_order: true,
+        tags: ["publications", "important"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -525,7 +564,8 @@ trackTests {
         key: "LIGHTNING_OFFER",
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: false
+        with_random_order: false,
+        tags: ["publications", "important"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -543,14 +583,16 @@ trackTests {
           key: "PB02",
           page: 2,
           rules_applied: "hard",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["publications"]
         ],
         [
           type: "CONTENT",
           key: "PB01",
           page: 2,
           rules_applied: "soft",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["publications"]
         ]
       ]
       seller_experience = "ADVANCED"
