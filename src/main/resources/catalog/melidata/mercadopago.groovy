@@ -24,7 +24,7 @@ tracks {
     }
 
     "/"(platform: "/mobile", isAbstract: true) {
-        sent_again(required: false)
+        sent_again(required: false, description: "If track has already been sent")
     }
 
     "/blog"(platform: "/web", isAbstract: true, initiative: "1145") {

@@ -132,12 +132,23 @@ tracks {
     //Transfer Hub - Scheduled Transfers
     "/money_out/transfers/scheduled_transfers_list"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/scheduled_transfers_list/transfer_selected"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfers_list/faq"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfers_list/transfer_cancel_click"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfers_list/transfer_cancel_succes"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfers_list/transfer_cancel_error"(platform: "/", type: TrackType.Event) {}
 
     //Transfer Hub - Scheduled Transfers Detail
     "/money_out/transfers/scheduled_transfer_detail"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/scheduled_transfer_detail/cancel"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/scheduled_transfer_detail/cancel_dismissed"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/scheduled_transfer_detail/cancel_confirmed"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfer_detail/money_in_click"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfer_detail/show_receipt_click"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfer_detail/cancel_transfer_click"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfer_detail/modal"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/scheduled_transfer_detail/modal/confirm"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfer_detail/modal/dismiss"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/scheduled_transfer_detail/modal/close"(platform: "/", type: TrackType.Event) {}
 
     //Transfer Hub - Add Bank Account Form
     "/money_out/transfers/new_account_form"(platform: "/", type: TrackType.View) {}
@@ -167,6 +178,12 @@ tracks {
     "/money_out/transfers/review_and_confirm/know_more_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/know_more_tooltip_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/review_and_confirm/edit_reason_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/faq"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/immediate_transfer_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirms/scheduled_transfer_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/edit_date_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/review_and_confirm/calendar"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/review_and_confirm/calendar/confirm"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Congrats
     "/money_out/transfers/result"(platform: "/", isAbstract:true) {}
@@ -199,6 +216,9 @@ tracks {
     "/money_out/transfers/onboarding"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/onboarding/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/onboarding/close_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_out/scheduled_transfers/onboarding"(platform: "/", type: TrackType.View) {}
+    "/money_out/scheduled_transfers/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/scheduled_transfers/onboarding/close"(platform: "/", type: TrackType.Event) {}
 
     //Transfer Hub - Bacen Closed Modal (RyC)
     "/money_out/transfers/review_and_confirm/scheduled_warning_modal"(platform: "/", type: TrackType.View) {}
@@ -277,6 +297,21 @@ tracks {
     "/money_out/transfers/recents/modal_persuasion_pix/continue_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/recents/modal_persuasion_pix/dismiss"(platform: "/", type: TrackType.Event) {}
 
+
+    //Transfer Hub - Modal Restrictions
+    "/money_out/transfers/home/restrictions"(platform:"/", type: TrackType.View){
+        type(required:true, description:"Indicate type of restriction for example: credits", values=["credits", "chargeback", "p2p", "generic", "manual_review_open_cases"])
+    }
+    "/money_out/transfers/home/restrictions/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/restrictions/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
+    
+    //Transfer Hub - Modal KYC
+    "/money_out/transfers/home/kyc_modal"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/kyc_modal/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/kyc_modal/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/kyc_modal/dismiss"(platform: "/", type: TrackType.Event) {}
+    
     //Pix Limits MLB
     "/pix"(platform: "/", isAbstract: true) {}
     "/pix/limits"(platform: "/", isAbstract: true) {}

@@ -520,6 +520,7 @@ trackTests {
             ]
             has_roda = true
             has_garex = true
+            flow_id = 'CHECKOUT'
         }
         "/insurtech/qpage_on/quote_fail"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -572,6 +573,7 @@ trackTests {
             ]
             has_roda = true
             has_garex = true
+            flow_id = 'VIP/PDP'
         }
         "/insurtech/qpage_on/skip"(platform:"/web", type: TrackType.Event) {
            item = [
@@ -2026,6 +2028,31 @@ trackTests {
 
         "/insurtech/protections/finished"(platform:"/web", type: TrackType.View) {
             protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+
+
+        "/insurtech/protections/finished_claims"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            claims = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/finished_claims"(platform:"/web", type: TrackType.View) {
+            claims = [
                 [
                     product_id: "garex",
                     insurance_purchase_key: "garex-ABC125",

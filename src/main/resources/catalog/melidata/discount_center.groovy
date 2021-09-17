@@ -326,6 +326,7 @@ tracks {
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
       session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+      product_type(required: false, type: PropertyType.String, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
     }
 
     "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.Event, isAbstract: true) { }

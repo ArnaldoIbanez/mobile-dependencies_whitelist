@@ -3143,6 +3143,271 @@ trackTests {
             mandatory()
         }
 
+        //home invoices/adhesion
+        "/bill_payments/home/adhesion_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/invoices"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // main category Scheduling
+        "/bill_payments/main_category/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/main_category/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/scheduling/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        "/bill_payments/main_category/scheduling/result_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        //scheduling
+        // empty state ftu
+        "/bill_payments/empty_state_ftu/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // empty state
+        "/bill_payments/empty_state/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // ftu kyc
+        "/bill_payments/ftu_kyc/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        //required data
+        "/bill_payments/required_data/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/scheduling/button_continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // confirm optin
+        "/bill_payments/confirm_optin/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/checkbox_selected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/checkbox_unselected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optin list
+        "/bill_payments/optin_list/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling/search_entities_scheduling"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/scheduling"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        // optout
+        "/bill_payments/optout/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optout dda
+        "/bill_payments/optout_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout_dda/scheduling/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // adhesion detail
+        "/bill_payments/adhesion_detail/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/message_button"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/scheduling/notification_preference"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // adhesion detail dda
+        "/bill_payments/adhesion_detail_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail_dda/scheduling/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout
+        "/bill_payments/congrats_optout/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout dda
+        "/bill_payments/congrats_optout_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin
+        "/bill_payments/congrats_optin/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin dda
+        "/bill_payments/congrats_optin_dda/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin_dda/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin_dda/scheduling/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
+
     }
 
     test("Fund account") {
@@ -3826,6 +4091,16 @@ trackTests {
             id = "id"
             target = "go_home"
             event_type = "click"
+        }
+    }
+
+    test("PASSWORD enrollment flow") {
+        "/auth/password_enrollment"(platform: "/", type: TrackType.View) {
+            transaction_id = "id"
+        }
+        "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
+            transaction_id = "id"
+            target = "continue"
         }
     }
 

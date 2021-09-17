@@ -191,6 +191,7 @@ catalog {
         include business, "hub_mshops.groovy"
         include business, "prepapp.groovy"
         include business, "melilive.groovy"
+        include business, "vis_scheduling.groovy"
     }
 
     mercadopago.each { business ->
@@ -295,6 +296,8 @@ catalog {
         include business, "search.groovy"
         include business, "social.groovy"
         include business, "vip.groovy"
+        include business, "hub_mshops.groovy"
+        include business, "myml_mercadoshops.groovy"
     }
 
     mercadoads.each { business ->
