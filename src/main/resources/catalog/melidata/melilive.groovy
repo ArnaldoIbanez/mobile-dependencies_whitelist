@@ -23,11 +23,6 @@ tracks {
     def product_info_definition = objectSchemaDefinitions {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        is_free_shipping(required: true, type: PropertyType.Boolean, description: "Define is the shipping is free")
-        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
-        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
-        discount(required: false, type: PropertyType.Numeric, description: "Indicates the discounts applied to the item")
-        currency_id(required: true, type: PropertyType.String, description: "Id that identify the currency type")
         item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         domain_id(required: true, type: PropertyType.String, description: "Item's domain id")
