@@ -34,21 +34,16 @@ trackTests {
                             type        : "header_labels",
                             min_quantity: 1,
                             max_quantity: 1,
-                            disabled    : "true",
+                            disabled    : true,
+                            title       : "Tamaño de la hamburguesa",
                             options     : [
                                     [
-                                            id     : "MLB1990906839",
-                                            title  : "Tamaño de hamburguesa",
-                                            options: [
-                                                    [
-                                                            id          : "MLB1990917149",
-                                                            title       : "Simple",
-                                                            quantity    : 0, // toma distinto de 0 valor en la VIP precargada
-                                                            min_quantity: 0,
-                                                            max_quantity: 1,
-                                                            value       : 0 // precio de la option
-                                                    ]
-                                            ]
+                                            id          : "MLB1990906839",
+                                            title       : "Simple",
+                                            quantity    : 0,
+                                            min_quantity: 0,
+                                            max_quantity: 1,
+                                            value       : 50
                                     ]
                             ]
                     ]
@@ -56,6 +51,7 @@ trackTests {
         }
 
         "/discount_center/payers/vip/add_item/frictions/no_compliance"(platform: "/mobile", type: TrackType.View) {
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
             item_id = "MLA886428635"
             option = [
                     bundle_id       : "b61ebe2c-8845-4e86-b785-d9e9d261d294",
