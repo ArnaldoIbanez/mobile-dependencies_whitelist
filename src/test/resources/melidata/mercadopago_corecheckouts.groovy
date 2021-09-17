@@ -16,4 +16,21 @@ trackTests {
         "/checkout_api/payment/one_click_return/webpay_error"(platform:"/", type:TrackType.Event) {}
     }
 
+    test("View ticket") {
+      "/ticket_render/view"(platform:"/", type:TrackType.View) {
+          is_guest = false
+          site_id = "MLM"
+          payment_method_id = "paycash"
+          payment_id = 1234
+      }
+    }
+
+    test("Print ticket") {
+      "/ticket_render/print/button_clicked"(platform:"/", type: TrackType.Event) {
+          is_guest = true
+          site_id = "MLB"
+          payment_method_id = "boleto"
+          payment_id = 2345
+      }
+    }
 }
