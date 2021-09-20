@@ -20,17 +20,15 @@ tracks {
     "/checkout_api/payment/one_click_return/webpay_error"(platform: "/", type: TrackType.Event){}
 
     //tickets
-    "/ticket_render/view"(platform:"/", type:TrackType.View) {
-        is_guest (required: true, type: PropertyType.Boolean, description: "Wether user is logged as guest")
-        site_id(required: true, type: PropertyType.String, description: "Site of user who views ticket")
+    "/ticket_render"(platform:"/", type:TrackType.View) {
+        is_guest(required: true, type: PropertyType.Boolean, description: "Wether user is logged as guest")
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method of ticket")
-        payment_id(required: true, type: PropertyType.Numeric)
+        payment_id(required: true, type: PropertyType.Numeric, description: "Payment id of ticket")
     }
 
     "/ticket_render/print/button_clicked"(platform:"/", type: TrackType.Event) {
-      is_guest (required: true, type: PropertyType.Boolean, description: "Wether user is logged as guest")
-      site_id(required: true, type: PropertyType.String, description: "Site of user who prints ticket")
+      is_guest(required: true, type: PropertyType.Boolean, description: "Wether user is logged as guest")
       payment_method_id(required: true, type: PropertyType.String, description: "Payment method of ticket")
-      payment_id(required: true, type: PropertyType.Numeric)
+      payment_id(required: true, type: PropertyType.Numeric, description: "Payment id of ticket")
     }
 }
