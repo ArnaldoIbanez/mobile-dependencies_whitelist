@@ -2418,7 +2418,8 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false
             ]
         }
             "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
@@ -2426,7 +2427,8 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
@@ -2434,7 +2436,8 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
@@ -2442,7 +2445,8 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
@@ -2450,7 +2454,8 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false
             ]
         }
 
@@ -2459,7 +2464,8 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false
             ]
         }
         "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
@@ -2467,7 +2473,8 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false
             ]
         }
         "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
@@ -2536,15 +2543,6 @@ trackTests {
         }
 
         "/insurtech/protections/detail/cards/help"(platform:"/web", type: TrackType.Event) {
-            product_data =[
-                entity_type:"quote",
-                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
-                product_type:"cards",
-                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
-            ]
-        }
-
-        "/insurtech/protections/detail/cards/insurer_response"(platform:"/", type: TrackType.Event) {
             product_data =[
                 entity_type:"quote",
                 entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",

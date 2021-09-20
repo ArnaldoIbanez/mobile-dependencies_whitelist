@@ -702,8 +702,6 @@ tracks {
 
     "/insurtech/protections/detail/cards/help"(platform:"/", type: TrackType.Event) {}
 
-    "/insurtech/protections/detail/cards/insurer_response"(platform:"/", type: TrackType.Event) {}
-
     "/insurtech/protections/detail/cards/full_coverage"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/detail/begin_claim"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
