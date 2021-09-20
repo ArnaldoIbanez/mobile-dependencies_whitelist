@@ -1261,7 +1261,6 @@ tracks {
     "/notification_center/card_request_challenge"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-        payment_method(required: true, type: PropertyType.String, description: "Payment method")
     }
     "/notification_center/card_kyc_data_completed"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -3286,12 +3285,8 @@ tracks {
     }
 
     //Cards Hybrid
-    "/notification/card_request_challenge_pending"(platform: "/") {
-        payment_method(required: true, type: PropertyType.String, description: "Payment method")
-    }
-    "/notification/card_request_challenge_pre_expired"(platform: "/") {
-        payment_method(required: true, type: PropertyType.String, description: "Payment method")
-    }
+    "/notification/card_request_challenge_pending"(platform: "/") {}
+    "/notification/card_request_challenge_pre_expired"(platform: "/") {}
     "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
     "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_first_day"(platform: "/") {}

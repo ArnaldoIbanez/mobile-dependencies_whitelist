@@ -208,6 +208,12 @@ trackTests {
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
         }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
+        }
     }
 
     test("Support Widget having Content Type") {
@@ -527,6 +533,12 @@ trackTests {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
+        }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
         }
   }
 
