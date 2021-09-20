@@ -122,7 +122,7 @@ tracks {
     
     // Device Metadata sent from backend (Notifications ACK) & application startup
     "/devices/metadata"(platform: "/", type: TrackType.Event) {
-        total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
+        total_storage(required: true, type: PropertyType.Numeric, description: "The total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
         app_cache(required: false, type: PropertyType.Numeric, description: "Application cache occupied storage in bytes")
