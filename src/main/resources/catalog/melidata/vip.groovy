@@ -168,8 +168,8 @@ tracks {
         listing_type_id(required: true, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
-        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
-                description: "Whenever the items is active, closed or paused")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "inactive", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, inactive, closed or paused")
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
@@ -265,6 +265,7 @@ tracks {
                         "CrediHome",
                 ]
         )
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -696,7 +697,7 @@ tracks {
                 description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
-        from_view(required: true, type: PropertyType.String,
+        from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form", "howToContract", "reputation"],
                 description: "Section where it's coming from"
         )
@@ -711,7 +712,8 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric)
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
     "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
@@ -1306,6 +1308,7 @@ tracks {
     }
 
     "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
     "/vip/new_shipping_calculator/cancel"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1597,7 +1600,7 @@ tracks {
     "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description:"Item ID")
         context(required: true, type: PropertyType.String, values: ["/vip"], description: "Indicates where the page was opened from")
-        reason(required: false, type: PropertyType.String, description:"the reason for denouncing", values: ["UNKNOWN","unavailable_property"]) 
+        reason(required: false, type: PropertyType.String, description:"the reason for denouncing", values: ["UNKNOWN","unavailable_property"])
         vertical(required: true, type: PropertyType.String,
         values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
@@ -1758,5 +1761,20 @@ tracks {
         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
         label(required: true, type: PropertyType.String, values: ["PICKER", "BOTTOM_SHEET"], description: "indicates to which component the event belongs")
+    }
+
+    // VIS Scheduling
+    "/vip/scheduling_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"], description: "Whether the item is new, used or refurbished")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"], description: "Whenever the items is active, closed or paused")
+        item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"], description: "Seller type: normal, car_dealer, etc")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String, values: ["motors", "realEstate", "services"], description: "Vertical of the item")
+        source(required: true, type: PropertyType.String, description: "Indicates from which component within VIP comes the event")
+        unregistered_contact(required: true, type: PropertyType.Boolean, description: "User is unregister type")
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
     }
 }

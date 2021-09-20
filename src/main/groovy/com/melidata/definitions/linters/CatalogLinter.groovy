@@ -15,12 +15,12 @@ class CatalogLinter {
         linters.add(new PropertiesQuantityLinter(20))
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type", "name"]))
         linters.add(new NamingLinter())
-        linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
+        linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
-                ["data", "extra_info", "extra_data", "extra", "event_data", "id"],
-                ["platform", "user", "device", "name", "required", "description"],
+                ["data", "extra_info", "extra_data", "extra", "event_data"],
+                ["platform", "user", "device", "name", "required", "description", "mode"],
                 ["user_id", "site_id", "colaborator_id", "bu", "business", "site", "experiment", "experiments"])
         )
     }
@@ -46,12 +46,16 @@ class CatalogLinter {
             } else {
                 if(!prodDef.any {newDefinition.equals(it)}) {
                     Map<String, TrackDefinitionProperty> propertiesMerge = [:]
-                    prodDef.forEach {propertiesMerge.putAll(it.properties)}
-                    println("Propertis of new definition:${newDefinition.properties}")
-                    println("Properties already defined:${propertiesMerge}")
-                    newDefinition.properties = [:] << newDefinition.properties.findAll { String name, prop ->
-                        propertiesMerge[name] == null || !prop.equals(propertiesMerge[name])
+
+                    newDefinition.properties.each {String name, TrackDefinitionProperty prop ->
+                        if(!prodDef.collect {((Map) it.properties).values()}.flatten().contains(prop)) {
+                            propertiesMerge.put(name, prop)
+                        }
                     }
+
+
+                    newDefinition.properties = propertiesMerge
+
                     if(!linters.every {it.validateProperties(newDefinition)}) {
                         isValid = false
                     }

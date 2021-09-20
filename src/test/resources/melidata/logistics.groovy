@@ -100,19 +100,19 @@ trackTests {
             vehicle_id = "786"
         }
 
-        //Login driver on route duplicate
-        "/logistics/login/driver_on_route/duplicate"(platform: "/mobile", type: TrackType.View) {
-            defaultLocation()
-            route_id = "1234"
-            driver_id = "1234"
-            vehicle_id = "1234"
-            logistic_type = "last_mile"
-        }
-
         //Profile
         "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             driver_id = "987"
+        }
+
+        //Login duplicate driver warning
+        "/logistics/login/duplicate_driver_warning"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = 1234
+            vehicle_id = 1234
+            logistic_id = "last_mile"
         }
 
         //Geolocation permission
@@ -193,15 +193,15 @@ trackTests {
             logistic_type = "last_mile"
         }
         "/logistics/profile/fiscalization_disclaimer"(platform: "/mobile", type: TrackType.View) {
-            driver_id = "123"
+            driver_id = 123
         }
         "/logistics/profile/fiscalization_disclaimer/invoice"(platform: "/mobile", type: TrackType.View) {
-            driver_id = "123"
-            shipment_id = "123"
+            driver_id = 123
+            shipment_id = 123
         }
         "/logistics/profile/fiscalization_disclaimer/invoice_not_found"(platform: "/mobile", type: TrackType.View) {
-            driver_id = "123"
-            shipment_id = "123"
+            driver_id = 123
+            shipment_id = 123
         }
         "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
             pack_id = "124"

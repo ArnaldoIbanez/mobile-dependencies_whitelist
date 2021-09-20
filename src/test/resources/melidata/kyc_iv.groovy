@@ -192,6 +192,10 @@ trackTests {
             validation = "ok"
             value = "detection OK"
         }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "error"
+            value = "error al inicializar"
+        }
         "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
             error = "error al descargar"
         }
@@ -275,6 +279,10 @@ trackTests {
         "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
             validation = "aspect_ratio"
             value = "1.3"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "denied_label_check"
+            value = "test"
         }
         "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
             error = "error al descargar"
@@ -731,6 +739,14 @@ trackTests {
             validation = "confidence"
             value = "0.54"
         }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "brightness"
+            value = "0.54"
+        }
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/android")  {
+            validation = "darkness"
+            value = "-0.54"
+        }
         "/kyc/iv/object_detection/error"(platform: "/mobile/android")  {
             error = "error al descargar"
         }
@@ -843,6 +859,12 @@ trackTests {
             validation = "label_check"
             value = "other"
         }
+
+        "/kyc/iv/object_detection/validation"(platform: "/mobile/ios")  {
+            validation = "pending"
+            value = "pending"
+        }
+
         "/kyc/iv/object_detection/error"(platform: "/mobile/ios")  {
             error = "error al descargar"
         }
