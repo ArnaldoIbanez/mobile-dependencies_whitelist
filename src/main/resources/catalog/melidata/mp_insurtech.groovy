@@ -695,7 +695,7 @@ tracks {
     "/insurtech/protections/detail/cards/download_policy"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/detail/cards/pay"(platform:"/", type: TrackType.Event) {
-        type(required: false, type: PropertyType.String, description: "Type of payment to be executed on protection.")
+        type(required: false, type: PropertyType.String, values: ['pending_recurring_payment'], description: "Type of payment to be executed on protection.")
     }
 
     "/insurtech/protections/detail/cards/cancel"(platform:"/", type: TrackType.Event) {}
