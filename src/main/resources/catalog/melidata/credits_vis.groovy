@@ -236,6 +236,21 @@ tracks {
         vis_credits_optional
     }
 
+    "/vis_credits/ladings/buyer_contact"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact/call_intention"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact/email_intention"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
     "/vis_credits/error"(platform: "/", type: TrackType.View) {
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
