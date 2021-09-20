@@ -141,6 +141,13 @@ tracks {
         carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
         nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
         nfc_enabled(required: false, type: PropertyType.Boolean, description: "Nfc is enabled or not")
+        battery_charging(required: false, type: PropertyType.Boolean, description: "Battery is charging or not")
+        battery_percentage_available(required: false, type: PropertyType.String, description: "Battery percentage available")
+        device_is_emulator(required: false, type: PropertyType.Boolean, description: "Device is an emulator or not")
+        total_ram_memory(required: false, type: PropertyType.Numeric, description: "Device total ram memory in bytes")
+        available_ram_memory(required: false, type: PropertyType.Numeric, description: "Device available ram memory in bytes")
+        vpn_connected(required: false, type: PropertyType.Boolean, description: "Device is connected to VPN or not")
+        bluetooth_enabled(required: false, type: PropertyType.Boolean, description: "Bluetooth is enabled or not")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
