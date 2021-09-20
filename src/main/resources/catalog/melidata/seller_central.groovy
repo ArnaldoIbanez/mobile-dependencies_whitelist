@@ -591,7 +591,13 @@ tracks {
     "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
-        checkedFilters(required: true, type: PropertyType.ArrayList, description: "Id of the action")
+        // TODO remove checkedFilters when the rollout mshops finsh
+        checkedFilters(required: false, type: PropertyType.ArrayList, description: "Id of the action")
+        page(required: false, type: PropertyType.Numeric, description: "Number of the page")
+        filters(required: false, type: PropertyType.ArrayList, description: "List with the Ids of every filter applied")
+        sort(required: false, type: PropertyType.String, description: "Sorting applied")
+        search(required: false, type: PropertyType.String, description: "Query for id or title")
+        origin(required: false, type: PropertyType.String, description: "component that emit the action")
     }
 
     "/seller_central/listings/filters/action"(platform: "/") {
@@ -1349,6 +1355,8 @@ tracks {
     }
 
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
 
@@ -1357,6 +1365,8 @@ tracks {
     }
 
     "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {

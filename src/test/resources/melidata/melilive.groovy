@@ -20,11 +20,6 @@ trackTests {
             products = [
                     [
                             "seller_id"      : 46772732,
-                            "is_free_shipping"  : true,
-                            "price"          : 4998.87,
-                            "original_price" : 5554.3,
-                            "discount"       : 10,
-                            "currency_id"    : "ARS",
                             "item_id"        : "MLA750284572",
                             "category_id"    : "MLA413229",
                             "domain_id"      : "MLA-LATEX_ENAMEL_AND_ACRYLIC_PAINTS",
@@ -66,7 +61,7 @@ trackTests {
 
         "/melilive/prelive"(platform: "/") {
             broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
-            start_at = "2021-01-23T17:00:48Z"
+            starts_at = "2021-01-23T17:00:48Z"
             viewer_info = [
                     "loyalty_level": 1,
                     "zipcode"    : "1416",
