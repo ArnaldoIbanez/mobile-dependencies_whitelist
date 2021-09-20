@@ -31,7 +31,7 @@ tracks {
         )
         domain_id(required: false, type: PropertyType.String, description: "Id of the product")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree", serverSide: true)
+        category_path(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree", serverSide: true)
         city(required: false, type: PropertyType.String, description: "Item city name")
         flow_type(
                 required: false,
