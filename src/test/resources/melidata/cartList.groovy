@@ -341,6 +341,19 @@ trackTests {
             ]
         }
 
+        "/cart/item_add/insurtech_protection_deleted"(platform: "/"){
+            item = [
+                    quantity: 2,
+                    id: "MLB90024152",
+                    variation_id: 1444151601324,
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    option_price: 102.20,
+                    option_id: "ROD003321143MLB"
+            ]
+        }
+
         def errorsForModal = {
             cart_ratio = "applies"
             cant_update_motive = "quantity_up"

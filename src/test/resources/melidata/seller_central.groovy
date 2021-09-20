@@ -86,6 +86,20 @@ trackTests {
   test("seller central listing filters view") {
     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
       checkedFilters = ["inactive", "premium"]
+      page = 1
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+    }
+     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+      page = 2
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+    }
+    "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+      page = 3
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+      origin = "filters_modal"
     }
   }
 
@@ -2139,6 +2153,14 @@ trackTests {
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("seller central sales detail payment more payments") {
+    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail payment products") {
+    "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
+  }
+
   test("seller central sales detail shipping") {
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
   }
@@ -2151,6 +2173,10 @@ trackTests {
 
   test("seller central sales detail invoice information") {
     "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail billing information") {
+    "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail buyer information") {
