@@ -236,7 +236,7 @@ tracks {
         vis_credits_optional
     }
 
-    "/vis_credits/ladings/buyer_contact"(platform: "/", type: TrackType.View) {
+    "/vis_credits/landings/buyer_contact"(platform: "/", type: TrackType.View) {
         vis_credits_required
         vis_credits_optional
     }
