@@ -497,9 +497,6 @@ tracks {
         claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
     }
     "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
-        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
-        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
         claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
     }
