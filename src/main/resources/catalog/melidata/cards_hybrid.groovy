@@ -3120,4 +3120,15 @@ tracks {
             values: ['needed','not_needed', 'null']
         )
     }
+    
+    // NFC_DISABLED_PAYMENT_SERVICE
+    // ----------------------------
+    
+    "/cards/nfc/disabled_payment_error"(platform: "/", type: TrackType.Event) {
+        user_id_is_null (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "UserId status at the moment of the error"
+        )
+    }
 }
