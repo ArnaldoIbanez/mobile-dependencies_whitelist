@@ -634,6 +634,9 @@ trackTests {
         "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
             claim_id= 443103451
         }
+        "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
+            claim_id= 443103451
+        }
         "/notification_center/orders-buyer"(platform: "/mobile"){
             newsgroup_id= "orders-buyer-1285223441"
             status= "read"
@@ -7305,6 +7308,9 @@ trackTests {
             latest_news_id= "returns-init_return-1692352012-88594841"
         }
         "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
+            claim_id= 443103451
+        }
+        "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
             claim_id= 443103451
         }
         "/notification_center/orders-buyer"(platform: "/mobile"){
