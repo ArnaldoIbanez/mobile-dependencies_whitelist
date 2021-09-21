@@ -6633,6 +6633,21 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_payment_recovery_cards"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery_cards"
+            latest_news_id= "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -13271,6 +13286,21 @@ trackTests {
 
         "/notification/insurtech_money_in"(platform: "/mobile") {
             news_id = "insurtech_money_in-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_payment_recovery_cards"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery_cards"
+            latest_news_id= "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
 
