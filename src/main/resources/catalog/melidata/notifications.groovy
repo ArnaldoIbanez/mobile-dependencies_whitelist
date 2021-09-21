@@ -498,7 +498,7 @@ tracks {
     }
     "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
         pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
-        claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
+        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
     }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
