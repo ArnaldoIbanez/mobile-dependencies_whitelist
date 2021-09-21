@@ -6634,7 +6634,7 @@ trackTests {
         }
 
         "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
-            news_id = "insurtech_payment_recovery-315571651-4600610652-2021-06-29"
+            news_id = "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
 
