@@ -705,8 +705,17 @@ trackTests {
 
         "/money_in/hub"(platform:"/", type: TrackType.View){}
         "/money_in/hub/select"(platform:"/", type: TrackType.Event){
-        payment_method_id = "pix"
+            payment_method_id = "pix"
         }
         "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
+            id = "ted"
+        }
+        "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
+            id = "debin"
+        }
+        "/money_in/hub/widget/action"(platform:"/", type: TrackType.Event){
+            action_id = "qr"
+        }
     }
 }
