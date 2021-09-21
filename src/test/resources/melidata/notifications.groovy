@@ -4523,6 +4523,16 @@ trackTests {
             event_type = "arrived"
             order_id = 1234
         }
+        "/notification/returns_return_delivered_long_way"(platform: "/mobile") {
+            news_id = "returns-return_delivered_long_way-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
+        "/notification/returns_return_failed_shipment_not_delivered"(platform: "/mobile") {
+            news_id = "returns-return_failed_shipment_not_delivered-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
         "/notification/returns_return_expired"(platform: "/mobile") {
             news_id = "returns-return_expired-1674717959-216070768"
             event_type = "arrived"
@@ -11598,6 +11608,16 @@ trackTests {
         }
         "/notification/returns_return_failed_return_to_buyer"(platform: "/mobile") {
             news_id = "returns-return_failed_return_to_buyer-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
+        "/notification/returns_return_delivered_long_way"(platform: "/mobile") {
+            news_id = "returns-return_delivered_long_way-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
+        "/notification/returns_return_failed_shipment_not_delivered"(platform: "/mobile") {
+            news_id = "returns-return_failed_shipment_not_delivered-1234-186785675"
             event_type = "arrived"
             order_id = 1234
         }

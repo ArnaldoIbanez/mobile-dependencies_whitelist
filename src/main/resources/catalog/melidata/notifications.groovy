@@ -2944,6 +2944,12 @@ tracks {
     "/notification/returns_return_failed_return_to_buyer"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
     }
+    "/notification/returns_return_delivered_long_way"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
+    "/notification/returns_return_failed_shipment_not_delivered"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
     //Security
     "/notification/security_enrollment"(platform: "/") {}
     "/notification/security_phone_confirmation"(platform: "/") {}
