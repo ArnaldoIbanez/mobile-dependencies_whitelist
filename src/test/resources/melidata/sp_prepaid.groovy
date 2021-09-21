@@ -3167,7 +3167,6 @@ trackTests {
         }
 
 
-
         // Connection error
         "/single_player/paygo/error/connection"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
@@ -3196,6 +3195,67 @@ trackTests {
         }
         "/single_player/paygo/error/timeout/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+        }
+
+        // Update device number
+        "/single_player/paygo/update_device_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/update_device_number/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/update_device_number/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/update_device_number/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/update_device_number/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Success update device number
+        "/single_player/paygo/update_device_number/success"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/update_device_number/success/device_detail"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/update_device_number/success/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/update_device_number/success/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Timeout update device number
+        "/single_player/paygo/update_device_number/timeout"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/update_device_number/timeout/device_detail"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/update_device_number/timeout/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/update_device_number/timeout/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
         }
     }
 }
