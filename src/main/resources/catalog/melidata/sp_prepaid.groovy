@@ -1203,4 +1203,47 @@ tracks {
 
     "/single_player/paygo/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/paygo/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Update device number
+    "/single_player/paygo/update_device_number"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/update_device_number/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/update_device_number/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Success update device number
+    "/single_player/paygo/success_update_device_number"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/success_update_device_number/device_detail"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/success_update_device_number/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/success_update_device_number/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Timeout update device number
+    "/single_player/paygo/timeout_update_device_number"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/timeout_update_device_number/device_detail"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/timeout_update_device_number/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/timeout_update_device_number/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 }
