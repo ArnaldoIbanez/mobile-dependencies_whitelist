@@ -3167,7 +3167,6 @@ trackTests {
         }
 
 
-
         // Connection error
         "/single_player/paygo/error/connection"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
@@ -3206,15 +3205,19 @@ trackTests {
 
         "/single_player/paygo/update_device_number/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/paygo/update_device_number/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/paygo/update_device_number/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/paygo/update_device_number/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
         // Success update device number
@@ -3225,12 +3228,15 @@ trackTests {
 
         "/single_player/paygo/success_update_device_number/device_detail"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/paygo/success_update_device_number/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/paygo/success_update_device_number/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
         // Timeout update device number
@@ -3241,12 +3247,15 @@ trackTests {
 
         "/single_player/paygo/timeout_update_device_number/device_detail"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/paygo/timeout_update_device_number/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
         "/single_player/paygo/timeout_update_device_number/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
     }
 }
