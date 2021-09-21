@@ -22,7 +22,7 @@ tracks {
         event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"], description:"event type of notification")
         deeplink(required: false, type: PropertyType.String, description: "The link were the notification should navigate to, if applies")
         action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar", "leftcta", "rightcta", "create"], description: "Type of the notification action")
-        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"], description:"type of layout of notification.")
+        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"], description: "type of layout of notification.")
     }
     "/notification_center/abort"(platform: "/", type: TrackType.Event) {}
     "/notification_center/addresses-update"(platform: "/", type: TrackType.Event) {
