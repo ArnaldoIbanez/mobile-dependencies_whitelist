@@ -496,6 +496,10 @@ tracks {
         pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
         claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
     }
+    "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
+        pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
+        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
+    }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
     }
@@ -2608,19 +2612,19 @@ tracks {
       }
 
       //MediationsV2
-      "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_with_timeout_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_without_timeout_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_with_timeout_seller"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_without_timeout_seller"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
 
@@ -2935,6 +2939,12 @@ tracks {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
     }
     "/notification/returns_return_failed_return_to_buyer"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
+    "/notification/returns_return_delivered_long_way"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
+    "/notification/returns_return_failed_shipment_not_delivered"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
     }
     //Security
