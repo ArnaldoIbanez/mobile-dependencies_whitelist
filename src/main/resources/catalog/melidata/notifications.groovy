@@ -3690,7 +3690,10 @@ tracks {
 
     // Proximity Marketplace Order Manager
     "/notification/pm_om_notification_store_opening"(platform: "/") {}
-    "/notification/pm_om_notification_store_opening_whatsapp"(platform: "/") {}
+    "/notification/pm_om_notification_store_opening_retry"(platform: "/") {}
+    "/notification/pm_om_notification_new_sale"(platform: "/") {}
+    "/notification/pm_om_notification_new_sale_retry"(platform: "/") {}
+    "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {}
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
