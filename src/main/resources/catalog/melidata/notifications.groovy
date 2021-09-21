@@ -17,10 +17,10 @@ tracks {
     "/notification_center/config"(platform: "/mobile", type: TrackType.View) {
     }
     "/notification_center"(platform: "/", type: TrackType.Event) {
-        newsgroup_id(required: false, type: PropertyType.String)
-        status(required: false, type: PropertyType.String, values:["unread", "read"])
-        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"])
-        deeplink(required: false, type: PropertyType.String)
+        newsgroup_id(required: false, type: PropertyType.String, description:"Id of newsgroup.")
+        status(required: false, type: PropertyType.String, values:["unread", "read"], description:"status of notification.")
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"], description:"event type of notification")
+        deeplink(required: false, type: PropertyType.String, description: "The link were the notification should navigate to, if applies")
         action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar", "leftcta", "rightcta", "create"])
         type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
     }
