@@ -1764,8 +1764,8 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
-    "/notification_center/insurtech_payment_recovery_cards"(platform: "/", type: TrackType.Event){
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+    "/notification_center/insurtech_payment_recovery_cards"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, values: ["insurtech_payment_recovery_cards"], type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
