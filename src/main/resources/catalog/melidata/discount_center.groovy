@@ -137,7 +137,7 @@ tracks {
 
     // MORE INFO
 
-    "/discount_center/payers/vsp/more_info" (platform: "/mobile", type: TrackType.View) {
+    "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
         moreInfoGroup
     }
 
