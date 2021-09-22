@@ -120,7 +120,7 @@ trackTests {
     }
 
     test("When the user taps on a product's tooltip") {
-        "/fees_installments/fees/product/tooltip/show" (platform: "/", type: TrackType.Event) {
+        "/fees_installments/fees/product/tooltip/display" (platform: "/", type: TrackType.Event) {
             product_id = "test_product_id"
             tooltip_id = "test_tooltip_id"
         }

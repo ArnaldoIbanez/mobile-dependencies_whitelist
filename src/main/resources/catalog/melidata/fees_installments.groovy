@@ -110,6 +110,7 @@ tracks {
     "/fees_installments" (platform: "/", isAbstract: true) {}
     "/fees_installments/fees" (platform: "/", isAbstract: true) {}
     "/fees_installments/fees/product" (platform: "/", isAbstract: true) {}
+    "/fees_installments/fees/product/tooltip" (platform: "/", isAbstract: true) {}
     "/fees_installments/fees/product/configure" (platform: "/", isAbstract: true) {}
     "/fees_installments/fees/product/configure/disable/tooltip" (platform: "/", isAbstract: true) {}
     "/fees_installments/fees/product/configure/disable" (platform: "/", isAbstract: true) {}
@@ -177,7 +178,7 @@ tracks {
         footer_tooltip_action_group
     }
 
-    "/fees_installments/fees/product/tooltip/show" (platform: "/", type: TrackType.Event) {
+    "/fees_installments/fees/product/tooltip/display" (platform: "/", type: TrackType.Event) {
         product_tooltip_group
     }
 
