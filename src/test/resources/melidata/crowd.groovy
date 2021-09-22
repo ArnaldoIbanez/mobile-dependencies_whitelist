@@ -370,7 +370,7 @@ trackTests {
             defaultLocation()
         }
 
-        "/crowd/registration/cnpj/end"(platform: "/mobile", type: TrackType.View) {
+        "/crowd/registration/background_check"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
     }
