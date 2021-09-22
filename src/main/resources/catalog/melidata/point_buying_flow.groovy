@@ -41,6 +41,14 @@ tracks {
         groupCheckoutProperties
     }
 
+    "/point/buyingflow/shipping/new_address/goto_zipcode_finder"(platform: "/", type: TrackType.Event) {
+        groupCheckoutProperties
+    }
+    
+    "/point/buyingflow/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
     "/point/buyingflow/payment/methods"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
         has_account_money (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has enough money in account")
