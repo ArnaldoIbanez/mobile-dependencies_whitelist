@@ -373,5 +373,14 @@ trackTests {
         "/crowd/registration/background_check"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
+
+        "/crowd/registration/boaas/landing"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/boaas/landing/deeplink"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
     }
 }
