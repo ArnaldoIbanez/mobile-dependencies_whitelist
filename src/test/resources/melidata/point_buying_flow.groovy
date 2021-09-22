@@ -60,7 +60,7 @@ trackTests {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product_id = "11"
           currency = "ARS"
-          price = 299
+          price = 298
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
