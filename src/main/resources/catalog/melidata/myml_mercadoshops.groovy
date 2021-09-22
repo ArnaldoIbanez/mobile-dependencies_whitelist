@@ -333,6 +333,8 @@ tracks {
 
     "/mercado_shops/marketing/summary"(platform: "/", type: TrackType.View){}
 
+    "/mercado_shops/marketing/instagram-shopping"(platform: "/", type: TrackType.View){}
+
     "/mercado_shops/marketing/google_analytics"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/google_analytics/save"(platform: "/", type: TrackType.Event){
@@ -475,6 +477,8 @@ tracks {
     "/mercado_shops/marketing/facebook/store/business_manager"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook/store/user_procedure"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/introduction"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook/store/pixel_activation"(platform: "/", type: TrackType.View){}
 
