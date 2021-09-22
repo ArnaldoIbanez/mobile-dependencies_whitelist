@@ -2561,4 +2561,14 @@ tracks {
         copied_products(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingRowStructure)), description: "This property describe copied products")
     }
     // FINAL PRODUCTS LANDING PATHS
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central Verifications
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
+        external_data (required:true, type: PropertyType.String, description: "SYI object to validate")
+        drat_data (required:true, type: PropertyType.String, description: "Data recovery and transformation service response to validate")
+        result (required:true, type: PropertyType.String, description: "Validation result between SYI and DRAT data")
+    }
 }

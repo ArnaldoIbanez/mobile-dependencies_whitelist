@@ -6221,4 +6221,12 @@ test("seller central confirm leave suggestion task - optin moderated") {
       url = "https://mishop.com"
     }
   }
+
+  test("Seller central data verification result") {
+    "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
+      external_data = "{FIPE_CODE: 12342A}"
+      drat_data = "{FIPE_CODE: 12342A}"
+      result = "{verified: true}"
+    }
+  }
 }
