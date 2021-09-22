@@ -329,7 +329,7 @@ tracks
                 location
             }
 
-            "/crowd/registration/boaas/landing/tap"(platform: "/mobile", type: TrackType.Event) {
+            "/crowd/registration/boaas/landing/deeplink"(platform: "/mobile", type: TrackType.Event) {
                 location
             }
         }
