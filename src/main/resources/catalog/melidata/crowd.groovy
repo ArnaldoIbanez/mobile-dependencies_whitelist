@@ -320,4 +320,8 @@ tracks
             "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
                 location
             }
+
+            "/crowd/registration/background_check"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
         }

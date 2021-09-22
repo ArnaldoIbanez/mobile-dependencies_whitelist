@@ -177,6 +177,7 @@ trackTests {
         def congrats_status_linked = "linked_card"
         def congrats_status_not_linked = "not_linked_card"
         def congrats_status_not_requested = "physical_not_requested"
+        def congrats_status_kyc_user_in_review = "kyc_user_in_review"
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
         def stop_page_kyc_not_compliant = "kyc_not_compliant"
@@ -277,9 +278,19 @@ trackTests {
             from = facebook_source
         }
 
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_a
+            is_card_active = true
+            status = congrats_pending_status
+            congrats_status = congrats_status_kyc_user_in_review
+            from = facebook_source
+        }
+
         "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
 
         "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/credit_card/upgrade/congrats/kyc_go_home"(platform: "/", type: TrackType.Event) {}
 
         "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event) {
             status = congrats_approved_status
@@ -323,6 +334,10 @@ trackTests {
 
         "/credits/credit_card/upgrade/stop_page/redirect_to_dashboard"(platform: "/", type: TrackType.Event) {
             status = stop_page_already_active
+        }
+
+        "/credits/credit_card/upgrade/stop_page/kyc_start_validations"(platform: "/", type: TrackType.Event) {
+            status = stop_page_kyc_not_compliant
         }
 
         /*********************************************
