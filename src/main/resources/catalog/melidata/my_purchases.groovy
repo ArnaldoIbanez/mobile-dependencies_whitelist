@@ -1,5 +1,7 @@
 package catalog.melidata
 
+import jdk.nashorn.internal.runtime.Property
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
@@ -47,17 +49,17 @@ tracks {
         // reputation_level
         // messages_count
 
-	    buyer(required: true, type:PropertyType.ArrayList, description: "Array of buyers with their data")
+        buyer(required: true, type:PropertyType.ArrayList, description: "Array of buyers with their data")
         // id
         // nickname
         // loyalty_level
         // is_prime
 
-    	purchase_status(required: true, type: PropertyType.String, description: "Purchase status")
-    	purchases_flow(required: true, type: PropertyType.String, description: "Flow identification to know if it is the new or old flow")
-    	checkout_flow(required: false, type: PropertyType.String, values: ["pack", "order"], description: "cart (pack) or direct (order) purchase")
-    	pack_ids(required: false, type: PropertyType.ArrayList, description: "Pack ids involved in the purchase")
-    	order_ids(required: false, type: PropertyType.ArrayList, description: "Order ids involved in the purchase")
+        purchase_status(required: true, type: PropertyType.String, description: "Purchase status")
+        purchases_flow(required: true, type: PropertyType.String, description: "Flow identification to know if it is the new or old flow")
+        checkout_flow(required: false, type: PropertyType.String, values: ["pack", "order"], description: "cart (pack) or direct (order) purchase")
+        pack_ids(required: false, type: PropertyType.ArrayList, description: "Pack ids involved in the purchase")
+        order_ids(required: false, type: PropertyType.ArrayList, description: "Order ids involved in the purchase")
         garex(required: false, type: PropertyType.String, values: ["yes", "no"], description: "the type of extended warranty of this purchase")
         vertical_case_id(required: true, type: PropertyType.String, description: "Case identified for the purchase status")
         vertical_sub_case_id(required: false, type: PropertyType.String, description: "Sub case identified for the purchase status")
@@ -72,6 +74,7 @@ tracks {
         newPurchasesGroup(items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, pack_ids, order_ids, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
         newPurchasesEventGroupFull(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id, items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, pack_ids, order_ids, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
         newPurchasesEventGroup(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id)
+        repurchaseEventGroup(seller, garex, shipping, purchases_flow, x_mc_request_id, purchase_status, payments, items, checkout_flow, buyer)
     }
 
     // BASE PATH FOR MY PURCHASES
@@ -141,18 +144,18 @@ tracks {
 
     "/my_purchases/status/items"(platform:"/", type: TrackType.View) {}
 
-	"/my_purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/my_purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroupFull
     }
 
 
-	//------------------------------------------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS INSTRUCTIONS
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/my_purchases/status/instructions"(platform:"/", type: TrackType.View) {}
 
-	"/my_purchases/status/instructions/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/my_purchases/status/instructions/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
 
@@ -161,7 +164,7 @@ tracks {
     }
 
 
-	//------------------------------------------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS MESSAGES
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -172,7 +175,7 @@ tracks {
     }
 
 
-	//------------------------------------------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS MODALS
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -277,5 +280,12 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/my_purchases/list"(platform:"/", type: TrackType.View) {
+    }
+
+    "/my_purchases/list/repurchase_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        repurchaseEventGroup
+    }
+
+    "/my_purchases/list/repurchase_drawing"(platform:"/", type:TrackType.View, parentPropertiesInherited: false) {
     }
 }
