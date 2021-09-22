@@ -17,12 +17,12 @@ tracks {
     "/notification_center/config"(platform: "/mobile", type: TrackType.View) {
     }
     "/notification_center"(platform: "/", type: TrackType.Event) {
-        newsgroup_id(required: false, type: PropertyType.String)
-        status(required: false, type: PropertyType.String, values:["unread", "read"])
-        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"])
-        deeplink(required: false, type: PropertyType.String)
-        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar", "leftcta", "rightcta", "create"])
-        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
+        newsgroup_id(required: false, type: PropertyType.String, description:"Id of newsgroup.")
+        status(required: false, type: PropertyType.String, values:["unread", "read"], description:"status of notification.")
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"], description:"event type of notification")
+        deeplink(required: false, type: PropertyType.String, description: "The link were the notification should navigate to, if applies")
+        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar", "leftcta", "rightcta", "create"], description: "Type of the notification action")
+        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"], description: "type of layout of notification.")
     }
     "/notification_center/abort"(platform: "/", type: TrackType.Event) {}
     "/notification_center/addresses-update"(platform: "/", type: TrackType.Event) {
@@ -495,6 +495,10 @@ tracks {
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
         claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
+    }
+    "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
+        pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
+        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
     }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
@@ -2609,19 +2613,19 @@ tracks {
       }
 
       //MediationsV2
-      "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_with_timeout_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_without_timeout_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_with_timeout_seller"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_without_timeout_seller"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
 
@@ -2936,6 +2940,12 @@ tracks {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
     }
     "/notification/returns_return_failed_return_to_buyer"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
+    "/notification/returns_return_delivered_long_way"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
+    "/notification/returns_return_failed_shipment_not_delivered"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
     }
     //Security
@@ -3691,7 +3701,10 @@ tracks {
 
     // Proximity Marketplace Order Manager
     "/notification/pm_om_notification_store_opening"(platform: "/") {}
-    "/notification/pm_om_notification_store_opening_whatsapp"(platform: "/") {}
+    "/notification/pm_om_notification_store_opening_retry"(platform: "/") {}
+    "/notification/pm_om_notification_new_sale"(platform: "/") {}
+    "/notification/pm_om_notification_new_sale_retry"(platform: "/") {}
+    "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {}
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
