@@ -3,6 +3,7 @@ package com.melidata.definitions.validators
 import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
+import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import groovy.transform.Synchronized
 /**
  * Created by apetalas on 20/11/14.
@@ -12,9 +13,8 @@ class CatalogValidator {
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         def runOk = true
         out.beforeRun(catalog, tests)
+        InitiativeValidate.setUp()
         tests?.each { singleTest ->
-            println( "Running test: ${singleTest.name}")
-
             if(singleTest.assertValid(catalog)) {
                 out.success(singleTest)
             } else {
@@ -22,8 +22,12 @@ class CatalogValidator {
                 runOk = false
             }
         }
-        out.afterRun(catalog)
-        runOk = runOk && InitiativeValidate.checkCoverage()
+        try {
+            out.afterRun(catalog)
+        } catch(Exception e) {
+            runOk = false
+        }
+        runOk = runOk && InitiativeValidate.checkCoverage(catalog)
         return runOk
     }
 
@@ -35,7 +39,7 @@ class CatalogValidator {
             def testsScript = new ArrayList<Script>()
             pathTests.each { testsScript.add(getScriptFromFile(it)) }
 
-            println("Building catalog....")
+            println("Building catalog ${catalogName}....")
             def catalog = runScript(catalogScript)
             println("Ready")
 

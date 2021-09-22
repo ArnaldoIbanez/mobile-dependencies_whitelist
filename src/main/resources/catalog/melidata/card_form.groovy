@@ -29,8 +29,15 @@ tracks {
 
     // ********************************************* Events *********************************************
     // Init & success
-    "/card_form/init"(platform: "/mobile", type: TrackType.Event) {}
-    "/card_form/success"(platform: "/mobile", type: TrackType.Event) {}
+    "/card_form/init"(platform: "/mobile", type: TrackType.Event) {
+        type(required: false, type: PropertyType.String, description: "type of init", values: ["traditional" , "web_view"])
+    }
+    "/card_form/success"(platform: "/mobile", type: TrackType.Event) {
+        bin(required: false, type: PropertyType.String, description: "first six digits")
+        issuer(required: false, type: PropertyType.Numeric, description: "issuer id")
+        payment_method_id(required: false, type: PropertyType.String, description: "payment method id")
+        payment_method_type(required: false, type: PropertyType.String, description: "payment method type")
+    }
 
     // Next, back, error
     "/card_form/next"(platform: "/mobile", type: TrackType.Event) {
@@ -106,5 +113,9 @@ tracks {
 
     "/card_form/issuers"(platform: "/mobile", type: TrackType.View) {
         issuers_quantity(required: true, type: PropertyType.Numeric, description: "Number of issuers in list")
+    }
+
+    "/card_form/web_view"(platform: "/mobile", type: TrackType.View) {
+        url(required: true, type: PropertyType.String, description: "url of web view")
     }
 }

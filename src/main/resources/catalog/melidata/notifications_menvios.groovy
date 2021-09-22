@@ -14,4 +14,19 @@ tracks {
     "/notification/messages_driver_flex"(platform: "/") {}
     "/notification/messages_flex"(platform: "/") {}
     "/notification/messages_quotes"(platform: "/") {}
+
+    //Drive Logistics
+    "/notification/driver_logistics_changed_address"(platform: "/") {}
+    "/notification/driver_logistics_driver_with_route"(platform: "/") {}
+    "/notification/driver_logistics_retry_collect"(platform: "/") {}
+    "/notification/driver_logistics_retry_delivery"(platform: "/") {}
+
+    //Crowdsourcing driver
+    "/notification/me_crowd_cnh_registration"(platform: "/") {}
+    "/notification/me_crowd_tutorial_registration"(platform: "/") {}
+    "/notification/me_crowd_geo_city_registration"(platform: "/") {}
+    "/notification/me_crowd_city_registration"(platform: "/") {}
+    "/notification/me_crowd_select_service_center_registration"(platform: "/") {}
+    "/notification/me_crowd_registration_incomplete"(platform: "/") {}
+    "/notification/me_crowd_registration_complete"(platform: "/") {}
 }

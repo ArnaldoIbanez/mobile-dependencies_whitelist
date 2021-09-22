@@ -1,9 +1,10 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 
 metrics {
 
-    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
+    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/full_relist_single_item")
         }
@@ -19,7 +20,7 @@ metrics {
         }
     }
 
-    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent") {
+    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/full_relist_single_item")
         }
@@ -35,7 +36,7 @@ metrics {
         }
     }
 
-    "upgrade_listing"(description: "upgrade listing success for sell experiments") {
+    "upgrade_listing"(description: "upgrade listing success for sell experiments", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/congrats_upgrade_listing_type")
         }
@@ -47,7 +48,7 @@ metrics {
         }
     }
 
-    "seller_central/goal_achieved"(description: "Goal achieved") {
+    "seller_central/goal_achieved"(description: "Goal achieved", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/health-goals_order")
         }
@@ -62,7 +63,7 @@ metrics {
         }
     }
 
-    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {
+    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view", tags:[TagType.Important]) {
         startWith {
             experiment(regex("sell/.*"))
         }
@@ -86,9 +87,9 @@ metrics {
         }
     }
 
-    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {
+    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", tags:[TagType.Important]) {
         startWith {
-            experiment(regex("sell/.*"))
+            experiment(regex("sell/.*|vis/.*|pdp/postContactSYIRedirect|sparkle/vis/.*"))
         }
 
         countsOn {

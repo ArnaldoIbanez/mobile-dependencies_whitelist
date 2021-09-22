@@ -88,4 +88,10 @@ trackTests {
             date_created = "2019/09/08"
         }
     }
+
+    test("Mercadopago Activities Real Time in list Mobile") {
+        "/listing/activities/show_rta" (platform: "/mobile", type: TrackType.Event) {
+            has_rta = true
+        }
+    }
 }
