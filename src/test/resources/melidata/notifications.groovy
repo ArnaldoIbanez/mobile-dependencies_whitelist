@@ -3808,6 +3808,18 @@ trackTests {
             shipment_id = 1234
         }
 
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
         "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -3840,6 +3852,16 @@ trackTests {
             shipment_id = 21409256437
         }
         "/notification/shipping_soon_deliver_same_day"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile"){
             news_id = "shipping-soon_deliver_same_day-21409256437"
             event_type = "arrived"
             shipment_id = 21409256437
@@ -10695,6 +10717,18 @@ trackTests {
             shipment_id = 1234
         }
 
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
         "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -13223,6 +13257,16 @@ trackTests {
             shipment_id = 21409256437
         }
         "/notification/shipping_soon_deliver_same_day"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile"){
             news_id = "shipping-soon_deliver_same_day-21409256437"
             event_type = "arrived"
             shipment_id = 21409256437
