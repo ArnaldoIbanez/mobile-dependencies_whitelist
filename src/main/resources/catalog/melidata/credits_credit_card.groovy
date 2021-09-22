@@ -331,7 +331,8 @@ tracks {
                 values: [
                         "linked_card",
                         "not_linked_card",
-                        "physical_not_requested"
+                        "physical_not_requested",
+                        "kyc_user_in_review"
                 ]
         )
         from(
