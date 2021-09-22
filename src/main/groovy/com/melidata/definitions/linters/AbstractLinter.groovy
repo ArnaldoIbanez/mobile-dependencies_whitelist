@@ -53,7 +53,7 @@ abstract class AbstractLinter {
         def allNestedStructures = definitionsProperties.findAll{it.type instanceof MapProperty}.toList()
 
         isValid = isValid && allNestedStructures.every {
-            def nestedProperties = ((MapProperty)it.type).nestedProperties.values().toList()
+            def nestedProperties = ((MapProperty)it.type).nestedProperties != null ? ((MapProperty)it.type).nestedProperties.values().toList() : new ArrayList<TrackDefinitionProperty>()
             return validatePropertySet(nestedProperties)
         }
 
