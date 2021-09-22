@@ -645,9 +645,18 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/map/carousel"(platform: "/") {
-            defaultSearchInformation()
+        "/search/map/carousel"(platform: "/web") {
+            defaultWebTrack()
         }
+        "/search/map/vip_access"(platform: "/web") {
+            defaultWebTrack()
+        }
+        "/search/map/pagination"(platform: "/web") {
+            defaultWebTrack()
+        }
+        "/search/map/faceted_search"(platform: "/web") {
+            defaultWebTrack()
+        }       
         "/search/search_map"(platform: "/") {
             defaultSearchInformation()
         }
