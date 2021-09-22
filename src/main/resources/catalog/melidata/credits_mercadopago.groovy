@@ -238,7 +238,7 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'create_promise',
                 'view_promise',
@@ -257,6 +257,11 @@ tracks {
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
             required: false
+        )
+        from_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
@@ -846,6 +851,16 @@ tracks {
         )
         loan_status(
             description: "The status of the created loan",
+            type: PropertyType.String,
+            required: false,
+        )
+        loan_status_detail(
+            description: "The detail of status of the created loan",
+            type: PropertyType.String,
+            required: false,
+        )
+        loan_request_status(
+            description: "The status of the created loan request",
             type: PropertyType.String,
             required: false,
         )
@@ -1586,82 +1601,12 @@ tracks {
         )
     }
 
+    "/credits/express_money/kyc_onboarding"(platform: "/", type: TrackType.View) { }
+
     "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) { }
 
     /******************************************
      *   End: Express money
-     ******************************************/
-
-    /******************************************
-     *   Start: Personal Loans Adoption
-     ******************************************/
-    "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
-        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
-        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-        sk(description: "Source key", type: PropertyType.String, required: false)
-    }
-
-    "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {}
-
-    "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(
-            description: "Status of the user prepaid",
-            type: PropertyType.String,
-            required: true,
-            values: [
-                "no_prepaid",
-                "prepaid_enabled",
-                "prepaid_disabled",
-                "physical_card",
-                "virtual_card"
-            ]
-        )
-    }
-
-    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
-    }
-
-    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
-
-
-    /******************************************
-     *   End: Personal Loans Adoption
      ******************************************/
 
      /******************************************

@@ -494,7 +494,12 @@ tracks {
             description: "Virtual card buttons tapped"
         )
     }
-    
+
+    // Setup virtual reauth
+    "/cards/mpcard/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/mpcard/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/mpcard/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+
     // Cards hub
     "/cards/mpcard/card_hub"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/card_hub/block_card"(platform: "/", type: TrackType.View) {}
@@ -1014,7 +1019,7 @@ tracks {
     }
 
     // Request: Challenge
-    "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/challenge"(platform: "/", type: TrackType.View) { }
 
     "/cards/mpcard/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
         reasons (
@@ -1033,7 +1038,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add_money"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the challenge"
         )
     }
@@ -1067,18 +1072,31 @@ tracks {
     }
 
     // Request: Pending Challenge
-    "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["D1", "D1_ticket", "D4"],
+            description: "type of screen"
+        )
+    }
     "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "add_money", "info_payment", "money_in"],
+            values: ["back", "add_money"],
             description: "action tap by the user in the pending challenge view"
+        )
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["D1", "D1_ticket", "D4"],
+            description: "type of screen"
         )
     }
 
     // Request: Expired Challenge
-    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/mpcard/request/physical/expired_challenge"(platform: "/", type: TrackType.View) { }
     "/cards/mpcard/request/physical/expired_challenge/tap"(platform: "/", type: TrackType.Event) {
         action(
             required: true,

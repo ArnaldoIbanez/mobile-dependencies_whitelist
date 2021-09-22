@@ -600,6 +600,12 @@ trackTests {
         }
     }
 
+    test("cards mpcard setup virtual tracking") {
+        "/cards/mpcard/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/mpcard/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    }
+
     //Highlighted Row
     test("cards mpcard setup virtual Highlighted Row") {
         "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
@@ -1065,7 +1071,7 @@ trackTests {
     }
     test("cards mpcard request physical challenge tap") {
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "close"
+            action = "back"
         }
         "/cards/mpcard/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
@@ -1074,17 +1080,28 @@ trackTests {
 
     // Request: Pending Challenge
     test("cards mpcard request physical pending challenge") {
-        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "D1"
+        }
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "D1_ticket"
+        }
+        "/cards/mpcard/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {
+            context = "D4"
+        }
     }
     test("cards mpcard request physical pending challenge tap") {
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "back"
+            context = "D1"
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
             action = "add_money"
+            context = "D1_ticket"
         }
         "/cards/mpcard/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
-            action = "info_payment"
+            action = "add_money"
+            context = "D4"
         }
     }
 

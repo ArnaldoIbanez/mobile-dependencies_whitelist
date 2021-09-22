@@ -79,11 +79,15 @@ tracks {
         insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
         amount_total(required: true, type: PropertyType.Numeric, description: "Total Price of the purchased option plan.")
         amount_fee(required: true, type: PropertyType.Numeric, description: "Fee amount obtained by meli for the purchased option plan.")
+        has_open_claim(required: true, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
         option_check(required: true, type: PropertyType.String, values: ['total', 'screen'], description: "Level of the hardware check. For ex: total, screen.")
         option_coverage(required: true, type: PropertyType.String, values: ['theft_break', 'theft', 'break', 'screen'], description: "Coverage of the acquired protection. For ex: theft, break, screen, theft_break.")
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
-        has_open_claim(required: true, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
         is_current_device_protection(required: true, type: PropertyType.Boolean, description: "This is true if the current device of the track is the one related to this protection.")
+        entity_type(required: false, type: PropertyType.String, description: "Entity type insurtech product ", values: ["quote", "order", "item_id"])
+        entity_id(required: false, type: PropertyType.String, description: "Entity id of the insurtech product")
+        product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex"])
+        product_id(required: false, type: PropertyType.String, description: "Id insurtech product")
     }
 
     def claim_roda = objectSchemaDefinitions {
@@ -98,6 +102,10 @@ tracks {
         entity_id(required: true, type: PropertyType.String, description: "Entity id of the insurtech product")
         product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex"])
         product_id(required: false, type: PropertyType.String, description: "Id insurtech product")
+        insurance_purchase_key(required: false, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
+        amount_total(required: false, type: PropertyType.Numeric, description: "Total Price of the purchased option plan.")
+        amount_fee(required: false, type: PropertyType.Numeric, description: "Fee amount obtained by meli for the purchased option plan.")
+        has_open_claim(required: false, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
     }
 
     // INSURTECH RODA QPage Abstract
@@ -540,6 +548,11 @@ tracks {
         protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
     }
 
+    "/insurtech/protections/finished_claims"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claim_short)), description: "List of current user claims")
+    }
+
     "/insurtech/protections/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
@@ -549,7 +562,7 @@ tracks {
     }
 
     // INSURTECH MyDetailFe
-    //RODA
+    //RODA 
     "/insurtech/protections/detail"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
 
     "/insurtech/protections/detail/roda"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
@@ -620,7 +633,7 @@ tracks {
     }
 
     "/insurtech/protections/detail/roda/claim_detail"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
+        insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
         claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
 
@@ -671,7 +684,17 @@ tracks {
     }
     "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
     }
+    "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+    }
 
+    //CARDS
+    "/insurtech/protections/detail/begin_claim"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+    }
+     "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/", type: TrackType.Event) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        call_from(required: true, type: PropertyType.String, values: ['fromCapital', 'notFromCapital'], description: "Which of both phones was clicked.");
+    }
 
     //Landing-fe
     "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {

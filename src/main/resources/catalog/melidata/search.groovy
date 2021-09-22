@@ -97,6 +97,7 @@ tracks {
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: false)
+        seller_id(type: PropertyType.Numeric, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
@@ -108,6 +109,7 @@ tracks {
         discount_volume(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         same_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         next_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        supermarket_partnership(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -234,7 +236,6 @@ tracks {
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
         user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
         top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(PropertyType.Map(top_keyword_definition)))
-        review_pages(required: false, description: 'lists the seo review pages', type: PropertyType.ArrayList(PropertyType.String))
     }
 
     "/search"(platform: "/mobile") {

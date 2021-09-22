@@ -67,6 +67,12 @@ tracks {
         api_version(type: PropertyType.Boolean, required: true, description: "Indicates if Build.VERSION.SDK_INT is greater than or equal to 23")
     }
 
+    "/login/migrate_session"(platform: "/mobile", type: TrackType.Event) {
+        migration_is_ok(type: PropertyType.Boolean, required: true, description: "Migration was ok")
+        keepnite_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if key authentication_session_local_storage is on")
+        keepnite_remove_is_on(type: PropertyType.Boolean, required: true, description: "Indicates if ignite is on")    
+    }
+
     "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
 
     "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}
@@ -139,6 +145,8 @@ tracks {
     "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/help"(platform: "/", type: TrackType.Event) {}
+
+    "/login/auth/challenge/click_incomplete_registration"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -258,6 +266,8 @@ tracks {
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
 
+    "/auth/account_recovery/expired"(platform: "/", type: TrackType.View) {}
+
     "/auth/account_recovery/confirm"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
@@ -271,6 +281,8 @@ tracks {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
         target(type: PropertyType.String, required: false, description: "Describes element related to user action")
     }
+
+    "/auth/account_recovery/expired/go_home"(platform: "/", type: TrackType.Event) {}
 
     "/auth/account_recovery/confirm/action"(platform: "/", type: TrackType.View) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
@@ -378,6 +390,16 @@ tracks {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, values: ["go_home", "decline_challenge"], description: "Describes element related to user action")
         event_type(type: PropertyType.String, required: true, description: "Type of event")
+    }
+
+    // Password
+    "/auth/password_enrollment"(platform: "/", isAbstract: true, initiative: 1127) {
+        transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/password_enrollment/confirm"(platform: "/", type: TrackType.Event) {
+        transaction_id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, values: ["continue"], description: "Describes element related to user action")
     }
 
     //Attestation App
@@ -560,6 +582,13 @@ tracks {
         email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
     }
 
+    // Face Validation Errors
+    "/authenticators/face_validation"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
+      error_code(PropertyType.String, required: true, values:["validation_error", "max_attempts", "server_error"], description: "Errors after face validation against database")
+    }
+
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
@@ -710,6 +739,16 @@ tracks {
     "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     // Native Reauth Mobile
+
+    propertyDefinitions {
+        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
+        reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error", "server_error", "client_error"], description: "Identify 201, 204 o error status by api result workflow decide")
+    }
+
+    propertyGroups {
+        status(reauth_status, transaction_id)
+    }
+
     "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1127) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
@@ -719,11 +758,14 @@ tracks {
 
     "/reauth/operation_start"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/reauth/operation_status"(platform: "/mobile", type: TrackType.Event) {
+        status
+    }
+
     "/reauth/operation_end"(platform: "/mobile", type: TrackType.Event) {
         result(type: PropertyType.String, required: true, values: ["success", "error", "cancel"])
         error(type: PropertyType.String, required: false)
-        transaction_id(type: PropertyType.String, required: false, description: "Reauthentication id Transaction")
-        reauth_status(type: PropertyType.String, required: true, values: ["created", "not_needed", "error"], description: "Identify 201, 204 o error status by api result workflow decide")
+        status
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in reauth validation")
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os operation flow")
     }

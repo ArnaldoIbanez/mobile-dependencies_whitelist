@@ -158,7 +158,7 @@ tracks {
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
     "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
 
-
+    "/cart/checkout/shipping/select_option"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/payment/select_type"(platform: "/", type: TrackType.View) {}
 
     "/cart/checkout/payment/select_method"(platform: "/", type: TrackType.View) {
@@ -617,6 +617,11 @@ tracks {
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
     }
 
+    "/cart/checkout/shipping/input_address/map/edit"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
+    }
+
     "/cart/checkout/shipping/input_address/map/location_permission_granted"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         flow(required: false, description: "Extra info about the flow that is currently running ", type: PropertyType.String)
@@ -690,8 +695,6 @@ tracks {
     "/cart/checkout/shipping/select_method_geolocated/send_to_another_location"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
-
-    "/cart/checkout/shipping/select_option"(platform: "/mobile", type: TrackType.View) {}
 
     "/cart/checkout/shipping/select_method_ask_geolocation"(platform: "/mobile", type: TrackType.View) {
         selections(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Available options to select")

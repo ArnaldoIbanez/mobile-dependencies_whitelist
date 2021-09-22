@@ -65,7 +65,7 @@ trackTests {
 
         "/reviews/form"(platform:"/", dataSetForm)
 
-        "/reviews/edit"(platform:"/", dataSet)
+        "/reviews/edit"(platform:"/", dataSetForm)
 
         "/reviews/congrats/delete"(platform:"/", dataSet)
 

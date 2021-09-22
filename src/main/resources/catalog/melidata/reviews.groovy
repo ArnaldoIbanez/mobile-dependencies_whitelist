@@ -13,12 +13,14 @@ tracks {
 
     //REVIEWS FRONTEND
     "/reviews/form"(platform: "/") {
-        step()
+        step(required: false, description: "executed action in the reviews form")
         flow(required: false)
         action(required: false)
     }
 
-    "/reviews/edit"(platform: "/") {}
+    "/reviews/edit"(platform: "/") {
+        step(required: false, description: "executed action in the reviews form")
+    }
 
     "/reviews/congrats/delete"(platform: "/") {}
 

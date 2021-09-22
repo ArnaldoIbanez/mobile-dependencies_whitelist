@@ -11,7 +11,7 @@ trackTests {
     // VIP
 
     test("Mercado Pago discount center payers vip") {
-        "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
+        "/discount_center/payers/vip"(platform: "/mobile", type: TrackType.View) {
             collector_id = 20565408
             category_id = "MLA410861"
             item_id = "MLA886428635"
@@ -20,13 +20,53 @@ trackTests {
                     has_cart: true
             ]
             amount = [
-                    final_price: 40.2,
-                    currency: "ARS\$",
-                    discount: 31,
+                    final_price   : 40.2,
+                    currency      : "ARS\$",
+                    discount      : 31,
                     original_price: 58
             ]
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            quantity = 1
+            element_id = 11111111
+            sections = [
+                    [
+                            id          : "b61ebe2c-8845-4e86-b785-d9e9d261d294",
+                            type        : "header_labels",
+                            min_quantity: 1,
+                            max_quantity: 1,
+                            disabled    : true,
+                            title       : "Tamaño de la hamburguesa",
+                            options     : [
+                                    [
+                                            id          : "MLB1990906839",
+                                            title       : "Simple",
+                                            quantity    : 0,
+                                            min_quantity: 0,
+                                            max_quantity: 1,
+                                            value       : 50
+                                    ]
+                            ]
+                    ]
+            ]
         }
+
+        "/discount_center/payers/vip/add_item/frictions/no_compliance"(platform: "/mobile", type: TrackType.View) {
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            item_id = "MLA886428635"
+            option = [
+                    bundle_id       : "b61ebe2c-8845-4e86-b785-d9e9d261d294",
+                    selected_options: [
+                            [
+                                    "item_id" : "MLB1990906661",
+                                    "quantity": 1
+                            ]
+                    ]
+            ]
+
+
+        }
+
+
     }
 
     // MORE INFO
@@ -65,8 +105,21 @@ trackTests {
             ]
             delivery = [
                 radius: 1000,
-                delivery: true,
-                pickup: false
+                status: "paused",
+                status_reasons: [
+                        "paused because a accident in the kitchen",
+                        "paused because there is fire in the kitchen"
+                ],
+                delivery_offers: [
+                        [
+                                icon: "test",
+                                label: "test",
+                                format: [
+                                        text_color: "FFFFFFF",
+                                        background_color : "FFFFFFF"
+                                ]
+                        ]
+                ]
             ]
             context_info = [
                     has_cart: true,
@@ -173,6 +226,7 @@ trackTests {
     test("Mercado Pago discount center payers marketplace") {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            product_type = "delivery"
         }
     }
 
@@ -235,8 +289,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                 ]
@@ -274,8 +336,11 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        status: "paused",
+                                                        status_reasons: [
+                                                                "paused because a accident in the kitchen",
+                                                                "paused because there is fire in the kitchen"
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                             ]
@@ -346,11 +411,19 @@ trackTests {
                                                             priority: 6
                                                     ]
                                             ],
-                                            delivery: [
-                                                    radius: 1000,
-                                                    delivery: true,
-                                                    pickup: false
-                                            ],
+                                           delivery: [
+                                                        radius: 1000,
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
+                                                ],
                                             session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
                                 ]
@@ -382,8 +455,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                             ]
@@ -420,8 +501,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                                 ]
@@ -487,8 +576,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                                 ]
@@ -517,6 +614,7 @@ trackTests {
                             ]
                 ],
             ]
+            product_type = "proximity"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
@@ -581,8 +679,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                                 ]
@@ -620,8 +726,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
@@ -667,8 +781,24 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ],
+                                                                [
+                                                                        icon: "delivery",
+                                                                        label: "delivery",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
@@ -728,11 +858,19 @@ trackTests {
                                                             priority: 6
                                                     ]
                                             ],
-                                            delivery: [
-                                                    radius: 1000,
-                                                    delivery: true,
-                                                    pickup: false
-                                            ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
+                                                ],
                                             session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
                                 ]
@@ -762,11 +900,19 @@ trackTests {
                                                             priority: 6
                                                     ]
                                             ],
-                                            delivery: [
-                                                    radius: 1000,
-                                                    delivery: true,
-                                                    pickup: false
-                                            ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
+                                                ],
                                             session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
                                 ]
@@ -789,6 +935,7 @@ trackTests {
                     ]
                 ]
             ]
+            product_type = "delivery"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
@@ -823,8 +970,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                             ]
@@ -864,8 +1019,16 @@ trackTests {
                                                 ],
                                                 delivery: [
                                                         radius: 1000,
-                                                        delivery: true,
-                                                        pickup: false
+                                                        delivery_offers: [
+                                                                [
+                                                                        icon: "pickUp",
+                                                                        label: "pickUP",
+                                                                        format: [
+                                                                                text_color: "FFFFFFF",
+                                                                                background_color : "FFFFFFF"
+                                                                        ]
+                                                                ]
+                                                        ]
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                             ]

@@ -54,10 +54,22 @@ tracks {
         priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
     }
 
+    def delivery_offers_format_definition = objectSchemaDefinitions {
+        text_color(type: PropertyType.String, required: true, description: "The text color of delivery offers")
+        background_color(type: PropertyType.String, required: true, description: "The background color of delivery offers")
+    }
+
+    def delivery_offers_definition = objectSchemaDefinitions {
+        icon(type: PropertyType.String, required: false, description: "The icon name, of the delivery type of a store")
+        label(type: PropertyType.String, required: true, description: "The delivery offer label of a store")
+        format(type: PropertyType.Map(delivery_offers_format_definition), required: true, description: "The format of a delivery offer")
+    } 
+
     def store_delivery_definition = objectSchemaDefinitions {
         radius(type: PropertyType.Numeric, required: false, description: "The delivery radius")
-        delivery(type: PropertyType.Boolean, required: true, description: "If the store has delivery")
-        pickup(type: PropertyType.Boolean, required: true, description: "If the store has pickup")
+        status(type: PropertyType.String, required: false, description: "The delivery status of a store, is required false beacuse maybe a store does not have delivery")
+        status_reasons(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "The reason of the delivery status")
+        delivery_offers(type: PropertyType.ArrayList(PropertyType.Map(delivery_offers_definition)), required: false, description: "The delivery offers that a store can provide")
     }
 
     def context_info_definition = objectSchemaDefinitions {
@@ -136,12 +148,49 @@ tracks {
         original_price(type: PropertyType.Numeric, required: false, description: "The price without discount")
     }
 
+    def section_option_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "The option's identifier")
+        title(type: PropertyType.String, required: true, description: "The options's title")
+        quantity(type: PropertyType.Numeric, required: true, description: "The option's default quantity")
+        min_quantity(type: PropertyType.Numeric, required: true, description: "The min quantity required")
+        max_quantity(type: PropertyType.Numeric, required: true, description: "The option's max quantity possible")
+        value(type: PropertyType.Numeric, required: false, description: "The option's price")
+    }
+
+    def section_definition = objectSchemaDefinitions{
+        id(type: PropertyType.String, required: true, description: "The section's identifier")
+        type(type: PropertyType.String, required: true, description: "The section's type")
+        title(type: PropertyType.String, required: true, description: "The section's title")
+        min_quantity(type: PropertyType.Numeric, required: true, description: "The min quantity required for the section")
+        max_quantity(type: PropertyType.Numeric, required: true, description: "The max possible quantity for the section")
+        disabled(type: PropertyType.Boolean, required: true, description: "Either the section is enabled or not")
+        options(type: PropertyType.ArrayList(PropertyType.Map(section_option_definition)), required: true, description: "The array of options for the section")
+    }
+
+    def selected_option_definition = objectSchemaDefinitions{
+        item_id(type: PropertyType.String, required: true, description: "Option's identifier")
+        quantity(type: PropertyType.Numeric, required: true, description: "Option'' quantity selected")
+    }
+    def selected_bundle_definition = objectSchemaDefinitions{
+        bundle_id(type: PropertyType.String, required:true, description: "Kit identifier")
+        selected_options(type: PropertyType.ArrayList(PropertyType.Map(selected_option_definition)), required: false, description: "Option selected")
+    }
+
     // VIP
 
     "/discount_center/payers/vip" (platform: "/mobile", type: TrackType.View) {
         vipGroup
         amount(type: PropertyType.Map(amount_definition), required: true, description: "The price")
         context_info(type: PropertyType.Map(context_info_definition), required: true, description: "The context information")
+        quantity(type: PropertyType.Numeric, required: true, description: "The item quantity default value")
+        element_id(type: PropertyType.Numeric, required: false, description: "The identifier for a item with kit configuration")
+        sections(type: PropertyType.ArrayList(PropertyType.Map(section_definition)), required: false, description: "The kit available for the item")
+    }
+
+    "/discount_center/payers/vip/add_item/frictions/no_compliance" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: true, type: PropertyType.String, description: "Unique code that identifies a user's session")
+        item_id(type: PropertyType.String, required: true, description: "Item's identifier")
+        option(type: PropertyType.Map(selected_bundle_definition), required: true, description: "Option selected")
     }
 
 
@@ -277,6 +326,7 @@ tracks {
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
       session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+      product_type(required: false, type: PropertyType.String, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
     }
 
     "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.Event, isAbstract: true) { }

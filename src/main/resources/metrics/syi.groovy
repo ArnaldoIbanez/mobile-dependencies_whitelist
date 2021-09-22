@@ -1,4 +1,5 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 
 metrics {
@@ -62,7 +63,7 @@ metrics {
         }
     }
 
-    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view", categorization:"important") {
+    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view", tags:[TagType.Important]) {
         startWith {
             experiment(regex("sell/.*"))
         }
@@ -86,7 +87,7 @@ metrics {
         }
     }
 
-    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", categorization:"important") {
+    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", tags:[TagType.Important]) {
         startWith {
             experiment(regex("sell/.*|vis/.*|pdp/postContactSYIRedirect|sparkle/vis/.*"))
         }
