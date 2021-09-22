@@ -102,22 +102,22 @@ tracks {
     // INSURTECH CARDS event_data defines
 
     def option_card_price = objectSchemaDefinitions {
-        final_amount(required: true, type: PropertyType.Number, description: "final amout of the warranty option price")
-        original_amount(required: false, type: PropertyType.Number, description: "original amount of the warranty option price")
-        discount_rate(required: false, type: PropertyType.Number, description: "discount rate of the warranty option price")
+        final_amount(required: true, type: PropertyType.Numeric, description: "final amout of the warranty option price")
+        original_amount(required: false, type: PropertyType.Numeric, description: "original amount of the warranty option price")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate of the warranty option price")
         currency_id(required: false, type: PropertyType.String, description: "type of currency of the warranty option price")
-        monthly(required: false, type: PropertyType.Number, description: "price monthly of the warranty option")
+        monthly(required: false, type: PropertyType.Numeric, description: "price monthly of the warranty option")
     }
 
     def option_card_provider = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "id of the warranty provider")
         name(required: false, type: PropertyType.String, description: "name of the warranty provider")
-        renevue_share_rate(required: false, type: PropertyType.Number, description: "renevue share rate of the warranty option")
+        renevue_share_rate(required: false, type: PropertyType.Numeric, description: "renevue share rate of the warranty option")
     }
 
     def option_card_coverage = objectSchemaDefinitions {
         name(required: true, type: PropertyType.String, description: "name of the coverage warranty option")
-        amount(required: false, type: PropertyType.Number, description: "amount of the coverage warranty option")
+        amount(required: false, type: PropertyType.Numeric, description: "amount of the coverage warranty option")
         currency_id(required: true, type: PropertyType.String, description: "type of currency of the warranty option coverage")
     }
 
@@ -632,7 +632,7 @@ tracks {
         is_imei_valid(required: true, type: PropertyType.Boolean, description: "Imei valid or invalid ")
         protection_status(required: true, type: PropertyType.String, values: ['pending_shipping_imei', 'pending_activation_imei'], description: "Status of protection when is going to be activated")
         days_taken_for_imei_activation(required: true, type: PropertyType.Numeric, description: "Days passed after protection was in pending_activation status")
-        retries_number(required: true, type: PropertyType.Numeric, description: "Number of attempts before to activate with success")
+        retries_Numeric(required: true, type: PropertyType.Numeric, description: "Number of attempts before to activate with success")
         modal_imei_retries(required: true, type: PropertyType.Numeric, description: "Number of times that modal showed up")
    }
    "/insurtech/protections/detail/roda/change_protection"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited:false) {
