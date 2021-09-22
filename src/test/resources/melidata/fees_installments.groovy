@@ -119,6 +119,36 @@ trackTests {
         }
     }
 
+    test("When the user taps on a product's tooltip") {
+        "/fees_installments/fees/product/tooltip/show" (platform: "/", type: TrackType.Event) {
+            product_id = "test_product_id"
+            tooltip_id = "test_tooltip_id"
+        }
+    }
+
+    test("When the user closes a product's tooltip") {
+        "/fees_installments/fees/product/tooltip/hide" (platform: "/", type: TrackType.Event) {
+            product_id = "test_product_id"
+            tooltip_id = "test_tooltip_id"
+        }
+    }
+
+    test("When the user taps the primary action of a product's tooltip") {
+        "/fees_installments/fees/product/tooltip/primary" (platform: "/", type: TrackType.Event) {
+            product_id = "test_product_id"
+            tooltip_id = "test_tooltip_id"
+            url = "url"
+        }
+    }
+
+    test("When the user taps the secondary action of a product's tooltip") {
+        "/fees_installments/fees/product/tooltip/secondary" (platform: "/", type: TrackType.Event) {
+            product_id = "test_product_id"
+            tooltip_id = "test_tooltip_id"
+            url = "url"
+        }
+    }
+
     // TASAS & PLAZOS //
     
     test("Fees screen loads successfully") {

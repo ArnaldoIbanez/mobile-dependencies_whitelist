@@ -71,6 +71,8 @@ tracks {
         footer_tooltip_group(footer_id, tooltip_id)
         footer_tooltip_action_group(footer_id, tooltip_id, url)
         url_group(url)
+        product_tooltip_group(product_id, tooltip_id)
+        product_tooltip_action_group(product_id, tooltip_id, url)
     }
 
     def release_option_value_type = objectSchemaDefinitions {
@@ -173,6 +175,22 @@ tracks {
 
     "/fees_installments/fees/product/footer/tooltip/secondary" (platform: "/", type: TrackType.Event) {
         footer_tooltip_action_group
+    }
+
+    "/fees_installments/fees/product/tooltip/show" (platform: "/", type: TrackType.Event) {
+        product_tooltip_group
+    }
+
+    "/fees_installments/fees/product/tooltip/hide" (platform: "/", type: TrackType.Event) {
+        product_tooltip_group
+    }
+
+    "/fees_installments/fees/product/tooltip/primary" (platform: "/", type: TrackType.Event) {
+        product_tooltip_action_group
+    }
+
+    "/fees_installments/fees/product/tooltip/secondary" (platform: "/", type: TrackType.Event) {
+        product_tooltip_action_group
     }
 
     // RELEASE OPTIONS //
