@@ -1764,6 +1764,11 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    "/notification_center/insurtech_payment_recovery_cards"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, values: ["insurtech_payment_recovery_cards"], type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
       /**
        * NOTIFICATIONS TRAY
        **/
@@ -3687,6 +3692,7 @@ tracks {
     "/notification/insurtech_payment_recovery"(platform: "/mobile") {}
     "/notification/insurtech_money_in"(platform: "/mobile") {}
     "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {}
+    "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {}
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
