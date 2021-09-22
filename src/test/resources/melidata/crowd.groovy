@@ -369,5 +369,9 @@ trackTests {
         "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
+
+        "/crowd/registration/cnpj/end"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
     }
 }

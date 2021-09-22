@@ -320,4 +320,8 @@ tracks
             "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
                 location
             }
+
+            "/crowd/registration/cnpj/end"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
         }
