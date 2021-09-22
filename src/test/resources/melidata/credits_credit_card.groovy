@@ -336,6 +336,10 @@ trackTests {
             status = stop_page_already_active
         }
 
+        "/credits/credit_card/upgrade/stop_page/kyc_start_validations"(platform: "/", type: TrackType.Event) {
+            status = stop_page_kyc_not_compliant
+        }
+
         /*********************************************
          *       End: Credit Card Upgrade
          *********************************************/
