@@ -6228,7 +6228,7 @@ test("seller central confirm leave suggestion task - optin moderated") {
         identifier: "DNY2477",
         flow: "motors_fipe",
         domain_id: "MLB-CARS_AND_VANS",
-        site_id: "MLB",
+        verification_site: "MLB",
         attributes: [
           [id: "FIPE_CODE", value_name: "003288-3", name: "Código FIPE"]
         ]

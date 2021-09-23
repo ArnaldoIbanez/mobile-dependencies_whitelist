@@ -226,21 +226,21 @@ tracks {
     // --------------------------------------------------------------------------------------------------------------
 
     def verificationAttributesStructure = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        value_name(type: PropertyType.String, required: true)
-        name(type: PropertyType.String, required: false)
+        id(required: true, type: PropertyType.String, description: "atribute id to verificate")
+        value_name(required: true, type: PropertyType.String, description: "atribute value to verificate")
+        name(required: false, type: PropertyType.String, description: "attribute name to verificate")
     }
 
     def syiVerificationStructure = objectSchemaDefinitions {
-        identifier(type: PropertyType.String, required: true)
-        flow(type: PropertyType.String, required: true)
-        domain_id(type: PropertyType.String, required: true)
-        site_id(type: PropertyType.String, required: true)
+        identifier(required: true, type: PropertyType.String, description: "identifier to search and verificate")
+        flow(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
+        domain_id(required: true, type: PropertyType.String, description: "to know which category belong the identifier")
+        verification_site(required: true, type: PropertyType.String, description: "to know which site belong the identifier")
         attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
     }
 
-    def dratDataStructure = objectSchemaDefinitions {
-        flow_id(type: PropertyType.String, required: true)
+    def dratStructure = objectSchemaDefinitions {
+        flow_id(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
         attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
     }
 
@@ -2591,7 +2591,7 @@ tracks {
 
     "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
         external_data (required:true, type: PropertyType.Map(syiVerificationStructure), description: "SYI object to validate")
-        drat_data (required:true, type: PropertyType.Map(dratDataStructure), description: "Data recovery and transformation service response to validate")
+        drat_data (required:true, type: PropertyType.Map(dratStructure), description: "Data recovery and transformation service response to validate")
         verified (required:true, type: PropertyType.Boolean, description: "Validation result between SYI and DRAT data")
     }
 }
