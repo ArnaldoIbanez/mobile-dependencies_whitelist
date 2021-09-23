@@ -221,5 +221,22 @@ trackTests {
     test("seller central open tooltip view mp") {
         "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
     }
+
+    test("seller click on help option") {
+        "/seller_central/bulk/list/help_option"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB341920"
+            user_shops_status = "active"
+            seller_reputation = "5_green"
+            user_type = "normal"
+            session_id = "515106248-edition-72151975d676"
+        }
+    }
+
+    test("fail to get help option") {
+        "/seller_central/bulk/list/help_option_fail"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB341920"
+            session_id = "515106248-edition-72151975d676"
+        }
+    }
 }
 
