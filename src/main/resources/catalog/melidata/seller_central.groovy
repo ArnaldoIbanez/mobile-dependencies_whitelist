@@ -225,7 +225,7 @@ tracks {
     //  Seller Central Verifications Structure
     // --------------------------------------------------------------------------------------------------------------
 
-    def fipeDataStructure = objectSchemaDefinitions {
+    def verificationAttributesStructure = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
         value_name(type: PropertyType.String, required: true)
         name(type: PropertyType.String, required: false)
@@ -236,12 +236,12 @@ tracks {
         flow(type: PropertyType.String, required: true)
         domain_id(type: PropertyType.String, required: true)
         site_id(type: PropertyType.String, required: true)
-        attributes(type: PropertyType.ArrayList(PropertyType.Map(fipeDataStructure), required: true)
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
     }
 
     def dratDataStructure = objectSchemaDefinitions {
         flow_id(type: PropertyType.String, required: true)
-        attributes(type: PropertyType.ArrayList(PropertyType.Map(fipeDataStructure), required: true)
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
     }
 
     propertyDefinitions {
