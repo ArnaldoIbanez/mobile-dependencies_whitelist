@@ -292,6 +292,7 @@ tracks {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
         selected(type: PropertyType.Boolean, required: true, description: "The state of the filter we are showing")
         index(type: PropertyType.Numeric, required: true, description: "The position of the filter within the component")
+        style(type: PropertyType.String, required: false, values: ['rounded', 'box'], description: "The style of the filters shown")
     }
 
     def marketplace_cover_carousel_definition = objectSchemaDefinitions {

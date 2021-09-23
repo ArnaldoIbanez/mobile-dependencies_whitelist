@@ -538,11 +538,13 @@ trackTests {
                         [
                                 index: 0,
                                 selected: "unselected",
+                                style: "box",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
                                 selected: "selected",
+                                style: "rounded",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
@@ -831,6 +833,7 @@ trackTests {
                         [
                                 index: 1,
                                 selected: "unselected",
+                                style: "box",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
