@@ -645,6 +645,10 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/map"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
         "/search/map/carousel"(platform: "/web") {
             defaultSearchInformation()
             defaultWebTrack()
