@@ -2308,6 +2308,16 @@ tracks {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
 
+    //Cancelaciones Parciales
+    "/notification/shipping_delivered_partial_cancellations"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
+    "/notification/shipping_shipped_partial_cancellations"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
+
       //Seller questions
       "/notification/questions_new"(platform: "/") {
           question_id(required: true, type: PropertyType.Numeric)

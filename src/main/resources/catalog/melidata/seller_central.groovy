@@ -2372,6 +2372,31 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Toolbar checkbox action", values: ["select", "unselect"])
     }
 
+    "/seller_central/promotions/massive/editor/offline"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/categories"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/email"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
     "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/promotions/massive/modal/add"(platform: "/", type: TrackType.Event) {

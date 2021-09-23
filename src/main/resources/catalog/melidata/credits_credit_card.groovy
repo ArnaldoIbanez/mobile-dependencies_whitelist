@@ -346,6 +346,8 @@ tracks {
 
     "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
+    "/credits/credit_card/upgrade/congrats/kyc_go_home"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
     "/credits/credit_card/upgrade/congrats/physical_card_request"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         status(
                 description: "Status from the physical card request",
@@ -398,6 +400,17 @@ tracks {
                 required: true,
                 values: [
                         "user_has_active_account"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/stop_page/kyc_start_validations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "A KYC not compliant user starts validation flow",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "kyc_not_compliant"
                 ]
         )
     }
