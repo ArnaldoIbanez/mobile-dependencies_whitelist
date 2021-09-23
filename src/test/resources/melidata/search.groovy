@@ -646,15 +646,19 @@ trackTests {
             defaultSearchInformation()
         }
         "/search/map/carousel"(platform: "/web") {
+            defaultSearchInformation()
             defaultWebTrack()
         }
         "/search/map/vip_access"(platform: "/web") {
+            defaultSearchInformation()
             defaultWebTrack()
         }
         "/search/map/pagination"(platform: "/web") {
+            defaultSearchInformation()
             defaultWebTrack()
         }
         "/search/map/faceted_search"(platform: "/web") {
+            defaultSearchInformation()
             defaultWebTrack()
         }       
         "/search/search_map"(platform: "/") {
