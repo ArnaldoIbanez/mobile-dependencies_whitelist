@@ -6224,9 +6224,22 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("Seller central data verification result") {
     "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
-      external_data = "{FIPE_CODE: 12342A}"
-      drat_data = "{FIPE_CODE: 12342A}"
-      result = "{verified: true}"
+      external_data = [
+        identifier: "DNY2477",
+        flow: "motors_fipe",
+        domain_id: "MLB-CARS_AND_VANS",
+        site_id: "MLB",
+        attributes: [
+          [id: "FIPE_CODE", value_name: "003288-3", name: "Código FIPE"]
+        ]
+      ]
+      drat_data = [
+        flow_id: "motors_fipe",
+        attributes: [
+          [id: "FIPE_CODE", value_name: "003288-3", name: "Código FIPE"]
+        ]
+      ]
+      verified = true
     }
   }
 }

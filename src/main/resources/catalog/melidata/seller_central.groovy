@@ -221,6 +221,29 @@ tracks {
 
     //  FINAL LANDING PRODUCTS STRUCTURE
 
+    // --------------------------------------------------------------------------------------------------------------
+    //  Seller Central Verifications Structure
+    // --------------------------------------------------------------------------------------------------------------
+
+    def fipeDataStructure = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true)
+        value_name(type: PropertyType.String, required: true)
+        name(type: PropertyType.String, required: false)
+    }
+
+    def syiVerificationStructure = objectSchemaDefinitions {
+        identifier(type: PropertyType.String, required: true)
+        flow(type: PropertyType.String, required: true)
+        domain_id(type: PropertyType.String, required: true)
+        site_id(type: PropertyType.String, required: true)
+        attributes(type: PropertyType.ArrayList(PropertyType.Map(fipeDataStructure), required: true)
+    }
+
+    def dratDataStructure = objectSchemaDefinitions {
+        flow_id(type: PropertyType.String, required: true)
+        attributes(type: PropertyType.ArrayList(PropertyType.Map(fipeDataStructure), required: true)
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -2567,8 +2590,8 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
-        external_data (required:true, type: PropertyType.String, description: "SYI object to validate")
-        drat_data (required:true, type: PropertyType.String, description: "Data recovery and transformation service response to validate")
-        result (required:true, type: PropertyType.String, description: "Validation result between SYI and DRAT data")
+        external_data (required:true, type: PropertyType.Map(syiVerificationStructure), description: "SYI object to validate")
+        drat_data (required:true, type: PropertyType.Map(dratDataStructure), description: "Data recovery and transformation service response to validate")
+        verified (required:true, type: PropertyType.Boolean, description: "Validation result between SYI and DRAT data")
     }
 }
