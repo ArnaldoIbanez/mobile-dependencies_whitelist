@@ -226,9 +226,9 @@ tracks {
     // --------------------------------------------------------------------------------------------------------------
 
     def verificationAttributesStructure = objectSchemaDefinitions {
-        id(required: true, type: PropertyType.String, description: "atribute id to verificate")
-        value_name(required: true, type: PropertyType.String, description: "atribute value to verificate")
-        name(required: false, type: PropertyType.String, description: "attribute name to verificate")
+        attribute_id(required: true, type: PropertyType.String, description: "atribute id to verificate")
+        attribute_value(required: true, type: PropertyType.String, description: "atribute value to verificate")
+        attribute_name(required: false, type: PropertyType.String, description: "attribute name to verificate")
     }
 
     def syiVerificationStructure = objectSchemaDefinitions {
@@ -2615,7 +2615,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
-        external_data (required:true, type: PropertyType.Map(syiVerificationStructure), description: "SYI object to validate")
+        syi_data (required:true, type: PropertyType.Map(syiVerificationStructure), description: "SYI object to validate")
         drat_data (required:true, type: PropertyType.Map(dratStructure), description: "Data recovery and transformation service response to validate")
         verified (required:true, type: PropertyType.Boolean, description: "Validation result between SYI and DRAT data")
     }
