@@ -241,7 +241,7 @@ tracks {
     }
 
     "/kyc/iv/object_detection/validation"(platform: "/mobile", type: TrackType.Event) {
-        validation(required: true, values: ["confidence", "aspect_ratio", "label_check", "ok"], type: PropertyType.String, description: "Validation type")
+        validation(required: true, values: ["error", "pending", "confidence", "aspect_ratio", "label_check", "denied_label_check", "brightness", "darkness", "ok"], type: PropertyType.String, description: "Validation type")
         value(type: PropertyType.String, required: true, description: "Value of validation")
     }
 

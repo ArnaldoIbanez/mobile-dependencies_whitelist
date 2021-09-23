@@ -31,7 +31,7 @@ tracks {
         )
         domain_id(required: false, type: PropertyType.String, description: "Id of the product")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree", serverSide: true)
+        category_path(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree", serverSide: true)
         city(required: false, type: PropertyType.String, description: "Item city name")
         flow_type(
                 required: false,
@@ -232,6 +232,21 @@ tracks {
 
     "/vis_credits/not_found"(platform: "/", type: TrackType.View) {
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact/call_intention"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact/email_intention"(platform: "/", type: TrackType.Event) {
         vis_credits_required
         vis_credits_optional
     }
