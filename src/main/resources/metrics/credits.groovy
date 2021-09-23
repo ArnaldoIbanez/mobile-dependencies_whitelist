@@ -261,7 +261,7 @@ metrics {
         }
     }
 
-    "credits_merchant_express_money_entries.with_onboarding"(description: "Credits merchant entries under express money flow with") {
+    "credits_merchant_express_money_entries.with_onboarding"(description: "Credits merchant entries under express money flow with onboarding") {
         startWith {
             experiment(regex("(wallet|credits)/.*"))
         }
@@ -279,6 +279,17 @@ metrics {
         countsOn { 
             condition { 
                 path("/credits/express_money/congrats")
+            } 
+        }
+    }
+
+    "credits_merchant_open_market_entries"(description: "Credits merchant entries under open market flow") {
+        startWith {
+            experiment(regex("(wallet|credits)/.*"))
+        }
+        countsOn { 
+            condition { 
+                path("/credits/merchant/open_market")
             } 
         }
     }
