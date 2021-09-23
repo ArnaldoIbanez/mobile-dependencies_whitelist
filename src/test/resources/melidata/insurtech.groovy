@@ -3,7 +3,7 @@ package src.test.resources.melidata
 import com.ml.melidata.TrackType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
- 
+
 trackTests {
 
     defaultBusiness = "mercadolibre"
@@ -2061,7 +2061,7 @@ trackTests {
         }
 
         // INSURTECH Protections Detail - my-detail-fe
-        //RODA
+        // RODA
         "/insurtech/protections/detail/roda"(platform:"/mobile", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
@@ -2070,84 +2070,95 @@ trackTests {
             ]
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
+
         "/insurtech/protections/detail/roda"(platform:"/web", type: TrackType.View) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
         "/insurtech/protections/detail/roda/begin_claim"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
         "/insurtech/protections/detail/roda/download_policy"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
         "/insurtech/protections/detail/roda/pay"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
             type = 'pending_payment'
         }
@@ -2155,51 +2166,57 @@ trackTests {
         "/insurtech/protections/detail/roda/recommendations"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
         "/insurtech/protections/detail/roda/cancel"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
         "/insurtech/protections/detail/roda/cancel_claim"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2212,51 +2229,57 @@ trackTests {
         "/insurtech/protections/detail/roda/help"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
          "/insurtech/protections/detail/roda/imei_help"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
         "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
             is_imei_valid = true
             protection_status = 'pending_activation_imei'
@@ -2268,17 +2291,19 @@ trackTests {
         "/insurtech/protections/detail/roda/imei_activation"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
             is_imei_valid = true
             protection_status = 'pending_shipping_imei'
@@ -2290,35 +2315,38 @@ trackTests {
         "/insurtech/protections/detail/roda/change_protection"(platform:"/mobile", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
-
 
         "/insurtech/protections/detail/roda/continue_kyc"(platform:"/mobile", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2348,17 +2376,19 @@ trackTests {
         "/insurtech/protections/detail/roda/feedback"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: true,
-                is_current_device_protection: true,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                is_current_device_protection: false,
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2371,17 +2401,19 @@ trackTests {
         "/insurtech/protections/detail/roda/insurer_response"(platform:"/", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2389,17 +2421,19 @@ trackTests {
         "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
             type = 'deductible'
         }
@@ -2423,17 +2457,19 @@ trackTests {
         "/insurtech/protections/detail/roda/claim_detail/insurer_response"(platform:"/web", type: TrackType.Event) {
             protection = [
                 insurance_purchase_key: "roda-ABC125",
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.72,
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
                 deductible_amount: 10.72,
-                has_open_claim: false,
                 is_current_device_protection: false,
-                entity_type:"quote",
-                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2464,106 +2500,128 @@ trackTests {
         }
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
 
-        //GAREX
-         "/insurtech/protections/detail/garex"(platform:"/", type: TrackType.View) {
-             product_data =[
+        // GAREX
+        "/insurtech/protections/detail/garex"(platform:"/", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.73,
                 amount_fee:  10.73,
-                has_open_claim: false
             ]
         }
-            "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
-             product_data =[
+         
+        "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.73,
                 amount_fee:  10.73,
-                has_open_claim: false
             ]
         }
-               "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
-             product_data =[
+        
+        "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.73,
                 amount_fee:  10.73,
-                has_open_claim: false
             ]
         }
-               "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
-             product_data =[
+        
+        "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.73,
                 amount_fee:  10.73,
-                has_open_claim: false
             ]
         }
-               "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
-             product_data =[
+        
+        "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
+                has_open_claim: false,
+            ]
+            product = [
                 amount_total: 100.73,
                 amount_fee:  10.73,
-                has_open_claim: false
             ]
         }
 
         "/insurtech/protections/detail/garex/activities"(platform:"/", type: TrackType.Event) {
-             product_data =[
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
-                amount_total: 100.73,
-                amount_fee:  10.73,
-                has_open_claim: false
+                has_open_claim: false,
             ]
-        }
-        "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
-             product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
+            product = [
                 amount_total: 100.73,
                 amount_fee:  10.73,
-                has_open_claim: false
-            ]
-        }
-        "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
-             product_data =[
-                entity_type:"quote",
-                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
-                product_type:"garex",
-                product_id:"MLA_RD00000000000065134TEST",
-                insurance_purchase_key: "garex-ABC124",
-                amount_total: 100.73,
-                amount_fee:  10.73,
-                has_open_claim: false
             ]
         }
 
-        //CARDS
+        "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
+                amount_total: 100.73,
+                amount_fee:  10.73,
+            ]
+        }
+
+        "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "garex-ABC124",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST",
+                has_open_claim: false,
+            ]
+            product = [
+                amount_total: 100.73,
+                amount_fee:  10.73,
+            ]
+        }
+
+        // CARDS
         "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
@@ -2602,19 +2660,19 @@ trackTests {
         }
         "/insurtech/protections/landings_fe/go_to_store"(platform:"/", type: TrackType.Event) {
             type = "desktop"
-           os_name = "ios"
-           os_version = "9"
-           discount_type = "fixed"
-           is_generic = false
-           site = "MLB"
+            os_name = "ios"
+            os_version = "9"
+            discount_type = "fixed"
+            is_generic = false
+            site = "MLB"
         }
         "/insurtech/protections/landings_fe/go_to_qpage"(platform:"/", type: TrackType.Event) {
             type = "desktop"
-           os_name = "ios"
-           os_version = "9"
-           discount_type = "fixed"
-           is_generic = false
-           site = "MLB"
+            os_name = "ios"
+            os_version = "9"
+            discount_type = "fixed"
+            is_generic = false
+            site = "MLB"
         }
     }
 
