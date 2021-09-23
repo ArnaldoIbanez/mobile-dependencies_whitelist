@@ -2635,11 +2635,96 @@ trackTests {
     test('Insurtech - test CARDS CONGRATS tracking'){
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View){
-
+            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            purchase_key: "8888"
+        }
+        "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
+            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            purchase_key: "8888"
+        }
+        "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
+            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            purchase_key: "8888"
+        }
+        "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
+            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            purchase_key: "8888"
         }
         // Fail
-        "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View){
-
+        "/insurtech/cards/congrats_fail"(platform:"/", type: TrackType.View){
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ]
+                ],
+                product_id: "CARDS"
+            ]
+        }
+        "/insurtech/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event){
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ]
+                ],
+                product_id: "CARDS"
+            ]
+        }
+        "/insurtech/cards/close"(platform:"/", type: TrackType.Event){
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ]
+                ],
+                product_id: "CARDS"
+            ]
         }
     }
 
