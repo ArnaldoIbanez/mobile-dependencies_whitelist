@@ -70,11 +70,53 @@ tracks {
         label(required: false, type: PropertyType.String, description: "The action that was tracked")
     }
 
+    def seller_def = objectSchemaDefinitions {
+        messages_count(required: true, description: "Number of messages to seller", type: PropertyType.Numeric, name: "messages_count")
+        nickname(required: true, description: "Username of the seller", type: PropertyType.String, name: "nickname")
+        id(required: true, description: "id of the seller", type: PropertyType.Numeric, name: "id")
+    }
+
+    def shipping_def = objectSchemaDefinitions {
+        shipping_mode(required: true, description: "Way of delivering (example: me2)", type: PropertyType.String, name: "shipping_mode")
+        shipping_method(required: false, description: "Delivering method (example: standard)", type: PropertyType.String,  name: "shipping_method")
+        shipping_sub_status(required: true, description: "Delivery sub-status (example: ready_to_print)", type: PropertyType.String,  name: "shipping_sub_status")
+        logistic_type(required: true, description: "Delivering method variant (example: drop_off)", type: PropertyType.String, name: "logistic_type")
+        shipping_status(required: true, description: "Delivery status (example: ready_to_ship)", type: PropertyType.String, name: "shipping_status")
+    }
+
+    def payments_def = objectSchemaDefinitions {
+        payment_method_type(required: true, description: "How the buyer actually paid", type: PropertyType.String, name: "payment_method_type")
+        payment_method_id(required: true, description: "Id of the method type", type: PropertyType.String, name: "payment_method_id")
+        payment_status_detail(required: true, description: "States if the buyer has the money or not", type: PropertyType.String, name: "payment_status_detail")
+        payment_status(required: true, description: "States if the payment has been approved or not", type: PropertyType.String, name: "payment_status")
+    }
+
+    def items_def = objectSchemaDefinitions {
+        category_l3(required: true, description: "Category id for l3", type: PropertyType.String, name: "category_l3")
+        category_l4(required: true, description: "Category id for l4",  type: PropertyType.String, name: "category_l4")
+        quantity(required: true, description: "How many were actually bought by the buyer", type: PropertyType.Numeric, name: "quantity")
+        business(required: true, description: "Where the purchase occurred (example: marketplace)", type: PropertyType.String, name: "business")
+        item_id(required: true, description: "Id of the item", type: PropertyType.String, name: "item_id")
+        page_vertical(required: true, description: "Case identified for the purchase status", type: PropertyType.String, name: "page_vertical")
+        listing_type(required: true, description: "Identifier of the item category", PropertyType.String, name: "listing_type")
+        category_l1(required: true, description: "Category id for l1", type: PropertyType.String, name: "category_l1")
+        category_l2(required: true, description: "Category id for l2",  type: PropertyType.String, name: "category_l2")
+        international_delivery_mode(required: true, description: "Indicates if the item has international delivery or not", type: PropertyType.String, name: "international_delivery_mode")
+        condition(required: true, description: "States if it is old or new", type: PropertyType.String, name: "condition")
+        variation_id(required: true, description: "Id of the item variation", type: PropertyType.Numeric, name: "variation_id")
+        domain(required: true, description: "Item's domain id", type: PropertyType.String, name: "domain")
+        product_id(required: true, description: "Item id", type: PropertyType.String, name: "product_id")
+    }
+
+    def buyer_def = objectSchemaDefinitions {
+        id(required: true, description: "Id of the buyer", type: PropertyType.Numeric, name: "id")
+        is_prime(required: true, description: "Indicator of the id primality", type: PropertyType.String, name: "is_prime")
+    }
+
     propertyGroups {
         newPurchasesGroup(items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, pack_ids, order_ids, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
         newPurchasesEventGroupFull(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id, items, payments, shipping, seller, buyer, purchases_flow, purchase_status, checkout_flow, pack_ids, order_ids, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
         newPurchasesEventGroup(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id)
-        repurchaseEventGroup(seller, garex, shipping, purchases_flow, x_mc_request_id, purchase_status, payments, items, checkout_flow, buyer)
     }
 
     // BASE PATH FOR MY PURCHASES
@@ -283,7 +325,16 @@ tracks {
     }
 
     "/my_purchases/list/repurchase_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        repurchaseEventGroup
+        seller(required: true, description: "Seller data", type: PropertyType.ArrayList(PropertyType.Map(seller_def)), name: "seller")
+        garex(required: true, description: "Indicator of garex", type: PropertyType.String, name: "garex")
+        shipping(required: false, description: "Shipping data", type: PropertyType.ArrayList(PropertyType.Map(shipping_def)), name: "shipping")
+        purchases_flow(required: false, description: "Version of purchases list", type: PropertyType.String, name: "purchases_flow")
+        x_mc_request_id(required: true, description: "Session id of the purchase", type: PropertyType.String, name: "x_mc_request_id")
+        purchase_status(required: true, description: "Status of the purchase", type: PropertyType.String, name: "purchase_status")
+        payments(required: true, description: "Payments data", type: PropertyType.ArrayList(PropertyType.Map(payments_def)), name: "payments")
+        items(required: false, description: "Items data", type: PropertyType.ArrayList(PropertyType.Map(items_def)), name: "items")
+        checkout_flow(required: true, description: "Indicates if it is a direct or cart purchase", type: PropertyType.String, name: "checkout_flow")
+        buyer(required: true, description: "Buyer data", type: PropertyType.ArrayList(PropertyType.Map(buyer_def)), name: "buyer")
     }
 
     "/my_purchases/list/repurchase_drawing"(platform:"/", type:TrackType.View, parentPropertiesInherited: false) {
