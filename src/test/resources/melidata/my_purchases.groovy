@@ -519,7 +519,7 @@ trackTests {
 			repurchaseDataSet()
 		}
 
-		"/my_purchases/list/repurchase_drawing"(platform:"/", type:TrackType.View) {
+		"/my_purchases/list/repurchase"(platform:"/", type:TrackType.View) {
 		}
 	}
 }

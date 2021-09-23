@@ -1,7 +1,5 @@
 package catalog.melidata
 
-import jdk.nashorn.internal.runtime.Property
-
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
@@ -77,17 +75,17 @@ tracks {
     }
 
     def shipping_def = objectSchemaDefinitions {
-        shipping_mode(required: true, description: "Way of delivering (example: me2)", type: PropertyType.String, name: "shipping_mode")
+        shipping_mode(required: true, description: "Way of delivering (example: me2)", type: PropertyType.String, name: "shipping_mode", values: ["not_specified", "me1", "me2", "custom"])
         shipping_method(required: false, description: "Delivering method (example: standard)", type: PropertyType.String,  name: "shipping_method")
         shipping_sub_status(required: true, description: "Delivery sub-status (example: ready_to_print)", type: PropertyType.String,  name: "shipping_sub_status")
-        logistic_type(required: true, description: "Delivering method variant (example: drop_off)", type: PropertyType.String, name: "logistic_type")
+        logistic_type(required: true, description: "Delivering method variant (example: drop_off)", type: PropertyType.String, name: "logistic_type", values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"])
         shipping_status(required: true, description: "Delivery status (example: ready_to_ship)", type: PropertyType.String, name: "shipping_status")
     }
 
     def payments_def = objectSchemaDefinitions {
         payment_method_type(required: true, description: "How the buyer actually paid", type: PropertyType.String, name: "payment_method_type")
         payment_method_id(required: true, description: "Id of the method type", type: PropertyType.String, name: "payment_method_id")
-        payment_status_detail(required: true, description: "States if the buyer has the money or not", type: PropertyType.String, name: "payment_status_detail")
+        payment_status_detail(required: true, description: "States if the buyer has the money or not", type: PropertyType.String, name: "payment_status_detail", values: ["pending_capture","accredited", "cc_rejected_blacklist", "cc_rejected_high_risk", "cc_rejected_insufficient_amount", "cc_rejected_invalid_installments", "cc_rejected_other_reason", "cc_rejected_max_attempts", "cc_rejected_bad_filled_card_number", "cc_rejected_bad_filled_other", "cc_rejected_bad_filled_date", "cc_rejected_bad_filled_security_code", "cc_rejected_call_for_authorize", "cc_rejected_card_disabled", "default", "accord", "pending_contingency", "pending_review_manual", "pending_challenge", "cc_rejected_fraud", "cc_rejected_duplicated_payment", "cc_rejected_bad_filled_invalid_date", "account_rejected_high_risk", "rejected_by_regulations", "rejected_insufficient_data", "rejected_by_bank", "error_bi_without_cnpj", "error_bi_different_ie", "error_bi_cnpj_non_operational", "error_bi_ie_invalid_state", "phone_verification"])
         payment_status(required: true, description: "States if the payment has been approved or not", type: PropertyType.String, name: "payment_status")
     }
 
@@ -337,6 +335,6 @@ tracks {
         buyer(required: true, description: "Buyer data", type: PropertyType.ArrayList(PropertyType.Map(buyer_def)), name: "buyer")
     }
 
-    "/my_purchases/list/repurchase_drawing"(platform:"/", type:TrackType.View, parentPropertiesInherited: false) {
+    "/my_purchases/list/repurchase"(platform:"/", type:TrackType.View, parentPropertiesInherited: false) {
     }
 }
