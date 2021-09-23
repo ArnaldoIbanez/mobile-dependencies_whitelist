@@ -2635,19 +2635,19 @@ trackTests {
     test('Insurtech - test CARDS CONGRATS tracking'){
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View){
-            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            quote_id: "37c66ad4-65b6-49d6-9d89-46944bf09545-test",
             purchase_key: "8888"
         }
         "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
-            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            quote_id: "37c66ad4-65b6-49d6-9d89-46944bf09545-test",
             purchase_key: "8888"
         }
         "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
-            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            quote_id: "37c66ad4-65b6-49d6-9d89-46944bf09545-test",
             purchase_key: "8888"
         }
         "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
-            quote_id: "632b07b8-37c7-417c-9ab2-2814b80f7ae7-test",
+            quote_id: "37c66ad4-65b6-49d6-9d89-46944bf09545-test",
             purchase_key: "8888"
         }
         // Fail
