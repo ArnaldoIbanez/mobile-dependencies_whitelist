@@ -2153,6 +2153,14 @@ trackTests {
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("seller central sales detail payment more payments") {
+    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail payment products") {
+    "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
+  }
+
   test("seller central sales detail shipping") {
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
   }
@@ -2165,6 +2173,10 @@ trackTests {
 
   test("seller central sales detail invoice information") {
     "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail billing information") {
+    "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail buyer information") {
@@ -4709,6 +4721,43 @@ test("seller central confirm leave suggestion task - optin moderated") {
   test("seller central promotions massive editor toolbar checkbox") {
     "/seller_central/promotions/massive/editor/toolbar/checkbox"(platform: "/", type: TrackType.Event) {
       action = "select"
+    }
+  }
+
+  test("seller central promotions massive editor - offline") {
+    "/seller_central/promotions/massive/editor/offline"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions massive editor offline - open") {
+    "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - upload") {
+    "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - categories") {
+    "/seller_central/promotions/massive/editor/offline/categories"(platform: "/", type: TrackType.Event) {
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - download") {
+    "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - email") {
+    "/seller_central/promotions/massive/editor/offline/email"(platform: "/", type: TrackType.Event) {
+      type = 'lightning'
     }
   }
 

@@ -1601,6 +1601,8 @@ tracks {
         )
     }
 
+    "/credits/express_money/kyc_onboarding"(platform: "/", type: TrackType.View) { }
+
     "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) { }
 
     /******************************************
