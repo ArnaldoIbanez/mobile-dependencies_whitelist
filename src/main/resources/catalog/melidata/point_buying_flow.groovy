@@ -41,9 +41,7 @@ tracks {
         groupCheckoutProperties
     }
 
-    "/point/buyingflow/shipping/new_address/goto_zipcode_finder"(platform: "/", type: TrackType.Event) {
-        groupCheckoutProperties
-    }
+    "/point/buyingflow/shipping/new_address/goto_zipcode_finder"(platform: "/", type: TrackType.Event) {}
     
     "/point/buyingflow/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
