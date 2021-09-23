@@ -20,7 +20,7 @@ tracks {
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bu, ch, camp, strategy)
+        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, ch, camp, strategy)
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
