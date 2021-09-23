@@ -31,7 +31,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -47,7 +46,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -63,7 +61,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -79,7 +76,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -97,7 +93,6 @@ trackTests {
           e2e_test = false
           has_account_money = true
           has_consumer_credits = true
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -113,7 +108,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -129,7 +123,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -145,7 +138,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -161,7 +153,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -177,7 +168,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -196,7 +186,6 @@ trackTests {
           discount_code = "GHZM"
           installments = 6
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -215,7 +204,6 @@ trackTests {
           discount_code = "GHZM"
           installments = 6
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -232,7 +220,6 @@ trackTests {
           discount_code = "GHZM"
           error_code = 6
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -248,7 +235,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -264,7 +250,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -280,7 +265,6 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -296,7 +280,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -312,7 +295,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -328,7 +310,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -344,7 +325,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -360,7 +340,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -378,7 +357,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -400,7 +378,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -422,7 +399,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -444,7 +420,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -466,7 +441,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -488,7 +462,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -510,7 +483,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -532,7 +504,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -554,7 +525,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -576,7 +546,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -598,7 +567,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -619,7 +587,6 @@ trackTests {
           is_guest = true
           discount_code = "GHZM"
           e2e_test = false
-          bu = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
