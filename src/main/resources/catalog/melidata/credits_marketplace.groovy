@@ -226,6 +226,15 @@ tracks {
                         "finished"
                 ]
         )
+        list_status(
+                required: true,
+                description: "Defines if the user can increase their limit",
+                type: PropertyType.String,
+                values: [
+                        "black_list",
+                        "white_list"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(

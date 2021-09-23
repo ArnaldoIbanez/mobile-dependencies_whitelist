@@ -1745,6 +1745,15 @@ tracks {
                         "finished"
                 ]
         )
+        list_status(
+                required: true,
+                description: "Defines if the user can increase their limit",
+                type: PropertyType.String,
+                values: [
+                        "black_list",
+                        "white_list"
+                ]
+        )
     }
 
     //Mobile Events
