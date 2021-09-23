@@ -591,7 +591,13 @@ tracks {
     "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
-        checkedFilters(required: true, type: PropertyType.ArrayList, description: "Id of the action")
+        // TODO remove checkedFilters when the rollout mshops finsh
+        checkedFilters(required: false, type: PropertyType.ArrayList, description: "Id of the action")
+        page(required: false, type: PropertyType.Numeric, description: "Number of the page")
+        filters(required: false, type: PropertyType.ArrayList, description: "List with the Ids of every filter applied")
+        sort(required: false, type: PropertyType.String, description: "Sorting applied")
+        search(required: false, type: PropertyType.String, description: "Query for id or title")
+        origin(required: false, type: PropertyType.String, description: "component that emit the action")
     }
 
     "/seller_central/listings/filters/action"(platform: "/") {
@@ -1349,6 +1355,8 @@ tracks {
     }
 
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
 
@@ -1357,6 +1365,8 @@ tracks {
     }
 
     "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
@@ -2337,6 +2347,31 @@ tracks {
 
     "/seller_central/promotions/massive/editor/toolbar/checkbox"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Toolbar checkbox action", values: ["select", "unselect"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/categories"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/email"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
     }
 
     "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}

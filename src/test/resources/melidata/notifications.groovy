@@ -634,6 +634,9 @@ trackTests {
         "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
             claim_id= 443103451
         }
+        "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
+            claim_id= 443103451
+        }
         "/notification_center/orders-buyer"(platform: "/mobile"){
             newsgroup_id= "orders-buyer-1285223441"
             status= "read"
@@ -1634,7 +1637,6 @@ trackTests {
             latest_news_id= "card_request_challenge-pending-186785675-76283123"
             latest_news_type= "card_request_challenge-pending"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_correios_strike"(platform: "/mobile"){
             newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
@@ -1677,7 +1679,6 @@ trackTests {
             latest_news_id= "card_request_challenge-186785675-76283123"
             latest_news_type= "card_request_challenge"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_wallet"(platform: "/mobile"){
             newsgroup_id= "card_wallet-186785675-76283123"
@@ -2367,12 +2368,10 @@ trackTests {
         "/notification/card_request_challenge_pending"(platform: "/mobile") {
             news_id = "card_request_challenge_pending-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
             news_id = "card_request_challenge_pre_expired-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/anses_payment_date"(platform: "/mobile") {
             news_id = "anses_payment_date-12345678-123"
@@ -3809,6 +3808,18 @@ trackTests {
             shipment_id = 1234
         }
 
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
         "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -3841,6 +3852,16 @@ trackTests {
             shipment_id = 21409256437
         }
         "/notification/shipping_soon_deliver_same_day"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile"){
             news_id = "shipping-soon_deliver_same_day-21409256437"
             event_type = "arrived"
             shipment_id = 21409256437
@@ -3955,7 +3976,7 @@ trackTests {
             action_type = "favorite"
         }
 
-        "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/mobile") {
+        "/notification/mediations_v2_pdd_dispute_with_timeout_buyer"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
@@ -3963,7 +3984,7 @@ trackTests {
             action_type = "favorite"
         }
 
-        "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/mobile") {
+        "/notification/mediations_v2_pdd_dispute_elected_action_reminder_buyer"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
@@ -3971,7 +3992,7 @@ trackTests {
             action_type = "favorite"
         }
 
-        "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/mobile") {
+        "/notification/mediations_v2_pdd_dispute_without_timeout_buyer"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
@@ -3995,15 +4016,15 @@ trackTests {
             claim_id = 1013715459
         }
 
-        "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/mobile") {
-            news_id = "mediations-pdd_dispute_with_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
+        "/notification/mediations_v2_pdd_dispute_with_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations_v2-pdd_dispute_with_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
             notification_style = "c"
             claim_id = 1013715459
         }
 
-        "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/mobile") {
-            news_id = "mediations-pdd_dispute_without_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
+        "/notification/mediations_v2_pdd_dispute_without_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations_v2-pdd_dispute_without_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
             notification_style = "c"
             claim_id = 1013715459
@@ -4524,6 +4545,16 @@ trackTests {
         }
         "/notification/returns_return_failed_return_to_buyer"(platform: "/mobile") {
             news_id = "returns-return_failed_return_to_buyer-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
+        "/notification/returns_return_delivered_long_way"(platform: "/mobile") {
+            news_id = "returns-return_delivered_long_way-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
+        "/notification/returns_return_failed_shipment_not_delivered"(platform: "/mobile") {
+            news_id = "returns-return_failed_shipment_not_delivered-1234-186785675"
             event_type = "arrived"
             order_id = 1234
         }
@@ -6637,6 +6668,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_payment_recovery_cards"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery_cards"
+            latest_news_id= "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
          "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -7299,6 +7340,9 @@ trackTests {
             latest_news_id= "returns-init_return-1692352012-88594841"
         }
         "/notification_center/mediations"(platform: "/", type: TrackType.Event) {
+            claim_id= 443103451
+        }
+        "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
             claim_id= 443103451
         }
         "/notification_center/orders-buyer"(platform: "/mobile"){
@@ -8351,7 +8395,6 @@ trackTests {
             latest_news_id= "card_request_challenge-pending-186785675-76283123"
             latest_news_type= "card_request_challenge-pending"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_correios_strike"(platform: "/mobile"){
             newsgroup_id= "card_correios_strike-delayed-186785675-76283123"
@@ -8394,7 +8437,6 @@ trackTests {
             latest_news_id= "card_request_challenge-186785675-76283123"
             latest_news_type= "card_request_challenge"
             status= "read"
-            payment_method = 'boleto'
         }
         "/notification_center/card_wallet"(platform: "/mobile"){
             newsgroup_id= "card_wallet-186785675-76283123"
@@ -10675,6 +10717,18 @@ trackTests {
             shipment_id = 1234
         }
 
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
         "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -11055,7 +11109,7 @@ trackTests {
             action_type = "favorite"
         }
 
-        "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/mobile") {
+        "/notification/mediations_v2_pdd_dispute_with_timeout_buyer"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
@@ -11063,7 +11117,7 @@ trackTests {
             action_type = "favorite"
         }
 
-        "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/mobile") {
+        "/notification/mediations_v2_pdd_dispute_elected_action_reminder_buyer"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
@@ -11071,7 +11125,7 @@ trackTests {
             action_type = "favorite"
         }
 
-        "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/mobile") {
+        "/notification/mediations_v2_pdd_dispute_without_timeout_buyer"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "auto_dismiss"
             notification_style = "BigTextStyle"
@@ -11089,21 +11143,21 @@ trackTests {
         }
 
         "/notification/mediations_respondent"(platform: "/mobile") {
-            news_id = "mediations-respondent-1013715421-5b0d7ee426e063333fe0c582"
+            news_id = "mediations_v2-respondent-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
             notification_style = "c"
             claim_id = 1013715459
         }
 
-        "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/mobile") {
-            news_id = "mediations-pdd_dispute_with_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
+        "/notification/mediations_v2_pdd_dispute_with_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations_v2-pdd_dispute_with_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
             notification_style = "c"
             claim_id = 1013715459
         }
 
-        "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/mobile") {
-            news_id = "mediations-pdd_dispute_without_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
+        "/notification/mediations_v2_pdd_dispute_without_timeout_seller"(platform: "/mobile") {
+            news_id = "mediations_v2-pdd_dispute_without_timeout_seller-1013715421-5b0d7ee426e063333fe0c582"
             event_type = "shown"
             notification_style = "c"
             claim_id = 1013715459
@@ -11607,6 +11661,16 @@ trackTests {
             event_type = "arrived"
             order_id = 1234
         }
+        "/notification/returns_return_delivered_long_way"(platform: "/mobile") {
+            news_id = "returns-return_delivered_long_way-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
+        "/notification/returns_return_failed_shipment_not_delivered"(platform: "/mobile") {
+            news_id = "returns-return_failed_shipment_not_delivered-1234-186785675"
+            event_type = "arrived"
+            order_id = 1234
+        }
         "/notification/returns_return_expired"(platform: "/mobile") {
             news_id = "returns-return_expired-1674717959-216070768"
             event_type = "arrived"
@@ -11970,12 +12034,10 @@ trackTests {
         "/notification/card_request_challenge_pending"(platform: "/mobile") {
             news_id = "card_request_challenge_pending-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/card_request_challenge_pre_expired"(platform: "/mobile") {
             news_id = "card_request_challenge_pre_expired-12345678"
             event_type = "shown"
-            payment_method = 'boleto'
         }
         "/notification/card_offering_physical_card"(platform: "/mobile") {
             news_id = "card_offering_physical_card-12345678"
@@ -13199,6 +13261,16 @@ trackTests {
             event_type = "arrived"
             shipment_id = 21409256437
         }
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
         "/notification/shipping_soon_deliver_same_day_scoring_key_pass"(platform: "/mobile"){
             news_id = "shipping-soon_deliver_same_day_scoring_key_pass-21409256437"
             event_type = "arrived"
@@ -13282,6 +13354,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification_center/insurtech_payment_recovery_cards"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery_cards"
+            latest_news_id= "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
         "/notification/abandoned_cart_buyer"(platform: "/mobile") {
             event_type = "open"
         }
@@ -13302,9 +13384,21 @@ trackTests {
             event_type = "open"
             notification_type = "deep_linking"
         }
-        "/notification/pm_om_notification_store_opening_whatsapp"(platform: "/") {
-            news_id = "pm_om_notification-store_opening-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+        "/notification/pm_om_notification_store_opening_retry"(platform: "/") {
+            news_id = "pm_om_notification-store_opening_retry-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "sent"
+        }
+        "/notification/pm_om_notification_new_sale"(platform: "/") {
+            news_id = "pm_om_notification-new_sale-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "open"
+        }
+        "/notification/pm_om_notification_new_sale_retry"(platform: "/") {
+            news_id = "pm_om_notification-new_sale_retry-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "sent"
+        }
+        "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {
+            news_id = "pm_om_notification-buyer_cancellation-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "open"
         }
     }
 
