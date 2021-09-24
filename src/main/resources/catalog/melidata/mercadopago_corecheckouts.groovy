@@ -22,13 +22,43 @@ tracks {
     //tickets
     "/ticket_render"(platform:"/", type:TrackType.View) {
         is_guest(required: true, type: PropertyType.Boolean, description: "Wether user is logged as guest")
-        payment_method_id(required: true, type: PropertyType.String, description: "Payment method of ticket")
+        payment_method_id(required: true, type: PropertyType.String, description: "Payment method of ticket", values: [
+          //MLM
+          "bancomer", 
+          "oxxo", 
+          "paycash", 
+          "serfin", 
+          "banamex", 
+          //MCO
+          "efecty", 
+          "baloto", 
+          //MLA
+          "pagofacil", 
+          "rapipago", 
+          //MLB
+          "bolbradesco"
+        ])
         payment_id(required: true, type: PropertyType.Numeric, description: "Payment id of ticket")
     }
 
     "/ticket_render/print_ticket"(platform:"/", type: TrackType.Event) {
       is_guest(required: true, type: PropertyType.Boolean, description: "Wether user is logged as guest")
-      payment_method_id(required: true, type: PropertyType.String, description: "Payment method of ticket")
+      payment_method_id(required: true, type: PropertyType.String, description: "Payment method of ticket", values: [
+          //MLM
+          "bancomer", 
+          "oxxo", 
+          "paycash", 
+          "serfin", 
+          "banamex", 
+          //MCO
+          "efecty", 
+          "baloto", 
+          //MLA
+          "pagofacil", 
+          "rapipago", 
+          //MLB
+          "bolbradesco"
+        ])
       payment_id(required: true, type: PropertyType.Numeric, description: "Payment id of ticket")
     }
 }

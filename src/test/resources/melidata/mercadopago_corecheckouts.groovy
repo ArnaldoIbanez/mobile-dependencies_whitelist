@@ -27,7 +27,7 @@ trackTests {
     test("Print ticket") {
       "/ticket_render/print_ticket"(platform:"/", type: TrackType.Event) {
           is_guest = true
-          payment_method_id = "boleto"
+          payment_method_id = "bolbradesco"
           payment_id = 2345
       }
     }
