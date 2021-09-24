@@ -3406,7 +3406,198 @@ trackTests {
             mandatory()
         }
 
+        // Automatic debits
+        // empty state
+        "/bill_payments/empty_state/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
 
+        "/bill_payments/empty_state/automatic_debits/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/automatic_debits/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state/automatic_debits/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // ftu kyc
+        "/bill_payments/ftu_kyc/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/automatic_debits/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_kyc/automatic_debits/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // main category Automatic Debits
+        "/bill_payments/main_category/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/main_category/automatic_debits/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/automatic_debits/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+
+        "/bill_payments/main_category/automatic_debits/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        "/bill_payments/main_category/automatic_debits/empty_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        "/bill_payments/main_category/automatic_debits/result_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+
+        //required data
+        "/bill_payments/required_data/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/automatic_debits/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/automatic_debits/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/required_data/automatic_debits/button_continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // confirm optin
+        "/bill_payments/confirm_optin/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debits/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debits/checkbox_selected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debits/checkbox_unselected"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin/automatic_debits/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optin
+        "/bill_payments/congrats_optin/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debits/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debits/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debits/message_button"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optin/automatic_debits/go_to_adhesions"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // optin list
+        "/bill_payments/optin_list/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debits/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debits/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debits/search_entities_automatic_debit"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optin_list/automatic_debits"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+
+        // adhesion detail
+        "/bill_payments/adhesion_detail/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debits/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debits/faq"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debits/retry"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/adhesion_detail/automatic_debits/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout dda
+        "/bill_payments/optout/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/optout/automatic_debits/cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/optout/automatic_debits/reject_cancel"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // congrat optout
+        "/bill_payments/congrats_optout/automatic_debits"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/automatic_debits/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats_optout/automatic_debits/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
 
     }
 
