@@ -2706,35 +2706,40 @@ trackTests {
             news_id = "credits-consumer_expired_eighty_notice-21680059-20180516"
             event_type = "shown"
         }
-        "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {
-            news_id = "credits-consumer_expired_eighty_mp_notice-21680059-20180516"
-            event_type = "shown"
-        }
+            
         "/notification/credits_consumer_expired_two_notice"(platform: "/") {
             news_id = "credits-consumer_expired_two_notice-21680059-20180516"
-            event_type = "shown"
-        }
-        "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {
-            news_id = "credits-consumer_expired_two_mp_notice-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_expired_nine_notice"(platform: "/") {
             news_id = "credits-consumer_expired_nine_notice-21680059-20180516"
             event_type = "shown"
         }
-        "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {
-            news_id = "credits-consumer_expired_nine_mp_notice-21680059-20180516"
-            event_type = "shown"
-        }
         "/notification/credits_consumer_expired_fifteen_notice"(platform: "/") {
             news_id = "credits-consumer_expired_fifteen_notice-21680059-20180516"
             event_type = "shown"
         }
-        "/notification/credits_consumer_expired_fifteen_mp_notice"(platform: "/") {
-            news_id = "credits-consumer_expired_fifteen_mp_notice-21680059-20180516"
+        "/notification/credits_consumer_expired_on_due_date_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_on_due_date_notice-21680059-20180516"
             event_type = "shown"
         }
-
+        "/notification/credits_consumer_expired_thirteen_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_thirteen_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_twentythree_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_twentythree_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_thirtyone_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_thirtyone_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_expired_ninety_notice"(platform: "/") {
+            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
             news_id = "chargeback-payer_high_agree_repayment_mp-14363307744123"
             event_type = "shown"
@@ -3808,6 +3813,18 @@ trackTests {
             shipment_id = 1234
         }
 
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
         "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -3840,6 +3857,16 @@ trackTests {
             shipment_id = 21409256437
         }
         "/notification/shipping_soon_deliver_same_day"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile"){
             news_id = "shipping-soon_deliver_same_day-21409256437"
             event_type = "arrived"
             shipment_id = 21409256437
@@ -6643,6 +6670,16 @@ trackTests {
 
         "/notification/insurtech_money_in"(platform: "/mobile") {
             news_id = "insurtech_money_in-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_payment_recovery_cards"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery_cards"
+            latest_news_id= "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
 
@@ -10685,6 +10722,18 @@ trackTests {
             shipment_id = 1234
         }
 
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
+
         "/notification/shipping_rts_in_packing_list"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -13217,6 +13266,16 @@ trackTests {
             event_type = "arrived"
             shipment_id = 21409256437
         }
+        "/notification/shipping_shipped_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
+        "/notification/shipping_delivered_partial_cancellations"(platform: "/mobile"){
+            news_id = "shipping-soon_deliver_same_day-21409256437"
+            event_type = "arrived"
+            shipment_id = 21409256437
+        }
         "/notification/shipping_soon_deliver_same_day_scoring_key_pass"(platform: "/mobile"){
             news_id = "shipping-soon_deliver_same_day_scoring_key_pass-21409256437"
             event_type = "arrived"
@@ -13297,6 +13356,16 @@ trackTests {
 
         "/notification/insurtech_money_in"(platform: "/mobile") {
             news_id = "insurtech_money_in-315571651-4600610652-2021-06-29"
+            event_type = "open"
+        }
+
+        "/notification_center/insurtech_payment_recovery_cards"(platform: "/") {
+            latest_news_type= "insurtech_payment_recovery_cards"
+            latest_news_id= "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
+        }
+
+        "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {
+            news_id = "insurtech_payment_recovery_cards-315571651-4600610652-2021-06-29"
             event_type = "open"
         }
 
