@@ -709,10 +709,10 @@ trackTests {
         }
         "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
         "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
-            id = "ted"
+            widget_id = "ted"
         }
         "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
-            id = "debin"
+            widget_id = "debin"
         }
         "/money_in/hub/widget/action"(platform:"/", type: TrackType.Event){
             action_id = "qr"
