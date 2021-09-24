@@ -61,6 +61,7 @@ trackTests {
                 logic = "campaign"
                 campaign_id = "2345"
                 position = 2
+                print_id = "a"
             }
         }
 
