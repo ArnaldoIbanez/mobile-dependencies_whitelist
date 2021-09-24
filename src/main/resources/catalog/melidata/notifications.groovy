@@ -1797,7 +1797,7 @@ tracks {
           notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
 
           news_id(required: false, type: PropertyType.String, description: "Identifier of the notification generated")
-          notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
+          notification_style(required: false, type: PropertyType.String, description: "The notification style used when displaying the notification to the user.")
 
           status(required: false, type: PropertyType.String, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
 
