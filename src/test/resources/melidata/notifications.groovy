@@ -2704,6 +2704,7 @@ trackTests {
 
         "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {
             news_id = "credits-consumer_expired_eighty_notice-21680059-20180516"
+        }
             
         "/notification/credits_consumer_expired_two_notice"(platform: "/") {
             news_id = "credits-consumer_expired_two_notice-21680059-20180516"
