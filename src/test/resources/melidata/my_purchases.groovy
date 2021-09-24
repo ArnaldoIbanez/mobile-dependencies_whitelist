@@ -515,7 +515,7 @@ trackTests {
 		"/my_purchases/list"(platform:"/", type: TrackType.View) {
 		}
 
-		"/my_purchases/list/repurchase_action"(platform:"/", type: TrackType.Event) {
+		"/my_purchases/list/repurchase/add_to_cart"(platform:"/", type: TrackType.Event) {
 			repurchaseDataSet()
 		}
 

@@ -322,7 +322,7 @@ tracks {
     "/my_purchases/list"(platform:"/", type: TrackType.View) {
     }
 
-    "/my_purchases/list/repurchase_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/my_purchases/list/repurchase/add_to_cart"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         seller(required: true, description: "Seller data", type: PropertyType.ArrayList(PropertyType.Map(seller_def)), name: "seller")
         garex(required: true, description: "Indicator of garex", type: PropertyType.String, name: "garex")
         shipping(required: false, description: "Shipping data", type: PropertyType.ArrayList(PropertyType.Map(shipping_def)), name: "shipping")
