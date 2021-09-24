@@ -2246,6 +2246,31 @@ tracks {
         error_code (
             type: PropertyType.String,
             required: true,
+            values: [
+                'common_no_internet',
+                'common_comm_error',
+                'common_server_error',
+                'enrollment_wrong_credentials',
+                'enrollment_credential_expired',
+                'enrollment_try_limit_exceeded',
+                'card_activation_activation_code_entry_canceled',
+                'card_activation_mobile_pin_invalid_length',
+                'card_activation_mobile_pin_mismatch',
+                'change_pin_reentry_mismatch',
+                'change_pin_card_not_active',
+                'change_pin_card_not_exist',
+                're_enrollment_required',
+                'card_not_enrolled',
+                'card_state_unknown',
+                'replenishment_not_allowed',
+                'sdk_internal_component_error',
+                'enrollment_wrong_activation_code',
+                'enrollment_blocked_secure_wallet_enrollment_required',
+                'replenishment_blocked_secure_wallet_enrollment_required',
+                'invalid_replenish_missing_payment',
+                'asm_error',
+                'invalid_digitalcardid',
+            ],
             description: "Type of sdk errors code"
         )
 
@@ -2315,31 +2340,6 @@ tracks {
         error_code (
             type: PropertyType.String,
             required: true,
-            values: [
-                'common_no_internet',
-                'common_comm_error',
-                'common_server_error',
-                'enrollment_wrong_credentials',
-                'enrollment_credential_expired',
-                'enrollment_try_limit_exceeded',
-                'card_activation_activation_code_entry_canceled',
-                'card_activation_mobile_pin_invalid_length',
-                'card_activation_mobile_pin_mismatch',
-                'change_pin_reentry_mismatch',
-                'change_pin_card_not_active',
-                'change_pin_card_not_exist',
-                're_enrollment_required',
-                'card_not_enrolled',
-                'card_state_unknown',
-                'replenishment_not_allowed',
-                'sdk_internal_component_error',
-                'enrollment_wrong_activation_code',
-                'enrollment_blocked_secure_wallet_enrollment_required',
-                'replenishment_blocked_secure_wallet_enrollment_required',
-                'invalid_replenish_missing_payment',
-                'asm_error',
-                'invalid_digitalcardid',
-            ],
             description: "Type of sdk errors code"
         )
 
