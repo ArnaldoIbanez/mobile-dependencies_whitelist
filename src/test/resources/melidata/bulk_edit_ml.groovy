@@ -234,7 +234,7 @@ trackTests {
     }
 
     test("fail to get help option") {
-        "/seller_central/bulk/list/help_option_fail"(platform: "/", type: TrackType.Event) {
+        "/seller_central/bulk/list/help_option/fail"(platform: "/", type: TrackType.Event) {
             item_id = "MLB341920"
             session_id = "515106248-edition-72151975d676"
         }

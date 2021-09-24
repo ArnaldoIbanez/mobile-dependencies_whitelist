@@ -125,7 +125,7 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
-    "/seller_central/bulk/list/help_option_fail"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+    "/seller_central/bulk/list/help_option/fail"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         session_id(required: true, type:PropertyType.String, description: "Session id")
         item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
