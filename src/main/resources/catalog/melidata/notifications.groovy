@@ -1769,31 +1769,40 @@ tracks {
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
+            type: PropertyType.String,
             values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
             description: "Type of notification event")
           action_type(required: false,
+            type: PropertyType.String,
             values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification action")
           notification_type(required: false,
+            type: PropertyType.String,
             values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification")
-          deeplink(required: false, description: "The link were the notification should navigate to, if applies")
+          deeplink(required: false, 
+            type: PropertyType.String,
+            description: "The link were the notification should navigate to, if applies")
 
           //For event_type:autodismiss, indicates why the notification was dismissed
           source(required: false,
-                 values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
+            type: PropertyType.String,
+            values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
 
-          discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
+          discard_reason(required: false, 
+          description: "The discarded reason of the notification", 
+          values: ["invalid_payload","invalid_user", "settings_disabled"], 
+          type: PropertyType.String)
 
           notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
 
-          news_id(required: false, description: "Identifier of the notification generated")
+          news_id(required: false, type: PropertyType.String, description: "Identifier of the notification generated")
           notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
 
-          status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
+          status(required: false, type: PropertyType.String, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
 
-          device_id(required: false, description: "The real device_id, may differ from device field")
-          device_status(required: false, values: ["active", "not_engaged"], description: "Device status at the moment")
+          device_id(required: false, type: PropertyType.String, description: "The real device_id, may differ from device field")
+          device_status(required: false, type: PropertyType.String, values: ["active", "not_engaged"], description: "Device status at the moment")
 
           context(required: false, type: PropertyType.String, description: "Context of the notification")
 
