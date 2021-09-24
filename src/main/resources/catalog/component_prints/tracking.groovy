@@ -2,7 +2,6 @@ package src.main.resources.catalog.component_prints
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
-import jdk.nashorn.internal.objects.annotations.Property
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
