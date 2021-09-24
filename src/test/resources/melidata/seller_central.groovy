@@ -4766,6 +4766,43 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
+  test("seller central promotions massive editor - offline") {
+    "/seller_central/promotions/massive/editor/offline"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions massive editor offline - open") {
+    "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - upload") {
+    "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - categories") {
+    "/seller_central/promotions/massive/editor/offline/categories"(platform: "/", type: TrackType.Event) {
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - download") {
+    "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - email") {
+    "/seller_central/promotions/massive/editor/offline/email"(platform: "/", type: TrackType.Event) {
+      type = 'lightning'
+    }
+  }
+
   test("seller central promotions massive editor modal") {
     "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
   }
@@ -6261,6 +6298,27 @@ test("seller central confirm leave suggestion task - optin moderated") {
       selected_view = "marketplace"
       type = "optin"
       url = "https://mishop.com"
+    }
+  }
+
+  test("Seller central data verification result") {
+    "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
+      syi_data = [
+        identifier: "DNY2477",
+        flow: "motors_fipe",
+        domain_id: "MLB-CARS_AND_VANS",
+        verification_site: "MLB",
+        attributes: [
+          [attribute_id: "FIPE_CODE", attribute_value: "003288-3", attribute_name: "Código FIPE"]
+        ]
+      ]
+      drat_data = [
+        flow_id: "motors_fipe",
+        attributes: [
+          [attribute_id: "FIPE_CODE", attribute_value: "003288-3", attribute_name: "Código FIPE"]
+        ]
+      ]
+      verified = true
     }
   }
 }

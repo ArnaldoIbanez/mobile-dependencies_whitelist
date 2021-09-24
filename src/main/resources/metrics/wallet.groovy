@@ -17,7 +17,7 @@ metrics {
     }
   }
 
-  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, tags:[TagType.Important]) {
+  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, tags:[TagType.Important, TagType.CoreMetric]) {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -29,7 +29,7 @@ metrics {
       }
     }
 
-  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business", compute_payment: true) {
+  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business", compute_payment: true, tags:[TagType.CoreMetric]) {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -55,7 +55,7 @@ metrics {
       }
     }
 
-  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, tags:[TagType.Important]) {
+  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, tags:[TagType.Important, TagType.CoreMetric]) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -158,7 +158,7 @@ metrics {
     }
   }
 
-  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business", compute_payment: true) {
+  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -175,7 +175,7 @@ metrics {
     }
   }
 
-  "payment.money_transfer"(description: "Counts when a user sends Money in any business", compute_payment: true) {
+  "payment.money_transfer"(description: "Counts when a user sends Money in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -191,7 +191,7 @@ metrics {
     }
   }
 
-  "payment.services"(description: "Counts when a user pays a Service in any business", compute_payment: true) {
+  "payment.services"(description: "Counts when a user pays a Service in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -371,7 +371,7 @@ metrics {
       }
     }
 
-  "charge"(description: "Counts when a user makes a Charge in Wallet") {
+  "charge"(description: "Counts when a user makes a Charge in Wallet", tags:[TagType.CoreMetric]) {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -387,7 +387,7 @@ metrics {
     }
   }
 
-  "charge.point"(description: "Counts when a user makes a Charge with Point") {
+  "charge.point"(description: "Counts when a user makes a Charge with Point", tags:[TagType.CoreMetric]) {
       startWith {
         experiment(regex("wallet/.*"))
       }

@@ -227,6 +227,29 @@ tracks {
 
     //  FINAL LANDING PRODUCTS STRUCTURE
 
+    // --------------------------------------------------------------------------------------------------------------
+    //  Seller Central Verifications Structure
+    // --------------------------------------------------------------------------------------------------------------
+
+    def verificationAttributesStructure = objectSchemaDefinitions {
+        attribute_id(required: true, type: PropertyType.String, description: "atribute id to verificate")
+        attribute_value(required: true, type: PropertyType.String, description: "atribute value to verificate")
+        attribute_name(required: false, type: PropertyType.String, description: "attribute name to verificate")
+    }
+
+    def syiVerificationStructure = objectSchemaDefinitions {
+        identifier(required: true, type: PropertyType.String, description: "identifier to search and verificate")
+        flow(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
+        domain_id(required: true, type: PropertyType.String, description: "to know which category belong the identifier")
+        verification_site(required: true, type: PropertyType.String, description: "to know which site belong the identifier")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
+    }
+
+    def dratStructure = objectSchemaDefinitions {
+        flow_id(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -2371,6 +2394,31 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Toolbar checkbox action", values: ["select", "unselect"])
     }
 
+    "/seller_central/promotions/massive/editor/offline"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/categories"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
+        promoId(required: true, type: PropertyType.String, description: "Promotion Id")
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
+    "/seller_central/promotions/massive/editor/offline/email"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
+    }
+
     "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/promotions/massive/modal/add"(platform: "/", type: TrackType.Event) {
@@ -2583,4 +2631,14 @@ tracks {
         copied_products(required: true, type: PropertyType.ArrayList(PropertyType.Map(productsLandingRowStructure)), description: "This property describe copied products")
     }
     // FINAL PRODUCTS LANDING PATHS
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central Verifications
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
+        syi_data (required:true, type: PropertyType.Map(syiVerificationStructure), description: "SYI object to validate")
+        drat_data (required:true, type: PropertyType.Map(dratStructure), description: "Data recovery and transformation service response to validate")
+        verified (required:true, type: PropertyType.Boolean, description: "Validation result between SYI and DRAT data")
+    }
 }

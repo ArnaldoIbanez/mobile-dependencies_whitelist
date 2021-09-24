@@ -3,7 +3,7 @@ package src.test.resources.melidata
 import com.ml.melidata.TrackType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-
+ 
 trackTests {
 
     defaultBusiness = "mercadolibre"
@@ -2077,6 +2077,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
         "/insurtech/protections/detail/roda"(platform:"/web", type: TrackType.View) {
@@ -2089,6 +2093,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2102,6 +2110,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2115,6 +2127,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2128,6 +2144,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             type = 'pending_payment'
         }
@@ -2142,6 +2162,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2155,6 +2179,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2168,6 +2196,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2187,6 +2219,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2200,6 +2236,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2213,6 +2253,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             is_imei_valid = true
             protection_status = 'pending_activation_imei'
@@ -2231,6 +2275,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             is_imei_valid = true
             protection_status = 'pending_shipping_imei'
@@ -2249,6 +2297,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2263,6 +2315,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2299,6 +2355,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: true,
                 is_current_device_protection: true,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2318,6 +2378,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2332,6 +2396,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             type = 'deductible'
         }
@@ -2362,6 +2430,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2398,7 +2470,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
             "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
@@ -2406,7 +2482,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
@@ -2414,7 +2494,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
@@ -2422,7 +2506,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
@@ -2430,7 +2518,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
 
@@ -2439,7 +2531,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
         "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
@@ -2447,7 +2543,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
         "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
@@ -2455,7 +2555,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"garex",
-                product_id:"MLA_RD00000000000065134TEST"
+                product_id:"MLA_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
 

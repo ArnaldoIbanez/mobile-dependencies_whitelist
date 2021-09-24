@@ -278,6 +278,7 @@ catalog {
         include business, "point_loyalty.groovy"
         include business, "cartList.groovy"
         include business, "add_to_cart.groovy"
+        include business, "funds_movements.groovy"
     }
 
     mercadoshops.each { business ->
@@ -341,6 +342,7 @@ catalog {
         include business, "splinter.groovy"
         include business, "cdn_metrics.groovy"
         include business, "kyc.groovy"
+        include business, "vis_scheduling.groovy"
     }
 
 }
