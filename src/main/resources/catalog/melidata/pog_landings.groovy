@@ -7,6 +7,12 @@ tracks {
     // Payments - Point - In-person Growth
     initiative = "1175"
 
+    def utm_definition = objectSchemaDefinitions {
+        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
+        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
+        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
+    }
+
     // Payments - Point - Online Growth
     //  initiative = "1262"
 
@@ -33,7 +39,9 @@ tracks {
     ------ Pageviews -------
     --------------------- */
 
-    "/pog/landings"(platform: "/", type: TrackType.View) {}
+    "/pog/landings"(platform: "/", type: TrackType.View) {
+      utm (type: PropertyType.Map(utm_definition), required: false, description: "utm tracking")
+    }
 
     "/pog/landings/compare"(platform:"/", type: TrackType.View) {}
 
