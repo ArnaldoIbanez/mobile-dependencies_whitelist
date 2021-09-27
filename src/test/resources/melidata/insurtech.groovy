@@ -2441,7 +2441,7 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test('Insurtech - test CARDS GRD tracking'){
-        "/insurtech/protections/cards"(platform:"/", type: TrackType.View) {
+        "/insurtech/cards"(platform:"/", type: TrackType.View) {
             options = [
             [
                 id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
@@ -2492,7 +2492,7 @@ trackTests {
             ],
            ]
         }
-        "/insurtech/protections/cards/select"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/select"(platform:"/", type: TrackType.Event) {
             option_selected = [
                 id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
                 price: [
@@ -2518,7 +2518,7 @@ trackTests {
             ]
             flow_id = "PRECONGRATS"
         }
-        "/insurtech/protections/cards/help"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/help"(platform:"/", type: TrackType.Event) {
             option_selected = [
                 id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
                 price: [
@@ -2544,7 +2544,7 @@ trackTests {
             ]
             flow_id = "PRECONGRATS"
         }
-        "/insurtech/protections/cards/add"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/add"(platform:"/", type: TrackType.Event) {
             option_selected = [
                 id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
                 price: [
@@ -2570,10 +2570,10 @@ trackTests {
             ]
             flow_id = "PRECONGRATS"
         }
-        "/insurtech/protections/cards/skip"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/skip"(platform:"/", type: TrackType.Event) {
             flow_id = "PRECONGRATS"
         }
-        "/insurtech/protections/cards/quote_fail"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event) {
             option_selected = [
                 id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
                 price: [
@@ -2599,7 +2599,7 @@ trackTests {
             ]
             flow_id = "PRECONGRATS"
         }
-        "/insurtech/protections/cards/quote_success"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event) {
             option_selected = [
                 id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
                 price: [
@@ -2625,7 +2625,7 @@ trackTests {
             ]
             flow_id = "PRECONGRATS"
         }
-        "/insurtech/protections/cards/back"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/back"(platform:"/", type: TrackType.Event) {
            flow_id = "PRECONGRATS"
         }
     }
@@ -2634,24 +2634,24 @@ trackTests {
     
     test('Insurtech - test CARDS CONGRATS tracking'){
         //Success
-        "/insurtech/protections/cards/congrats_success"(platform:"/", type: TrackType.View) {
+        "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
             quote_id = ""
             purchase_key = "8888"
         }
-        "/insurtech/protections/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
+        "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
             quote_id = ""
             purchase_key = "8888"
         }
-        "/insurtech/protections/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
+        "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
             quote_id = ""
             purchase_key = "8888"
         }
-        "/insurtech/protections/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
+        "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
             quote_id = ""
             purchase_key = "8888"
         }
         // Fail
-        "/insurtech/protections/cards/congrats_fail"(platform:"/", type: TrackType.View){
+        "/insurtech/cards/congrats_fail"(platform:"/", type: TrackType.View){
             options = [
             [
                 id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
@@ -2702,7 +2702,7 @@ trackTests {
             ],
            ]
         }
-        "/insurtech/protections/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event){
+        "/insurtech/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event){
             options = [
             [
                 id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
@@ -2753,7 +2753,7 @@ trackTests {
             ],
            ]
         }
-        "/insurtech/protections/cards/congrats_fail/close"(platform:"/", type: TrackType.Event){
+        "/insurtech/cards/congrats_fail/close"(platform:"/", type: TrackType.Event){
             options = [
             [
                 id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",

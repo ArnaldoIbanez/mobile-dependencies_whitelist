@@ -722,52 +722,52 @@ tracks {
     }
 
     //Insurtech CARDS
-    "/insurtech/protections/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false){
+    "/insurtech/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false){
         options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Options objects")
     }
-    "/insurtech/protections/cards/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    "/insurtech/protections/cards/select"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/select"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    "/insurtech/protections/cards/skip"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/skip"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    "/insurtech/protections/cards/add"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/add"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    "/insurtech/protections/cards/quote_fail"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    "/insurtech/protections/cards/quote_success"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    "/insurtech/protections/cards/back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
     //Congrats - Success View
-    "/insurtech/protections/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
+    "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
         quote_id(required: true, type: PropertyType.String, description: "the id of the quote generated")
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
     }
-    "/insurtech/protections/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
+    "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
     }
-    "/insurtech/protections/cards/congrats_success/go_protections"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
+    "/insurtech/cards/congrats_success/go_protections"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
     }
-    "/insurtech/protections/cards/congrats_success/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
+    "/insurtech/cards/congrats_success/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
     }
     //Congrats - Failed View
-    "/insurtech/protections/cards/congrats_fail"(platform:"/", type: TrackType.View){
+    "/insurtech/cards/congrats_fail"(platform:"/", type: TrackType.View){
         options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Option object")
     }
-    "/insurtech/protections/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
+    "/insurtech/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
     }
-    "/insurtech/protections/cards/congrats_fail/close"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
+    "/insurtech/cards/congrats_fail/close"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
     }
 }
