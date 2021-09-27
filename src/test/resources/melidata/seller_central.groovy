@@ -6258,4 +6258,25 @@ test("seller central confirm leave suggestion task - optin moderated") {
       url = "https://mishop.com"
     }
   }
+
+  test("Seller central data verification result") {
+    "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
+      syi_data = [
+        identifier: "DNY2477",
+        flow: "motors_fipe",
+        domain_id: "MLB-CARS_AND_VANS",
+        verification_site: "MLB",
+        attributes: [
+          [attribute_id: "FIPE_CODE", attribute_value: "003288-3", attribute_name: "Código FIPE"]
+        ]
+      ]
+      drat_data = [
+        flow_id: "motors_fipe",
+        attributes: [
+          [attribute_id: "FIPE_CODE", attribute_value: "003288-3", attribute_name: "Código FIPE"]
+        ]
+      ]
+      verified = true
+    }
+  }
 }
