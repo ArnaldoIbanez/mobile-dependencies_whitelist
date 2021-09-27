@@ -123,7 +123,7 @@ tracks {
  
    "/discount_center/payers/vsp/components" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
-        product_type(required:false, type: PropertyType.String, description: "Marketplace product type representing the use case")
+        product_type(required:false, type: PropertyType.String, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
    }
 
     "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
