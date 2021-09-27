@@ -2516,7 +2516,7 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
-           flow_id: "PRECONGRATS"
+           flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/help"(platform:"/", type: TrackType.Event) {
             option_selected = [
@@ -2542,7 +2542,7 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
-           flow_id: "PRECONGRATS"
+           flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/add"(platform:"/", type: TrackType.Event) {
             option_selected = [
@@ -2568,10 +2568,10 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
-           flow_id: "PRECONGRATS"
+           flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/skip"(platform:"/", type: TrackType.Event) {
-           flow_id: "PRECONGRATS"
+           flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event) {
             option_selected = [
@@ -2597,7 +2597,7 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
-           flow_id: "PRECONGRATS"
+           flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event) {
             option_selected = [
@@ -2623,10 +2623,10 @@ trackTests {
                 ],
                 product_id: "CARDS"
             ]
-           flow_id: "PRECONGRATS"
+           flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/back"(platform:"/", type: TrackType.Event) {
-           flow_id: "PRECONGRATS"
+           flow_id = "PRECONGRATS"
         }
     }
 
