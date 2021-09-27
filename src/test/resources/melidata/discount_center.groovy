@@ -146,10 +146,7 @@ trackTests {
                                 name:"Item",
                                 price: "123",
                                 collector_id: 45678,
-                                price_with_discount: "12",
-                                image: "image",
-                                enabled: true,
-                                category: "sushi"
+                                enabled: true
                         ]
                 ]
             ]
@@ -179,28 +176,22 @@ trackTests {
             components = [
                 actionable_items: [
                         [
-                                index = 2
-                                item_id = "MLA1234"
-                                name = "Item"
-                                price = "123"
-                                price_with_discount = "12"
-                                image = "image"
-                                category = "sushi"
-                                enabled = true
-                                store_id = 12345
-                                collector_id = 45678
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
                         ],
                         [
-                                index = 2
-                                item_id = "MLA1234"
-                                name = "Item"
-                                price = "123"
-                                price_with_discount = "12"
-                                image = "image"
-                                category = "sushi"
-                                enabled = true
-                                store_id = 12345
-                                collector_id = 45678
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
                         ]
                 ]
             ]
@@ -214,28 +205,22 @@ trackTests {
             components = [
                 actionable_items: [
                         [
-                                index = 2
-                                item_id = "MLA1234"
-                                name = "Item"
-                                price = "123"
-                                price_with_discount = "12"
-                                image = "image"
-                                category = "sushi"
-                                enabled = true
-                                store_id = 12345
-                                collector_id = 45678
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
                         ],
                         [
-                                index = 2
-                                item_id = "MLA1234"
-                                name = "Item"
-                                price = "123"
-                                price_with_discount = "12"
-                                image = "image"
-                                category = "sushi"
-                                enabled = true
-                                store_id = 12345
-                                collector_id = 45678
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
                         ]
                 ]
             ]
