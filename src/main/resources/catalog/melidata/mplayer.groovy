@@ -31,10 +31,7 @@ tracks {
         transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
-    "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
-        position(required: true, PropertyType.Numeric, description: "Position of the default emojis")
-        emoji_id(required: false, PropertyType.String, description: "The emoji identifier, if available")
-    }
+    "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile", type: TrackType.Event) {
         isAmbiguous(required: true, PropertyType.Boolean, description: "if the collector is an ambiguous contact i.e. has more than one MP account")
     }
@@ -121,10 +118,7 @@ tracks {
         transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
-    "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
-        position(required: true, PropertyType.Numeric, description: "Position of the default emojis")
-        emoji_id(required: false, PropertyType.String, description: "The emoji identifier, if available")
-    }
+    "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -177,10 +171,7 @@ tracks {
         transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
-    "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
-        position(required: true, PropertyType.Numeric, description: "Position of the default emojis")
-        emoji_id(required: false, PropertyType.String, description: "The emoji identifier, if available")
-    }
+    "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/open_request/share_request/whatsapp"(platform: "/mobile", type: TrackType.Event) {}
