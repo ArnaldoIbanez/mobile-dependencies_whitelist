@@ -129,7 +129,7 @@ trackTests {
             ]
             product_type= "delivery"
             store_cover = "image"
-            minimum_purchase = "200$"
+            minimum_purchase = "200"
             store_discount = "20$"
             time_to_delivery = "20-30 minutes"
             free_delivery = true
