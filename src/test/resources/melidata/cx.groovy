@@ -207,6 +207,12 @@ trackTests {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
+            process_id = "ABC1234"
+        }
+
+        "support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+            process_id = "ABC1234"
+            case_id = 123456
         }
 
         "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
@@ -533,6 +539,12 @@ trackTests {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
+            process_id = "ABC1234"
+        }
+        
+        "support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+            process_id = "ABC1234"
+            case_id = 123456
         }
 
         "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
