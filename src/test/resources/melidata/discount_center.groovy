@@ -133,7 +133,7 @@ trackTests {
             store_discount = "20"
             time_to_delivery = "20-30 minutes"
             free_delivery = true
-            status: "paused",
+            status = "paused",
             status_reasons = [
                         "paused because a accident in the kitchen",
                         "paused because there is fire in the kitchen"
