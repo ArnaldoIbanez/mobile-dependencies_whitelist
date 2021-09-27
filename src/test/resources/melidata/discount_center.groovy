@@ -146,9 +146,10 @@ trackTests {
                                 price = "123"
                                 price_with_discount = "12"
                                 image = "image"
-                                category = "sushi"
                                 enabled = true
+                                category = "sushi"
                                 store_id = 12345
+                                collector_id = 12345
                         ]
                 ]
             ]
@@ -187,6 +188,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
+                                collector_id = 12345
                         ],
                         [
                                 index = 2
@@ -198,6 +200,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
+                                collector_id = 12345
                         ]
                 ]
             ]
@@ -220,6 +223,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
+                                collector_id = 12345
                         ],
                         [
                                 index = 2
@@ -231,6 +235,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
+                                collector_id = 12345
                         ]
                 ]
             ]
