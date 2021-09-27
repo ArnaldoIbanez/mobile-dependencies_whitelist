@@ -131,13 +131,6 @@ trackTests {
             store_cover = "image"
             minimum_purchase = "200"
             store_discount = "20"
-            time_to_delivery = "20-30 minutes"
-            free_delivery = true
-            status = "paused"
-            status_reasons = [
-                        "paused because a accident in the kitchen",
-                        "paused because there is fire in the kitchen"
-            ]
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
