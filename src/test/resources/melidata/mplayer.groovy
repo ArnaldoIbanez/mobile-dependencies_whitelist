@@ -29,7 +29,9 @@ trackTests {
             has_reason = true
         }
 
-        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {}
+        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {
+            position = 0
+        }
 
         "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile") {
             isAmbiguous = true
@@ -117,7 +119,9 @@ trackTests {
             has_reason = true
         }
 
-        "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile") {}
+        "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile") {
+            position = 2
+        }
 
         "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
@@ -174,7 +178,9 @@ trackTests {
             has_reason = true
         }
 
-        "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile") {}
+        "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile") {
+            position = 1
+        }
 
         "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
