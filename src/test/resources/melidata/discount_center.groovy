@@ -148,7 +148,7 @@ trackTests {
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
-                                store_id = "12345"
+                                store_id = 12345
                         ]
                 ]
             ]
@@ -186,7 +186,7 @@ trackTests {
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
-                                store_id = "12345"
+                                store_id = 12345
                         ],
                         [
                                 index = 2
@@ -197,7 +197,7 @@ trackTests {
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
-                                store_id = "12345"
+                                store_id = 12345
                         ]
                 ]
             ]
@@ -219,7 +219,7 @@ trackTests {
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
-                                store_id = "12345"
+                                store_id = 12345
                         ],
                         [
                                 index = 2
@@ -230,7 +230,7 @@ trackTests {
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
-                                store_id = "12345"
+                                store_id = 12345
                         ]
                 ]
             ]
