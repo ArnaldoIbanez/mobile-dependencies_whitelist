@@ -2445,20 +2445,20 @@ trackTests {
             options = [
             [
                 id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
-                price: [
+                price = [
                     final_amount: 3.5,
                     original_amount: 4,
                     discount_rate: 10,
                     currency_id: "BRL",
                     monthly: 3.5
                 ],
-                provider: [
+                provider = [
                     id: "CARDIF",
                     name: "cardif",
                     revenue_share_fee: 50
                 ],
-                option_data: [
-                    coverage: [
+                option_data = [
+                    coverage = [
                         name: "Carteira Protegida",
                         amount: 5000,
                         currency_id: "BRL",
@@ -2469,19 +2469,19 @@ trackTests {
             ],
             [
                 id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
-                price: [
+                price = [
                     final_amount: 4.5,
                     original_amount: 5,
                     discount_rate: 10,
                     currency_id: "BRL",
                     monthly: 3.5
                 ],
-                provider: [
+                provider = [
                     id: "CARDIF",
                     name: "cardif",
                     revenue_share_fee: 50
                 ],
-                option_data: [
+                option_data = [
                     coverage: [
                         name: "Carteira Protegida",
                         amount: 5000,
@@ -2495,20 +2495,20 @@ trackTests {
         "/insurtech/cards/select"(platform:"/", type: TrackType.Event) {
             option_selected = [
                 id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
-                price: [
+                price = [
                     final_amount: 4.5,
                     original_amount: 5,
                     discount_rate: 10,
                     currency_id: "BRL",
                     monthly: 3.5
                 ],
-                provider: [
+                provider = [
                     id: "CARDIF",
                     name: "cardif",
                     revenue_share_fee: 50
                 ],
-                option_data: [
-                    coverage: [
+                option_data = [
+                    coverage = [
                         name: "Carteira Protegida",
                         amount: 5000,
                         currency_id: "BRL",
