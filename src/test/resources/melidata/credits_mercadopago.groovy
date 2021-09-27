@@ -1195,6 +1195,9 @@ trackTests {
             reason = 'simulation'
         }
 
+        "/credits/express_money/kyc_onboarding"(platform: "/web/desktop") {}
+
+
         "/credits/express_money/error"(platform: "/mobile/android") {
             reason = 'default'
         }
@@ -1284,7 +1287,7 @@ trackTests {
         "/credits/express_money/info"(platform: "/mobile/android") {
             reason = 'already_taken_credit_line'
         }
-
+        
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 

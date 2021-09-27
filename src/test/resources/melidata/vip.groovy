@@ -883,6 +883,8 @@ trackTests {
             listing_type_id = "gold_premium"
             seller_id= 86995812
             vertical= "services"
+            deal_ids = []
+            source = ""
         }
 
         "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {

@@ -5,10 +5,19 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "mercadolibre"
+    ["mercadolibre", "mercadopago"].each { business ->
+		defaultBusiness = business
+		test("Merch ${business} tests") {
+            
+            "/merch"(platform: "/mobile", type: TrackType.View) {
+                content_id = "content_id"
+                component_id = "component_id"
+            }
 
-    test("test path") {
-        "/"(platform: "/") {}
+            "/merch/dismiss"(platform: "/mobile", type: TrackType.Event) {
+                content_id = "content_id"
+                component_id = "component_id"
+            }
+        }
     }
-
 }
