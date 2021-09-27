@@ -160,9 +160,9 @@ trackTests {
             components = [
                 actionable_filter: [
                         [
-                                index = 2
-                                type = "list"
-                                id = "sushi"
+                                index: 2,
+                                type: "list",
+                                id: "sushi"
                         ]
                 ]
             ]
