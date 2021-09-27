@@ -85,12 +85,12 @@ tracks {
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
         context_info(type: PropertyType.Map(context_info_definition), required: false, description: "The context information")
-        product_type(required:false, type: PropertyType.String, description: "Marketplace product type representing the use case")
-        store_cover(required:false, type: PropertyType.String, description: "The cover of the store if exists")
-        minimum_purchase(required:false, type: PropertyType.String, description: "The minimum purchase label of the store")
-        store_discount(required:false, type: PropertyType.String, description: "The discount in the store if exists")
-        time_to_delivery(required:false, type: PropertyType.String, description: "The estimated time of delivery")
-        free_delivery(required:false, type: PropertyType.Boolean, description: "If the store has free delivery")
+        product_type(type: PropertyType.String, required:false, description: "Marketplace product type representing the use case")
+        store_cover(type: PropertyType.String, required:false, description: "The cover of the store if exists")
+        minimum_purchase(type: PropertyType.String, required:false, description: "The minimum purchase label of the store")
+        store_discount(type: PropertyType.String, required:false, description: "The discount in the store if exists")
+        time_to_delivery(type: PropertyType.String, required:false, description: "The estimated time of delivery")
+        free_delivery(type: PropertyType.Boolean, required:false, description: "If the store has free delivery")
         status(type: PropertyType.String, required: false, description: "The delivery status of a store, is required false beacuse maybe a store does not have delivery")
         status_reasons(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "The reason of the delivery status")
     }
