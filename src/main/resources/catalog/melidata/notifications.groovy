@@ -3730,6 +3730,9 @@ tracks {
     "/notification/pm_om_notification_new_sale"(platform: "/") {}
     "/notification/pm_om_notification_new_sale_retry"(platform: "/") {}
     "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {}
+    "/notification_center/pm_om_notification-store_opening"(platform: "/", type: TrackType.Event) {}
+    "/notification_center/pm_om_notification-new_sale"(platform: "/", type: TrackType.Event) {}
+    "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {}
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
