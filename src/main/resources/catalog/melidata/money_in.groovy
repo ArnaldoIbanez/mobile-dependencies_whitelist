@@ -484,7 +484,7 @@ tracks {
     "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
         widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget selected")
     }
-    "/money_in/hub/widget/action"(platform:"/", type: TrackType.Event){
+    "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
         action_id (required:true, type: PropertyType.String, description: "Indicates the widget action id")
     }
 

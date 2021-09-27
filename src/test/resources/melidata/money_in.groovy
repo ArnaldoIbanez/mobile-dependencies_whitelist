@@ -714,7 +714,7 @@ trackTests {
         "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
             widget_id = "debin"
         }
-        "/money_in/hub/widget/action"(platform:"/", type: TrackType.Event){
+        "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
             action_id = "qr"
         }
     }
