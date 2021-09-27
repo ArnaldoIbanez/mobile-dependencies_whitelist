@@ -85,7 +85,7 @@ tracks {
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
         context_info(type: PropertyType.Map(context_info_definition), required: false, description: "The context information")
-        product_type(type: PropertyType.String, required:true, description: "Marketplace product type representing the use case")
+        product_type(type: PropertyType.String, required:false, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
         store_cover(type: PropertyType.String, required:false, description: "The cover of the store if exists")
         minimum_purchase(type: PropertyType.String, required:false, description: "The minimum purchase label of the store")
         store_discount(type: PropertyType.String, required:false, description: "The discount in the store if exists")
