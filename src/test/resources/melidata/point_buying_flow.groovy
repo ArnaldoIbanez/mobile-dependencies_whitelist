@@ -64,7 +64,7 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
+          bunit = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
@@ -80,7 +80,7 @@ trackTests {
           discount_code = "GHZM"
           is_guest = true
           e2e_test = false
-          bu = "Point"
+          bunit = "Point"
           ch = "channel"
           camp = "TELE_2021"
           strategy = "strategy"
