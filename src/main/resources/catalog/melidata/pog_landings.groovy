@@ -4,11 +4,8 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
-    // Payments - Point - In-person Growth
-    initiative = "1175"
-
     // Payments - Point - Online Growth
-    //  initiative = "1262"
+    initiative = "1262"
 
     /* ---------------------
     --- Abstract path's ----
