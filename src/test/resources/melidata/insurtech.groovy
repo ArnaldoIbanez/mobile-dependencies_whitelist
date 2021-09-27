@@ -2634,9 +2634,9 @@ trackTests {
     
     test('Insurtech - test CARDS CONGRATS tracking'){
         //Success
-        "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View){
+        "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
             quote_id: "",
-            purchase_key: "8888"
+            pruchase_key: "8888"
         }
         "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
             quote_id: "",
