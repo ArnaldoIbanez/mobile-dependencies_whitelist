@@ -130,7 +130,7 @@ trackTests {
             product_type= "delivery"
             store_cover = "image"
             minimum_purchase = "200"
-            store_discount = "20$"
+            store_discount = "20"
             time_to_delivery = "20-30 minutes"
             free_delivery = true
             status: "paused",
@@ -150,8 +150,8 @@ trackTests {
                                 index = 2
                                 item_id = "MLA1234"
                                 name = "Item"
-                                price = "123$"
-                                price_with_discount = "12$"
+                                price = "123"
+                                price_with_discount = "12"
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
@@ -188,8 +188,8 @@ trackTests {
                                 index = 2
                                 item_id = "MLA1234"
                                 name = "Item"
-                                price = "123$"
-                                price_with_discount = "12$"
+                                price = "123"
+                                price_with_discount = "12"
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
@@ -199,8 +199,8 @@ trackTests {
                                 index = 2
                                 item_id = "MLA1234"
                                 name = "Item"
-                                price = "123$"
-                                price_with_discount = "12$"
+                                price = "123"
+                                price_with_discount = "12"
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
@@ -221,8 +221,8 @@ trackTests {
                                 index = 2
                                 item_id = "MLA1234"
                                 name = "Item"
-                                price = "123$"
-                                price_with_discount = "12$"
+                                price = "123"
+                                price_with_discount = "12"
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
@@ -232,8 +232,8 @@ trackTests {
                                 index = 2
                                 item_id = "MLA1234"
                                 name = "Item"
-                                price = "123$"
-                                price_with_discount = "12$"
+                                price = "123"
+                                price_with_discount = "12"
                                 image = "image"
                                 category = "sushi"
                                 enabled = true
