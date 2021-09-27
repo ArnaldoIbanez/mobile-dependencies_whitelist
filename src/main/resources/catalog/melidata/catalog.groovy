@@ -342,6 +342,7 @@ catalog {
         include business, "splinter.groovy"
         include business, "cdn_metrics.groovy"
         include business, "kyc.groovy"
+        include business, "vis_scheduling.groovy"
     }
 
 }

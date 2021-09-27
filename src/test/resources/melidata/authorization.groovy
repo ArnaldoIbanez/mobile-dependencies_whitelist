@@ -28,4 +28,27 @@ trackTests {
         }
 
     }
+
+   test("Authorization AppStore") {
+
+       "/appstore"(platform: "/") {}
+
+        "/appstore/authorization"(platform: "/", type: TrackType.View)  {
+            base_path = "/appstore"
+            name_page = "/authorization"
+            integrator_app = "App example"
+            request_app = "Mercado Libre"
+        }
+
+        "/appstore/error"(platform: "/", type: TrackType.View)  {
+            base_path = "/appstore"
+            name_page = "/error"
+        }
+
+        "/appstore/access"(platform: "/", type: TrackType.View)  {
+            base_path = "/appstore"
+            name_page = "/access"
+        }
+
+    }
 }
