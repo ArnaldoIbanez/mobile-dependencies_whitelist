@@ -1747,7 +1747,7 @@ tracks {
         )
         list_status(
                 required: true,
-                description: "Defines if the user can increase their limit",
+                description: "Defines if the user can increase his limit",
                 type: PropertyType.String,
                 values: [
                         "black_list",
