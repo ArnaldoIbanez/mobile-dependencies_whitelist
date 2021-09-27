@@ -138,7 +138,7 @@ trackTests {
     test("Mercado Pago discount center payers vsp tap") {
         "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
             components = [
-                actionable_items [
+                actionable_items: [
                         [
                                 index = 2
                                 item_id = "MLA1234"
@@ -149,7 +149,7 @@ trackTests {
                                 enabled = true
                                 category = "sushi"
                                 store_id = 12345
-                                collector_id = 12345
+                                collector_id = 45678
                         ]
                 ]
             ]
@@ -161,7 +161,7 @@ trackTests {
         test("Mercado Pago discount center payers vsp tap filter") {
         "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
             components = [
-                actionable_filter [
+                actionable_filter: [
                         [
                                 index = 2
                                 type = "list"
@@ -177,7 +177,7 @@ trackTests {
     test("Mercado Pago discount center payers vsp print") {
         "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
             components = [
-                actionable_items [
+                actionable_items: [
                         [
                                 index = 2
                                 item_id = "MLA1234"
@@ -188,7 +188,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
-                                collector_id = 12345
+                                collector_id = 45678
                         ],
                         [
                                 index = 2
@@ -200,7 +200,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
-                                collector_id = 12345
+                                collector_id = 45678
                         ]
                 ]
             ]
@@ -212,7 +212,7 @@ trackTests {
     test("Mercado Pago discount center payers vsp show") {
         "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
             components = [
-                actionable_items [
+                actionable_items: [
                         [
                                 index = 2
                                 item_id = "MLA1234"
@@ -223,7 +223,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
-                                collector_id = 12345
+                                collector_id = 45678
                         ],
                         [
                                 index = 2
@@ -235,7 +235,7 @@ trackTests {
                                 category = "sushi"
                                 enabled = true
                                 store_id = 12345
-                                collector_id = 12345
+                                collector_id = 45678
                         ]
                 ]
             ]
