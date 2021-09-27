@@ -3268,15 +3268,15 @@ trackTests {
         }
 
         // confirm dda optin
-        "/bill_payments/confirm_recibos_digitales_optin/scheduling"(platform: "/mobile") {
+        "/bill_payments/confirm_digital_receipts_optin/scheduling"(platform: "/mobile") {
             mandatory()
         }
 
-        "/bill_payments/confirm_recibos_digitales_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/confirm_digital_receipts_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/confirm_recibos_digitales_optin/scheduling/confirm"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/confirm_digital_receipts_optin/scheduling/confirm"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
