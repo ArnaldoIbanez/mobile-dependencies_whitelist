@@ -1,3 +1,5 @@
+import com.ml.melidata.metrics.TagType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 def searchVipClassifiedExperiments = "((search|vip|classifieds|vis|sparkle)/.*)|(pdp/viewItemPageMigration.*)"
@@ -33,7 +35,7 @@ metrics {
 		}
 	}
 
-	"seller_contacted"(description: "track vip contact seller as success for classifieds") {
+	"seller_contacted"(description: "track vip contact seller as success for classifieds", tags:[TagType.CoreMetric]) {
 		startWith {
 			experiment(regex(searchVipClassifiedExperiments))
 		}
