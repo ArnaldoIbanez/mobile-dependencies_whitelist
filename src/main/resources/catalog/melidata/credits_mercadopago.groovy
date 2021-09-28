@@ -392,6 +392,17 @@ tracks {
         source_tracking
     }
 
+    //Checkout
+    "/credits/merchant/checkout"(platform:"/", type: TrackType.Event) {
+        amount_to_pay(
+           type: PropertyType.String,
+           required: true,
+           description: "Redirect to checkout with amount to pay"
+           inheritable: false
+        )
+        products_with_status
+    }
+
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
