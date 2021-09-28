@@ -3267,6 +3267,19 @@ trackTests {
             mandatory()
         }
 
+        // confirm dda optin
+        "/bill_payments/confirm_optin_automatic_debit/scheduling"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin_automatic_debit/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/confirm_optin_automatic_debit/scheduling/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // optin list
         "/bill_payments/optin_list/scheduling"(platform: "/mobile") {
             mandatory()

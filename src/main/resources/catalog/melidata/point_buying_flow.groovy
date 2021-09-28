@@ -8,20 +8,20 @@ tracks {
         flow_id (type: PropertyType.String, required: true, description: "Flow ID")
         product_id (type: PropertyType.String, required: true, description: "Product identifier")
         product (type: PropertyType.String, required: false, description: "Product Name")
-        coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic")
+        coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic", values: ["organic", "mgm", "resellers", "partners", "campaign"])
         currency (type: PropertyType.String, required: true, description: "ISO Currency")
         price (type: PropertyType.Numeric, required: true, description: "Price of device")
         discount_code (type: PropertyType.String, required: true, description: "Discount code")
         is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
         e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
-        bu (type: PropertyType.String, required: false, description: "business unit")
+        bunit (type: PropertyType.String, required: false, description: "business unit")
         ch (type: PropertyType.String, required: false, description: "sales channel")
         camp (type: PropertyType.String, required: false, description: "campaign")
         strategy (type: PropertyType.String, required: false, description: "strategy")
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bu, ch, camp, strategy)
+        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bunit, ch, camp, strategy)
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
@@ -38,6 +38,12 @@ tracks {
     }
 
     "/point/buyingflow/shipping/new_address"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
+    "/point/buyingflow/shipping/new_address/goto_zipcode_finder"(platform: "/", type: TrackType.Event) {}
+    
+    "/point/buyingflow/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
     }
 
