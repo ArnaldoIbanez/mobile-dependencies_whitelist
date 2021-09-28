@@ -489,7 +489,7 @@ trackTests {
   }
 
   test("Seller coach tags view") {
-    "/seller_central/seller_coach/summary/tags_view"(platform: "/web", type: TrackType.View) {
+    "/seller_central/seller_coach/summary/tags"(platform: "/web", type: TrackType.View) {
       segment = "none"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -509,7 +509,7 @@ trackTests {
   }
 
   test("Seller coach tag click") {
-    "/seller_central/seller_coach/summary/tag_click"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/select_tag"(platform: "/web", type: TrackType.Event) {
       segment = "none"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
