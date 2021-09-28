@@ -70,8 +70,8 @@ tracks {
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
 
-    "/melilive/webview"(platform: "/mobile", type: TrackType.View) {
-        url(required: true, type: PropertyType.String, description: "Live URL")
+    "/melilive/webview"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        uri(required: true, type: PropertyType.String, description: "Live URL")
     }
 
     "/melilive/stream/exit"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
