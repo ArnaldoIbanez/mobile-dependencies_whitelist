@@ -397,7 +397,7 @@ tracks {
         amount_to_pay(
            type: PropertyType.String,
            required: true,
-           description: "Redirect to checkout with amount to pay"
+           description: "Redirect to checkout with amount to pay",
            inheritable: false
         )
         products_with_status
