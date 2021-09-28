@@ -48,7 +48,6 @@ tracks {
     "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/initializer"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service/start_secure_enrollment"(platform: "/", isAbstract: true) { }
-    "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform: "/", isAbstract: true) { }
     "/cards/nfc/feature"(platform: "/", isAbstract: true) { }
     "/cards/nfc/block_page"(platform: "/", isAbstract: true) { }
     "/cards/nfc/congrats"(platform: "/", isAbstract: true) { }
@@ -2166,6 +2165,8 @@ tracks {
             description: "Start secure enrollment success"
         )
     }
+
+    "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform: "/", type: TrackType.Event) { }
 
     "/cards/nfc/core/service/start_secure_enrollment/error"(platform: "/", type: TrackType.Event) {
         action (
