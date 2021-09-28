@@ -85,42 +85,55 @@ tracks {
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
         context_info(type: PropertyType.Map(context_info_definition), required: false, description: "The context information")
+        product_type(type: PropertyType.String, required:false, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
+        store_cover(type: PropertyType.String, required:false, description: "The cover of the store if exists")
+        minimum_purchase(type: PropertyType.String, required:false, description: "The minimum purchase label of the store")
+        store_discount(type: PropertyType.String, required:false, description: "The discount in the store if exists")
     }
 
 
     def vsp_components_definition = objectSchemaDefinitions {
-        actionable_info(required: false, type: PropertyType.ArrayList(PropertyType.Map(vsp_actionable_info_definition)), description: "Actionable info components")
+        actionable_items(required: false, type: PropertyType.ArrayList(PropertyType.Map(vsp_actionable_item_definition)), description: "Actionable Items")
+        actionable_filter(required: false, type: PropertyType.ArrayList(PropertyType.Map(vsp_actionable_filter_definition)), description: "Actionable Filters")
     }
-
-    def vsp_actionable_info_definition = objectSchemaDefinitions {
-        segment_id(type: PropertyType.String, required: true, description: "The section segment")
-        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
-        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(actionable_info_item_definition)), description: "Actionable info item")
-    }
-
-    def actionable_info_item_definition = objectSchemaDefinitions {
-        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
-        tracking_id(type: PropertyType.String, required: true, description: "The unique id of the actionable info item item we are showing")
+ 
+   def vsp_actionable_filter_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The item index in the list")
+        id(type: PropertyType.String, required: true, description: "The filter id for category")
+        type(type: PropertyType.String, required: true, description: "Type of Filterable item group")
+   }
+ 
+   def vsp_actionable_item_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The item index in the list")
+        item_id(type: PropertyType.String, required: true, description: "The item id with the site")
+        name(type: PropertyType.String, required: true, description: "The item name")
+        price(type: PropertyType.String, required: true, description: "The item price")
+        price_with_discount(type: PropertyType.String, required: false, description: "The item price with the discount applied")
+        discount(type: PropertyType.String, required: false, description: "The item discount")
+        image(type: PropertyType.String, required: false, description: "The item image")
+        category(type: PropertyType.String, required: false, description: "The item category")
+        enabled(type: PropertyType.Boolean, required: true, description: "If the item is enabled or not")
         collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
         store_id(type: PropertyType.Numeric, required: true, description: "The store id")
-    }
-
-    "/discount_center/payers/vsp/components" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) { 
+   }
+ 
+   "/discount_center/payers/vsp/components" (platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false, isAbstract: true) {
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
-    }
-
-    "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
-      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
-    }
-
-    "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
-      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
-    }
+        product_type(required:false, type: PropertyType.String, description: "Marketplace product type representing the use case", values:['delivery', 'proximity'])
+   }
 
     "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
-      components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+        components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
     }
+ 
+   "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+        components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+   }
+ 
+   "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
+        components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
+   }
+
 
     // LOCATION REQUEST
 
