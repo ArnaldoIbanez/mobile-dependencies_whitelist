@@ -478,6 +478,15 @@ tracks {
         payment_method_id (required:false, type: PropertyType.String, description: "indicates the id of the payment method")
     }
     "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+    "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
+        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget shown")
+    }
+    "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
+        widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget selected")
+    }
+    "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
+        action_id (required:true, type: PropertyType.String, description: "Indicates the widget action id")
+    }
 
 
 }

@@ -13,7 +13,7 @@ metrics {
 		}
 	}
 
-	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, tags:[TagType.Important]) {
+	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, tags:[TagType.Important, TagType.CoreMetric]) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -190,7 +190,7 @@ metrics {
 		}
 	}
 
-	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true) {
+	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true, tags:[TagType.CoreMetric]) {
 		countsOn {
 			condition {
 				path("/purchases/purchasecreated")
