@@ -509,7 +509,7 @@ trackTests {
   }
 
   test("Seller coach tag click") {
-    "/seller_central/seller_coach/summary/select_tag"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/tags/select_tag"(platform: "/web", type: TrackType.Event) {
       segment = "none"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
