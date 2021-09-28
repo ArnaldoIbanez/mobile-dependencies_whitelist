@@ -213,7 +213,7 @@ trackTests {
 
         "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
         button_label = "Volver a ayuda"
-        buttons = ['Volver a ayuda', 'Contactarse', 'Devolver compra']
+        buttons = ["Volver a ayuda", "Contactarse", "Devolver compra"]
         purchase_status = 'Entregado'
         }
     }
@@ -541,7 +541,7 @@ trackTests {
 
         "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
         button_label = "Volver a ayuda"
-        buttons = ['Volver a ayuda', 'Contactarse', 'Devolver compra']
+        buttons = ["Volver a ayuda", "Contactarse", "Devolver compra"]
         purchase_status = 'Entregado'
         }
   }

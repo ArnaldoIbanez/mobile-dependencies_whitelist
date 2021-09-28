@@ -152,7 +152,7 @@ tracks {
         portal_effectivity_survey_reason(portal_effectivity_survey_reason)
         button_label(button_label)
         buttons(buttons)
-        purchase_status
+        purchase_status(purchase_status)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
