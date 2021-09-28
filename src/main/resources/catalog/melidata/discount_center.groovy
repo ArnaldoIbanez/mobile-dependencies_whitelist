@@ -89,6 +89,10 @@ tracks {
         store_cover(type: PropertyType.String, required:false, description: "The cover of the store if exists")
         minimum_purchase(type: PropertyType.String, required:false, description: "The minimum purchase label of the store")
         store_discount(type: PropertyType.String, required:false, description: "The discount in the store if exists")
+        time_to_delivery(type: PropertyType.String, required:false, description: "The estimated time of delivery")
+        free_delivery(type: PropertyType.Boolean, required:false, description: "If the store has free delivery")
+        status(type: PropertyType.String, required: false, description: "The delivery status of a store, is required false beacuse maybe a store does not have delivery")
+        status_reasons(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "The reason of the delivery status")
     }
 
 
@@ -305,6 +309,7 @@ tracks {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
         selected(type: PropertyType.Boolean, required: true, description: "The state of the filter we are showing")
         index(type: PropertyType.Numeric, required: true, description: "The position of the filter within the component")
+        style(type: PropertyType.String, required: false, values: ['rounded', 'box'], description: "The style of the filters shown")
     }
 
     def marketplace_cover_carousel_definition = objectSchemaDefinitions {

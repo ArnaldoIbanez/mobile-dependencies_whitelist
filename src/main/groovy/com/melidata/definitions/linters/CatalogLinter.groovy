@@ -14,6 +14,7 @@ class CatalogLinter {
     CatalogLinter() {
         linters.add(new PropertiesQuantityLinter(20))
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type", "name"]))
+        linters.add(new MinimumRequiredTrueLinter(4))
         linters.add(new NamingLinter())
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
         linters.add(new RequireValuesLinter(["mode", "type"]))
