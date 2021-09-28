@@ -210,7 +210,7 @@ trackTests {
             process_id = "ABC1234"
         }
 
-        "support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+        "/support/widget/casenlp"(platform: "/", type: TrackType.Event) {
             process_id = "ABC1234"
             case_id = 123456
         }
@@ -220,6 +220,7 @@ trackTests {
         "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
         button_label = "Volver a ayuda"
         }
+
     }
 
     test("Support Widget having Content Type") {
@@ -542,7 +543,7 @@ trackTests {
             process_id = "ABC1234"
         }
         
-        "support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+        "/support/widget/casenlp"(platform: "/", type: TrackType.Event) {
             process_id = "ABC1234"
             case_id = 123456
         }

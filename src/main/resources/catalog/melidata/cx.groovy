@@ -461,11 +461,11 @@ tracks {
         process_id
     }
 
-    "support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+    "/support/widget/casenlp"(platform: "/", type: TrackType.Event) {
         process_id
         case_id
     }
-
+    
     "/support/widget/purchases"(platform: "/", isAbstract:  true) {}
 
     "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
