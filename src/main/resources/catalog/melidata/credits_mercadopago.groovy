@@ -393,7 +393,7 @@ tracks {
     }
 
     //Checkout
-    "/credits/merchant/checkout"(platform:"/", type: TrackType.Event) {
+    "/credits/merchant/checkout"(platform: "/", type: TrackType.Event) {
         amount_to_pay(
            type: PropertyType.String,
            required: true,
