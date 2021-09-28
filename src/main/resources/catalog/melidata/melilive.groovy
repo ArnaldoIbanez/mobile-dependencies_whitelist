@@ -40,7 +40,7 @@ tracks {
 
     def viewer_info_definition = objectSchemaDefinitions {
         loyalty_level(required: true, type: PropertyType.Numeric, description: "Current Loyalty Level")
-        zipcode(required: true, type: PropertyType.String, description: "User's Zipcode")
+        zipcode(required: false, type: PropertyType.String, description: "User's Zipcode")
         muted(required: false, type: PropertyType.Boolean, description: "Flag if video is muted or not")
         overlay_on(required: false, type: PropertyType.Boolean, description: "Flag if video has overlay on or not")
         orientation(required: true, type: PropertyType.String, description: "Current orientation, landscape or portrait")
