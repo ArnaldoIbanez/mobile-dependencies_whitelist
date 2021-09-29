@@ -26,6 +26,11 @@ trackTests {
         coupon_type = "default"
         camp = "RAINBOW"
         strategy = "UPS"
+        utm = [  
+          utm_source: "utm_source_value",
+          utm_medium: "utm_medium_value",
+          utm_campaign: "utm_campaign_value"
+        ]
       }
 
       // Landing Multiproduct
