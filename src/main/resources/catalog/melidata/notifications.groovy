@@ -17,12 +17,12 @@ tracks {
     "/notification_center/config"(platform: "/mobile", type: TrackType.View) {
     }
     "/notification_center"(platform: "/", type: TrackType.Event) {
-        newsgroup_id(required: false, type: PropertyType.String)
-        status(required: false, type: PropertyType.String, values:["unread", "read"])
-        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"])
-        deeplink(required: false, type: PropertyType.String)
-        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar", "leftcta", "rightcta", "create"])
-        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"])
+        newsgroup_id(required: false, type: PropertyType.String, description:"Id of newsgroup.")
+        status(required: false, type: PropertyType.String, values:["unread", "read"], description:"status of notification.")
+        event_type(required: false, values: ["open", "pull_to_refresh", "swipe", "action_open", "create", "update", "shown"], description:"event type of notification")
+        deeplink(required: false, type: PropertyType.String, description: "The link were the notification should navigate to, if applies")
+        action_type(required: false, type: PropertyType.String,  values: ["messages", "message", "vop", "picture", "shipping_print_label", "claims", "tracking", "feedback", "changepayment", "reply", "ask", "questions-buy", "cart", "twitter_bar", "leftcta", "rightcta", "create"], description: "Type of the notification action")
+        type_layout(required: false, type: PropertyType.String, values: ["bullet_list", "order", "picture", "standard"], description: "type of layout of notification.")
     }
     "/notification_center/abort"(platform: "/", type: TrackType.Event) {}
     "/notification_center/addresses-update"(platform: "/", type: TrackType.Event) {
@@ -495,6 +495,10 @@ tracks {
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
         claim_id(required: false, type: PropertyType.Numeric, description:"Id of claim.")
+    }
+    "/notification_center/mediations_v2"(platform: "/", type: TrackType.Event) {
+        pack_id(required: false, type: PropertyType.Numeric, description: "Id of batch.")
+        claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
     }
     "/notification_center/orders-buyer"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
@@ -1760,36 +1764,50 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    "/notification_center/insurtech_payment_recovery_cards"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, values: ["insurtech_payment_recovery_cards"], type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
       /**
        * NOTIFICATIONS TRAY
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
+            type: PropertyType.String,
             values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
             description: "Type of notification event")
           action_type(required: false,
+            type: PropertyType.String,
             values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification action")
           notification_type(required: false,
+            type: PropertyType.String,
             values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification")
-          deeplink(required: false, description: "The link were the notification should navigate to, if applies")
+          deeplink(required: false, 
+            type: PropertyType.String,
+            description: "The link were the notification should navigate to, if applies")
 
           //For event_type:autodismiss, indicates why the notification was dismissed
           source(required: false,
-                 values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
+            type: PropertyType.String,
+            values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
 
-          discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
+          discard_reason(required: false, 
+          description: "The discarded reason of the notification", 
+          values: ["invalid_payload","invalid_user", "settings_disabled"], 
+          type: PropertyType.String)
 
           notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
 
-          news_id(required: false, description: "Identifier of the notification generated")
-          notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
+          news_id(required: false, type: PropertyType.String, description: "Identifier of the notification generated")
+          notification_style(required: false, type: PropertyType.String, description: "The notification style used when displaying the notification to the user.")
 
-          status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
+          status(required: false, type: PropertyType.String, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
 
-          device_id(required: false, description: "The real device_id, may differ from device field")
-          device_status(required: false, values: ["active", "not_engaged"], description: "Device status at the moment")
+          device_id(required: false, type: PropertyType.String, description: "The real device_id, may differ from device field")
+          device_status(required: false, type: PropertyType.String, values: ["active", "not_engaged"], description: "Device status at the moment")
 
           context(required: false, type: PropertyType.String, description: "Context of the notification")
 
@@ -1895,6 +1913,10 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+
+    // CardUpdater
+    "/notification/card_updater_expiry"(platform: "/mobile") { }
+    "/notification/card_updater_update"(platform: "/mobile") { }
 
       //ChargeBack
       "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/") {
@@ -2015,13 +2037,14 @@ tracks {
       "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
 
     "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_nine_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_fifteen_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_fifteen_mp_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_on_due_date_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_thirteen_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_twentythree_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_thirtyone_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_ninety_notice"(platform: "/") {}
 
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
@@ -2298,6 +2321,16 @@ tracks {
     "/notification/shipping_rts_in_packing_list"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
+
+    //Cancelaciones Parciales
+    "/notification/shipping_delivered_partial_cancellations"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
+    "/notification/shipping_shipped_partial_cancellations"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
 
       //Seller questions
       "/notification/questions_new"(platform: "/") {
@@ -2608,19 +2641,19 @@ tracks {
       }
 
       //MediationsV2
-      "/notification/mediations_pdd_dispute_with_timeout_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_with_timeout_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_elected_action_reminder_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_without_timeout_buyer"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_without_timeout_buyer"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_with_timeout_seller"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_with_timeout_seller"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
-      "/notification/mediations_pdd_dispute_without_timeout_seller"(platform: "/") {
+      "/notification/mediations_v2_pdd_dispute_without_timeout_seller"(platform: "/") {
           claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
       }
 
@@ -2935,6 +2968,12 @@ tracks {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
     }
     "/notification/returns_return_failed_return_to_buyer"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
+    "/notification/returns_return_delivered_long_way"(platform: "/") {
+        order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+    }
+    "/notification/returns_return_failed_shipment_not_delivered"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
     }
     //Security
@@ -3677,6 +3716,7 @@ tracks {
     "/notification/insurtech_payment_recovery"(platform: "/mobile") {}
     "/notification/insurtech_money_in"(platform: "/mobile") {}
     "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {}
+    "/notification/insurtech_payment_recovery_cards"(platform: "/mobile") {}
 
     // Abandoned Cart
     "/notification/abandoned_cart_buyer"(platform: "/mobile") {}
@@ -3690,7 +3730,10 @@ tracks {
 
     // Proximity Marketplace Order Manager
     "/notification/pm_om_notification_store_opening"(platform: "/") {}
-    "/notification/pm_om_notification_store_opening_whatsapp"(platform: "/") {}
+    "/notification/pm_om_notification_store_opening_retry"(platform: "/") {}
+    "/notification/pm_om_notification_new_sale"(platform: "/") {}
+    "/notification/pm_om_notification_new_sale_retry"(platform: "/") {}
+    "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {}
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){

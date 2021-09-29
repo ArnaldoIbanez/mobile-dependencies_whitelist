@@ -297,5 +297,15 @@ trackTests {
             success = true
             sidebar_name = "whatsapp"
         }
+
+        "/shops/hub/sidebar/save_changes"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            success = true
+            sidebar_name = "social_networks"
+            configured_fields = ["twitter", "facebook", "instagram"]
+        }
     }
 }

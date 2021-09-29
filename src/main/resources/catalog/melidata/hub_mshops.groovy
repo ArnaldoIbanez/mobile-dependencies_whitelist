@@ -236,5 +236,6 @@ tracks {
 
     "/shops/hub/sidebar/save_changes"(platform: "/", type: TrackType.Event) {
         success(required: true, type: PropertyType.Boolean, description: "If the request to update the info succeeded or not")
+        configured_fields(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Names of the fields that where configured in certain sidebar(sidebar_name), ex: ['twitter', 'facebook']")
     }
 }

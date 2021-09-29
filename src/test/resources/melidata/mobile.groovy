@@ -210,6 +210,13 @@ trackTests {
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
             nfc_enabled = false
+            battery_charging = true
+            battery_percentage_available = "90%"
+            device_is_emulator = false
+            total_ram_memory = 1567367168
+            available_ram_memory = 612724736
+            vpn_connected = false
+            bluetooth_enabled = true
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
@@ -229,6 +236,13 @@ trackTests {
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
             nfc_enabled = true
+            battery_charging = true
+            battery_percentage_available = "90%"
+            device_is_emulator = false
+            total_ram_memory = 1567367168
+            available_ram_memory = 612724736
+            vpn_connected = false
+            bluetooth_enabled = true
         }
     }
 
