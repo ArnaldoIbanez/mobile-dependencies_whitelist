@@ -1601,6 +1601,8 @@ tracks {
         )
     }
 
+    "/credits/express_money/kyc_onboarding"(platform: "/", type: TrackType.View) { }
+
     "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) { }
 
     /******************************************
@@ -1743,6 +1745,15 @@ tracks {
                         "on_time",
                         "overdue",
                         "finished"
+                ]
+        )
+        list_status(
+                required: true,
+                description: "Defines if the user can increase his limit",
+                type: PropertyType.String,
+                values: [
+                        "black_list",
+                        "white_list"
                 ]
         )
     }

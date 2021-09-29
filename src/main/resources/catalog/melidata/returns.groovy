@@ -8,6 +8,7 @@ tracks {
 
     initiative = "1020"
 
+    // Tracks related to returns express flow
     "/return"(platform: "/", isAbstract: true) {
       ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       loyalty_level(required: true, type: PropertyType.Numeric, description: 'buyer level loyalty')
@@ -141,6 +142,55 @@ tracks {
     "/return/self_dispatch"(platform: "/", type: TrackType.View) { }
     "/return/self_dispatch/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         selection(required: true, type: PropertyType.String, description: 'button selected by the user', values: ['accepted', 'rejected'])
+    }
+
+
+    // Tracks related to returns from claims 2.0 flow
+    "/returns"(platform: "/", isAbstract: true) {
+        flow_version(required: true, description: 'Identify the specific flow version', type: PropertyType.String)
+    }
+
+    // STEP 01
+    "/returns/refunds"(platform: "/", type: TrackType.View) {
+        showed_payment_methods(required: true, description: 'What payment refund methods are shown to the buyer', type: PropertyType.String)
+        layout(required: true, value:['table_layout', 'cards_layout', 'single_option_layout'], description: 'Identify the specific type of layout of the payment', type: PropertyType.String)
+    }
+    "/returns/refunds/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, values:['accepted', 'rejected'], description: 'Selected option button', type: PropertyType.String)
+        payment_refund_method(required: false, description: 'Payment refund method selected by the user', type: PropertyType.String)
+    }
+
+    "/returns/refunds_ram"(platform: "/", type: TrackType.View) {}
+    "/returns/refunds_ram/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, values:['accepted', 'rejected'], description: 'Selected option button', type: PropertyType.String)
+        refund_info(required: false, values:['refund_account_money'], description: 'Opened modal with more info about the refund account money', type: PropertyType.String)
+    }
+
+    // STEP 02
+    "/returns/confirmation"(platform: "/", type: TrackType.View) {}
+    "/returns/confirmation/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        confirmation_return_method(required: true, type: PropertyType.String, description: 'Type of confirmation', values: ['confirmation_code', 'confirmation_label'] )
+    }
+    "/returns/confirmation/agencies"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'Selected agencies button in confirmation step')
+    }
+
+    // STEP 03
+    "/returns/congrats"(platform: "/", type: TrackType.View) {
+        refund_account_money(required: true, type: PropertyType.Boolean, description: 'Refund money in the buyers account')
+    }
+    "/returns/congrats/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'Selected option button')
+    }
+    "/returns/congrats/agencies"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'Selected agencies button in congrats step')
+    }
+
+    "/returns/warning"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, description: 'If this order had a return or a claim', values: ['return_created', 'claim_created'])
+    }
+    "/returns/warning/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'button selected by the user', values: ['go_to_purchases', 'view_details'])
     }
 }
 

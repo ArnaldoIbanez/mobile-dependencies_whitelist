@@ -110,4 +110,49 @@ trackTests {
             context = "/melilive"
         }
     }
+
+    test("Melilive Start Live From Creator") {
+
+        "/melilive/creator/start_live"(platform: "/") {
+            broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
+            groups = [
+                [
+                    "group_id": "ede1ad69-c277-4f60-90c8-b845ca804fbe",
+                    "products": [
+                        [
+                            "item_id" : "MLA750284572",
+                            "visible": true,
+                            "highlighted": false,
+                            "position": 0
+                        ]
+                    ]
+                ]
+            ]
+        }
+    }
+
+    test("Melilive End Live From Creator") {
+
+        "/melilive/creator/end_live"(platform: "/") {
+            broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
+        }
+    }
+
+    test("Melilive Share Broadcast Link From Creator") {
+
+        "/melilive/creator/share"(platform: "/") {
+            broadcast_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
+            url = "http://2ecee02e-49fc-48d7-94b0-1a19adb2a1fb"
+        }
+    }
+
+    test("Melilive Item Event") {
+
+        "/melilive/creator/item/event"(platform: "/") {
+            event_type = "HIGHLIGHT"
+            item_id = "MLA231546"
+            group_id = "ede1ad69-c277-4f60-90c8-b845ca804fbe"
+        }
+    }
+
 }

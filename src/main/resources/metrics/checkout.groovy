@@ -1,3 +1,5 @@
+import com.ml.melidata.metrics.TagType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 def checkoutExperiments = "(checkout|buyingflow)/.*"
@@ -38,7 +40,7 @@ metrics {
 		}
 	}
 
-	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ") {
+	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ", tags:[TagType.CoreMetric]) {
 		startWith {
 			experiment(regex(checkoutExperiments))
 		}

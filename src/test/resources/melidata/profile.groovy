@@ -278,7 +278,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
@@ -287,7 +286,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
@@ -296,7 +294,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
 
         "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
@@ -305,7 +302,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
 
         "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
@@ -314,7 +310,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
@@ -323,7 +318,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
@@ -332,7 +326,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
@@ -341,7 +334,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
@@ -350,7 +342,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
@@ -359,7 +350,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
@@ -368,7 +358,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
 
         "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
@@ -377,7 +366,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
     }
 
@@ -389,7 +377,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/contact_phone"(platform: "/", type: TrackType.View) {
@@ -398,7 +385,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
@@ -407,7 +393,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
 
         "/profile/contact_phone"(platform: "/", type: TrackType.View) {
@@ -416,7 +401,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
 
         "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
@@ -425,7 +409,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/contact_phone"(platform: "/", type: TrackType.View) {
@@ -434,7 +417,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
@@ -443,7 +425,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/contact_phone"(platform: "/", type: TrackType.View) {
@@ -452,7 +433,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
@@ -461,7 +441,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/contact_phone"(platform: "/", type: TrackType.View) {
@@ -470,7 +449,6 @@ trackTests {
             user_type = "CO"
             registered_by_phone = true
             status = "not-verified"
-            event_type = "edit"
         }
 
         "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
@@ -479,7 +457,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
 
         "/profile/contact_phone"(platform: "/", type: TrackType.View) {
@@ -488,7 +465,6 @@ trackTests {
             user_type = "BU"
             registered_by_phone = false
             status = "information"
-            event_type = "view"
         }
     }
 
@@ -499,7 +475,6 @@ trackTests {
             is_compliant = true
             user_type = "CO"
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/preferred_name"(platform: "/", type: TrackType.View) {
@@ -507,7 +482,6 @@ trackTests {
             is_compliant = true
             user_type = "CO"
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
@@ -515,7 +489,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "information"
-            event_type = "edit"
         }
 
         "/profile/preferred_name"(platform: "/", type: TrackType.View) {
@@ -523,7 +496,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "information"
-            event_type = "edit"
         }
 
         "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
@@ -531,7 +503,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/preferred_name"(platform: "/", type: TrackType.View) {
@@ -539,7 +510,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
@@ -547,7 +517,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/preferred_name"(platform: "/", type: TrackType.View) {
@@ -555,7 +524,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
@@ -563,7 +531,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/preferred_name"(platform: "/", type: TrackType.View) {
@@ -571,7 +538,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
@@ -579,7 +545,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "information"
-            event_type = "edit"
         }
 
         "/profile/preferred_name"(platform: "/", type: TrackType.View) {
@@ -587,7 +552,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "information"
-            event_type = "edit"
         }
     }
 
@@ -598,7 +562,6 @@ trackTests {
             is_compliant = true
             user_type = "CO"
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/user_name"(platform: "/", type: TrackType.View) {
@@ -606,7 +569,6 @@ trackTests {
             is_compliant = true
             user_type = "CO"
             status = "verified"
-            event_type = "view"
         }
 
         "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
@@ -614,7 +576,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "information"
-            event_type = "edit"
         }
 
         "/profile/user_name"(platform: "/", type: TrackType.View) {
@@ -622,7 +583,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "information"
-            event_type = "edit"
         }
 
         "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
@@ -630,7 +590,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/user_name"(platform: "/", type: TrackType.View) {
@@ -638,7 +597,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
@@ -646,7 +604,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/user_name"(platform: "/", type: TrackType.View) {
@@ -654,7 +611,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "verified"
-            event_type = "edit"
         }
 
         "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
@@ -662,7 +618,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/user_name"(platform: "/", type: TrackType.View) {
@@ -670,7 +625,6 @@ trackTests {
             is_compliant = false
             user_type = "CO"
             status = "not-verified"
-            event_type = "view"
         }
 
         "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
@@ -678,7 +632,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "information"
-            event_type = "edit"
         }
 
         "/profile/user_name"(platform: "/", type: TrackType.View) {
@@ -686,7 +639,6 @@ trackTests {
             is_compliant = true
             user_type = "BU"
             status = "information"
-            event_type = "edit"
         }
     }
 
