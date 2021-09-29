@@ -232,14 +232,16 @@ tracks {
                 PropertyType.Map(offer_definition)
             ),
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "offers"
         )
         products(
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
             ),
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "products"
         )
         promise(
             type: PropertyType.String,
@@ -251,22 +253,26 @@ tracks {
                 'view_debt_relief',
                 'none',
             ],
-            inheritable: false
+            inheritable: false,
+            description: "promise"
         )
         show_cx_widget(
             type: PropertyType.Boolean,
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "cx widget is open"
         )
         accesses(
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
-            required: false
+            required: false,
+            description: "accesses"
         )
         from_optins(
             type: PropertyType.Boolean,
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "optin validation"
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
@@ -279,8 +285,9 @@ tracks {
                 'empty'
             ],
             inheritable: false
+            description: "status"
         )
-        source_tracking
+        source_tracking,
     }
 
     "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
@@ -305,14 +312,16 @@ tracks {
                         PropertyType.Map(offer_definition)
                 ),
                 required: false,
-                inheritable: false
+                inheritable: false,
+                description: "offers"
         )
         products(
                 type: PropertyType.ArrayList(
                         PropertyType.Map(with_status)
                 ),
                 required: false,
-                inheritable: false
+                inheritable: false,
+                description: "products"
         )
     }
 
@@ -356,6 +365,7 @@ tracks {
             type: PropertyType.ArrayList(
                 PropertyType.Map(offer_definition)
             ),
+            description: "inconsistency",
             required: false,
             inheritable: false
         )
@@ -363,12 +373,14 @@ tracks {
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
             ),
+            description: "products",
             required: false,
             inheritable: false
         )
         promise(
             type: PropertyType.String,
             required: false,
+            description: "Promise state",
             values: [
                 'create_promise',
                 'view_promise',
@@ -382,7 +394,8 @@ tracks {
         accesses(
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
-            required: false
+            required: false,
+            description: "accesses"
         )
 
         reason(
@@ -391,7 +404,8 @@ tracks {
             values: [
                 'communications_library'
             ],
-            inheritable: false
+            inheritable: false,
+            description: "reason"
         )
 
         source_tracking
