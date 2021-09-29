@@ -2166,7 +2166,7 @@ tracks {
         )
     }
 
-    "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform: "/", type: TrackType.Event) { }
+    "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform: "/", type: TrackType.Event) {}
 
     "/cards/nfc/core/service/start_secure_enrollment/error"(platform: "/", type: TrackType.Event) {
         action (
