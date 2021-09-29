@@ -393,8 +393,7 @@ tracks {
         accesses(
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
-            required: false,
-            description: "accesses"
+            required: false
         )
 
         reason(
