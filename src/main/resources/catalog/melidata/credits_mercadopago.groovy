@@ -287,7 +287,7 @@ tracks {
             inheritable: false,
             description: "status"
         )
-        source_tracking,
+        source_tracking
     }
 
     "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
