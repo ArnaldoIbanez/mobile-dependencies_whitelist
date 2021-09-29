@@ -12,6 +12,7 @@ tracks {
         product_type(
             type: PropertyType.String,
             required: false,
+            description: "Names of the products",
             values: [
                 'fixed_term',
                 'fixed_term_loan',
@@ -28,6 +29,7 @@ tracks {
         status(
             type: PropertyType.String,
             required: false,
+            description: "Loan status",
             values: [
                 'on_time',
                 'overdue',
@@ -37,6 +39,7 @@ tracks {
         segment(
             type: PropertyType.String,
             required: false,
+            description: "Segment",
             values: [
                 'online',
                 'in_store'
@@ -45,6 +48,7 @@ tracks {
         category(
             type: PropertyType.String,
             required: false,
+            description: "Category",
             values: [
                 'regular',
                 'refinance'
@@ -53,6 +57,7 @@ tracks {
         offer_type(
             type: PropertyType.String,
             required: false,
+            description: "Offer type",
             values: [
                 'early_offer',
                 'full_offer',
@@ -400,6 +405,7 @@ tracks {
            description: "Redirect to checkout with amount to pay",
            inheritable: false
         )
+        products_with_status
     }
 
     //Voluntary Payment
