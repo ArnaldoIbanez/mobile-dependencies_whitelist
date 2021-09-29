@@ -400,7 +400,6 @@ tracks {
            description: "Redirect to checkout with amount to pay",
            inheritable: false
         )
-        products_with_status
     }
 
     //Voluntary Payment
