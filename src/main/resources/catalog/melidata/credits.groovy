@@ -261,7 +261,7 @@ tracks {
 
     "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
-        sk(description: "Source key", type: PropertyType.String, required: false)
+        source_key(description: "Source key", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
@@ -271,7 +271,7 @@ tracks {
     }
 
     "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-        sk(description: "Source key", type: PropertyType.String, required: false)
+        source_key(description: "Source key", type: PropertyType.String, required: false)
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
         virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
         physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
