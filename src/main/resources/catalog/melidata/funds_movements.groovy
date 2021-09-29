@@ -36,13 +36,12 @@ tracks {
     "/funds_movements/new_transfer/continue"(platform: "/mobile", type: TrackType.Event) {}
 
     // Unification - Bottom Sheet
-    "/funds_movements/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
-    "/funds_movements/bottom_sheet/accounts"(platform: "/mobile", type: TrackType.Event) {
-        total(required: true, type: PropertyType.Numeric, description: "Total number of accounts")
-        accounts(required: true, type: PropertyType.ArrayList(PropertyType.Map(account)), description: "Account information")
+    "/funds_movements/bottom_sheet"(platform: "/mobile", type: TrackType.View) {
+        total(required: true, type: PropertyType.Numeric, description: "Total number of accounts", inheritable: false)
+        accounts(required: true, type: PropertyType.ArrayList(PropertyType.Map(account)), description: "Account information", inheritable: false)
     }
-    "/funds_movements/bottom_sheet/contact_selected"(platform: "/mobile", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, values: ["EMAIL", "PHONE"], description: "Contact selected type")
+    "/funds_movements/bottom_sheet/account_selected"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, values: ["MP", "BANKING", "PIX"], description: "Account selected type")
     }
 
     // Unification - Manual Amount
