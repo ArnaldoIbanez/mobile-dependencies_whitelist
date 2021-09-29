@@ -107,6 +107,40 @@ tracks {
         amount_fee(required: false, type: PropertyType.Numeric, description: "Fee amount obtained by meli for the purchased option plan.")
         has_open_claim(required: false, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
     }
+    // INSURTECH CARDS event_data defines
+
+    def option_card_price = objectSchemaDefinitions {
+        final_amount(required: true, type: PropertyType.Numeric, description: "final amout of the warranty option price")
+        original_amount(required: false, type: PropertyType.Numeric, description: "original amount of the warranty option price")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "discount rate of the warranty option price")
+        currency_id(required: false, type: PropertyType.String, description: "type of currency of the warranty option price")
+        monthly(required: false, type: PropertyType.Numeric, description: "price monthly of the warranty option")
+    }
+
+    def option_card_provider = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "id of the warranty provider")
+        name(required: false, type: PropertyType.String, description: "name of the warranty provider")
+        renevue_share_rate(required: false, type: PropertyType.Numeric, description: "renevue share rate of the warranty option")
+    }
+
+    def option_card_coverage = objectSchemaDefinitions {
+        name(required: true, type: PropertyType.String, description: "name of the coverage warranty option")
+        amount(required: false, type: PropertyType.Numeric, description: "amount of the coverage warranty option")
+        currency_id(required: true, type: PropertyType.String, description: "type of currency of the warranty option coverage")
+    }
+
+    def option_card_option_data = objectSchemaDefinitions {
+        coverage(required: true, PropertyType.Map(option_card_coverage), description: "coverage of the warranty option")
+    }
+
+    def card_protection_option = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "id of the warranty option")
+        price(required: true, type: PropertyType.Map(option_card_price), description: "price of the warranty option")
+        provider(required: false, type: PropertyType.Map(option_card_provider), description: "provider of the warranty otion")
+        option_data(required: false, type: PropertyType.Map(option_card_option_data), description: "extra information of the warranty option")
+        product_id(required: true, type: PropertyType.String, description: "name/id of the warranty option")
+        is_default(required: false, type: PropertyType.Boolean, description: "if option is the default")
+    }
 
     // INSURTECH RODA QPage Abstract
     "/insurtech"(platform: "/", isAbstract: true) {}
@@ -710,5 +744,53 @@ tracks {
     "/insurtech/protections/landings_fe/go_to_qpage"(platform:"/", type: TrackType.Event) {
     }
 
-
+    //Insurtech CARDS
+    "/insurtech/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false){
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Options objects")
+    }
+    "/insurtech/cards/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    "/insurtech/cards/select"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    "/insurtech/cards/skip"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    "/insurtech/cards/add"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    "/insurtech/cards/back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    //Congrats - Success View
+    "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
+        quote_id(required: true, type: PropertyType.String, description: "the id of the quote generated")
+        purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
+    }
+    "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
+    }
+    "/insurtech/cards/congrats_success/go_protections"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
+    }
+    "/insurtech/cards/congrats_success/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
+    }
+    //Congrats - Failed View
+    "/insurtech/cards/congrats_fail"(platform:"/", type: TrackType.View){
+        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Option object")
+    }
+    "/insurtech/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
+    }
+    "/insurtech/cards/congrats_fail/close"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
+    }
 }

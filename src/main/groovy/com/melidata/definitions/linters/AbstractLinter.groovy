@@ -43,7 +43,7 @@ abstract class AbstractLinter {
     }
 
 
-    private List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
+    def List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
         return ((Map<String,TrackDefinitionProperty>) definition.properties).values().toList()
     }
 
