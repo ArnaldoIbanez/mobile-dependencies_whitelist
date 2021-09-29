@@ -11,7 +11,7 @@ tracks {
     def product = objectSchemaDefinitions {
         entity_type(required: true, type: PropertyType.String, description: "Entity type insurtech product ", values: ["quote", "order", "item_id"])
         entity_id(required: true, type: PropertyType.String, description: "Entity id of the insurtech product")
-        product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex"])
+        product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex", "cards","personal"])
         product_id(required: false, type: PropertyType.String, description: "Id insurtech product")
         insurance_purchase_key(required: false, type: PropertyType.String, description: "Id insurtech purchase key")
     }
@@ -141,12 +141,12 @@ tracks {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
     "/insurtech/protections/claims/execute/help/police_report/confirm"(platform:"/", type: TrackType.Event) {}
-    
+
     "/insurtech/protections/claims/execute/wipe_data"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
     }
     "/insurtech/protections/claims/execute/wipe_data/confirm"(platform:"/", type: TrackType.Event) {}
-    
+
     "/insurtech/protections/claims/execute/document"(platform: "/", isAbstract: true) {}
     "/insurtech/protections/claims/execute/document/request"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Product data")
