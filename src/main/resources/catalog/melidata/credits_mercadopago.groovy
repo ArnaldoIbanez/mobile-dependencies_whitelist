@@ -284,7 +284,7 @@ tracks {
                 'overdue',
                 'empty'
             ],
-            inheritable: false
+            inheritable: false,
             description: "status"
         )
         source_tracking,
