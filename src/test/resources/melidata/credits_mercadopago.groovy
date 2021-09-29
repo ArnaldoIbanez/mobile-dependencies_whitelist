@@ -746,6 +746,11 @@ trackTests {
             additional_info = 'credit_line_taken'
         }
 
+        "/credits/merchant/checkout"(platform: "/") {
+            amount_to_pay = '12345'
+            fixed_term()
+        }
+        
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
