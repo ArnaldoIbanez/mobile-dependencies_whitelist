@@ -266,7 +266,6 @@ tracks {
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
             required: false,
-            description: "accesses"
         )
         from_optins(
             type: PropertyType.Boolean,
