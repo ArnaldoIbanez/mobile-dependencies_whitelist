@@ -73,7 +73,7 @@ catalog {
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
-        include business, "my_data.groovy"
+        include business, "profile.groovy"
         include business, "privacy_preferences.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
@@ -191,6 +191,7 @@ catalog {
         include business, "hub_mshops.groovy"
         include business, "prepapp.groovy"
         include business, "melilive.groovy"
+        include business, "vis_scheduling.groovy"
     }
 
     mercadopago.each { business ->
@@ -275,6 +276,9 @@ catalog {
         include business, "cashin.groovy"
         include business, "mercadopago_openbanking.groovy"
         include business, "point_loyalty.groovy"
+        include business, "cartList.groovy"
+        include business, "add_to_cart.groovy"
+        include business, "funds_movements.groovy"
     }
 
     mercadoshops.each { business ->
@@ -293,6 +297,8 @@ catalog {
         include business, "search.groovy"
         include business, "social.groovy"
         include business, "vip.groovy"
+        include business, "hub_mshops.groovy"
+        include business, "myml_mercadoshops.groovy"
     }
 
     mercadoads.each { business ->
@@ -335,6 +341,8 @@ catalog {
         include business, "vip.groovy"
         include business, "splinter.groovy"
         include business, "cdn_metrics.groovy"
+        include business, "kyc.groovy"
+        include business, "vis_scheduling.groovy"
     }
 
 }

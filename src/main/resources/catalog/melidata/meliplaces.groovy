@@ -27,7 +27,12 @@ tracks {
         row_id(required: true, type: PropertyType.String, description: "The id of the tapped row")
     }
     "/meliplaces/transaction/start"(platform: "/", type: TrackType.Event) {
-        service_id(required: true, type: PropertyType.String, description: "The service id of the new transaction")
+        service_id(required: true, type: PropertyType.String, description: "The service id of the new transaction", inheritable: false)
+    }
+    "/meliplaces/transaction/start/shield"(platform: "/", type: TrackType.View) {
+        shield_id(required: true, type: PropertyType.String, description: "The id of the shield")
+        error(required: false, type: PropertyType.Numeric, description: "The error code")
+        message(required: true, type: PropertyType.String, description: "The error message")
     }
 
     /* PERFORMANCE */

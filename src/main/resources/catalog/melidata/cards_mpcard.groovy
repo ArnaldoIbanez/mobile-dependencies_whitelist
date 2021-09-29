@@ -494,7 +494,12 @@ tracks {
             description: "Virtual card buttons tapped"
         )
     }
-    
+
+    // Setup virtual reauth
+    "/cards/mpcard/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/mpcard/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/mpcard/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+
     // Cards hub
     "/cards/mpcard/card_hub"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/card_hub/block_card"(platform: "/", type: TrackType.View) {}
@@ -1071,7 +1076,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }
@@ -1085,7 +1090,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }

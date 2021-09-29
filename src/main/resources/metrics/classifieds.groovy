@@ -1,3 +1,5 @@
+import com.ml.melidata.metrics.TagType
+
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 def searchVipClassifiedExperiments = "((search|vip|classifieds|vis|sparkle)/.*)|(pdp/viewItemPageMigration.*)"
@@ -33,7 +35,7 @@ metrics {
 		}
 	}
 
-	"seller_contacted"(description: "track vip contact seller as success for classifieds") {
+	"seller_contacted"(description: "track vip contact seller as success for classifieds", tags:[TagType.CoreMetric]) {
 		startWith {
 			experiment(regex(searchVipClassifiedExperiments))
 		}
@@ -146,7 +148,21 @@ metrics {
 		}
 		countsOn {
 			condition {
-				path("/classi_credits/evaluation/congrats")
+				path("/vis_credits/congrats")
+				and(
+						equals("event_data.congrats_status", "APPROVED")
+				)
+			}
+		}
+	}
+
+	"vis_credits.contact_intention"(description: "track contact intention as success for vis") {
+		startWith {
+			experiment(regex(visRegex))
+		}
+		countsOn {
+			condition {
+				path("/vis_credits/congrats/contact_intention", "/vis_credits/congrats/call_intention", "/vis_credits/congrats/whatsapp_intention")
 			}
 		}
 	}

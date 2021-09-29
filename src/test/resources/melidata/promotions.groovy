@@ -66,7 +66,8 @@ trackTests {
                         ],
                         deal_of_the_day_configuration: null,
                         dispatching_normally: true,
-                        pos: 1
+                        pos: 1,
+                        international_delivery_mode: "none"
                       ], 
                       [
                         id: "MLA611663122",
@@ -114,7 +115,8 @@ trackTests {
                         promotion_type: "DEAL_OF_THE_DAY",
                         lightning_deal_configuration: null,
                         deal_of_the_day_configuration: null,
-                        pos: 2
+                        pos: 2,
+                        international_delivery_mode: "DDP"
                       ],
                       [
                         id: "MLA611663126",
@@ -164,7 +166,7 @@ trackTests {
                         promotion_type: "LIGHTNING_DEAL",
                         lightning_deal_configuration: null,
                         deal_of_the_day_configuration: null,
-                        pos: 3
+                        pos: 3,
                       ]
                     ]
             // algorithms = [scoring: "threshold", selection: "bci_v1", sorting: "max_10pct_l2"]

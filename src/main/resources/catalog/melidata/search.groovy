@@ -153,7 +153,7 @@ tracks {
 
     //SEARCH FLOW
 
-    "/search"(platform: "/") {
+    propertyDefinitions {
         query(required: false, description: "the words used to make a search", type: PropertyType.String)
         limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: true, description: "the number of items skipped on the search", type: PropertyType.Numeric)
@@ -210,9 +210,8 @@ tracks {
         shop_id(required: false, description: "content the id of the current shop", type: PropertyType.Numeric)
         shop_name(required: false, description: "content the name of the current shop", type: PropertyType.String)
         shop_domain(required: false, description: "content the domain of the current shop", type: PropertyType.String)
-    }
 
-    "/search"(platform: "/web") {
+        //Tracks web
         only_in_type(required: false)
         click_banner(required: false, description:'Indicates that this listing has apppeared after clicking on a banner')
         banner(required: false, description:'Banner showed in this listing info, if showed')
@@ -236,7 +235,23 @@ tracks {
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
         user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
         top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(PropertyType.Map(top_keyword_definition)))
-        review_pages(required: false, description: 'lists the seo review pages', type: PropertyType.ArrayList(PropertyType.String))
+    }
+    
+    propertyGroups {
+        add_data_search(query, limit, offset, total, category_id, domain, category_path, sort_id, filters, displayed_filters, autoselected_filters, view_mode, results, promise_items,  billboards,
+            pads,  pads_info,  catalog_product_id,  show_supermarket_carousel,  show_apparel_carousel,  tracking_id,  sparkle_info,  best_seller_info,  highlights_info,  tag_tracking_info, 
+            original_search_filter, backend_data,  merch_data,  official_stores_carousel_shown,  items_with_logos,  pdp_grouped_search,  pdp_info,  promoted_items,  location_info, shop_status, 
+            shop_id, shop_name, shop_domain)
+        add_data_search_web(only_in_type, click_banner, banner, related_searches, related_searches_info, canonical, autosuggest, landing, upper_funnel, geolocation, layout_forced, shown_as_product, 
+            has_logos, geo_search, available_filters, user_zone, is_googlebot, pdp_rows, carousel_filters, pdp_highlight_enabled, seo, user_profile_type, top_keywords)
+    }
+
+    "/search"(platform: "/") {
+       add_data_search
+    }
+
+    "/search"(platform: "/web") {
+        add_data_search_web
     }
 
     "/search"(platform: "/mobile") {
@@ -429,10 +444,21 @@ tracks {
 
     "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
-    "/search/map"(platform: "/", isAbstract: true) {}
-    "/search/map/carousel"(platform: "/", type: TrackType.Event) {
+    
+    "/search/map"(platform: "/web", type: TrackType.Event) {        
     }
 
+    "/search/map/carousel"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/search/map/vip_access"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/search/map/pagination"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/search/map/faceted_search"(platform: "/web", type: TrackType.Event) {
+    }
     "/search/search_map"(platform: "/", type: TrackType.Event) {
     }
 

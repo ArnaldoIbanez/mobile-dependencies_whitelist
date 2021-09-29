@@ -1,8 +1,9 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 metrics {
 
-    "questions"(description: "questions count", categorization:"important") {
+    "questions"(description: "questions count", tags:[TagType.Important, TagType.CoreMetric]) {
         countsOn {
             condition {
                 path("/questions/ask/post")
@@ -14,7 +15,7 @@ metrics {
         }
     }
 
-    "qadb_search"(description: "qadb zqps generated ") {
+    "qadb_search"(description: "qadb zqps generated ", tags:[TagType.CoreMetric]) {
 	startWith {
      	   experiment(regex("qadb/.*"))
 	}

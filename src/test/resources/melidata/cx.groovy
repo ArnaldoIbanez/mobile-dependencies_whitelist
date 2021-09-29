@@ -33,6 +33,21 @@ trackTests {
             portal_has_channels_configured = true
             portal_effectivity_survey_value = 1
         }
+        "/portal/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+            portal_contact = [
+                    channels: [:],
+                    contact_config: false
+            ]
+            portal_content_id = 96
+            portal_has_channels_configured = true
+            portal_effectivity_survey_value = -1
+        }
+        "/portal/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 96
+            portal_source_id = 55
+            portal_has_channels_configured = true
+            portal_effectivity_survey_reason = "Otro motivo"
+        }
         "/portal/hub"(platform: "/", type: TrackType.View) {
             portal_contact = [
                     channels: [:],
@@ -111,7 +126,7 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
         }
-        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+         "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
@@ -122,6 +137,11 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
             portal_effectivity_survey_value = -1
+        }
+        "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_has_channels_configured = true
             portal_effectivity_survey_reason = "Otro motivo"
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
@@ -187,6 +207,12 @@ trackTests {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
+        }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
         }
     }
 
@@ -456,17 +482,10 @@ trackTests {
             portal_source_id = 123
             portal_has_channels_configured = true
         }
-        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
+        "/support/widget/faq/effectivity_survey/reason"(platform: "/", type: TrackType.Event) {
             portal_content_id = 987
             portal_source_id = 123
             portal_has_channels_configured = true
-            portal_effectivity_survey_value = 1
-        }
-        "/support/widget/faq/effectivity_survey/click"(platform: "/", type: TrackType.Event) {
-            portal_content_id = 987
-            portal_source_id = 123
-            portal_has_channels_configured = true
-            portal_effectivity_survey_value = -1
             portal_effectivity_survey_reason = "Otro motivo"
         }
         "/support/widget/problem"(platform: "/", type: TrackType.View) {
@@ -514,6 +533,12 @@ trackTests {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
+        }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
         }
   }
 

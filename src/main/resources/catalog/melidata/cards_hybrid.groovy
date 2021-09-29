@@ -711,6 +711,12 @@ tracks {
             description: "The action type tapped"
         )
     }
+
+    // Setup virtual reauth
+    "/cards/hybrid/setup/virtual/reauth"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/success"(platform:"/", type: TrackType.Event) { }
+    "/cards/hybrid/setup/virtual/reauth/error"(platform:"/", type: TrackType.Event) { }
+    
     "/cards/hybrid/setup/virtual/whatsapp"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/whatsapp/banner/tap"(platform:"/", type: TrackType.Event) {
@@ -1170,7 +1176,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }
@@ -1184,7 +1190,7 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["d1", "d1_ticket", "d4"],
+            values: ["D1", "D1_ticket", "D4"],
             description: "type of screen"
         )
     }
@@ -2293,6 +2299,25 @@ tracks {
             required: false,
             description: "SDK Additional Info"
         )
+        token_id(
+            type: PropertyType.String,
+            required: true,
+            description: "TokenId value when the error was thrown"
+        )
+        wallet_id(
+            type: PropertyType.String,
+            required: true,
+            description: "WalletId value when the error was thrown"
+        )
+    }
+    
+    "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values:["enrollment_needed","enrollment_completed","enrollment_in_progress"],
+            description: "Device enrollment success"
+        )
     }
 
     "/cards/nfc/enrollment/device_enrollment/success"(platform: "/", type: TrackType.Event) {
@@ -2315,31 +2340,6 @@ tracks {
         error_code (
             type: PropertyType.String,
             required: true,
-            values: [
-                'common_no_internet',
-                'common_comm_error',
-                'common_server_error',
-                'enrollment_wrong_credentials',
-                'enrollment_credential_expired',
-                'enrollment_try_limit_exceeded',
-                'card_activation_activation_code_entry_canceled',
-                'card_activation_mobile_pin_invalid_length',
-                'card_activation_mobile_pin_mismatch',
-                'change_pin_reentry_mismatch',
-                'change_pin_card_not_active',
-                'change_pin_card_not_exist',
-                're_enrollment_required',
-                'card_not_enrolled',
-                'card_state_unknown',
-                'replenishment_not_allowed',
-                'sdk_internal_component_error',
-                'enrollment_wrong_activation_code',
-                'enrollment_blocked_secure_wallet_enrollment_required',
-                'replenishment_blocked_secure_wallet_enrollment_required',
-                'invalid_replenish_missing_payment',
-                'asm_error',
-                'invalid_digitalcardid',
-            ],
             description: "Type of sdk errors code"
         )
 
@@ -2357,6 +2357,11 @@ tracks {
             type : PropertyType.Numeric,
             required: true,
             description: "SDK CPS Error Code"
+        )
+        wallet_id(
+            type : PropertyType.String,
+            required: true,
+            description: "SDK Additional Info"
         )
         causing_exception(
             type : PropertyType.String,
@@ -2695,12 +2700,12 @@ tracks {
         )
         http_status_code(
             type : PropertyType.Numeric,
-            required: true,
+            required: false,
             description: "SDK Status Code"
         )
         server_error_code(
             type : PropertyType.Numeric,
-            required: true,
+            required: false,
             description: "SDK Server Error Code"
         )
         causing_exception(
@@ -2716,6 +2721,54 @@ tracks {
                 type: PropertyType.String,
                 description: "Message processor information",
                 inheritable: false
+        )
+    }
+    
+    "/cards/nfc/enrollment/tokenization/messageprocessor/constraints"(platform: "/", type: TrackType.Event) {
+        is_nfc_payments_initialized (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if nfc service is initialized"
+        )
+        is_token_ready (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token is ready for payment"
+        )
+        is_token_active (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment token is active"
+        )
+        is_default_tap_n_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if MP is the default tap and pay app"
+        )
+        is_restrictive (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is in tap and pay restrictive mode"
+        )
+        is_tap_n_pay_admitted_to_pay (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone is properly configured to pay with mp"
+        )
+        is_default_card (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the nfc card is default on nfc service"
+        )
+        is_nfc_activated (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the phone nfc antenna is active"
+        )
+        are_payment_keys_available (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicates if the token has any available key for payment"
         )
     }
 
@@ -3054,6 +3107,15 @@ tracks {
                 "not_default"
             ]
         )
+        foreground(
+            required: false,
+            type: PropertyType.String,
+            values: [
+                'foreground',
+                'default',
+                'unknown'
+            ]
+        )
     }
 
     // NFC_ONDEMAND_ENROLLMENT
@@ -3078,7 +3140,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["primary"],
+            values: ["primary", "close"],
             description: "Button tapped"
         )
     }
@@ -3103,6 +3165,17 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ['needed','not_needed', 'null']
+        )
+    }
+    
+    // NFC_DISABLED_PAYMENT_SERVICE
+    // ----------------------------
+    
+    "/cards/nfc/disabled_payment_error"(platform: "/", type: TrackType.Event) {
+        user_id_is_null (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "UserId status at the moment of the error"
         )
     }
 }

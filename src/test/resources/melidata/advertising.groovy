@@ -163,6 +163,16 @@ trackTests {
             has_shops_integration = true
         }
 
+        "/advertising/pads2/landing/contract_confirmation/confirm/sll"(platform: "/", type: TrackType.Event) {
+            site_id = "MLA"
+            cust_id = 2222222
+            quantity_sll = 10
+            quantity_no_sll = 5
+            quantity_indexed_items = 10
+            mode = "automatic"
+            model = 'cvr'
+        }
+
         "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
             budget = "22.22"
             free_trial_ad = false
@@ -263,6 +273,52 @@ trackTests {
 
         "/advertising/privacy/switch/activated"(platform: "/", type: TrackType.Event) {
             switch_status = "activated"
+        }
+
+        "/advertising/privacy/target"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/privacy/target/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/switch/activated"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+            switch_status = "active"
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/target/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "active"
+        }
+
+        "/advertising/privacy/business_partners"(platform: "/", type: TrackType.View) {
+        }
+
+        "/advertising/privacy/business_partners/switch"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/switch/activated"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice"(platform: "/", type: TrackType.View) {
+            switch_status = "inactive"
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/keep_ads_active"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/deactivate_ads"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/privacy/business_partners/ads_desactivation_notice/dismiss"(platform: "/", type: TrackType.Event) {
+            switch_status = "inactive"
         }
     }
 

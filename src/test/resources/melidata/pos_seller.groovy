@@ -140,6 +140,18 @@
                                 payment_channel= "point"
                             }
 
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "fcu"
+                                reason = "user_in_whitelist"
+                            }
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "legacy"
+                                reason = "network_request_failed"
+                            }
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "legacy"
+                                reason = "user_not_in_whitelist"
+                            }
                         }
 
 
