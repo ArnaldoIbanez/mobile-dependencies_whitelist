@@ -1369,7 +1369,7 @@ tracks {
     "/myml/fiscal_rules/listing/button/advanced_tax_settings"(platform: "/", type: TrackType.Event) {}
 
     "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Id for remove rules")
+        id(required: true, type: PropertyType.Numeric, description: "Id for remove rules")
     }
 
     "/myml/fiscal_rules/listing/checkbox"(platform: "/", isAbstract: true) {}
