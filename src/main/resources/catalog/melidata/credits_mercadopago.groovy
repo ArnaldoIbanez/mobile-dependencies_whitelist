@@ -235,6 +235,18 @@ tracks {
             inheritable: false,
             description: "offers"
         )
+        campaign_id(
+            description: "Custom landing campaign",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'amount_and_fee_improvement',
+                'amount_and_term_improvement',
+                'amount_improvement',
+                'fee_improvement',
+                'term_improvement'
+            ]
+        )
         products(
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
@@ -1066,6 +1078,18 @@ tracks {
         offer(
             type: PropertyType.Map(offer_map),
             required: false,
+        )
+        campaign_id(
+            description: "Custom landing campaign",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'amount_and_fee_improvement',
+                'amount_and_term_improvement',
+                'amount_improvement',
+                'fee_improvement',
+                'term_improvement'
+            ]
         )
         product_type(
             description: "Product type from the user's credit line",
