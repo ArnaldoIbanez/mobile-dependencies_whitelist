@@ -40,7 +40,7 @@ tracks {
 
     def viewer_info_definition = objectSchemaDefinitions {
         loyalty_level(required: true, type: PropertyType.Numeric, description: "Current Loyalty Level")
-        zipcode(required: true, type: PropertyType.String, description: "User's Zipcode")
+        zipcode(required: false, type: PropertyType.String, description: "User's Zipcode")
         muted(required: false, type: PropertyType.Boolean, description: "Flag if video is muted or not")
         overlay_on(required: false, type: PropertyType.Boolean, description: "Flag if video has overlay on or not")
         orientation(required: true, type: PropertyType.String, description: "Current orientation, landscape or portrait")
@@ -70,8 +70,8 @@ tracks {
         viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
     }
 
-    "/melilive/webview"(platform: "/mobile", type: TrackType.View) {
-        url(required: true, type: PropertyType.String, description: "Live URL")
+    "/melilive/webview"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        uri(required: true, type: PropertyType.String, description: "Live URL")
     }
 
     "/melilive/stream/exit"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
