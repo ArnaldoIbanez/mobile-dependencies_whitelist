@@ -13414,18 +13414,23 @@ trackTests {
             event_type = "open"
         }
         "/notification_center/pm_om_notification-store_opening"(platform: "/") {
+            news_id = "pm_om_notification-store_opening-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
         "/notification_center/pm_om_notification-store_opening_retry"(platform: "/") {
+            news_id = "pm_om_notification-store_opening_retry-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
         "/notification_center/pm_om_notification-new_sale"(platform: "/") {
+            news_id = "pm_om_notification-notification-new_sale-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
         "/notification_center/pm_om_notification-new_sale_retry"(platform: "/") {
+            news_id = "pm_om_notification-new_sale_retry-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
         "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/") {
+            news_id = "pm_om_notification-buyer_cancellation-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
     }
