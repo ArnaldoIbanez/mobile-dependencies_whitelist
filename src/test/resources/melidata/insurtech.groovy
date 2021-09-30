@@ -3,7 +3,7 @@ package src.test.resources.melidata
 import com.ml.melidata.TrackType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
- 
+
 trackTests {
 
     defaultBusiness = "mercadolibre"
@@ -2811,7 +2811,7 @@ trackTests {
     }
 
     defaultBusiness = "mercadopago"
-    
+
     test('Insurtech - test CARDS CONGRATS tracking'){
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
@@ -3151,6 +3151,16 @@ trackTests {
                     entity_type:"quote",
                     entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                     product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'error'
+            }
+
+            "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"cards",
                     product_id:"MLB_RD00000000000065134TEST"
                 ]
                 type_congrats= 'error'
