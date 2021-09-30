@@ -1955,6 +1955,10 @@ trackTests {
         }
     }
 
+    test("cards hybrid nfc core start secure enrollment returns missing asset in response") {
+        "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform:"/", type:TrackType.Event) {}
+    }
+
     test("cards hybrid nfc core start secure enrollment error") {
         "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
