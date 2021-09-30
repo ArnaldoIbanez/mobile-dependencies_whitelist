@@ -2976,7 +2976,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            description: "Finished button tapped"
+            description: "Finish button tapped"
         )
     }
     
