@@ -295,7 +295,14 @@ tracks {
             description: "Indicates the insurance offer type that was displayed"
         )
     }
-    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
+        url (
+            required: false,
+            type: PropertyType.String,
+            description: "Url that init Insurance flow",
+            inheritable:false
+        )
+    }
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,

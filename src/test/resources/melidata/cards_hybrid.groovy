@@ -715,6 +715,10 @@ trackTests {
         "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
             type = "congrats_type"
         }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
+            type = "congrats_type"
+            url = "mercadopago://home"
+        }
         "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
             url = "mercadopago://home"
