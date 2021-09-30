@@ -447,9 +447,9 @@ tracks {
     "/bill_payments/confirm_optin/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {}
 
     // confirm dda optin
-    "/bill_payments/confirm_optin_automatic_debit/scheduling"(platform: "/mobile", type: TrackType.View) {}
-    "/bill_payments/confirm_optin_automatic_debit/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/confirm_optin_automatic_debit/scheduling/confirm"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/confirm_digital_receipts_optin/scheduling"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/confirm_digital_receipts_optin/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/confirm_digital_receipts_optin/scheduling/confirm"(platform: "/mobile", type: TrackType.Event) {}
 
     // optin list
     "/bill_payments/optin_list/scheduling"(platform: "/mobile", type: TrackType.View) {}
