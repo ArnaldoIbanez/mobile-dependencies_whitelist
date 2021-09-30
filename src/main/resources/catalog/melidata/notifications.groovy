@@ -3734,19 +3734,19 @@ tracks {
     "/notification/pm_om_notification_new_sale"(platform: "/") {}
     "/notification/pm_om_notification_new_sale_retry"(platform: "/") {}
     "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {}
-    "/notification_center/pm_om_notification-store_opening"(platform: "/") {
+    "/notification_center/pm_om_notification-store_opening"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
-    "/notification_center/pm_om_notification-store_opening_retry"(platform: "/") {
+    "/notification_center/pm_om_notification-store_opening_retry"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
-    "/notification_center/pm_om_notification-new_sale"(platform: "/") {
+    "/notification_center/pm_om_notification-new_sale"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
-    "/notification_center/pm_om_notification-new_sale_retry"(platform: "/") {
+    "/notification_center/pm_om_notification-new_sale_retry"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
-    "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/") {
+    "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {
         news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
     }
 
