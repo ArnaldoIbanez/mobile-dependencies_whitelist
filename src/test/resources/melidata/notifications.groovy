@@ -2201,6 +2201,14 @@ trackTests {
             event_type= "sent"
         }
 
+        "/notification/card_updater_expiry"(platform: "/mobile") {
+            news_id = "card_updater_expiry-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_updater_update"(platform: "/mobile") {
+            news_id = "card_updater_update-12345678"
+            event_type = "shown"
+        }
 
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
