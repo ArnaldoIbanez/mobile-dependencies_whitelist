@@ -2973,11 +2973,17 @@ tracks {
     }
     
     
-    "/cards/nfc/enrollment/instructions/tap"(platform: "/", type: TrackType.Event) {
+    "/cards/nfc/configuration/instructions/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            description: "Finish button tapped"
+            description: "Continue button tapped"
+        )
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should redirected",
+            inheritable:false
         )
     }
 
