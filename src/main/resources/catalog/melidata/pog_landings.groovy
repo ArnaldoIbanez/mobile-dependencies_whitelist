@@ -4,17 +4,14 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
-    // Payments - Point - In-person Growth
-    initiative = "1175"
+    // Payments - Point - Online Growth
+    initiative = "1262"
 
     def utm_definition = objectSchemaDefinitions {
         utm_source(type: PropertyType.String, required: false, description: "Tracking source")
         utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
         utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
     }
-
-    // Payments - Point - Online Growth
-    //  initiative = "1262"
 
     /* ---------------------
     --- Abstract path's ----
