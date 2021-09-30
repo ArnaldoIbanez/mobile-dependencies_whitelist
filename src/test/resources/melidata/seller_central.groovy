@@ -5894,6 +5894,17 @@ test("seller central confirm leave suggestion task - optin moderated") {
         original_catalog_product_id = "MLA15149561"
         variations_list_id = null
         suggested_correction_product_id = null
+        variations_list_id = [
+              91658971456,
+              91658971451,
+              91658971460,
+              91658971464,
+              91658971468,
+              91658971472,
+              91658971476,
+              91658971480,
+              91658971486
+          ]
       }
   }
 
