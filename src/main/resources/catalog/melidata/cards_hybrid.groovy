@@ -31,7 +31,6 @@ tracks {
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
     "/cards/nfc"(platform: "/", isAbstract: true) { }
-    ""
     "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
