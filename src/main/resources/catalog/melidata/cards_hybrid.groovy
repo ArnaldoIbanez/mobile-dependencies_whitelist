@@ -31,6 +31,7 @@ tracks {
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
     "/cards/nfc"(platform: "/", isAbstract: true) { }
+    ""
     "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
@@ -43,6 +44,7 @@ tracks {
     "/cards/nfc/enrollment/replenish_payment_keys"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/device_enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/configuration"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/configuration/instruction"(platform: "/", isAbstract: true) { }
     "/cards/nfc/configuration/hub/step"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core"(platform: "/", isAbstract: true) { }
     "/cards/nfc/core/service"(platform: "/", isAbstract: true) { }
@@ -2969,6 +2971,14 @@ tracks {
             type: PropertyType.Boolean,
             description: "If user has money",
             inheritable: false
+        )
+    }
+
+    "/cards/nfc/enrollment/instructions/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            description: "Finished button tapped"
         )
     }
     
