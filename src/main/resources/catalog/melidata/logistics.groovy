@@ -604,4 +604,13 @@ tracks {
         vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
         logistic_type(required: true, type: PropertyType.String,  values: ["XD", "FF", "LM", "XP"] , description: "Specifies the current logistic type of the driver", inheritable: false)
     }
+    "/logistics/learning_hub/mile_selector"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+    }
+    "/logistics/learning_hub/start_disclaimer"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+    }
+    "/logistics/learning_hub/dismiss_modal"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+    }
 }

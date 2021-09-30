@@ -520,6 +520,7 @@ trackTests {
             ]
             has_roda = true
             has_garex = true
+            flow_id = 'CHECKOUT'
         }
         "/insurtech/qpage_on/quote_fail"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -572,6 +573,7 @@ trackTests {
             ]
             has_roda = true
             has_garex = true
+            flow_id = 'VIP/PDP'
         }
         "/insurtech/qpage_on/skip"(platform:"/web", type: TrackType.Event) {
            item = [
@@ -2075,6 +2077,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
         "/insurtech/protections/detail/roda"(platform:"/web", type: TrackType.View) {
@@ -2087,6 +2093,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2100,6 +2110,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2113,6 +2127,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2126,6 +2144,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             type = 'pending_payment'
         }
@@ -2140,6 +2162,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2153,6 +2179,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2166,6 +2196,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2185,6 +2219,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2198,6 +2236,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2211,6 +2253,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             is_imei_valid = true
             protection_status = 'pending_activation_imei'
@@ -2229,6 +2275,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             is_imei_valid = true
             protection_status = 'pending_shipping_imei'
@@ -2247,6 +2297,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2261,6 +2315,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2297,6 +2355,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: true,
                 is_current_device_protection: true,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2316,6 +2378,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
@@ -2330,6 +2396,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             type = 'deductible'
         }
@@ -2360,6 +2430,10 @@ trackTests {
                 deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
+                entity_type:"quote",
+                entity_id:"f834aeb8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
             claim = [
                 id: "ABC125-DEEF",
@@ -2396,7 +2470,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
             "/insurtech/protections/detail/garex/use_service"(platform:"/", type: TrackType.Event) {
@@ -2404,7 +2482,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/use_service_certificate"(platform:"/", type: TrackType.Event) {
@@ -2412,7 +2494,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/cancel_protection"(platform:"/", type: TrackType.Event) {
@@ -2420,7 +2506,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
                "/insurtech/protections/detail/garex/help"(platform:"/", type: TrackType.Event) {
@@ -2428,7 +2518,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
 
@@ -2437,7 +2531,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
         "/insurtech/protections/detail/garex/detail_payment"(platform:"/", type: TrackType.Event) {
@@ -2445,7 +2543,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
-                product_id:"MLB_RD00000000000065134TEST"
+                product_id:"MLB_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
         "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
@@ -2453,7 +2555,11 @@ trackTests {
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"garex",
-                product_id:"MLA_RD00000000000065134TEST"
+                product_id:"MLA_RD00000000000065134TEST",
+                insurance_purchase_key: "garex-ABC124",
+                amount_total: 100.73,
+                amount_fee:  10.73,
+                has_open_claim: false
             ]
         }
 
@@ -2509,6 +2615,374 @@ trackTests {
            discount_type = "fixed"
            is_generic = false
            site = "MLB"
+        }
+    }
+
+    defaultBusiness = "mercadopago"
+
+    test('Insurtech - test CARDS GRD tracking'){
+        "/insurtech/cards"(platform:"/", type: TrackType.View) {
+            options = [
+            [
+                id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
+                price: [
+                    final_amount: 3.5,
+                    original_amount: 4,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS",
+                is_default: true
+            ],
+            [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ],
+           ]
+        }
+        "/insurtech/cards/select"(platform:"/", type: TrackType.Event) {
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ]
+            flow_id = "PRECONGRATS"
+        }
+        "/insurtech/cards/help"(platform:"/", type: TrackType.Event) {
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ]
+            flow_id = "PRECONGRATS"
+        }
+        "/insurtech/cards/add"(platform:"/", type: TrackType.Event) {
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ]
+            flow_id = "PRECONGRATS"
+        }
+        "/insurtech/cards/skip"(platform:"/", type: TrackType.Event) {
+            flow_id = "PRECONGRATS"
+        }
+        "/insurtech/cards/quote_fail"(platform:"/", type: TrackType.Event) {
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ]
+            flow_id = "PRECONGRATS"
+        }
+        "/insurtech/cards/quote_success"(platform:"/", type: TrackType.Event) {
+            option_selected = [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ]
+            flow_id = "PRECONGRATS"
+        }
+        "/insurtech/cards/back"(platform:"/", type: TrackType.Event) {
+           flow_id = "PRECONGRATS"
+        }
+    }
+
+    defaultBusiness = "mercadopago"
+
+    test('Insurtech - test CARDS CONGRATS tracking'){
+        //Success
+        "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
+            quote_id = ""
+            purchase_key = "8888"
+        }
+        "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
+            quote_id = ""
+            purchase_key = "8888"
+        }
+        "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
+            quote_id = ""
+            purchase_key = "8888"
+        }
+        "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
+            quote_id = ""
+            purchase_key = "8888"
+        }
+        // Fail
+        "/insurtech/cards/congrats_fail"(platform:"/", type: TrackType.View){
+            options = [
+            [
+                id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
+                price: [
+                    final_amount: 3.5,
+                    original_amount: 4,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS",
+                is_default: true
+            ],
+            [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ],
+           ]
+        }
+        "/insurtech/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event){
+            options = [
+            [
+                id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
+                price: [
+                    final_amount: 3.5,
+                    original_amount: 4,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS",
+                is_default: true
+            ],
+            [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ],
+           ]
+        }
+        "/insurtech/cards/congrats_fail/close"(platform:"/", type: TrackType.Event){
+            options = [
+            [
+                id: "f1c8fd64-de38-43b0-8550-2de602e0e690-option_low",
+                price: [
+                    final_amount: 3.5,
+                    original_amount: 4,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS",
+                is_default: true
+            ],
+            [
+                id: "f2c8fd64-de38-41b0-8550-2de602y0e680-option_low",
+                price: [
+                    final_amount: 4.5,
+                    original_amount: 5,
+                    discount_rate: 10,
+                    currency_id: "BRL",
+                    monthly: 3.5
+                ],
+                provider: [
+                    id: "CARDIF",
+                    name: "cardif",
+                    revenue_share_fee: 50
+                ],
+                option_data: [
+                    coverage: [
+                        name: "Carteira Protegida",
+                        amount: 5000,
+                        currency_id: "BRL",
+                    ],
+                ],
+                product_id: "CARDS"
+            ],
+           ]
         }
     }
 
@@ -2677,6 +3151,16 @@ trackTests {
                     entity_type:"quote",
                     entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                     product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST"
+                ]
+                type_congrats= 'error'
+            }
+
+            "/insurtech/protections/claims/cancel/congrats"(platform:"/", type: TrackType.View) {
+                product_data =[
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"cards",
                     product_id:"MLB_RD00000000000065134TEST"
                 ]
                 type_congrats= 'error'

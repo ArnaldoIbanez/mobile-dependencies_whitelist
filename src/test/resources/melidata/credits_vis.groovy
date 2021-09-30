@@ -173,6 +173,21 @@ trackTests {
             optionals()
         }
 
+        "/vis_credits/landings/buyer_contact"(platform: "/", type: TrackType.View) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/landings/buyer_contact/call_intention"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
+        "/vis_credits/landings/buyer_contact/email_intention"(platform: "/", type: TrackType.Event) {
+            mandatory()
+            optionals()
+        }
+
         "/vis_credits/not_found"(platform: "/", type: TrackType.View) {
             error = "Page not found"
             mandatory()

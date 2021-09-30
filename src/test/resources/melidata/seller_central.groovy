@@ -86,6 +86,20 @@ trackTests {
   test("seller central listing filters view") {
     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
       checkedFilters = ["inactive", "premium"]
+      page = 1
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+    }
+     "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+      page = 2
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+    }
+    "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+      page = 3
+      filters = ["CHANNEL_ONLY_MARKETPLACE","CHANNEL_MARKETPLACE_MSHOPS"]
+      sort = "finish_last"
+      origin = "filters_modal"
     }
   }
 
@@ -420,7 +434,8 @@ trackTests {
         position: 3,
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: true
+        with_random_order: true,
+        tags: ["publications"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -437,7 +452,8 @@ trackTests {
         key: "LIGHTNING_OFFER",
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: false
+        with_random_order: false,
+        tags: ["shipping"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -455,15 +471,51 @@ trackTests {
           key: "PB02",
           page: 2,
           rules_applied: "hard",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["important"]
         ],
         [
           type: "CONTENT",
           key: "PB01",
           page: 2,
           rules_applied: "soft",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["important"]
         ]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach tags view") {
+    "/seller_central/seller_coach/summary/tags"(platform: "/web", type: TrackType.View) {
+      segment = "none"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      tags = [
+        [
+          key: "important",
+          position: 1,
+        ],
+        [
+          key: "publications",
+          position: 2,
+        ]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach tag click") {
+    "/seller_central/seller_coach/summary/tags/select_tag"(platform: "/web", type: TrackType.Event) {
+      segment = "none"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      tag = [
+        key: "shipping",
+        position: 3,
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -494,7 +546,8 @@ trackTests {
         position: 3,
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: true
+        with_random_order: true,
+        tags: ["publications", "important"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -511,7 +564,8 @@ trackTests {
         key: "LIGHTNING_OFFER",
         item_id: "15415445414",
         rules_applied: "none",
-        with_random_order: false
+        with_random_order: false,
+        tags: ["publications", "important"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -529,14 +583,16 @@ trackTests {
           key: "PB02",
           page: 2,
           rules_applied: "hard",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["publications"]
         ],
         [
           type: "CONTENT",
           key: "PB01",
           page: 2,
           rules_applied: "soft",
-          with_random_order: false
+          with_random_order: false,
+          tags: ["publications"]
         ]
       ]
       seller_experience = "ADVANCED"
@@ -2139,6 +2195,14 @@ trackTests {
     "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("seller central sales detail payment more payments") {
+    "/seller_central/sales/detail/payment/more_payments"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail payment products") {
+    "/seller_central/sales/detail/payment/products"(platform: "/mobile", type: TrackType.View) {}
+  }
+
   test("seller central sales detail shipping") {
     "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
   }
@@ -2151,6 +2215,10 @@ trackTests {
 
   test("seller central sales detail invoice information") {
     "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central sales detail billing information") {
+    "/seller_central/sales/detail/billing_info"(platform: "/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales detail buyer information") {
@@ -4698,6 +4766,43 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
+  test("seller central promotions massive editor - offline") {
+    "/seller_central/promotions/massive/editor/offline"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central promotions massive editor offline - open") {
+    "/seller_central/promotions/massive/editor/offline/open"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - upload") {
+    "/seller_central/promotions/massive/editor/offline/upload"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - categories") {
+    "/seller_central/promotions/massive/editor/offline/categories"(platform: "/", type: TrackType.Event) {
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - download") {
+    "/seller_central/promotions/massive/editor/offline/download"(platform: "/", type: TrackType.Event) {
+      promoId = "MLA123"
+      type = 'lightning'
+    }
+  }
+
+  test("seller central promotions massive editor offline - email") {
+    "/seller_central/promotions/massive/editor/offline/email"(platform: "/", type: TrackType.Event) {
+      type = 'lightning'
+    }
+  }
+
   test("seller central promotions massive editor modal") {
     "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
   }
@@ -6397,6 +6502,27 @@ test("seller central catalog optin v2 item plus card show") {
       selected_view = "marketplace"
       type = "optin"
       url = "https://mishop.com"
+    }
+  }
+
+  test("Seller central data verification result") {
+    "/seller_central/verification/result"(platform: "/", type: TrackType.Event) {
+      syi_data = [
+        identifier: "DNY2477",
+        flow: "motors_fipe",
+        domain_id: "MLB-CARS_AND_VANS",
+        verification_site: "MLB",
+        attributes: [
+          [attribute_id: "FIPE_CODE", attribute_value: "003288-3", attribute_name: "Código FIPE"]
+        ]
+      ]
+      drat_data = [
+        flow_id: "motors_fipe",
+        attributes: [
+          [attribute_id: "FIPE_CODE", attribute_value: "003288-3", attribute_name: "Código FIPE"]
+        ]
+      ]
+      verified = true
     }
   }
 }
