@@ -2341,6 +2341,10 @@ trackTests {
             product_id = "10"
         }
 
+        "/bill_payments/home/pay/clipboard"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Invoice
         "/bill_payments/invoices"(platform: "/mobile") {
             mandatory()
@@ -2746,6 +2750,10 @@ trackTests {
             camera_flash = false
             timestamp = 1043
             barcode_format = "ITR40"
+        }
+
+        "/bill_payments/scan/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
         // New Scanner    

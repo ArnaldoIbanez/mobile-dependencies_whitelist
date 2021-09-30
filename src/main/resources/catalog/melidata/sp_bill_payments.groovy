@@ -41,6 +41,7 @@ tracks {
         barcode(required: false, type: PropertyType.String, description: "the barcode used to pay")
         product_id(required: false, type: PropertyType.String, description: "the product id used to pay")
     }
+    "/bill_payments/home/pay/clipboard"(platform: "/mobile", type: TrackType.Event) {}
 
     // Invoice
     "/bill_payments/invoices"(platform: "/mobile", type: TrackType.View) {}
@@ -179,6 +180,7 @@ tracks {
     "/bill_payments/scan/type_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/click"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/read"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/scan/scan_barcode"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/scan/info_message"(platform: "/mobile", type: TrackType.View) {
         label(required: true, type: PropertyType.String, description: "the label the info message")
     }
