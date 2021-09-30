@@ -3959,7 +3959,7 @@ trackTests {
             action = "close"
         }
         
-        "/cards/nfc/configuration/instructions/tap"(platform:"/", type: TrackType.View) {
+        "/cards/nfc/configuration/instructions/button"(platform:"/", type: TrackType.View) {
             action = "continue_button"
             url = "mercadopago://nfcpayments/payment?from=nfc_configuration_instruction"
         }
