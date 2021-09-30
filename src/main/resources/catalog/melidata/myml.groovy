@@ -1361,10 +1361,12 @@ tracks {
     "/myml/fiscal_rules/listing/button"(platform: "/", isAbstract: true) {}
 
     "/myml/fiscal_rules/listing/button/new_rules"(platform: "/", type: TrackType.Event) {}
-
+    
     "/myml/fiscal_rules/listing/button/edit_rules"(platform: "/", type: TrackType.Event) {
         ids(required: true, type: PropertyType.String, description: "Ids of list for update rules")
     }
+
+    "/myml/fiscal_rules/listing/button/advanced_tax_settings"(platform: "/", type: TrackType.Event) {}
 
     "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Id for remove rules")
@@ -1462,6 +1464,25 @@ tracks {
         type(required: false, type: PropertyType.String, description: "File type to upload")
         size(required: false, type: PropertyType.Numeric, description: "File size to upload")
     }
+
+    "/myml/fiscal_rules/massive/upload/upload_massive_error"(platform: "/", type: TrackType.Event) {
+        error(required: false, type: PropertyType.String, description: "Error into selected file")
+    }
+
+    "/myml/fiscal_rules/massive/upload/process_time"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/process_time/finish_time"(platform: "/", type: TrackType.Event) {
+        process_time(required: true, type: PropertyType.Numeric, description: "runtime")
+        scope(required: true, type: PropertyType.String, values: ["download", "upload"], description: "Scope of batch")
+    }
+
+    "/myml/fiscal_rules/massive/download/process_time"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/download/download_massive_error"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/status_massive_error"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/breadcrumb/back_button"(platform: "/", type: TrackType.Event) {}
 
     "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
         id(required: true, type: PropertyType.String, description: "ID of batch")
