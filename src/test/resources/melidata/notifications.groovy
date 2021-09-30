@@ -13416,7 +13416,13 @@ trackTests {
         "/notification_center/pm_om_notification-store_opening"(platform: "/") {
             event_type = "open"
         }
+        "/notification_center/pm_om_notification-store_opening_retry"(platform: "/") {
+            event_type = "open"
+        }
         "/notification_center/pm_om_notification-new_sale"(platform: "/") {
+            event_type = "open"
+        }
+        "/notification_center/pm_om_notification-new_sale_retry"(platform: "/") {
             event_type = "open"
         }
         "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/") {
