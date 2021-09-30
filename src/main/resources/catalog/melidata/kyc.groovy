@@ -101,12 +101,15 @@ tracks {
     }
 
     // Errors
-    "/kyc/error"(platform: "/", type: TrackType.Event) {
-        type (required: false, type: PropertyType.String, description: "The segmented error type")
+    "/kyc/error"(platform: "/", type: TrackType.Event, isAbstract: true) {
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
         kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
         error_id(required: false, type: PropertyType.String, description: "Kyc on screen error id")
     }
+
+    "/kyc/error/service"(platform: "/", type: TrackType.Event) {}
+    "/kyc/error/timeout"(platform: "/", type: TrackType.Event) {}
+    "/kyc/error/parsing"(platform: "/", type: TrackType.Event) {}
 
     "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
         image (required: false, type: PropertyType.String, description: "The Image name to the current event")

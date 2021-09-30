@@ -14,6 +14,9 @@ tracks {
     }
     "/user_blocker/webview"(platform: "/", type: TrackType.View) {}
     "/user_blocker/redirect"(platform: "/", type: TrackType.View, isAbstract: true) {}
+    "/user_blocker/shield/error"(platform: "/", type: TrackType.View) {
+        verbose(required: false, type: PropertyType.String, description: "the error description")
+    }
 
     //Redirect events
     "/user_blocker/redirect/load"(platform: "/", type: TrackType.Event) {
