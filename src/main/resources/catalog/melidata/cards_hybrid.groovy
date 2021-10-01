@@ -2971,13 +2971,21 @@ tracks {
             inheritable: false
         )
     }
-    
-    
+
     "/cards/nfc/enrollment/instructions/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
             description: "Finish button tapped"
+        )
+    }
+    
+    "/cards/nfc/configuration/instructions/continue_button"(platform: "/", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should redirected",
+            inheritable:false
         )
     }
 

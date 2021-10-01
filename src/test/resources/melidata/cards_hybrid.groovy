@@ -3954,9 +3954,13 @@ trackTests {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
             has_money = false
         }
-        
+
         "/cards/nfc/enrollment/instructions/tap"(platform:"/", type: TrackType.View) {
             action = "close"
+        }
+        
+        "/cards/nfc/configuration/instructions/continue_button"(platform:"/", type: TrackType.View) {
+            url = "mercadopago://nfcpayments/payment?from=nfc_configuration_instruction"
         }
     }
 
