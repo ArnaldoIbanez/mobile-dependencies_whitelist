@@ -221,7 +221,7 @@ tracks {
     "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
     "/credits/credit_card/waitlist"(platform: "/", isAbstract: true){}
-    "/credits/credit-card/block-card/virtual"(platform: "/", isAbstract: true){}
+    "/credits/credit-card/block_card/virtual"(platform: "/", isAbstract: true){}
 
 
     /******************************************
