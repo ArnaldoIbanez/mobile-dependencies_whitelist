@@ -185,6 +185,30 @@ trackTests {
           defaultLocation()
           driver_id = 1234
         }
+
+        // Learning hub save selection event
+        "/logistics/learning_hub/mile_selector/save_selection"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub begin tutorial event
+        "/logistics/learning_hub/start_disclaimer/begin_tutorial"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub dismiss tutorial event
+        "/logistics/learning_hub/start_disclaimer/dismiss_tutorial"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
+
+        // Learning hub dismiss modal confirm event
+        "/logistics/learning_hub/dismiss_modal/confirm"(platform: "/mobile", type: TrackType.Event){
+          defaultLocation()
+          driver_id = 1234
+        }
     }
 
     test("Testing Logistics Last Mile") {

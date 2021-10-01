@@ -613,4 +613,16 @@ tracks {
     "/logistics/learning_hub/dismiss_modal"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
     }
+    "/logistics/learning_hub/mile_selector/save_selection"(platform: "/mobile", type: TrackType.Event) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
+    "/logistics/learning_hub/start_disclaimer/begin_tutorial"(platform: "/mobile", type: TrackType.Event) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
+    "/logistics/learning_hub/start_disclaimer/dismiss_tutorial"(platform: "/mobile", type: TrackType.Event) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
+    "/logistics/learning_hub/dismiss_modal/confirm"(platform: "/mobile", type: TrackType.Event) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
 }
