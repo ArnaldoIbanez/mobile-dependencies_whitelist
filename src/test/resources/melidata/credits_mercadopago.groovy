@@ -148,6 +148,7 @@ trackTests {
             product_type = 'sales_percentage_loan'
             variant = 'fixed_amount'
             is_kyc_compliant = false
+            campaign_id = 'amount_and_fee_improvement'
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
@@ -517,6 +518,7 @@ trackTests {
 
         "/credits/merchant/administrator"(platform: "/") {
            promise = 'none'
+           campaign_id = 'amount_and_fee_improvement'
         }
         "/credits/merchant/administrator"(platform: "/") {
            status = 'on_time'
