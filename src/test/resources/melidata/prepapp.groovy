@@ -1,4 +1,4 @@
-package src.test.resources.melidata
+    package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
@@ -148,6 +148,18 @@ trackTests {
             ]
         }
 
+        def overrideTemperatureDataSet = {
+            item_id = "ID123456"
+            variation_id = "VAR123456"
+            item_temperature = "DRY"
+            parcel_temperature = "FROZEN"
+        }
+
+        def itemIdsDataSet = {
+            item_id = "ID123456"
+            variation_id = "VAR123456"
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TEST TRACKS PREPARATION APP - GENERAL
@@ -242,6 +254,14 @@ trackTests {
 
         "/prepapp/picking/parcel/input"(platform:"/", type: TrackType.View) {
             scanModeDataSet()
+        }
+
+        "/prepapp/picking/parcel/wrong_temperature"(platform: "/", type: TrackType.View) {
+            overrideTemperatureDataSet()
+        }
+
+        "prepapp/picking/parcel/conservation_change"(platform: "/", type: TrackType.View) {
+            itemIdsDataSet()
         }
 
         "/prepapp/picking/product/not_found"(platform:"/", type: TrackType.View) {
