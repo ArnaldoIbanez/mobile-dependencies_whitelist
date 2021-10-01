@@ -20,11 +20,7 @@ tracks {
     session_id(required: true, type: PropertyType.String, description: "Session identifier")
   }
   "/instore/challenge/summary" (platform: "/", type: TrackType.View) {
-<<<<<<< HEAD
-    payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "status of payments")
-=======
     payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "state of payments")
->>>>>>> c26b781c14becdae638f00988a04e00356f440d9
   }
   
   "/instore/challenge/find_stores" (platform: "/", type: TrackType.Event) {}
