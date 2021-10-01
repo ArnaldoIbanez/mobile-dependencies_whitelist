@@ -24,7 +24,7 @@ tracks {
         ch (type: PropertyType.String, required: false, description: "sales channel")
         camp (type: PropertyType.String, required: false, description: "campaign")
         strategy (type: PropertyType.String, required: false, description: "strategy")
-        utm (type: PropertyType.Map, required: false, description: "UTM info")
+        utm (type: PropertyType.Map(utmProperties), required: false, description: "UTM info")
     }
 
     propertyGroups {
