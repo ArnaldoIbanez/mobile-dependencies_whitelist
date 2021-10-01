@@ -968,4 +968,41 @@ trackTests {
              *       End: Credit Card Wait List
              ***********************************************/
         }
+        test("Credits Credit Card - Reissue tests") {
+            /***********************************************
+             *       Start: Credit Card Reissue
+             ***********************************************/
+
+            //Separator
+            "/credits/credit-card/block_card/virtual/separator"(platform: "/", type: TrackType.View) {
+                card_id = "1234abcd"
+            }
+
+            "/credits/credit-card/block_card/virtual/separator/tap"(platform: "/", type: TrackType.Event) {
+                card_id = "1234abcd"
+                action = "primary_button"
+            }
+
+            "/credits/credit-card/block_card/virtual/separator/tap"(platform: "/", type: TrackType.Event) {
+                card_id = "1234abcd"
+                action = "secondary_button"
+            }
+
+            //Congrats
+            "/credits/credit-card/block_card/virtual/congrats"(platform: "/", type: TrackType.View) {
+                type = "congrats_type"
+                status = "200"
+            }
+
+            //Error
+            "/credits/credit-card/block_card/virtual/error"(platform: "/", type: TrackType.View) {
+                type = "error_type"
+                status = "404"
+            }
+
+
+            /***********************************************
+             *       End: Credit Card Reissue
+             ***********************************************/
+        }
 }
