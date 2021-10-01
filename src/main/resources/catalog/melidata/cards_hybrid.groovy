@@ -1219,6 +1219,30 @@ tracks {
         )
     }
 
+    "/cards/hybrid/request/physical/review/tap"(platform: "/mobile/android", type: TrackType.Event) {
+        action (
+            required: true,
+             type: PropertyType.String,
+             values: ["edit_address", "add_new_address"],
+             description: "action tap by the user in the review"
+        )
+        address_id (
+            required: false,
+             type: PropertyType.String,
+             description: "Address id"
+        )
+        is_accurate (
+            required: false,
+             type: PropertyType.Boolean,
+             description: "If address is accurate"
+        )
+        is_warning_address (
+            required: false,
+             type: PropertyType.Boolean,
+             description: "If address has a warning message"
+        )
+    }
+
     // Request: Review TyC
     "/cards/hybrid/request/physical/review/tyc"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/request/physical/review/tyc/close"(platform: "/", type: TrackType.Event) {}

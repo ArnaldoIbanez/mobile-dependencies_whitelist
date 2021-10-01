@@ -1219,6 +1219,16 @@ trackTests {
         "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
             action = "card_request"
         }
+
+        "/cards/hybrid/request/physical/review/tap"(platform: "/mobile/android", type: TrackType.Event) {
+            action = "edit_address"
+            address_id = "1122334455"
+            is_accurate = true
+            is_warning_address = false
+        }
+        "/cards/hybrid/request/physical/review/tap"(platform: "/mobile/android", type: TrackType.Event) {
+            action = "add_new_address"
+        }
     }
 
     // Request: Review TyC
