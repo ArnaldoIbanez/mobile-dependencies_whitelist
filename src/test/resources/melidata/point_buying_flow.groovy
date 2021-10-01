@@ -22,6 +22,11 @@ trackTests {
           strategy = "strategy"
           product = "Merdaco Pago Point Bluetooth"
           coupon_type = "mgm"
+          utm = {
+            utm_medium = "utm_medium"
+            utm_campaign = "utm_campaign"
+            utm_source = "utm_source"
+          }
         }
 
         "/point/buyingflow/shipping/options"(platform: "/", type: TrackType.View) {
