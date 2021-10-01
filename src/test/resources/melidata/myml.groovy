@@ -1618,7 +1618,7 @@ trackTests {
             callback_url = "https://www.mercadolivre.com.br"
         }
 
-        "/myml/fiscal_rules/massive/upload/process_time/finish_time"(platform: "/", type: TrackType.Event) {
+        "/myml/fiscal_rules/massive/process_time/finish_time"(platform: "/", type: TrackType.Event) {
             action = "edit"
             context = "default"
             callback_url = "https://www.mercadolivre.com.br"

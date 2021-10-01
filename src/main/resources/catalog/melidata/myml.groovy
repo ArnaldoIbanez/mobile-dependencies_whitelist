@@ -1471,7 +1471,7 @@ tracks {
 
     "/myml/fiscal_rules/massive/upload/process_time"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/fiscal_rules/massive/upload/process_time/finish_time"(platform: "/", type: TrackType.Event) {
+    "/myml/fiscal_rules/massive/process_time/finish_time"(platform: "/", type: TrackType.Event) {
         process_time(required: true, type: PropertyType.Numeric, description: "runtime")
         scope(required: true, type: PropertyType.String, values: ["download", "upload"], description: "Scope of batch")
     }
