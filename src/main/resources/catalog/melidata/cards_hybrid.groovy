@@ -2980,12 +2980,7 @@ tracks {
         )
     }
     
-    "/cards/nfc/configuration/instructions/button"(platform: "/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            description: "Continue button tapped"
-        )
+    "/cards/nfc/configuration/instructions/continue_button"(platform: "/", type: TrackType.Event) {
         url (
             required: true,
             type: PropertyType.String,
