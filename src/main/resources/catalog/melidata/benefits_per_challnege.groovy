@@ -20,7 +20,7 @@ tracks {
     session_id(required: true, type: PropertyType.String, description: "Session identifier")
   }
   "/instore/challenge/summary" (platform: "/", type: TrackType.View) {
-    payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "")
+    payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "status of payments")
   }
   
   "/instore/challenge/find_stores" (platform: "/", type: TrackType.Event) {}
@@ -30,9 +30,9 @@ tracks {
 
   
   // ----- FTU pages -----
-  "/instore/challenge/ftu" (platform: "/", type: TrackType.View, isAbstract: true) {}
+  "/instore/challenge/first_time_user" (platform: "/", type: TrackType.View, isAbstract: true) {}
 
-  "/instore/challenge/ftu/how_to_use" (platform: "/", type: TrackType.View) {}
+  "/instore/challenge/first_time_user/how_to_use" (platform: "/", type: TrackType.View) {}
   
   "/instore/challenge/error" (platform: "/", type: TrackType.View) {}
  

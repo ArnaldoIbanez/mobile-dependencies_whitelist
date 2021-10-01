@@ -44,7 +44,7 @@ trackTests {
     }
   }
   test("How to use view") {
-    "/instore/challenge/ftu/how_to_use" (platform: "/", type: TrackType.View) {
+    "/instore/challenge/first_time_user/how_to_use" (platform: "/", type: TrackType.View) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
     }
