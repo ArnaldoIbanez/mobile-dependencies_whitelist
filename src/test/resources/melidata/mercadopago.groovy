@@ -946,6 +946,11 @@ trackTests {
             has_coupon = true
             coupon_code = "Y96XA"
             coupon_type = "default"
+            utm = [  
+                utm_source: "utm_source_value",
+                utm_medium: "utm_medium_value",
+                utm_campaign: "utm_campaign_value"
+            ]
         }
 
         "/point/landings/buy"(platform:"/", type: TrackType.Event) {
