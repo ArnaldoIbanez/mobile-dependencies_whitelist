@@ -1914,6 +1914,10 @@ tracks {
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
 
+    // CardUpdater
+    "/notification/card_updater_expiry"(platform: "/mobile") { }
+    "/notification/card_updater_update"(platform: "/mobile") { }
+
       //ChargeBack
       "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/") {
           case_id(required: true, type: PropertyType.String, description: "Case Id")
@@ -3383,6 +3387,7 @@ tracks {
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}

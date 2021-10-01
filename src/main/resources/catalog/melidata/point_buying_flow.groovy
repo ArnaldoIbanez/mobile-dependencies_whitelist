@@ -14,7 +14,7 @@ tracks {
         flow_id (type: PropertyType.String, required: true, description: "Flow ID")
         product_id (type: PropertyType.String, required: true, description: "Product identifier")
         product (type: PropertyType.String, required: false, description: "Product Name")
-        coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic")
+        coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic", values: ["organic", "mgm", "resellers", "partners", "campaign"])
         currency (type: PropertyType.String, required: true, description: "ISO Currency")
         price (type: PropertyType.Numeric, required: true, description: "Price of device")
         discount_code (type: PropertyType.String, required: true, description: "Discount code")
@@ -45,6 +45,12 @@ tracks {
     }
 
     "/point/buyingflow/shipping/new_address"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
+    "/point/buyingflow/shipping/new_address/goto_zipcode_finder"(platform: "/", type: TrackType.Event) {}
+    
+    "/point/buyingflow/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
     }
 

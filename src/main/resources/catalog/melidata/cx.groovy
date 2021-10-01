@@ -103,6 +103,8 @@ tracks {
         portal_effectivity_survey_reason(required: false, type: PropertyType.String,
             description: "Indicates the reason for a negative vote given by a user to a certain faq")
         button_label(required: true, type: PropertyType.String, description: "Indicates the button text")
+        buttons(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Indicates the visible buttons")
+        purchase_status(required: true, type: PropertyType.String, description: "Indicates the purchase status")
     }
 
     propertyGroups {
@@ -149,6 +151,8 @@ tracks {
         object_model(object_model)
         portal_effectivity_survey_reason(portal_effectivity_survey_reason)
         button_label(button_label)
+        buttons(buttons)
+        purchase_status(purchase_status)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -464,6 +468,8 @@ tracks {
 
     "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
         button_label
+        buttons
+        purchase_status
     }
 
     // Mis Consultas

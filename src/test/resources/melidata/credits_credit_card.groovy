@@ -340,6 +340,10 @@ trackTests {
             status = stop_page_kyc_not_compliant
         }
 
+        "/credits/credit_card/upgrade/stop_page/physical_card_request_action"(platform: "/", type: TrackType.Event) {
+            status = stop_page_physical_card_request
+        }
+
         /*********************************************
          *       End: Credit Card Upgrade
          *********************************************/
