@@ -2201,6 +2201,14 @@ trackTests {
             event_type= "sent"
         }
 
+        "/notification/card_updater_expiry"(platform: "/mobile") {
+            news_id = "card_updater_expiry-12345678"
+            event_type = "shown"
+        }
+        "/notification/card_updater_update"(platform: "/mobile") {
+            news_id = "card_updater_update-12345678"
+            event_type = "shown"
+        }
 
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
@@ -13618,6 +13626,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {
             news_id = "card_transactions_approved_withdraw_extracash-186785675"
             event_type = "open"
@@ -14078,6 +14092,13 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
             news_id = "card_transactions_approved_authorization_extracash_mute-186785675"
             event_type = "open"

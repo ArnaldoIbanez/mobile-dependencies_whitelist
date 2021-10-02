@@ -1955,6 +1955,10 @@ trackTests {
         }
     }
 
+    test("cards hybrid nfc core start secure enrollment returns missing asset in response") {
+        "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform:"/", type:TrackType.Event) {}
+    }
+
     test("cards hybrid nfc core start secure enrollment error") {
         "/cards/nfc/core/service/start_secure_enrollment/error"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_error"
@@ -3950,9 +3954,13 @@ trackTests {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
             has_money = false
         }
-        
+
         "/cards/nfc/enrollment/instructions/tap"(platform:"/", type: TrackType.View) {
             action = "close"
+        }
+        
+        "/cards/nfc/configuration/instructions/continue_button"(platform:"/", type: TrackType.View) {
+            url = "mercadopago://nfcpayments/payment?from=nfc_configuration_instruction"
         }
     }
 
