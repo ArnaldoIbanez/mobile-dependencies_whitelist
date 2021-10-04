@@ -914,6 +914,11 @@ tracks {
             type: PropertyType.Boolean,
             required: false,
         )
+        require_optin(
+            description: "User required opt ins flow",
+            type: PropertyType.Boolean,
+            required: false,
+        )
     }
 
     //Error
@@ -929,6 +934,7 @@ tracks {
                 'unknown-error',
                 'admin-is-restricted',
                 'kyc_error',
+                'loan_request_is_null',
                 'default'
             ],
             inheritable: false
@@ -1149,6 +1155,11 @@ tracks {
             description: "Credit line maximum allowed option",
             type: PropertyType.Numeric,
             required: true,
+        )
+        require_optin(
+            description: "User required opt ins flow",
+            type: PropertyType.Boolean,
+            required: false,
         )
     }
 
@@ -1528,6 +1539,11 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
         )
+        require_optin(
+                description: "User required opt ins flow",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     "/credits/express_money/congrats"(platform: "/web", type: TrackType.View) {
@@ -1609,6 +1625,11 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
         )
+        require_optin(
+                description: "User required opt ins flow",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     "/credits/express_money/error"(platform: "/", type: TrackType.View) {
@@ -1636,7 +1657,8 @@ tracks {
                 'invalid_first_due_date',
                 'insufficient_credit_balance',
                 'conflict',
-                'external_api_error'
+                'external_api_error',
+                'payment_rejected'
             ]
         )
     }
