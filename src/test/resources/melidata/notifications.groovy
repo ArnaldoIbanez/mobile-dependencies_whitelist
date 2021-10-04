@@ -13626,6 +13626,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {
             news_id = "card_transactions_approved_withdraw_extracash-186785675"
             event_type = "open"
@@ -14086,6 +14092,13 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/card_transactions_approved_authorization_extracash_mute"(platform: "/mobile") {
             news_id = "card_transactions_approved_authorization_extracash_mute-186785675"
             event_type = "open"

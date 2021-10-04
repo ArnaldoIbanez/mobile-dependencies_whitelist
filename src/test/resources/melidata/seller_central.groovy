@@ -4882,6 +4882,13 @@ test("seller central confirm leave suggestion task - optin moderated") {
     }
   }
 
+  test("seller central listing promos help tooltip pads executed") {
+    "/seller_central/promotions/row/tooltip_help_adv"(platform: "/", type: TrackType.Event) {
+      item_id = "MLM896427737"
+      promo_id = "P-MLM412004"
+    }
+  }
+
   test("seller central listing secondary_actions") {
     "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
   }
