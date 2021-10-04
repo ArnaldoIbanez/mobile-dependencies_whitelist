@@ -22,7 +22,7 @@ tracks {
         seller(required: true, type: PropertyType.Map(seller_definition), description: "Object that represent seller id")
         // meli_id
 
-        pickup(required: true, type: PropertyType.Map(pickup_definition), description: "Object that represent the pack order")
+            pickup(required: true, type: PropertyType.Map(pickup_definition), description: "Object that represent the pack order")
 
         context(required: true, type: PropertyType.String, description: "Action that represent open navigation or logout from any screen")
         // picking_product
@@ -188,11 +188,11 @@ tracks {
         scan_mode_data
     }
 
-    "/prepapp/picking/parcel/wrong_temperature"(platform:"/", TrackType.View) {
+    "/prepapp/picking/parcel/wrong_temperature"(platform:"/", type: TrackType.View) {
         override_temperature_data
     }
 
-    "/prepapp/picking/parcel/conservation_change"(platform: "/", TrackType.View) {
+    "/prepapp/picking/parcel/conservation_change"(platform: "/", type: TrackType.View) {
         item_ids_data
     }
 
