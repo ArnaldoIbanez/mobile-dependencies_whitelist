@@ -12,6 +12,7 @@ tracks {
         product_type(
             type: PropertyType.String,
             required: false,
+            description: "Names of the products",
             values: [
                 'fixed_term',
                 'fixed_term_loan',
@@ -28,6 +29,7 @@ tracks {
         status(
             type: PropertyType.String,
             required: false,
+            description: "Loan status",
             values: [
                 'on_time',
                 'overdue',
@@ -37,6 +39,7 @@ tracks {
         segment(
             type: PropertyType.String,
             required: false,
+            description: "Segment",
             values: [
                 'online',
                 'in_store'
@@ -45,6 +48,7 @@ tracks {
         category(
             type: PropertyType.String,
             required: false,
+            description: "Category",
             values: [
                 'regular',
                 'refinance'
@@ -53,6 +57,7 @@ tracks {
         offer_type(
             type: PropertyType.String,
             required: false,
+            description: "Offer type",
             values: [
                 'early_offer',
                 'full_offer',
@@ -227,14 +232,28 @@ tracks {
                 PropertyType.Map(offer_definition)
             ),
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "offers"
+        )
+        campaign_id(
+            description: "Custom landing campaign",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'amount_and_fee_improvement',
+                'amount_and_term_improvement',
+                'amount_improvement',
+                'fee_improvement',
+                'term_improvement'
+            ]
         )
         products(
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
             ),
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "products"
         )
         promise(
             type: PropertyType.String,
@@ -246,22 +265,25 @@ tracks {
                 'view_debt_relief',
                 'none',
             ],
-            inheritable: false
+            inheritable: false,
+            description: "promise"
         )
         show_cx_widget(
             type: PropertyType.Boolean,
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "cx widget is open"
         )
         accesses(
             description: "List of accesses shown to the user",
             type: PropertyType.ArrayList(accesses),
-            required: false
+            required: false,
         )
         from_optins(
             type: PropertyType.Boolean,
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "optin validation"
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
@@ -273,7 +295,8 @@ tracks {
                 'overdue',
                 'empty'
             ],
-            inheritable: false
+            inheritable: false,
+            description: "status"
         )
         source_tracking
     }
@@ -300,14 +323,16 @@ tracks {
                         PropertyType.Map(offer_definition)
                 ),
                 required: false,
-                inheritable: false
+                inheritable: false,
+                description: "offers"
         )
         products(
                 type: PropertyType.ArrayList(
                         PropertyType.Map(with_status)
                 ),
                 required: false,
-                inheritable: false
+                inheritable: false,
+                description: "products"
         )
     }
 
@@ -351,6 +376,7 @@ tracks {
             type: PropertyType.ArrayList(
                 PropertyType.Map(offer_definition)
             ),
+            description: "inconsistency",
             required: false,
             inheritable: false
         )
@@ -358,12 +384,14 @@ tracks {
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
             ),
+            description: "products",
             required: false,
             inheritable: false
         )
         promise(
             type: PropertyType.String,
             required: false,
+            description: "Promise state",
             values: [
                 'create_promise',
                 'view_promise',
@@ -386,10 +414,22 @@ tracks {
             values: [
                 'communications_library'
             ],
-            inheritable: false
+            inheritable: false,
+            description: "reason"
         )
 
         source_tracking
+    }
+
+    //Checkout
+    "/credits/merchant/checkout"(platform: "/", type: TrackType.Event) {
+        amount_to_pay(
+           type: PropertyType.String,
+           required: true,
+           description: "Redirect to checkout with amount to pay",
+           inheritable: false
+        )
+        products_with_status
     }
 
     //Voluntary Payment
@@ -1038,6 +1078,18 @@ tracks {
         offer(
             type: PropertyType.Map(offer_map),
             required: false,
+        )
+        campaign_id(
+            description: "Custom landing campaign",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'amount_and_fee_improvement',
+                'amount_and_term_improvement',
+                'amount_improvement',
+                'fee_improvement',
+                'term_improvement'
+            ]
         )
         product_type(
             description: "Product type from the user's credit line",
