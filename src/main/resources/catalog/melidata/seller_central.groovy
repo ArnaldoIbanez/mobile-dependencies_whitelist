@@ -2310,6 +2310,11 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item id to which the tooltip is executed")
     }
 
+    "/seller_central/promotions/row/tooltip_help_adv"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        promo_id(required: true, type: PropertyType.String, description: "Deals co-funded campaign identifier")
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the tooltip is executed")
+    }
+
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }

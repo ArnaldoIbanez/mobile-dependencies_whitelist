@@ -4,6 +4,12 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def utmProperties = objectSchemaDefinitions {
+        utm_campaign(required: false, type: PropertyType.String, description: "UTM campaign given")
+        utm_medium(required: false, type: PropertyType.String, description: "UTM medium given")
+        utm_source(required: false, type: PropertyType.String, description: "UTM source given")
+    }
+
     propertyDefinitions {
         flow_id (type: PropertyType.String, required: true, description: "Flow ID")
         product_id (type: PropertyType.String, required: true, description: "Product identifier")
@@ -18,10 +24,11 @@ tracks {
         ch (type: PropertyType.String, required: false, description: "sales channel")
         camp (type: PropertyType.String, required: false, description: "campaign")
         strategy (type: PropertyType.String, required: false, description: "strategy")
+        utm (type: PropertyType.Map(utmProperties), required: false, description: "UTM info")
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bunit, ch, camp, strategy)
+        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bunit, ch, camp, strategy, utm)
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
