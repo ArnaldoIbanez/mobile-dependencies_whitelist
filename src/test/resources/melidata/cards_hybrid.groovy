@@ -712,6 +712,10 @@ trackTests {
             type = "congrats_type"
             insurance_offer = "banner"
         }
+        "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
+            type = "congrats_type"
+            insurance_offer = "label"
+        }
         "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {
             type = "congrats_type"
         }
