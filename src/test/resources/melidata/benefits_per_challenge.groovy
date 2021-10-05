@@ -20,25 +20,25 @@ trackTests {
     }
   }
   test("button find_stores") {
-    "/instore/challenge/find_stores" (platform: "/", type: TrackType.Event) {
+    "/instore/challenge/summary/find_stores" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
     }
   }
   test("button use_benefit") {
-    "/instore/challenge/use_benefit" (platform: "/", type: TrackType.Event) {
+    "/instore/challenge/summary/use_benefit" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
     }
   }
   test("button other_discounts") {
-    "/instore/challenge/other_discounts" (platform: "/", type: TrackType.Event) {
+    "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
     }
   }
   test("button tyc") {
-    "/instore/challenge/terms_and_conditions" (platform: "/", type: TrackType.Event) {
+    "/instore/challenge/summary/terms_and_conditions" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
     }
