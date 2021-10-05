@@ -6291,4 +6291,35 @@ trackTests {
 
         "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
     }
+    
+    test("SYI v4 Fake Door Experiment"){
+        "/sell/item_conditions/fake_door_challenge/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
+        "/sell/item_conditions/fake_door_challenge/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
+        "/sell/item_conditions/fake_door_feedback/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
+        "/sell/item_conditions/fake_door_feedback/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
+    }
 }
