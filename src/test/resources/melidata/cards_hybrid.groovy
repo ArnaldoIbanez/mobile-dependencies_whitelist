@@ -712,8 +712,16 @@ trackTests {
             type = "congrats_type"
             insurance_offer = "banner"
         }
-        "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
+        "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
             type = "congrats_type"
+            insurance_offer = "label"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {
+            type = "congrats_type"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/ios", type: TrackType.Event) {
+            type = "congrats_type"
+            url = "mercadopago://home"
         }
         "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"

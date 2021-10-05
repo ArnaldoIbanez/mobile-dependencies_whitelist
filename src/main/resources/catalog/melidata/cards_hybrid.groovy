@@ -291,11 +291,19 @@ tracks {
         insurance_offer (
             required: false,
             type: PropertyType.String,
-            values: ["banner", "success", "pending"],
+            values: ["banner", "label"],
             description: "Indicates the insurance offer type that was displayed"
         )
     }
-    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/ios", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url that init Insurance flow",
+            inheritable:false
+        )
+    }
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,
