@@ -1155,6 +1155,11 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
         )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
         is_warning_address (
             required: false,
             type: PropertyType.Boolean,
@@ -1238,8 +1243,8 @@ tracks {
         )
         is_warning_address (
             required: false,
-             type: PropertyType.Boolean,
-             description: "If address has a warning message"
+            type: PropertyType.Boolean,
+            description: "If address has a warning message"
         )
     }
 
@@ -1263,6 +1268,16 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        address_id (
+            required: false,
+             type: PropertyType.String,
+             description: "Address id"
+        )
+        is_warning_address (
+            required: false,
+             type: PropertyType.Boolean,
+             description: "If address has a warning message"
         )
     }
     

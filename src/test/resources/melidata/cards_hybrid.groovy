@@ -1149,6 +1149,11 @@ trackTests {
         "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
             reasons = ["debit_available_push_strategy_none", "reissue"]
         }
+        "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
+        }
     }
     test("cards hybrid request physical challenge") {
         "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
@@ -1259,6 +1264,11 @@ trackTests {
     test("cards hybrid physical success event"){
         "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
             reasons = ["card_whitelist_physical_first", "reissue"]
+        }
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["card_whitelist_physical_first", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
         }
     }
 
