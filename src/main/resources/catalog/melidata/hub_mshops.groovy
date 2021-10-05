@@ -14,11 +14,13 @@ tracks {
         "configuring",
         "configured",
         "error",
+        "warning",
         "blocked",
         "unavailable",
     ]
 
     def tools = [
+        "mercado_ads",
         "whatsapp",
         "facebook_shop",
         "facebook_pixel",
@@ -48,6 +50,7 @@ tracks {
     ]
 
     def confData = objectSchemaDefinitions {
+        mercado_ads(required: true, type: PropertyType.String, values: toolStatus)
         whatsapp(required: true, type: PropertyType.String, values: toolStatus)
         facebook_shop(required: true, type: PropertyType.String, values: toolStatus)
         facebook_pixel(required: true, type: PropertyType.String, values: toolStatus)
@@ -133,6 +136,14 @@ tracks {
     }
 
     "/shops/hub/solve"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools)
+    }
+
+    "/shops/hub/activate"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools)
+    }
+
+    "/shops/hub/contract"(platform: "/", type: TrackType.Event) {
         tool(required: true, type: PropertyType.String, values: tools)
     }
 
