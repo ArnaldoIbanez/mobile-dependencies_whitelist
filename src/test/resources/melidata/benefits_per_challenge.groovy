@@ -23,24 +23,44 @@ trackTests {
     "/instore/challenge/summary/find_stores" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
+      payment_status = [
+        challenge_status : 'ongoing',
+        challenge_stages : 5,
+        payments : 3
+      ]
     }
   }
   test("button use_benefit") {
     "/instore/challenge/summary/use_benefit" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
+      payment_status = [
+        challenge_status : 'ongoing',
+        challenge_stages : 5,
+        payments : 3
+      ]
     }
   }
   test("button other_discounts") {
     "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
+      payment_status = [
+        challenge_status : 'ongoing',
+        challenge_stages : 5,
+        payments : 3
+      ]
     }
   }
   test("button tyc") {
     "/instore/challenge/summary/terms_and_conditions" (platform: "/", type: TrackType.Event) {
       session_id = "11"
       challenge_id = "wqejwej1-111"
+      payment_status = [
+        challenge_status : 'ongoing',
+        challenge_stages : 5,
+        payments : 3
+      ]
     }
   }
   test("How to use view") {
