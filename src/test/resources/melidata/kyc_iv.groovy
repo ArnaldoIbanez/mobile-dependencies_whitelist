@@ -200,7 +200,7 @@ trackTests {
             error = "error al descargar"
         }
 
-        "/kyc/iv/object_detection/blurryFallback"(platform: "/mobile/android")  {
+        "/kyc/iv/object_detection/blurry_fallback"(platform: "/mobile/android")  {
             blurry_count_out = 10
         }
 
@@ -292,7 +292,7 @@ trackTests {
             error = "error al descargar"
         }
 
-        "/kyc/iv/object_detection/blurryFallback"(platform: "/mobile/ios")  {
+        "/kyc/iv/object_detection/blurry_fallback"(platform: "/mobile/ios")  {
             blurry_count_out = 10
         }
 
@@ -759,7 +759,7 @@ trackTests {
             error = "error al descargar"
         }
 
-        "/kyc/iv/object_detection/blurryFallback"(platform: "/mobile/android")  {
+        "/kyc/iv/object_detection/blurry_fallback"(platform: "/mobile/android")  {
             blurry_count_out = 10
         }
 
@@ -881,7 +881,7 @@ trackTests {
             error = "error al descargar"
         }
 
-        "/kyc/iv/object_detection/blurryFallback"(platform: "/mobile/ios")  {
+        "/kyc/iv/object_detection/blurry_fallback"(platform: "/mobile/ios")  {
             blurry_count_out = 10
         }
 
@@ -1408,7 +1408,7 @@ trackTests {
             error = "error al descargar"
         }
 
-        "/kyc/iv/object_detection/blurryFallback"(platform: "/mobile/android")  {
+        "/kyc/iv/object_detection/blurry_fallback"(platform: "/mobile/android")  {
             blurry_count_out = 10
         }
 
@@ -1500,7 +1500,7 @@ trackTests {
             error = "error al descargar"
         }
 
-        "/kyc/iv/object_detection/blurryFallback"(platform: "/mobile/ios")  {
+        "/kyc/iv/object_detection/blurry_fallback"(platform: "/mobile/ios")  {
             blurry_count_out = 10
         }
 
