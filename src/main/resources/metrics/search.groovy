@@ -11,7 +11,7 @@ metrics {
         countsOn {
             condition {
                 path("/search")
-                like('platform.fragment', '.applied_filter_id.*')
+                like('platform.fragment', '.\\bapplied_filter_id.*')
             }
         }
     }
