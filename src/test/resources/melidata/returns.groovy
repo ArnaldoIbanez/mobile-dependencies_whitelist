@@ -7,7 +7,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test("Returns tracks") {
+    test("Returns express tracks") {
 
       // STEP 01
       "/return/potential_resolutions"(platform: "/", type: TrackType.View)  {
@@ -141,6 +141,10 @@ trackTests {
         review_return_method = 'review_code'
       }
 
+      "/return/review/agencies"(platform: "/", type: TrackType.Event) {
+        selection = "view_agencies"
+      }
+
       // STEP 07
       "/return/congrats"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
@@ -165,6 +169,10 @@ trackTests {
         selection = "to_myml"
       }
 
+      "/return/congrats/agencies"(platform: "/", type: TrackType.Event) {
+        selection = "view_agencies"
+      }
+
       "/return/congrats_error"(platform: "/", type: TrackType.View) {
         loyalty_level = 4
         order_id = 1763279429
@@ -178,6 +186,7 @@ trackTests {
         shipment_type = "delivery"
         pickup_time = ""
         showed_payment_methods = "credit_card"
+        refund_account_money = true
         cart_order = false
         payment_refund_at = "shipped"
         flow_version = "return-mobile-0.0.1"
@@ -263,4 +272,58 @@ trackTests {
         selection = "accepted"
       }
     }
+
+    test("Returns tracks") {
+
+    // STEP 01
+    "/returns/refunds"(platform: "/", type: TrackType.View)  {
+      flow_version = "init-return-0.0.0"
+      showed_payment_methods = "credit_card"
+      layout = "table_layout"
+    }
+    "/returns/refunds/selection"(platform: "/", type: TrackType.Event)  {
+      selection = "accepted"
+    }
+
+    "/returns/refunds_ram"(platform: "/", type: TrackType.View)  {
+      flow_version = "init-return-0.0.0"
+    }
+    "/returns/refunds_ram/selection"(platform: "/", type: TrackType.Event)  {
+      selection = "accepted"
+      refund_info = "refund_account_money"
+    }
+
+    // STEP 02
+    "/returns/confirmation"(platform: "/", type: TrackType.View)  {
+      flow_version = "init-return-0.0.0"
+    }
+    "/returns/confirmation/selection"(platform: "/", type: TrackType.Event)  {
+      confirmation_return_method = "confirmation_code"
+    }
+    "/returns/confirmation/agencies"(platform: "/", type: TrackType.Event) {
+      selection = "view_agencies"
+    }
+
+    // STEP 03
+    "/returns/congrats"(platform: "/", type: TrackType.View) {
+      flow_version = "init-return-0.0.0"
+      refund_account_money = true
+    }
+    "/returns/congrats/selection"(platform: "/", type: TrackType.Event) {
+      selection = "to_myml"
+    }
+    "/returns/congrats/agencies"(platform: "/", type: TrackType.Event) {
+      selection = "view_agencies"
+    }
+
+    // Warning Page for return created (view)
+    "/returns/warning"(platform: "/") {
+      flow_version = "init-return-0.0.0"
+      type = "return_created"
+    }
+    // Warning Page for claim created (event)
+    "/returns/warning/selection"(platform: "/") {
+      selection = "view_details"
+    }
+  }
 }

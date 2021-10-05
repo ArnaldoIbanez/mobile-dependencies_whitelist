@@ -28,6 +28,16 @@ trackTests {
             average_error_time=11
         }
 
+        "/melidata/statistics/experiments"(platform:"/mobile", type:TrackType.Control){
+            start_time="2015-01-21T13:14:09.415-0300"
+            duration=230
+            experiments_amount=6
+            persistence_enabled=true
+            experiment_to_retrieve="ALL"
+            execution_status="error"
+            error="error_name"
+        }
+
         "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control){
             delete_records=40
             current_size=69632
@@ -38,6 +48,13 @@ trackTests {
             delete_records=50
             current_size=82322
             previous_size=122592
-        }
+        }       
+    }
+    
+    test("melidata AB URL Spliting "){
+        "/melidata/ab_split"(platform:"/mobile/ios", type:TrackType.Event){}
+        "/melidata/ab_split"(platform:"/mobile/android", type:TrackType.Event){}
+        
+        "/melidata/ab_split"(platform:"/mobile/ios", type:TrackType.Event, business:"mercadopago"){}
     }
 }

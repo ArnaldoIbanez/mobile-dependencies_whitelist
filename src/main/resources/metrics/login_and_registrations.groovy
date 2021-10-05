@@ -1,8 +1,9 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 
 metrics {
-    "logins"(description: "logins count") {
+    "logins"(description: "logins count", tags:[TagType.CoreMetric]) {
         startWith {
             experiment(regex("login/.*"))
         }
@@ -13,7 +14,7 @@ metrics {
         }
     }
 
-    "registrations"(description: "registrations count") {
+    "registrations"(description: "registrations count", tags:[TagType.Important]) {
         countsOn {
             condition {
                 path("/register/success")

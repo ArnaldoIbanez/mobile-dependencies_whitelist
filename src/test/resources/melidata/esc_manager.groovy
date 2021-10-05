@@ -63,7 +63,13 @@ trackTests {
 
         "/esc_manager/invalid/key"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
+        }
 
+        "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "id"
+            flow = "flow"
+            type = "SINGLE_ESC_SYNC_REQUEST"
+            quantity = 1
         }
     }
 
@@ -126,7 +132,13 @@ trackTests {
 
         "/esc_manager/invalid/key"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
+        }
 
+        "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "id"
+            flow = "flow"
+            type = "SINGLE_ESC_SYNC_REQUEST"
+            quantity = 1
         }
     }
 }

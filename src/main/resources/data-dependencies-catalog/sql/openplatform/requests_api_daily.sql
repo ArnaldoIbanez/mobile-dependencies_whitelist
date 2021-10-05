@@ -1,1 +1,0 @@
-select request_date, count(1) AS total_requests from openplatform.requests_api_daily WHERE request_date >= '@param01' AND request_date < '@param02' GROUP BY request_date;
