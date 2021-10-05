@@ -143,7 +143,15 @@ tracks {
         tool(required: true, type: PropertyType.String, values: tools)
     }
 
-    "/shops/hub/contract"(platform: "/", type: TrackType.Event) {
+    "/shops/hub/engage"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools)
+    }
+
+    "/shops/hub/reactivate"(platform: "/", type: TrackType.Event) {
+        tool(required: true, type: PropertyType.String, values: tools)
+    }
+
+    "/shops/hub/review"(platform: "/", type: TrackType.Event) {
         tool(required: true, type: PropertyType.String, values: tools)
     }
 
