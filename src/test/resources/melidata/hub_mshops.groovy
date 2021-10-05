@@ -140,14 +140,6 @@ trackTests {
             tool = "mercado_ads"
         }
 
-        "/shops/hub/review"(platform: "/", type: TrackType.Event) {
-            shop_id = 158689680
-            shop_name = "TESTSHOP"
-            shop_domain = "test.mercadolibre.com.co"
-            domain_status = "shops_domain"
-            tool = "mercado_ads"
-        }
-
         "/shops/hub/configuration/show_more"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_name = "TESTSHOP"
