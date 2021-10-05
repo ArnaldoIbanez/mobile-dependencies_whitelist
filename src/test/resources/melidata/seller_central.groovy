@@ -423,7 +423,7 @@ trackTests {
   // Seller coach
 
   test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/card/click"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -439,11 +439,12 @@ trackTests {
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      type = "CTA"
     }
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/card/click"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -457,6 +458,7 @@ trackTests {
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      type = "DISMISS"
     }
   }
 
@@ -535,7 +537,7 @@ trackTests {
   }
 
   test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/card/click"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -551,11 +553,12 @@ trackTests {
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      type = "CTA"
     }
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/mobile", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/card/click"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -569,6 +572,7 @@ trackTests {
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      type = "DISMISS"
     }
   }
 

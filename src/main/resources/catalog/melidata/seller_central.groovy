@@ -472,21 +472,14 @@ tracks {
     // Seller coach
     "/seller_central/seller_coach"(platform: "/", isAbstract: true) {}
     "/seller_central/seller_coach/summary"(platform: "/", isAbstract: true) {}
-    "/seller_central/seller_coach/summary/card_click"(platform: "/", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/card/click"(platform: "/", type: TrackType.Event) {
         segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
         power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
         reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
         card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
         user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
-    }
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/", type: TrackType.Event) {
-        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
-        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
-        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
-        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
-        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
-        user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
+        type(required: true, type: PropertyType.String, description: "Type of click", values: ["CTA", "DISMISS", "BOOKMARK", "UNBOOKMARK"])
     }
     "/seller_central/seller_coach/summary/cards_view"(platform: "/", type: TrackType.View) {
         segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
