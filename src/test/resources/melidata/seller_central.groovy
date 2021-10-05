@@ -423,7 +423,7 @@ trackTests {
   // Seller coach
 
   test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card/click"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/click_card"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -444,7 +444,7 @@ trackTests {
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card/click"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/click_card"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -537,7 +537,7 @@ trackTests {
   }
 
   test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card/click"(platform: "/mobile", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/click_card"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -558,7 +558,7 @@ trackTests {
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card/click"(platform: "/mobile", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/click_card"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
