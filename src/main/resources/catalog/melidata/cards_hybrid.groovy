@@ -2948,6 +2948,11 @@ tracks {
             type: PropertyType.String,
             description: "Adds more info for specials cases, like errors or fails"
         )
+        is_online_payment (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment is online or offline"
+        )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
         action (
