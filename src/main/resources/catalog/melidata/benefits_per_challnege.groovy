@@ -20,7 +20,7 @@ tracks {
     session_id(required: true, type: PropertyType.String, description: "Session identifier")
   }
   "/instore/challenge/summary" (platform: "/", type: TrackType.View) {
-    payment_status(required: true, inheritable:false, type:PropertyType.Map(payment_status_object), description: "state of payments")
+    payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "state of payments")
   }
   
   "/instore/challenge/summary/find_stores" (platform: "/", type: TrackType.Event) {}
