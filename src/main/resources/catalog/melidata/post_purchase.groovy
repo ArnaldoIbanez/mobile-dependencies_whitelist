@@ -21,7 +21,7 @@ tracks {
     }
 
     "/post_purchase/external"(platform: "/", type: TrackType.View) {
-        reason(required: true, type: PropertyType.String, description: 'selected reason')
+        reason(required: false, type: PropertyType.String, description: 'selected reason')
         flow(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
         order_id(required: false, type: PropertyType.String, description: 'id of the order')
         resolution(required: false, type: PropertyType.String, description: 'kind of operation', values:['return_product', 'change_product'])
