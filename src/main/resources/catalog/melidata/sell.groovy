@@ -1498,5 +1498,17 @@ tracks {
     "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
     "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
 
-
+    // Fake Door Experiment
+    "/sell/item_conditions/fake_door_challenge"(platform: "/web", isAbstract: true) {
+        sellGroup
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+    }
+    "/sell/item_conditions/fake_door_challenge/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/fake_door_challenge/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/fake_door_feedback"(platform: "/web", isAbstract: true) {
+        sellGroup
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+    }
+    "/sell/item_conditions/fake_door_feedback/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/fake_door_feedback/confirm"(platform: "/web", type: TrackType.Event) {}
 }
