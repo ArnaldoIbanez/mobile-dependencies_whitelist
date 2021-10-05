@@ -1219,7 +1219,7 @@ tracks {
         )
     }
 
-    "/cards/hybrid/request/physical/review/tap"(platform: "/mobile/android", type: TrackType.Event) {
+    "/cards/hybrid/request/physical/review/cta"(platform: "/mobile/android", type: TrackType.Event) {
         action (
             required: true,
              type: PropertyType.String,
