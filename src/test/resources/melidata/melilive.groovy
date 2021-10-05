@@ -41,7 +41,7 @@ trackTests {
     test("MeliLive WebView") {
 
         "/melilive/webview"(platform: "/mobile") {
-            url = "meli://live/ede1ad69-c277-4f60-90c8-b845ca804fbe"
+            uri = "meli://live/ede1ad69-c277-4f60-90c8-b845ca804fbe"
         }
     }
 
