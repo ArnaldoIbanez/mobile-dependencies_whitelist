@@ -1218,28 +1218,19 @@ tracks {
     "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
-             type: PropertyType.String,
-             values: ["back", "changes_address", "tyc", "card_request"],
-             description: "action tap by the user in the review"
-        )
-    }
-
-    "/cards/hybrid/request/physical/review/cta"(platform: "/mobile/android", type: TrackType.Event) {
-        action (
-            required: true,
-             type: PropertyType.String,
-             values: ["edit_address", "add_new_address"],
-             description: "action tap by the user in the review"
+            type: PropertyType.String,
+            values: ["back", "changes_address", "tyc", "card_request", "edit_address", "add_new_address"],
+            description: "action tap by the user in the review"
         )
         address_id (
             required: false,
-             type: PropertyType.String,
-             description: "Address id"
+            type: PropertyType.String,
+            description: "Address id"
         )
         is_accurate (
             required: false,
-             type: PropertyType.Boolean,
-             description: "If address is accurate"
+            type: PropertyType.Boolean,
+            description: "If address is accurate"
         )
         is_warning_address (
             required: false,
