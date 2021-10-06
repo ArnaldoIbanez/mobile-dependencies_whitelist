@@ -1768,6 +1768,12 @@ tracks {
         latest_news_type(required: true, values: ["insurtech_payment_recovery_cards"], type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    
+    // Disbursement Kwai
+    "/notification_center/disbursement_kwai_received"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 
       /**
        * NOTIFICATIONS TRAY
@@ -3742,6 +3748,9 @@ tracks {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
 
+    // Disbursement Kwai
+    "/notification/disbursement_kwai_received"(platform: "/") {}
+    
     // Money In CCA
     "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
