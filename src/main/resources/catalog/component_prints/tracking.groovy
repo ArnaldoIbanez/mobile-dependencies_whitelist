@@ -45,5 +45,6 @@ tracks {
 
     "/pdp/merch/show"(platform: "/") {
         merch_data (required:false, type: PropertyType.Map(merchdata))
+        smth(type: PropertyType.String, required: false)
     }
 }
