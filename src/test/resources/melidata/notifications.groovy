@@ -13626,8 +13626,14 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
-            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -14093,8 +14099,14 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
-            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
