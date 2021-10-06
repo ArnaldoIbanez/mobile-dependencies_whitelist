@@ -2184,7 +2184,7 @@ trackTests {
         }
 
         // Disbursement Kwai
-        "/notification_center/disbursement_kwai-received"(platform: "/") {
+        "/notification_center/disbursement_kwai_received"(platform: "/") {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
         }
@@ -8990,7 +8990,7 @@ trackTests {
             latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
 
-        "/notification_center/disbursement_kwai-received"(platform: "/") {
+        "/notification_center/disbursement_kwai_received"(platform: "/") {
             latest_news_type= "disbursement_kwai_received"
             latest_news_id= "disbursement_kwai-received-12345678"
         }
