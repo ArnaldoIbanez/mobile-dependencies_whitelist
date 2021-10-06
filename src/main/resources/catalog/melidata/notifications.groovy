@@ -1774,31 +1774,40 @@ tracks {
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
+            type: PropertyType.String,
             values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
             description: "Type of notification event")
           action_type(required: false,
+            type: PropertyType.String,
             values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification action")
           notification_type(required: false,
+            type: PropertyType.String,
             values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"],
             description: "Type of the notification")
-          deeplink(required: false, description: "The link were the notification should navigate to, if applies")
+          deeplink(required: false, 
+            type: PropertyType.String,
+            description: "The link were the notification should navigate to, if applies")
 
           //For event_type:autodismiss, indicates why the notification was dismissed
           source(required: false,
-                 values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
+            type: PropertyType.String,
+            values: ["notification_center","logout","overwrite","dismiss_notification"], description: "Source of the notification")
 
-          discard_reason(required: false, description: "The discarded reason of the notification", values: ["invalid_payload","invalid_user", "settings_disabled"], type: PropertyType.String)
+          discard_reason(required: false, 
+          description: "The discarded reason of the notification", 
+          values: ["invalid_payload","invalid_user", "settings_disabled"], 
+          type: PropertyType.String)
 
           notification_created_error(required: false, description: "The notification created error", type: PropertyType.String)
 
-          news_id(required: false, description: "Identifier of the notification generated")
-          notification_style(required: false, description: "The notification style used when displaying the notification to the user.")
+          news_id(required: false, type: PropertyType.String, description: "Identifier of the notification generated")
+          notification_style(required: false, type: PropertyType.String, description: "The notification style used when displaying the notification to the user.")
 
-          status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
+          status(required: false, type: PropertyType.String, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
 
-          device_id(required: false, description: "The real device_id, may differ from device field")
-          device_status(required: false, values: ["active", "not_engaged"], description: "Device status at the moment")
+          device_id(required: false, type: PropertyType.String, description: "The real device_id, may differ from device field")
+          device_status(required: false, type: PropertyType.String, values: ["active", "not_engaged"], description: "Device status at the moment")
 
           context(required: false, type: PropertyType.String, description: "Context of the notification")
 
@@ -1904,6 +1913,10 @@ tracks {
     "/notification/credit_card_transaction_purchase"(platform: "/") {}
     "/notification/credit_card_transaction_withdrawal"(platform: "/") {}
     "/notification/credit_card_transaction_kyc_onboarding"(platform: "/") {}
+
+    // CardUpdater
+    "/notification/card_updater_expiry"(platform: "/mobile") { }
+    "/notification/card_updater_update"(platform: "/mobile") { }
 
       //ChargeBack
       "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/") {
@@ -2024,13 +2037,14 @@ tracks {
       "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
 
     "/notification/credits_consumer_expired_eighty_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_eighty_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_two_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_two_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_nine_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_nine_mp_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_fifteen_notice"(platform: "/") {}
-    "/notification/credits_consumer_expired_fifteen_mp_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_on_due_date_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_thirteen_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_twentythree_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_thirtyone_notice"(platform: "/") {}
+    "/notification/credits_consumer_expired_ninety_notice"(platform: "/") {}
 
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
@@ -2307,6 +2321,16 @@ tracks {
     "/notification/shipping_rts_in_packing_list"(platform: "/") {
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
+
+    //Cancelaciones Parciales
+    "/notification/shipping_delivered_partial_cancellations"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
+    "/notification/shipping_shipped_partial_cancellations"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+    }
+
 
       //Seller questions
       "/notification/questions_new"(platform: "/") {
@@ -3363,6 +3387,8 @@ tracks {
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}

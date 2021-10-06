@@ -1770,6 +1770,7 @@ tracks {
         item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"], description: "Whenever the items is active, closed or paused")
         item_seller_type(required: false, type: PropertyType.String, values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand"], description: "Seller type: normal, car_dealer, etc")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        category_path(required: true, type: PropertyType.ArrayList(PropertyType.String) , description:  "Category path of the the item")
         buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"], description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         vertical(required: true, type: PropertyType.String, values: ["motors", "realEstate", "services"], description: "Vertical of the item")
