@@ -555,7 +555,9 @@ trackTests {
         "/asset_management/blocker_v2/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
         "/asset_management/blocker_v2/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
 
-        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {}
+        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
+            blocker_type = 'kyc'
+        }
         "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
             blocker_type = 'pending'
         }

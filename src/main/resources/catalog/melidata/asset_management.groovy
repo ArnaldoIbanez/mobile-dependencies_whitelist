@@ -257,6 +257,6 @@ tracks {
     "/asset_management/blocker_v2/know_requirements"(platform: "/", type: TrackType.Event) { }
     "/asset_management/blocker_v2/contact_bind"(platform: "/", type: TrackType.Event) { }
     "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
-        blocker_type (required: false, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF"])
+        blocker_type (required: true, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF"], inheritable: false)
     }
 }
