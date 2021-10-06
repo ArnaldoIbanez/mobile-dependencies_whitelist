@@ -14262,11 +14262,6 @@ trackTests {
             latest_news_id= "insurtech_imei_cancellation_advice-143816022-MLB1013046714"
         }
 
-         "/notification_center/disbursement_kwai-received"(platform: "/") {
-            latest_news_type= "disbursement_kwai_received"
-            latest_news_id= "disbursement_kwai-received-12345678"
-        }
-
         "/notification/insurtech_imei_cancellation_advice"(platform: "/mobile") {
             news_id = "insurtech_imei_cancellation_advice_123"
             event_type = "open"
@@ -14313,6 +14308,15 @@ trackTests {
             news_id = "wallet_connect-rejected_payment-84060496"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+        "/notification/disbursement_kwai_received"(platform: "/") {
+            news_id = "disbursement_kwai-received-12345678"
+            event_type = "open"
+        }
+        
+        "/notification_center/disbursement_kwai-received"(platform: "/") {
+            latest_news_type= "disbursement_kwai_received"
+            latest_news_id= "disbursement_kwai-received-12345678"
         }
     }
 
@@ -14411,11 +14415,6 @@ trackTests {
         "/notification/me_crowd_geo_city_registration"(platform: "/mobile/android"){
             news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
             event_type = "sent"
-        }
-
-        "/notification/disbursement_kwai_received"(platform: "/") {
-            news_id = "disbursement_kwai-received-12345678"
-            event_type = "open"
         }
     }
 
