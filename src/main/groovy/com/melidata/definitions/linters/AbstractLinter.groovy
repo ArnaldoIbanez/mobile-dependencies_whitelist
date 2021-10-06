@@ -14,7 +14,7 @@ abstract class AbstractLinter {
 
     boolean validateTrackDefinition(TrackDefinition definition) {
         if(!validateTrack(definition)) {
-            printFails("Track ${definition.path} with platform ${definition.platform} " +
+            printFails("- Track ${definition.path} with platform ${definition.platform} " +
                     "didn't pass validation => ${errorMessage}")
 
             return false
@@ -24,12 +24,10 @@ abstract class AbstractLinter {
     }
 
     boolean validateProperties(TrackDefinition definition) {
-        List<TrackDefinitionProperty> invalidProps = getPropertiesAnalysis(getPropertiesFromDefinition(definition))
+        List<String> invalidProps = getPropertiesAnalysis(getPropertiesFromDefinition(definition))
         if(!invalidProps.isEmpty()) {
-            printFails("Track ${definition.path} with platform ${definition.platform} has invalid properties.")
-            invalidProps.forEach {prop  ->
-                print("\033[91m  *  Porperty ${prop.name}: ${errorMessage}\033[0m\n")
-            }
+            printFails("- Track ${definition.path} with platform ${definition.platform} has invalid properties. ${errorMessage}")
+            printFails("* Properties: ${invalidProps}")
 
             return false
         }
@@ -38,7 +36,7 @@ abstract class AbstractLinter {
     }
 
     List<String> getPropertiesAnalysis(List<TrackDefinitionProperty> definitionsProperties) {
-        List<String> invalidProps = validatePropertySet(definitionsProperties)
+        List<TrackDefinitionProperty> invalidProps = validatePropertySet(definitionsProperties)
 
         def allNestedStructures = definitionsProperties.findAll{it.type instanceof MapProperty}.toList()
 
@@ -47,7 +45,7 @@ abstract class AbstractLinter {
             invalidProps.addAll(validatePropertySet(nestedProperties))
         }
 
-        return invalidProps
+        return invalidProps.collect {it.name}.toList()
     }
 
     List<TrackDefinitionProperty> getPropertiesFromDefinition(TrackDefinition definition) {
@@ -58,6 +56,6 @@ abstract class AbstractLinter {
     abstract List<TrackDefinitionProperty> validatePropertySet(List<TrackDefinitionProperty> properties)
 
     private void printFails(message) {
-        print("\033[91m  -  "+message+"\033[0m\n")
+        print("\033[91m "+message+"\033[0m\n")
     }
 }
