@@ -38,6 +38,8 @@ class CatalogLinter {
         def prodDefinitions = getProdDefinitions(catalogName)
 
         localDefinitions.forEach {newDefinition ->
+            excludeParentProperties(newDefinition, localDefinitions)
+
             def prodDef = prodDefinitions.findAll {it -> it.path == newDefinition.path && it.platform == newDefinition.platform}.toList()
 
             //Local definition is new to prod
@@ -66,6 +68,23 @@ class CatalogLinter {
         }
 
         return isValid
+    }
+
+    void excludeParentProperties(TrackDefinition localDefinition, Set<TrackDefinition> prodDefinitions) {
+        List<String> splitPath = localDefinition.path.split("/")
+        String parentPath = splitPath.take(splitPath.size() - 1).join("/")
+
+        def parentDef = prodDefinitions.findAll {it -> it.path == parentPath && it.platform == localDefinition.platform}.toList()
+
+        Map<String, TrackDefinitionProperty> propertiesMerge = [:]
+
+        localDefinition.properties.each {String name, TrackDefinitionProperty prop ->
+            if(!parentDef.collect {((Map) it.properties).values()}.flatten().contains(prop)) {
+                propertiesMerge.put(name, prop)
+            }
+        }
+
+        localDefinition.properties = propertiesMerge
     }
 
     private Set getLocalDefinitions(String catalogName) {
