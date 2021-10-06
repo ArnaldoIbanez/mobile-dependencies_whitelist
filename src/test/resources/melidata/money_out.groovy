@@ -279,8 +279,8 @@ trackTests {
 
       //Bottom Sheet - Unified P2P
       "/money_out/transfers/bottom_sheet"(platform: "/", type: TrackType.View) {}
-      "/money_out/transfers/bottom_sheet_confirm"(platform: "/", type: TrackType.Event) {}
-      "/money_out/transfers/bottom_sheet_cancel"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/bottom_sheet/confirm"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/bottom_sheet/cancel"(platform: "/", type: TrackType.Event) {}
     
       //Cashout - Modals
       "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
