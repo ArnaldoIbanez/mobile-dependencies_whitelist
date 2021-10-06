@@ -66,8 +66,14 @@ tracks {
         page(required: true, type: PropertyType.Numeric, description: "Number of the page the user is on")
         page_count(required: true, type: PropertyType.Numeric, description: "Number of the total pages in the backlog")
         filters(required: true, type: PropertyType.ArrayList, description: "Object that represent the filters implemented in the list")
-        item_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about item temperature")
-        parcel_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about parcel temperature")
+        item_temperature(required: true,
+                type: PropertyType.String,
+                values: ["DRY", "FRESH", "FROZEN"],
+                description: "Information about item temperature")
+        parcel_temperature(required: true,
+                type: PropertyType.String,
+                values: ["DRY", "FRESH", "FROZEN"],
+                description: "Information about parcel temperature")
     }
 
     propertyGroups {
