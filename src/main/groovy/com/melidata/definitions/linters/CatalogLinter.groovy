@@ -18,7 +18,7 @@ class CatalogLinter {
         linters.add(new MinimumRequiredTrueLinter(4))
         linters.add(new NamingLinter())
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
-        linters.add(new RequireValuesLinter(["mode", "type"]))
+        //linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data"],

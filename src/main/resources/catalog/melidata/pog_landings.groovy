@@ -37,7 +37,7 @@ tracks {
     --------------------- */
 
     "/pog/landings"(platform: "/", type: TrackType.View) {
-      utm (type: PropertyType.Map(utm_definition), required: true, description: "utm tracking")
+      utm (type: PropertyType.Map(utm_definition), required: false, description: "utm tracking")
     }
 
     "/pog/landings/compare"(platform:"/", type: TrackType.View) {}
