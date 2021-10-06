@@ -158,6 +158,22 @@ trackTests {
                  ]
              ]
          }
+
+        "/banking/balance/contingency_message_component"(platform: "/", type: TrackType.View) {
+             my_money_contingency_message = [
+                  component_id: 'contingency_message',
+                  component_data: [
+                      audience:"all",
+                      bu:"4",
+                      bu_line:"10",
+                      component_id:"card_contingencies",
+                      content_id:"test_contingencies_integration",
+                      flow:"20",
+                      logic:"user_journey",
+                      position:0
+                 ]
+             ]
+         }
     }
 
     test("Balance to release") {
@@ -418,11 +434,11 @@ trackTests {
         "/regulations/cerc/optin_form/confirm/form_confirm"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'button_click'
         }
-        
+
         "/regulations/cerc/optin_form/confirm/form_error_close"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'button_click'
         }
-        
+
         "/regulations/cerc/optin_form/congrats/help"(platform: "/", type: TrackType.Event) {
             cerc_action_id = 'button_click'
         }
