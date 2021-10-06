@@ -2183,6 +2183,12 @@ trackTests {
             latest_news_id= "transaction_invalid_amount_option_credit-143816022-MLB1013046714"
         }
 
+        // Disbursement Kwai
+        "/notification_center/disbursement_kwai_received"(platform: "/") {
+            latest_news_type= "disbursement_kwai_received"
+            latest_news_id= "disbursement_kwai-received-12345678"
+        }
+
         "/notification/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
             event_type= "sent"
@@ -8983,6 +8989,19 @@ trackTests {
             latest_news_type= "single_player_recharge_success_mp"
             latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
+        "/notification_center/moneyin_cca_approved"(platform: "/") {
+            latest_news_type= "moneyin_cca_approved"
+            latest_news_id= "moneyin_cca-approved-12345678"
+        }
+        "/notification_center/moneyin_cca_rejected"(platform: "/") {
+            latest_news_type= "moneyin_cca_rejected"
+            latest_news_id= "moneyin_cca-rejected-12345678"
+        }
+
+        "/notification_center/disbursement_kwai_received"(platform: "/") {
+            latest_news_type= "disbursement_kwai_received"
+            latest_news_id= "disbursement_kwai-received-12345678"
+        }
 
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
@@ -13413,6 +13432,21 @@ trackTests {
             news_id = "pm_om_notification-buyer_cancellation-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
             event_type = "open"
         }
+        "/notification/disbursement_kwai_received"(platform: "/") {
+            news_id = "disbursement_kwai-received-12345678"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/moneyin_cca_approved"(platform: "/") {
+            news_id = "moneyin_cca-approved-12345678"
+            event_type = "open"
+        }
+        
+        "/notification/moneyin_cca_rejected"(platform: "/") {
+            news_id = "moneyin_cca-rejected-12345678"
+            event_type = "open"
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -13626,8 +13660,14 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
-            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -14093,8 +14133,14 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/card_transactions_transaction_invalid_amount_option_express_money_decorator"(platform: "/mobile") {
-            news_id = "card_transactions_transaction_invalid_amount_option_express_money_decorator-186785675"
+        "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "card_transactions_transaction_invalid_amount_option_express_money-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -14308,6 +14354,10 @@ trackTests {
             news_id = "wallet_connect-rejected_payment-84060496"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+        "/notification/disbursement_kwai_received"(platform: "/") {
+            news_id = "disbursement_kwai-received-12345678"
+            event_type = "open"
         }
     }
 
