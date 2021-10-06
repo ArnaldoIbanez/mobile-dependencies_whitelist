@@ -621,7 +621,7 @@ tracks {
         )
     }
 
-    "/credits/credit-card/block_card/virtual/separator/tap"(platform: "/", type: TrackType.Event) {
+    "/credits/credit-card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
         action (
                 required: true,
                 type: PropertyType.String,
@@ -641,14 +641,16 @@ tracks {
         type (
                 required: true,
                 type: PropertyType.String,
-                description: "Type of congrats in reissue"
+                description: "Type of error in congrats",
+                values: ["virtual_credit_reissue_congrats"]
         )
         status (
                 required: true,
                 type: PropertyType.String,
-                description: "Status code",
+                description: "status code",
                 inheritable:false
         )
+
     }
 
     //Error
@@ -656,7 +658,8 @@ tracks {
         type (
                 required: true,
                 type: PropertyType.String,
-                description: "Type of error in reissue"
+                description: "Type of error in reissue",
+                values: ["virtual_credit_reissue_error"]
         )
         status (
                 required: true,
