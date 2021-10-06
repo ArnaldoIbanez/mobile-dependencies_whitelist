@@ -547,17 +547,17 @@ trackTests {
             status_id = 'pending'
         }
 
-        //blockerV2
-        "/asset_management/blockerV2"(platform: "/mobile", type: TrackType.View, business: "mercadolibre") {}
-        "/asset_management/blockerV2/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blockerV2/complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blockerV2/how_to_complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blockerV2/know_documentation"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blockerV2/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blockerV2/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        //blocker v2
+        "/asset_management/blocker_v2"(platform: "/mobile", type: TrackType.View, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/how_to_complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/know_documentation"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
 
-        "/asset_management/blockerV2"(platform: "/", type: TrackType.View) {}
-        "/asset_management/blockerV2"(platform: "/", type: TrackType.View) {
+        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {}
+        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
             blocker_type = 'pending'
         }
     }
