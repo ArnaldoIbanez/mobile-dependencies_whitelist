@@ -2389,7 +2389,7 @@ trackTests {
         }
     
         "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
-            status = "enrollment_completed"
+            status = "enrollment_complete"
         }
     
         "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
