@@ -250,13 +250,12 @@ tracks {
     }
 
     // blockerV2
-    "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {}
-    "/asset_management/blocker_v2/go_to_home"(platform: "/", type: TrackType.Event) {} 
-    "/asset_management/blocker_v2/complete_data"(platform: "/", type: TrackType.Event) {}
-    "/asset_management/blocker_v2/how_to_complete_data"(platform: "/", type: TrackType.Event) {}
-    "/asset_management/blocker_v2/know_documentation"(platform: "/", type: TrackType.Event) {}
-    "/asset_management/blocker_v2/know_requirements"(platform: "/", type: TrackType.Event) {}
-    "/asset_management/blocker_v2/contact_bind"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/blocker_v2/go_to_home"(platform: "/", type: TrackType.Event) {action (required: false)} 
+    "/asset_management/blocker_v2/complete_data"(platform: "/", type: TrackType.Event) {action (required: false)}
+    "/asset_management/blocker_v2/how_to_complete_data"(platform: "/", type: TrackType.Event) {action (required: false)}
+    "/asset_management/blocker_v2/know_documentation"(platform: "/", type: TrackType.Event) {action (required: false)}
+    "/asset_management/blocker_v2/know_requirements"(platform: "/", type: TrackType.Event) {action (required: false)}
+    "/asset_management/blocker_v2/contact_bind"(platform: "/", type: TrackType.Event) {action (required: false)}
     "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
         blocker_type (required: false, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF"])
     }
