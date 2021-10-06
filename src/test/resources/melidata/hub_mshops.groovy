@@ -272,6 +272,36 @@ trackTests {
         }
     }
 
+    test("Mercado Shops seller coach") {
+        "/shops/hub/social"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            location = "footer"
+            social_network = "youtube"
+        }
+
+        "/shops/hub/play"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "tutorial"
+            video = [
+                "id": "1_manage_your_shop"
+            ]
+        }
+
+        "/shops/hub/inspiration_store"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            example_store = "example_store_name"
+        }
+    }
+
     test("Mercado Shops tips and news") {
         "/shops/hub/more_about/show_more"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
