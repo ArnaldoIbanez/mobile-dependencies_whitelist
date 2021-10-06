@@ -3741,4 +3741,16 @@ tracks {
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
+
+    // Money In CCA
+    "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_cca_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification/moneyin_cca_approved"(platform: "/") {}
+    "/notification/moneyin_cca_rejected"(platform: "/") {}
 }

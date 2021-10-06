@@ -8983,6 +8983,14 @@ trackTests {
             latest_news_type= "single_player_recharge_success_mp"
             latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
+        "/notification_center/moneyin_cca_approved"(platform: "/") {
+            latest_news_type= "moneyin_cca_approved"
+            latest_news_id= "moneyin_cca-approved-12345678"
+        }
+        "/notification_center/moneyin_cca_rejected"(platform: "/") {
+            latest_news_type= "moneyin_cca_rejected"
+            latest_news_id= "moneyin_cca-rejected-12345678"
+        }
 
         "/notification"(platform: "/mobile") {
             news_id = "12332323"
@@ -13411,6 +13419,14 @@ trackTests {
         }
         "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {
             news_id = "pm_om_notification-buyer_cancellation-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "open"
+        }
+        "/notification/moneyin_cca_approved"(platform: "/") {
+            news_id = "moneyin_cca-approved-12345678"
+            event_type = "open"
+        }
+        "/notification/moneyin_cca_rejected"(platform: "/") {
+            news_id = "moneyin_cca-rejected-12345678"
             event_type = "open"
         }
     }
