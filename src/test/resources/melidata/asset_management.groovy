@@ -548,15 +548,25 @@ trackTests {
         }
 
         //blocker v2
-        "/asset_management/blocker_v2"(platform: "/mobile", type: TrackType.View, business: "mercadolibre") {}
-        "/asset_management/blocker_v2/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blocker_v2/complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blocker_v2/how_to_complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blocker_v2/know_documentation"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blocker_v2/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
-        "/asset_management/blocker_v2/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {
+            path = '/asset_management/blocker_v2/go_to_home'
+        }
+        "/asset_management/blocker_v2/complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {
+            path = '/asset_management/blocker_v2/complete_data'
+        }
+        "/asset_management/blocker_v2/how_to_complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {
+            path = '/asset_management/blocker_v2/how_to_complete_data'
+        }
+        "/asset_management/blocker_v2/know_documentation"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {
+            path = '/asset_management/blocker_v2/know_documentation'
+        }
+        "/asset_management/blocker_v2/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {
+            path = '/asset_management/blocker_v2/know_requirements'
+        }
+        "/asset_management/blocker_v2/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {
+            path = '/asset_management/blocker_v2/contact_bind'
+        }
 
-        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {}
         "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
             blocker_type = 'pending'
         }
