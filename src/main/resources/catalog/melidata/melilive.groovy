@@ -113,7 +113,6 @@ tracks {
     "/melilive/stream/group"(platform: "/", type: TrackType.Event) {
         stream(required: true, type: PropertyType.Map(group_stream_info_definition), description: "Stream information")
         group_id(required: true, type: PropertyType.String, description: "Group ID selected")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
         products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_group_info_definition)), description: "Product added to the group")
     }
 
