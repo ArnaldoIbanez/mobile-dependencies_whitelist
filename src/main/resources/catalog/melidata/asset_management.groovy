@@ -248,4 +248,16 @@ tracks {
     "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {
         status_id (required: false, type: PropertyType.String, description: "Status id", values: ["pending", "failed", "rejected", "banned"])
     }
+
+    // blockerV2
+    "/asset_management/blockerV2"(platform: "/", type: TrackType.View) {}
+    "/asset_management/blockerV2/go_to_home"(platform: "/", type: TrackType.Event) {} 
+    "/asset_management/blockerV2/complete_data"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/blockerV2/how_to_complete_data"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/blockerV2/know_documentation"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/blockerV2/know_requirements"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/blockerV2/contact_bind"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/blockerV2"(platform: "/", type: TrackType.View) {
+        blocker_type (required: false, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF"])
+    }
 }
