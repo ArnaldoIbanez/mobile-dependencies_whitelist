@@ -269,6 +269,6 @@ tracks {
         path (required: true, type: PropertyType.String, description: "Corresponds to track button")
     }
     "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
-        blocker_type (required: false, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF"])
+        blocker_type (required: true, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF"])
     }
 }
