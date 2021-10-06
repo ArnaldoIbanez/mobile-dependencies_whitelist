@@ -75,6 +75,7 @@ tracks {
         my_money_cerc(required: true, type: PropertyType.Map(component_definition), description: "Card CERC component print")
         my_money_open_banking(required: true, type: PropertyType.Map(component_definition), description: "Open Banking component print")
         my_money_debt_balance(required: true, type: PropertyType.Map(component_definition), description: "Debt balance component print")
+        my_money_contingency_message(required: true, type: PropertyType.Map(component_definition), description: "Contingency message component print")
     }
 
     propertyGroups {
@@ -144,6 +145,9 @@ tracks {
         debtBalancePrint (
                 my_money_debt_balance
         )
+        contingencyMessagePrint (
+                my_money_contingency_message
+        )
     }
 
     // MP Banking
@@ -160,6 +164,7 @@ tracks {
     "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) { lastActivitiesPrint }
     "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) { openBankingPrint }
     "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) { debtBalancePrint }
+    "/banking/balance/contingency_message_component"(platform: "/", type: TrackType.View) { contingencyMessagePrint }
 
     // Components ToRelease
     "/banking/to_release/print"(platform: "/", type: TrackType.View) { toReleasePrint }
