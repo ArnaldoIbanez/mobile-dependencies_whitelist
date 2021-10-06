@@ -416,6 +416,17 @@ tracks {
         )
     }
 
+    "/credits/credit_card/upgrade/stop_page/physical_card_request_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Indicates the status and that the user requests a physical card",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "physical_card_request"
+                ]
+        )
+    }
+
     /*********************************************
      *       End: Credit Card Upgrade
      *********************************************/

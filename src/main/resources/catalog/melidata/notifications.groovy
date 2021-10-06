@@ -3387,6 +3387,8 @@ tracks {
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}

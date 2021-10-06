@@ -20,12 +20,6 @@ import com.ml.melidata.TrackType
 /**/
 tracks {
 
-    def utm_definition = objectSchemaDefinitions {
-        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
-        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
-        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
-    }
-
     "/"(platform: "/", isAbstract: true) {
     }
 
@@ -43,6 +37,12 @@ tracks {
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 
     "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
+
+    def utm_definition = objectSchemaDefinitions {
+        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
+        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
+        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
+    }
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {

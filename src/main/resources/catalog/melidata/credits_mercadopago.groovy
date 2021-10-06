@@ -235,6 +235,18 @@ tracks {
             inheritable: false,
             description: "offers"
         )
+        campaign_id(
+            description: "Custom landing campaign",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'amount_and_fee_improvement',
+                'amount_and_term_improvement',
+                'amount_improvement',
+                'fee_improvement',
+                'term_improvement'
+            ]
+        )
         products(
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
@@ -1067,6 +1079,18 @@ tracks {
             type: PropertyType.Map(offer_map),
             required: false,
         )
+        campaign_id(
+            description: "Custom landing campaign",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'amount_and_fee_improvement',
+                'amount_and_term_improvement',
+                'amount_improvement',
+                'fee_improvement',
+                'term_improvement'
+            ]
+        )
         product_type(
             description: "Product type from the user's credit line",
             type: PropertyType.String,
@@ -1629,7 +1653,25 @@ tracks {
         )
     }
 
-    "/credits/express_money/kyc_onboarding"(platform: "/", type: TrackType.View) { }
+    "/credits/express_money/kyc_onboarding"(platform: "/web", type: TrackType.View) { }
+
+    "/credits/express_money/kyc_onboarding"(platform: "/mobile", type: TrackType.View) {
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+    }
 
     "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) { }
 

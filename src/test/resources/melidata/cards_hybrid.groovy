@@ -712,8 +712,16 @@ trackTests {
             type = "congrats_type"
             insurance_offer = "banner"
         }
-        "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {
+        "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
             type = "congrats_type"
+            insurance_offer = "label"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {
+            type = "congrats_type"
+        }
+        "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/ios", type: TrackType.Event) {
+            type = "congrats_type"
+            url = "mercadopago://home"
         }
         "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
@@ -1536,6 +1544,94 @@ trackTests {
         }
     }
 
+    // Tap4Auth
+    test("cards hybrid tap4Auth main screen") {
+        "/cards/hybrid/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 200.38
+        }
+        "/cards/hybrid/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+            amount = 100.46
+        }
+        "/cards/hybrid/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "authorize"
+        }
+        "/cards/hybrid/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event) {
+            action = "no_authorize"
+        }
+    }
+    test("cards hybrid tap4Auth congrats") {
+        //View
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_physical"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_congrats_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_second_try"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_try"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_physical"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_accepted_ttl_expired_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_already_responded"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_cancel_try"
+        }
+        "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) { 
+            amount = 200.38
+            tap4auth_congrats_type = "user_rejected_congrats_virtual_third_contingency_create_try"
+        }
+        // Events
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "understands"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "setup_virtual"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "pause_card"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "home"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "report_card"
+        }
+        "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event) {
+            tap4auth_congrats_type = "user_accepted_congrats_physical"
+            action = "dismiss"
+        }
+    }
+
 
     // OPTIONS Semaphore
     test("card options semaphore states for nfc") {
@@ -1953,6 +2049,10 @@ trackTests {
         "/cards/nfc/core/service/start_secure_enrollment/success"(platform:"/", type:TrackType.Event) {
             action = "start_secure_enrollment_success"
         }
+    }
+
+    test("cards hybrid nfc core start secure enrollment returns missing asset in response") {
+        "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform:"/", type:TrackType.Event) {}
     }
 
     test("cards hybrid nfc core start secure enrollment error") {
@@ -3950,9 +4050,13 @@ trackTests {
         "/cards/nfc/enrollment/instructions"(platform:"/", type: TrackType.View) {
             has_money = false
         }
-        
+
         "/cards/nfc/enrollment/instructions/tap"(platform:"/", type: TrackType.View) {
             action = "close"
+        }
+        
+        "/cards/nfc/configuration/instructions/continue_button"(platform:"/", type: TrackType.View) {
+            url = "mercadopago://nfcpayments/payment?from=nfc_configuration_instruction"
         }
     }
 
