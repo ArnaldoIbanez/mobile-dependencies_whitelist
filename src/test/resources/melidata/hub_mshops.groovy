@@ -300,6 +300,20 @@ trackTests {
             domain_status = "shops_domain"
             example_store = "example_store_name"
         }
+
+        "/shops/hub/seller_central"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/content_center"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
     }
 
     test("Mercado Shops tips and news") {

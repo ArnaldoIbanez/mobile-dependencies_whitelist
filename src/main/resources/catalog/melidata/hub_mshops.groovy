@@ -276,6 +276,10 @@ tracks {
         example_store(name: "example_store", description: "Name of the example store", required: true, type: PropertyType.String)
     }
 
+    "/shops/hub/seller_central"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/content_center"(platform: "/", type: TrackType.Event) {}
+
     // TIPS AND NEWS
 
     "/shops/hub/more_about"(platform: "/", isAbstract: true) {}
