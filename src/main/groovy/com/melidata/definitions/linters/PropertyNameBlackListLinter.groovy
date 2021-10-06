@@ -26,9 +26,9 @@ class PropertyNameBlackListLinter extends AbstractLinter {
     }
 
     @Override
-    boolean validatePropertySet(List<TrackDefinitionProperty> definition) {
-        return definition.every {
-            !(it.name in this.vagueNames) && !(it.name in this.reservedNames)  && !(it.name in this.alreadyTrackeds)
+    List<String> validatePropertySet(List<TrackDefinitionProperty> definition) {
+        return definition.findAll {
+            it.name in this.vagueNames || it.name in this.reservedNames  || it.name in this.alreadyTrackeds
         }
     }
 }

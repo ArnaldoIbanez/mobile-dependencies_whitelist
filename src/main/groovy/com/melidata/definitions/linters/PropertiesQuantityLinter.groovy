@@ -14,11 +14,11 @@ class PropertiesQuantityLinter extends AbstractLinter {
 
     @Override
     boolean validateTrack(TrackDefinition trackDefinition) {
-        return true
+        return trackDefinition.properties.size() <= maxProps
     }
 
     @Override
-    boolean validatePropertySet(List<TrackDefinitionProperty> props) {
-        return props.size() <= maxProps
+    List<String> validatePropertySet(List<TrackDefinitionProperty> props) {
+        return []
     }
 }
