@@ -3748,5 +3748,5 @@ tracks {
     }
 
     // Disbursement Kwai
-    "/notification/disbursement_kwai_received"(platform: "/") {}
+    "/notification/disbursement_kwai_received"(platform: "/mobile") {}
 }
