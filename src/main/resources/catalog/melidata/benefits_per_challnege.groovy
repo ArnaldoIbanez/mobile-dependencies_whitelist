@@ -23,10 +23,10 @@ tracks {
     payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "state of payments")
   }
   
-  "/instore/challenge/find_stores" (platform: "/", type: TrackType.Event) {}
-  "/instore/challenge/use_benefit" (platform: "/", type: TrackType.Event) {}
-  "/instore/challenge/other_discounts" (platform: "/", type: TrackType.Event) {}
-  "/instore/challenge/terms_and_conditions" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/find_stores" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/use_benefit" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/terms_and_conditions" (platform: "/", type: TrackType.Event) {}
 
   
   // ----- FTU pages -----
