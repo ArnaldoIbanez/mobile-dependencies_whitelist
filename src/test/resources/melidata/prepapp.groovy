@@ -148,6 +148,26 @@ trackTests {
             ]
         }
 
+        def overrideTemperatureDataSet = {
+            pickup = [
+                    id: 123456,
+                    wave_id: 123456
+            ]
+            item_id = "ID123456"
+            variation_id = "VAR123456"
+            item_temperature = "DRY"
+            parcel_temperature = "FROZEN"
+        }
+
+        def itemIdsDataSet = {
+            pickup = [
+                    id: 123456,
+                    wave_id: 123456
+            ]
+            item_id = "ID123456"
+            variation_id = "VAR123456"
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TEST TRACKS PREPARATION APP - GENERAL
@@ -242,6 +262,14 @@ trackTests {
 
         "/prepapp/picking/parcel/input"(platform:"/", type: TrackType.View) {
             scanModeDataSet()
+        }
+
+        "/prepapp/picking/parcel/wrong_temperature"(platform: "/", type: TrackType.View) {
+            overrideTemperatureDataSet()
+        }
+
+        "/prepapp/picking/parcel/conservation_change"(platform: "/", type: TrackType.View) {
+            itemIdsDataSet()
         }
 
         "/prepapp/picking/product/not_found"(platform:"/", type: TrackType.View) {

@@ -1,7 +1,7 @@
 package src.test.resources.melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
+import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -1247,6 +1247,17 @@ trackTests {
 
         "/credits/express_money/kyc_onboarding"(platform: "/web/desktop") {}
 
+        "/credits/express_money/kyc_onboarding"(platform: "/mobile/android") {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+        }
+
+        "/credits/express_money/kyc_onboarding"(platform: "/mobile/ios") {
+            requested_amount = 14000
+            max_amount = 30000
+            min_amount = 2000
+        }
 
         "/credits/express_money/error"(platform: "/mobile/android") {
             reason = 'default'
