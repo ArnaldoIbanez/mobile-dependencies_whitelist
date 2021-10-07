@@ -77,10 +77,6 @@ tracks {
         marketing(required: true, type: PropertyType.Numeric, description: "Number of campaigns", name: "marketing")
     }
 
-    def videoData = objectSchemaDefinitions {
-        id(name: "id", description: "Unique video identifier", required: true, type: PropertyType.String)
-    }
-
     propertyDefinitions {
         shop_id(
             description: "Unique Shop identifier",
@@ -269,7 +265,7 @@ tracks {
 
     "/shops/hub/play"(platform: "/", type: TrackType.Event) {
         tool(name: "tool", description: "Tool identifier", required: true, type: PropertyType.String)
-        video(name: "video", description: "Video tutorial being tracked", required: true, type: PropertyType.Map(videoData))
+        video_id(name: "video_id", description: "Unique video identifier", required: true, type: PropertyType.String)
     }
 
     "/shops/hub/inspiration_store"(platform: "/", type: TrackType.Event) {

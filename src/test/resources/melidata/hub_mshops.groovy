@@ -288,9 +288,7 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             tool = "tutorial"
-            video = [
-                "id": "1_manage_your_shop"
-            ]
+            video_id "1_manage_your_shop"
         }
 
         "/shops/hub/inspiration_store"(platform: "/", type: TrackType.Event) {
