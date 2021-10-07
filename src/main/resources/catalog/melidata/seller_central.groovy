@@ -2139,6 +2139,9 @@ tracks {
       sellerCentralCatalogOptinGroupV2
     }
 
+    "/seller_central/catalog/optin_v2/review"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
     "/seller_central/catalog/optin_v2/catalog_no_required"(platform: "/web", type: TrackType.View) {
       sellerCentralCatalogOptinGroupV2
     }
