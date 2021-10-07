@@ -35,7 +35,27 @@ trackTests {
     }
   }
   test("Reservation event cta") {
-    "/instore/coupon_reservation/reservation/tyc" (platform: "/", type: TrackType.Event) {
+    "/instore/coupon_reservation/reservation/how_to_use" (platform: "/", type: TrackType.Event) {
+      session_id = "231dd1-dgkkñp0"
+    }
+  }
+  test("Reservation event cta") {
+    "/instore/coupon_reservation/reservation/is_waiting/how_to_use" (platform: "/", type: TrackType.Event) {
+      session_id = "231dd1-dgkkñp0"
+    }
+  }
+  test("Reservation event cta") {
+    "/instore/coupon_reservation/reservation/is_waiting/find_stores" (platform: "/", type: TrackType.Event) {
+      session_id = "231dd1-dgkkñp0"
+    }
+  }
+  test("Reservation event cta") {
+    "/instore/coupon_reservation/reservation/is_waiting/ftu/how_to_use/tyc" (platform: "/", type: TrackType.Event) {
+      session_id = "231dd1-dgkkñp0"
+    }
+  }
+  test("Reservation event cta") {
+    "/instore/coupon_reservation/reservation/coupon_detail" (platform: "/", type: TrackType.Event) {
       session_id = "231dd1-dgkkñp0"
     }
   }
@@ -84,12 +104,17 @@ trackTests {
   }
 
   test("Exchange event cta") {
-    "/instore/coupon_reservation/redeem/tyc" (platform: "/", type: TrackType.Event) {
+    "/instore/coupon_reservation/redeem/find_stores" (platform: "/", type: TrackType.Event) {
       session_id = "231dd1-dgkkñp0"
     }
   }
   test("Exchange event cta") {
     "/instore/coupon_reservation/redeem/how_to_use" (platform: "/", type: TrackType.Event) {
+      session_id = "231dd1-dgkkñp0"
+    }
+  }
+  test("Exchange event cta") {
+    "/instore/coupon_reservation/redeem/coupon_detail" (platform: "/", type: TrackType.Event) {
       session_id = "231dd1-dgkkñp0"
     }
   }
@@ -146,7 +171,7 @@ trackTests {
     }
   }
   test("FTU How tu use event cta") {
-    "/instore/coupon_reservation/ftu/how_to/find_stores" (platform: "/", type: TrackType.Event) {
+    "/instore/coupon_reservation/ftu/how_to/tyc" (platform: "/", type: TrackType.Event) {
       session_id = "231dd1-dgkkñp0"
     }
   }

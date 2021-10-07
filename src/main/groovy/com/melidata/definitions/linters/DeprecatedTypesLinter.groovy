@@ -19,9 +19,9 @@ class DeprecatedTypesLinter extends AbstractLinter {
     }
 
     @Override
-    boolean validatePropertySet(List<TrackDefinitionProperty> definition) {
-        return definition.every {
-            !(it.type in deprecatedTypes)
+    List<String> validatePropertySet(List<TrackDefinitionProperty> definition) {
+        return definition.findAll {
+            it.type in deprecatedTypes
         }
     }
 }

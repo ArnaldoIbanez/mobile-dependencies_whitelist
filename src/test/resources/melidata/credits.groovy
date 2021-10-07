@@ -358,7 +358,7 @@ trackTests {
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
             page = 1
-            sk = 'sk1234'
+            source_key = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
@@ -371,7 +371,7 @@ trackTests {
         }
 
         "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-            sk = 'sk1234'
+            source_key = 'sk1234'
             prepaid = false
             virtual_card = false
             physical_card = false
