@@ -952,8 +952,8 @@ trackTests {
             error_code = "internal_server_error"
         }
 
-        "/checkout/generic_error"(platform:"/", type:TrackType.View) {}
-        "/checkout/session_expired"(platform:"/", type:TrackType.View) {}
+        "/checkout/generic_error"(platform:"/web", type:TrackType.View) {}
+        "/checkout/session_expired"(platform:"/web", type:TrackType.View) {}
         "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
