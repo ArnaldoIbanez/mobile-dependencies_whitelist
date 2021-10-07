@@ -410,6 +410,7 @@ tracks {
     "/bill_payments/main_category/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/main_category/scheduling/item"(platform: "/mobile", type: TrackType.Event) {
         entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+        item (required:false, type: PropertyType.String, description: "The chosen item label")
     }
     "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
         search (required:true, type: PropertyType.String, description: "The searched string")
@@ -523,6 +524,7 @@ tracks {
     "/bill_payments/main_category/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/main_category/automatic_debit/item"(platform: "/mobile", type: TrackType.Event) {
         entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+        item (required:false, type: PropertyType.String, description: "The chosen item label")
     }
     "/bill_payments/main_category/automatic_debit/empty_search"(platform: "/mobile", type: TrackType.Event) {
         search (required:true, type: PropertyType.String, description: "The searched string")
