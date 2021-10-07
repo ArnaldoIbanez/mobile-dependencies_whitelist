@@ -769,6 +769,23 @@ tracks {
         url(required: false, type: PropertyType.String, description: "Shop url")
     }
 
+    // listing comparison tooltip
+
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+        open_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to closing in seconds")
+        loading_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to load info in milliseconds")
+        tooltip_type(required: true, type: PropertyType.String, description: "type of tooltip after load data", values:["success", "empty_by_channel", "fallback", "abort"])
+        item_id(required: true, type: PropertyType.String, description: "Item to load comparison tooltip")
+        inactive(required: false, type: PropertyType.Boolean, description: "state of item")
+    }
+
+    "/seller_central/listings/comparison_tooltip/empty"(platform: "/", type: TrackType.Event){
+        action(required: true, type: PropertyType.string, description: "type of event", values:["show","click"])
+        activation_channel(required: true, type: PropertyType.String, description: "channel to activate", values: ["marketplace", "mshops"])
+        subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
+        item_id(required: true, type: PropertyType.String, description: "Item to activate")
+        empty_type(required: true, type: PropertyType.String, description: "type of empty", values:["empty_channel", "activate_mshops"])
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline
