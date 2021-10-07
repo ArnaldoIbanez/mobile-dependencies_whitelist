@@ -521,5 +521,9 @@ trackTests {
 
 		"/my_purchases/list/repurchase"(platform:"/", type:TrackType.View) {
 		}
+
+		"/my_purchases/list/item" (platform:"/", type: TrackType.Event) {
+			newPurchasesDataFullSet()
+		}
 	}
 }

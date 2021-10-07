@@ -337,4 +337,8 @@ tracks {
 
     "/my_purchases/list/repurchase"(platform:"/", type:TrackType.View, parentPropertiesInherited: false) {
     }
+
+    "/my_purchases/list/item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroupFull
+    }
 }
