@@ -2133,6 +2133,8 @@ trackTests {
         }
         "/checkout/items_not_available"(platform:"/web", dataSet)
         "/checkout/error"(platform:"/web", dataSet)
+        "/checkout/generic_error"(platform:"/web", dataSet)
+        "/checkout/session_expired"(platform:"/web", dataSet)
         "/checkout/payment/select_type"(platform:"/web", type: TrackType.View){
             dataSet()
         }
