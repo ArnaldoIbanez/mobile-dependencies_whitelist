@@ -951,6 +951,9 @@ trackTests {
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
+
+        "/checkout/generic_error"(platform:"/", type:TrackType.View) {}
+        "/checkout/session_expired"(platform:"/", type:TrackType.View) {}
         "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -2166,8 +2169,6 @@ trackTests {
         "/checkout/review/edit_shipping"(platform:"/web", dataSet)
         "/checkout/review/edit_payment_method"(platform:"/web", dataSet)
         "/checkout/review/confirm_purchase"(platform: "/", dataSet)
-        "/checkout/session_expired"(platform: "/", dataSet)
-        "/checkout/generic_error"(platform: "/", dataSet)
         "/checkout/congrats"(platform:"/web"){
             dataSet()
             dataSetCongrats()
