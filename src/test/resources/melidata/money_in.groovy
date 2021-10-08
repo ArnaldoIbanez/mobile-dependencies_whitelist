@@ -717,5 +717,16 @@ trackTests {
         "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
             action_id = "qr"
         }
+
+        //MLB Calculator
+        "/money_in/mlb/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/init_modal/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/init_modal"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/init_modal/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/init_modal/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/finish_modal/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/finish_modal"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/finish_modal/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/mlb/calculator/finish_modal/edit_amount"(platform: "/", type: TrackType.Event) {}
     }
 }
