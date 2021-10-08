@@ -2193,65 +2193,65 @@ tracks {
     "/advertising/pads2/manager/matching/pause_modal/open"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/matching/pause_modal/close"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/matching/pause_modal/continue"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/manager/matching/pause_modal/pause"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/open"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/close"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/continue"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
     "/advertising/pads2/hub/matching/pause_modal/pause"(platform: "/", type: TrackType.Event) {
         matching_start_date(required: true, type: PropertyType.String, description: "Date when Benefit matching did start")
         days_since_matching_start(required: true, type: PropertyType.Numeric, description: "Amount of days since matching benefit start date")
-        matching_target_amount(required: true, type: PropertyType.Numeric, description: "")
         amount_invested(required: true, type: PropertyType.Numeric, description: "Invested Budget Amount for matching benefit")
-        matching_amount_target(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        matching_target_amount(required: true, type: PropertyType.Numeric, description: "Target Amount for matching benefit")
+        mode(required: true, type: PropertyType.String, description: "advertiser management type mode", values: ['custom', 'automatic'])
     }
 
 
