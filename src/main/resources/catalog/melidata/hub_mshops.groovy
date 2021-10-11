@@ -49,6 +49,13 @@ tracks {
         "fiscal_data",
     ]
 
+    def socialNetworks = [
+        "youtube",
+        "facebook",
+        "twitter",
+        "instagram",
+    ]
+
     def confData = objectSchemaDefinitions {
         mercado_ads(required: true, type: PropertyType.String, values: toolStatus, description: "Mercado Ads configuration tool", name: "mercado_ads")
         whatsapp(required: true, type: PropertyType.String, values: toolStatus, description: "WhatsApp configuration tool", name: "whatsapp")
@@ -248,6 +255,26 @@ tracks {
     "/shops/hub/metrics"(platform: "/", isAbstract: true) {}
 
     "/shops/hub/metrics/show_more"(platform: "/", type: TrackType.Event) {}
+
+    // SELLER COACH
+
+    "/shops/hub/social"(platform: "/", type: TrackType.Event) {
+        location(name: "location", description: "Card identifier", required: true, type: PropertyType.String, values: ["tutorial", "footer"])
+        social_network(name: "social_network", description: "Name of the social network", required: true, type: PropertyType.String, values: socialNetworks)
+    }
+
+    "/shops/hub/play"(platform: "/", type: TrackType.Event) {
+        tool(name: "tool", description: "Tool identifier", required: true, type: PropertyType.String)
+        video_id(name: "video_id", description: "Unique video identifier", required: true, type: PropertyType.String)
+    }
+
+    "/shops/hub/inspiration_store"(platform: "/", type: TrackType.Event) {
+        example_store(name: "example_store", description: "Name of the example store", required: true, type: PropertyType.String)
+    }
+
+    "/shops/hub/seller_central"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/content_center"(platform: "/", type: TrackType.Event) {}
 
     // TIPS AND NEWS
 
