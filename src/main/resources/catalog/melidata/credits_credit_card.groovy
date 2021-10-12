@@ -652,7 +652,7 @@ tracks {
         type (
                 required: true,
                 type: PropertyType.String,
-                description: "Type of error in congrats",
+                description: "Type of congrats in reissue",
                 values: ["virtual_credit_reissue_congrats"]
         )
         status (
