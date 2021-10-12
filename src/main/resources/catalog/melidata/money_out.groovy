@@ -109,6 +109,7 @@ tracks {
     "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/unified_transfers_p2p"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
@@ -249,6 +250,11 @@ tracks {
     "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
         type(required_:false, description: "Indicates the type selected ")
     }
+
+    //Bottom Sheet - Unified P2P
+    "/money_out/transfers/bottom_sheet"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/bottom_sheet/confirm"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/bottom_sheet/cancel"(platform: "/", type: TrackType.Event) {}
 
     //Cashout - modals
     "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
