@@ -22,7 +22,7 @@ class ViewsAndEventsLinter extends AbstractLinter {
     }
 
     @Override
-    boolean validatePropertySet(List<TrackDefinitionProperty> definition) {
-        return true
+    List<String> validatePropertySet(List<TrackDefinitionProperty> definition) {
+        return []
     }
 }

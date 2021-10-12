@@ -17,16 +17,16 @@ class PropertiesQuantityLinterTest {
         td.addProperty(new TrackDefinitionProperty(name: "query", required: true,
                 description: "searched string", type: PropertyType.String))
 
-        assertTrue(linter.validateProperties(td))
+        assertTrue(linter.validateTrack(td))
 
         td.addProperty(new TrackDefinitionProperty(name: "limit", required: true,
                 description: "number of results", type: PropertyType.Numeric))
 
-        assertFalse(linter.validateProperties(td))
+        assertFalse(linter.validateTrack(td))
     }
 
     @Test void validateTrackAlwaysTrue() {
         def td = new TrackDefinition("/search_snake_case")
-        assertTrue(linter.validateTrack(td))
+        assertTrue(linter.validateProperties(td))
     }
 }
