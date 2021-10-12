@@ -2419,7 +2419,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values:["enrollment_needed","enrollment_completed","enrollment_in_progress"],
+            values:["enrollment_needed","enrollment_complete","enrollment_in_progress"],
             description: "Device enrollment success"
         )
     }
