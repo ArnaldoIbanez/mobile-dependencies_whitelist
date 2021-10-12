@@ -82,6 +82,8 @@ tracks {
 
     "/melilive"(platform: "/" , isAbstract:true ) {}
 
+    "/melilive/stream"(platform: "/" , isAbstract:true ) {}
+
     "/melilive/stream/live"(platform: "/", type: TrackType.View) {
         tracking_id(required: true, type: PropertyType.String, description: "Unique ID to track if a Item comes from a LiveStream")
         stream(required: true, type: PropertyType.Map(stream_info_definition), description: "Stream information")
