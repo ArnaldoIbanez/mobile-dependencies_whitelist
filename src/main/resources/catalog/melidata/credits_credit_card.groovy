@@ -221,7 +221,7 @@ tracks {
     "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
     "/credits/credit_card/waitlist"(platform: "/", isAbstract: true){}
-    "/credits/credit-card/block_card/virtual"(platform: "/", isAbstract: true){}
+    "/credits/credit_card/block_card/virtual"(platform: "/", isAbstract: true){}
 
 
     /******************************************
@@ -623,7 +623,7 @@ tracks {
      *       Start: Credit Card Reissue
      ***********************************************/
     //Separator
-    "/credits/credit-card/block_card/virtual/separator"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/block_card/virtual/separator"(platform: "/", type: TrackType.View) {
         card_id (
                 required: true,
                 type: PropertyType.String,
@@ -632,7 +632,7 @@ tracks {
         )
     }
 
-    "/credits/credit-card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
         action (
                 required: true,
                 type: PropertyType.String,
@@ -648,7 +648,7 @@ tracks {
     }
 
     //Congrats
-    "/credits/credit-card/block_card/virtual/congrats"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/block_card/virtual/congrats"(platform: "/", type: TrackType.View) {
         type (
                 required: true,
                 type: PropertyType.String,
@@ -665,7 +665,7 @@ tracks {
     }
 
     //Error
-    "/credits/credit-card/block_card/virtual/error"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/block_card/virtual/error"(platform: "/", type: TrackType.View) {
         type (
                 required: true,
                 type: PropertyType.String,

@@ -978,28 +978,28 @@ trackTests {
              ***********************************************/
 
             //Separator
-            "/credits/credit-card/block_card/virtual/separator"(platform: "/", type: TrackType.View) {
+            "/credits/credit_card/block_card/virtual/separator"(platform: "/", type: TrackType.View) {
                 card_id = "1234abcd"
             }
 
-            "/credits/credit-card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
+            "/credits/credit_card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
                 card_id = "1234abcd"
                 action = "primary_button"
             }
 
-            "/credits/credit-card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
+            "/credits/credit_card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
                 card_id = "1234abcd"
                 action = "secondary_button"
             }
 
             //Congrats
-            "/credits/credit-card/block_card/virtual/congrats"(platform: "/", type: TrackType.View) {
+            "/credits/credit_card/block_card/virtual/congrats"(platform: "/", type: TrackType.View) {
                 type = "virtual_credit_reissue_congrats"
                 status = "200"
             }
 
             //Error
-            "/credits/credit-card/block_card/virtual/error"(platform: "/", type: TrackType.View) {
+            "/credits/credit_card/block_card/virtual/error"(platform: "/", type: TrackType.View) {
                 type = "virtual_credit_reissue_error"
                 status = "404"
             }
