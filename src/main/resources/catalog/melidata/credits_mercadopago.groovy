@@ -1653,7 +1653,25 @@ tracks {
         )
     }
 
-    "/credits/express_money/kyc_onboarding"(platform: "/", type: TrackType.View) { }
+    "/credits/express_money/kyc_onboarding"(platform: "/web", type: TrackType.View) { }
+
+    "/credits/express_money/kyc_onboarding"(platform: "/mobile", type: TrackType.View) {
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+    }
 
     "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) { }
 

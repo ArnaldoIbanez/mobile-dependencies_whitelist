@@ -3184,6 +3184,7 @@ trackTests {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
 
         "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
@@ -3482,6 +3483,7 @@ trackTests {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
 
         "/bill_payments/main_category/automatic_debit/empty_search"(platform: "/mobile", type: TrackType.Event) {
