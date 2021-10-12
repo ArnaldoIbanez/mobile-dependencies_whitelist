@@ -634,6 +634,11 @@ tracks {
           )
     }
 
+    //App2App Confirmation flow
+    "/cards/hybrid/app2app/facebook_pay_verification"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/app2app/facebook_pay_verification/confirmation"(platform: "/mobile", type: TrackType.Event) { }
+    "/cards/hybrid/app2app/facebook_pay_verification/close"(platform: "/mobile", type: TrackType.Event) { }
+
     //Feedback: Tracking
     "/cards/hybrid/dashboard/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
