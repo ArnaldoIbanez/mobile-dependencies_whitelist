@@ -331,6 +331,10 @@ tracks {
     "/money_out/transfers/home/kyc_modal/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/kyc_modal/back"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/kyc_modal/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - FTU Unified transfers
+    "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
     
     //Pix Limits MLB
     "/pix"(platform: "/", isAbstract: true) {}

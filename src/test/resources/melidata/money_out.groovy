@@ -371,6 +371,10 @@ trackTests {
          type="same_user"
       }
     
+      //Transfer Hub - FTU Unified transfers
+      "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
+
       //Transfer Hub - Modal KYC
       "/money_out/transfers/home/kyc_modal"(platform:"/", type: TrackType.View){}
       "/money_out/transfers/home/kyc_modal/continue"(platform: "/", type: TrackType.Event) {}
