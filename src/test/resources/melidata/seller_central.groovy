@@ -6550,7 +6550,7 @@ test("seller central catalog optin v2 item plus card show") {
       loading_time = 1782.9313
       tooltip_type = "success"
       item_id = "MLA10335295"
-      inactive = false
+      item_state = "inactivo"
     }
 
     "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){

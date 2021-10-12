@@ -776,7 +776,7 @@ tracks {
         loading_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to load info in milliseconds")
         tooltip_type(required: true, type: PropertyType.String, description: "type of tooltip after load data", values:["success", "empty_by_channel", "fallback", "abort"])
         item_id(required: true, type: PropertyType.String, description: "Item to load comparison tooltip")
-        inactive(required: false, type: PropertyType.Boolean, description: "state of item")
+        item_state(required: true, type: PropertyType.String, description: "state of the item activo | inactivo | undefiend")
     }
 
     "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
