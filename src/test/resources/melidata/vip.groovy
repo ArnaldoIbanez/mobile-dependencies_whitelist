@@ -2440,7 +2440,6 @@ trackTests {
         "/vip/return_policy"(platform: "/", type: TrackType.Event) {
             item_id = "MLC123123"
             vertical = "realEstate"
-            context = "/vip"
         }
     }
 }

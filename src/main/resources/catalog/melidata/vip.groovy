@@ -1766,7 +1766,8 @@ tracks {
     // VIS Scheduling
     "/vip/scheduling_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
-        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, card dealer etc")
+        item_seller_type(required: false, values: ['normal', 'real_estate_agency'],
+                description: "Seller type: normal, real_estate_agency")
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
     }
@@ -1775,6 +1776,5 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        context(required: false, type: PropertyType.String, values: ["/vip"], description: "Indicates where the page was opened from")
     }
 }
