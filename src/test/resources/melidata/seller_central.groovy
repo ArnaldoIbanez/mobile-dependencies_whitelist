@@ -6560,7 +6560,7 @@ test("seller central catalog optin v2 item plus card show") {
       item_id = "MLA10335295"
     }
 
-    "/seller_central/listings/comparison_tooltip/empty"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
       action = "show"
       activation_channel = "marketplace"
       subview_id = "mshops"
@@ -6568,7 +6568,7 @@ test("seller central catalog optin v2 item plus card show") {
       empty_type = "empty_channel"
     }
 
-    "/seller_central/listings/comparison_tooltip/empty"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
       action = "click"
       activation_channel = "mshops"
       subview_id = "marketplace"
@@ -6576,7 +6576,7 @@ test("seller central catalog optin v2 item plus card show") {
       empty_type = "empty_channel"
     }
 
-    "/seller_central/listings/comparison_tooltip/empty"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
       action = "click"
       activation_channel = "mshops"
       subview_id = "mshops"

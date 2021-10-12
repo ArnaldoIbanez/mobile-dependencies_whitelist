@@ -779,7 +779,7 @@ tracks {
         inactive(required: false, type: PropertyType.Boolean, description: "state of item")
     }
 
-    "/seller_central/listings/comparison_tooltip/empty"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
         action(required: true, type: PropertyType.String, description: "type of event", values:["show","click"])
         activation_channel(required: true, type: PropertyType.String, description: "channel to activate", values: ["marketplace", "mshops"])
         subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
