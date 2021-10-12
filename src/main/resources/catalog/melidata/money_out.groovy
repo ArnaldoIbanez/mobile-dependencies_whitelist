@@ -311,6 +311,20 @@ tracks {
     "/money_out/transfers/home/restrictions/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/restrictions/back"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
+        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector"])
+    }
+    "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/bottom_sheet/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    "/money_out/transfers/calculator_p2p/restrictions"(platform:"/", type: TrackType.View){
+        type(required:true, description:"Indicate type of restriction for example: same_user", values=["same_user", "blacklist", "account_deactive", "country", "user_without_account", "kyc_collector_restriction", "collector_restriction"])
+    }
+    "/money_out/transfers/calculator_p2p/restrictions/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/calculator_p2p/restrictions/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/calculator_p2p/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Modal KYC
     "/money_out/transfers/home/kyc_modal"(platform:"/", type: TrackType.View){}
