@@ -267,7 +267,7 @@ trackTests {
         "/credits/consumer/administrator/history/details_button"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/history/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        "/credits/consumer/administrator_v2/dashboard/personal_loan/download_app"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/consumer/administrator_v2/dashboard/personal_loan/download"(platform: "/web/desktop", type: TrackType.Event) {
              dashboard_status = 'on_time'
         }
         //Event PX Congrats Extra Component
