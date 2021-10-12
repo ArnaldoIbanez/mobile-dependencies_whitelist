@@ -2444,7 +2444,7 @@ trackTests {
     }
 
     test("VIS reservation item") {
-        "/vip/reservation_intention/main_action"(platform: "/", type: TrackType.Event) {
+        "/vip/reservation_intention"(platform: "/", type: TrackType.Event) {
             item_id = "MLC123123"
             item_condition = "new"
             item_status = "active"
