@@ -1397,6 +1397,12 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, card dealer etc")
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        unregistered_contact(required: false, type: PropertyType.Boolean, description: "User is unregister type")
+        is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
     }
 
     "/vip/contact_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
