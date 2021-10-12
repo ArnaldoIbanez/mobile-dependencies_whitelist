@@ -719,18 +719,18 @@ trackTests {
         }
 
         //MLB Calculator
-        "/money_in/mlb/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/bacen"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/bacen/close"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/bacen/go_to_pix"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/bacen/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/cap_reached"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/cap_reached/close"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/cap_reached/go_to_pix"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/init_modal/cap_reached/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/finish_modal/close"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/finish_modal"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/finish_modal/go_to_pix"(platform: "/", type: TrackType.Event) {}
-        "/money_in/mlb/calculator/finish_modal/edit_amount"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
     }
 }
