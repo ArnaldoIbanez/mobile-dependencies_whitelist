@@ -1764,7 +1764,7 @@ tracks {
     }
 
     // VIS Scheduling
-    "/vip/scheduling_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {
+    "/vip/scheduling_intention"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         item_seller_type(required: false, values: ['normal', 'real_estate_agency'],
                 description: "Seller type: normal, real_estate_agency")
