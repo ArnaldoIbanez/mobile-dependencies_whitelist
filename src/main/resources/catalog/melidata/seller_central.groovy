@@ -780,7 +780,7 @@ tracks {
     }
 
     "/seller_central/listings/comparison_tooltip/empty"(platform: "/", type: TrackType.Event){
-        action(required: true, type: PropertyType.string, description: "type of event", values:["show","click"])
+        action(required: true, type: PropertyType.String, description: "type of event", values:["show","click"])
         activation_channel(required: true, type: PropertyType.String, description: "channel to activate", values: ["marketplace", "mshops"])
         subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
         item_id(required: true, type: PropertyType.String, description: "Item to activate")
