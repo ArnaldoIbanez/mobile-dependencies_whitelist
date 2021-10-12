@@ -924,6 +924,7 @@ tracks {
     //Error
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {
         reason(
+            description: "Error reason",
             type: PropertyType.String,
             required: true,
             values: [
