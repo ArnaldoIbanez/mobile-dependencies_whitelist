@@ -3889,7 +3889,7 @@ trackTests {
         }
     }
     test("SYI moda item variations pictures-education redirect"){
-        "/sell/item_data/variations/pictures-education"(platform: "/web", type: TrackType.Event){
+        "/sell/item_data/variations/pictures_education"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             domain_id = "MLA_SNEAKERS"
             seller_segment = "professional_sellers"
