@@ -2034,7 +2034,7 @@ tracks {
 
     "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View) {
         item_id(required: true, type: PropertyType.String, description: "Item Id")
-        category_id(required: true, type: PropertyType.String, description: "Id for category item")
+        category_id(required: false, type: PropertyType.String, description: "Id for category item")
         domain_id(required: true, type: PropertyType.String, description: "The category domain id")
         variation_id(required: false, type: PropertyType.Numeric, description: "The variation item")
         original_catalog_product_id(required: false, type: PropertyType.String, description: "The original item catalog product id")
@@ -2139,6 +2139,9 @@ tracks {
       sellerCentralCatalogOptinGroupV2
     }
 
+    "/seller_central/catalog/optin_v2/review"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
     "/seller_central/catalog/optin_v2/catalog_no_required"(platform: "/web", type: TrackType.View) {
       sellerCentralCatalogOptinGroupV2
     }

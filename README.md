@@ -57,4 +57,4 @@ We internally 🔄  **� rotate in the Melidata team to periodically take PRs a
 
 In case of a hurry ( just in that case ) you can reach catalog owner of the week by checking [this rotation](https://nasdaq-meli.app.opsgenie.com/settings/schedule/detail/e9e18d88-3536-4572-9351-6ab680d4b1ed) and follow conversation on slack of private channels ( not recommended! )
 
-Finally, it's not necessary to share your PR at #team-melidata or melidata_dev@ we honor our rotation and will assist you on your PR. However, we value your feedback!
+Finally, **it's not necessary to share your PR at #team-melidata or melidata_dev@** we honor our rotation and will assist you on your PR. However, we value your feedback!

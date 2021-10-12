@@ -27,7 +27,7 @@ class MinimumRequiredTrueLinter extends AbstractLinter {
     }
 
     @Override
-    boolean validatePropertySet(List<TrackDefinitionProperty> properties) {
-        return true
+    List<String> validatePropertySet(List<TrackDefinitionProperty> properties) {
+        return []
     }
 }
