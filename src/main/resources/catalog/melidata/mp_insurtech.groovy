@@ -774,9 +774,13 @@ tracks {
     "/insurtech/cards/back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
+    "/insurtech/cards/retry"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+        option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
     //Congrats - Success View
     "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
-        quote_id(required: true, type: PropertyType.String, description: "the id of the quote generated")
+        quote_id(required: false, type: PropertyType.String, description: "the id of the quote generated")
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
     }
     "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
@@ -784,13 +788,5 @@ tracks {
     "/insurtech/cards/congrats_success/go_protections"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
     }
     "/insurtech/cards/congrats_success/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
-    }
-    //Congrats - Failed View
-    "/insurtech/cards/congrats_fail"(platform:"/", type: TrackType.View){
-        options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Option object")
-    }
-    "/insurtech/cards/congrats_fail/retry"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
-    }
-    "/insurtech/cards/congrats_fail/close"(platform:"/", type: TrackType.Event, parentPropertiesInherited: true){
     }
 }
