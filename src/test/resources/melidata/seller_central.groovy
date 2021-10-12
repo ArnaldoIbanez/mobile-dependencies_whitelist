@@ -6550,7 +6550,7 @@ test("seller central catalog optin v2 item plus card show") {
       loading_time = 1782.9313
       tooltip_type = "success"
       item_id = "MLA10335295"
-      item_state = "inactivo"
+      item_state = "inactive"
     }
 
     "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
@@ -6558,6 +6558,7 @@ test("seller central catalog optin v2 item plus card show") {
       loading_time = 1782.9313
       tooltip_type = "abort"
       item_id = "MLA10335295"
+      item_state = "active"
     }
 
     "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
