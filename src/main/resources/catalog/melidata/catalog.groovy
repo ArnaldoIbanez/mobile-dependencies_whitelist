@@ -315,6 +315,7 @@ catalog {
         include business, "crowd.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
+        include business, "kyc.groovy"
     }
 
     extra_marketplace.each { business ->
