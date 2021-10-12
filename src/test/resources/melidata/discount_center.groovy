@@ -14,6 +14,7 @@ trackTests {
         "/discount_center/payers/vip"(platform: "/mobile", type: TrackType.View) {
             collector_id = 20565408
             category_id = "MLA410861"
+            category_path = ["MLB1403", "MLB410883", "MLB455469", "MLB455470"]
             item_id = "MLA886428635"
             item_name = "Duplao Burger"
             context_info = [
