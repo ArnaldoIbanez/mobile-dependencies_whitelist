@@ -6213,6 +6213,17 @@ test("seller central catalog optin v2 item plus card show") {
       }
   }
 
+  test("seller central catalog optin v2 review") {
+      "/seller_central/catalog/optin_v2/review"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        original_catalog_product_id = "MLA15149561"
+      }
+  }
+
   test("seller central catalog optin v2 product problem show") {
       "/seller_central/catalog/optin_v2/product_problem"(platform: "/web", type: TrackType.View) {
         moderated = true
