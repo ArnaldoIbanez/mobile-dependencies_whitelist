@@ -283,7 +283,8 @@ tracks {
         original_catalog_product_id(required: true, type: PropertyType.String, description: "The original item catalog product id")
         selected_catalog_product_id(required: false, type: PropertyType.String, description: "The optined item catalog product id")
         variation_id(required: false, type: PropertyType.Numeric, description: "The variation id of the original item")
-        variations_id(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "List of variations id of the original item")
+        variations_list_id(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "List of variations id of the original item")
+        suggested_correction_product_id(required: false, description: "Suggested Correction product ID", type: PropertyType.String)
         has_variations_already_opt_in(required: true, type: PropertyType.Boolean, description: "True if the item has a variation optined")
         invalid_product_cause(required: false, type: PropertyType.String, description: "The invalid product causes")
         opt_in_item_id(required: false, type: PropertyType.String, description: "The optined item id")
@@ -363,8 +364,8 @@ tracks {
         sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, rejected_products, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
-        sellerCentralCatalogOptinGroupV2(item_id, category_id, domain_id, variation_id, moderated, catalog_product_id)
-        sellerCentralCatalogOptinGroupV2Variations(item_id, category_id, domain_id, variations_id, catalog_product_id)
+        sellerCentralCatalogOptinGroupV2(item_id, category_id, domain_id, variation_id, moderated, original_catalog_product_id, suggested_correction_product_id)
+        sellerCentralCatalogOptinGroupV2Variations(item_id, category_id, domain_id, variations_list_id, original_catalog_product_id)
 
         sellerCentralCatalogSuggestionGroup(category_domain, item_id, catalog_product_id, reputation_level, seller_profile, seller_segment, session_id, user_type)
 
@@ -768,6 +769,23 @@ tracks {
         url(required: false, type: PropertyType.String, description: "Shop url")
     }
 
+    // listing comparison tooltip
+
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+        open_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to closing in seconds")
+        loading_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to load info in milliseconds")
+        tooltip_type(required: true, type: PropertyType.String, description: "type of tooltip after load data", values:["success", "empty_by_channel", "fallback", "abort"])
+        item_id(required: true, type: PropertyType.String, description: "Item to load comparison tooltip")
+        item_state(required: true, type: PropertyType.String, description: "state of the item active | inactive | undefiend", values:["active", "inactive", "undefined"])
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+        action(required: true, type: PropertyType.String, description: "type of event", values:["show","click"])
+        activation_channel(required: true, type: PropertyType.String, description: "channel to activate", values: ["marketplace", "mshops"])
+        subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
+        item_id(required: true, type: PropertyType.String, description: "Item to activate")
+        empty_type(required: true, type: PropertyType.String, description: "type of empty", values:["empty_channel", "activate_mshops"])
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline
@@ -2031,35 +2049,42 @@ tracks {
 
     "/seller_central/catalog/optin_v2"(platform: "/web", isAbstract: true) {}
 
+    "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String, description: "Item Id")
+        category_id(required: false, type: PropertyType.String, description: "Id for category item")
+        domain_id(required: true, type: PropertyType.String, description: "The category domain id")
+        variation_id(required: false, type: PropertyType.Numeric, description: "The variation item")
+        original_catalog_product_id(required: false, type: PropertyType.String, description: "The original item catalog product id")
+        moderated(required: false, type: PropertyType.Boolean, description: "Determine if the item is moderated")
+        variations_list_id(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "List of variations id of the original item")
+        suggested_correction_product_id(required: false, description: "Suggested Correction product ID", type: PropertyType.String)
+    }
+
     "/seller_central/catalog/optin_v2/variation_selection"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroupV2Variations
     }
 
     "/seller_central/catalog/optin_v2/variation_selection/selected"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2Variations
-        selected_variation(required: false, description: "Variation Selection", type: PropertyType.Numeric)
+        selected_variation_id(required: false, description: "Variation Selection", type: PropertyType.Numeric)
     }
-
-    // "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View ) {
-    //      sellerCentralCatalogOptinGroupV2
-    // }
 
     "/seller_central/catalog/optin_v2/congrats"(platform: "/web", isAbstract: true) {}
 
     "/seller_central/catalog/optin_v2/congrats/success"(platform: "/web", type: TrackType.Event) {
-         sellerCentralCatalogOptinGroupV2
-         confirmed_item_plus(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
-         suggested_correction(required: false, description: "Suggested Correction", type: PropertyType.Boolean)
+        sellerCentralCatalogOptinGroupV2
+        confirmed_item_plus(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
+        suggested_correction(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
     }
 
     "/seller_central/catalog/optin_v2/congrats/warning"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        reason(required: false, description: "Reason of Orange Congrats", type: PropertyType.String,  values: ["INACTIVE_PRODUCT", "CATALOG_NOT_REQUIRED", "PRODUCT_HAS_ERRORS_SUGGESTED", "WRONG_V0_PRODUCT", "PRODUCT_HAS_ERRORS", "IS_A_KIT"])
-        suggested_correction(required: false, description: "Suggested Correction", type: PropertyType.Boolean)
+        reason(required: false, description: "Reason of warning congrats", type: PropertyType.String,  values: ["INACTIVE_PRODUCT", "CATALOG_NOT_REQUIRED", "PRODUCT_HAS_ERRORS_SUGGESTED", "WRONG_V0_PRODUCT", "PRODUCT_HAS_ERRORS", "IS_A_KIT"])
+        suggested_correction(required: false, description: "Confirmed Item Plus", type: PropertyType.Boolean)
     }
 
     "/seller_central/catalog/optin_v2/product_comparator"(platform: "/web", type: TrackType.View) {
-      sellerCentralCatalogOptinGroupV2
+        sellerCentralCatalogOptinGroupV2
     }
 
     "/seller_central/catalog/optin_v2/product_comparator/selected"(platform: "/web", type: TrackType.Event) {
@@ -2068,24 +2093,12 @@ tracks {
     }
 
     "/seller_central/catalog/optin_v2/suggested_corrections"(platform: "/web", type: TrackType.View) {
-      sellerCentralCatalogOptinGroupV2
+        sellerCentralCatalogOptinGroupV2
     }
 
     "/seller_central/catalog/optin_v2/suggested_corrections/selected"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
         suggested_correction(required: true, description: "Suggested Correction", type: PropertyType.Boolean)
-    }
-
-    "/seller_central/catalog/optin_v2/item_plus_card"(platform: "/web", type: TrackType.View) {
-        sellerCentralCatalogOptinGroupV2
-    }
-
-    "/seller_central/catalog/optin_v2/item_plus_card/confirm"(platform: "/web", type: TrackType.Event) {
-        sellerCentralCatalogOptinGroupV2
-    }
-
-    "/seller_central/catalog/optin_v2/item_plus_card/return"(platform: "/web", type: TrackType.Event) {
-        sellerCentralCatalogOptinGroupV2
     }
 
     "/seller_central/catalog/optin_v2/product_search"(platform: "/web", type: TrackType.View) {
@@ -2094,27 +2107,64 @@ tracks {
 
     "/seller_central/catalog/optin_v2/product_search/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
+        response_type(required: true, description: "Response type of search", type: PropertyType.String,  values: ['one_shot', 'products', 'iterative_search'])
+        search_value(required: true, description: "Title of search", type: PropertyType.String)
         product_selected(required: true, description: "Product Selection", type: PropertyType.String)
         product_index_selected(required: true, description: "Product Index Selection", type: PropertyType.Numeric)
     }
 
     "/seller_central/catalog/optin_v2/product_search/update"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        search_value(required: false, description: "Search Value", type: PropertyType.String)
+        search_value(required: true, description: "Old title of search", type: PropertyType.String)
     }
 
     "/seller_central/catalog/optin_v2/iterative_search"(platform: "/web", type: TrackType.View) {
-      sellerCentralCatalogOptinGroupV2
-    }
-
-    "/seller_central/catalog/optin_v2/iterative_search/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        product_selected(required: true, description: "Product Selection", type: PropertyType.String)
     }
 
     "/seller_central/catalog/optin_v2/iterative_search/update"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
         iteration_count(required: false, description: "Iteration Count", type: PropertyType.Numeric)
+    }
+
+    "/seller_central/catalog/optin_v2/iterative_search/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+        selected_catalog_product_id(required: false, type: PropertyType.String, description: "The optined item catalog product id")
+    }
+
+    "/seller_central/catalog/optin_v2/iterative_search/item_plus"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/iterative_search/item_plus/return"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/iterative_search/item_plus/confirm"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/iterative_search/category"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/iterative_search/category/return"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/iterative_search/category/confirm"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/review"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
+    "/seller_central/catalog/optin_v2/catalog_no_required"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/catalog_no_required/confirm"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
     }
 
     "/seller_central/catalog/optin_v2/product_problem"(platform: "/web", type: TrackType.View) {
@@ -2123,10 +2173,55 @@ tracks {
 
     "/seller_central/catalog/optin_v2/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
-        wrong_type(required: false, description: "Wrong Type", type: PropertyType.String,  values: ["KIT", "PRODUCT_ERRORS", "OTHER"])
+        wrong_type(required: true, description: "Wrong Type", type: PropertyType.String,  values: ["KIT", "PRODUCT_ERRORS", "OTHER"])
+        v0(required: true, description: "Wrong Type", type: PropertyType.Boolean)
     }
 
     "/seller_central/catalog/optin_v2/product_problem/return"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/pictures"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/pictures/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/gtin"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/gtin/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/title"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/title/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/description"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/description/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/button_update"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroupV2
+    }
+
+    "/seller_central/catalog/optin_v2/item_plus_step/button_update/confirm"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroupV2
     }
 
@@ -2141,6 +2236,9 @@ tracks {
         invoice_selection(required: true, description: "Invoice Selection", type: PropertyType.Boolean)
     }
 
+    "/seller_central/catalog/optin_v2/user_leaves"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroupV2
+    }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     |                                             END OPTIN V2                                                    |
@@ -2306,6 +2404,11 @@ tracks {
     }
 
     "/seller_central/promotions/action/tooltip_adv"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        promo_id(required: true, type: PropertyType.String, description: "Deals co-funded campaign identifier")
+        item_id(required: true, type: PropertyType.String, description: "Item id to which the tooltip is executed")
+    }
+
+    "/seller_central/promotions/row/tooltip_help_adv"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         promo_id(required: true, type: PropertyType.String, description: "Deals co-funded campaign identifier")
         item_id(required: true, type: PropertyType.String, description: "Item id to which the tooltip is executed")
     }

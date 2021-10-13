@@ -546,5 +546,20 @@ trackTests {
         "/asset_management/status_blocker"(platform: "/", type: TrackType.View) {
             status_id = 'pending'
         }
+
+        //blocker v2
+        "/asset_management/blocker_v2/go_to_home"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/how_to_complete_data"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/know_documentation"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/know_requirements"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+        "/asset_management/blocker_v2/contact_bind"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
+
+        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
+            blocker_type = 'kyc'
+        }
+        "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
+            blocker_type = 'pending'
+        }
     }
 }

@@ -8,16 +8,50 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
     initiative = 1267
 
-    // Definitions
+    // ************** VIEWER **************
+
+    def prelive_stream_info_definition = objectSchemaDefinitions {
+        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+        title(required: true, type: PropertyType.String, description: "Broadcast title")
+        starts_at(required: true, type: PropertyType.String, description: "Date when stream has is supposed to start")
+    }
 
     def stream_info_definition = objectSchemaDefinitions {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+        title(required: true, type: PropertyType.String, description: "Broadcast title")
         template_id(required: true, type: PropertyType.String, description: "Template id configuration")
         channel_id(required: true, type: PropertyType.Numeric, description: "Channel id where broadcast belongs")
         started_at(required: true, type: PropertyType.String, description: "Date when stream has started")
-        status(required: true, type: PropertyType.String, values: ["LIVE", "ENDED", "RECORDED"],  description: "Current status of the broadcast: LIVE, END, RECORDED")
         viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
         time_elapsed(required: false, type: PropertyType.Numeric, description: "Time since stream started and user joined")
+    }
+
+    def exit_stream_info_definition = objectSchemaDefinitions {
+        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+        title(required: true, type: PropertyType.String, description: "Broadcast title")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED", "LIVE", "ENDED"], description: "Current status of the broadcast")
+        time_elapsed(required: false, type: PropertyType.Numeric, description: "Time viewer was watching the stream")
+        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
+    }
+
+    def group_stream_info_definition = objectSchemaDefinitions {
+        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+        title(required: true, type: PropertyType.String, description: "Broadcast title")
+        status(required: true, type: PropertyType.String, values: ["LIVE", "ENDED"], description: "Current status of the broadcast")
+        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
+    }
+
+    def share_stream_info_definition = objectSchemaDefinitions {
+        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+        title(required: true, type: PropertyType.String, description: "Broadcast title")
+        url(required: true, type: PropertyType.String, description: "Shared URL")
+        status(required: true, type: PropertyType.String, values: ["SCHEDULED","LIVE", "ENDED"], description: "Current status of the broadcast")
+        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
+    }
+
+    def bookmark_stream_info_definition = objectSchemaDefinitions {
+        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
     }
 
     def product_info_definition = objectSchemaDefinitions {
@@ -40,11 +74,69 @@ tracks {
 
     def viewer_info_definition = objectSchemaDefinitions {
         loyalty_level(required: true, type: PropertyType.Numeric, description: "Current Loyalty Level")
-        zipcode(required: true, type: PropertyType.String, description: "User's Zipcode")
+        zipcode(required: false, type: PropertyType.String, description: "User's Zipcode")
         muted(required: false, type: PropertyType.Boolean, description: "Flag if video is muted or not")
         overlay_on(required: false, type: PropertyType.Boolean, description: "Flag if video has overlay on or not")
         orientation(required: true, type: PropertyType.String, description: "Current orientation, landscape or portrait")
     }
+
+    "/melilive"(platform: "/" , isAbstract:true ) {}
+
+    "/melilive/stream"(platform: "/" , isAbstract:true ) {}
+
+    "/melilive/stream/live"(platform: "/", type: TrackType.View) {
+        tracking_id(required: true, type: PropertyType.String, description: "Unique ID to track if a Item comes from a LiveStream")
+        stream(required: true, type: PropertyType.Map(stream_info_definition), description: "Stream information")
+        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_info_definition)), description: "Products associated to the stream")
+        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
+    }
+
+    "/melilive/stream/end"(platform: "/", type: TrackType.View) {
+        tracking_id(required: true, type: PropertyType.String, description: "Unique ID to track if a Item comes from a LiveStream")
+        stream(required: true, type: PropertyType.Map(stream_info_definition), description: "Stream information")
+        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_info_definition)), description: "Products associated to the stream")
+        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
+    }
+
+    "/melilive/webview"(platform: "/mobile", type: TrackType.View) {
+        uri(required: true, type: PropertyType.String, description: "Live URL")
+    }
+
+    "/melilive/stream/exit"(platform: "/", type: TrackType.Event) {
+        stream(required: true, type: PropertyType.Map(exit_stream_info_definition), description: "Stream information")
+        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
+    }
+
+    "/melilive/stream/prelive"(platform: "/", type: TrackType.View) {
+        stream(required: true, type: PropertyType.Map(prelive_stream_info_definition), description: "Stream information")
+        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
+    }
+
+    "/melilive/stream/group"(platform: "/", type: TrackType.Event) {
+        stream(required: true, type: PropertyType.Map(group_stream_info_definition), description: "Stream information")
+        group_id(required: true, type: PropertyType.String, description: "Group ID selected")
+        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_group_info_definition)), description: "Product added to the group")
+    }
+
+    "/melilive/stream/share"(platform: "/", type: TrackType.Event) {
+        stream(required: true, type: PropertyType.Map(share_stream_info_definition), description: "Stream information")
+    }
+
+    "/melilive/stream/bookmark"("platform": "/", type: TrackType.Event, isAbstract: true) {
+        stream(required: true, type: PropertyType.Map(bookmark_stream_info_definition), description: "Stream information")
+        item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
+        product_id(required: false, type: PropertyType.String, description:  "Product Id")
+        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
+        context(required: true, type: PropertyType.String, description: "Melilive Context")
+    }
+
+    "/melilive/stream/bookmark/add"("platform": "/", type: TrackType.Event) {
+    }
+
+    "/melilive/stream/bookmark/remove"("platform": "/", type: TrackType.Event) {
+    }
+
+    // ************** CREATOR **************
 
     def group_product_definition = objectSchemaDefinitions {
         item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
@@ -59,61 +151,6 @@ tracks {
         products(required: true, type: PropertyType.ArrayList(PropertyType.Map(group_product_definition)), description: "Products associated to the group")
     }
 
-    // Tracks
-
-    "/melilive"(platform: "/" , isAbstract:true ) {}
-
-    "/melilive/stream"(platform: "/", type: TrackType.View) {
-        tracking_id(required: true, type: PropertyType.String, description: "Unique ID to track if a Item comes from a LiveStream")
-        stream(required: true, type: PropertyType.Map(stream_info_definition), description: "Stream information")
-        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_info_definition)), description: "Products associated to the stream")
-        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
-    }
-
-    "/melilive/webview"(platform: "/mobile", type: TrackType.View) {
-        url(required: true, type: PropertyType.String, description: "Live URL")
-    }
-
-    "/melilive/stream/exit"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        time_elapsed(required: false, type: PropertyType.Numeric, description: "Time viewer was watching the stream")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
-        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
-    }
-
-    "/melilive/prelive"(platform: "/", type: TrackType.View) {
-        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        starts_at(required: true, type: PropertyType.String, description: "Date when stream has is supposed to start")
-        viewer_info(required: true, type: PropertyType.Map(viewer_info_definition), description: "Viewer information")
-    }
-
-    "/melilive/stream/group"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        status(required: true, type: PropertyType.String, values: ["LIVE", "ENDED", "RECORDED"], description: "Current status of the broadcast")
-        group_id(required: true, type: PropertyType.String, description: "Group ID selected")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
-        products(required: true, type: PropertyType.ArrayList(PropertyType.Map(product_group_info_definition)), description: "Product added to the group")
-    }
-
-    "/melilive/stream/share"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        url(required: true, type: PropertyType.String, description: "Shared URL")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
-    }
-
-    "/melilive/stream/bookmark"("platform": "/", type: TrackType.Event, isAbstract: true, parentPropertiesInherited: false) {
-        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
-        item_id(required: true, type: PropertyType.String, description: "Id that identify the item")
-        product_id(required: false, type: PropertyType.String, description:  "Product Id")
-        viewers(required: false, type: PropertyType.Numeric, description: "Current amount of viewers")
-        context(required: true, type: PropertyType.String, description: "Melilive Context")
-    }
-
-    "/melilive/stream/bookmark/add"("platform": "/", type: TrackType.Event) {
-    }
-
-    "/melilive/stream/bookmark/remove"("platform": "/", type: TrackType.Event) {
-    }
 
     "/melilive/creator/start_live"("platform": "/", type: TrackType.Event) {
         broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
