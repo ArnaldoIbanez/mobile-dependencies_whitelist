@@ -6598,7 +6598,7 @@ test("seller central catalog optin v2 item plus card show") {
   }
 
   test("User is not using GEMA"){
-    "/seller_central/gema"(platform: "/", type: TrackType.Event){
+    "/seller_central/gema"(platform: "/web", type: TrackType.Event){
       use_gema = false
       seller_reputation = "NEWBIE"
     }

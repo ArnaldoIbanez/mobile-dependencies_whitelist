@@ -46,7 +46,7 @@ tracks {
         source(required: true, type: PropertyType.String, description: "Is the original source from we took the image to publish with the item and could be one of five GEMA/OTROS/SUBEFOTOS/IMGBB/POSTIMAGES")
         quantity(required: true, type: PropertyType.Numeric, description: "The total number of images uploaded with this item")
     }
-    
+
     "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
         total(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded")
         last_published(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from last published section")
