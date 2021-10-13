@@ -6554,4 +6554,46 @@ test("seller central catalog optin v2 item plus card show") {
       verified = true
     }
   }
+
+  test("Seller central comparison tooltip"){
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+      open_time = 2.3
+      loading_time = 1782.9313
+      tooltip_type = "success"
+      item_id = "MLA10335295"
+      item_state = "inactive"
+    }
+
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+      open_time = 3.4
+      loading_time = 1782.9313
+      tooltip_type = "abort"
+      item_id = "MLA10335295"
+      item_state = "active"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "show"
+      activation_channel = "marketplace"
+      subview_id = "mshops"
+      item_id = "MLA10335295"
+      empty_type = "empty_channel"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "click"
+      activation_channel = "mshops"
+      subview_id = "marketplace"
+      item_id = "MLA10335295"
+      empty_type = "empty_channel"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "click"
+      activation_channel = "mshops"
+      subview_id = "mshops"
+      item_id = "MLA10335295"
+      empty_type = "activate_mshops"
+    }
+  }
 }

@@ -31,7 +31,7 @@ tracks {
         groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bunit, ch, camp, strategy, utm)
     }
 
-    "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
+    "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1262") {}
     "/point/buyingflow/shipping"(platform: "/", isAbstract: true) {}
     "/point/buyingflow/payment"(platform: "/", isAbstract: true) {}
 
