@@ -8,6 +8,51 @@ tracks {
 
     initiative = "1198"
 
+    def seller_def = objectSchemaDefinitions {
+        messages_count(required: true, description: "Number of messages to seller", type: PropertyType.Numeric, name: "messages_count")
+        nickname(required: true, description: "Username of the seller", type: PropertyType.String, name: "nickname")
+        id(required: true, description: "id of the seller", type: PropertyType.Numeric, name: "id")
+    }
+
+    def shipping_def = objectSchemaDefinitions {
+        shipping_mode(required: true, description: "Way of delivering (example: me2)", type: PropertyType.String, name: "shipping_mode", values: ["not_specified", "me1", "me2", "custom"])
+        shipping_method(required: false, description: "Delivering method (example: standard)", type: PropertyType.String,  name: "shipping_method")
+        shipping_sub_status(required: true, description: "Delivery sub-status (example: ready_to_print)", type: PropertyType.String,  name: "shipping_sub_status")
+        logistic_type(required: true, description: "Delivering method variant (example: drop_off)", type: PropertyType.String, name: "logistic_type", values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"])
+        shipping_status(required: true, description: "Delivery status (example: ready_to_ship)", type: PropertyType.String, name: "shipping_status")
+    }
+
+    def payments_def = objectSchemaDefinitions {
+        payment_method_type(required: true, description: "How the buyer actually paid", type: PropertyType.String, name: "payment_method_type")
+        payment_method_id(required: true, description: "Id of the method type", type: PropertyType.String, name: "payment_method_id")
+        payment_status_detail(required: true, description: "Indicates the payment status detail", type: PropertyType.String, name: "payment_status_detail", values: ["partially_refunded","pending_capture","accredited", "cc_rejected_blacklist", "cc_rejected_high_risk", "cc_rejected_insufficient_amount", "cc_rejected_invalid_installments", "cc_rejected_other_reason", "cc_rejected_max_attempts", "cc_rejected_bad_filled_card_number", "cc_rejected_bad_filled_other", "cc_rejected_bad_filled_date", "cc_rejected_bad_filled_security_code", "cc_rejected_call_for_authorize", "cc_rejected_card_disabled", "default", "accord", "pending_contingency", "pending_review_manual", "pending_challenge", "cc_rejected_fraud", "cc_rejected_duplicated_payment", "cc_rejected_bad_filled_invalid_date", "account_rejected_high_risk", "rejected_by_regulations", "rejected_insufficient_data", "rejected_by_bank", "error_bi_without_cnpj", "error_bi_different_ie", "error_bi_cnpj_non_operational", "error_bi_ie_invalid_state", "phone_verification"])
+        payment_status(required: true, description: "States if the payment has been approved or not", type: PropertyType.String, name: "payment_status")
+    }
+
+    def items_def = objectSchemaDefinitions {
+        business(required: true, description: "Where the purchase occurred (example: marketplace)", type: PropertyType.String, name: "business")
+        page_vertical(required: true, description: "Case identified for the purchase status", type: PropertyType.String, name: "page_vertical")
+        domain(required: true, description: "Item's domain id", type: PropertyType.String, name: "domain")
+        category_l1(required: true, description: "Category id for l1", type: PropertyType.String, name: "category_l1")
+        category_l2(required: true, description: "Category id for l2",  type: PropertyType.String, name: "category_l2")
+        category_l3(required: false, description: "Category id for l3", type: PropertyType.String, name: "category_l3")
+        category_l4(required: false, description: "Category id for l4",  type: PropertyType.String, name: "category_l4")
+        category_l5(required: false, description: "Category id for l5",  type: PropertyType.String, name: "category_l5")
+        listing_type(required: true, description: "Identifier of the item category", PropertyType.String, name: "listing_type")
+        item_id(required: true, description: "Id of the item", type: PropertyType.String, name: "item_id")
+        quantity(required: true, description: "How many were actually bought by the buyer", type: PropertyType.Numeric, name: "quantity")
+        variation_id(required: false, description: "Id of the item variation", type: PropertyType.Numeric, name: "variation_id")
+        condition(required: true, description: "States if it is old or new", type: PropertyType.String, name: "condition")
+        deals(required: false, description: "Ids of posts with discounts", type: PropertyType.String, name: "deals")
+        product_id(required: false, description: "Item id", type: PropertyType.String, name: "product_id")
+        international_delivery_mode(required: true, description: "Indicates if the item has international delivery or not", type: PropertyType.String, name: "international_delivery_mode")
+    }
+
+    def buyer_def = objectSchemaDefinitions {
+        id(required: true, description: "Id of the buyer", type: PropertyType.Numeric, name: "id")
+        is_prime(required: true, description: "Indicator of the id primality", type: PropertyType.String, name: "is_prime")
+    }
+
     propertyDefinitions {
 
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(items_def)), description: "Items in this purchase")
@@ -63,51 +108,6 @@ tracks {
         pack_id(required: false, type: PropertyType.Numeric, description: "The id of the pack selected")
         order_id(required: false, type: PropertyType.Numeric, description: "The id of the order selected")
         label(required: false, type: PropertyType.String, description: "The action that was tracked")
-    }
-
-    def seller_def = objectSchemaDefinitions {
-        messages_count(required: true, description: "Number of messages to seller", type: PropertyType.Numeric, name: "messages_count")
-        nickname(required: true, description: "Username of the seller", type: PropertyType.String, name: "nickname")
-        id(required: true, description: "id of the seller", type: PropertyType.Numeric, name: "id")
-    }
-
-    def shipping_def = objectSchemaDefinitions {
-        shipping_mode(required: true, description: "Way of delivering (example: me2)", type: PropertyType.String, name: "shipping_mode", values: ["not_specified", "me1", "me2", "custom"])
-        shipping_method(required: false, description: "Delivering method (example: standard)", type: PropertyType.String,  name: "shipping_method")
-        shipping_sub_status(required: true, description: "Delivery sub-status (example: ready_to_print)", type: PropertyType.String,  name: "shipping_sub_status")
-        logistic_type(required: true, description: "Delivering method variant (example: drop_off)", type: PropertyType.String, name: "logistic_type", values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"])
-        shipping_status(required: true, description: "Delivery status (example: ready_to_ship)", type: PropertyType.String, name: "shipping_status")
-    }
-
-    def payments_def = objectSchemaDefinitions {
-        payment_method_type(required: true, description: "How the buyer actually paid", type: PropertyType.String, name: "payment_method_type")
-        payment_method_id(required: true, description: "Id of the method type", type: PropertyType.String, name: "payment_method_id")
-        payment_status_detail(required: true, description: "Indicates the payment status detail", type: PropertyType.String, name: "payment_status_detail", values: ["partially_refunded","pending_capture","accredited", "cc_rejected_blacklist", "cc_rejected_high_risk", "cc_rejected_insufficient_amount", "cc_rejected_invalid_installments", "cc_rejected_other_reason", "cc_rejected_max_attempts", "cc_rejected_bad_filled_card_number", "cc_rejected_bad_filled_other", "cc_rejected_bad_filled_date", "cc_rejected_bad_filled_security_code", "cc_rejected_call_for_authorize", "cc_rejected_card_disabled", "default", "accord", "pending_contingency", "pending_review_manual", "pending_challenge", "cc_rejected_fraud", "cc_rejected_duplicated_payment", "cc_rejected_bad_filled_invalid_date", "account_rejected_high_risk", "rejected_by_regulations", "rejected_insufficient_data", "rejected_by_bank", "error_bi_without_cnpj", "error_bi_different_ie", "error_bi_cnpj_non_operational", "error_bi_ie_invalid_state", "phone_verification"])
-        payment_status(required: true, description: "States if the payment has been approved or not", type: PropertyType.String, name: "payment_status")
-    }
-
-    def items_def = objectSchemaDefinitions {
-        business(required: true, description: "Where the purchase occurred (example: marketplace)", type: PropertyType.String, name: "business")
-        page_vertical(required: true, description: "Case identified for the purchase status", type: PropertyType.String, name: "page_vertical")
-        domain(required: true, description: "Item's domain id", type: PropertyType.String, name: "domain")
-        category_l1(required: true, description: "Category id for l1", type: PropertyType.String, name: "category_l1")
-        category_l2(required: true, description: "Category id for l2",  type: PropertyType.String, name: "category_l2")
-        category_l3(required: false, description: "Category id for l3", type: PropertyType.String, name: "category_l3")
-        category_l4(required: false, description: "Category id for l4",  type: PropertyType.String, name: "category_l4")
-        category_l5(required: false, description: "Category id for l5",  type: PropertyType.String, name: "category_l5")
-        listing_type(required: true, description: "Identifier of the item category", PropertyType.String, name: "listing_type")
-        item_id(required: true, description: "Id of the item", type: PropertyType.String, name: "item_id")
-        quantity(required: true, description: "How many were actually bought by the buyer", type: PropertyType.Numeric, name: "quantity")
-        variation_id(required: false, description: "Id of the item variation", type: PropertyType.Numeric, name: "variation_id")
-        condition(required: true, description: "States if it is old or new", type: PropertyType.String, name: "condition")
-        deals(required: false, description: "Ids of posts with discounts", type: PropertyType.String, name: "deals")
-        product_id(required: false, description: "Item id", type: PropertyType.String, name: "product_id")
-        international_delivery_mode(required: true, description: "Indicates if the item has international delivery or not", type: PropertyType.String, name: "international_delivery_mode")
-    }
-
-    def buyer_def = objectSchemaDefinitions {
-        id(required: true, description: "Id of the buyer", type: PropertyType.Numeric, name: "id")
-        is_prime(required: true, description: "Indicator of the id primality", type: PropertyType.String, name: "is_prime")
     }
 
     propertyGroups {
