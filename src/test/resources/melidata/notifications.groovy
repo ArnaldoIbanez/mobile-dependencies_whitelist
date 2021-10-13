@@ -13443,12 +13443,15 @@ trackTests {
         }
         "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/") {
             news_id = "pm_om_notification-buyer_cancellation-753913118-d4d5811d-6ed7-4564-859c-2a6e00a35d67"
+            event_type = "open"
+        }
 
         "/notification/disbursement_kwai_received"(platform: "/") {
             news_id = "disbursement_kwai-received-12345678"
             event_type = "open"
             notification_type= "deep_linking"
         }
+
         "/notification/moneyin_cca_approved"(platform: "/") {
             news_id = "moneyin_cca-approved-12345678"
             event_type = "open"
