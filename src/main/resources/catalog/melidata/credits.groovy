@@ -148,6 +148,9 @@ tracks {
         result(description: "Current status of the IV/KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
         offer_type(description: "Offer Type on Approved Credits Lines", type: PropertyType.String, required: false, values: ["special_full_offer", "full_offer", "early_offer"])
     }
+    "/credits/consumer/opensea/risk_provider/share_data"(platform: "/", type: TrackType.Event) {
+        source(risk_provider: "Risk Integrator in congrats Open Sea", type: PropertyType.String, required: true, values: ["open_finance", "klippa"])
+    }
 
     /* Remedy MLM */
     "/credits/consumer/opensea/remedy/authorization"(platform: "/", type: TrackType.View) {}
