@@ -536,7 +536,7 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
         full_vehicle_incident_id(required: false, type: PropertyType.String, description: "Specifies if there is an incident in the incomplete pickup", inheritable: false)
-        stop_id(required: true, type: PropertyType.String, description: "Specifies the current stop id")
+        stop_id(required: true, type: PropertyType.String, description: "Specifies the current stop id", inheritable: false)
     }
     "/logistics/first_mile/pickup/partial"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: true)
