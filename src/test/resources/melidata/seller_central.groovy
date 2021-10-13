@@ -6596,4 +6596,11 @@ test("seller central catalog optin v2 item plus card show") {
       empty_type = "activate_mshops"
     }
   }
+
+  test("User is not using GEMA"){
+    "/seller_central/gema"(platform: "/", type: TrackType.Event){
+      use_gema = false
+      seller_reputation = "NEWBIE"
+    }
+  }
 }
