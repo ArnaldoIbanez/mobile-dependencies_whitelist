@@ -13,7 +13,7 @@ tracks {
     *************************/
 
     propertyDefinitions {
-        section_id(required: false, type: PropertyType.String, description: "Identifier for the realestate to consume")
+        section_id(required: true, type: PropertyType.String, description: "Identifier for the realestate to consume")
         component_id(required: false, type: PropertyType.String, description: "Identifier for the component")
         content_id(required: false, type: PropertyType.String, description: "Identifier for the unique content shown")
         audience(required: false, type: PropertyType.String, description: "The audience for which this content was prepared")
