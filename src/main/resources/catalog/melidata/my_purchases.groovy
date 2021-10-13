@@ -10,12 +10,12 @@ tracks {
 
     propertyDefinitions {
 
-        items(required: true, type: PropertyType.ArrayList, description: "Items in this purchase")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(items_def)), description: "Items in this purchase")
         // business
         // page_vertical
         // domain
-        // category_l1
-        // category_l2
+        // category_l1 (optional)
+        // category_l2 (optional)
         // category_l3 (optional)
         // category_l4 (optional)
         // category_l5 (optional)
@@ -24,33 +24,30 @@ tracks {
         // quantity
         // variation_id (optional)
         // condition
-        // product_id (optional)
         // deals (optional)
+        // product_id (optional)
+        // international_delivery_mode (optional)
 
-        payments(required: false, type: PropertyType.ArrayList, description: "Payments in this purchase")
+        payments(required: false, type: PropertyType.ArrayList(PropertyType.Map(payments_def)), description: "Payments in this purchase")
         // payment_method_type
         // payment_method_id
         // payment_status
         // payment_status_detail
 
-        shipping(required: false, type: PropertyType.ArrayList, description: "Shipments in this purchase")
+        shipping(required: false, type: PropertyType.ArrayList(PropertyType.Map(shipping_def)), description: "Shipments in this purchase")
         // shipping_method
         // shipping_mode
         // logistic_type
         // shipping_status
         // shipping_sub_status
 
-        seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data")
+        seller(required: true, type: PropertyType.ArrayList(PropertyType.Map(seller_def)), description: "Array of sellers with their data")
         // id
         // nickname
-        // mercado_lider
-        // reputation_level
         // messages_count
 
-        buyer(required: true, type:PropertyType.ArrayList, description: "Array of buyers with their data")
+        buyer(required: true, type: PropertyType.ArrayList(PropertyType.Map(buyer_def)), description: "Array of buyers with their data")
         // id
-        // nickname
-        // loyalty_level
         // is_prime
 
         purchase_status(required: true, type: PropertyType.String, description: "Purchase status")
@@ -90,20 +87,22 @@ tracks {
     }
 
     def items_def = objectSchemaDefinitions {
-        category_l3(required: true, description: "Category id for l3", type: PropertyType.String, name: "category_l3")
-        category_l4(required: true, description: "Category id for l4",  type: PropertyType.String, name: "category_l4")
-        quantity(required: true, description: "How many were actually bought by the buyer", type: PropertyType.Numeric, name: "quantity")
         business(required: true, description: "Where the purchase occurred (example: marketplace)", type: PropertyType.String, name: "business")
-        item_id(required: true, description: "Id of the item", type: PropertyType.String, name: "item_id")
         page_vertical(required: true, description: "Case identified for the purchase status", type: PropertyType.String, name: "page_vertical")
-        listing_type(required: true, description: "Identifier of the item category", PropertyType.String, name: "listing_type")
+        domain(required: true, description: "Item's domain id", type: PropertyType.String, name: "domain")
         category_l1(required: true, description: "Category id for l1", type: PropertyType.String, name: "category_l1")
         category_l2(required: true, description: "Category id for l2",  type: PropertyType.String, name: "category_l2")
-        international_delivery_mode(required: true, description: "Indicates if the item has international delivery or not", type: PropertyType.String, name: "international_delivery_mode")
-        condition(required: true, description: "States if it is old or new", type: PropertyType.String, name: "condition")
+        category_l3(required: true, description: "Category id for l3", type: PropertyType.String, name: "category_l3")
+        category_l4(required: true, description: "Category id for l4",  type: PropertyType.String, name: "category_l4")
+        category_l5(required: true, description: "Category id for l5",  type: PropertyType.String, name: "category_l5")
+        listing_type(required: true, description: "Identifier of the item category", PropertyType.String, name: "listing_type")
+        item_id(required: true, description: "Id of the item", type: PropertyType.String, name: "item_id")
+        quantity(required: true, description: "How many were actually bought by the buyer", type: PropertyType.Numeric, name: "quantity")
         variation_id(required: true, description: "Id of the item variation", type: PropertyType.Numeric, name: "variation_id")
-        domain(required: true, description: "Item's domain id", type: PropertyType.String, name: "domain")
+        condition(required: true, description: "States if it is old or new", type: PropertyType.String, name: "condition")
+        deals(required: true, description: "Ids of posts with discounts", type: PropertyType.String, name: "deals")
         product_id(required: true, description: "Item id", type: PropertyType.String, name: "product_id")
+        international_delivery_mode(required: true, description: "Indicates if the item has international delivery or not", type: PropertyType.String, name: "international_delivery_mode")
     }
 
     def buyer_def = objectSchemaDefinitions {
