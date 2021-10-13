@@ -5,6 +5,17 @@ import com.ml.melidata.TrackType;
 trackTests {
     defaultBusiness = "mercadopago"
 
+
+    /*****************************
+    *    ACTIVITY TEST TRACKS    *
+    *****************************/
+
+    test("Mercadopago Activities Merch Engine Events") {
+        "/mpfront/activities/detail/crossselling/print" (platform: "/", type: TrackType.Event) {}
+        "/mpfront/activities/detail/crossselling/view" (platform: "/", type: TrackType.Event) {}
+        "/mpfront/activities/detail/crossselling/tap" (platform: "/", type: TrackType.Event) {}
+    }
+
     /************************************
     *    ACTIVITY MOBILE TEST TRACKS    *
     ************************************/
