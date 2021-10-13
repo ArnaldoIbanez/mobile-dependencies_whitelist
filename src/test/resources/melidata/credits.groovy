@@ -205,10 +205,10 @@ trackTests {
         "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {
             result = 'approved'
         }
-        "/credits/consumer/opensea/risk_provider/share_data"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {{
+        "/credits/consumer/opensea/risk_provider/share_data"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {
             risk_provider = 'open_finance'
         }
-        "/credits/consumer/opensea/risk_provider/share_data"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {{
+        "/credits/consumer/opensea/risk_provider/share_data"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
             risk_provider = 'klippa'
         }
 
