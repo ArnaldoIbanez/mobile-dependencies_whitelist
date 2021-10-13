@@ -282,6 +282,14 @@ trackTests {
             initiative = 'merchant_administrator'
             step = 'sms'
         }
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            initiative = 'consumer_open_sea_tx'
+            step = 'telcel'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            initiative = 'consumer_personal_loan_second_stage'
+            step = 'telcel_credit_circle'
+        }
 
         // MercadoLibre business
         "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
@@ -297,6 +305,14 @@ trackTests {
         }
         "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
             initiative = 'consumer_personal_loan'
+            step = 'telcel_credit_circle'
+        }
+        "/credits/preferences"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            initiative = 'consumer_open_sea_tx'
+            step = 'telcel'
+        }
+        "/credits/preferences/decline"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {
+            initiative = 'consumer_personal_loan_second_stage'
             step = 'telcel_credit_circle'
         }
     }
