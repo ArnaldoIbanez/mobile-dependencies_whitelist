@@ -210,6 +210,26 @@ trackTests {
     "/vendor_central/inbound-shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("Vendor Central inbound creator edition download") {
+    "/vendor_central/inbound-shipment/editor/download"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator edition download congrats") {
+    "/vendor_central/inbound-shipment/editor/download/congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator edition upload") {
+    "/vendor_central/inbound-shipment/editor/upload"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator edition upload congrats") {
+    "/vendor_central/inbound-shipment/editor/upload/congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central inbound creator edition upload error") {
+    "/vendor_central/inbound-shipment/editor/upload/error"(platform: "/web", type: TrackType.View) {}
+  }
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS Vendor Central Fiscal Documents Template Mappings
 //------------------------------------------------------------------------------------------------------------------------------------------------------
