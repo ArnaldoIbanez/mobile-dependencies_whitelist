@@ -38,7 +38,7 @@ metrics {
 		}
 	}
 
-	"idfa.deny"(description: "IDFA alert shown", deprecation_date:"2021/03/31") {
+	"idfa.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10") {
 		startWith {
 			experiment("mobile/IDFA_Banner")
 		}
@@ -50,7 +50,7 @@ metrics {
 		}
 	}
 
-	"idfa.accept"(description: "IDFA permission accepted", deprecation_date:"2021/03/31") {
+	"idfa.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10") {
 		startWith {
 			experiment("mobile/IDFA_Banner")
 		}
@@ -62,7 +62,7 @@ metrics {
 		}
 	}
 
-	"idfa.mp.deny"(description: "IDFA alert shown", deprecation_date:"2021/03/31") {
+	"idfa.mp.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10") {
 		startWith {
 			experiment("mobile/IDFA_Banner_MP")
 		}
@@ -74,7 +74,7 @@ metrics {
 		}
 	}
 
-	"idfa.mp.accept"(description: "IDFA permission accepted", deprecation_date:"2021/03/31") {
+	"idfa.mp.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10") {
 		startWith {
 			experiment("mobile/IDFA_Banner_MP")
 		}

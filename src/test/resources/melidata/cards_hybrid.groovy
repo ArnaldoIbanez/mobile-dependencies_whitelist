@@ -604,6 +604,13 @@ trackTests {
         }
     }
 
+    //App2App Confirmation
+    test("App2App confirmation flow") {
+        "/cards/hybrid/app2app/facebook_pay_verification"(platform:"/mobile", type: TrackType.View) { }
+        "/cards/hybrid/app2app/facebook_pay_verification/confirmation"(platform:"/mobile", type: TrackType.Event) { }
+        "/cards/hybrid/app2app/facebook_pay_verification/close"(platform:"/mobile", type: TrackType.Event) { }
+    }
+
     //Feedback: Tracking
     test("cards hybrid dashboard feedback") {
         "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
@@ -2389,7 +2396,7 @@ trackTests {
         }
     
         "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {
-            status = "enrollment_completed"
+            status = "enrollment_complete"
         }
     
         "/cards/nfc/enrollment/device_enrollment/state"(platform: "/", type: TrackType.Event) {

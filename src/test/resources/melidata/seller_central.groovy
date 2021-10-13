@@ -6213,6 +6213,17 @@ test("seller central catalog optin v2 item plus card show") {
       }
   }
 
+  test("seller central catalog optin v2 review") {
+      "/seller_central/catalog/optin_v2/review"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        original_catalog_product_id = "MLA15149561"
+      }
+  }
+
   test("seller central catalog optin v2 product problem show") {
       "/seller_central/catalog/optin_v2/product_problem"(platform: "/web", type: TrackType.View) {
         moderated = true
@@ -6541,6 +6552,48 @@ test("seller central catalog optin v2 item plus card show") {
         ]
       ]
       verified = true
+    }
+  }
+
+  test("Seller central comparison tooltip"){
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+      open_time = 2.3
+      loading_time = 1782.9313
+      tooltip_type = "success"
+      item_id = "MLA10335295"
+      item_state = "inactive"
+    }
+
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+      open_time = 3.4
+      loading_time = 1782.9313
+      tooltip_type = "abort"
+      item_id = "MLA10335295"
+      item_state = "active"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "show"
+      activation_channel = "marketplace"
+      subview_id = "mshops"
+      item_id = "MLA10335295"
+      empty_type = "empty_channel"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "click"
+      activation_channel = "mshops"
+      subview_id = "marketplace"
+      item_id = "MLA10335295"
+      empty_type = "empty_channel"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "click"
+      activation_channel = "mshops"
+      subview_id = "mshops"
+      item_id = "MLA10335295"
+      empty_type = "activate_mshops"
     }
   }
 }
