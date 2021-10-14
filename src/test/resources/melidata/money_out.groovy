@@ -346,7 +346,35 @@ trackTests {
       "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {
          type="credits"
       }
+      "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/bottom_sheet/restrictions/dismiss"(platform: "/", type: TrackType.Event) {
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions"(platform:"/", type: TrackType.View){
+         type="same_user"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions/continue"(platform: "/", type: TrackType.Event) {
+         type="same_user"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions/back"(platform: "/", type: TrackType.Event) {
+         type="same_user"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions/dismiss"(platform: "/", type: TrackType.Event) {
+         type="same_user"
+      }
     
+      //Transfer Hub - FTU Unified transfers
+      "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
+
       //Transfer Hub - Modal KYC
       "/money_out/transfers/home/kyc_modal"(platform:"/", type: TrackType.View){}
       "/money_out/transfers/home/kyc_modal/continue"(platform: "/", type: TrackType.Event) {}
