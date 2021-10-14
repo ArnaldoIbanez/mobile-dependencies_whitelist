@@ -6597,7 +6597,7 @@ test("seller central catalog optin v2 item plus card show") {
     }
   }
 
-  test("Sellers that use GEMA "){
+  test("Sellers that use GEMA"){
     "/seller_central/gema"(platform: "/web", type: TrackType.Event){}
 
     "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event){
