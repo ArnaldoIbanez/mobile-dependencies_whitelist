@@ -19,7 +19,7 @@ tracks {
         audience(required: false, type: PropertyType.String, description: "The audience for which this content was prepared")
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
         logic(required: false, type: PropertyType.String, description: "Origin of the content")
-        bu(required: false, type: PropertyType.String, description: "The business unit")
+        business_unit(required: false, type: PropertyType.String, description: "The business unit")
         bu_line(required: false, type: PropertyType.String, description: "The business unit related to the content")
         flow(required: false, type: PropertyType.String, description: "The flow related to the content")
         action_id(required: false, type: PropertyType.String, description: "The action executed")
@@ -28,17 +28,18 @@ tracks {
 
     propertyGroups {
         eventDataTrack (
-           section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow
+           section_id, component_id, content_id, audience, position, logic, business_unit, bu_line, flow
         )
         actionEventDataTrack (
-           section_id, component_id, content_id, audience, position, logic, bu, bu_line, flow, action_id, link
+           section_id, component_id, content_id, audience, position, logic, business_unit, bu_line, flow, action_id, link
         )
     }
 
+    "/mpfront/activities/detail"(platform: "/", , isAbstract: true) {}
     "/mpfront/activities/detail/crossselling"(platform: "/", , isAbstract: true) {}
-    "/mpfront/activities/detail/crossselling/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
-    "/mpfront/activities/detail/crossselling/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
-    "/mpfront/activities/detail/crossselling/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+    "/mpfront/activities/detail/crossselling_print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mpfront/activities/detail/crossselling_view"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mpfront/activities/detail/crossselling_tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
 
     /********************************
     *     ACTIVITY MOBILE TRACKS    *
