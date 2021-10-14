@@ -747,6 +747,7 @@ tracks {
     //Insurtech CARDS
     "/insurtech/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false){
         options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Options objects")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
