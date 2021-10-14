@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1171"
+    initiative = "1237"
 
     /**
     * NOTIFICATIONS CENTER
