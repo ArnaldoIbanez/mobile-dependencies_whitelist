@@ -3960,6 +3960,7 @@ trackTests {
             is_restrictive = false
             is_default_card = true
             tap_status = "success"
+            is_online_payment = true
             from = "tap: ScreenLockActivity"
             is_token_active = true
             are_payment_keys_available = true
@@ -3977,6 +3978,7 @@ trackTests {
             additional_info = "POS_COMM_DISCONNECTED error"
             is_default_card = true
             tap_status = "failure"
+            is_online_payment = false
             from = "preAuth: HomeActivity"
             is_token_active = true
             are_payment_keys_available = true

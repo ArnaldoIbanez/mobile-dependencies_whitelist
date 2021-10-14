@@ -172,6 +172,7 @@ tracks {
 
     "/credits/preferences"(platform: "/", isAbstract: true, type: TrackType.View) {
         initiative(
+            description: 'Credits optin initiatives',
             type: PropertyType.String,
             required: true,
             inheritable: true,
@@ -183,8 +184,10 @@ tracks {
                 'consumer_open_sea',
                 'consumer_personal_loan',
                 'consumer_administrator',
-                'credit_card_open_sea'
-            ]
+                'credit_card_open_sea',
+                'consumer_personal_loan_second_stage',
+                'consumer_open_sea_tx'
+            ],
         )
         step(
             type: PropertyType.String,
