@@ -109,6 +109,7 @@ tracks {
     "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/home/unified_transfers_p2p"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
@@ -250,6 +251,11 @@ tracks {
         type(required_:false, description: "Indicates the type selected ")
     }
 
+    //Bottom Sheet - Unified P2P
+    "/money_out/transfers/bottom_sheet"(platform: "/", type: TrackType.View) {}
+    "/money_out/transfers/bottom_sheet/confirm"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/bottom_sheet/cancel"(platform: "/", type: TrackType.Event) {}
+
     //Cashout - modals
     "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
     "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
@@ -305,12 +311,30 @@ tracks {
     "/money_out/transfers/home/restrictions/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/restrictions/back"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
+        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector"])
+    }
+    "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/bottom_sheet/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    "/money_out/transfers/calculator_p2p/restrictions"(platform:"/", type: TrackType.View){
+        type(required:true, description:"Indicate type of restriction for example: same_user", values=["same_user", "blacklist", "account_deactive", "country", "user_without_account", "kyc_collector_restriction", "collector_restriction"])
+    }
+    "/money_out/transfers/calculator_p2p/restrictions/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/calculator_p2p/restrictions/back"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/calculator_p2p/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Modal KYC
     "/money_out/transfers/home/kyc_modal"(platform:"/", type: TrackType.View){}
     "/money_out/transfers/home/kyc_modal/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/kyc_modal/back"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/kyc_modal/dismiss"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer Hub - FTU Unified transfers
+    "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
+    "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
     
     //Pix Limits MLB
     "/pix"(platform: "/", isAbstract: true) {}

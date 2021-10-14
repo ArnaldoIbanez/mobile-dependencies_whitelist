@@ -488,5 +488,18 @@ tracks {
         action_id (required:true, type: PropertyType.String, description: "Indicates the widget action id")
     }
 
-
+    //MLB Calculator Catalog
+    "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/bacen/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/init/cap_reached/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish/close"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
+    "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
 }
