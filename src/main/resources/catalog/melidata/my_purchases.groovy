@@ -329,7 +329,7 @@ tracks {
         purchases_flow(required: false, description: "Version of purchases list", type: PropertyType.String, name: "purchases_flow")
         x_mc_request_id(required: true, description: "My Purchases Middleend Request Id", type: PropertyType.String, name: "x_mc_request_id")
         purchase_status(required: true, description: "Status of the purchase", type: PropertyType.String, name: "purchase_status")
-        payments(required: true, description: "Payments data", type: PropertyType.ArrayList(PropertyType.Map(payments_def)), name: "payments")
+        payments(required: false, description: "Payments data", type: PropertyType.ArrayList(PropertyType.Map(payments_def)), name: "payments")
         items(required: false, description: "Items data", type: PropertyType.ArrayList(PropertyType.Map(items_def)), name: "items")
         checkout_flow(required: true, description: "Indicates if it is a direct or cart purchase", type: PropertyType.String, name: "checkout_flow")
         buyer(required: true, description: "Buyer data", type: PropertyType.ArrayList(PropertyType.Map(buyer_def)), name: "buyer")
