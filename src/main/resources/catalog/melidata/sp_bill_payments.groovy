@@ -130,7 +130,7 @@ tracks {
     "/bill_payments/ftu_digital_receipts"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/ftu_digital_receipts/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/ftu_digital_receipts/digital_receipts_optin"(platform: "/mobile", type: TrackType.Event) {}
-    "/bill_payments/ftu_digital_receipts/terms_button"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/ftu_digital_receipts/terms"(platform: "/mobile", type: TrackType.Event) {}
 
     // Opt in
     "/bill_payments/opt_in"(platform: "/mobile", type: TrackType.View) {}

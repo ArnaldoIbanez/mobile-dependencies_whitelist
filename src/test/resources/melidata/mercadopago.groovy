@@ -2566,7 +2566,7 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/ftu_digital_receipts/terms_button"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/ftu_digital_receipts/terms"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
