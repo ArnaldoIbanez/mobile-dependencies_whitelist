@@ -442,6 +442,7 @@ tracks {
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
+         credit_activities_status (required:false, type: PropertyType.String, values: ["credit_activities", "credit_activities_with_error"], description: "Credits activities status", inheritable:false)
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
@@ -2960,6 +2961,11 @@ tracks {
             required: false,
             type: PropertyType.String,
             description: "Adds more info for specials cases, like errors or fails"
+        )
+        is_online_payment (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment is online or offline"
         )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {

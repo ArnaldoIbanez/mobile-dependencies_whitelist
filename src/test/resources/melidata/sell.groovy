@@ -3888,6 +3888,20 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
+    test("SYI moda item variations pictures-education redirect"){
+        "/sell/item_data/variations/pictures_education"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
     test("SYI v4 specifications card showed"){
         "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"

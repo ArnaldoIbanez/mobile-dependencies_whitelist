@@ -323,6 +323,15 @@ trackTests {
             activities_status = "activities_with_error"
             credits = credit_card_data_error
         }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, credit_activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credit_activities_status: "credit_activities"
+        }
         "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
         }
@@ -3951,6 +3960,7 @@ trackTests {
             is_restrictive = false
             is_default_card = true
             tap_status = "success"
+            is_online_payment = true
             from = "tap: ScreenLockActivity"
             is_token_active = true
             are_payment_keys_available = true
@@ -3968,6 +3978,7 @@ trackTests {
             additional_info = "POS_COMM_DISCONNECTED error"
             is_default_card = true
             tap_status = "failure"
+            is_online_payment = false
             from = "preAuth: HomeActivity"
             is_token_active = true
             are_payment_keys_available = true

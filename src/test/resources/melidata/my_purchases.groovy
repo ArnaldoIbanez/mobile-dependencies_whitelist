@@ -34,7 +34,8 @@ trackTests {
 							item_id: "MLA12345678",
 							quantity: 2,
 							variation_id: 987298347,
-							condition: "new"
+							condition: "new",
+							international_delivery_mode: "none"
 					],
 					[
 							business: "mercadolibre",
@@ -49,6 +50,7 @@ trackTests {
 							item_id: "MLA12345678",
 							quantity: 2,
 							condition: "new",
+							international_delivery_mode: "none",
 							product_id: "MLM5154108",
 							deals: ["MLM1123", "MLM6534"]
 					]
@@ -520,6 +522,10 @@ trackTests {
 		}
 
 		"/my_purchases/list/repurchase"(platform:"/", type:TrackType.View) {
+		}
+
+		"/my_purchases/list/item" (platform:"/", type: TrackType.Event) {
+			newPurchasesDataFullSet()
 		}
 	}
 }
