@@ -221,6 +221,7 @@ tracks {
     "/credits/credit_card/disable"(platform: "/", isAbstract: true) {}
     "/credits/credit_card/landing"(platform: "/web", isAbstract: true) {}
     "/credits/credit_card/waitlist"(platform: "/", isAbstract: true){}
+    "/credits/credit_card/block_card/virtual"(platform: "/", isAbstract: true){}
 
 
     /******************************************
@@ -615,5 +616,71 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Wait List
+     *********************************************/
+
+
+    /***********************************************
+     *       Start: Credit Card Reissue
+     ***********************************************/
+    //Separator
+    "/credits/credit_card/block_card/virtual/separator"(platform: "/", type: TrackType.View) {
+        card_id (
+                required: true,
+                type: PropertyType.String,
+                description: "Card id",
+                inheritable: false
+        )
+    }
+
+    "/credits/credit_card/block_card/virtual/separator/button"(platform: "/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["primary_button", "secondary_button"],
+                description: "The action type tapped in Separator"
+        )
+        card_id (
+                required: true,
+                type: PropertyType.String,
+                description: "Card id",
+                inheritable: false
+        )
+    }
+
+    //Congrats
+    "/credits/credit_card/block_card/virtual/congrats"(platform: "/", type: TrackType.View) {
+        type (
+                required: true,
+                type: PropertyType.String,
+                description: "Type of congrats in reissue",
+                values: ["virtual_credit_reissue_congrats"]
+        )
+        status (
+                required: true,
+                type: PropertyType.String,
+                description: "status code",
+                inheritable:false
+        )
+
+    }
+
+    //Error
+    "/credits/credit_card/block_card/virtual/error"(platform: "/", type: TrackType.View) {
+        type (
+                required: true,
+                type: PropertyType.String,
+                description: "Type of error in reissue",
+                values: ["virtual_credit_reissue_error"]
+        )
+        status (
+                required: true,
+                type: PropertyType.String,
+                description: "Error code",
+                inheritable:false
+        )
+    }
+
+    /*********************************************
+     *       End: Credit Card Reissue
      *********************************************/
 }
