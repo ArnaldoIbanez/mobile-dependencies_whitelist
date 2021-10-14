@@ -2553,6 +2553,23 @@ trackTests {
             mandatory()
         }
 
+        // FTU digitals receipts
+        "/bill_payments/ftu_digital_receipts"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/digital_receipts_optin"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/terms"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Opt in
         "/bill_payments/opt_in"(platform: "/mobile") {
             mandatory()
