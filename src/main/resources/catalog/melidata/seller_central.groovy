@@ -2740,7 +2740,9 @@ tracks {
         verified (required:true, type: PropertyType.Boolean, description: "Validation result between SYI and DRAT data")
     }
 
-    "/seller_central/gema"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/gema"(platform: "/web", type: TrackType.Event) {}
+
+    "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event) {
         use_gema (required:true, type: PropertyType.Boolean, description: "Validate if the user use our new application")
         seller_reputation (required:true, type: PropertyType.String, description: "Seller Reputation")
     }
