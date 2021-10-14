@@ -2509,7 +2509,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
         "/notification/mpcampaigns_sms"(platform: "/"){
             segment_name= "segment"
@@ -2518,7 +2517,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
 
         "/notification/institutional_sms"(platform: "/"){
@@ -2528,7 +2526,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
         "/notification/mpinstitutional_sms"(platform: "/"){
             segment_name= "segment"
@@ -2537,7 +2534,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
 
         "/notification/campaigns_wpp_sms"(platform: "/"){
@@ -2547,7 +2543,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
         
         "/notification/mpcampaigns_wpp_sms"(platform: "/"){
@@ -2557,7 +2552,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
 
         "/notification/institutional_wpp_sms"(platform: "/"){
@@ -2567,7 +2561,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
 
         "/notification/mpinstitutional_wpp_sms"(platform: "/"){
@@ -2577,7 +2570,6 @@ trackTests {
             communication_id= "TESTa0cf-c3c7-488c-b07e-0728be370bb0"
             campaign_type= "ADHOC"
             sent_date= "20180508"
-            event_type= "sent"
         }
 
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
