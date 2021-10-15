@@ -340,4 +340,16 @@ tracks {
     "/my_purchases/list/item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroupFull
     }
+
+    "/my_purchases/list/view_purchase"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroupFull
+    }
+
+    "/my_purchases/list/view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroupFull
+    }
+
+    "/my_purchases/list/messages"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        newPurchasesGroup
+    }
 }
