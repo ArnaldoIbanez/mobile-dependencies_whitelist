@@ -191,7 +191,6 @@ catalog {
         include business, "hub_mshops.groovy"
         include business, "prepapp.groovy"
         include business, "melilive.groovy"
-        include business, "melilive_chat.groovy"
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
     }
