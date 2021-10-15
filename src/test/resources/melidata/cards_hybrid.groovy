@@ -1173,6 +1173,11 @@ trackTests {
         "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
             reasons = ["debit_available_push_strategy_none", "reissue"]
         }
+        "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
+        }
     }
     test("cards hybrid request physical challenge") {
         "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
@@ -1243,6 +1248,16 @@ trackTests {
         "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
             action = "card_request"
         }
+
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "edit_address"
+            address_id = "1122334455"
+            is_accurate = true
+            is_warning_address = false
+        }
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "add_new_address"
+        }
     }
 
     // Request: Review TyC
@@ -1273,6 +1288,11 @@ trackTests {
     test("cards hybrid physical success event"){
         "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
             reasons = ["card_whitelist_physical_first", "reissue"]
+        }
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["card_whitelist_physical_first", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
         }
     }
 
@@ -3960,6 +3980,7 @@ trackTests {
             is_restrictive = false
             is_default_card = true
             tap_status = "success"
+            is_online_payment = true
             from = "tap: ScreenLockActivity"
             is_token_active = true
             are_payment_keys_available = true
@@ -3977,6 +3998,7 @@ trackTests {
             additional_info = "POS_COMM_DISCONNECTED error"
             is_default_card = true
             tap_status = "failure"
+            is_online_payment = false
             from = "preAuth: HomeActivity"
             is_token_active = true
             are_payment_keys_available = true

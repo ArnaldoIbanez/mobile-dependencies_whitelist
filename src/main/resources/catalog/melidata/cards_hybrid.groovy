@@ -1197,6 +1197,11 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
         )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
         is_warning_address (
             required: false,
             type: PropertyType.Boolean,
@@ -1255,9 +1260,24 @@ tracks {
     "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
-             type: PropertyType.String,
-             values: ["back", "changes_address", "tyc", "card_request"],
-             description: "action tap by the user in the review"
+            type: PropertyType.String,
+            values: ["back", "changes_address", "tyc", "card_request", "edit_address", "add_new_address"],
+            description: "action tap by the user in the review"
+        )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
+        is_accurate (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address is accurate"
+        )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address has a warning message"
         )
     }
 
@@ -1281,6 +1301,16 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        address_id (
+            required: false,
+             type: PropertyType.String,
+             description: "Address id"
+        )
+        is_warning_address (
+            required: false,
+             type: PropertyType.Boolean,
+             description: "If address has a warning message"
         )
     }
     
@@ -2961,6 +2991,11 @@ tracks {
             required: false,
             type: PropertyType.String,
             description: "Adds more info for specials cases, like errors or fails"
+        )
+        is_online_payment (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment is online or offline"
         )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
