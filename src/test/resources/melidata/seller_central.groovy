@@ -1188,6 +1188,7 @@ trackTests {
       shipping_local_pickup = true
     }
   }
+
   test("seller central redirect picture education track"){
     "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View){
       item_type = "default"
@@ -1200,7 +1201,6 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
-      domain_id = "MLA-CELLPHONES"
     }
   }
 

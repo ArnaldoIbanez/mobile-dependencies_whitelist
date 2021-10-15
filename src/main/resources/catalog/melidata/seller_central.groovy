@@ -894,7 +894,6 @@ tracks {
 
     "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
-        domain_id(required: true, type: PropertyType.String, description: "The category domain id")
     }
 
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
