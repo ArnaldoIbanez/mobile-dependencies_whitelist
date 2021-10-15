@@ -869,6 +869,7 @@ trackTests {
             driver_id = "123"
             packages = ["1", "2", "3"]
             full_vehicle_incident_id = "123"
+            stop_id = "123"
         }
         "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
