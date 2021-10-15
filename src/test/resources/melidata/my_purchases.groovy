@@ -96,9 +96,9 @@ trackTests {
 			vertical_case_id= "shipping"
 			vertical_sub_case_id= "shipping_delivered_delivery_address"
 			x_mc_request_id= "aaaaa-vvvvvv-cccc-ddd"
-			purchase_id= 1234
-			pack_id= 1234
-			order_id= 1234
+			purchase_id= "1234"
+			pack_id= "1234"
+			order_id= "1234"
 		}
 
 		def newPurchasesDataFullSet = purchasesEventDataSet >> newPurchasesDataSet
