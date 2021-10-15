@@ -1747,15 +1747,6 @@ tracks {
                         "finished"
                 ]
         )
-        list_status(
-                required: false,
-                description: "Defines if the user can increase his limit",
-                type: PropertyType.String,
-                values: [
-                        "black_list",
-                        "white_list"
-                ]
-        )
     }
     "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
         dashboard_status(
