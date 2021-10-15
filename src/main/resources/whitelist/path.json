@@ -24,7 +24,6 @@
     "/asset_management/error",
     "/remedy/error",
     "/kyc/error",
-    "/kyc/error/timeout",
     "/kyc/error/parsing",
     "/kyc/error/service",
     "/user_blocker/shield/error",
