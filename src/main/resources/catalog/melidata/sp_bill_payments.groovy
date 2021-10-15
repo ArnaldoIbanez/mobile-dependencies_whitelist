@@ -126,6 +126,12 @@ tracks {
     "/bill_payments/ftu/close"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/ftu/pay"(platform: "/mobile", type: TrackType.Event) {}
 
+    // FTU digital receipts
+    "/bill_payments/ftu_digital_receipts"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/ftu_digital_receipts/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/ftu_digital_receipts/digital_receipts_optin"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/ftu_digital_receipts/terms"(platform: "/mobile", type: TrackType.Event) {}
+
     // Opt in
     "/bill_payments/opt_in"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/opt_in/back"(platform: "/mobile", type: TrackType.Event) {}
@@ -410,6 +416,7 @@ tracks {
     "/bill_payments/main_category/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/main_category/scheduling/item"(platform: "/mobile", type: TrackType.Event) {
         entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+        item (required:false, type: PropertyType.String, description: "The chosen item label")
     }
     "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
         search (required:true, type: PropertyType.String, description: "The searched string")
@@ -523,6 +530,7 @@ tracks {
     "/bill_payments/main_category/automatic_debit/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/main_category/automatic_debit/item"(platform: "/mobile", type: TrackType.Event) {
         entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+        item (required:false, type: PropertyType.String, description: "The chosen item label")
     }
     "/bill_payments/main_category/automatic_debit/empty_search"(platform: "/mobile", type: TrackType.Event) {
         search (required:true, type: PropertyType.String, description: "The searched string")
