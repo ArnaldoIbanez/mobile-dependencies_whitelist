@@ -892,6 +892,10 @@ tracks {
         sellerCentralModifyCardsGroup
     }
 
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
+
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyGroupTableForPdp
