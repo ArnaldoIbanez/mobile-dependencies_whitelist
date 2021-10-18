@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1171"
+    initiative = "1237"
 
     /**
     * NOTIFICATIONS CENTER
@@ -1768,6 +1768,12 @@ tracks {
         latest_news_type(required: true, values: ["insurtech_payment_recovery_cards"], type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    
+    // Disbursement Kwai
+    "/notification_center/disbursement_kwai_received"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 
       /**
        * NOTIFICATIONS TRAY
@@ -2452,7 +2458,6 @@ tracks {
           communication_data(required: false, type: PropertyType.String, description: "Extra data")
           campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
       }
 
       "/notification/mpcampaigns_sms"(platform: "/", type: TrackType.Event) {
@@ -2471,7 +2476,6 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
     }
 
     "/notification/mpinstitutional_sms"(platform: "/", type: TrackType.Event) {
@@ -2481,7 +2485,42 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+    }
+
+    "/notification/campaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/mpcampaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/institutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/mpinstitutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
       //MKT Deals
@@ -3387,6 +3426,8 @@ tracks {
     "/notification/card_transactions_approved_withdraw_extracash"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp"(platform: "/mobile") {}
     "/notification/card_transactions_cancelled_authorization_whatsapp_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}
@@ -3734,9 +3775,33 @@ tracks {
     "/notification/pm_om_notification_new_sale"(platform: "/") {}
     "/notification/pm_om_notification_new_sale_retry"(platform: "/") {}
     "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {}
+    "/notification_center/pm_om_notification-store_opening"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
+    "/notification_center/pm_om_notification-new_sale"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
+    "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
         shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
     }
+
+    // Disbursement Kwai
+    "/notification/disbursement_kwai_received"(platform: "/") {}
+    
+    // Money In CCA
+    "/notification_center/moneyin_cca_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/moneyin_cca_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description: "Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification/moneyin_cca_approved"(platform: "/") {}
+    "/notification/moneyin_cca_rejected"(platform: "/") {}
 }

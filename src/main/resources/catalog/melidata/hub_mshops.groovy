@@ -14,11 +14,13 @@ tracks {
         "configuring",
         "configured",
         "error",
+        "warning",
         "blocked",
         "unavailable",
     ]
 
     def tools = [
+        "mercado_ads",
         "whatsapp",
         "facebook_shop",
         "facebook_pixel",
@@ -47,51 +49,85 @@ tracks {
         "fiscal_data",
     ]
 
+    def socialNetworks = [
+        "youtube",
+        "facebook",
+        "twitter",
+        "instagram",
+    ]
+
     def confData = objectSchemaDefinitions {
-        whatsapp(required: true, type: PropertyType.String, values: toolStatus)
-        facebook_shop(required: true, type: PropertyType.String, values: toolStatus)
-        facebook_pixel(required: true, type: PropertyType.String, values: toolStatus)
-        google_analytics(required: true, type: PropertyType.String, values: toolStatus)
-        google_shopping(required: true, type: PropertyType.String, values: toolStatus)
-        google_ads(required: true, type: PropertyType.String, values: toolStatus)
-        google_search_console(required: true, type: PropertyType.String, values: toolStatus)
-        instagram_shop(required: false, type: PropertyType.String, values: toolStatus)
-        contact_data(required: true, type: PropertyType.String, values: toolStatus)
-        domain(required: true, type: PropertyType.String, values: toolStatus)
+        mercado_ads(required: true, type: PropertyType.String, values: toolStatus, description: "Mercado Ads configuration tool", name: "mercado_ads")
+        whatsapp(required: true, type: PropertyType.String, values: toolStatus, description: "WhatsApp configuration tool", name: "whatsapp")
+        facebook_shop(required: true, type: PropertyType.String, values: toolStatus, description: "Facebook Shop configuration tool", name: "facebook_shop")
+        facebook_pixel(required: true, type: PropertyType.String, values: toolStatus, description: "Facebook Pixel configuration tool", name: "facebook_pixel")
+        google_analytics(required: true, type: PropertyType.String, values: toolStatus, description: "Google Analytics configuration tool", name: "google_analytics")
+        google_shopping(required: true, type: PropertyType.String, values: toolStatus, description: "Google Shopping configuration tool", name: "google_shopping")
+        google_ads(required: true, type: PropertyType.String, values: toolStatus, description: "Google Ads configuration tool", name: "google_ads")
+        google_search_console(required: true, type: PropertyType.String, values: toolStatus, description: "Google Search Console configuration tool", name: "google_search_console")
+        instagram_shop(required: false, type: PropertyType.String, values: toolStatus, description: "Instagram Shop configuration tool", name: "instagram_shop")
+        contact_data(required: true, type: PropertyType.String, values: toolStatus, description: "Contact Data configuration tool", name: "contact_data")
+        domain(required: true, type: PropertyType.String, values: toolStatus, description: "Domain configuration tool", name: "domain")
     }
 
     def cardsData = objectSchemaDefinitions {
-        publications(required: true, type: PropertyType.Numeric, description: "Number of publications")
-        sales(required: true, type: PropertyType.Numeric, description: "Number of sales")
-        promotions(required: true, type: PropertyType.Numeric, description: "Number of promotions")
-        marketing(required: true, type: PropertyType.Numeric, description: "Number of campaigns")
+        publications(required: true, type: PropertyType.Numeric, description: "Number of publications", name: "publications")
+        sales(required: true, type: PropertyType.Numeric, description: "Number of sales", name: "sales")
+        promotions(required: true, type: PropertyType.Numeric, description: "Number of promotions", name: "promotions")
+        marketing(required: true, type: PropertyType.Numeric, description: "Number of campaigns", name: "marketing")
     }
 
     propertyDefinitions {
-        shop_id(required: true, type: PropertyType.Numeric)
-        shop_name(required: true, type: PropertyType.String)
-        shop_domain(required: true, type: PropertyType.String)
+        shop_id(
+            description: "Unique Shop identifier",
+            name: "shop_id",
+            required: true,
+            type: PropertyType.Numeric,
+        )
+        shop_name(
+            description: "Name of the shop",
+            name: "shop_name",
+            required: true,
+            type: PropertyType.String,
+        )
+        shop_domain(
+            description: "Domain registered by the seller",
+            name: "shop_domain",
+            required: true,
+            type: PropertyType.String,
+        )
         domain_status(
-            required: false, 
+            description: "Status of the shop domain",
+            name: "domain_status",
+            required: false,
             type: PropertyType.String,
             values: [
                 "own_domain", "shops_domain"
             ]
         )
+        tool(
+            description: "Tool being tracked",
+            name: "tool",
+            required: true,
+            type: PropertyType.String,
+            values: tools,
+            inheritable: false,
+        )
     }
 
     propertyGroups {
-        mshopsGroup(shop_id, shop_name, shop_domain, domain_status)
+        commonDataGroup(shop_id, shop_name, shop_domain, domain_status)
+        configurationGroup(tool)
     }
 
     "/shops"(platform: "/", isAbstract: true) {
-        mshopsGroup
+        commonDataGroup
     }
 
     "/shops/hub"(platform: "/", type: TrackType.View) {
-        shop_status(required: true, type: PropertyType.String, inheritable:false)
-        configuration(required: true, type: PropertyType.Map(confData), inheritable: false)
-        cards(required: true, type: PropertyType.Map(cardsData), inheritable: false)
+        shop_status(required: true, type: PropertyType.String, description: "Current shop status", name: "shop_status", inheritable: false)
+        configuration(required: true, type: PropertyType.Map(confData), description: "Current configuration status", name: "configuration", inheritable: false)
+        cards(required: true, type: PropertyType.Map(cardsData), description: "Cards being rendered", name: "cards", inheritable: false)
     }
 
     "/shops/hub/onboarding"(platform: "/", type: TrackType.Event) {}
@@ -113,27 +149,39 @@ tracks {
     }
 
     "/shops/hub/modify"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools, inheritable: false)
+        configurationGroup
     }
 
     "/shops/hub/link"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
     }
 
     "/shops/hub/know_more"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
     }
 
     "/shops/hub/review"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
     }
 
     "/shops/hub/verify"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
     }
 
     "/shops/hub/solve"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
+    }
+
+    "/shops/hub/activate"(platform: "/", type: TrackType.Event) {
+        configurationGroup
+    }
+
+    "/shops/hub/engage"(platform: "/", type: TrackType.Event) {
+        configurationGroup
+    }
+
+    "/shops/hub/reactivate"(platform: "/", type: TrackType.Event) {
+        configurationGroup
     }
 
     "/shops/hub/configuration/show_more"(platform: "/", type: TrackType.Event) {}
@@ -208,6 +256,26 @@ tracks {
 
     "/shops/hub/metrics/show_more"(platform: "/", type: TrackType.Event) {}
 
+    // SELLER COACH
+
+    "/shops/hub/social"(platform: "/", type: TrackType.Event) {
+        location(name: "location", description: "Card identifier", required: true, type: PropertyType.String, values: ["tutorial", "footer"])
+        social_network(name: "social_network", description: "Name of the social network", required: true, type: PropertyType.String, values: socialNetworks)
+    }
+
+    "/shops/hub/play"(platform: "/", type: TrackType.Event) {
+        tool(name: "tool", description: "Tool identifier", required: true, type: PropertyType.String)
+        video_id(name: "video_id", description: "Unique video identifier", required: true, type: PropertyType.String)
+    }
+
+    "/shops/hub/inspiration_store"(platform: "/", type: TrackType.Event) {
+        example_store(name: "example_store", description: "Name of the example store", required: true, type: PropertyType.String)
+    }
+
+    "/shops/hub/seller_central"(platform: "/", type: TrackType.Event) {}
+
+    "/shops/hub/content_center"(platform: "/", type: TrackType.Event) {}
+
     // TIPS AND NEWS
 
     "/shops/hub/more_about"(platform: "/", isAbstract: true) {}
@@ -217,15 +285,15 @@ tracks {
     "/shops/hub/tips_news"(platform: "/", isAbstract: true) {}
 
     "/shops/hub/tips_news/show_more"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
     }
 
     "/shops/hub/tips_news/configuration"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
     }
     
     "/shops/hub/tips_news/link"(platform: "/", type: TrackType.Event) {
-        tool(required: true, type: PropertyType.String, values: tools)
+        configurationGroup
     }
 
     // SIDEBARS

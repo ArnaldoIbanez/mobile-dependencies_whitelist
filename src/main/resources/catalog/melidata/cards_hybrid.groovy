@@ -291,11 +291,19 @@ tracks {
         insurance_offer (
             required: false,
             type: PropertyType.String,
-            values: ["banner", "success", "pending"],
+            values: ["banner", "label"],
             description: "Indicates the insurance offer type that was displayed"
         )
     }
-    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/ios", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url that init Insurance flow",
+            inheritable:false
+        )
+    }
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,
@@ -434,6 +442,7 @@ tracks {
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
+         credit_activities_status (required:false, type: PropertyType.String, values: ["credit_activities", "credit_activities_with_error"], description: "Credits activities status", inheritable:false)
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
@@ -474,7 +483,35 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active","debit_active_and_credit_pending","virtual_debit_and_credit_pending","virtual_debit_and_credit_active", "without_cards_and_card_request", "tracking_physical_delivered", "tracking_pending_default", "nfc_virtual_only" ],
+            values: [
+                "render",
+                "physical_inactive",
+                "virtual_only", 
+                "user_need_challenge", 
+                "tracking_pending", 
+                "tracking_ready_to_ship", 
+                "tracking_shipped", 
+                "tracking_soon_deliver", 
+                "tracking_delayed", 
+                "tracking_waiting_for_withdrawal", 
+                "physical_delivered", 
+                "tracking_not_delivered", 
+                "kyc_pending_manual_review", 
+                "kyc_not_compliance", 
+                "kyc_compliance", 
+                "debit_active", 
+                "hybrid_active",
+                "debit_active_and_credit_pending",
+                "virtual_debit_and_credit_pending",
+                "virtual_debit_and_credit_active", 
+                "without_cards_and_card_request", 
+                "tracking_physical_delivered", 
+                "tracking_pending_default", 
+                "nfc_virtual_only",
+                "tracking_point_and_debit_shipped",
+                "credit_virtual_only",
+                "tracking_point_and_debit_ready_to_ship"
+            ],
             description: "Banner tapped"
           )
     }
@@ -597,6 +634,11 @@ tracks {
             description: "Carousel item closed"
           )
     }
+
+    //App2App Confirmation flow
+    "/cards/hybrid/app2app/facebook_pay_verification"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/app2app/facebook_pay_verification/confirmation"(platform: "/mobile", type: TrackType.Event) { }
+    "/cards/hybrid/app2app/facebook_pay_verification/close"(platform: "/mobile", type: TrackType.Event) { }
 
     //Feedback: Tracking
     "/cards/hybrid/dashboard/feedback"(platform: "/", isAbstract: true) {}
@@ -1155,6 +1197,11 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
         )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
         is_warning_address (
             required: false,
             type: PropertyType.Boolean,
@@ -1213,9 +1260,24 @@ tracks {
     "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
-             type: PropertyType.String,
-             values: ["back", "changes_address", "tyc", "card_request"],
-             description: "action tap by the user in the review"
+            type: PropertyType.String,
+            values: ["back", "changes_address", "tyc", "card_request", "edit_address", "add_new_address"],
+            description: "action tap by the user in the review"
+        )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
+        is_accurate (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address is accurate"
+        )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address has a warning message"
         )
     }
 
@@ -1239,6 +1301,16 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        address_id (
+            required: false,
+             type: PropertyType.String,
+             description: "Address id"
+        )
+        is_warning_address (
+            required: false,
+             type: PropertyType.Boolean,
+             description: "If address has a warning message"
         )
     }
     
@@ -1525,6 +1597,72 @@ tracks {
             description: "Action Tapped"
         )
     }
+
+    // Tap4Auth Flow
+    propertyDefinitions {
+            tap4auth_congrats_type (
+                description: "Tap4auth Congrats Type",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "user_accepted_congrats_physical",
+                        "user_rejected_congrats_physical",
+                        "user_accepted_congrats_virtual",
+                        "user_rejected_congrats_virtual",
+                        "user_rejected_congrats_virtual_second_try",
+                        "user_rejected_congrats_virtual_third_try",
+                        "user_accepted_ttl_expired_physical",
+                        "user_accepted_ttl_expired_virtual",
+                        "user_already_responded",
+                        "user_rejected_congrats_virtual_third_contingency_cancel_try",
+                        "user_rejected_congrats_virtual_third_contingency_create_try"
+                ]
+            )
+    }
+    propertyGroups {
+        tap4auth_congrats(tap4auth_congrats_type)
+    }
+
+    "/cards/hybrid/payment_authorization"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/payment_authorization/main_screen"(platform:"/mobile", type: TrackType.View) {
+        amount (
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Amount of money through tap4Auth"
+        )
+     }
+     "/cards/hybrid/payment_authorization/main_screen/cta"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+         action (
+            required: true,
+            type: PropertyType.String,
+            values: ["authorize", "no_authorize"],
+            description: "Option chosen by Tap4Auth user"
+         )
+     }
+     "/cards/hybrid/payment_authorization/congrats"(platform:"/mobile", type: TrackType.View) {
+         amount (
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Amount of money through tap4Auth"
+        )
+        tap4auth_congrats
+     }
+     "/cards/hybrid/payment_authorization/congrats/cta"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        tap4auth_congrats
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "understands",
+                "setup_virtual",
+                "home",
+                "pause_card",
+                "report_card",
+                "dismiss"
+                ],
+            description: "Button tapped by user"
+        )
+     }
     
     // ENROLLMENT-HUB-NFC
     //-------------------
@@ -2166,6 +2304,8 @@ tracks {
         )
     }
 
+    "/cards/nfc/core/service/start_secure_enrollment/missing_asset_response"(platform: "/", type: TrackType.Event) {}
+
     "/cards/nfc/core/service/start_secure_enrollment/error"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -2315,7 +2455,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values:["enrollment_needed","enrollment_completed","enrollment_in_progress"],
+            values:["enrollment_needed","enrollment_complete","enrollment_in_progress"],
             description: "Device enrollment success"
         )
     }
@@ -2852,6 +2992,11 @@ tracks {
             type: PropertyType.String,
             description: "Adds more info for specials cases, like errors or fails"
         )
+        is_online_payment (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment is online or offline"
+        )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -2969,13 +3114,21 @@ tracks {
             inheritable: false
         )
     }
-    
-    
+
     "/cards/nfc/enrollment/instructions/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
             description: "Finish button tapped"
+        )
+    }
+    
+    "/cards/nfc/configuration/instructions/continue_button"(platform: "/", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should redirected",
+            inheritable:false
         )
     }
 
