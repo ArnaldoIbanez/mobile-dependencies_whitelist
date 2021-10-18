@@ -20,6 +20,7 @@ tracks {
     "/notification/driver_logistics_driver_with_route"(platform: "/") {}
     "/notification/driver_logistics_retry_collect"(platform: "/") {}
     "/notification/driver_logistics_retry_delivery"(platform: "/") {}
+    "/notification/driver_logistics_send_returns"(platform: "/") {}
 
     //Crowdsourcing driver
     "/notification/me_crowd_cnh_registration"(platform: "/") {}
@@ -29,4 +30,8 @@ tracks {
     "/notification/me_crowd_select_service_center_registration"(platform: "/") {}
     "/notification/me_crowd_registration_incomplete"(platform: "/") {}
     "/notification/me_crowd_registration_complete"(platform: "/") {}
+    "/notification/me_crowd_cnh_validation"(platform: "/") {}
+
+    //Messages driver
+    "/notification/messages_driver_extra"(platform: "/") {}
 }
