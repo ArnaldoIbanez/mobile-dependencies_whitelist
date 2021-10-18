@@ -30,7 +30,7 @@ trackTests {
         }
 
         "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {
-        	selected_emoji = [position: 2]
+            position = 2
         }
 
         "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile") {
@@ -120,7 +120,7 @@ trackTests {
         }
 
         "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile") {
-        	selected_emoji = [position: 3]
+             position = 3
         }
 
         "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile") {}
@@ -179,7 +179,7 @@ trackTests {
         }
 
         "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile") {
-        	selected_emoji = [position: 4]
+            position = 4
         }
 
         "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile") {}

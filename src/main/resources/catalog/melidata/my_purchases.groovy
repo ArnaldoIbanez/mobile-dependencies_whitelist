@@ -104,9 +104,9 @@ tracks {
         vertical_case_id(required: true, type: PropertyType.String, description: "Case identified for the purchase status")
         vertical_sub_case_id(required: false, type: PropertyType.String, description: "Sub case identified for the purchase status")
         x_mc_request_id(required: true, type: PropertyType.String, description: "My Purchases Middleend Request Id")
-        purchase_id(required: true, type: PropertyType.Numeric, description: "The id of the purchase selected")
-        pack_id(required: false, type: PropertyType.Numeric, description: "The id of the pack selected")
-        order_id(required: false, type: PropertyType.Numeric, description: "The id of the order selected")
+        purchase_id(required: true, type: PropertyType.String, description: "The id of the purchase selected")
+        pack_id(required: false, type: PropertyType.String, description: "The id of the pack selected")
+        order_id(required: false, type: PropertyType.String, description: "The id of the order selected")
         label(required: false, type: PropertyType.String, description: "The action that was tracked")
     }
 
@@ -339,5 +339,21 @@ tracks {
 
     "/my_purchases/list/item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroupFull
+    }
+
+    "/my_purchases/list/view_purchase"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroupFull
+    }
+
+    "/my_purchases/list/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroupFull
+    }
+
+    "/my_purchases/list/messages"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        newPurchasesGroup
+    }
+
+    "/my_purchases/list/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
     }
 }

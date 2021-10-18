@@ -119,4 +119,36 @@ trackTests {
             context = "/cashback-middle"
         }
     }
+
+    test("Point loyalty config welcome seller") {   
+        "/point/loyalty/config/welcome"(platform: "/web", type: TrackType.View) {
+        }
+    }
+
+    test("Point loyalty config program") {   
+        "/point/loyalty/config/program"(platform: "/web", type: TrackType.View) {
+        }
+    }
+
+    test("Point loyalty config congrats") {   
+        "/point/loyalty/config/congrats"(platform: "/web", type: TrackType.View) {
+        }
+    }
+
+    test("Point loyalty config metrics") {   
+        "/point/loyalty/config/metrics"(platform: "/web", type: TrackType.View) {
+        }
+    }
+
+    test("Point loyalty seller restart program") {   
+        "/point/loyalty/config/program/restart"(platform: "/web", type: TrackType.Event) {
+            context = "/config/program"
+        }
+    }
+
+    test("Point loyalty event click in faq into seller config") {   
+        "/point/loyalty/config/faq"(platform: "/web", type: TrackType.Event) {
+            context = "/config/program"
+        }
+    }
 }
