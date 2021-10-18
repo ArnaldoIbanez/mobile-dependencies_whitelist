@@ -582,12 +582,16 @@ tracks {
         email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
     }
 
-    // Face Validation Errors
+    // Face Validation
     "/authenticators/face_validation"(platform: "/", isAbstract: true) {}
 
     "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
       error_code(PropertyType.String, required: true, values:["validation_error", "max_attempts", "server_error"], description: "Errors after face validation against database")
     }
+
+    "/authenticators/face_validation/error/decline"(platform: "/", type: TrackType.Event) {}
+
+    "/authenticators/face_validation/error/retry"(platform: "/", type: TrackType.Event) {}
 
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
