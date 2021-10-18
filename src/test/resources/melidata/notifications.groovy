@@ -6691,6 +6691,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_compromised_virtual"(platform: "/mobile") {
+            news_id = "card_compromised_virtual-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_compromised_physical"(platform: "/mobile") {
+            news_id = "card_compromised_physical-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_contactless_transaction_rejected_authorization_contactless_freeze"(platform: "/mobile") {
             news_id = "card_contactless_transaction_rejected_authorization_contactless_freeze-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"

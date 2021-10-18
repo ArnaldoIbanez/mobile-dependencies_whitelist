@@ -3431,6 +3431,8 @@ tracks {
         branch_time_elapsed(required: true, type: PropertyType.Boolean, description: "Branch Time Elapsed")
     }
     "/notification/cards_send_card"(platform: "/mobile") {}
+    "/notification/card_compromised_virtual"(platform: "/mobile") {}
+    "/notification/card_compromised_physical"(platform: "/mobile") {}
     "/notification/card_nip_first_try"(platform: "/mobile") {}
     "/notification/card_nip_second_try"(platform: "/mobile") {}
     "/notification/card_nip_nip_block"(platform: "/mobile") {}
