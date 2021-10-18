@@ -345,11 +345,15 @@ tracks {
         newPurchasesEventGroupFull
     }
 
-    "/my_purchases/list/view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/my_purchases/list/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroupFull
     }
 
     "/my_purchases/list/messages"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         newPurchasesGroup
+    }
+
+    "/my_purchases/list/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroupFull
     }
 }

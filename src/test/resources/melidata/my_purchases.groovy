@@ -532,12 +532,16 @@ trackTests {
 			newPurchasesDataFullSet()
 		}
 
-		"/my_purchases/list/view_messages" (platform:"/", type: TrackType.Event) {
+		"/my_purchases/list/click_view_messages" (platform:"/", type: TrackType.Event) {
 			newPurchasesDataFullSet()
 		}
 
 		"/my_purchases/list/messages" (platform:"/", type: TrackType.View) {
 			newPurchasesDataSet()
+		}
+´«
+		"/my_purchases/list/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
+			newPurchasesDataFullSet()
 		}
 	}
 }
