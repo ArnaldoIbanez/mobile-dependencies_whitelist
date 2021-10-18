@@ -69,4 +69,24 @@ tracks {
     "/point/loyalty/cashback/middle/reject"(platform: "/web", type: TrackType.Event) {
         context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
     }
+
+    "/point/loyalty/config/welcome"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/point/loyalty/config/program"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/point/loyalty/config/congrats"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/point/loyalty/config/metrics"(platform: "/web", type: TrackType.View) {
+    }
+
+     "/point/loyalty/config/program/restart"(platform: "/web", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    }
+
+    "/point/loyalty/config/faq"(platform: "/web", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String, description: "Page, section or flow origin")
+    }
 }
