@@ -35,7 +35,7 @@ tracks {
         )
     }
 
-    "/mpfront/activities/detail/crossselling/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mpfront/activities/detail/crossselling_print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mpfront/activities/detail/crossselling_view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mpfront/activities/detail/crossselling_tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
 
