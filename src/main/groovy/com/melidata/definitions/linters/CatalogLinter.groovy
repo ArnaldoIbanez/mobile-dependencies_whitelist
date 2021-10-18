@@ -12,12 +12,13 @@ class CatalogLinter {
     List<AbstractLinter> linters = []
 
     CatalogLinter() {
+
         linters.add(new PropertiesQuantityLinter(20))
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type", "name"]))
         linters.add(new MinimumRequiredTrueLinter(4))
         linters.add(new NamingLinter())
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
-        linters.add(new RequireValuesLinter(["mode", "type"]))
+        //linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data"],
@@ -37,7 +38,9 @@ class CatalogLinter {
         def prodDefinitions = getProdDefinitions(catalogName)
 
         localDefinitions.forEach {newDefinition ->
-            def prodDef = prodDefinitions.findAll {it -> it.path == newDefinition.path && it.platform == newDefinition.platform}.toList()
+            excludeParentProperties(newDefinition, localDefinitions)
+
+            def prodDef = prodDefinitions.findAll {it -> it.path == newDefinition.path }.toList()
 
             //Local definition is new to prod
             if(prodDef.isEmpty()) {
@@ -65,6 +68,23 @@ class CatalogLinter {
         }
 
         return isValid
+    }
+
+    void excludeParentProperties(TrackDefinition localDefinition, Set<TrackDefinition> prodDefinitions) {
+        List<String> splitPath = localDefinition.path.split("/")
+        String parentPath = splitPath.take(splitPath.size() - 1).join("/")
+
+        def parentDef = prodDefinitions.findAll {it -> it.path == parentPath }.toList()
+
+        Map<String, TrackDefinitionProperty> propertiesMerge = [:]
+
+        localDefinition.properties.each {String name, TrackDefinitionProperty prop ->
+            if(!parentDef.collect {((Map) it.properties).values()}.flatten().contains(prop)) {
+                propertiesMerge.put(name, prop)
+            }
+        }
+
+        localDefinition.properties = propertiesMerge
     }
 
     private Set getLocalDefinitions(String catalogName) {

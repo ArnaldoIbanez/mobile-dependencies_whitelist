@@ -12,6 +12,7 @@ tracks {
         category_id(required: true,  description: "Home's category")
         category_path(required: true, description: "Category path of this category home")
         last_modified(required: false, description: "Date of last modification")
+        deal_print_id(required: false, description: "Unique id hash")
     }
 
     "/category_landing/tap"(platform: "/",  type: TrackType.Event, parentPropertiesInherited:false) {
