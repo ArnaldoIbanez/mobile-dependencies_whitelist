@@ -926,6 +926,12 @@ trackTests {
           "/authenticators/face_validation/error"(platform: "/", type: TrackType.View) {
                 error_code = "max_attempts"
           }
+          "/authenticators/face_validation/error/decline"(platform: "/", type: TrackType.Event) {
+                error_code = "validation_error"
+          }
+          "/authenticators/face_validation/error/retry"(platform: "/", type: TrackType.Event) { {
+                error_code = "validation_error"
+          }
         }
 
         test("Biometrics / Reauth - Screenlock Challenge") {
