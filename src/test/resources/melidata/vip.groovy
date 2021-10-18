@@ -2426,6 +2426,35 @@ trackTests {
                     "MLC6407",
                     "MLC183186"]
             seller_id = 799550807
+            listing_type_id = "gold_special"
+            deal_ids = []
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            vertical = "realEstate"
+            source = "main-action"
+            is_ltr = true
+        }
+    }
+
+    test("VIS return policy") {
+        "/vip/return_policy"(platform: "/", type: TrackType.Event) {
+            item_id = "MLC123123"
+            vertical = "realEstate"
+        }
+    }
+
+    test("VIS reservation item") {
+        "/vip/reservation_intention"(platform: "/", type: TrackType.Event) {
+            item_id = "MLC123123"
+            item_condition = "new"
+            item_status = "active"
+            item_seller_type = "real_estate_agency"
+            category_path = [
+                    "MLC1459",
+                    "MLC1472",
+                    "MLC6407",
+                    "MLC183186"]
+            seller_id = 799550807
             buying_mode= "classified"
             category_id = "MLC1234"
             vertical = "realEstate"

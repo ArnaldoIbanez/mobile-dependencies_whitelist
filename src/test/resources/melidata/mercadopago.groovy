@@ -2553,6 +2553,23 @@ trackTests {
             mandatory()
         }
 
+        // FTU digitals receipts
+        "/bill_payments/ftu_digital_receipts"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/digital_receipts_optin"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/ftu_digital_receipts/terms"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Opt in
         "/bill_payments/opt_in"(platform: "/mobile") {
             mandatory()
@@ -3184,6 +3201,7 @@ trackTests {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
 
         "/bill_payments/main_category/scheduling/empty_search"(platform: "/mobile", type: TrackType.Event) {
@@ -3482,6 +3500,7 @@ trackTests {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
 
         "/bill_payments/main_category/automatic_debit/empty_search"(platform: "/mobile", type: TrackType.Event) {

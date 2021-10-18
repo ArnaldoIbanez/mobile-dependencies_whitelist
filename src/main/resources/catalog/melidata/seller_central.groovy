@@ -769,6 +769,23 @@ tracks {
         url(required: false, type: PropertyType.String, description: "Shop url")
     }
 
+    // listing comparison tooltip
+
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+        open_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to closing in seconds")
+        loading_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to load info in milliseconds")
+        tooltip_type(required: true, type: PropertyType.String, description: "type of tooltip after load data", values:["success", "empty_by_channel", "fallback", "abort"])
+        item_id(required: true, type: PropertyType.String, description: "Item to load comparison tooltip")
+        item_state(required: true, type: PropertyType.String, description: "state of the item active | inactive | undefiend", values:["active", "inactive", "undefined"])
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+        action(required: true, type: PropertyType.String, description: "type of event", values:["show","click"])
+        activation_channel(required: true, type: PropertyType.String, description: "channel to activate", values: ["marketplace", "mshops"])
+        subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
+        item_id(required: true, type: PropertyType.String, description: "Item to activate")
+        empty_type(required: true, type: PropertyType.String, description: "type of empty", values:["empty_channel", "activate_mshops"])
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline
@@ -872,6 +889,10 @@ tracks {
     }
 
     "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
+
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
     }
 
@@ -2034,7 +2055,7 @@ tracks {
 
     "/seller_central/catalog/optin_v2/init"(platform: "/web", type: TrackType.View) {
         item_id(required: true, type: PropertyType.String, description: "Item Id")
-        category_id(required: true, type: PropertyType.String, description: "Id for category item")
+        category_id(required: false, type: PropertyType.String, description: "Id for category item")
         domain_id(required: true, type: PropertyType.String, description: "The category domain id")
         variation_id(required: false, type: PropertyType.Numeric, description: "The variation item")
         original_catalog_product_id(required: false, type: PropertyType.String, description: "The original item catalog product id")
@@ -2139,6 +2160,9 @@ tracks {
       sellerCentralCatalogOptinGroupV2
     }
 
+    "/seller_central/catalog/optin_v2/review"(platform: "/web", type: TrackType.View) {
+      sellerCentralCatalogOptinGroupV2
+    }
     "/seller_central/catalog/optin_v2/catalog_no_required"(platform: "/web", type: TrackType.View) {
       sellerCentralCatalogOptinGroupV2
     }
@@ -2718,5 +2742,12 @@ tracks {
         syi_data (required:true, type: PropertyType.Map(syiVerificationStructure), description: "SYI object to validate")
         drat_data (required:true, type: PropertyType.Map(dratStructure), description: "Data recovery and transformation service response to validate")
         verified (required:true, type: PropertyType.Boolean, description: "Validation result between SYI and DRAT data")
+    }
+
+    "/seller_central/gema"(platform: "/web", type: TrackType.Event) {}
+
+    "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event) {
+        use_gema (required:true, type: PropertyType.Boolean, description: "Validate if the user use our new application")
+        seller_reputation (required:true, type: PropertyType.String, description: "Seller Reputation")
     }
 }
