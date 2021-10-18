@@ -929,7 +929,7 @@ trackTests {
           "/authenticators/face_validation/error/decline"(platform: "/", type: TrackType.Event) {
                 error_code = "validation_error"
           }
-          "/authenticators/face_validation/error/retry"(platform: "/", type: TrackType.Event) { {
+          "/authenticators/face_validation/error/retry"(platform: "/", type: TrackType.Event) {
                 error_code = "validation_error"
           }
         }
