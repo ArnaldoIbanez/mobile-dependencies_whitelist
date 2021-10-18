@@ -354,6 +354,6 @@ tracks {
     }
 
     "/my_purchases/list/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroupFull
+        newPurchasesEventGroup
     }
 }

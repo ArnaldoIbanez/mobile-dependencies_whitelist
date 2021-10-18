@@ -539,9 +539,9 @@ trackTests {
 		"/my_purchases/list/messages" (platform:"/", type: TrackType.View) {
 			newPurchasesDataSet()
 		}
-´«
+
 		"/my_purchases/list/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
-			newPurchasesDataFullSet()
+			purchasesEventDataSet()
 		}
 	}
 }
