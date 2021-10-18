@@ -381,6 +381,13 @@ trackTests {
       "/money_out/transfers/home/kyc_modal/back"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/kyc_modal/dismiss"(platform: "/", type: TrackType.Event) {}
 
+      //Transfer Hub - Banners
+      "/money_out/transfers/home/banners"(platform: "/", type: TrackType.Event) {
+         type="money_advance"
+      }
+      //Transfer Hub - VOC
+      "/money_out/transfers/home/voice_of_customer"(platform: "/", type: TrackType.Event) {}
+
       //Pix Limits MLB
       "/pix"(platform: "/", type: TrackType.View) {}
       "/pix/limits"(platform: "/", type: TrackType.View) {}

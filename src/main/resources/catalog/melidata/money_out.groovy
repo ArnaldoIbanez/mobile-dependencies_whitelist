@@ -335,6 +335,14 @@ tracks {
     //Transfer Hub - FTU Unified transfers
     "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
     "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer HUB - Banners
+    "/money_out/transfers/home/banners"(platform:"/", type: TrackType.Event){ 
+        type(required:true, description:"Indicate type of banners for example: money_advance", values=["money_advance"])
+    }
+
+    //Transfer HUB - VOC
+    "/money_out/transfers/home/voice_of_customer"(platform:"/", type: TrackType.Event){}
     
     //Pix Limits MLB
     "/pix"(platform: "/", isAbstract: true) {}
