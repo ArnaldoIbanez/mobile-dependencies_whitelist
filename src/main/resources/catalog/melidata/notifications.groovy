@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1171"
+    initiative = "1237"
 
     /**
     * NOTIFICATIONS CENTER
@@ -2458,7 +2458,6 @@ tracks {
           communication_data(required: false, type: PropertyType.String, description: "Extra data")
           campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
       }
 
       "/notification/mpcampaigns_sms"(platform: "/", type: TrackType.Event) {
@@ -2477,7 +2476,6 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
     }
 
     "/notification/mpinstitutional_sms"(platform: "/", type: TrackType.Event) {
@@ -2487,7 +2485,42 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+    }
+
+    "/notification/campaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/mpcampaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/institutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/mpinstitutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
       //MKT Deals

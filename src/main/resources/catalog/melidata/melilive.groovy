@@ -173,6 +173,36 @@ tracks {
         group_id(required: true, type: PropertyType.String, description: "Group Id")
     }
 
+    // ************** CHAT **************
+
+    def chat_stream_info_definition = objectSchemaDefinitions {
+        broadcast_id(required: true, type: PropertyType.String, description: "Broadcast ID")
+    }
+
+    // ************** VIEWER **************
+
+    "/melilive/stream/chat"(platform: "/" , isAbstract:true ) {
+        stream(required: true, type: PropertyType.Map(chat_stream_info_definition), description: "Broadcast object")
+        room_id(required: true, type: PropertyType.String, description: "Room ID where chat belongs")
+    }
+
+    "/melilive/stream/chat/first_message"(platform: "/", type: TrackType.Event) { }
+
+    "/melilive/stream/chat/message_error"(platform: "/", type: TrackType.Event) { }
+
+    "/melilive/stream/chat/chat_scroll"(platform: "/", type: TrackType.Event) { }
+
+    // ************** CREATOR **************
+
+    "/melilive/creator/chat"(platform: "/", isAbstract: true) {
+        stream(required: true, type: PropertyType.Map(chat_stream_info_definition), description: "Broadcast object")
+        room_id(required: true, type: PropertyType.String, description: "Room ID where chat belongs")
+    }
+
+    "/melilive/creator/chat/moderation"(platform: "/", type: TrackType.Event) { }
+
+    "/melilive/creator/chat/ban"(platform: "/", type: TrackType.Event) { }
+
 }
 
 
