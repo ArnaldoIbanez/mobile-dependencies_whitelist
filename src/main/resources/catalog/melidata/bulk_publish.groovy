@@ -43,7 +43,7 @@ tracks {
 
     "/seller_central/bulk/publish/images"(platform: "/web", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "The Item ID that is uploading pictures")
-        source(required: true, type: PropertyType.String, description: "Is the original source from we took the image to publish with the item and could be one of five [GEMA/OTROS/SUBEFOTOS/IMGBB/POSTIMAGES]")
+        source(required: true, type: PropertyType.String, description: "Is the original source from we took the image to publish with the item and could be one of five", values: ['GEMA', 'OTROS', 'SUBEFOTOS', 'IMGBB', 'POSTIMAGES'] )
         quantity(required: true, type: PropertyType.Numeric, description: "The total number of images uploaded with this item")
     }
 
