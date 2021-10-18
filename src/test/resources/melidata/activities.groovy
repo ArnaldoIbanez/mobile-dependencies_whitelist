@@ -11,7 +11,7 @@ trackTests {
     *****************************/
 
     test("Mercadopago Activities Merch Engine Events") {
-        "/mpfront/activities/detail/crossselling_print" (platform: "/", type: TrackType.Event) {
+        "/mpfront/activities/detail/crossselling/print" (platform: "/", type: TrackType.Event) {
             section_id = "cross_selling_activities_mp"
         }
         "/mpfront/activities/detail/crossselling_view" (platform: "/", type: TrackType.Event) {
