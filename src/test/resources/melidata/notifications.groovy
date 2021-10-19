@@ -15596,6 +15596,33 @@ trackTests {
             news_id = "me_crowd_geo_city_registratoin-699997492-1611784275"
             event_type = "sent"
         }
+        "/notification/me_campaigns_crowd_generic"(platform: "/mobile/android"){
+            news_id = "me_campaigns_crowd_generic-123"
+            event_type = "discarded"
+            campaign_id = "MLA_ME_PRUEBA_G_20181211_CG"
+            deal_id = "MLA_ME_PRUEBA_G_20181211"
+            sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+        }
+        "/notification/me_campaigns_flex_generic"(platform: "/mobile/android"){
+            news_id = "me_campaigns_flex_generic-123"
+            event_type = "discarded"
+            campaign_id = "MLA_ME_PRUEBA_G_20181211_CG"
+            deal_id = "MLA_ME_PRUEBA_G_20181211"
+            sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+        }
+        "/notification/me_campaigns_logistics_generic"(platform: "/mobile/android"){
+            news_id = "me_campaigns_logistics_generic-123"
+            event_type = "discarded"
+            campaign_id = "MLA_ME_PRUEBA_G_20181211_CG"
+            deal_id = "MLA_ME_PRUEBA_G_20181211"
+            sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
+        }
     }
 
 }

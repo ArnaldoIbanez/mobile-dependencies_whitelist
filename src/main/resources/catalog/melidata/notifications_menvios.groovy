@@ -32,6 +32,32 @@ tracks {
     "/notification/me_crowd_registration_complete"(platform: "/") {}
     "/notification/me_crowd_cnh_validation"(platform: "/") {}
 
+    //Mercado envios Campaigns
+    "/notification/me_campaigns_crowd_generic"(platform: "/") {
+        campaign_id(required: true, PropertyType.String, description: "Id of the campaign related to the notification sent.")
+        communication_id(required: false, type: PropertyType.String, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Campaign data.")
+    }
+    "/notification/me_campaigns_flex_generic"(platform: "/") {
+        campaign_id(required: true, PropertyType.String, description: "Id of the campaign related to the notification sent.")
+        communication_id(required: false, type: PropertyType.String, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Campaign data.")
+    }
+    "/notification/me_campaigns_logistics_generic"(platform: "/") {
+        campaign_id(required: true, PropertyType.String, description: "Id of the campaign related to the notification sent.")
+        communication_id(required: false, type: PropertyType.String, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Campaign data.")
+    }
+
     //Messages driver
     "/notification/messages_driver_extra"(platform: "/") {}
 }
