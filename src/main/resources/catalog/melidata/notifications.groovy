@@ -2819,7 +2819,7 @@ tracks {
           communication_id(required: false, type: PropertyType.String, description: "Hermes communication id.")
       }
 
-      "/notification/campaigns_sms"(platform: "/", type: TrackType.Event) {
+      "/notification/campaigns_sms"(platform: "/") {
           segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
           experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
           communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
@@ -2828,7 +2828,7 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
       }
 
-      "/notification/mpcampaigns_sms"(platform: "/", type: TrackType.Event) {
+      "/notification/mpcampaigns_sms"(platform: "/") {
           segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
           experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
           communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
@@ -2837,7 +2837,7 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
       }
 
-    "/notification/institutional_sms"(platform: "/", type: TrackType.Event) {
+    "/notification/institutional_sms"(platform: "/") {
         segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
@@ -2846,7 +2846,7 @@ tracks {
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
-    "/notification/mpinstitutional_sms"(platform: "/", type: TrackType.Event) {
+    "/notification/mpinstitutional_sms"(platform: "/") {
         segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
@@ -2855,7 +2855,7 @@ tracks {
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
-    "/notification/campaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+    "/notification/campaigns_wpp_sms"(platform: "/") {
         segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
@@ -2864,7 +2864,7 @@ tracks {
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
-    "/notification/mpcampaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+    "/notification/mpcampaigns_wpp_sms"(platform: "/") {
         segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
@@ -2873,7 +2873,7 @@ tracks {
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
-    "/notification/institutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+    "/notification/institutional_wpp_sms"(platform: "/") {
         segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
@@ -2882,7 +2882,7 @@ tracks {
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
-    "/notification/mpinstitutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+    "/notification/mpinstitutional_wpp_sms"(platform: "/") {
         segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
