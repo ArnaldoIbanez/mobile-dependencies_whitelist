@@ -226,6 +226,15 @@ tracks {
                         "finished"
                 ]
         )
+        list_status(
+                required: true,
+                description: "Defines if the user can increase his limit",
+                type: PropertyType.String,
+                values: [
+                        "black_list",
+                        "white_list"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/dashboard/opt_in_wsp"(platform: "/", type: TrackType.Event) {
         status(
@@ -305,7 +314,9 @@ tracks {
     "/credits/consumer/administrator_v2/onboarding/how_to_pay_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/credits/consumer/administrator_v2/dashboard/personal_loan_download"(platform: "/web/desktop", type: TrackType.Event) {
+         dashboard_status = 'on_time'
+    }
 
     /******************************************
      *       End: Consumers Administrator

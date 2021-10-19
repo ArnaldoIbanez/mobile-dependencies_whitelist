@@ -87,7 +87,7 @@ metrics {
         }
     }
 
-    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", tags:[TagType.Important]) {
+    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", tags:[TagType.Important, TagType.CoreMetric]) {
         startWith {
             experiment(regex("sell/.*|vis/.*|pdp/postContactSYIRedirect|sparkle/vis/.*"))
         }

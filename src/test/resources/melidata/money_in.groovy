@@ -705,8 +705,32 @@ trackTests {
 
         "/money_in/hub"(platform:"/", type: TrackType.View){}
         "/money_in/hub/select"(platform:"/", type: TrackType.Event){
-        payment_method_id = "pix"
+            payment_method_id = "pix"
         }
         "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+        "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
+            widget_id = "ted"
+        }
+        "/money_in/hub/widget/select"(platform:"/", type: TrackType.Event){
+            widget_id = "debin"
+        }
+        "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
+            action_id = "qr"
+        }
+
+        //MLB Calculator
+        "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
     }
 }

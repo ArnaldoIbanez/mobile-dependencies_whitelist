@@ -12,7 +12,7 @@ metrics {
 
     "credit_card.dashboard_async_load.debit_actions"(description: "Track user actions on Debit dashboard while Async Load experiment", ttl: 1) {
         startWith {
-            experiment("credit_card/dashboard_async_load")
+            experiment("credit-card/dashboard_async_load")
         }
 
         countsOn {
@@ -28,7 +28,7 @@ metrics {
 
     "credit_card.dashboard_async_load.credit_card_actions"(description: "Track user actions on Credit Card dashboard while Async Load experiment", ttl: 1) {
         startWith {
-            experiment("credit_card/dashboard_async_load")
+            experiment("credit-card/dashboard_async_load")
         }
 
         countsOn {
@@ -44,7 +44,7 @@ metrics {
 
     "credit_card.dashboard_async_load"(description: "Track user actions on Debit and Credit Card dashboard while Async Load experiment", ttl: 1) {
         startWith {
-            experiment("credit_card/dashboard_async_load")
+            experiment("credit-card/dashboard_async_load")
         }
 
         countsOn {
