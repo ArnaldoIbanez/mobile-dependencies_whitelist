@@ -2441,11 +2441,6 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-        "/notification/billing_newusertaxfile"(platform: "/") {
-            news_id = "billing-newusertaxfile-186785675-20200522"
-            event_type = "open"
-            notification_type= "deep_linking"
-        }
         "/notification/buybox_forced_item"(platform: "/mobile"){
             news_id = "buybox_forced_item-12345678-123"
             event_type = "shown"

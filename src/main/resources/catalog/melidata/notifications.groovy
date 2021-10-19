@@ -2080,7 +2080,6 @@ tracks {
       "/notification/billing_iva_isr_meli"(platform: "/") {}
       "/notification/billing_iva_isr"(platform: "/") {}
       "/notification/billing_iva_isr_mp"(platform: "/") {}
-      "/notification/billing_newusertaxfile"(platform: "/") {}
 
     //Buybox
     "/notification/buybox_forced_item"(platform: "/") {}
