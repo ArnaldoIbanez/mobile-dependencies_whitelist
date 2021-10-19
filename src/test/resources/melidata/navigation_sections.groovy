@@ -13,8 +13,6 @@ trackTests {
             id = "login"
         }
 
-        "/navigation_sections/navigation_menu_ml/opened" (platform: "/mobile", type: TrackType.Event) {}
-
         "/navigation_sections/navigation_menu_mp" (platform: "/mobile", type: TrackType.View) {}
         "/navigation_sections/your_profile" (platform: "/mobile", type: TrackType.View) {}
         "/navigation_sections/your_business" (platform: "/mobile", type: TrackType.View) {}
@@ -32,6 +30,8 @@ trackTests {
         "/navigation_sections/your_business_v2/tap" (platform: "/mobile", type: TrackType.Event) {
             id = "point"
         }
+
+        "/navigation_sections/navigation_menu/opened" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     defaultBusiness = "mercadopago"
@@ -60,5 +60,7 @@ trackTests {
         "/navigation_sections/your_business_v2/tap" (platform: "/mobile", type: TrackType.Event) {
             id = "point"
         }
+
+        "/navigation_sections/navigation_menu/opened" (platform: "/mobile", type: TrackType.Event) {}
     }
 }
