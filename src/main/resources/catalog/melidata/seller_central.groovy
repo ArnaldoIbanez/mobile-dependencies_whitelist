@@ -783,6 +783,22 @@ tracks {
         empty_type(required: true, type: PropertyType.String, description: "type of empty", values:["empty_channel", "activate_mshops"])
     }
 
+    "/seller_cental/listings/row"(platform: "/", isAbstract: true){
+        item_id(type: PropertyType.String, description: "Id of the publication")
+    }
+
+    "/seller_cental/listings/row/variations"(platform: "/", type: TrackType.Event ){
+        action( type: PropertyType.String, description: "type of action", values:["show", "hide"])
+    }
+
+    "/seller_cental/listings/row/show_variations"(platform: "/", type: TrackType.Event ){
+        success( type: PropertyType.Boolean, description: "result of request success=true, fail=false")
+        loading_time( type: PropertyType.Numeric, description: "time of duration to load variations in milliseconds")
+        variations_loaded( type: PropertyType.Numeric, description:"amount of variations loaded")
+    }
+
+
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline
     //------------------------------------------------------------------------------------------------------------------------------------------------------
