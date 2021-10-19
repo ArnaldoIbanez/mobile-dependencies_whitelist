@@ -201,7 +201,7 @@ metrics {
             condition { 
                 and(
                     path("/credits/merchant/enrollment", "/credits/merchant/enrollment/onboarding", "/credits/merchant/enrollment/hub", "/credits/merchant/enrollment/simulator") 
-                    in("event_data.product_types", "fixed_term_loan")
+                    like("event_data.product_types", ".*fixed_term_loan.*")
                 )
             } 
         }
@@ -215,7 +215,7 @@ metrics {
             condition { 
                 and (
                     path("/credits/merchant/enrollment", "/credits/merchant/enrollment/onboarding", "/credits/merchant/enrollment/hub", "/credits/merchant/enrollment/simulator")
-                    in("event_data.product_types", "sales_percentage_loan")
+                    like("event_data.product_types", ".*sales_percentage_loan.*")
                 )
             } 
         }
@@ -331,7 +331,7 @@ metrics {
                 and (
                     path("/credits/merchant/open_market/congrats")
                     equals("event_data.flow", "upsell_offer")
-                    in("event_data.reason", "financial_files")
+                    like("event_data.reason", ".*financial_files.*")
                 )
             } 
         }
@@ -346,7 +346,7 @@ metrics {
                 and (
                     path("/credits/merchant/open_market/congrats")
                     equals("event_data.flow", "upsell_offer")
-                    in("event_data.reason", "financial_scraping")
+                    like("event_data.reason", ".*financial_scraping.*")
                 )
             } 
         }
@@ -361,7 +361,7 @@ metrics {
                 and (
                     path("/credits/merchant/open_market/congrats")
                     equals("event_data.flow", "request_offer")
-                    in("event_data.reason", "financial_files")   
+                    like("event_data.reason", ".*financial_files.*")
                 )        
             } 
         }
@@ -376,7 +376,7 @@ metrics {
                 and (
                     path("/credits/merchant/open_market/congrats")
                     equals("event_data.flow", "request_offer")
-                    in("event_data.reason", "financial_scraping")   
+                    like("event_data.reason", ".*financial_scraping.*")
                 )        
             } 
         }
