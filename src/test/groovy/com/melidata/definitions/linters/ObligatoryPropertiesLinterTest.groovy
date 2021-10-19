@@ -26,23 +26,4 @@ class ObligatoryPropertiesLinterTest {
         assertTrue(linter.validateProperties(td))
     }
 
-    @Test void withLotsOfPropertiesOneShouldBeRequired() {
-        def td = new TrackDefinition("/search")
-        td.addProperty(new TrackDefinitionProperty(name: "query", type: PropertyType.String,
-                description: "query", required: false))
-        td.addProperty(new TrackDefinitionProperty(name: "limit", type: PropertyType.String,
-                description: "limit", required: false))
-        td.addProperty(new TrackDefinitionProperty(name: "category_id", type: PropertyType.String,
-                description: "category_id", required: false))
-        td.addProperty(new TrackDefinitionProperty(name: "category_path", type: PropertyType.String,
-                description: "category_path", required: false))
-        td.addProperty(new TrackDefinitionProperty(name: "has_tags", type: PropertyType.String,
-                description: "category_path", required: false))
-
-        assertFalse(linter.validateProperties(td))
-
-        td.addProperty(new TrackDefinitionProperty(name: "offset", type: PropertyType.String, description: "offset", required: true))
-
-        assertTrue(linter.validateProperties(td))
-    }
 }

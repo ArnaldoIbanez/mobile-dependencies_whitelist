@@ -25,6 +25,7 @@
     "/remedy/error",
     "/kyc/error",
     "/melidata/ab_split",
+    "/melidata/shrink_database",
     "/px_checkout/result/success",
     "/cards/acquisition/error",
     "/cards/engagement/error",

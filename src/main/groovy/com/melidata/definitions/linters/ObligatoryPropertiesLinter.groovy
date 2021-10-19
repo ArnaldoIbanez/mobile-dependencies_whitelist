@@ -6,11 +6,10 @@ import com.ml.melidata.catalog.TrackDefinitionProperty
 class ObligatoryPropertiesLinter extends AbstractLinter {
 
     List<String> requiredProperties = []
-    int maxPropertiesToAskForRequired = 4
 
     ObligatoryPropertiesLinter(List<String> properties) {
         this.requiredProperties = properties
-        this.errorMessage = "Tracks should have ${requiredProperties} at all their properties and some required:true"
+        this.errorMessage = "Tracks should have ${requiredProperties} at all their properties"
     }
 
     @Override
@@ -19,19 +18,11 @@ class ObligatoryPropertiesLinter extends AbstractLinter {
     }
 
     @Override
-    boolean validatePropertySet(List<TrackDefinitionProperty> properties) {
-        def isValid = properties.every {propertyDefinition ->
-            requiredProperties.every {requiredProperty ->
+    List<String> validatePropertySet(List<TrackDefinitionProperty> properties) {
+        return properties.findAll {propertyDefinition ->
+            !requiredProperties.every {requiredProperty ->
                 propertyDefinition.properties[requiredProperty] != null
             }
         }
-
-        if(properties.size() > maxPropertiesToAskForRequired) {
-            isValid = isValid && properties.any {propertyDefinition ->
-                propertyDefinition.required
-            }
-        }
-
-        return isValid
     }
 }

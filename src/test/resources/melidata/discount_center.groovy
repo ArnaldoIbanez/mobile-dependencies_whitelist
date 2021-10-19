@@ -14,6 +14,7 @@ trackTests {
         "/discount_center/payers/vip"(platform: "/mobile", type: TrackType.View) {
             collector_id = 20565408
             category_id = "MLA410861"
+            category_path = ["MLB1403", "MLB410883", "MLB455469", "MLB455470"]
             item_id = "MLA886428635"
             item_name = "Duplao Burger"
             context_info = [
@@ -127,6 +128,17 @@ trackTests {
                     version_code: 2,
                     version_name: "New VSP"
             ]
+            product_type= "delivery"
+            store_cover = "image"
+            minimum_purchase = "200"
+            store_discount = "20"
+            time_to_delivery = "20-30 minutes"
+            free_delivery = true
+            status = "paused"
+            status_reasons = [
+                        "paused because a accident in the kitchen",
+                        "paused because there is fire in the kitchen"
+            ]
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
@@ -134,59 +146,89 @@ trackTests {
     test("Mercado Pago discount center payers vsp tap") {
         "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
             components = [
-                actionable_info: [
-                        marketplace_type: "actionable_info",
-                        segment_id: "delivery_whatsapp",
-                        marketplace_index: 0,
-                        items: [
-                            [
-                                index: 0,
-                                tracking_id: "delivery_whatsapp",
-                                store_id: 1235123,
-                                collector_id: 1231415,
-                            ]
+                actionable_items: [
+                        [
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
                         ]
                 ]
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            product_type= "delivery"
+        }
+    }
+
+        test("Mercado Pago discount center payers vsp tap filter") {
+        "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_filter: [
+                        [
+                                index: 2,
+                                type: "list",
+                                id: "sushi"
+                        ]
+                ]
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            product_type= "delivery"
         }
     }
 
     test("Mercado Pago discount center payers vsp print") {
         "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
             components = [
-                actionable_info: [
-                        marketplace_type: "actionable_info",
-                        segment_id: "delivery_whatsapp",
-                        marketplace_index: 0,
-                        items: [
-                            [
-                                index: 0,
-                                tracking_id: "delivery_whatsapp",
-                                store_id: 1235123,
-                                collector_id: 1231415,
-                            ]
+                actionable_items: [
+                        [
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
+                        ],
+                        [
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
                         ]
                 ]
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            product_type= "delivery"
         }
     }
 
     test("Mercado Pago discount center payers vsp show") {
         "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
             components = [
-                actionable_info: [
-                        marketplace_type: "actionable_info",
-                        segment_id: "delivery_whatsapp",
-                        marketplace_index: 0,
-                        items: [
-                            [
-                                index: 0,
-                                tracking_id: "delivery_whatsapp",
-                                store_id: 1235123,
-                                collector_id: 1231415,
-                            ]
+                actionable_items: [
+                        [
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
+                        ],
+                        [
+                                index: 2,
+                                item_id: "MLA1234",
+                                store_id: 12345,
+                                name:"Item",
+                                price: "123",
+                                collector_id: 45678,
+                                enabled: true
                         ]
                 ]
             ]
@@ -538,11 +580,13 @@ trackTests {
                         [
                                 index: 0,
                                 selected: "unselected",
+                                style: "box",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
                                 selected: "selected",
+                                style: "rounded",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
@@ -616,6 +660,7 @@ trackTests {
             ]
             product_type = "proximity"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            product_type= "delivery"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
@@ -831,6 +876,7 @@ trackTests {
                         [
                                 index: 1,
                                 selected: "unselected",
+                                style: "box",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
@@ -938,6 +984,7 @@ trackTests {
             product_type = "delivery"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            product_type= "proximity"
         }
     }
 

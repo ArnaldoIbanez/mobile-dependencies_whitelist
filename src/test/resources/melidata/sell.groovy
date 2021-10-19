@@ -3888,6 +3888,20 @@ trackTests {
             sales_channels = ["marketplace", "mshops"]
         }
     }
+    test("SYI moda item variations pictures-education redirect"){
+        "/sell/item_data/variations/pictures_education"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
     test("SYI v4 specifications card showed"){
         "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -6290,5 +6304,36 @@ trackTests {
         "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
 
         "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
+    }
+    
+    test("SYI v4 Fake Door Experiment"){
+        "/sell/item_conditions/fake_door_challenge/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
+        "/sell/item_conditions/fake_door_challenge/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
+        "/sell/item_conditions/fake_door_feedback/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
+        "/sell/item_conditions/fake_door_feedback/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            item_type = "default"
+        }
     }
 }
