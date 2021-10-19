@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = "1172"
+    initiative = "1362"
 
     //Profile
     "/profile"(platform: "/", type: TrackType.View) {

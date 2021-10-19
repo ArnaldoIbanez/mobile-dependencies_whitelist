@@ -1246,4 +1246,72 @@ tracks {
     "/single_player/paygo/update_device_number/timeout/close"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+
+    // Tag obtaining methods
+    "/single_player/paygo/tag_obtaining_methods"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_obtaining_methods/marketplace"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_obtaining_methods/free_pick_up"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_obtaining_methods/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Interest point list
+    "/single_player/paygo/interest_point_list"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/interest_point_list/selected_interest_point"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/interest_point_list/confirm_pick_up"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/interest_point_list/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Create tag pick up success
+    "/single_player/paygo/tag_pick_up/create/success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_pick_up/create/success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/success/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/success/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Create tag pick up error
+    "/single_player/paygo/tag_pick_up/create/error"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_pick_up/create/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/error/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/create/error/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Tag pick up already exists
+    "/single_player/paygo/tag_pick_up/already_exists"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/tag_pick_up/already_exists/new_pick_up"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/already_exists/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/already_exists/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/tag_pick_up/already_exists/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 }
