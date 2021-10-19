@@ -200,7 +200,7 @@ metrics {
         countsOn { 
             condition { 
                 and(
-                    path("/credits/merchant/enrollment", "/credits/merchant/enrollment/onboarding", "/credits/merchant/enrollment/hub", "/credits/merchant/enrollment/simulator") 
+                    path("/credits/merchant/enrollment", "/credits/merchant/enrollment/onboarding", "/credits/merchant/enrollment/hub", "/credits/merchant/enrollment/simulator"),
                     like("event_data.product_types", ".*fixed_term_loan.*")
                 )
             } 
@@ -214,7 +214,7 @@ metrics {
         countsOn { 
             condition { 
                 and (
-                    path("/credits/merchant/enrollment", "/credits/merchant/enrollment/onboarding", "/credits/merchant/enrollment/hub", "/credits/merchant/enrollment/simulator")
+                    path("/credits/merchant/enrollment", "/credits/merchant/enrollment/onboarding", "/credits/merchant/enrollment/hub", "/credits/merchant/enrollment/simulator"),
                     like("event_data.product_types", ".*sales_percentage_loan.*")
                 )
             } 
@@ -329,8 +329,8 @@ metrics {
         countsOn { 
             condition { 
                 and (
-                    path("/credits/merchant/open_market/congrats")
-                    equals("event_data.flow", "upsell_offer")
+                    path("/credits/merchant/open_market/congrats"),
+                    equals("event_data.flow", "upsell_offer"),
                     like("event_data.reason", ".*financial_files.*")
                 )
             } 
@@ -344,8 +344,8 @@ metrics {
         countsOn { 
             condition { 
                 and (
-                    path("/credits/merchant/open_market/congrats")
-                    equals("event_data.flow", "upsell_offer")
+                    path("/credits/merchant/open_market/congrats"),
+                    equals("event_data.flow", "upsell_offer"),
                     like("event_data.reason", ".*financial_scraping.*")
                 )
             } 
@@ -359,8 +359,8 @@ metrics {
         countsOn { 
             condition { 
                 and (
-                    path("/credits/merchant/open_market/congrats")
-                    equals("event_data.flow", "request_offer")
+                    path("/credits/merchant/open_market/congrats"),
+                    equals("event_data.flow", "request_offer"),
                     like("event_data.reason", ".*financial_files.*")
                 )        
             } 
@@ -374,8 +374,8 @@ metrics {
         countsOn { 
             condition { 
                 and (
-                    path("/credits/merchant/open_market/congrats")
-                    equals("event_data.flow", "request_offer")
+                    path("/credits/merchant/open_market/congrats"),
+                    equals("event_data.flow", "request_offer"),
                     like("event_data.reason", ".*financial_scraping.*")
                 )        
             } 
