@@ -291,11 +291,19 @@ tracks {
         insurance_offer (
             required: false,
             type: PropertyType.String,
-            values: ["banner", "success", "pending"],
+            values: ["banner", "label"],
             description: "Indicates the insurance offer type that was displayed"
         )
     }
-    "/cards/acquisition/congrats/insurtech_opened" (platform: "/", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/android", type: TrackType.Event) {}
+    "/cards/acquisition/congrats/insurtech_opened" (platform: "/mobile/ios", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url that init Insurance flow",
+            inheritable:false
+        )
+    }
     "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
         url (
             required: true,
@@ -434,6 +442,7 @@ tracks {
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
+         credit_activities_status (required:false, type: PropertyType.String, values: ["credit_activities", "credit_activities_with_error"], description: "Credits activities status", inheritable:false)
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
@@ -625,6 +634,11 @@ tracks {
             description: "Carousel item closed"
           )
     }
+
+    //App2App Confirmation flow
+    "/cards/hybrid/app2app/facebook_pay_verification"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/app2app/facebook_pay_verification/confirmation"(platform: "/mobile", type: TrackType.Event) { }
+    "/cards/hybrid/app2app/facebook_pay_verification/close"(platform: "/mobile", type: TrackType.Event) { }
 
     //Feedback: Tracking
     "/cards/hybrid/dashboard/feedback"(platform: "/", isAbstract: true) {}
@@ -1183,6 +1197,11 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
         )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
         is_warning_address (
             required: false,
             type: PropertyType.Boolean,
@@ -1241,9 +1260,24 @@ tracks {
     "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
-             type: PropertyType.String,
-             values: ["back", "changes_address", "tyc", "card_request"],
-             description: "action tap by the user in the review"
+            type: PropertyType.String,
+            values: ["back", "changes_address", "tyc", "card_request", "edit_address", "add_new_address"],
+            description: "action tap by the user in the review"
+        )
+        address_id (
+            required: false,
+            type: PropertyType.String,
+            description: "Address id"
+        )
+        is_accurate (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address is accurate"
+        )
+        is_warning_address (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "If address has a warning message"
         )
     }
 
@@ -1267,6 +1301,16 @@ tracks {
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
             description: "list of reasons that allow to do the request flow"
+        )
+        address_id (
+            required: false,
+             type: PropertyType.String,
+             description: "Address id"
+        )
+        is_warning_address (
+            required: false,
+             type: PropertyType.Boolean,
+             description: "If address has a warning message"
         )
     }
     
@@ -2411,7 +2455,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            values:["enrollment_needed","enrollment_completed","enrollment_in_progress"],
+            values:["enrollment_needed","enrollment_complete","enrollment_in_progress"],
             description: "Device enrollment success"
         )
     }
@@ -2947,6 +2991,11 @@ tracks {
             required: false,
             type: PropertyType.String,
             description: "Adds more info for specials cases, like errors or fails"
+        )
+        is_online_payment (
+            required: false,
+            type: PropertyType.Boolean,
+            description: "Indicates if the payment is online or offline"
         )
     }
     "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
