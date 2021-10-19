@@ -892,6 +892,10 @@ tracks {
         sellerCentralModifyCardsGroup
     }
 
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
+
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyGroupTableForPdp
@@ -2738,5 +2742,12 @@ tracks {
         syi_data (required:true, type: PropertyType.Map(syiVerificationStructure), description: "SYI object to validate")
         drat_data (required:true, type: PropertyType.Map(dratStructure), description: "Data recovery and transformation service response to validate")
         verified (required:true, type: PropertyType.Boolean, description: "Validation result between SYI and DRAT data")
+    }
+
+    "/seller_central/gema"(platform: "/web", type: TrackType.Event) {}
+
+    "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event) {
+        use_gema (required:true, type: PropertyType.Boolean, description: "Validate if the user use our new application")
+        seller_reputation (required:true, type: PropertyType.String, description: "Seller Reputation")
     }
 }

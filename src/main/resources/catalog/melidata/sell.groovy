@@ -933,6 +933,9 @@ tracks {
     "/sell/item_data/variations"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/variations/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/variations/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/variations/pictures_education"(platform: "/web", type: TrackType.Event) {
+        domain_id(required: true, type: PropertyType.String, description: "Item's domain_id")
+    }
     "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
