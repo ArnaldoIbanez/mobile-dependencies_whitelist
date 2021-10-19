@@ -2824,7 +2824,7 @@ tracks {
           experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
           communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
           communication_data(required: false, type: PropertyType.String, description: "Extra data")
-          campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+          campaign_type(required: false, type: PropertyType.String, description: "Communication type")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
       }
 
@@ -2842,7 +2842,7 @@ tracks {
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
-        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
@@ -2851,7 +2851,7 @@ tracks {
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
-        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
@@ -2860,7 +2860,7 @@ tracks {
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
-        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
@@ -2878,7 +2878,7 @@ tracks {
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
-        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
@@ -2887,7 +2887,7 @@ tracks {
         experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
         communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
-        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
