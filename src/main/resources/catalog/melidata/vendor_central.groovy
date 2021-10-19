@@ -140,31 +140,31 @@ tracks {
 
     "/vendor_central/inbound-shipment"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound-shipment/creator"(platform: "/", isAbstract: true) {}
+    "/vendor_central/inbound_shipment/creator"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound-shipment/creator/download"(platform: "/web",  type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download"(platform: "/web",  type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/creator/download/error"(platform: "/web",  type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download/error"(platform: "/web",  type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/creator/upload/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload/congrats"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/editor/download"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/download"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/editor/download/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/download/congrats"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/editor/upload"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/upload"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/editor/upload/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/upload/congrats"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound-shipment/editor/upload/error"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/upload/error"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central Fiscal Documents Template Mappings

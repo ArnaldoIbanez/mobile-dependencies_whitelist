@@ -184,50 +184,50 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("Vendor Central inbound creator view") {
-    "/vendor_central/inbound-shipment/creator/download"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator congrats") {
-    "/vendor_central/inbound-shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
   }
   test("Vendor Central inbound creator error") {
-    "/vendor_central/inbound-shipment/creator/download/error"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download/error"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator view") {
-    "/vendor_central/inbound-shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator upload congrats") {
-    "/vendor_central/inbound-shipment/creator/upload/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload/congrats"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator upload error") {
-    "/vendor_central/inbound-shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload/error"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator upload congrats email") {
-    "/vendor_central/inbound-shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/upload/email"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator edition download") {
-    "/vendor_central/inbound-shipment/editor/download"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/download"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator edition download congrats") {
-    "/vendor_central/inbound-shipment/editor/download/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/download/congrats"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator edition upload") {
-    "/vendor_central/inbound-shipment/editor/upload"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/upload"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator edition upload congrats") {
-    "/vendor_central/inbound-shipment/editor/upload/congrats"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/upload/congrats"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Vendor Central inbound creator edition upload error") {
-    "/vendor_central/inbound-shipment/editor/upload/error"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/editor/upload/error"(platform: "/web", type: TrackType.View) {}
   }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
