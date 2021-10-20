@@ -182,9 +182,9 @@ trackTests {
             ]
         }
 
-        "/banking/balance/cads_list_component"(platform: "/", type: TrackType.View) {
-            my_money_cads_list = [
-                  component_id: 'cads_list',
+        "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) {
+            my_money_cards_list = [
+                  component_id: 'cards_list',
                   content_id: []
             ]
         }

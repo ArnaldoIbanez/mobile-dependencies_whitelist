@@ -194,7 +194,7 @@ tracks {
 
     // Components Open Finance
     "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) { accountListPrint }
-    "/banking/balance/cads_list_component"(platform: "/", type: TrackType.View) { cardsListPrint }
+    "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) { cardsListPrint }
     "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) { timestampPrint }
     "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) { bankDetailPrint }
 
