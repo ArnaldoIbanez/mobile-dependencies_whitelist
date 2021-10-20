@@ -635,6 +635,7 @@ tracks {
         sort(required: false, type: PropertyType.String, description: "Sorting applied")
         search(required: false, type: PropertyType.String, description: "Query for id or title")
         origin(required: false, type: PropertyType.String, description: "component that emit the action")
+        sub_view_id(required: false, type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops"])
     }
 
     "/seller_central/listings/filters/action"(platform: "/") {
@@ -661,6 +662,7 @@ tracks {
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
         message(required: false, type: PropertyType.String, description: "Text input from actions with user feedback")
         option(required: false, type: PropertyType.String, description: "Option selected from actions with user feedback")
+        sub_view_id(type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops"])
     }
 
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
@@ -739,6 +741,7 @@ tracks {
     //LISTING - Secondary Actions Click
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        sub_view_id(type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops"])
     }
 
     //Listing empty state
@@ -765,34 +768,34 @@ tracks {
         url(required: false, type: PropertyType.String, description: "Shop url")
     }
 
+
+    "/seller_central/listings/row"(platform: "/", isAbstract: true){
+        item_id(type: PropertyType.String, description: "Id of the publication")
+        sub_view_id(type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops"])
+    }
+
     // listing comparison tooltip
 
-    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
-        open_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to closing in seconds")
-        loading_time(required: true, type: PropertyType.Numeric, description: "time from opening the tooltip to load info in milliseconds")
-        tooltip_type(required: true, type: PropertyType.String, description: "type of tooltip after load data", values:["success", "empty_by_channel", "fallback", "abort"])
-        item_id(required: true, type: PropertyType.String, description: "Item to load comparison tooltip")
-        item_state(required: true, type: PropertyType.String, description: "state of the item active | inactive | undefiend", values:["active", "inactive", "undefined"])
+    "/seller_central/listings/row/comparison_tooltip"(platform: "/", type: TrackType.Event){
+        open_time(type: PropertyType.Numeric, description: "time from opening the tooltip to closing in seconds")
+        loading_time(type: PropertyType.Numeric, description: "time from opening the tooltip to load info in milliseconds")
+        tooltip_type(type: PropertyType.String, description: "type of tooltip after load data", values:["success", "empty_by_channel", "fallback", "abort"])
+        item_state(type: PropertyType.String, description: "state of the item active | inactive | undefiend", values:["active", "inactive", "undefined"])
     }
 
-    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
-        action(required: true, type: PropertyType.String, description: "type of event", values:["show","click"])
-        activation_channel(required: true, type: PropertyType.String, description: "channel to activate", values: ["marketplace", "mshops"])
-        subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
-        item_id(required: true, type: PropertyType.String, description: "Item to activate")
-        empty_type(required: true, type: PropertyType.String, description: "type of empty", values:["empty_channel", "activate_mshops"])
+    "/seller_central/listings/row/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+        action(type: PropertyType.String, description: "type of event", values:["show","click"])
+        activation_channel(type: PropertyType.String, description: "channel to activate", values: ["marketplace", "mshops"])
+        empty_type(type: PropertyType.String, description: "type of empty", values:["empty_channel", "activate_mshops"])
     }
 
-    "/seller_cental/listings/row"(platform: "/", isAbstract: true){
-        item_id(type: PropertyType.String, description: "Id of the publication")
-        subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
-    }
+    // listing item variations
 
-    "/seller_cental/listings/row/variations"(platform: "/", type: TrackType.Event ){
+    "/seller_central/listings/row/variations"(platform: "/", type: TrackType.Event ){
         action( type: PropertyType.String, description: "type of action", values:["show", "hide"])
     }
 
-    "/seller_cental/listings/row/show_variations"(platform: "/", type: TrackType.Event ){
+    "/seller_central/listings/row/show_variations"(platform: "/", type: TrackType.Event ){
         success( type: PropertyType.Boolean, description: "result of request success=true, fail=false")
         loading_time( type: PropertyType.Numeric, description: "time of duration to load variations in milliseconds")
         variations_loaded( type: PropertyType.Numeric, description:"amount of variations loaded")

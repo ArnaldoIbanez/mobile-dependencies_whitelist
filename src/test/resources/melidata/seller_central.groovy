@@ -46,12 +46,14 @@ trackTests {
   test("seller central listing action") {
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
+      sub_view_id = "marketplace"
     }
   }
 
   test("seller central listing action") {
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
+      sub_view_id = "marketplace"
     }
   }
 
@@ -64,7 +66,9 @@ trackTests {
   }
 
   test("seller central listing secondary_actions") {
-    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
+      sub_view_id = "marketplace"
+    }
   }
 
   test("seller central hunting actions") {
@@ -6606,42 +6610,44 @@ test("seller central catalog optin v2 item plus card show") {
   }
 
   test("Seller central comparison tooltip"){
-    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/comparison_tooltip"(platform: "/", type: TrackType.Event){
       open_time = 2.3
       loading_time = 1782.9313
       tooltip_type = "success"
       item_id = "MLA10335295"
       item_state = "inactive"
+      sub_view_id = "marketplace"
     }
 
-    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/comparison_tooltip"(platform: "/", type: TrackType.Event){
       open_time = 3.4
       loading_time = 1782.9313
       tooltip_type = "abort"
       item_id = "MLA10335295"
       item_state = "active"
+      sub_view_id = "mshops"
     }
 
-    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
       action = "show"
       activation_channel = "marketplace"
-      subview_id = "mshops"
+      sub_view_id = "mshops"
       item_id = "MLA10335295"
       empty_type = "empty_channel"
     }
 
-    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
       action = "click"
       activation_channel = "mshops"
-      subview_id = "marketplace"
+      sub_view_id = "marketplace"
       item_id = "MLA10335295"
       empty_type = "empty_channel"
     }
 
-    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
       action = "click"
       activation_channel = "mshops"
-      subview_id = "mshops"
+      sub_view_id = "mshops"
       item_id = "MLA10335295"
       empty_type = "activate_mshops"
     }
@@ -6656,33 +6662,33 @@ test("seller central catalog optin v2 item plus card show") {
     }
   }
 
-  test("/seller_cental/listings/row/variations"){
-    "/seller_cental/listings/row/variations"(platform: "/", type: TrackType.Event){
+  test("/seller_central/listings/row/variations"){
+    "/seller_central/listings/row/variations"(platform: "/", type: TrackType.Event){
       action = "show"
       item_id = "MLA10335295"
-      subview_id = "mshops"
+      sub_view_id = "mshops"
     }
 
-    "/seller_cental/listings/row/variations"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/variations"(platform: "/", type: TrackType.Event){
       action = "hide"
       item_id = "MLA10335295"
-      subview_id = "marketplace"
+      sub_view_id = "marketplace"
     }
 
-    "/seller_cental/listings/row/show_variations"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/show_variations"(platform: "/", type: TrackType.Event){
       item_id = "MLA10335296"
       success = true
       loading_time = 1582.9313
       variations_loaded = 4
-      subview_id = "mshops"
+      sub_view_id = "mshops"
     }
 
-    "/seller_cental/listings/row/show_variations"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/show_variations"(platform: "/", type: TrackType.Event){
       item_id = "MLA10335296"
       success = false
       loading_time = 1582.9313
       variations_loaded = 4
-      subview_id = "marketplace"
+      sub_view_id = "marketplace"
     }
   }
 }
