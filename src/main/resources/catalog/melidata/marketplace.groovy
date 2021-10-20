@@ -46,7 +46,7 @@ tracks {
     //EXTERNAL
     //TODO revisar /external/XXX
 
-    "/external/"(platform: "/mobile", initiative : "1127") {
+    "/external/"(platform: "/mobile", initiative : "1353") {
         query(required: false)
         limit(type: PropertyType.Numeric, required: false)
         offset(type: PropertyType.Numeric, required: false)
