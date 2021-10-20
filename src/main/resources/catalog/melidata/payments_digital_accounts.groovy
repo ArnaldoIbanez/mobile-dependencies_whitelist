@@ -80,6 +80,7 @@ tracks {
         my_money_bank_detail(required: true, type: PropertyType.Map(component_definition), description: "Bank detail component print")
         my_money_account_list(required: true, type: PropertyType.Map(component_definition), description: "Bank account list component print")
         my_money_cards_list(require: true, type: PropertyType.Map(component_definition), description: "Bank cards list component print")
+        my_money_timestampPrint(required: true, type: PropertyType.Map(component_definition), description: "Bank resource timestamp component print")
     }
 
     propertyGroups {
