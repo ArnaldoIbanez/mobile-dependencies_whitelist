@@ -219,4 +219,8 @@ tracks {
         payment_status(required: false, description: "Payment status", type: PropertyType.String)
         content(required: false, description: "Specific content (banner, promo, etc.) shown in VDP (first step)", type: PropertyType.String)
     }
+
+    "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event) {
+        status(type: PropertyType.String, description: "Diferentes estados que pueden tener los eventos del interstitial que pueden ser enviados por el BE o acciones de usuarios", required: true)
+    }
 }

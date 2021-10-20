@@ -500,6 +500,12 @@ trackTests {
         }
     }
 
+    test("Loyalty Interstitial") {
+        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event) {
+            status = "timeout"
+        }
+    }
+
     test("Loyalty Level Buy") {
         "/loyalty/buylevel"(platform: "/", type: TrackType.View, business: "mercadopago") {
             level = 1
