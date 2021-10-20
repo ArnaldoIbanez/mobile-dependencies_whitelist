@@ -568,6 +568,10 @@ trackTests {
             latest_news_id= "killers_winner_item_new-186785675-76283123"
             latest_news_type= "killers_winner_item_new"
         }
+        "/notification_center/killers-winner_item_new"(platform: "/mobile"){
+            latest_news_id= "killers-winner_item_new-186785675-76283123"
+            latest_news_type= "killers-winner_item_new"
+        }
         "/notification_center/killers-winner_item_lost"(platform: "/mobile") {
             latest_news_id= "killers-winner_item_lost-MLA123-19712790"
             latest_news_type= "killers_winner_item_lost"
@@ -9002,6 +9006,10 @@ trackTests {
         "/notification_center/killers_winner_item_new"(platform: "/mobile"){
             latest_news_id= "killers_winner_item_new-186785675-76283123"
             latest_news_type= "killers_winner_item_new"
+        }
+        "/notification_center/killers-winner_item_new"(platform: "/mobile"){
+            latest_news_id= "killers-winner_item_new-186785675-76283123"
+            latest_news_type= "killers-winner_item_new"
         }
         "/notification_center/killers-winner_item_lost"(platform: "/mobile") {
             latest_news_id= "killers-winner_item_lost-MLA123-19712790"
