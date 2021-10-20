@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1171"
+    initiative = "1237"
 
     /**
     * NOTIFICATIONS CENTER
@@ -2052,6 +2052,22 @@ tracks {
     "/notification/credits_consumer_expired_thirtyone_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_ninety_notice"(platform: "/") {}
 
+    // Chatbot
+    "/notification/credits_consumer_chatbot_how_to_use"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_requirements"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_how_to_pay"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_credit_limit"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_financing_rate"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_duedate"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_purchase_trouble"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_mc_unavailable"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_less_money"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_cancel_loan"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_accredited_time"(platform: "/") {}
+
+
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
       "/notification/billing_newtax"(platform: "/") {}
@@ -2458,7 +2474,6 @@ tracks {
           communication_data(required: false, type: PropertyType.String, description: "Extra data")
           campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-          event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
       }
 
       "/notification/mpcampaigns_sms"(platform: "/", type: TrackType.Event) {
@@ -2477,7 +2492,6 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
     }
 
     "/notification/mpinstitutional_sms"(platform: "/", type: TrackType.Event) {
@@ -2487,7 +2501,42 @@ tracks {
         communication_data(required: false, type: PropertyType.String, description: "Extra data")
         campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
-        event_type(required: true, type: PropertyType.String, description: "event type of send notification.")
+    }
+
+    "/notification/campaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/mpcampaigns_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.String, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/institutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+    }
+
+    "/notification/mpinstitutional_wpp_sms"(platform: "/", type: TrackType.Event) {
+        segment_name(required: true, type: PropertyType.String, description: "Segment name of hermes communication")
+        experiment_name(required: false, type: PropertyType.String, description: "Experiment name of hermes communication's segment")
+        communication_id(required: true, type: PropertyType.String, description: "Hermes communication id.")
+        communication_data(required: false, type: PropertyType.String, description: "Extra data")
+        campaign_type(required: false, type: PropertyType.Boolean, description: "Communication type")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
     }
 
       //MKT Deals
@@ -3382,6 +3431,8 @@ tracks {
         branch_time_elapsed(required: true, type: PropertyType.Boolean, description: "Branch Time Elapsed")
     }
     "/notification/cards_send_card"(platform: "/mobile") {}
+    "/notification/card_compromised_virtual"(platform: "/mobile") {}
+    "/notification/card_compromised_physical"(platform: "/mobile") {}
     "/notification/card_nip_first_try"(platform: "/mobile") {}
     "/notification/card_nip_second_try"(platform: "/mobile") {}
     "/notification/card_nip_nip_block"(platform: "/mobile") {}
@@ -3742,6 +3793,15 @@ tracks {
     "/notification/pm_om_notification_new_sale"(platform: "/") {}
     "/notification/pm_om_notification_new_sale_retry"(platform: "/") {}
     "/notification/pm_om_notification_buyer_cancellation"(platform: "/") {}
+    "/notification_center/pm_om_notification-store_opening"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
+    "/notification_center/pm_om_notification-new_sale"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
+    "/notification_center/pm_om_notification-buyer_cancellation"(platform: "/", type: TrackType.Event) {
+        news_id(required: true, type: PropertyType.String, description: "Corresponds to Id of notification.")
+    }
 
     // Delay Compensation
     "/notification/shipping_delay_compensation_cashback"(platform: "/"){
