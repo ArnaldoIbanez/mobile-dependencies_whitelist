@@ -22,7 +22,7 @@ tracks {
         seller(required: true, type: PropertyType.Map(seller_definition), description: "Object that represent seller id")
         // meli_id
 
-        pickup(required: true, type: PropertyType.Map(pickup_definition), description: "Object that represent the pack order")
+            pickup(required: true, type: PropertyType.Map(pickup_definition), description: "Object that represent the pack order")
 
         context(required: true, type: PropertyType.String, description: "Action that represent open navigation or logout from any screen")
         // picking_product
@@ -66,6 +66,8 @@ tracks {
         page(required: true, type: PropertyType.Numeric, description: "Number of the page the user is on")
         page_count(required: true, type: PropertyType.Numeric, description: "Number of the total pages in the backlog")
         filters(required: true, type: PropertyType.ArrayList, description: "Object that represent the filters implemented in the list")
+        item_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about item temperature")
+        parcel_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about parcel temperature")
     }
 
     propertyGroups {
@@ -83,6 +85,8 @@ tracks {
         product_not_found_or_less_units(item_id, variation_id)
         seller_data(seller)
         oms_list(page, page_count, filters)
+        override_temperature_data(item_id, variation_id, item_temperature, parcel_temperature)
+        item_ids_data(item_id, variation_id)
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -182,6 +186,14 @@ tracks {
 
     "/prepapp/picking/parcel/input"(platform:"/", type: TrackType.View) {
         scan_mode_data
+    }
+
+    "/prepapp/picking/parcel/wrong_temperature"(platform:"/", type: TrackType.View) {
+        override_temperature_data
+    }
+
+    "/prepapp/picking/parcel/conservation_change"(platform: "/", type: TrackType.View) {
+        item_ids_data
     }
 
     "/prepapp/picking/product/not_found"(platform:"/", type: TrackType.View) {

@@ -1481,11 +1481,17 @@ trackTests {
             ids = "MSwyLDU="
         }
 
+        "/myml/fiscal_rules/listing/button/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
         "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
             page = 2
             per_page = 20
             selected = ""
-            id = "5"
+            id = 5
         }
 
 
@@ -1598,6 +1604,52 @@ trackTests {
             type = "xlsx"
             size = 1000
         }
+
+        "/myml/fiscal_rules/massive/upload/upload_massive_error"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            error = "message"
+        }
+
+        "/myml/fiscal_rules/massive/upload/process_time"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/process_time/finish_time"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            process_time = 766
+            scope = "download"
+        }
+
+        "/myml/fiscal_rules/massive/download/process_time"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/download/download_massive_error"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/status_massive_error"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/breadcrumb/back_button"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+        }
+
 
         "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
             action = "edit"
