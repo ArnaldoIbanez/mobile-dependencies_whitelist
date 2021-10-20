@@ -249,7 +249,7 @@ tracks {
         error(type: PropertyType.String, required: true, description: "Error of interpreter")
     }
 
-    "/kyc/iv/object_detection/blurry_fallback"(platform: "/mobile", type: TrackType.Event) {
+    "/kyc/iv/object_detection/blurryfallback"(platform: "/mobile", type: TrackType.Event) {
         blurry_count_out(type: PropertyType.Numeric, required: true, description: "Blurry count out")
     }
 
