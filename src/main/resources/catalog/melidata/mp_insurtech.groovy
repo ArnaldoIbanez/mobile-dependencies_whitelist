@@ -771,6 +771,7 @@ tracks {
     //Insurtech CARDS
     "/insurtech/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false){
         options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Options objects")
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
@@ -804,7 +805,7 @@ tracks {
     }
     //Congrats - Success View
     "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
-        quote_id(required: false, type: PropertyType.String, description: "the id of the quote generated")
+        quote_id(required: true, type: PropertyType.String, description: "the id of the quote generated")
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
     }
     "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
