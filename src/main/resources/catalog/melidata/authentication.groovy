@@ -214,7 +214,7 @@ tracks {
     "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
 
     //Login Transactional
-    "/login/transactional"(platform: "/mobile", isAbstract: true, initiative: 1353) {
+    "/login/transactional"(platform: "/mobile", isAbstract: true, initiative: 1358) {
         authentication_id(type: PropertyType.String, required: true, description: "Authentication id Transaction")
     }
 
@@ -247,7 +247,7 @@ tracks {
     "/auth"(platform: "/", isAbstract: true) {}
 
     //Security Feedback
-    "/login/auth/feedback"(platform: "/", type: TrackType.Event, initiative: 1353) {
+    "/login/auth/feedback"(platform: "/", type: TrackType.Event, initiative: 1358) {
         view(type: PropertyType.String, required: true, description: "Current Feedback step name where the action is taking place")
         event_type(type: PropertyType.String, required: true, description: "Describes user action in current step")
         view_type(type: PropertyType.String, required: false, description: "Feedback step flavor, dependent on user answer")
