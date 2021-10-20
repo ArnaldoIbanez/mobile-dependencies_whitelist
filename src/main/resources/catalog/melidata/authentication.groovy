@@ -256,7 +256,7 @@ tracks {
     }
 
     //Account Recovery
-    "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1353) {
+    "/auth/account_recovery"(platform: "/", isAbstract: true, initiative: 1376) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
@@ -295,7 +295,7 @@ tracks {
     }
 
     //TOTP
-    "/auth/totp"(platform: "/", isAbstract: true, initiative: 1353) {
+    "/auth/totp"(platform: "/", isAbstract: true, initiative: 1374) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
@@ -362,7 +362,7 @@ tracks {
     }
 
     //TOTP-IN-APP
-    "/auth/totp_in_app"(platform: "/", isAbstract: true, initiative: 1353) {
+    "/auth/totp_in_app"(platform: "/", isAbstract: true, initiative: 1374) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
     }
 
@@ -403,7 +403,7 @@ tracks {
     }
 
     //Attestation App
-    "/auth/attestation"(platform: "/mobile", isAbstract: true, initiative: 1353) {}
+    "/auth/attestation"(platform: "/mobile", isAbstract: true, initiative: 1375) {}
 
     "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
         mode(type: PropertyType.String, required: false, description: "In which mode attestation was started" , values:['publish_result', 'prefetch_only', 'cache_only'])
@@ -451,7 +451,7 @@ tracks {
     
     // Device Authorization Authenticator
 
-    "/authenticators/device_authorization"(platform: "/", isAbstract: true, initiative: 1353) {}
+    "/authenticators/device_authorization"(platform: "/", isAbstract: true, initiative: 1374) {}
 
     "/authenticators/device_authorization/access_request"(platform: "/", type: TrackType.View) {}
 
@@ -620,7 +620,7 @@ tracks {
     }
 
     // Biometrics / Screenlock
-    "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1353) {
+    "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1375) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
     }
@@ -668,7 +668,7 @@ tracks {
         errors(type: PropertyType.ArrayList, required: false)
     }
 
-    "/screenlock/security_status"(platform: "/mobile/ios", isAbstract: true, initiative: 1353) {
+    "/screenlock/security_status"(platform: "/mobile/ios", isAbstract: true, initiative: 1375) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         from(type: PropertyType.String, required: true, values: ["force_block_refresh", "security_status"], description: "which service asked to get security_status")
     }
@@ -735,7 +735,7 @@ tracks {
     }
 
     // IFPE Auth restrictions & Reauth errors
-    "/auth/restrictions"(platform: "/", isAbstract: true, initiative: 1353) {}
+    "/auth/restrictions"(platform: "/", isAbstract: true, initiative: 1375) {}
     "/auth/restrictions"(platform: "/", type: TrackType.View) {}
     "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
         retry_url_present(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")
@@ -753,7 +753,7 @@ tracks {
         status(reauth_status, transaction_id)
     }
 
-    "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1353) {
+    "/reauth"(platform: "/mobile", isAbstract: true, initiative: 1375) {
         reauth_mods_id(type: PropertyType.String, required: true, description: "Specific identifier")
         operation_id(type: PropertyType.String, required: true, description: "Operation identifier where validation is happening")
         flow_type(type: PropertyType.String, required: true, values: ["other", "payment", "withdraw"], description: "Operation type")
