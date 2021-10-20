@@ -7,6 +7,19 @@ tracks {
 
     initiative = "1237"
 
+    propertyDefinitions {
+        campaign_id(required: true, PropertyType.String, description: "Id of the campaign related to the notification sent.")
+        communication_id(required: false, type: PropertyType.String, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Campaign data.")
+    }
+
+    propertyGroups {
+        externalData(campaign_id, communication_id, sent_date, batch_id, campaign_type, campaign_data)
+    }
+
     //Messages
     "/notification/messages_new"(platform: "/") {}
     "/notification/messages_read"(platform: "/") {}
@@ -34,28 +47,13 @@ tracks {
 
     //Mercado envios Campaigns
     "/notification/me_campaigns_crowd_generic"(platform: "/") {
-        campaign_id(required: true, PropertyType.String, description: "Id of the campaign related to the notification sent.")
-        communication_id(required: false, type: PropertyType.String, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
-        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
-        campaign_type(required: false, type: PropertyType.String, description: "Campaign type.")
-        campaign_data(required: false, type: PropertyType.String, description: "Campaign data.")
+        externalData
     }
     "/notification/me_campaigns_flex_generic"(platform: "/") {
-        campaign_id(required: true, PropertyType.String, description: "Id of the campaign related to the notification sent.")
-        communication_id(required: false, type: PropertyType.String, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
-        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
-        campaign_type(required: false, type: PropertyType.String, description: "Campaign type.")
-        campaign_data(required: false, type: PropertyType.String, description: "Campaign data.")
+        externalData
     }
     "/notification/me_campaigns_logistics_generic"(platform: "/") {
-        campaign_id(required: true, PropertyType.String, description: "Id of the campaign related to the notification sent.")
-        communication_id(required: false, type: PropertyType.String, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
-        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
-        campaign_type(required: false, type: PropertyType.String, description: "Campaign type.")
-        campaign_data(required: false, type: PropertyType.String, description: "Campaign data.")
+        externalData
     }
 
     //Messages driver
