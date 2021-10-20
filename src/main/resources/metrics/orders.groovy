@@ -23,9 +23,8 @@ metrics {
 	}
 
 	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180) {
-		startWith {
-			experiment(regex("qadb/.*"))
-		}
+		experiment(regex("qadb/.*"))
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -76,10 +75,7 @@ metrics {
 	}
 	
 	"bids.cbt.paid"(description: "/orders/ordercreated that belong to our CBT vertical and are currently paid", compute_order: true) {
-		startWith {
-			experiment(regex(".*(cbt/|/cbt).*"))
-		}
-		
+		experiment(regex(".*(cbt/|/cbt).*"))
 		
 		countsOn {
 			condition {
@@ -102,9 +98,7 @@ metrics {
 	}
 	
 	"bids.cpg.paid"(description: "/orders/ordercreated that belong to our CPG vertical and are currently paid", compute_order: true) {
-		startWith {
-			experiment(regex("cpg/.*"))
-		}
+		experiment(regex("cpg/.*"))
 		
 		countsOn {
 			condition {
@@ -160,9 +154,7 @@ metrics {
 	}
 
 	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
-		startWith {
-			experiment(regex("(search|vip)/.*"))
-		}
+		experiment(regex("(search|vip)/.*"))
 
 		countsOn {
 			condition {
@@ -224,9 +216,8 @@ metrics {
 	}
 
 	"bids.sameItemQuick"(description: "Quick attribution of bids", compute_order: true, ttl: 30) {
-		startWith {
-			experiment(regex("qadb/.*"))
-		}
+		experiment(regex("qadb/.*"))
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -267,9 +258,7 @@ metrics {
 	}
 
 	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, tags:[TagType.Important]) {
-		startWith {
-			experiment(regex("qadb/.*"))
-		}
+		experiment(regex("qadb/.*"))
 
 		countsOn {
 			condition {
@@ -302,9 +291,8 @@ metrics {
 	}
 
 	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
-		startWith {
-			experiment(regex("qadb/.*"))
-		}
+		experiment(regex("qadb/.*"))
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -314,9 +302,8 @@ metrics {
 	}
 
 	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true) {
-		startWith {
-			experiment(regex("(vip|pdp|qadb)/.*"))
-		}
+		experiment(regex("(vip|pdp|qadb)/.*"))
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -327,9 +314,7 @@ metrics {
 
 
 	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
-		startWith {
-			experiment(regex("(search|filters)/.*"))
-		}
+		experiment(regex("(search|filters)/.*"))
 
 		countsOn {
 			condition {
@@ -340,9 +325,7 @@ metrics {
 	}
 
 	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
-		startWith {
-			experiment(regex("(search|filters)/.*"))
-		}
+		experiment(regex("(search|filters)/.*"))
 
 		countsOn {
 			condition {
@@ -383,9 +366,7 @@ metrics {
 	}
 
 	"buys.qadb_domains"(description: "Track buys only in qadb-enabled domains") {
-		startWith {
-			experiment(regex("qadb/(qadb-on-vip|qadb-on-viewport-vip)"))
-		}
+		experiment(regex("qadb/(qadb-on-vip|qadb-on-viewport-vip)"))
 
 		countsOn {
 			condition {
@@ -405,9 +386,7 @@ metrics {
 	}
 
 	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true, deprecation_date:"2020/08/12") {
-		startWith {
-			experiment(regex("sparkle/.*"))
-		}
+		experiment(regex("sparkle/.*"))
 
 		countsOn {
 			condition {
@@ -428,9 +407,7 @@ metrics {
 	}
 
 	"bids.sameOrder.paid"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
-		startWith {
-			experiment(regex("(checkout|buyingflow)/.*"))
-		}
+		experiment(regex("(checkout|buyingflow)/.*"))
 
 		countsOn {
 			condition {
@@ -452,9 +429,8 @@ metrics {
 	}
 
 	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
-		startWith {
-			experiment(regex("insurtech/.*"))
-		}
+		experiment(regex("insurtech/.*"))
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
