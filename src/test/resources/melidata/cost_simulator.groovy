@@ -48,12 +48,12 @@ trackTests {
         }
     }
     test("A message primary action is clicked") {
-        "/cost_simulator/constraint/help_action_message/actions" (platform: "/", type: TrackType.Event) {
+        "/cost_simulator/simulation-constraint/help_action_message/actions" (platform: "/", type: TrackType.Event) {
             help_action_message = "action_to_faq_costs_point_mlb"
         }
     }
     test("All selected options required for simulation") {
-        "/cost_simulator/constraint/all_selected" (platform: "/", type: TrackType.Event) {
+        "/cost_simulator/simulation-constraint/all_selected" (platform: "/", type: TrackType.Event) {
             selected_options = [
                 [
                     key : "channel",

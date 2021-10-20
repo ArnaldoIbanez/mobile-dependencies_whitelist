@@ -100,10 +100,10 @@ tracks {
     "/cost_simulator/simulation-constraint/help/actions" (platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         help_action_group
     }
-    "/cost_simulator/constraint/help_action_message/actions" (platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+    "/cost_simulator/simulation-constraint/help_action_message/actions" (platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         help_action_message_group
     }
-    "/cost_simulator/constraint/all_selected" (platform: "/", type: TrackType.Event) {
+    "/cost_simulator/simulation-constraint/all_selected" (platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         selected_options_group
     }
     "/cost_simulator/simulation/result" (platform: "/", type: TrackType.View) {
