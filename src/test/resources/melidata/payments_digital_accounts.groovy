@@ -176,7 +176,7 @@ trackTests {
          }
 
         "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) {
-            my_money_accounts_list = [
+            my_money_account_list = [
                   component_id: 'accounts_list',
                   content_id: []
             ]
