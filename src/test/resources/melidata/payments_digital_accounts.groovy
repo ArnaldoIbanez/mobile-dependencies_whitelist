@@ -178,18 +178,18 @@ trackTests {
         "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) {
             my_money_account_list = [
                   component_id: 'accounts_list',
-                  content_id: []
+                  content_id: ['account']
             ]
         }
 
         "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) {
             my_money_cards_list = [
                   component_id: 'cards_list',
-                  content_id: []
+                  content_id: ['card']
             ]
         }
 
-         "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) {
+        "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) {
             my_money_timestamp = [
                   component_id: 'timestamp',
                   component_data: [
@@ -201,7 +201,7 @@ trackTests {
         "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) {
             my_money_bank_detail = [
                   component_id: 'bank_detail',
-                  content_id: []
+                  content_id: ['cards_list', 'accounts_list']
             ]
         }
     }
