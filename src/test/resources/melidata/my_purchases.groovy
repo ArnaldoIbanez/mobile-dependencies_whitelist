@@ -96,9 +96,9 @@ trackTests {
 			vertical_case_id= "shipping"
 			vertical_sub_case_id= "shipping_delivered_delivery_address"
 			x_mc_request_id= "aaaaa-vvvvvv-cccc-ddd"
-			purchase_id= 1234
-			pack_id= 1234
-			order_id= 1234
+			purchase_id= "1234"
+			pack_id= "1234"
+			order_id= "1234"
 		}
 
 		def newPurchasesDataFullSet = purchasesEventDataSet >> newPurchasesDataSet
@@ -526,6 +526,22 @@ trackTests {
 
 		"/my_purchases/list/item" (platform:"/", type: TrackType.Event) {
 			newPurchasesDataFullSet()
+		}
+
+		"/my_purchases/list/view_purchase" (platform:"/", type: TrackType.Event) {
+			newPurchasesDataFullSet()
+		}
+
+		"/my_purchases/list/click_view_messages" (platform:"/", type: TrackType.Event) {
+			newPurchasesDataFullSet()
+		}
+
+		"/my_purchases/list/messages" (platform:"/", type: TrackType.View) {
+			newPurchasesDataSet()
+		}
+
+		"/my_purchases/list/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
+			purchasesEventDataSet()
 		}
 	}
 }

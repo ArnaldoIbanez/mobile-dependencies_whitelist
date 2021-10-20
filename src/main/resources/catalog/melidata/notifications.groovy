@@ -2052,6 +2052,22 @@ tracks {
     "/notification/credits_consumer_expired_thirtyone_notice"(platform: "/") {}
     "/notification/credits_consumer_expired_ninety_notice"(platform: "/") {}
 
+    // Chatbot
+    "/notification/credits_consumer_chatbot_how_to_use"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_requirements"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_how_to_pay"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_credit_limit"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_financing_rate"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_duedate"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_purchase_trouble"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_mc_unavailable"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_less_money"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_cancel_loan"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_accredited_time"(platform: "/") {}
+
+
       //Billing
       "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
       "/notification/billing_newtax"(platform: "/") {}
@@ -3415,6 +3431,8 @@ tracks {
         branch_time_elapsed(required: true, type: PropertyType.Boolean, description: "Branch Time Elapsed")
     }
     "/notification/cards_send_card"(platform: "/mobile") {}
+    "/notification/card_compromised_virtual"(platform: "/mobile") {}
+    "/notification/card_compromised_physical"(platform: "/mobile") {}
     "/notification/card_nip_first_try"(platform: "/mobile") {}
     "/notification/card_nip_second_try"(platform: "/mobile") {}
     "/notification/card_nip_nip_block"(platform: "/mobile") {}
