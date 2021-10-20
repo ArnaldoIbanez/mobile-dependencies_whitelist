@@ -626,4 +626,16 @@ tracks {
     "/logistics/learning_hub/dismiss_modal/confirm"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
     }
+    "/logistics/login_ml/provider/get_driver_by_user_fail"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login_ml/provider/driver_or_vehicle_identify_fail"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        carrier_id(required: true, type: PropertyType.Numeric, description: "The id of the carrier", inheritable: false)
+    }
+    "/logistics/login_ml/helper/route_sharing_scanned_warning"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the driver id", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.Numeric, description: "The id of the vehicle", inheritable: false)
+        carrier_id(required: true, type: PropertyType.Numeric, description: "The id of the carrier", inheritable: false)
+        route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+    }
 }
