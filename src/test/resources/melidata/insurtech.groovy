@@ -2671,6 +2671,7 @@ trackTests {
                 product_id: "CARDS"
             ],
            ]
+           flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/select"(platform:"/", type: TrackType.Event) {
             option_selected = [
