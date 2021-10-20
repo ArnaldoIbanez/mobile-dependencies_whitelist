@@ -281,6 +281,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "add_to_cart.groovy"
         include business, "funds_movements.groovy"
+        include business, "cost_simulator.groovy"
     }
 
     mercadoshops.each { business ->
