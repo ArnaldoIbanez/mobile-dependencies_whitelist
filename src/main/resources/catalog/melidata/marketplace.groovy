@@ -140,7 +140,7 @@ tracks {
     }
 
     //Logout
-    "/logout"(platform: "/", isAbstract: true, initiative : "1127") {}
+    "/logout"(platform: "/", isAbstract: true, initiative : "1353") {}
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }
