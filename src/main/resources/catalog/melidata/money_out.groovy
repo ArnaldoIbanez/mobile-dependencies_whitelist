@@ -338,7 +338,7 @@ tracks {
 
     //Transfer HUB - Banners
     "/money_out/transfers/home/banners"(platform:"/", type: TrackType.Event){ 
-        type(required:true, description:"Indicate type of banners for example: money_advance", values=["money_advance"])
+        banner_type(required:true, description:"Indicate type of banners for example: money_advance", values=["money_advance", "scheduled_transfer"])
     }
 
     //Transfer HUB - VOC

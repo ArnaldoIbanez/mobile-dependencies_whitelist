@@ -383,7 +383,7 @@ trackTests {
 
       //Transfer Hub - Banners
       "/money_out/transfers/home/banners"(platform: "/", type: TrackType.Event) {
-         type="money_advance"
+         banner_type="money_advance"
       }
       //Transfer Hub - VOC
       "/money_out/transfers/home/voice_of_customer"(platform: "/", type: TrackType.Event) {}
