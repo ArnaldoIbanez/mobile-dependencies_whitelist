@@ -323,6 +323,15 @@ trackTests {
             activities_status = "activities_with_error"
             credits = credit_card_data_error
         }
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = "[minicard, flap, activities, credit_activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
+            minicard_status = "virtual_only"
+            flap_status = "virtual_only"
+            message_status = "warning"
+            activities_status = "activities_with_error"
+            credit_activities_status: "credit_activities"
+        }
         "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "header_help"
         }
@@ -602,6 +611,13 @@ trackTests {
                 position: 3
             ]
         }
+    }
+
+    //App2App Confirmation
+    test("App2App confirmation flow") {
+        "/cards/hybrid/app2app/facebook_pay_verification"(platform:"/mobile", type: TrackType.View) { }
+        "/cards/hybrid/app2app/facebook_pay_verification/confirmation"(platform:"/mobile", type: TrackType.Event) { }
+        "/cards/hybrid/app2app/facebook_pay_verification/close"(platform:"/mobile", type: TrackType.Event) { }
     }
 
     //Feedback: Tracking
@@ -1157,6 +1173,11 @@ trackTests {
         "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
             reasons = ["debit_available_push_strategy_none", "reissue"]
         }
+        "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
+        }
     }
     test("cards hybrid request physical challenge") {
         "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
@@ -1227,6 +1248,16 @@ trackTests {
         "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
             action = "card_request"
         }
+
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "edit_address"
+            address_id = "1122334455"
+            is_accurate = true
+            is_warning_address = false
+        }
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "add_new_address"
+        }
     }
 
     // Request: Review TyC
@@ -1257,6 +1288,11 @@ trackTests {
     test("cards hybrid physical success event"){
         "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
             reasons = ["card_whitelist_physical_first", "reissue"]
+        }
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["card_whitelist_physical_first", "reissue"]
+            address_id = "1122334455"
+            is_warning_address = false
         }
     }
 
@@ -3944,6 +3980,7 @@ trackTests {
             is_restrictive = false
             is_default_card = true
             tap_status = "success"
+            is_online_payment = true
             from = "tap: ScreenLockActivity"
             is_token_active = true
             are_payment_keys_available = true
@@ -3961,6 +3998,7 @@ trackTests {
             additional_info = "POS_COMM_DISCONNECTED error"
             is_default_card = true
             tap_status = "failure"
+            is_online_payment = false
             from = "preAuth: HomeActivity"
             is_token_active = true
             are_payment_keys_available = true
