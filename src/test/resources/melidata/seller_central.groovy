@@ -6660,11 +6660,13 @@ test("seller central catalog optin v2 item plus card show") {
     "/seller_cental/listings/row/variations"(platform: "/", type: TrackType.Event){
       action = "show"
       item_id = "MLA10335295"
+      subview_id = "mshops"
     }
 
     "/seller_cental/listings/row/variations"(platform: "/", type: TrackType.Event){
       action = "hide"
       item_id = "MLA10335295"
+      subview_id = "marketplace"
     }
 
     "/seller_cental/listings/row/show_variations"(platform: "/", type: TrackType.Event){
@@ -6672,6 +6674,7 @@ test("seller central catalog optin v2 item plus card show") {
       success = true
       loading_time = 1582.9313
       variations_loaded = 4
+      subview_id = "mshops"
     }
 
     "/seller_cental/listings/row/show_variations"(platform: "/", type: TrackType.Event){
@@ -6679,6 +6682,7 @@ test("seller central catalog optin v2 item plus card show") {
       success = false
       loading_time = 1582.9313
       variations_loaded = 4
+      subview_id = "marketplace"
     }
   }
 }

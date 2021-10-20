@@ -785,6 +785,7 @@ tracks {
 
     "/seller_cental/listings/row"(platform: "/", isAbstract: true){
         item_id(type: PropertyType.String, description: "Id of the publication")
+        subview_id(required: true, type: PropertyType.String, description: "current view", values: ["marketplace", "mshops"])
     }
 
     "/seller_cental/listings/row/variations"(platform: "/", type: TrackType.Event ){
