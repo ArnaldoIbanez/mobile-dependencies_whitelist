@@ -221,6 +221,6 @@ tracks {
     }
 
     "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, description: "Diferentes estados que pueden tener los eventos del interstitial que pueden ser enviados por el BE o acciones de usuarios", required: true)
+        status(required: true, description: "Diferentes estados que pueden tener los eventos del interstitial que pueden ser enviados por el BE o acciones de usuarios", type: PropertyType.String)
     }
 }

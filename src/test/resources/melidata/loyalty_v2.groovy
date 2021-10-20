@@ -501,7 +501,11 @@ trackTests {
     }
 
     test("Loyalty Interstitial") {
-        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event) {
+        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            status = "timeout"
+        }
+
+        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             status = "timeout"
         }
     }
