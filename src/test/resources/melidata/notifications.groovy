@@ -1715,6 +1715,20 @@ trackTests {
             site_id= "MLB"
             end_date= "2019-09-17T12:19:56.234-04:00"
         }
+        "/notification_center/mp_sponsor_campaign_create_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor_campaign_create_campaign-143816022-MLB1013046714"
+            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
+        }
+        "/notification_center/mp_sponsor_campaign_web_eligible_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor_campaign_web_eligible_campaign-143816022-MLB1013046714"
+            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
+        }
         "/notification_center/mp_shipping_label"(platform: "/mobile") {
             latest_news_type= "mp_shipping_label"
             latest_news_id= "mp_shipping_label-143816022-MLB1013046714"
@@ -8850,6 +8864,20 @@ trackTests {
         "/notification_center/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
             latest_news_type= "mpcampaing"
             latest_news_id= "mp_sponsor_-ampaign_start_campaign-143816022-MLB1013046714"
+            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
+        }
+        "/notification_center/mp_sponsor_campaign_create_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor_campaign_create_campaign-143816022-MLB1013046714"
+            campaign_id = "080677f9877e454f917ca55ea1bbbb24"
+            site_id = "MLB"
+            end_date = "2019-09-17T12:19:56.234-04:00"
+        }
+        "/notification_center/mp_sponsor_campaign_web_eligible_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor_campaign_web_eligible_campaign-143816022-MLB1013046714"
             campaign_id = "080677f9877e454f917ca55ea1bbbb24"
             site_id = "MLB"
             end_date = "2019-09-17T12:19:56.234-04:00"
