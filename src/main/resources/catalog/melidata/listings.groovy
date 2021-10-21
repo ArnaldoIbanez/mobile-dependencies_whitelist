@@ -89,7 +89,7 @@ tracks {
     // TRACKS listings Secondary Actions Click
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/listings/row/secondary_actions"(platform: "/", type: TrackType.Event) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/row/secondary_actions/selected"(platform: "/", type: TrackType.Event) {
