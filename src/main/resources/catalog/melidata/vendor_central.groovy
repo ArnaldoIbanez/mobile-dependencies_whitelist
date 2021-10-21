@@ -42,11 +42,11 @@ tracks {
     }
 
     "/vendor_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values: ["success", "failed", "partial", "no changes", "mail"])
     }
 
     "/vendor_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["SUCCESS","WARNING"])
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values: ["SUCCESS", "WARNING"])
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/vendor_central/branches"(platform: "/", isAbstract: true) {}
-    
+
     "/vendor_central/branches/listing"(platform: "/web", type: TrackType.View) {}
 
     "/vendor_central/branches/detail"(platform: "/web", type: TrackType.View) {}
@@ -100,7 +100,7 @@ tracks {
     "/vendor_central/branches/accounts"(platform: "/web", type: TrackType.View) {}
 
     "/vendor_central/branches/congrats"(platform: "/web", type: TrackType.Event) {
-      collaborators_updated(required: true, type: PropertyType.Boolean, description: "this property describes what is shown on the congrats page")
+        collaborators_updated(required: true, type: PropertyType.Boolean, description: "this property describes what is shown on the congrats page")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -130,8 +130,8 @@ tracks {
 
     "/vendor_central/invoices/upload"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/invoices/upload/error" (platform: "/web", type: TrackType.View) {
-        error_type(required: true, type: PropertyType.String, description: "Type of the error the user received when trying to upload a file", values:["fileInvalidType","fileTooLarge", "tooManyFiles", "unexpectedError"])
+    "/vendor_central/invoices/upload/error"(platform: "/web", type: TrackType.View) {
+        error_type(required: true, type: PropertyType.String, description: "Type of the error the user received when trying to upload a file", values: ["fileInvalidType", "fileTooLarge", "tooManyFiles", "unexpectedError"])
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -142,11 +142,11 @@ tracks {
 
     "/vendor_central/inbound_shipment/creator"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound_shipment/creator/download"(platform: "/web",  type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download"(platform: "/web", type: TrackType.View) {}
 
     "/vendor_central/inbound_shipment/creator/download/congrats"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound_shipment/creator/download/error"(platform: "/web",  type: TrackType.View) {}
+    "/vendor_central/inbound_shipment/creator/download/error"(platform: "/web", type: TrackType.View) {}
 
     "/vendor_central/inbound_shipment/creator/upload"(platform: "/web", type: TrackType.View) {}
 
@@ -198,4 +198,36 @@ tracks {
         is_valid_template(required: false, type: PropertyType.Boolean, description: "this property indicates if the template is valid")
     }
 
+    "/vendor_central/bulk/publish/document/upload"(platform: "/web", type: TrackType.Event) {
+        listings(required: false, type: PropertyType.Numeric, description: "indicates listings number to upload")
+        fail_categories(required: false, type: PropertyType.ArrayList, description: "indicates failed upload categories to upload")
+        ok_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded categories to upload")
+        variation_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded variation categories to upload")
+        catalog_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded product categories to upload")
+        document_size(required: false, type: PropertyType.Numeric, description: "indicates total size of document to upload")
+        variation_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with variation to upload")
+        catalog_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with products to upload")
+        listings_per_category(required: false, type: PropertyType.ArrayList, description: "indicates listings per category to upload")
+        session_id(required: false, type: PropertyType.String, description: "indicates session id for file")
+    }
+
+    "/vendor_central/bulk/publish/publish-callback"(platform: "/web", type: TrackType.Event) {
+        listings_not_published(required: false, type: PropertyType.ArrayList, description: "indicates listings not published")
+        listings_ok(required: false, type: PropertyType.ArrayList, description: "indicates listings with ok result")
+        listings_timeout(required: false, type: PropertyType.Numeric, description: "indicates listings with timeout result")
+        session_id(required: false, type: PropertyType.String, description: "indicates session id for file")
+    }
+
+    "/vendor_central/bulk/publish/document/generate"(platform: "/web", type: TrackType.Event) {
+        listings(required: false, type: PropertyType.Numeric, description: "indicates listings number to generate")
+        fail_categories(required: false, type: PropertyType.ArrayList, description: "indicates failed upload categories to generate")
+        ok_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded categories to generate")
+        variation_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded variation categories to generate")
+        catalog_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded product categories to generate")
+        document_size(required: false, type: PropertyType.Numeric, description: "indicates total size of document to generate")
+        variation_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with variation to generate")
+        catalog_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with products to generate")
+        listings_per_category(required: false, type: PropertyType.ArrayList, description: "indicates listings per category to generate")
+        session_id(required: false, type: PropertyType.String, description: "indicates session id for file")
+    }
 }
