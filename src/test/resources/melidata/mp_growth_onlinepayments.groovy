@@ -40,4 +40,8 @@ trackTests {
         "/landing/shopify" (platform: "/web") {}
     }
 
+    test("Landing external online payments cliento") {
+        "/landing/online-payments/checkout-cliento" (platform: "/web") {}
+    }
+
 }
