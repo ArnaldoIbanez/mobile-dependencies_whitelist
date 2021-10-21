@@ -888,9 +888,6 @@ tracks {
         sellerCentralModifyCardsGroup
     }
 
-    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
-    }
 
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
@@ -1087,6 +1084,14 @@ tracks {
     "/seller_central/modify/detail/change_category/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/change_category/confirm"(platform: "/", type: TrackType.Event) {}
 
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MODA
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data

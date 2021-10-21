@@ -1193,6 +1193,21 @@ trackTests {
     }
   }
 
+  test("seller central redirect picture education track"){
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View){
+      item_type = "default"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      category_domain = "MLA-FRAGRANCES"
+      category_path = ["MLA1234", "MLA12345"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
   test("seller central render variations"){
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View){
       item_type = "default"
@@ -1222,22 +1237,6 @@ trackTests {
       shipping_local_pickup = true
     }
   }
-
-  test("seller central redirect picture education track"){
-    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View){
-      item_type = "default"
-      category_id = "MLA390784"
-      item_id = "MLA682118081"
-      session_id = "123-update-abc123"
-      category_domain = "MLA-FRAGRANCES"
-      category_path = ["MLA1234", "MLA12345"]
-      seller_profile = "ADVANCED"
-      seller_reputation = "5_green"
-      listing_type = "gold_pro"
-      shipping_local_pickup = true
-    }
-  }
-
 
   test("seller central render listing_type"){
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View){
