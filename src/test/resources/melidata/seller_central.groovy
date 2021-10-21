@@ -2582,6 +2582,17 @@ trackTests {
     }
   }
 
+  test("metrics my attention summary show fallback page") {
+    "/seller_central/metrics/attention/summary/summary_fallback"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      trigger_by = "onLoad"
+    }
+  }
+
   // Details page
 
   test("metrics my attention details section view for web") {

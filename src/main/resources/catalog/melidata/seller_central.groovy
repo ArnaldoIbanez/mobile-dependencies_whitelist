@@ -1558,6 +1558,11 @@ tracks {
         sellerCentralUserSales
     }
 
+    "/seller_central/metrics/attention/summary/summary_fallback"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        trigger_by(required: true, type: PropertyType.String, description: "How the fallback was triggered")
+    }
+
     // Page Details - My Attention
 
     "/seller_central/metrics/attention/details"(platform: "/web", type: TrackType.View) {
