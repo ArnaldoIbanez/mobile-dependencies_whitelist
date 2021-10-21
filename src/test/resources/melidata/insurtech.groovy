@@ -1810,6 +1810,10 @@ trackTests {
                 has_claims: false,
                 offered: false
             ]
+            cards = [
+                has_protections: true,
+                has_claims: false
+            ]
         }
 
         "/insurtech/protections/data_loaded"(platform:"/mobile", type: TrackType.Event) {
@@ -1843,6 +1847,10 @@ trackTests {
                 has_claims: false,
                 offered: false
             ]
+            cards = [
+                has_protections: true,
+                has_claims: false
+            ]
         }
 
         "/insurtech/protections/data_loaded"(platform:"/mobile", type: TrackType.Event) {
@@ -1875,6 +1883,10 @@ trackTests {
                 has_claims: false,
                 offered: false
             ]
+            cards = [
+                has_protections: true,
+                has_claims: false
+            ]
         }
 
         "/insurtech/protections/data_loaded"(platform:"/web", type: TrackType.Event) {
@@ -1889,6 +1901,10 @@ trackTests {
                 has_protections: false,
                 has_claims: false,
                 offered: false
+            ]
+            cards = [
+                has_protections: true,
+                has_claims: false
             ]
         }
 
@@ -1917,6 +1933,10 @@ trackTests {
                 has_protections: false,
                 has_claims: false,
                 offered: false
+            ]
+            cards = [
+                has_protections: true,
+                has_claims: false
             ]
         }
 
@@ -2564,6 +2584,79 @@ trackTests {
         }
 
         //CARDS
+        "/insurtech/protections/detail/cards"(platform:"/mobile", type: TrackType.View) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
+        "/insurtech/protections/detail/cards"(platform:"/web", type: TrackType.View) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
+        "/insurtech/protections/detail/cards/begin_claim"(platform:"/web", type: TrackType.Event) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
+        "/insurtech/protections/detail/cards/download_policy"(platform:"/web", type: TrackType.Event) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
+        "/insurtech/protections/detail/cards/pay"(platform:"/web", type: TrackType.Event) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+            type = 'pending_recurring_payment'
+        }
+
+        "/insurtech/protections/detail/cards/cancel"(platform:"/web", type: TrackType.Event) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
+        "/insurtech/protections/detail/cards/help"(platform:"/web", type: TrackType.Event) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
+        "/insurtech/protections/detail/cards/full_coverage"(platform:"/", type: TrackType.Event) {
+            product_data =[
+                entity_type:"quote",
+                entity_id:"463bfaad-7b1a-4ab9-8c5b-e62d692ee94e",
+                product_type:"cards",
+                product_id:"c792741f-5680-48c7-b70a-f66b5580d6e2"
+            ]
+        }
+
         "/insurtech/protections/detail/begin_claim"(platform:"/web", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
