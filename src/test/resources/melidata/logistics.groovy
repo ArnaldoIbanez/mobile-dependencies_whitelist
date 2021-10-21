@@ -210,6 +210,26 @@ trackTests {
           driver_id = 1234
         }
 
+        // Login by ML disclaimer home
+        "/logistics/login_ml/login_by_ml_disclaimer"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML identity disclaimer for KYC process
+        "/logistics/login_ml/kyc/identity_disclaimer"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML identity disclaimer success for KYC process
+        "/logistics/login_ml/kyc/identity_disclaimer_successful"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML role selector
+        "/logistics/login_ml/role_selector"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
         // Login by ML get driver by user failure
         "/logistics/login_ml/provider/get_driver_by_user_fail"(platform: "/mobile", type: TrackType.View){
           defaultLocation()
@@ -221,6 +241,11 @@ trackTests {
           driver_id = 1234
           vehicle_id = 1234
           carrier_id = 1234
+        }
+
+        // Login by ML route sharing disclaimer in helper flow
+        "/logistics/login_ml/helper/route_sharing_disclaimer"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
         }
 
         // Login by ML route sharing scanned warning in helper flow
