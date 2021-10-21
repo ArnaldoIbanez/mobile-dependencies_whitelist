@@ -388,6 +388,11 @@ trackTests {
       //Transfer Hub - VOC
       "/money_out/transfers/home/voice_of_customer"(platform: "/", type: TrackType.Event) {}
 
+      //Transfer Hub - MLM - Account Form
+      "/money_out/transfers/mlm/account_form"(platform: "/", type: TrackType.View){}
+      "/money_out/transfers/mlm/account_form/faq"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/mlm/account_form/continue"(platform: "/", type: TrackType.Event) {}
+
       //Pix Limits MLB
       "/pix"(platform: "/", type: TrackType.View) {}
       "/pix/limits"(platform: "/", type: TrackType.View) {}
