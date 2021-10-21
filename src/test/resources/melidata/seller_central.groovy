@@ -422,8 +422,8 @@ trackTests {
 
   // Seller coach
 
-  test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+  test("Seller coach card open") {
+    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -443,7 +443,7 @@ trackTests {
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -454,6 +454,40 @@ trackTests {
         rules_applied: "none",
         with_random_order: false,
         tags: ["shipping"]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card bookmark") {
+    "/seller_central/seller_coach/summary/recommendation/bookmark"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "CONTENT",
+        key: "AT_014",
+        rules_applied: "soft",
+        with_random_order: true,
+        tags: ["publicaciones"]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card unbookmark") {
+    "/seller_central/seller_coach/summary/recommendation/unbookmark"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "CONTENT",
+        key: "PB_001",
+        rules_applied: "none",
+        with_random_order: false,
+        tags: ["gestion"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -534,8 +568,8 @@ trackTests {
     }
   }
 
-  test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+  test("Seller coach card open") {
+    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -555,7 +589,7 @@ trackTests {
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/mobile", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -1188,6 +1222,22 @@ trackTests {
       shipping_local_pickup = true
     }
   }
+
+  test("seller central redirect picture education track"){
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View){
+      item_type = "default"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      category_domain = "MLA-FRAGRANCES"
+      category_path = ["MLA1234", "MLA12345"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
 
   test("seller central render listing_type"){
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View){
@@ -6213,6 +6263,17 @@ test("seller central catalog optin v2 item plus card show") {
       }
   }
 
+  test("seller central catalog optin v2 review") {
+      "/seller_central/catalog/optin_v2/review"(platform: "/web", type: TrackType.View) {
+        moderated = true
+        item_id = "MLA835425554"
+        domain_id = "MLA-CELLPHONES"
+        category_id = "MLA1055"
+        variation_id = 49478478975
+        original_catalog_product_id = "MLA15149561"
+      }
+  }
+
   test("seller central catalog optin v2 product problem show") {
       "/seller_central/catalog/optin_v2/product_problem"(platform: "/web", type: TrackType.View) {
         moderated = true
@@ -6541,6 +6602,57 @@ test("seller central catalog optin v2 item plus card show") {
         ]
       ]
       verified = true
+    }
+  }
+
+  test("Seller central comparison tooltip"){
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+      open_time = 2.3
+      loading_time = 1782.9313
+      tooltip_type = "success"
+      item_id = "MLA10335295"
+      item_state = "inactive"
+    }
+
+    "/seller_central/listings/comparison_tooltip"(platform: "/", type: TrackType.Event){
+      open_time = 3.4
+      loading_time = 1782.9313
+      tooltip_type = "abort"
+      item_id = "MLA10335295"
+      item_state = "active"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "show"
+      activation_channel = "marketplace"
+      subview_id = "mshops"
+      item_id = "MLA10335295"
+      empty_type = "empty_channel"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "click"
+      activation_channel = "mshops"
+      subview_id = "marketplace"
+      item_id = "MLA10335295"
+      empty_type = "empty_channel"
+    }
+
+    "/seller_central/listings/comparison_tooltip_empty"(platform: "/", type: TrackType.Event){
+      action = "click"
+      activation_channel = "mshops"
+      subview_id = "mshops"
+      item_id = "MLA10335295"
+      empty_type = "activate_mshops"
+    }
+  }
+
+  test("Sellers that use GEMA"){
+    "/seller_central/gema"(platform: "/web", type: TrackType.Event){}
+
+    "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event){
+      use_gema = false
+      seller_reputation = "NEWBIE"
     }
   }
 }
