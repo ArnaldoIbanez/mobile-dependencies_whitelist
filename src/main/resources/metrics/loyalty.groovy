@@ -7,9 +7,7 @@ def loyaltyExperimentsRegex = '(loyalty|wallet)/.*'
 metrics {
 
     "loyalty.subscription.congrats"(description: "define what type of distribution of components to show in Summary suscriptions to see which one converts better", deprecation_date: "2021/06/20") {
-        startWith {
-            experiment("loyalty/subscription_summary")
-        }
+        experiment("loyalty/subscription_summary")
 
         countsOn {
             condition {
@@ -19,9 +17,7 @@ metrics {
     }
 
     "loyalty.suscription.disneyplus.intention"(description: "define what type of plan to show in VPD to see which one converts better", deprecation_date: "2021/01/30") {
-        startWith {
-            experiment("loyalty/subscription_disneyplus")
-        }
+        experiment("loyalty/subscription_disneyplus")
 
         countsOn {
             condition {
@@ -32,9 +28,7 @@ metrics {
     }
 
     "loyalty.suscription.disneyplus"(description: "Finally makes a suscription to disneyplus", deprecation_date: "2021/01/30") {
-        startWith {
-            experiment("loyalty/subscription_disneyplus")
-        }
+        experiment("loyalty/subscription_disneyplus")
 
         countsOn {
             condition {
@@ -45,9 +39,7 @@ metrics {
     }
 
       "loyalty.suscription.deezer.intention"(description: "define what type of distribution of components to show in VPD to see which one converts better", deprecation_date: "2021/06/14") {
-        startWith {
-            experiment("loyalty/subscription_deezer")
-        }
+        experiment("loyalty/subscription_deezer")
 
         countsOn {
             condition {
@@ -58,9 +50,7 @@ metrics {
     }
 
     "loyalty.suscription.deezer"(description: "Finally makes a suscription to deezer", deprecation_date: "2021/06/14") {
-        startWith {
-            experiment("loyalty/subscription_deezer")
-        }
+        experiment("loyalty/subscription_deezer")
 
         countsOn {
             condition {
@@ -73,9 +63,7 @@ metrics {
     // Loyalty HUB
 
     "loyalty.hub.mp"(description: "Loyalty Hub View in MP") {
-        startWith {
-            experiment(regex(loyaltyExperimentsRegex))
-        }
+        experiment(regex(loyaltyExperimentsRegex))
 
         countsOn {
             condition {
@@ -90,9 +78,7 @@ metrics {
     //Subscriptions
 
     "loyalty.subscriptions.mp"(description: "Partner VDP View in MP") {
-        startWith {
-            experiment(regex(loyaltyExperimentsRegex))
-        }
+        experiment(regex(loyaltyExperimentsRegex))
 
         countsOn {
             condition {
@@ -105,9 +91,7 @@ metrics {
     }
 
     "loyalty.subscriptions.congrats.mp"(description: "Partner Congrats View in MP") {
-        startWith {
-            experiment(regex(loyaltyExperimentsRegex))
-        }
+        experiment(regex(loyaltyExperimentsRegex))
 
         countsOn {
             condition {

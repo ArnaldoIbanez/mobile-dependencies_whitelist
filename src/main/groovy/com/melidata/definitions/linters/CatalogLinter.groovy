@@ -20,11 +20,11 @@ class CatalogLinter {
         linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
         //linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
-        /*linters.add(new PropertyNameBlackListLinter(
+        linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data"],
                 ["platform", "user", "device", "name", "required", "description", "mode"],
                 ["user_id", "site_id", "colaborator_id", "bu", "business", "site", "experiment", "experiments"])
-        )*/
+        )
     }
 
     CatalogLinter(List<AbstractLinter> lintersList) {

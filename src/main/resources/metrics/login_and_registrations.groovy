@@ -4,9 +4,8 @@ import com.ml.melidata.metrics.TagType
 
 metrics {
     "logins"(description: "logins count", tags:[TagType.CoreMetric]) {
-        startWith {
-            experiment(regex("login/.*"))
-        }
+        experiment(regex("login/.*"))
+
         countsOn {
             condition {
                 path("/login/auth/success")
