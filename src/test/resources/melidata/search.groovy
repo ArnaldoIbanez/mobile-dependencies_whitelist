@@ -147,6 +147,7 @@ trackTests {
                     "user_zone": "X1"
             ]
             original_search_filter: originalSearchFilterInfo
+            containers_flow: "N/A"
         }
 
         def defaultWebTrack = {
