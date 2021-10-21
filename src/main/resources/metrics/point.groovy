@@ -4,9 +4,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 metrics {
 
     "point_congrats"(description: "Arrival to congrats page from Point landings") {
-        startWith {
-            experiment(regex("mpos/.*"))
-        }
+        experiment(regex("mpos/.*"))
 
         countsOn {
             condition {
@@ -21,9 +19,7 @@ metrics {
     }
 
     "point_buy_intention"(description: "Point Landings buy intention") {
-        startWith {
-            experiment(regex("mpos/.*"))
-        }
+        experiment(regex("mpos/.*"))
 
         countsOn {
             condition {
