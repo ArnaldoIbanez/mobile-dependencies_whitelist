@@ -4,9 +4,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 metrics {
 
     "search.applied_filters"(description: "Applied filters") {
-        startWith {
-            experiment(regex("(search|filters)/.*"))
-        }
+        experiment(regex("(search|filters)/.*"))
 
         countsOn {
             condition {
@@ -17,9 +15,7 @@ metrics {
     }
 
     "search.unapplied_filters"(description: "Unapplied filters") {
-        startWith {
-            experiment(regex("(search|filters)/.*"))
-        }
+        experiment(regex("(search|filters)/.*"))
 
         countsOn {
             condition {
@@ -30,9 +26,7 @@ metrics {
     }
 
     "search.enhanced_search_filters_applied"(description: "Enhanced Search filters applied") {
-        startWith {
-            experiment(regex("(search|filters)/.*"))
-        }
+        experiment(regex("(search|filters)/.*"))
 
         countsOn {
             condition {
