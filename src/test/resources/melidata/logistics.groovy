@@ -209,6 +209,27 @@ trackTests {
           defaultLocation()
           driver_id = 1234
         }
+
+        // Login by ML get driver by user failure
+        "/logistics/login_ml/provider/get_driver_by_user_fail"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+        }
+
+        // Login by ML driver or vehicle identify failure
+        "/logistics/login_ml/provider/driver_or_vehicle_identify_fail"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+          driver_id = 1234
+          vehicle_id = 1234
+          carrier_id = 1234
+        }
+
+        // Login by ML route sharing scanned warning in helper flow
+        "/logistics/login_ml/helper/route_sharing_scanned_warning"(platform: "/mobile", type: TrackType.View){
+          defaultLocation()
+          driver_id = 1234
+          vehicle_id = 1234
+          carrier_id = 1234
+        }
     }
 
     test("Testing Logistics Last Mile") {
