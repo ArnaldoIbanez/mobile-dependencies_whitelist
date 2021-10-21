@@ -1089,7 +1089,7 @@ tracks {
     // TRACKS MODA
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View) {
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
     }
 

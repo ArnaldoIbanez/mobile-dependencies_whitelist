@@ -1194,7 +1194,7 @@ trackTests {
   }
 
   test("seller central redirect picture education track"){
-    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.View){
+    "/seller_central/modify/variations/picture_education"(platform: "/", type: TrackType.Event){
       item_type = "default"
       category_id = "MLA390784"
       item_id = "MLA682118081"
