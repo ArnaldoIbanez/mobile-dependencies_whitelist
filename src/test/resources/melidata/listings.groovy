@@ -23,7 +23,7 @@ trackTests {
       item_id = "MLB32452342"
     }
 
-    "/seller_central/listings/row/action"(platform: "/", type: TrackType.Event) {
+    "/seller_central/listings/row/secondary_actions/selected"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
       sub_view_id = "marketplace"
       item_id = "MLB32452342"

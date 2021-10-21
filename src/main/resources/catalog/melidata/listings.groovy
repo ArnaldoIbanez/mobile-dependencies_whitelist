@@ -15,11 +15,11 @@ tracks {
     }
 
     def itemStructure = objectSchemaDefinitions {
-        channels(type: PropertyType.ArrayList(PropertyType.String), description="channel actives for publication")
-        price(type: PropertyType.Numeric, description="price adsolute")
-        shipping_mode(type: PropertyType.String, description="publication delivery method")
-        shipping_logistic(type: PropertyType.String, description="publication logistic method")
-        listing_type(type: PropertyType.String, description="publication type, change for site")
+        channels(type: PropertyType.ArrayList(PropertyType.String), description:"channel actives for publication")
+        price(type: PropertyType.Numeric, description:"price adsolute")
+        shipping_mode(type: PropertyType.String, description:"publication delivery method")
+        shipping_logistic(type: PropertyType.String, description:"publication logistic method")
+        listing_type(type: PropertyType.String, description:"publication type, change for site")
     }
 
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
@@ -92,7 +92,7 @@ tracks {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    "/seller_central/listings/row/action"(platform: "/", type: TrackType.Event) {
+    "/seller_central/listings/row/secondary_actions/selected"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
@@ -101,13 +101,13 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected from actions with user feedback")
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS listings Secondary Actions Click
+    // TRACKS listings Link in the row cta
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/listings/row/call_to_actions"(platform: "/", type: TrackType.Event) {
         item(type: PropertyType.Map(itemStructure), description: "publication data")
         action_id(type: PropertyType.String,
            description: "CTA clicked on item row",
-           values=[
+           values: [
                "MODIFY_PRICE",
                "GO_TO_PROMOTIONS",
                "MODIFY_LISTING_TYPE",
