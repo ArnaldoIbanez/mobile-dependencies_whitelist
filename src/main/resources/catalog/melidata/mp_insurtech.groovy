@@ -726,8 +726,6 @@ tracks {
     }
 
     //CARDS
-    "/insurtech/protections/detail/cards"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
-
     "/insurtech/protections/detail/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         product_data(required: true, type: PropertyType.Map(product), description: "Cards Product data")
     }
