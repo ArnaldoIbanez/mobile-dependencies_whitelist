@@ -267,6 +267,10 @@ tracks {
         api_error(required: false, description: "Api error description")
     }
 
+    "/px_checkout/result/error/remedy/modal"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        externalData
+    }
+
     // Events:
 
     // Init event:
@@ -640,6 +644,7 @@ tracks {
     // Rejected payment
     "/px_checkout/result/error/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
+        from(required: false, type: PropertyType.String, values: ["modal", "view"], description: "Tap change payment method from the result error screen or from modal view")
     }
     "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
@@ -652,7 +657,12 @@ tracks {
         index(required: true, type: PropertyType.Numeric , description: "Selected remedy index")
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
+        from(required: false, type: PropertyType.String, values: ["modal", "view"], description: "Tap pay from the result error screen or from modal view")
       }
+
+    "/px_checkout/result/error/remedy/modal/abort"(platform: "/mobile", type: TrackType.Event) {
+        externalData
+    }
 
     // Approved business
     "/px_checkout/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {

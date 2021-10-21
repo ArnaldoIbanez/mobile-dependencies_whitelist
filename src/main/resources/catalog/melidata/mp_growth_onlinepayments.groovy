@@ -25,4 +25,9 @@ tracks {
     // MP Landing Online Payments Shopify
     "/landing/shopify"(platform: "/web"){}
 
+    //==============================================
+    // External Landing Cliento
+    //==============================================
+    "/landing/online-payments/checkout-cliento"(platform: "/web"){}
+
 }

@@ -4,9 +4,7 @@ def experimentsRegex = '(cards|wallet_home)/.*'
 
 metrics {
     'cards.acquisition'(description: 'Counts when a user request a card using Mercado Pago app') {
-        startWith {
-            experiment(regex(experimentsRegex))
-        }
+        experiment(regex(experimentsRegex))
 
         countsOn {
             condition {
@@ -23,9 +21,7 @@ metrics {
     }
 
     'cards.acquisition.virtual'(description: 'Counts when a user request a virtual card using Mercado Pago app') {
-        startWith {
-            experiment(regex(experimentsRegex))
-        }
+        experiment(regex(experimentsRegex))
 
         countsOn {
             condition {
@@ -36,9 +32,7 @@ metrics {
     }
 
     'cards.acquisition.physical'(description: 'Counts when a user request a physical card using Mercado Pago app') {
-        startWith {
-            experiment(regex(experimentsRegex))
-        }
+        experiment(regex(experimentsRegex))
 
         countsOn {
             condition {
@@ -53,9 +47,7 @@ metrics {
     }
 
     'cards.activation'(description: 'Counts when a user unlock a card using Mercado Pago app') {
-        startWith {
-            experiment(regex(experimentsRegex))
-        }
+        experiment(regex(experimentsRegex))
 
         countsOn {
             condition {
