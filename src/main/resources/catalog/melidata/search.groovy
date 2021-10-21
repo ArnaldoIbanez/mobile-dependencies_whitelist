@@ -181,7 +181,7 @@ tracks {
         highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
         original_search_filter(required: false, description: 'original search filter (a fallback search may be performed with certain filters unapplied in case of zero results)', type: PropertyType.Map(original_search_filter_definition))
-        containers_flow(required: false, description: 'flow used for showing deal landing (containers, deals or N/A)', type: PropertyType.String)
+        containers_flow(required: false, description: 'flow used for showing deal landing (containers, deals or N/A)', type: PropertyType.String, values: ["containers", "deals", "N/A"])
 
         //Tracks from Search Backend:
         backend_data(required: false)
