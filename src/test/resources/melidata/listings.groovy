@@ -178,19 +178,7 @@ trackTests {
   }
 
   test("/seller_central/listings/row/variations"){
-    "/seller_central/listings/row/variations"(platform: "/", type: TrackType.Event){
-      action = "show"
-      item_id = "MLA10335295"
-      sub_view_id = "mshops"
-    }
-
-    "/seller_central/listings/row/variations"(platform: "/", type: TrackType.Event){
-      action = "hide"
-      item_id = "MLA10335295"
-      sub_view_id = "marketplace"
-    }
-
-    "/seller_central/listings/row/show_variations"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/variations"(platform: "/", type: TrackType.View){
       item_id = "MLA10335296"
       success = true
       loading_time = 1582.9313
@@ -198,7 +186,7 @@ trackTests {
       sub_view_id = "mshops"
     }
 
-    "/seller_central/listings/row/show_variations"(platform: "/", type: TrackType.Event){
+    "/seller_central/listings/row/variations"(platform: "/", type: TrackType.View){
       item_id = "MLA10335296"
       success = false
       loading_time = 1582.9313
