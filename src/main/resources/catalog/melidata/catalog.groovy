@@ -281,6 +281,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "add_to_cart.groovy"
         include business, "funds_movements.groovy"
+        include business, "cost_simulator.groovy"
     }
 
     mercadoshops.each { business ->
@@ -318,6 +319,7 @@ catalog {
         include business, "notifications_menvios.groovy"
         include business, "kyc.groovy"
         include business, "authentication.groovy"
+        include business, "liveness.groovy"
     }
 
     extra_marketplace.each { business ->

@@ -422,8 +422,8 @@ trackTests {
 
   // Seller coach
 
-  test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card_click"(platform: "/web", type: TrackType.Event) {
+  test("Seller coach card open") {
+    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -443,7 +443,7 @@ trackTests {
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/web", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -454,6 +454,40 @@ trackTests {
         rules_applied: "none",
         with_random_order: false,
         tags: ["shipping"]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card bookmark") {
+    "/seller_central/seller_coach/summary/recommendation/bookmark"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "CONTENT",
+        key: "AT_014",
+        rules_applied: "soft",
+        with_random_order: true,
+        tags: ["publicaciones"]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+    }
+  }
+
+  test("Seller coach card unbookmark") {
+    "/seller_central/seller_coach/summary/recommendation/unbookmark"(platform: "/web", type: TrackType.Event) {
+      segment = "perfect_launch"
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "CONTENT",
+        key: "PB_001",
+        rules_applied: "none",
+        with_random_order: false,
+        tags: ["gestion"]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
@@ -534,8 +568,8 @@ trackTests {
     }
   }
 
-  test("Seller coach card click") {
-    "/seller_central/seller_coach/summary/card_click"(platform: "/mobile", type: TrackType.Event) {
+  test("Seller coach card open") {
+    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -555,7 +589,7 @@ trackTests {
   }
 
   test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/mobile", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/mobile", type: TrackType.Event) {
       segment = "perfect_launch"
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
@@ -2545,6 +2579,17 @@ trackTests {
       mercado_lider = false
       seller_segment = "MEDIUM_SELLERS_III"
       user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics my attention summary show fallback page") {
+    "/seller_central/metrics/attention/summary/summary_fallback"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      trigger_by = "onLoad"
     }
   }
 

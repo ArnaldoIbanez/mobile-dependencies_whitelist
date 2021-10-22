@@ -472,7 +472,7 @@ tracks {
     // Seller coach
     "/seller_central/seller_coach"(platform: "/", isAbstract: true) {}
     "/seller_central/seller_coach/summary"(platform: "/", isAbstract: true) {}
-    "/seller_central/seller_coach/summary/card_click"(platform: "/", type: TrackType.Event) {
+    "/seller_central/seller_coach/summary/recommendation"(platform: "/", isAbstract: true) {
         segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
         power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
         reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
@@ -480,14 +480,10 @@ tracks {
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
         user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
     }
-    "/seller_central/seller_coach/summary/card_dismiss"(platform: "/", type: TrackType.Event) {
-        segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
-        power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
-        reputation(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "newbie", "none"], description: "Reputation of the user")
-        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
-        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE', 'INTERMEDIATE', 'ADVANCED'])
-        user_session_id(required: true, type: PropertyType.String, description: "User's session uuid")
-    }
+    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/summary/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/summary/recommendation/unbookmark"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/summary/cards_view"(platform: "/", type: TrackType.View) {
         segment(required: true, type: PropertyType.String, description: "Segment of the user, defined in the seller coach backoffice")
         power_seller_status(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['0', '1_red', '2_orange', '3_yellow', '4_light_green', '5_green', 'gold', 'none', 'platinum', 'silver'])
@@ -1560,6 +1556,11 @@ tracks {
 
     "/seller_central/metrics/attention/summary/open_onboarding"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales
+    }
+
+    "/seller_central/metrics/attention/summary/summary_fallback"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        trigger_by(required: true, type: PropertyType.String, description: "How the fallback was triggered")
     }
 
     // Page Details - My Attention

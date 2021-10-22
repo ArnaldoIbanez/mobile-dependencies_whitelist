@@ -9,6 +9,9 @@ trackTests {
         "/user_blocker/shield"(platform: "/mobile") {}
         "/user_blocker/webview"(platform: "/mobile") {}
         "/user_blocker/redirect"(platform: "/mobile") {}
+        "/user_blocker/shield/error"(platform: "/mobile") {
+            verbose = "se agoto el tiempo de espera"
+        }
 
         //Redirect events
         "/user_blocker/redirect/load"(platform: "/") {
@@ -72,6 +75,9 @@ trackTests {
         "/user_blocker/shield"(platform: "/mobile", business: "mercadolibre") {}
         "/user_blocker/webview"(platform: "/mobile", business: "mercadolibre") {}
         "/user_blocker/redirect"(platform: "/mobile", business: "mercadolibre") {}
+        "/user_blocker/shield/error"(platform: "/mobile", business: "mercadolibre") {
+            verbose = "se agoto el tiempo de espera"
+        }
 
         //Redirect events
         "/user_blocker/redirect/load"(platform: "/", business: "mercadolibre") {
