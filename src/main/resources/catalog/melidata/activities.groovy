@@ -13,8 +13,8 @@ tracks {
     *************************/
 
     propertyDefinitions {
-        section_id(required: true, type: PropertyType.String, description: "Identifier for the realestate to consume")
-        component_id(required: false, type: PropertyType.String, description: "Identifier for the component")
+        section_id(required: false, type: PropertyType.String, description: "Identifier for the realestate to consume")
+        component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
         content_id(required: false, type: PropertyType.String, description: "Identifier for the unique content shown")
         audience(required: false, type: PropertyType.String, description: "The audience for which this content was prepared")
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
@@ -36,7 +36,7 @@ tracks {
     }
 
     "/mpfront/activities/detail/crossselling_print"(platform: "/", type: TrackType.Event) { eventDataTrack }
-    "/mpfront/activities/detail/crossselling_view"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mpfront/activities/detail/crossselling_view"(platform: "/", type: TrackType.View) { eventDataTrack }
     "/mpfront/activities/detail/crossselling_tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
 
     /********************************
