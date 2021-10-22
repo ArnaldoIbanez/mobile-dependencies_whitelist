@@ -208,14 +208,14 @@ tracks {
         variation_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with variation to upload")
         catalog_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with products to upload")
         listings_per_category(required: false, type: PropertyType.ArrayList, description: "indicates listings per category to upload")
-        session_id(required: false, type: PropertyType.String, description: "indicates session id for file")
+        session_id(required: true, type: PropertyType.String, description: "indicates session id for file")
     }
 
     "/vendor_central/bulk/publish/publish-callback"(platform: "/web", type: TrackType.Event) {
         listings_not_published(required: false, type: PropertyType.ArrayList, description: "indicates listings not published")
         listings_ok(required: false, type: PropertyType.ArrayList, description: "indicates listings with ok result")
         listings_timeout(required: false, type: PropertyType.Numeric, description: "indicates listings with timeout result")
-        session_id(required: false, type: PropertyType.String, description: "indicates session id for file")
+        session_id(required: true, type: PropertyType.String, description: "indicates session id for file")
     }
 
     "/vendor_central/bulk/publish/document/generate"(platform: "/web", type: TrackType.Event) {
@@ -228,6 +228,6 @@ tracks {
         variation_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with variation to generate")
         catalog_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with products to generate")
         listings_per_category(required: false, type: PropertyType.ArrayList, description: "indicates listings per category to generate")
-        session_id(required: false, type: PropertyType.String, description: "indicates session id for file")
+        session_id(required: true, type: PropertyType.String, description: "indicates session id for file")
     }
 }
