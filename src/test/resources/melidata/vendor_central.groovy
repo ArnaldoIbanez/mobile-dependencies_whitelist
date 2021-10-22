@@ -1,6 +1,8 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
@@ -308,7 +310,16 @@ trackTests {
     test("Vendor central bulk offering publish callback Template Mapping save event") {
 
         "/vendor_central/bulk/publish/publish-callback"(platform: "/web", type: TrackType.Event) {
-            listings_not_published = ["MLA456"]
+            listings_not_published = [{
+                                          category_id = "MLA321"
+                                          total_failed = 2
+                                          errors = [
+                                                  {
+                                                      code = 100
+                                                      occurrences = 2
+                                                  }
+                                          ]
+                                      }]
             listings_ok = ["MLA123"]
             listings_timeout = 2
             session_id = "test-session-id"

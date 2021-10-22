@@ -11,6 +11,17 @@ tracks {
         category(required: true, type: PropertyType.String)
     }
 
+    def notPublishedCategoryDataStructure = objectSchemaDefinitions {
+        category_id(required: true, type: PropertyType.String)
+        total_failed(required: true, type: PropertyType.String)
+        errors(required: true, type: PropertyType.ArrayList(PropertyType.Map(errorOccurrencesStructure)))
+    }
+
+    def errorOccurrencesStructure = objectSchemaDefinitions {
+        code(required: true, type: PropertyType.Numeric)
+        occurrences(required: true, type: PropertyType.Numeric)
+    }
+
     //BULK SECTION
     "/vendor_central"(platform: "/", isAbstract: true) {}
 
@@ -217,8 +228,8 @@ tracks {
     }
 
     "/vendor_central/bulk/publish/publish-callback"(platform: "/web", type: TrackType.Event) {
-        listings_not_published(required: false, type: PropertyType.ArrayList, description: "indicates listings not published")
-        listings_ok(required: false, type: PropertyType.ArrayList, description: "indicates listings with ok result")
+        listings_not_published(required: false, type: PropertyType.ArrayList(PropertyType.Map(notPublishedCategoryDataStructure)), description: "indicates listings not published")
+        listings_ok(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates listings with ok result")
         listings_timeout(required: false, type: PropertyType.Numeric, description: "indicates listings with timeout result")
         session_id(required: true, type: PropertyType.String, description: "indicates session id for file")
     }
