@@ -151,6 +151,14 @@ tracks {
         filter_value(type: PropertyType.String, required: true, description: "original search filter value applied")
     }
 
+    def enhanced_intervention_info = objectSchemaDefinitions {
+        type(type: PropertyType.String, required: true, description: "type of intervention")
+        class_type(type: PropertyType.String, required: true, description: "sub-type of intervention")
+        component_type(type: PropertyType.String, required: true, description: "component type")
+        position(type: PropertyType.Numeric, required: true, description: "position of the intervention")
+        results(type: PropertyType.ArrayList(PropertyType.String),required: true, description: "list of results shown by the intervention")
+    }
+
     //SEARCH FLOW
 
     propertyDefinitions {
@@ -182,6 +190,7 @@ tracks {
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
         original_search_filter(required: false, description: 'original search filter (a fallback search may be performed with certain filters unapplied in case of zero results)', type: PropertyType.Map(original_search_filter_definition))
         containers_flow(required: false, description: 'flow used for showing deal landing (containers, deals or N/A)', type: PropertyType.String, values: ["containers", "deals", "N/A"])
+        interventions(required: false, description: "list of interventions applied by enhanced Search and their related information", type: PropertyType.ArrayList(PropertyType.Map(enhanced_intervention_info)))
 
         //Tracks from Search Backend:
         backend_data(required: false)
@@ -242,7 +251,7 @@ tracks {
         add_data_search(query, limit, offset, total, category_id, domain, category_path, sort_id, filters, displayed_filters, autoselected_filters, view_mode, results, promise_items,  billboards,
             pads,  pads_info,  catalog_product_id,  show_supermarket_carousel,  show_apparel_carousel,  tracking_id,  sparkle_info,  best_seller_info,  highlights_info,  tag_tracking_info, 
             original_search_filter, containers_flow, backend_data,  merch_data,  official_stores_carousel_shown,  items_with_logos,  pdp_grouped_search,  pdp_info,  promoted_items,  location_info, shop_status,
-            shop_id, shop_name, shop_domain)
+            shop_id, shop_name, shop_domain, interventions)
         add_data_search_web(only_in_type, click_banner, banner, related_searches, related_searches_info, canonical, autosuggest, landing, upper_funnel, geolocation, layout_forced, shown_as_product, 
             has_logos, geo_search, available_filters, user_zone, is_googlebot, pdp_rows, carousel_filters, pdp_highlight_enabled, seo, user_profile_type, top_keywords)
     }
