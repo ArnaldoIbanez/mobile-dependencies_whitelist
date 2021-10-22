@@ -6,6 +6,11 @@ tracks {
 
     initiative = "1015"
 
+    def listingsPerCategoryStructure = objectSchemaDefinitions {
+        quantity(required: true, type: PropertyType.Numeric)
+        category(required: true, type: PropertyType.String)
+    }
+
     //BULK SECTION
     "/vendor_central"(platform: "/", isAbstract: true) {}
 
@@ -200,14 +205,14 @@ tracks {
 
     "/vendor_central/bulk/publish/document/upload"(platform: "/web", type: TrackType.Event) {
         listings(required: false, type: PropertyType.Numeric, description: "indicates listings number to upload")
-        fail_categories(required: false, type: PropertyType.ArrayList, description: "indicates failed upload categories to upload")
-        ok_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded categories to upload")
-        variation_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded variation categories to upload")
-        catalog_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded product categories to upload")
+        fail_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates failed upload categories to upload")
+        ok_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates uploaded categories to upload")
+        variation_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates uploaded variation categories to upload")
+        catalog_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates uploaded product categories to upload")
         document_size(required: false, type: PropertyType.Numeric, description: "indicates total size of document to upload")
         variation_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with variation to upload")
         catalog_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with products to upload")
-        listings_per_category(required: false, type: PropertyType.ArrayList, description: "indicates listings per category to upload")
+        listings_per_category(required: false, type: PropertyType.ArrayList(PropertyType.Map(listingsPerCategoryStructure)), description: "indicates listings per category to upload")
         session_id(required: true, type: PropertyType.String, description: "indicates session id for file")
     }
 
@@ -220,14 +225,14 @@ tracks {
 
     "/vendor_central/bulk/publish/document/generate"(platform: "/web", type: TrackType.Event) {
         listings(required: false, type: PropertyType.Numeric, description: "indicates listings number to generate")
-        fail_categories(required: false, type: PropertyType.ArrayList, description: "indicates failed upload categories to generate")
-        ok_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded categories to generate")
-        variation_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded variation categories to generate")
-        catalog_categories(required: false, type: PropertyType.ArrayList, description: "indicates uploaded product categories to generate")
+        fail_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates failed upload categories to generate")
+        ok_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates uploaded categories to generate")
+        variation_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates uploaded variation categories to generate")
+        catalog_categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "indicates uploaded product categories to generate")
         document_size(required: false, type: PropertyType.Numeric, description: "indicates total size of document to generate")
         variation_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with variation to generate")
         catalog_listings(required: false, type: PropertyType.Numeric, description: "indicates total listings with products to generate")
-        listings_per_category(required: false, type: PropertyType.ArrayList, description: "indicates listings per category to generate")
+        listings_per_category(required: false, type: PropertyType.ArrayList(PropertyType.Map(listingsPerCategoryStructure)), description: "indicates listings per category to generate")
         session_id(required: true, type: PropertyType.String, description: "indicates session id for file")
     }
 }
