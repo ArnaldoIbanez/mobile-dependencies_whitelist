@@ -30,6 +30,8 @@ trackTests {
         "/navigation_sections/your_business_v2/tap" (platform: "/mobile", type: TrackType.Event) {
             id = "point"
         }
+
+        "/navigation_sections/navigation_menu/opened" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     defaultBusiness = "mercadopago"
@@ -58,5 +60,7 @@ trackTests {
         "/navigation_sections/your_business_v2/tap" (platform: "/mobile", type: TrackType.Event) {
             id = "point"
         }
+
+        "/navigation_sections/navigation_menu/opened" (platform: "/mobile", type: TrackType.Event) {}
     }
 }
