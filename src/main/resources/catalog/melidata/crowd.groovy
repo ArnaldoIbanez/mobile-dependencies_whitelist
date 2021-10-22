@@ -313,6 +313,10 @@ tracks
                 location
             }
 
+            "/crowd/registration/city/paused"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
             "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
                 location
             }
