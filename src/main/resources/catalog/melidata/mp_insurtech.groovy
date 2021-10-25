@@ -102,7 +102,7 @@ tracks {
     }
 
     def protection_base = objectSchemaDefinitions {
-        insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
+        insurance_purchase_key(required: false, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
         entity_type(required: false, type: PropertyType.String, description: "Entity type insurtech product ", values: ["quote", "order", "item_id"])
         entity_id(required: false, type: PropertyType.String, description: "Entity id of the insurtech product")
         product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex", "cards"])
