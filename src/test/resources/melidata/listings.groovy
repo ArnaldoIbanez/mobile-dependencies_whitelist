@@ -290,5 +290,4 @@ trackTests {
   test("setup mercado shops") {
     "/seller_central/listings/setup_mshop"(platform: "/", type: TrackType.Event) {}
   }
-
 }
