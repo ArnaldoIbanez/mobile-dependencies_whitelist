@@ -25,6 +25,7 @@ tracks {
   "/instore/coupon_reservation" (platform: "/", isAbstract: true) {
     event_id(required: false, type: PropertyType.Numeric, description: "Event id")
     session_id(required: true, type: PropertyType.String, description: "Session identifier")
+    traffic_from(required: false, values:["push", "modal", "banner", "pom", "mp"], type: PropertyType.String, description: "Traffic identifier")
   }
 
   // ----- reservation stage -----

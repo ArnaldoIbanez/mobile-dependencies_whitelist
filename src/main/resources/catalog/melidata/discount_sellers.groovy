@@ -229,6 +229,7 @@ tracks {
 
     "/discount_sellers/v2" (platform: "/", isAbstract: true) {
         session_id(required: true, type: PropertyType.String, description: "Session identifier")
+        traffic_from(required: false, values:["push", "modal", "banner", "pom", "mp"], type: PropertyType.String, description: "Traffic identifier")
     }
     "/discount_sellers/v2/error" (platform: "/", isAbstract: true) {}
 
