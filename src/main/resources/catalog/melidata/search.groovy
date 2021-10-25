@@ -152,9 +152,9 @@ tracks {
     }
 
     def enhanced_intervention_info = objectSchemaDefinitions {
-        type(type: PropertyType.String, required: true, description: "type of intervention")
-        class_type(type: PropertyType.String, required: true, description: "sub-type of intervention")
-        component_type(type: PropertyType.String, required: true, description: "component type")
+        intervention_type(type: PropertyType.String, required: true, description: "type of intervention", values: ["QUERY_INTERVENTION", "FILTER_INTERVENTION", "CONTENT_INTERVENTION"])
+        class_type(type: PropertyType.String, required: true, description: "sub-type of intervention, example: filter [BRAND, GENDER, etc,etc], content [best_seller, offers, etc]")
+        component_type(type: PropertyType.String, required: true, description: "visual component in which the intervention is shown, example: pill de texto, carrousel imagenes, cards, banners, etc")
         position(type: PropertyType.Numeric, required: true, description: "position of the intervention")
         results(type: PropertyType.ArrayList(PropertyType.String),required: true, description: "list of results shown by the intervention")
     }

@@ -97,14 +97,14 @@ trackTests {
 
     def enhancedInterventionInfoMock = [
             [
-                    type: "FILTER_INTERVENTION",
+                    intervention_type: "FILTER_INTERVENTION",
                     class_type: "BRAND",
                     component_type: "pill",
                     position: 0,
                     results: []
             ],
             [
-                    type: "FILTER_INTERVENTION",
+                    intervention_type: "FILTER_INTERVENTION",
                     class_type: "GENDER",
                     component_type: "pill",
                     position: 6,
