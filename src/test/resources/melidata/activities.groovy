@@ -12,13 +12,13 @@ trackTests {
 
     test("Mercadopago Activities Merch Engine Events") {
         "/mpfront/activities/detail/crossselling_print" (platform: "/", type: TrackType.Event) {
-            section_id = "cross_selling_activities_mp"
+            component_id = "cross_selling_activities_mp"
         }
-        "/mpfront/activities/detail/crossselling_view" (platform: "/", type: TrackType.Event) {
-            section_id = "cross_selling_activities_mp"
+        "/mpfront/activities/detail/crossselling_view" (platform: "/", type: TrackType.View) {
+            component_id = "cross_selling_activities_mp"
         }
         "/mpfront/activities/detail/crossselling_tap" (platform: "/", type: TrackType.Event) {
-            section_id = "cross_selling_activities_mp"
+            component_id = "cross_selling_activities_mp"
         }
     }
 

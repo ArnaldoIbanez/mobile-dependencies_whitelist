@@ -174,6 +174,36 @@ trackTests {
                  ]
              ]
          }
+
+        "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) {
+            my_money_accounts_list = [
+                  component_id: 'accounts_list',
+                  content_id: ['account']
+            ]
+        }
+
+        "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) {
+            my_money_cards_list = [
+                  component_id: 'cards_list',
+                  content_id: ['card']
+            ]
+        }
+
+        "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) {
+            my_money_timestamp = [
+                  component_id: 'timestamp',
+                  component_data: [
+                      last_update: '01/01/2021 00:00'
+                  ]
+            ]
+        }
+
+        "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) {
+            my_money_bank_detail = [
+                  component_id: 'bank_detail',
+                  content_id: ['cards_list', 'accounts_list']
+            ]
+        }
     }
 
     test("Balance to release") {

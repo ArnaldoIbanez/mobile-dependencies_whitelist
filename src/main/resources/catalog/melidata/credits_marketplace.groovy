@@ -226,6 +226,19 @@ tracks {
                         "finished"
                 ]
         )
+    }
+    "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
         list_status(
                 required: true,
                 description: "Defines if the user can increase his limit",

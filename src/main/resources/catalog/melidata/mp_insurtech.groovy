@@ -52,12 +52,12 @@ tracks {
     }
 
     def protection_short = objectSchemaDefinitions {
-        product_id(required: true, type: PropertyType.String, values: ['garex', 'roda'], description: "Product id of the protection.")
+        product_id(required: true, type: PropertyType.String, values: ['garex', 'roda', 'cards'], description: "Product id of the protection.")
         insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the protection.")
     }
 
     def claim_short = objectSchemaDefinitions {
-        product_id(required: true, type: PropertyType.String, values: ['garex', 'roda'], description: "Product id of the claim.")
+        product_id(required: true, type: PropertyType.String, values: ['garex', 'roda', 'cards'], description: "Product id of the claim.")
         insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the claim.")
     }
 
@@ -82,6 +82,11 @@ tracks {
         status_detail(required: false, type: PropertyType.String, description: "Detailed status of the claim")
     }
 
+    def my_protections_cards = objectSchemaDefinitions {
+        has_protections(required: true, type: PropertyType.Boolean, description: "This is true if the user has GAREX protections")
+        has_claims(required: true, type: PropertyType.Boolean, description: "This is true if the user has claims")
+    }
+
     def protection_particular_roda = objectSchemaDefinitions {
         amount_total(required: true, type: PropertyType.Numeric, description: "Total Price of the purchased option plan.")
         amount_fee(required: true, type: PropertyType.Numeric, description: "Fee amount obtained by meli for the purchased option plan.")
@@ -100,12 +105,12 @@ tracks {
         insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
         entity_type(required: false, type: PropertyType.String, description: "Entity type insurtech product ", values: ["quote", "order", "item_id"])
         entity_id(required: false, type: PropertyType.String, description: "Entity id of the insurtech product")
-        product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex"])
+        product_type(required: false, type: PropertyType.String, description: "Insurtech product type", values: ["roda", "garex", "cards"])
         product_id(required: false, type: PropertyType.String, description: "Id insurtech product")
-        has_open_claim(required: true, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
+        has_open_claim(required: false, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
     }
-    // INSURTECH CARDS event_data defines
 
+    // INSURTECH CARDS event_data defines
     def option_card_price = objectSchemaDefinitions {
         final_amount(required: true, type: PropertyType.Numeric, description: "final amout of the warranty option price")
         original_amount(required: false, type: PropertyType.Numeric, description: "original amount of the warranty option price")
@@ -562,7 +567,6 @@ tracks {
         protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
         claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claim_short)), description: "List of current user Claims")
         tab_name(required: true, type: PropertyType.String, values: ['protections', 'claims'], description: "Product id of the protection.");
-
     }
 
     "/insurtech/protections/data_loaded"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
@@ -571,7 +575,7 @@ tracks {
         claims(required: false, type: PropertyType.ArrayList(PropertyType.Map(claim_short)), description: "List of current user Claims")
         roda(required: true, type: PropertyType.Map(my_protections_roda), description: "RODA product data recovered in protections list")
         garex(required: true, type: PropertyType.Map(my_protections_garex), description: "GAREX product data recovered in protections list")
-
+        cards(required: true, type: PropertyType.Map(my_protections_cards), description: "CARDS product data recovered in protections list")
     }
 
     "/insurtech/protections/finished"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
@@ -593,7 +597,7 @@ tracks {
     }
 
     // INSURTECH MyDetailFe
-    //RODA
+    // RODA
     "/insurtech/protections/detail"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
 
     "/insurtech/protections/detail/roda"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
@@ -714,7 +718,7 @@ tracks {
     "/insurtech/protections/detail/onboarding_kyc/roda/go_to_kyc"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
     }
 
-    //GAREX
+    // GAREX
     "/insurtech/protections/detail/garex"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
 
     "/insurtech/protections/detail/garex"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
@@ -736,30 +740,49 @@ tracks {
     "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
     }
 
-    //CARDS
+    // CARDS
+    "/insurtech/protections/detail/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        protection(required: true, type: PropertyType.Map(protection_base), description: "Cards Product data")
+    }
+
+    "/insurtech/protections/detail/cards/begin_claim"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/detail/cards/download_policy"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/detail/cards/pay"(platform:"/", type: TrackType.Event) {
+        type(required: false, type: PropertyType.String, values: ['pending_recurring_payment'], description: "Type of payment to be executed on protection.")
+    }
+
+    "/insurtech/protections/detail/cards/cancel"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/detail/cards/help"(platform:"/", type: TrackType.Event) {}
+
+    "/insurtech/protections/detail/cards/full_coverage"(platform:"/", type: TrackType.Event) {}
+
     "/insurtech/protections/detail/begin_claim"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
-     "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/", type: TrackType.Event) {
+
+    "/insurtech/protections/detail/begin_claim/go_to_call_action"(platform:"/", type: TrackType.Event) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
         call_from(required: true, type: PropertyType.String, values: ['fromCapital', 'notFromCapital'], description: "Which of both phones was clicked.");
     }
 
-    //Landing-fe
+    // Landing-fe
     "/insurtech/protections/landings_fe"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-            type(required: true, type:PropertyType.String,values: ['mobile', 'desktop', 'tablet'], description: "Device type")
-            os_name(required: true, type:PropertyType.String, description: "Operating system")
-            os_version(required: true, type:PropertyType.String, description: "Operating system version")
-            discount_type(required: true, type:PropertyType.String,values: ['percent', 'fixed', 'NA'], description: "Reseller discount type")
-            is_generic(required: true, type:PropertyType.Boolean, description: "Landing from a campaign or not")
-            site(required: true, type:PropertyType.String, description: "Operating system version")
+        type(required: true, type:PropertyType.String,values: ['mobile', 'desktop', 'tablet'], description: "Device type")
+        os_name(required: true, type:PropertyType.String, description: "Operating system")
+        os_version(required: true, type:PropertyType.String, description: "Operating system version")
+        discount_type(required: true, type:PropertyType.String,values: ['percent', 'fixed', 'NA'], description: "Reseller discount type")
+        is_generic(required: true, type:PropertyType.Boolean, description: "Landing from a campaign or not")
+        site(required: true, type:PropertyType.String, description: "Operating system version")
     }
     "/insurtech/protections/landings_fe/go_to_store"(platform:"/", type: TrackType.Event) {
     }
     "/insurtech/protections/landings_fe/go_to_qpage"(platform:"/", type: TrackType.Event) {
     }
 
-    //Insurtech CARDS
+    // Insurtech CARDS
     "/insurtech/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false){
         options(required: true, type: PropertyType.ArrayList(PropertyType.Map(card_protection_option)), description: "Options objects")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
@@ -794,7 +817,8 @@ tracks {
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    //Congrats - Success View
+    
+    // Congrats - Success View
     "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
         quote_id(required: true, type: PropertyType.String, description: "the id of the quote generated")
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
