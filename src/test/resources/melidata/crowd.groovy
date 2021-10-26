@@ -402,7 +402,7 @@ trackTests {
         }
 
         "/crowd/preferences/amount_work_hours/selected"(platform: "/mobile", type: TrackType.Event) {
-            amount_work_hours(required: true, type: PropertyType.String, description: "Specifies the current amount work hours selected")
+            amount_work_hours = "2_4"
             flow = "registration"
             defaultLocation
         }
