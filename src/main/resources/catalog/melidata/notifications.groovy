@@ -2235,6 +2235,10 @@ tracks {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
 
+      "/notification/shipping_delivered_places_without_return"(platform: "/") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+      }
+
       "/notification/shipping_reminder_agency_withdrawal"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
       }
