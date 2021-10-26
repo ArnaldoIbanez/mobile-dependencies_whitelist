@@ -460,7 +460,8 @@ tracks {
         reason(
             type: PropertyType.String,
             required: false,
-            inheritable: false
+            inheritable: false,
+            description: "error"
         )
     }
 
