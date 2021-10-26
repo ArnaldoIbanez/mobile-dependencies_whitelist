@@ -784,7 +784,7 @@ trackTests {
             ]
         }
 
-        "/credits/merchant/checkout"(platform: "/web/desktop") {}
+        "/credits/merchant/checkout/error"(platform: "/web/desktop") {}
 
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
