@@ -1,5 +1,6 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
+def experimentsRegex = "(wallet|credits)/.*"
 
 metrics {
 
@@ -156,7 +157,7 @@ metrics {
     }
 
     "credits_merchant_enrollment_entries"(description: "Credits merchant entries under enrollmment flow") {
-        experiment(regex("(wallet|credits)/.*"))
+        experiment(regex(experimentsRegex))
 
         countsOn { 
             condition { 
@@ -166,9 +167,8 @@ metrics {
     }
 
     "credits_merchant_enrollment_entries.hub"(description: "Credits merchant hub entries under enrollmment flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/merchant/enrollment/hub")
@@ -177,9 +177,8 @@ metrics {
     }
     
     "credits_merchant_enrollment_entries.ftl"(description: "Credits merchant entries under enrollmment flow with fixed term loan") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 and(
@@ -191,9 +190,8 @@ metrics {
     }
 
     "credits_merchant_enrollment_entries.spl"(description: "Credits merchant entries under enrollmment flow with sales percentage loan") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 and (
@@ -205,9 +203,8 @@ metrics {
     }
 
     "credits_merchant_enrollment_conversions.ftl"(description: "Credits merchant fixed term loan conversions under enrollmment flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/merchant/enrollment/congrats")
@@ -219,9 +216,8 @@ metrics {
     }
 
     "credits_merchant_enrollment_conversions.spl"(description: "Credits merchant sales percentage loan conversions under enrollmment flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/merchant/enrollment/congrats")
@@ -234,9 +230,8 @@ metrics {
     
 
     "credits_merchant_express_money_entries"(description: "Credits merchant entries under express money flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/express_money/amount_input", "/credits/express_money/onboarding")
@@ -245,9 +240,8 @@ metrics {
     }
 
     "credits_merchant_express_money_entries.with_onboarding"(description: "Credits merchant entries under express money flow with onboarding") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/express_money/onboarding")
@@ -256,9 +250,8 @@ metrics {
     }
 
     "credits_merchant_express_money_conversions"(description: "Credits merchant conversions under express money flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/express_money/congrats")
@@ -267,9 +260,8 @@ metrics {
     }
 
     "credits_merchant_open_market_entries"(description: "Credits merchant entries under open market flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/merchant/open_market")
@@ -278,9 +270,8 @@ metrics {
     }
 
     "credits_merchant_open_market_entries.upsell_offer"(description: "Credits merchant entries under open market upsell offer flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/merchant/open_market")
@@ -292,9 +283,8 @@ metrics {
     }
 
     "credits_merchant_open_market_entries.request_offer"(description: "Credits merchant entries under open market request offer flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 path("/credits/merchant/open_market")
@@ -306,9 +296,8 @@ metrics {
     }
 
     "credits_merchant_open_market_conversions.upsell_offer#financial_files"(description: "Credits merchant financial files conversions under open market upsell offer flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 and (
@@ -321,9 +310,8 @@ metrics {
     }
 
     "credits_merchant_open_market_conversions.upsell_offer#financial_scraping"(description: "Credits merchant financial scraping conversions under open market upsell offer flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 and (
@@ -336,9 +324,8 @@ metrics {
     }
 
     "credits_merchant_open_market_conversions.request_offer#financial_files"(description: "Credits merchant financial files conversions under open market request offer flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 and (
@@ -351,9 +338,8 @@ metrics {
     }
 
     "credits_merchant_open_market_conversions.request_offer#financial_scraping"(description: "Credits merchant financial scraping conversions under open market request offer flow") {
-        startWith {
-            experiment(regex("(wallet|credits)/.*"))
-        }
+        experiment(regex(experimentsRegex))
+
         countsOn { 
             condition { 
                 and (
