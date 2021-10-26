@@ -989,6 +989,10 @@ trackTests {
             latest_news_type= "billing_iva_isr_mp"
             latest_news_id= "billing-iva_isr_mp-186785675-20200522"
         }
+        "/notification_center/billing_newusertaxfile"(platform: "/") {
+            latest_news_type= "billing_newusertaxfile"
+            latest_news_id= "billing-newusertaxfile-186785675-20200522"
+        }
         "/notification_center/buybox_forced_item"(platform: "/mobile"){
             newsgroup_id= "buybox_forced_item-186785675-76283123"
             latest_news_id= "buybox_forced_item-186785675-76283123"

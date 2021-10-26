@@ -14,6 +14,7 @@ tracks {
     "/money_out"(platform: "/", isAbstract: true) {}
     "/money_out/cashout"(platform: "/", isAbstract: true) {}
     "/money_out/cashout/onboarding"(platform: "/", isAbstract: true) {}
+    "/money_out/transfers/mlm"(platform: "/", isAbstract: true) {}
 
     // Cashout ticket tracks
     "/money_out/cashout/ticket"(platform: "/", type: TrackType.View) {}
@@ -335,6 +336,19 @@ tracks {
     //Transfer Hub - FTU Unified transfers
     "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
     "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer HUB - Banners
+    "/money_out/transfers/home/banners"(platform:"/", type: TrackType.Event){ 
+        banner_type(required:true, description:"Indicate type of banners for example: money_advance", values=["money_advance", "scheduled_transfer"])
+    }
+
+    //Transfer HUB - VOC
+    "/money_out/transfers/home/voice_of_customer"(platform:"/", type: TrackType.Event){}
+
+    //Transfer Hub - MLM - Account Form
+    "/money_out/transfers/mlm/account_form"(platform: "/", type: TrackType.View){}
+    "/money_out/transfers/mlm/account_form/faq"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/mlm/account_form/continue"(platform: "/", type: TrackType.Event) {}
     
     //Pix Limits MLB
     "/pix"(platform: "/", isAbstract: true) {}
