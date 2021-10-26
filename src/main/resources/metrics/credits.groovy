@@ -198,6 +198,16 @@ metrics {
         }
     }
 
+    "credits_merchant_enrollment_conversions"(description: "Credits merchant conversions under enrollmment flow") {
+        experiment(regex(experimentsRegex))
+
+        countsOn { 
+            condition { 
+                path("/credits/merchant/enrollment/congrats")
+            } 
+        }
+    }
+
     "credits_merchant_enrollment_conversions.ftl"(description: "Credits merchant fixed term loan conversions under enrollmment flow") {
         experiment(regex(experimentsRegex))
 
@@ -279,6 +289,16 @@ metrics {
             condition { 
                 path("/credits/merchant/open_market")
                 equals("event_data.flow", "request_offer")
+            } 
+        }
+    }
+
+    "credits_merchant_open_market_conversions"(description: "Credits merchant financial files conversions under open market flow") {
+        experiment(regex(experimentsRegex))
+
+        countsOn { 
+            condition { 
+                path("/credits/merchant/open_market/congrats")
             } 
         }
     }
