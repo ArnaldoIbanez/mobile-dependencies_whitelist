@@ -159,8 +159,35 @@ tracks {
     // TRACKS listings dropdown modify massive
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/listings/editor"(platform: "/", type: TrackType.Event) {}
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings setup mercado shops
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/listings/setup_mshop"(platform: "/", type: TrackType.Event) {}
+    
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS legacy remove after to deploy ROLA
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/list/moderation"(platform: "/", type: TrackType.Event) {
+        moderation_id(required: true, type: PropertyType.String, description: "Moderation id")
+    }
+
+    "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+        health_id(required: true, type: PropertyType.String, description: "Health id")
+    }
+
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+    }
+
+    "/seller_central/listings/list/action"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
+        operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
+        message(required: false, type: PropertyType.String, description: "Text input from actions with user feedback")
+        option(required: false, type: PropertyType.String, description: "Option selected from actions with user feedback")
+    }
 }
