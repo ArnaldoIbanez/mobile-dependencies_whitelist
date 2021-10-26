@@ -309,7 +309,9 @@ tracks {
     "/sell/list/draft/description_fallback"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/draft/description_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description_included"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
     "/sell/list/draft/listing_types"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/listing_types_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/location"(platform:"/mobile", type: TrackType.View){}
@@ -335,8 +337,12 @@ tracks {
     "/sell/list/draft/pictures_review/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review/editor"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
+    "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
@@ -396,8 +402,12 @@ tracks {
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View) {}
-    "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {}
+    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View) {
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
+    "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing/start_flow"(platform: "/mobile", type: TrackType.Event) {
@@ -537,8 +547,12 @@ tracks {
     "/sell/list/pictures_review/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_review/editor"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_review/crop"(platform: "/", type: TrackType.View) {}
-    "/sell/list/price"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/price_review"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/price"(platform: "/mobile", type: TrackType.View) {
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
+    "/sell/list/price_review"(platform: "/mobile", type: TrackType.View) {
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
     "/sell/list/seller_registration"(platform: "/", type: TrackType.View) {}
     "/sell/list/seller_registration_zip_code"(platform: "/", type: TrackType.View) {}
     "/sell/list/zip_code"(platform: "/", type: TrackType.Event, isAbstract: true) {}
@@ -697,13 +711,17 @@ tracks {
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: true, description: "Album name", type: PropertyType.String)
     }
-    "/sell/update/price"(platform: "/", type: TrackType.View) {}
+    "/sell/update/price"(platform: "/", type: TrackType.View) {
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
     "/sell/update/title"(platform: "/", type: TrackType.View) {}
     "/sell/update/shipping_options_me"(platform: "/", type: TrackType.View) {}
     "/sell/update"(platform: "/", isAbstract: true) {}
     "/sell/update/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/listing_type_not_available_landing"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/free_shipping"(platform: "/", type: TrackType.View) {}
+    "/sell/update/free_shipping"(platform: "/", type: TrackType.View) {
+        channel_context(required:false, description: "shipping channel reference", values:["mshops", "marketplace"], type: PropertyType.String)
+    }
     "/sell/update/statistics"(platform: "/", type: TrackType.View) {}
     "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
