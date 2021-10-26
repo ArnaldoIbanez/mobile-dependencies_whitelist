@@ -768,11 +768,24 @@ trackTests {
             additional_info = 'credit_line_taken'
         }
 
-        "/credits/merchant/checkout"(platform: "/") {
+        "/credits/merchant/checkout"(platform: "/mobile") {
             amount_to_pay = '12345'
-            fixed_term()
+            products = [
+                fixed_term_map(),
+                sales_percentage_map()
+            ]
         }
-        
+
+        "/credits/merchant/checkout"(platform: "/web") {
+            amount_to_pay = '12345'
+            products = [
+                fixed_term_map(),
+                sales_percentage_map()
+            ]
+        }
+
+        "/credits/merchant/checkout"(platform: "/web/desktop") {}
+
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
@@ -1348,7 +1361,7 @@ trackTests {
         "/credits/express_money/info"(platform: "/mobile/android") {
             reason = 'already_taken_credit_line'
         }
-        
+
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 
