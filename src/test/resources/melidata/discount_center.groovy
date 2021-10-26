@@ -72,15 +72,16 @@ trackTests {
 
     // MORE INFO
 
-    test("Mercado Pago discount center payers More info") {
-        "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+     test("Mercado Pago discount center payers More info") {
+        "/discount_center/payers/vsp/more_info" (platform: "/mobile", type: TrackType.View) {
             store_id = 30286315
             collector_id = 20565408
             brand_id = 20565408
+            distance = 1813
+            mcc = "523630"
             session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
-
 
     // VSP
 
