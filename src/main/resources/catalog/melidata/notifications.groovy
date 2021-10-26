@@ -2469,6 +2469,7 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           communication_id(required: false, type: PropertyType.String, description: "Hermes communication id.")
+          execution_id(required: false, type: PropertyType.Numeric, description: "Execution id.")
       }
 
       "/notification/campaigns_sms"(platform: "/", type: TrackType.Event) {
@@ -2941,6 +2942,7 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
+          execution_id(required: false, type: PropertyType.Numeric, description: "Execution id.")
       }
 
       "/notification/campaigns_schedule"(platform: "/") {
@@ -3076,6 +3078,7 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
+        execution_id(required: false, type: PropertyType.Numeric, description: "Execution id.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
