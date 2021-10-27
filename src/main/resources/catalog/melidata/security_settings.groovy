@@ -103,4 +103,37 @@ tracks {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
+
+    "/security_settings/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true)
+        group_id(type: PropertyType.String, required: true)
+    }
+
+    "/security_settings/totp_in_app/enrollment/on_click"(platform: "/mobile", type: TrackType.Event) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true)
+        group_id(type: PropertyType.String, required: true)
+        action(type: PropertyType.String, required: true, values: ["back", "activate"])
+    }
+
+    "/security_settings/totp_in_app/enrollment/success"(platform: "/mobile", type: TrackType.View) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true)
+        group_id(type: PropertyType.String, required: true)
+    }
+
+    "/security_settings/totp_in_app/enrollment/success/on_click"(platform: "/mobile", type: TrackType.Event) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true)
+        group_id(type: PropertyType.String, required: true)
+        action(type: PropertyType.String, required: true, values: ["close", "understood"])
+    }
+
+    "/security_settings/totp_in_app/enrollment/error"(platform: "/mobile", type: TrackType.Event) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true)
+        group_id(type: PropertyType.String, required: true)
+        type_of_error(type: PropertyType.String, required: false)
+    }
 }

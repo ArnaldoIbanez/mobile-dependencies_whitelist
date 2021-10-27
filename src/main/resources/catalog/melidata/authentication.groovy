@@ -789,4 +789,73 @@ tracks {
         from (required:false, type: PropertyType.String, description: "When user login success in ios")
     }
 
+    "/login/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true)
+        group_id(type: PropertyType.String, required: true)
+    }
+
+    "/login/totp_in_app/enrollment/end"(platform: "/mobile", type: TrackType.Event) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: true)
+        group_id(type: PropertyType.String, required: true)
+        status(type: PropertyType.Boolean, required: true)
+        type_of_error(type: PropertyType.String, required: false)
+    }
+
+    // TOTP-IN-APP
+    "/totp_in_app"(platform: "/mobile", isAbstract: true, initiative: 1375) {
+        user_id(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: false)
+        group_id(type: PropertyType.String, required: true)
+    }
+
+    // QR_Token [DONE]
+    "/totp_in_app/qr_token/conformity"(platform: "/mobile", type: TrackType.View) {}
+
+    "/totp_in_app/qr_token/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"])
+    }
+
+    "/totp_in_app/qr_token/conformity/cancel"(platform: "/mobile", type: TrackType.View) {}
+
+    "/totp_in_app/qr_token/conformity/cancel/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.Boolean, required: true)
+    }
+
+    "/totp_in_app/qr_token/conformity/error"(platform: "/mobile", type: TrackType.View) {
+        type_of_error(type: PropertyType.String, required: true)
+    }
+
+    // Web_Mobile
+    "/totp_in_app/web_mobile/conformity"(platform: "/mobile", type: TrackType.View) {
+        referrer(type: PropertyType.String, required: false)
+    }
+
+    "/totp_in_app/web_mobile/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"])
+    }
+
+    "/totp_in_app/web_mobile/conformity/success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/totp_in_app/web_mobile/conformity/success/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["background", "understood"])
+    }
+
+    "/totp_in_app/web_mobile/conformity/cancel"(platform: "/mobile", type: TrackType.View) {}
+
+    "/totp_in_app/web_mobile/conformity/cancel/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.Boolean, required: true)
+    }
+
+    "/totp_in_app/web_mobile/conformity/error"(platform: "/mobile", type: TrackType.View) {
+        type_of_error(type: PropertyType.String, required: true)
+    }
+
+    // Build Code
+    "/totp_in_app/build_code"(platform: "/mobile", type: TrackType.Event) {
+        operation(type: PropertyType.String, required: true, values:["enrollment", "transactional"])
+        type_of_code(type: PropertyType.String, required: true, values:["transparent", "interactive"])
+        client_id(type: PropertyType.String, required: false)
+    }
 }

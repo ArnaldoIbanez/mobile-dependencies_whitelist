@@ -2193,5 +2193,218 @@ trackTests {
                 tracking_id = "123"
             }
         }
+
+        test("Enrollment TotpInApp in Login") {
+            "/login/totp_in_app/enrollment"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/login/totp_in_app/enrollment"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/login/totp_in_app/enrollment/end"(platform: "/mobile/android", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                status = false
+                type_of_error = "server_error"
+            }
+
+            "/login/totp_in_app/enrollment/end"(platform: "/mobile/ios", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                status = false
+                type_of_error = "server_error"
+            }
+        }
+
+        test("TotpInApp / Qr Token") {
+            "/totp_in_app/qr_token/conformity"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/qr_token/conformity"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/qr_token/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "confirm"
+            }
+
+            "/totp_in_app/qr_token/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "confirm"
+            }
+
+            "/totp_in_app/qr_token/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/qr_token/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/qr_token/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action(type: PropertyType.Boolean, required: true)
+            }
+
+            "/totp_in_app/qr_token/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action(type: PropertyType.Boolean, required: true)
+            }
+
+            "/totp_in_app/qr_token/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                type_of_error = "invalid_code"
+            }
+
+            "/totp_in_app/qr_token/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                type_of_error = "invalid_code"
+            }
+        }
+
+        test("TotpInApp / WebMobile") {
+            "/totp_in_app/web_mobile/conformity"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                referrer = "org.mozilla.firefox"
+            }
+
+            "/totp_in_app/web_mobile/conformity"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/web_mobile/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "cancel"
+            }
+
+            "/totp_in_app/web_mobile/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "cancel"
+            }
+
+            "/totp_in_app/web_mobile/conformity/success"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/web_mobile/conformity/success"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/web_mobile/conformity/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "understood"
+            }
+
+            "/totp_in_app/web_mobile/conformity/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "understood"
+            }
+
+            "/totp_in_app/web_mobile/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/web_mobile/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+            }
+
+            "/totp_in_app/web_mobile/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "not_now"
+            }
+
+            "/totp_in_app/web_mobile/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                action = "not_now"
+            }
+
+            "/totp_in_app/web_mobile/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                type_of_error = "invalid_code"
+            }
+
+            "/totp_in_app/web_mobile/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                type_of_error = "invalid_code"
+            }
+        }
+
+        test("Buid Code") {
+            "/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                operation = "transactional"
+                type_of_code = "transparent"
+                client_id = "meli_login"
+            }
+
+            "/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+                user_id = "3322112012"
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                operation = "transactional"
+                type_of_code = "transparent"
+                client_id = "meli_login"
+            }
+        }
     }
 }
