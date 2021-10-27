@@ -4542,8 +4542,8 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
-            ],
-            fallback_disabled = false,
+            ]
+            fallback_disabled = false
             screenlock_method_used = "biometrics"
         }
 
@@ -4565,7 +4565,7 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
-            ],
+            ]
             fallback_disabled = false
         }
 
@@ -4586,8 +4586,8 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
-            ],
-            fallback_disabled = false,
+            ]
+            fallback_disabled = false
             screenlock_method_used = "basic_screenlock"
         }
 
@@ -4608,8 +4608,8 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
-            ],
-            fallback_disabled = true,
+            ]
+            fallback_disabled = true
             screenlock_method_used = "unknown"
         }
 

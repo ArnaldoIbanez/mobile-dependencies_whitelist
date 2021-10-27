@@ -1095,7 +1095,7 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
-                fallback_disabled = false,
+                fallback_disabled = false
                 screenlock_method_used = "basic_screenlock"
             }
 
