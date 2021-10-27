@@ -73,24 +73,21 @@ trackTests {
         }
 
         // Error
-        "/kyc/error"(platform: "/mobile") {
+        "/kyc/error/timeout"(platform: "/mobile") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
-            type = "timeout"
             verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
-        "/kyc/error"(platform: "/mobile") {
+        "/kyc/error/parsing"(platform: "/mobile") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
-            type = "parsing"
             verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
         "/kyc/error"(platform: "/web/desktop") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             error_id = "BGOR4MSZTA-210622"
         }
-        "/kyc/error"(platform: "/web/desktop") {
+        "/kyc/error/service"(platform: "/web/desktop") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             verbose = "User not active"
-            type = "service"
         }
         "/kyc/connection_error"(platform: "/web/desktop") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
@@ -329,24 +326,21 @@ trackTests {
         }
 
         // Error
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
+        "/kyc/error/timeout"(platform: "/mobile", business: "mercadolibre") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
-            type = "timeout"
             verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
+        "/kyc/error/parsing"(platform: "/mobile", business: "mercadolibre") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
-            type = "parsing"
             verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
         "/kyc/error"(platform: "/web/desktop", business: "mercadolibre") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             error_id = "BGOR4MSZTA-210622"
         }
-        "/kyc/error"(platform: "/web/desktop", business: "mercadolibre") {
+        "/kyc/error/service"(platform: "/web/desktop", business: "mercadolibre") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             verbose = "User not active"
-            type = "service"
         }
         "/kyc/connection_error"(platform: "/web/desktop", business: "mercadolibre") {
             kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"

@@ -38,6 +38,12 @@ tracks {
 
     "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
 
+    def utm_definition = objectSchemaDefinitions {
+        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
+        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
+        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
+    }
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
@@ -52,6 +58,7 @@ tracks {
         ch (type: PropertyType.String, required: false, description: "sales channel, values: ['MGM', 'ORG', 'MPOS', 'XSELL', null]")
         camp (type: PropertyType.String, required: false, description: "campaign, values: string or null")
         strategy (type: PropertyType.String, required: false, description: "strategy, values: string or null")
+        utm (type: PropertyType.Map(utm_definition), required: false, description: "utm tracking")
     }
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}

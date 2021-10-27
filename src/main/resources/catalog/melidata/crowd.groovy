@@ -313,11 +313,27 @@ tracks
                 location
             }
 
+            "/crowd/registration/city/paused"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
             "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
                 location
             }
 
             "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/background_check"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/boaas/landing"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
+            "/crowd/registration/boaas/landing/deeplink"(platform: "/mobile", type: TrackType.Event) {
                 location
             }
         }

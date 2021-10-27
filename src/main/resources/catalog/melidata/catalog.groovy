@@ -192,6 +192,8 @@ catalog {
         include business, "prepapp.groovy"
         include business, "melilive.groovy"
         include business, "vis_scheduling.groovy"
+        include business, "vis_reservation.groovy"
+        include business, "listings.groovy"
     }
 
     mercadopago.each { business ->
@@ -230,6 +232,7 @@ catalog {
         include business, "pos_seller.groovy"
         include business, "preference.groovy"
         include business, "discount_sellers.groovy"
+        include business, "benefits_per_challnege.groovy"
         include business, "unified_onboarding.groovy"
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
@@ -279,6 +282,7 @@ catalog {
         include business, "cartList.groovy"
         include business, "add_to_cart.groovy"
         include business, "funds_movements.groovy"
+        include business, "cost_simulator.groovy"
     }
 
     mercadoshops.each { business ->
@@ -314,6 +318,9 @@ catalog {
         include business, "crowd.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
+        include business, "kyc.groovy"
+        include business, "authentication.groovy"
+        include business, "liveness.groovy"
     }
 
     extra_marketplace.each { business ->
@@ -342,6 +349,9 @@ catalog {
         include business, "splinter.groovy"
         include business, "cdn_metrics.groovy"
         include business, "kyc.groovy"
+        include business, "vis_scheduling.groovy"
+        include business, "vis_reservation.groovy"
+        include business, "listings.groovy"
     }
 
 }

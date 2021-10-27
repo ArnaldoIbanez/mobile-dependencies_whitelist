@@ -362,6 +362,10 @@ trackTests {
             defaultLocation()
         }
 
+        "/crowd/registration/city/paused"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
         "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
@@ -369,5 +373,18 @@ trackTests {
         "/crowd/registration/start/coming_soon"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
+
+        "/crowd/registration/background_check"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/boaas/landing"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/crowd/registration/boaas/landing/deeplink"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
     }
 }

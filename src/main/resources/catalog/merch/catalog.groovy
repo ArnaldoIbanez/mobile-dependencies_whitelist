@@ -19,9 +19,15 @@ catalog {
             "/mobile/ios",
     ]
 
-    def marketplace = ["mercadolibre"]
+    def mercadolibre = ["mercadolibre"]
 
-    marketplace.each { business ->
+    def mercadopago = ["mercadopago"]
+
+    mercadolibre.each { business ->
+        include business, "tracking.groovy"
+    }
+
+    mercadopago.each { business ->
         include business, "tracking.groovy"
     }
 }
