@@ -2453,7 +2453,7 @@ trackTests {
         }
 
         test("Mercadopago Home Tap v3 - Advertising [${business}]") {
-            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+            "/wallet_home/section/tap/pendings" (platform: "/", type: TrackType.Event) {
                 audience = "all"
                 component_id = "advertising_item1"
                 section_id = "advertising"
@@ -2467,7 +2467,7 @@ trackTests {
                 criticality = 1
                 from = "section"
             }
-            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+            "/wallet_home/section/tap/pendings" (platform: "/", type: TrackType.Event) {
                 audience = "all"
                 component_id = "advertising_payers_recharge_sube_mp"
                 section_id = "advertising"
