@@ -37,7 +37,6 @@ tracks {
         storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
         moreInfoGroup(store_id, collector_id, brand_id, session_id)
         vipGroup(collector_id, category_id, category_path, item_id, item_name, session_id)
-        order_status_label(status_label_name, status_label_icon, status_label_color)
     }
 
     def store_review_definition = objectSchemaDefinitions {
@@ -284,6 +283,7 @@ tracks {
         purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
         purchase_state(type: PropertyType.String, required: true, values: ['paid'], description: "The purchase state")
         action_target(type: PropertyType.String, required: true, description: "Target of the action link")
+	component_version(type: PropertyType.String, required: true, description: "the version of order status")
 	status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
 	stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
     }
