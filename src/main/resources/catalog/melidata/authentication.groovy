@@ -817,13 +817,13 @@ tracks {
     "/totp_in_app/qr_token/conformity"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/qr_token/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"], description: "action you take in conformity view")
+        action(type: PropertyType.String, required: true, values: ["confirm", "cancel", "close"], description: "action you take in conformity view")
     }
 
     "/totp_in_app/qr_token/conformity/cancel"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/qr_token/conformity/cancel/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.Boolean, required: true, description: "action you take in view to cancel conformity")
+        action(type: PropertyType.String, required: true, description: "action you take in view to cancel conformity")
     }
 
     "/totp_in_app/qr_token/conformity/error"(platform: "/mobile", type: TrackType.View) {
@@ -836,7 +836,7 @@ tracks {
     }
 
     "/totp_in_app/web_mobile/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"], description: "action you take in conformity view")
+        action(type: PropertyType.String, required: true, values: ["confirm", "cancel", "close"], description: "action you take in conformity view")
     }
 
     "/totp_in_app/web_mobile/conformity/success"(platform: "/mobile", type: TrackType.View) {}
@@ -848,7 +848,7 @@ tracks {
     "/totp_in_app/web_mobile/conformity/cancel"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/web_mobile/conformity/cancel/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.Boolean, required: true, description: "action you take in view to cancel conformity")
+        action(type: PropertyType.String, required: true, description: "action you take in view to cancel conformity")
     }
 
     "/totp_in_app/web_mobile/conformity/error"(platform: "/mobile", type: TrackType.View) {

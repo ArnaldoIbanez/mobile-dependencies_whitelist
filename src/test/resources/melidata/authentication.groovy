@@ -2256,13 +2256,13 @@ trackTests {
             "/totp_in_app/qr_token/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
-                action(type: PropertyType.Boolean, required: true)
+                action = "not_now"
             }
 
             "/totp_in_app/qr_token/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
-                action(type: PropertyType.Boolean, required: true)
+                action = "not_now"
             }
 
             "/totp_in_app/qr_token/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
