@@ -663,7 +663,8 @@ trackTests {
                     marketplace_type: "order_status",
                     segment_id: "order_status",
                     marketplace_index: 0,
-                    order_status: [
+                    items: [
+                              [
                                 index: 0,
                                 store_id: 30091709,
                                 collector_id: 1234567,
@@ -687,6 +688,7 @@ trackTests {
                                                    ]
                                          ]
                             ]
+                     ]   
                 ]
             ]
             product_type = "proximity"
@@ -1015,7 +1017,8 @@ trackTests {
                     marketplace_type: "order_status",
                     segment_id: "order_status",
                     marketplace_index: 0,
-                    order_status: [
+                    items: [
+                               [
                                 index: 0,
                                 store_id: 30091709,
                                 collector_id: 1234567,
@@ -1029,8 +1032,9 @@ trackTests {
                                                 status_icon: "icon_key",
                                                 status_color: "#FFFFFF"
                                               ]
+                                ]
                             ]
-                ]
+                ] 
             ]
             product_type = "delivery"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
