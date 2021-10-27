@@ -105,33 +105,28 @@ tracks {
     }
 
     "/security_settings/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
     "/security_settings/totp_in_app/enrollment/on_click"(platform: "/mobile", type: TrackType.Event) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
         action(type: PropertyType.String, required: true, values: ["back", "activate"], description: "action you take in enrollment view")
     }
 
     "/security_settings/totp_in_app/enrollment/success"(platform: "/mobile", type: TrackType.View) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
     "/security_settings/totp_in_app/enrollment/success/on_click"(platform: "/mobile", type: TrackType.Event) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
         action(type: PropertyType.String, required: true, values: ["close", "understood"], description: "Action you take in the enrollment success view")
     }
 
     "/security_settings/totp_in_app/enrollment/error"(platform: "/mobile", type: TrackType.Event) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
         type_of_error(type: PropertyType.String, required: false, description: "description of the error")

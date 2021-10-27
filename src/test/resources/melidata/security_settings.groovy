@@ -794,65 +794,55 @@ trackTests {
 
     test("Enrollment TotpInApp from Security Settings") {
         "/security_settings/totp_in_app/enrollment"(platform: "/mobile/android", type: TrackType.View) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
         }
 
         "/security_settings/totp_in_app/enrollment"(platform: "/mobile/ios", type: TrackType.View) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
         }
 
         "/security_settings/totp_in_app/enrollment/on_click"(platform: "/mobile/android", type: TrackType.Event) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
             action = "activate"
         }
 
         "/security_settings/totp_in_app/enrollment/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
             action = "activate"
         }
 
         "/security_settings/totp_in_app/enrollment/success"(platform: "/mobile/android", type: TrackType.View) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
         }
 
         "/security_settings/totp_in_app/enrollment/success"(platform: "/mobile/ios", type: TrackType.View) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
         }
         "/security_settings/totp_in_app/enrollment/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
             action = "understood"
         }
 
         "/security_settings/totp_in_app/enrollment/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
             action = "understood"
         }
 
         "/security_settings/totp_in_app/enrollment/error"(platform: "/mobile/android", type: TrackType.Event) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
             type_of_error = "server_error"
         }
 
         "/security_settings/totp_in_app/enrollment/error"(platform: "/mobile/ios", type: TrackType.Event) {
-            user_id = "3322112012"
             id = "552590784532425222"
             group_id = "4321-32211-567890"
             type_of_error = "server_error"

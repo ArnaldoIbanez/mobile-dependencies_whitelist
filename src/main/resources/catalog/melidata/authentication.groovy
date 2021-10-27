@@ -790,13 +790,11 @@ tracks {
     }
 
     "/login/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
     "/login/totp_in_app/enrollment/end"(platform: "/mobile", type: TrackType.Event) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
         status(type: PropertyType.Boolean, required: true, description: "status of whether the enrollment was successful or not")
@@ -805,7 +803,6 @@ tracks {
 
     // TOTP-IN-APP
     "/totp_in_app"(platform: "/mobile", isAbstract: true, initiative: 1375) {
-        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
         id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
