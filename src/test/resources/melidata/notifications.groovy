@@ -4073,6 +4073,11 @@ trackTests {
             event_type = "open"
             shipment_id = 1234
         }
+        "/notification/shipping_delivered_places_without_return"(platform: "/mobile") {
+            news_id = "12332323"
+            event_type = "open"
+            shipment_id = 1234
+        }
         "/notification/shipping_handling_agency_unavailable"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
