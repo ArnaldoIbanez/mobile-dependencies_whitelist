@@ -4542,7 +4542,9 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
-            ]
+            ],
+            fallback_disabled = false,
+            screenlock_method_used = "biometrics"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4563,7 +4565,8 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
-            ]
+            ],
+            fallback_disabled = false
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4583,7 +4586,31 @@ trackTests {
                 "opening_lock": "enabled",
                 "transaction_custom": "0",
                 "opening_custom": "0"
+            ],
+            fallback_disabled = false,
+            screenlock_method_used = "basic_screenlock"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "success"
+            transaction_information = [
+                "amount": "0",
+                "type": "other"
             ]
+            config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ],
+            fallback_disabled = true,
+            screenlock_method_used = "unknown"
         }
 
         "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {

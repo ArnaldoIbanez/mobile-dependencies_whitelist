@@ -1046,6 +1046,8 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false
+                screenlock_method_used = "biometrics"
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1072,6 +1074,7 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1092,6 +1095,8 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false,
+                screenlock_method_used = "basic_screenlock"
             }
 
             "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
