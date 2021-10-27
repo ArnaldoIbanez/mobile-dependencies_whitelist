@@ -44,6 +44,7 @@ trackTests {
   test("button other_discounts") {
     "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.Event) {
       session_id = "11"
+      traffic_from = "push"
       challenge_id = "wqejwej1-111"
       payment_status = [
         challenge_status : 'ongoing',

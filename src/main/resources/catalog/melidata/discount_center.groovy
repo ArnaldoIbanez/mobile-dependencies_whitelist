@@ -139,7 +139,6 @@ tracks {
         components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
    }
 
-
     // LOCATION REQUEST
 
     "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {
@@ -155,7 +154,7 @@ tracks {
 
     // MORE INFO
 
-    "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+    "/discount_center/payers/vsp/more_info" (platform: "/mobile", type: TrackType.View) {
         moreInfoGroup
     }
 
