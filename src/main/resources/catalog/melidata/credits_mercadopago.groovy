@@ -722,19 +722,19 @@ tracks {
         )
     }
 
-    "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
-        reason(
+    "/credits/merchant/open_market/financial_scraping/click"(platform: "/", type: TrackType.Event) {
+        provider(
             type: PropertyType.String,
-            required: false,
+            required: true,
+            description: "Which provider was choosen to share information",
             values: [
-                'wrong_extension',
-                'generic',
-                'success',
-                'finished_session',
-                'finished_flow',
-                'not_available',
+                'quanto',
+                'open_finance',
             ]
         )
+    }
+    
+    "/credits/merchant/open_market/financial_scraping/start"(platform: "/", type: TrackType.Event) {
         provider(
             type: PropertyType.String,
             required: true,

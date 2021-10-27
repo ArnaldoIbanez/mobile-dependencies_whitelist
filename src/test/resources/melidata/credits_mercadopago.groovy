@@ -1437,10 +1437,14 @@ trackTests {
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
-            flow="upsell_offer"
-            reason="finished_session"
+        "/credits/merchant/open_market/financial_scraping/click"(platform: "/", type: TrackType.Event) {
             provider="open_finance"
+            flow="upsell_offer"
+        }
+        
+        "/credits/merchant/open_market/financial_scraping/start"(platform: "/", type: TrackType.Event) {
+            provider="quanto"
+            flow="request_offer"
         }
 
         "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
