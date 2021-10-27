@@ -658,6 +658,37 @@ trackTests {
                                 tracking_id: "purchase_tracking_id"
                             ]
                 ],
+            ],
+            order_status: [
+                    marketplace_type: "order_status",
+                    segment_id: "order_status",
+                    marketplace_index: 0,
+                    order_status: [
+                                index: 0,
+                                store_id: 30091709,
+                                collector_id: 1234567,
+                                name: "Mc Donalds",
+                                purchase_id: 12345678,
+                                purchase_state: "paid",
+                                action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                tracking_id: "order_tracking_id",
+                                component_version: 2,
+                                status_label: [
+                                                status_name: "en curso",
+                                                status_icon: "icon_key",
+                                                status_color: "#FFFFFF"
+                                              ],
+                                stepper: [
+                                          stepper_version: 1,
+                                          total_steps: 4,
+                                          current_step: 2,
+                                          colors: [
+                                                   completed_steps: "#FF22FF",
+                                                    pending_steps: "#002200"
+                                                   ]
+                                         ]
+                            ]
+                ],
             ]
             product_type = "proximity"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
