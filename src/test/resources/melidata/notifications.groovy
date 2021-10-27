@@ -6140,6 +6140,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/claim_complainant_to_respondent_message"(platform: "/mobile"){
+            news_id = "claim_complainant_to_respondent_message-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_respondent_to_complainant_message"(platform: "/mobile"){
+            news_id = "claim_respondent_to_complainant_message-186785675-76283123"
+            event_type = "open"
+        }
+
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -12998,6 +13008,16 @@ trackTests {
 
         "/notification/claim_closed_seller_refund_decorator"(platform: "/mobile"){
             news_id = "claim_closed_seller_refund_decorator-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_complainant_to_respondent_message"(platform: "/mobile"){
+            news_id = "claim_complainant_to_respondent_message-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_respondent_to_complainant_message"(platform: "/mobile"){
+            news_id = "claim_respondent_to_complainant_message-186785675-76283123"
             event_type = "open"
         }
 
