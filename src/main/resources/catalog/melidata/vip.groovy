@@ -1783,4 +1783,27 @@ tracks {
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
+
+    // VIS LTR onboard
+
+    "/vip/ltr_onboard"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/ltr_onboard/ok"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/vip/ltr_onboard/close"(platform: "/", type: TrackType.Event) {
+    }
 }
