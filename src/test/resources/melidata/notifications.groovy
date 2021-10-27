@@ -1339,6 +1339,12 @@ trackTests {
             latest_news_type= "merchants_growth_reverse_screening"
             status= "read"
         }
+        "/notification_center/merchants_growth_pricing_point"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_type= "merchants_growth_pricing_point"
+            status= "read"
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -6220,6 +6226,18 @@ trackTests {
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {
+            event_type = "open"
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -8681,6 +8699,12 @@ trackTests {
             newsgroup_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_type= "merchants_growth_reverse_screening"
+            status= "read"
+        }
+        "/notification_center/merchants_growth_pricing_point"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_type= "merchants_growth_pricing_point"
             status= "read"
         }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
@@ -13678,6 +13702,18 @@ trackTests {
             event_type = "open"
         }
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {
             event_type = "open"
         }
 
