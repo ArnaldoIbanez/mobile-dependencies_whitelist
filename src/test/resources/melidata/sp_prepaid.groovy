@@ -865,6 +865,29 @@ trackTests {
             view_time()
         }
 
+        // Congrats Cancel
+        "/single_player/prepaid/automatic_recharge/cancel/congrats"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/cancel/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+            "/single_player/prepaid/automatic_recharge/cancel/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
@@ -1635,6 +1658,29 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/show_action/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Congrats Cancel
+        "/single_player/prepaid/automatic_recharge/cancel/congrats"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/prepaid/automatic_recharge/cancel/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/automatic_recharge/cancel/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+            "/single_player/prepaid/automatic_recharge/cancel/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }

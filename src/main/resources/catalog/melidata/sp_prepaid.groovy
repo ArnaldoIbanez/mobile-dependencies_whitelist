@@ -38,7 +38,7 @@ tracks {
     }
 
     propertyGroups {
-        mandatory(flow, session_id)
+            (flow, session_id)
         step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge, parent_key, origin_source)
         item_structure(item_id, type, content)
         view_time(view_time)
@@ -659,6 +659,22 @@ tracks {
         view_time
     }
     "/single_player/prepaid/show_action/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Congrats Cancel
+    "/single_player/prepaid/automatic_recharge/cancel/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/automatic_recharge/cancel/congrats/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/cancel/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/cancel/congrats/close"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/automatic_recharge/cancel/congrats/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
