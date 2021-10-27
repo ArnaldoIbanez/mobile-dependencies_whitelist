@@ -3069,6 +3069,7 @@ tracks {
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
         campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
+        execution_id(required: false, type: PropertyType.Numeric, description: "Execution id.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
