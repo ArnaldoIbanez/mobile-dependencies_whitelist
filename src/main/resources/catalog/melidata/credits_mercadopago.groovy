@@ -722,7 +722,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open_market/financial_scraping/click"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
         provider(
             type: PropertyType.String,
             required: true,
@@ -734,7 +734,7 @@ tracks {
         )
     }
     
-    "/credits/merchant/open_market/financial_scraping/start"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_started"(platform: "/", type: TrackType.Event) {
         provider(
             type: PropertyType.String,
             required: true,
@@ -746,7 +746,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -758,7 +758,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
