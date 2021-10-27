@@ -924,6 +924,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/merchants_growth_pricing_point"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/money-transfer_request"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -3327,6 +3331,10 @@ tracks {
     "/notification/merchants_growth_sameday"(platform: "/mobile") {}
     "/notification/merchants_growth_reverse_screening_fraud"(platform: "/mobile") {}
     "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {}
 
     //Flows
     "/notification/flows_default"(platform: "/mobile") {
