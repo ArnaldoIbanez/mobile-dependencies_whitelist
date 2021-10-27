@@ -257,6 +257,12 @@ tracks {
     "/banking/movements/pagination"(platform: "/", isAbstract: true) {}
     "/banking/movements/pagination/change"(platform: "/", type: TrackType.Event) {}
 
+    // Movements - Links
+    "/banking/movements/links"(platform: "/", isAbstract: true) {}
+    "/banking/movements/links/view"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.Boolean, description: "Indicates the actions clicked")
+    }
+
     // Movements - Filters
     "/banking/movements/filters"(platform: "/", isAbstract: true) {}
     "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) { movementsFiltersAction }
