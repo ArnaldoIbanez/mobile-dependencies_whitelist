@@ -789,25 +789,38 @@ tracks {
         from (required:false, type: PropertyType.String, description: "When user login success in ios")
     }
 
-    "/login/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View) {
-        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
-        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
-    }
-
-    "/login/totp_in_app/enrollment/end"(platform: "/mobile", type: TrackType.Event) {
-        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
-        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
-        status(type: PropertyType.Boolean, required: true, description: "status of whether the enrollment was successful or not")
-        type_of_error(type: PropertyType.String, required: false, description: "description of the error")
-    }
-
     // TOTP-IN-APP
     "/totp_in_app"(platform: "/mobile", isAbstract: true, initiative: 1375) {
         id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
-    // QR_Token [DONE]
+    // TotpInApp enrollment at login
+    "/totp_in_app/login/enrollment"(platform: "/mobile", type: TrackType.View) {}
+
+    "/totp_in_app/login/enrollment/end"(platform: "/mobile", type: TrackType.Event) {
+        status(type: PropertyType.Boolean, required: true, description: "status of whether the enrollment was successful or not")
+        type_of_error(type: PropertyType.String, required: false, description: "description of the error")
+    }
+
+    // TotpInApp enrollment at Security Settings
+    "/totp_in_app/security_settings/enrollment"(platform: "/mobile", type: TrackType.View) {}
+
+    "/totp_in_app/security_settings/enrollment/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["back", "activate"], description: "action you take in enrollment view")
+    }
+
+    "/totp_in_app/security_settings/enrollment/success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/totp_in_app/security_settings/enrollment/success/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["close", "understood"], description: "Action you take in the enrollment success view")
+    }
+
+    "/totp_in_app/security_settings/enrollment/error"(platform: "/mobile", type: TrackType.Event) {
+        type_of_error(type: PropertyType.String, required: false, description: "description of the error")
+    }
+
+    // QR_Token
     "/totp_in_app/qr_token/conformity"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/qr_token/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
