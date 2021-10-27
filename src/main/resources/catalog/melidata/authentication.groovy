@@ -789,22 +789,28 @@ tracks {
         from (required:false, type: PropertyType.String, description: "When user login success in ios")
     }
 
-    "/login/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
-        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
+    propertyDefinitions {
+        id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
+    propertyGroups {
+        totpinappDataGroup(id, group_id)
+    }
+
+    "/login/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        totpinappDataGroup
+    }
+
     "/login/totp_in_app/enrollment/end"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
-        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
+        totpinappDataGroup
         status(type: PropertyType.Boolean, required: true, description: "status of whether the enrollment was successful or not")
         type_of_error(type: PropertyType.String, required: false, description: "description of the error")
     }
 
     // TOTP-IN-APP
     "/totp_in_app"(platform: "/mobile", isAbstract: true, initiative: 1375) {
-        id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
-        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
+        totpinappDataGroup
     }
 
     // QR_Token
