@@ -478,6 +478,7 @@ tracks {
         payment_method_id (required:false, type: PropertyType.String, description: "indicates the id of the payment method")
     }
     "/money_in/hub/help"(platform:"/", type: TrackType.Event){}
+    
     "/money_in/hub/widget/shown"(platform:"/", type: TrackType.Event){
         widget_id (required:true, type: PropertyType.String, description: "Indicates the id of the widget shown")
     }
@@ -502,4 +503,24 @@ tracks {
     "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
     "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
     "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
+
+    //News Alert Messages (da-components)
+    "/alert_news"(platform: "/", isAbstract: true) {}
+    "/alert_news/message"(platform:"/", type: TrackType.View){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
+        message_description(required:false,type: PropertyType.String, description:"Message content")
+    }
+    "/alert_news/message/primary_action"(platform:"/", type: TrackType.Event){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
+    }
+    "/alert_news/message/secondary_action"(platform:"/", type: TrackType.Event){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
+    }
+    "/alert_news/message/dismiss"(platform:"/", type: TrackType.Event){
+        flow_id(required:true,type: PropertyType.String, description:"Indicates the flow where the message is displayed")
+        message_id(required:true,type: PropertyType.String, description:"Indicates the message Id")
+    }
 }
