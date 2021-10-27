@@ -790,72 +790,72 @@ tracks {
     }
 
     "/login/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View) {
-        user_id(type: PropertyType.String, required: true)
-        id(type: PropertyType.String, required: true)
-        group_id(type: PropertyType.String, required: true)
+        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
+        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
+        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
     "/login/totp_in_app/enrollment/end"(platform: "/mobile", type: TrackType.Event) {
-        user_id(type: PropertyType.String, required: true)
-        id(type: PropertyType.String, required: true)
-        group_id(type: PropertyType.String, required: true)
-        status(type: PropertyType.Boolean, required: true)
-        type_of_error(type: PropertyType.String, required: false)
+        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
+        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
+        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
+        status(type: PropertyType.Boolean, required: true, description: "status of whether the enrollment was successful or not")
+        type_of_error(type: PropertyType.String, required: false, description: "description of the error")
     }
 
     // TOTP-IN-APP
     "/totp_in_app"(platform: "/mobile", isAbstract: true, initiative: 1375) {
-        user_id(type: PropertyType.String, required: true)
-        id(type: PropertyType.String, required: false)
-        group_id(type: PropertyType.String, required: true)
+        user_id(type: PropertyType.String, required: true, description: "identifier of the user who made the transaction")
+        id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
+        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
     // QR_Token [DONE]
     "/totp_in_app/qr_token/conformity"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/qr_token/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"])
+        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"], description: "action you take in conformity view")
     }
 
     "/totp_in_app/qr_token/conformity/cancel"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/qr_token/conformity/cancel/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.Boolean, required: true)
+        action(type: PropertyType.Boolean, required: true, description: "action you take in view to cancel conformity")
     }
 
     "/totp_in_app/qr_token/conformity/error"(platform: "/mobile", type: TrackType.View) {
-        type_of_error(type: PropertyType.String, required: true)
+        type_of_error(type: PropertyType.String, required: true, description: "description of the error")
     }
 
     // Web_Mobile
     "/totp_in_app/web_mobile/conformity"(platform: "/mobile", type: TrackType.View) {
-        referrer(type: PropertyType.String, required: false)
+        referrer(type: PropertyType.String, required: false, description: "application ID that opened the Conformity view")
     }
 
     "/totp_in_app/web_mobile/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"])
+        action(type: PropertyType.String, required: true, values: ["confirm, cancel, close"], description: "action you take in conformity view")
     }
 
     "/totp_in_app/web_mobile/conformity/success"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/web_mobile/conformity/success/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.String, required: true, values: ["background", "understood"])
+        action(type: PropertyType.String, required: true, values: ["background", "understood"], description: "action you take in view to success conformity")
     }
 
     "/totp_in_app/web_mobile/conformity/cancel"(platform: "/mobile", type: TrackType.View) {}
 
     "/totp_in_app/web_mobile/conformity/cancel/on_click"(platform: "/mobile", type: TrackType.Event) {
-        action(type: PropertyType.Boolean, required: true)
+        action(type: PropertyType.Boolean, required: true, description: "action you take in view to cancel conformity")
     }
 
     "/totp_in_app/web_mobile/conformity/error"(platform: "/mobile", type: TrackType.View) {
-        type_of_error(type: PropertyType.String, required: true)
+        type_of_error(type: PropertyType.String, required: true, description: "description of the error")
     }
 
     // Build Code
     "/totp_in_app/build_code"(platform: "/mobile", type: TrackType.Event) {
-        operation(type: PropertyType.String, required: true, values:["enrollment", "transactional"])
-        type_of_code(type: PropertyType.String, required: true, values:["transparent", "interactive"])
-        client_id(type: PropertyType.String, required: false)
+        operation(type: PropertyType.String, required: true, values:["enrollment", "transactional"], description: "type of operation")
+        type_of_code(type: PropertyType.String, required: true, values:["transparent", "interactive"], description: "OTP code type")
+        client_id(type: PropertyType.String, required: false, description: "equipment identifier that uses the OTP code")
     }
 }
