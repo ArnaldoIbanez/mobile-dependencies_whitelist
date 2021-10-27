@@ -790,7 +790,7 @@ tracks {
     }
 
     propertyDefinitions {
-        id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
+        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
 
@@ -857,6 +857,7 @@ tracks {
 
     // Build Code
     "/totp_in_app/build_code"(platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
         operation(type: PropertyType.String, required: true, values:["enrollment", "transactional"], description: "type of operation")
         type_of_code(type: PropertyType.String, required: true, values:["transparent", "interactive"], description: "OTP code type")
         client_id(type: PropertyType.String, required: false, description: "equipment identifier that uses the OTP code")

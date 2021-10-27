@@ -2375,6 +2375,20 @@ trackTests {
                 type_of_code = "transparent"
                 client_id = "meli_login"
             }
+
+            "/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "transactional"
+                type_of_code = "transparent"
+                client_id = "meli_px"
+            }
+
+            "/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+                group_id = "4321-32211-567890"
+                operation = "transactional"
+                type_of_code = "transparent"
+                client_id = "meli_px"
+            }
         }
     }
 }
