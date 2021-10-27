@@ -2246,6 +2246,8 @@ tracks {
     "/notification/claim_return_allowed_seller_action_decorator"(platform: "/") {}
     "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/") {}
     "/notification/claim_closed_seller_refund_decorator"(platform: "/") {}
+    "/notification/claim_complainant_to_respondent_message"(platform: "/") {}
+    "/notification/claim_respondent_to_complainant_message"(platform: "/") {}
 
     // Credits - Credit Card
     // Collection
