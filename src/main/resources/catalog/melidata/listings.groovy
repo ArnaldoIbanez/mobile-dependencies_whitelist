@@ -137,7 +137,7 @@ tracks {
         sort(required: false, type: PropertyType.String, description: "Sorting applied")
         search(required: false, type: PropertyType.String, description: "Query for id or title")
         origin(required: false, type: PropertyType.String, description: "component that emit the action")
-        sub_view_id(required: false, type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops"])
+        sub_view_id(required: false, type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops", "only_marketplace"])
     }
 
     "/seller_central/listings/filters/action"(platform: "/") {
