@@ -768,7 +768,7 @@ tracks {
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/seller_central/modify"(platform: "/", isAbstract: true) {
+    "/seller_central/modify"(platform: "/", isAbstract: true, initiative: "1151") {
         sellerCentralModifyGroup
     }
 
