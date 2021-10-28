@@ -17,6 +17,7 @@ tracks {
         elements(required: false, type: PropertyType.Numeric, description: "items quantity")
         status(required: false, type: PropertyType.String, description: "component status")
         empty(required: false, type: PropertyType.Boolean, description: "quantity status")
+        last_update(required: false, type: PropertyType.String, description: "timestamp")
     }
 
     def component_definition = objectSchemaDefinitions {
@@ -76,6 +77,10 @@ tracks {
         my_money_open_banking(required: true, type: PropertyType.Map(component_definition), description: "Open Banking component print")
         my_money_debt_balance(required: true, type: PropertyType.Map(component_definition), description: "Debt balance component print")
         my_money_contingency_message(required: true, type: PropertyType.Map(component_definition), description: "Contingency message component print")
+        my_money_bank_detail(required: true, type: PropertyType.Map(component_definition), description: "Bank detail component print")
+        my_money_accounts_list(required: true, type: PropertyType.Map(component_definition), description: "Bank account list component print")
+        my_money_cards_list(require: true, type: PropertyType.Map(component_definition), description: "Bank cards list component print")
+        my_money_timestamp(required: true, type: PropertyType.Map(component_definition), description: "Bank resource timestamp component print")
     }
 
     propertyGroups {
@@ -148,6 +153,18 @@ tracks {
         contingencyMessagePrint (
                 my_money_contingency_message
         )
+        accountsListPrint (
+                my_money_accounts_list
+        )
+        cardsListPrint (
+                my_money_cards_list
+        )
+        timestampPrint (
+                my_money_timestamp
+        )
+        bankDetailPrint (
+                my_money_bank_detail
+        )
     }
 
     // MP Banking
@@ -174,6 +191,12 @@ tracks {
     "/banking/to_release/card_calendar_component"(platform: "/", type: TrackType.View) { cardCalendarPrint }
     "/banking/to_release/calendar_daily_component"(platform: "/", type: TrackType.View) { calendarDailyPrint }
     "/banking/to_release/cerc_component"(platform: "/", type: TrackType.View) { cercPrint }
+
+    // Components Open Finance
+    "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) { accountsListPrint }
+    "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) { cardsListPrint }
+    "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) { timestampPrint }
+    "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) { bankDetailPrint }
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) {}

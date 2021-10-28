@@ -14,6 +14,7 @@ tracks {
     "/money_out"(platform: "/", isAbstract: true) {}
     "/money_out/cashout"(platform: "/", isAbstract: true) {}
     "/money_out/cashout/onboarding"(platform: "/", isAbstract: true) {}
+    "/money_out/transfers/mlm"(platform: "/", isAbstract: true) {}
 
     // Cashout ticket tracks
     "/money_out/cashout/ticket"(platform: "/", type: TrackType.View) {}
@@ -313,7 +314,7 @@ tracks {
     "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
 
     "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
-        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector"])
+        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector", "invalid_account_type"])
     }
     "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {}
@@ -335,6 +336,19 @@ tracks {
     //Transfer Hub - FTU Unified transfers
     "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
     "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
+
+    //Transfer HUB - Banners
+    "/money_out/transfers/home/banners"(platform:"/", type: TrackType.Event){ 
+        banner_type(required:true, description:"Indicate type of banners for example: money_advance", values=["money_advance", "scheduled_transfer"])
+    }
+
+    //Transfer HUB - VOC
+    "/money_out/transfers/home/voice_of_customer"(platform:"/", type: TrackType.Event){}
+
+    //Transfer Hub - MLM - Account Form
+    "/money_out/transfers/mlm/account_form"(platform: "/", type: TrackType.View){}
+    "/money_out/transfers/mlm/account_form/faq"(platform: "/", type: TrackType.Event) {}
+    "/money_out/transfers/mlm/account_form/continue"(platform: "/", type: TrackType.Event) {}
     
     //Pix Limits MLB
     "/pix"(platform: "/", isAbstract: true) {}
