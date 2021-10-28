@@ -111,6 +111,7 @@ catalog {
         include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
         include business, "cartList.groovy"
+        include business, "credits_credit_card.groovy"
         include business, "compatibilities.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
@@ -193,6 +194,7 @@ catalog {
         include business, "melilive.groovy"
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
+        include business, "listings.groovy"
     }
 
     mercadopago.each { business ->
@@ -205,6 +207,7 @@ catalog {
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
         include business, "credits_credit_card.groovy"
+        include business, "credits_credit_card_mp.groovy"
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
@@ -350,6 +353,7 @@ catalog {
         include business, "kyc.groovy"
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
+        include business, "listings.groovy"
     }
 
 }

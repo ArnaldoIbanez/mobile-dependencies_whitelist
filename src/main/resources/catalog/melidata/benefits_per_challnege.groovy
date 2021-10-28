@@ -18,6 +18,7 @@ tracks {
   "/instore/challenge" (platform: "/", isAbstract: true) {
     challenge_id(required: true, type: PropertyType.String, description: "Challenge id")
     session_id(required: true, type: PropertyType.String, description: "Session identifier")
+    traffic_from(required: false, values:["push", "modal", "banner", "pom", "mp"], type: PropertyType.String, description: "Traffic identifier")
   }
   "/instore/challenge/summary" (platform: "/", type: TrackType.View) {
     payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "state of payments")
