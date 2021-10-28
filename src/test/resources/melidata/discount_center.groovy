@@ -658,7 +658,6 @@ trackTests {
                                 tracking_id: "purchase_tracking_id"
                             ]
                 ],
-            ],
             order_status: [
                     marketplace_type: "order_status",
                     segment_id: "order_status",
