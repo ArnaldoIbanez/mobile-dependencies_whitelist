@@ -182,7 +182,7 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
-
+        "/credits/consumer/administrator_v2/go_where_can_use"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
@@ -190,7 +190,6 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
         }
-        "/credits/consumer/administrator_v2/dashboard/go_where_can_use"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
             list_status = "black_list"
