@@ -2637,7 +2637,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
 
         "/advertising/pads2/manager/matching/pause_modal/close"(platform: "/", type: TrackType.Event) {
@@ -2645,7 +2645,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
 
         "/advertising/pads2/manager/matching/pause_modal/continue"(platform: "/", type: TrackType.Event) {
@@ -2653,7 +2653,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
 
         "/advertising/pads2/manager/matching/pause_modal/pause"(platform: "/", type: TrackType.Event) {
@@ -2661,7 +2661,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
 
         "/advertising/pads2/hub/matching/pause_modal/open"(platform: "/", type: TrackType.Event) {
@@ -2669,7 +2669,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
 
         "/advertising/pads2/hub/matching/pause_modal/close"(platform: "/", type: TrackType.Event) {
@@ -2677,7 +2677,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
 
         "/advertising/pads2/hub/matching/pause_modal/continue"(platform: "/", type: TrackType.Event) {
@@ -2685,7 +2685,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
 
         "/advertising/pads2/hub/matching/pause_modal/pause"(platform: "/", type: TrackType.Event) {
@@ -2693,7 +2693,7 @@ trackTests {
             days_since_matching_start = 10
             matching_target_amount = 7000
             amount_invested = 2000
-            adv_management_mode = "custom"
+            mode = "custom"
         }
     }
 
