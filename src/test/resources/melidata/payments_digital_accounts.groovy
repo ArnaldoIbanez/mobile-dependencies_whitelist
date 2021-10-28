@@ -326,6 +326,7 @@ trackTests {
 
         "/banking/movements/links/view"(platform: "/", type: TrackType.Event) {
             action = 'DOWNLOAD_BILLS_TEST'
+        }   
 
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
