@@ -16,10 +16,8 @@ trackTests {
                 flow_type = "OTHER"
                 reauth_status = "OPEN"
                 reauth_risk = "LOW"
-                elapsed_time = "1234567899"
                 user_ato_risk = "LOW"
                 recently_logged_in = true
-                requested_factors = "ENTER_PASSWORD"
             }
 
             "/reauthentication"(platform: "/", type: TrackType.Event) {

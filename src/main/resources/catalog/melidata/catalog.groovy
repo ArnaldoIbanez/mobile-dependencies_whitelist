@@ -304,6 +304,7 @@ catalog {
         include business, "vip.groovy"
         include business, "hub_mshops.groovy"
         include business, "myml_mercadoshops.groovy"
+        include business, "reauthentication.groovy"
     }
 
     mercadoads.each { business ->
@@ -322,6 +323,7 @@ catalog {
         include business, "kyc.groovy"
         include business, "authentication.groovy"
         include business, "liveness.groovy"
+        include business, "reauthentication.groovy"
     }
 
     extra_marketplace.each { business ->
@@ -353,6 +355,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "reauthentication.groovy"
     }
 
 }

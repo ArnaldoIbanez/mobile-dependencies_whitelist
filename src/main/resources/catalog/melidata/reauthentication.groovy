@@ -1,3 +1,5 @@
+package catalog.melidata
+
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
@@ -16,7 +18,7 @@ tracks {
         elapsed_time(required: false, type: PropertyType.String, description: "elapsed time in the operation")
         user_ato_risk(required: false, type: PropertyType.String, description: "user ATO risk")
         amount(required: false, type: PropertyType.String, description: "amount of the operation")
-        recently_logged_in(required: true, type: PropertyType.Boolean, description: "Indicates if the user recently logged in")
-        requested_factors(required: true, type: PropertyType.String, description: "factors requested for reauthentication") // TODO - ver si separar por factores
+        recently_logged_in(required: false, type: PropertyType.Boolean, description: "Indicates if the user recently logged in")
+        requested_factors(required: false, type: PropertyType.String, description: "factors requested for reauthentication")
     }
 }
