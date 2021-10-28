@@ -105,7 +105,7 @@ tracks {
     }
 
     // TOTP-IN-APP
-    "/security_settings/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View, isAbstract: true) {
+    "/security_settings/totp_in_app/enrollment"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: 1374) {
         id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
         group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
     }
