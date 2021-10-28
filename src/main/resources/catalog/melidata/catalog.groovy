@@ -100,6 +100,7 @@ catalog {
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
         include business, "fraud_challenges.groovy"
+        include business, "reauthentication.groovy"
     }
 
     mercadolibre.each { business ->
