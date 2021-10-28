@@ -350,6 +350,7 @@ tracks {
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type, business, platform)
+        sellerCentralModifyCardsGroupMotors(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
@@ -773,7 +774,7 @@ tracks {
     }
 
     "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
         sellerCentralModifyGroupTableForPdp
     }
 
@@ -782,12 +783,11 @@ tracks {
     }
 
     "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
     }
 
-
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
         sellerCentralModifyGroupTableForPdp
     }
 
@@ -1003,19 +1003,16 @@ tracks {
         hint_id(required: true, type: PropertyType.String, description: "Id del hint que se mostro, pueden cambiar o generarse nuevos por lo que no conocemos todos los valores posibles.")
     }
 
-    "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
+    "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {}
 
-    }
-
-    "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
-    }
+    "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
     "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
     }
 
     "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
