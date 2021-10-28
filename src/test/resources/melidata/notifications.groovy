@@ -978,6 +978,24 @@ trackTests {
             latest_news_type= "asset_management_rejected"
             status= "read"
         }
+        "/notification_center/asset_management_underage_approved"(platform: "/mobile"){
+            newsgroup_id= "asset_management-underage_approved-186785675-76283123"
+            latest_news_id= "asset_management-underage_approved-186785675-76283123"
+            latest_news_type= "asset_management_underage_approved"
+            status= "read"
+        }
+        "/notification_center/asset_management_underage_rejected"(platform: "/mobile"){
+            newsgroup_id= "asset_management-underage_rejected-186785675-76283123"
+            latest_news_id= "asset_management-underage_rejected186785675-76283123"
+            latest_news_type= "asset_management_underage_rejected"
+            status= "read"
+        }
+        "/notification_center/asset_management_underage_request"(platform: "/mobile"){
+            newsgroup_id= "asset_management-underage_request-186785675-76283123"
+            latest_news_id= "asset_management-underage_request-186785675-76283123"
+            latest_news_type= "asset_management_underage_request"
+            status= "read"
+        }
         "/notification_center/alwayson_bsas_a"(platform: "/") {
             latest_news_type= "alwayson_bsas_a"
             latest_news_id= "alwayson_bsas_a-143816022"
@@ -5792,6 +5810,21 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/asset_management_underage_approved"(platform: "/mobile") {
+            news_id = "asset-management_underage_approved-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_underage_rejected"(platform: "/mobile") {
+            news_id = "asset-management_underage_rejected-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_underage_request"(platform: "/mobile") {
+            news_id = "asset-management_underage_request-12345678-123123"
+            event_type = "shown"
+        }
+
         "/notification/institutional_generic"(platform: "/mobile"){
             event_type = "open"
             campaign_id= "institutional_generic1"
@@ -8331,6 +8364,24 @@ trackTests {
             newsgroup_id= "asset_management-rejected-186785675-76283123"
             latest_news_id= "asset_management-rejected-186785675-76283123"
             latest_news_type= "asset_management_rejected"
+            status= "read"
+        }
+        "/notification_center/asset_management_underage_approved"(platform: "/mobile"){
+            newsgroup_id= "asset_management-underage_approved-186785675-76283123"
+            latest_news_id= "asset_management-underage_approved-186785675-76283123"
+            latest_news_type= "asset_management_underage_approved"
+            status= "read"
+        }
+        "/notification_center/asset_management_underage_rejected"(platform: "/mobile"){
+            newsgroup_id= "asset_management-underage_rejected-186785675-76283123"
+            latest_news_id= "asset_management-underage_rejected186785675-76283123"
+            latest_news_type= "asset_management_underage_rejected"
+            status= "read"
+        }
+        "/notification_center/asset_management_underage_request"(platform: "/mobile"){
+            newsgroup_id= "asset_management-underage_request-186785675-76283123"
+            latest_news_id= "asset_management-underage_request-186785675-76283123"
+            latest_news_type= "asset_management_underage_request"
             status= "read"
         }
         "/notification_center/alwayson_bsas_a"(platform: "/") {
@@ -13266,6 +13317,21 @@ trackTests {
 
         "/notification/asset_management_rejected"(platform: "/mobile") {
             news_id = "asset-management_rejected-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_underage_approved"(platform: "/mobile") {
+            news_id = "asset-management_underage_approved-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_underage_rejected"(platform: "/mobile") {
+            news_id = "asset-management_underage_rejected-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/asset_management_underage_request"(platform: "/mobile") {
+            news_id = "asset-management_underage_request-12345678-123123"
             event_type = "shown"
         }
 
