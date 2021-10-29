@@ -24,7 +24,7 @@ tracks {
 
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View that has been called")
+        view_id(required: false, type: PropertyType.String, description: "View that has been called")
         sub_view_id(required: false, type: PropertyType.String, description: "Sub view that has been called", values: ["mshops", "markeplace"])
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
