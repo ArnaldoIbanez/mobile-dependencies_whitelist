@@ -3833,6 +3833,7 @@ tracks {
     "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_capture_after_ttl"(platform: "/") {}
     "/notification/prepaid_card_transaction_capture_less_than_amount"(platform: "/") {}
+    "/notification/card_subscription_visa_vai"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}
