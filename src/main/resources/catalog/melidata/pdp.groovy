@@ -197,6 +197,9 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
     }
 
+    def credits_consumer_map = objectSchemaDefinitions {
+        type(required: false, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
+    }
     //VPP FLOW
 
     "/pdp"(platform: "/") {
@@ -302,6 +305,9 @@ tracks {
 
         // ITEM_ATTRIBUTES
         item_attributes(required: false, type: PropertyType.String, description: "Attributes of the winner item")
+
+        // CREDITS CONSUMER
+        credits_consumer(required: true, type:PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {

@@ -138,7 +138,9 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "domain of the item that is offered a protection")
         price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
     }
-
+    def credits_consumer_map = objectSchemaDefinitions {
+        type(required: false, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
+    }
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -331,6 +333,9 @@ tracks {
         // Insurtech fields
         has_roda(required: false, type: PropertyType.Boolean, description: "The item have RODA protection options")
         has_garex(required: false, type: PropertyType.Boolean, description: "The item have GAREX protection options")
+
+        // CREDITS CONSUMER
+        credits_consumer(required: true, type:PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
     }
 
     "/vip"(platform: "/web") {

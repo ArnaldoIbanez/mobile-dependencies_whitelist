@@ -75,6 +75,9 @@ trackTests {
                     "has_size_chart": true
             ]
             is_ltr: false
+            credits_consumer = {
+                type = "acquisition"
+            }
         }
 
         Object items_attributes = {
