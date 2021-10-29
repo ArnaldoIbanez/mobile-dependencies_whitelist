@@ -1577,6 +1577,23 @@ tracks {
         sellerCentralUserSales
     }
 
+    // METRICS STOCK-FULL SECTION
+
+    "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin", values: ["metrics", "fulfillment", "stranded", "aging", "fee_storage", "summary" ])
+    }
+
+    "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/stock_full"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/stock_full/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        section_name(required: true, type: PropertyType.String, description: "Section where the button is placed")
+    }
+
+
     // CATALOG OPTIN SECTION
 
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
