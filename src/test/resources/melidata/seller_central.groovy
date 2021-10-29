@@ -6532,6 +6532,7 @@ test("seller central catalog optin v2 item plus card show") {
   test("Price suggestion result") {
     "/seller_central/price_suggestion/bands"(platform: "/", type: TrackType.Event) {
       app_name = "update-desktop"
+      client_id = "3282472529718136"
       item_id = "MLA1106939454"
       attributes = [
         [attribute_id: "BRAND", attribute_value: "Chevrolet", attribute_name: "Marca"],

@@ -2683,6 +2683,7 @@ tracks {
 
     "/seller_central/price_suggestion/bands"(platform: "/", type: TrackType.Event){
         app_name (required:true, type: PropertyType.String, description: "App name from each app which uses price suggestion")
+        client_id (required:false, type: PropertyType.Numeric, description: "Client id from each app which uses price suggestion")
         item_id (required:false, type: PropertyType.String, description: "Item id")
         attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes")
         prices_bands (required: true, type: PropertyType.Map(pricesBandsStructure), description: "bands from suggestion")
