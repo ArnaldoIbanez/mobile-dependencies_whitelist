@@ -226,10 +226,18 @@ tracks {
     //  Seller Central Verifications Structure
     // --------------------------------------------------------------------------------------------------------------
 
-    def verificationAttributesStructure = objectSchemaDefinitions {
+    def attributesStructure = objectSchemaDefinitions {
         attribute_id(required: true, type: PropertyType.String, description: "atribute id to verificate")
         attribute_value(required: true, type: PropertyType.String, description: "atribute value to verificate")
         attribute_name(required: false, type: PropertyType.String, description: "attribute name to verificate")
+    }
+
+    def pricesBandsStructure = objectSchemaDefinitions {
+        lower_band (required:true, type: PropertyType.String, description: "Lower band from price suggestion")
+        lower_limit (required:true, type: PropertyType.String, description: "lower limit band from price suggestion")
+        upper_band (required:true, type: PropertyType.String, description: "Upper band from price suggestion")
+        upper_limit (required:true, type: PropertyType.String, description: "Upper limit band from price suggestion")
+        estimated_price (required:true, type: PropertyType.String, description: "Estimated price from price suggestion")
     }
 
     def syiVerificationStructure = objectSchemaDefinitions {
@@ -237,12 +245,12 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
         domain_id(required: true, type: PropertyType.String, description: "to know which category belong the identifier")
         verification_site(required: true, type: PropertyType.String, description: "to know which site belong the identifier")
-        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes to verificate")
     }
 
     def dratStructure = objectSchemaDefinitions {
         flow_id(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
-        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes to verificate")
     }
 
     propertyDefinitions {
@@ -2671,5 +2679,14 @@ tracks {
     "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event) {
         use_gema (required:true, type: PropertyType.Boolean, description: "Validate if the user use our new application")
         seller_reputation (required:true, type: PropertyType.String, description: "Seller Reputation")
+    }
+
+    "/seller_central/price_suggestion/bands"(platform: "/", type: TrackType.Event){
+        app_name (required:true, type: PropertyType.String, description: "App name from each app which uses price suggestion")
+        client_id (required:false, type: PropertyType.Numeric, description: "Client id from each app which uses price suggestion")
+        item_id (required:false, type: PropertyType.String, description: "Item id")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes")
+        prices_bands (required: true, type: PropertyType.Map(pricesBandsStructure), description: "bands from suggestion")
+        price (required:true, type: PropertyType.String, description: "Item price")
     }
 }
