@@ -14862,6 +14862,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_subscription_visa_vai"(platform: "/mobile") {
+            news_id = "/notification/card_subscription_visa_vai-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
@@ -15336,6 +15342,12 @@ trackTests {
 
         "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "card_transactions_transaction_invalid_amount_option_express_money-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
+        "/notification/card_subscription_visa_vai"(platform: "/mobile") {
+            news_id = "/notification/card_subscription_visa_vai-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
