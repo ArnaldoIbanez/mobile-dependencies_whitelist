@@ -34,7 +34,7 @@ tracks {
 
     "/wallet_home"(platform: "/" , isAbstract: true) {}
 
-    "/wallet_home/print"(platform: "/mobile") {
+    "/wallet_home/print"(platform: "/") {
         qr_map (required:false)
         banking (required:false)
     }

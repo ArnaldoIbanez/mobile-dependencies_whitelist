@@ -669,7 +669,7 @@ tracks {
         walletHomeMerchEngineFields
     }
 
-    "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+    "/wallet_home/section/tap/pendings" (platform: "/", type: TrackType.Event, initiative: "1176") {
         walletHomePendingsFields
     }
 

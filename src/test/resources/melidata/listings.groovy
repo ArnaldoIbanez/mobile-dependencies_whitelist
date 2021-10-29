@@ -9,11 +9,15 @@ trackTests {
 
   test("seller central listing main page") {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
-  }
-  test("seller central listing main page") {
+  
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
       view_id = "listing"
       sub_view_id = "mshops"
+    }
+
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id = "fulfillment"
+      origin = "metrics"
     }
   }
 
@@ -284,6 +288,30 @@ trackTests {
       action_id = "MODIFY_SHIPPING"
       item_id = "MLA23345252"
       sub_view_id = "mshops"
+    }
+  }
+
+  test("setup mercado shops") {
+    "/seller_central/listings/setup_mshop"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listings list description legacy") {
+    "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/list/moderation"(platform: "/", type: TrackType.Event) {
+      moderation_id = "ID"
+    }
+
+    "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+      health_id = "ID"
+    }
+  }
+
+   test("seller central listing secondary actions legacy") {
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/list/action"(platform: "/", type: TrackType.Event) {
+      action_id = "MODIFY"
     }
   }
 

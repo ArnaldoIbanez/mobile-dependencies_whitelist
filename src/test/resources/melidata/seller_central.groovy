@@ -2764,6 +2764,41 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central METRICS STOCK-FULL SECTION
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("metrics stock-full section view for web") {
+    "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      origin = "stranded"
+    }
+  }
+
+  test("metrics stock-full section view for web mobile") {
+    "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics stock-full section view for mobile") {
+    "/seller_central/metrics/stock_full"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics stock-full help button click track for web") {
+    "/seller_central/metrics/stock_full/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "main_problems"
+    }
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
