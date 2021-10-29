@@ -814,14 +814,12 @@ trackTests {
 
   test("SYI V4 RE Modificar - seller central detail try technical_specifications intent"){
     "/seller_central/modify/detail/technical_specifications/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -941,14 +939,12 @@ trackTests {
 
   test("SYI V4 RE Modificar - seller central detail try location intent"){
     "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -958,14 +954,12 @@ trackTests {
     }
 
     "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -975,14 +969,12 @@ trackTests {
     }
 
     "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -5082,8 +5074,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5100,8 +5090,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5118,8 +5106,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5136,8 +5122,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5154,8 +5138,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5172,8 +5154,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5190,8 +5170,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5208,8 +5186,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5226,8 +5202,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5244,8 +5218,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5262,21 +5234,17 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
   test("SYI V4 RE Modificar - seller central - try quick_edit_standard photos intent") {
     "/seller_central/modify/detail/quick_edit_standard/intent"(platform: "/", type: TrackType.Event) {
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -5319,9 +5287,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "real_estate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
-
     }
   }
 
@@ -5338,8 +5303,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5356,8 +5319,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5374,8 +5335,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5392,8 +5351,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5410,8 +5367,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5428,8 +5383,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5446,8 +5399,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
