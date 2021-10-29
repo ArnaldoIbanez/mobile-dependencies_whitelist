@@ -921,6 +921,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/price_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -930,6 +931,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "mshops"
         }
         "/sell/list/seller_registration"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1329,6 +1331,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/free_shipping_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1338,6 +1341,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "mshops"
         }
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1945,6 +1949,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/draft/listing_types"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2148,6 +2153,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "mshops"
         }
         "/sell/list/draft/price_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2157,6 +2163,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/draft/price_modality"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2867,6 +2874,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            channel_context = "marketplace"
         }
         "/sell/update/title"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -3031,6 +3039,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            channel_context = "marketplace"
         }
         "/sell/update/condition_confirmation_landing"(platform: "/mobile") {
             item_id = "MLA123456"
