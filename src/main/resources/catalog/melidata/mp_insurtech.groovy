@@ -739,6 +739,8 @@ tracks {
     }
     "/insurtech/protections/detail/garex/packaging_instructions"(platform:"/", type: TrackType.Event) {
     }
+    "/insurtech/protections/detail/garex/feedback"(platform:"/", type: TrackType.Event) {
+    }
 
     // CARDS
     "/insurtech/protections/detail/cards"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
