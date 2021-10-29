@@ -1,4 +1,4 @@
-package src.main.resources.catalog.pushnotifications
+package src.main.resources.catalog.advertising
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType

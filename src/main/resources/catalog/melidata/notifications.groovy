@@ -999,6 +999,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/merchants_growth_pricing_point"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/money-transfer_request"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2242,6 +2246,8 @@ tracks {
     "/notification/claim_return_allowed_seller_action_decorator"(platform: "/") {}
     "/notification/claim_return_allowed_reminder_timeout_decorator"(platform: "/") {}
     "/notification/claim_closed_seller_refund_decorator"(platform: "/") {}
+    "/notification/claim_complainant_to_respondent_message"(platform: "/") {}
+    "/notification/claim_respondent_to_complainant_message"(platform: "/") {}
 
     // Credits - Credit Card
     // Collection
@@ -3697,6 +3703,10 @@ tracks {
     "/notification/merchants_growth_sameday"(platform: "/mobile") {}
     "/notification/merchants_growth_reverse_screening_fraud"(platform: "/mobile") {}
     "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {}
+    "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {}
 
     //Flows
     "/notification/flows_default"(platform: "/mobile") {
@@ -3823,6 +3833,7 @@ tracks {
     "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_capture_after_ttl"(platform: "/") {}
     "/notification/prepaid_card_transaction_capture_less_than_amount"(platform: "/") {}
+    "/notification/card_subscription_visa_vai"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}

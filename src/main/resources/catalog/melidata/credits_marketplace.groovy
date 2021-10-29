@@ -227,6 +227,7 @@ tracks {
                 ]
         )
     }
+    "/credits/consumer/administrator_v2/go_where_can_use"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
         dashboard_status(
                 required: true,

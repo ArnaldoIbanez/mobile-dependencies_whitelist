@@ -1339,6 +1339,12 @@ trackTests {
             latest_news_type= "merchants_growth_reverse_screening"
             status= "read"
         }
+        "/notification_center/merchants_growth_pricing_point"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_type= "merchants_growth_pricing_point"
+            status= "read"
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -6220,6 +6226,18 @@ trackTests {
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {
+            event_type = "open"
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -6779,11 +6797,23 @@ trackTests {
             news_id = "claim_closed_seller_refund_decorator-186785675-76283123"
             event_type = "open"
         }
+
+        "/notification/claim_complainant_to_respondent_message"(platform: "/mobile"){
+            news_id = "claim_complainant_to_respondent_message-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_respondent_to_complainant_message"(platform: "/mobile"){
+            news_id = "claim_respondent_to_complainant_message-186785675-76283123"
+            event_type = "open"
+        }
+
         "/notification/claim_closed_seller_refund"(platform: "/mobile"){
             news_id = "claim_closed_seller_refund-186785675-76283123"
             event_type = "open"
             order_id = 123
         }
+        
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -8681,6 +8711,12 @@ trackTests {
             newsgroup_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_type= "merchants_growth_reverse_screening"
+            status= "read"
+        }
+        "/notification_center/merchants_growth_pricing_point"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_type= "merchants_growth_pricing_point"
             status= "read"
         }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
@@ -13680,6 +13716,18 @@ trackTests {
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {
+            event_type = "open"
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -14814,6 +14862,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_subscription_visa_vai"(platform: "/mobile") {
+            news_id = "/notification/card_subscription_visa_vai-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
@@ -15288,6 +15342,12 @@ trackTests {
 
         "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "card_transactions_transaction_invalid_amount_option_express_money-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
+        "/notification/card_subscription_visa_vai"(platform: "/mobile") {
+            news_id = "/notification/card_subscription_visa_vai-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }

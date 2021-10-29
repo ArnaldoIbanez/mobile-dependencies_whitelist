@@ -2764,6 +2764,41 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central METRICS STOCK-FULL SECTION
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("metrics stock-full section view for web") {
+    "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      origin = "stranded"
+    }
+  }
+
+  test("metrics stock-full section view for web mobile") {
+    "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics stock-full section view for mobile") {
+    "/seller_central/metrics/stock_full"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics stock-full help button click track for web") {
+    "/seller_central/metrics/stock_full/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "main_problems"
+    }
+  }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -6491,6 +6526,22 @@ test("seller central catalog optin v2 item plus card show") {
     "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event){
       use_gema = false
       seller_reputation = "NEWBIE"
+    }
+  }
+
+  test("Price suggestion result") {
+    "/seller_central/price_suggestion/bands"(platform: "/", type: TrackType.Event) {
+      app_name = "update-desktop"
+      client_id = "3282472529718136"
+      item_id = "MLA1106939454"
+      attributes = [
+        [attribute_id: "BRAND", attribute_value: "Chevrolet", attribute_name: "Marca"],
+        [attribute_id: "MODEL", attribute_value: "Onix", attribute_name: "Modelo"],
+        [attribute_id: "TRIM", attribute_value: "1.0 Turbo Premier Ii At", attribute_name: "Version"]
+      ]
+      prices_bands = [lower_band: "1500000", lower_limit: "1000000", upper_band: "3500000", upper_limit: "4000000",
+        estimated_price: "2500000"]
+      price = "2500000"
     }
   }
 }
