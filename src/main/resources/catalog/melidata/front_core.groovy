@@ -161,7 +161,7 @@ tracks {
     }
 
     def order_status_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'],  description: "The content type information")
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         items(required: false, type: PropertyType.ArrayList(PropertyType.Map(order_status_item_definition)), description: "The discount center items information")
     }
