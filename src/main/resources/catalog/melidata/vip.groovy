@@ -335,7 +335,7 @@ tracks {
         has_garex(required: false, type: PropertyType.Boolean, description: "The item have GAREX protection options")
 
         // CREDITS CONSUMER
-        credits_consumer(required: true, type:PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
+        credits_consumer(required: false, type:PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
     }
 
     "/vip"(platform: "/web") {
