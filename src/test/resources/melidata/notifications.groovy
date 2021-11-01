@@ -6175,6 +6175,18 @@ trackTests {
             news_id = "messages_new_123"
             event_type = "open"
         }
+        "/notification/credit_card_compulsory_debit_equal_min_payment"(platform: "/mobile") {
+            news_id = "credit_card_compulsory_debit_equal_min_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_compulsory_debit_less_min_payment"(platform: "/mobile") {
+            news_id = "credit_card_compulsory_debit_less_min_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_compulsory_debit_money_refund"(platform: "/mobile") {
+            news_id = "ccredit_card_compulsory_debit_money_refund-12345678"
+            event_type = "shown"
+        }
 
         //Merchant
         "/notification/merchants_growth_mgm"(platform: "/mobile") {
