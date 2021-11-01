@@ -899,60 +899,6 @@ trackTests {
 
     test("Identity") {
 
-        "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {
-            entity_type = "person"
-            is_compliant = true
-            user_type = "CO"
-            access = "full"
-            registered_by_phone = true
-            has_identification = false
-        }
-
-        "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "CO"
-            access = "restricted"
-            registered_by_phone = false
-            has_identification = true
-        }
-
-        "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "CO"
-            access = "denied"
-            registered_by_phone = true
-            has_identification = false
-        }
-
-        "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {
-            entity_type = "person"
-            is_compliant = true
-            user_type = "BU"
-            access = "partial"
-            registered_by_phone = false
-            has_identification = false
-        }
-
-        "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "CO"
-            access = "denied"
-            registered_by_phone = true
-            has_identification = true
-        }
-
-        "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {
-            entity_type = "company"
-            is_compliant = true
-            user_type = "BU"
-            access = "full"
-            registered_by_phone = false
-            has_identification = true
-        }
-
         "/profile/identity"(platform: "/", type: TrackType.View) {
             entity_type = "person"
             user_type = "CO"
@@ -1001,59 +947,6 @@ trackTests {
             has_identification = false
         }
 
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "person"
-            is_compliant = true
-            user_type = "CO"
-            access = "full"
-            registered_by_phone = true
-            has_identification = false
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "CO"
-            access = "restricted"
-            registered_by_phone = false
-            has_identification = true
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "CO"
-            access = "denied"
-            registered_by_phone = true
-            has_identification = false
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "person"
-            is_compliant = true
-            user_type = "BU"
-            access = "partial"
-            registered_by_phone = false
-            has_identification = false
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            is_compliant = false
-            user_type = "CO"
-            access = "denied"
-            registered_by_phone = true
-            has_identification = true
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            is_compliant = true
-            user_type = "BU"
-            access = "full"
-            registered_by_phone = false
-            has_identification = true
-        }
     }
 
     test("Identity Validation") {

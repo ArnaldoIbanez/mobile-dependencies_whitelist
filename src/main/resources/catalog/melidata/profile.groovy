@@ -76,10 +76,6 @@ tracks {
     //Identity
     "/profile/identity"(platform: "/", type: TrackType.View) {}
 
-    "/profile/identity/edit"(platform: "/", type: TrackType.View) {}
-
-    "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {}
-
     //Identity Validation
     "/profile/identity/validation/action"(platform: "/", type: TrackType.Event) {}
 
