@@ -146,7 +146,7 @@ tracks {
         rules_applied(required: true, type: PropertyType.String, description: "Type of rules applied to show this card", values: ['hard', 'soft', 'none'])
         with_random_order(required: true, type: PropertyType.Boolean, description: "Whether the order of the cards was randomized")
         tags(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Categories of the card (used for filtering)")
-        selected_tag(required: true, type: PropertyType.String, description: "Currently selected category")
+        selected_tag(required: false, type: PropertyType.String, description: "Currently selected category")
     }
 
     def sellerCoachTag = objectSchemaDefinitions {
@@ -482,7 +482,7 @@ tracks {
         source(required: true, type: PropertyType.String, description: "Frontend where the track was generated")
     }
     "/seller_central/seller_coach/recommendation"(platform: "/", isAbstract: true) {
-        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card clicked")
+        card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card actioned")
     "/seller_central/seller_coach/recommendation/open"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
