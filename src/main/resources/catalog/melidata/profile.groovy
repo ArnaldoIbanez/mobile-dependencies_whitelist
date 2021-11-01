@@ -20,19 +20,28 @@ tracks {
     }
 
     //Email
-    "/profile/email/action"(platform: "/", type: TrackType.Event) {
+    "/profile/email"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    //Identity
-    "/profile/identity/action"(platform: "/", type: TrackType.Event) {}
+    "/profile/email/edit"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+    }
+
+    "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+    }
 
     //Phone
     "/profile/phone"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/phone/action"(platform: "/", type: TrackType.Event) {
+    "/profile/phone/edit"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+    }
+
+    "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
@@ -41,16 +50,24 @@ tracks {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/contact_phone/action"(platform: "/", type: TrackType.Event) {
+    "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+    }
+
+    "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
     //Alternative phone
-    "/profile/alternative_phone/action"(platform: "/", type: TrackType.Event) {
+    "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
+    "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+    }
+
+    "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
@@ -59,7 +76,11 @@ tracks {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/preferred_name/action"(platform: "/", type: TrackType.Event) {
+    "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+    }
+
+    "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
@@ -67,12 +88,21 @@ tracks {
     "/profile/user_name"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
-    "/profile/user_name/action"(platform: "/", type: TrackType.Event) {
+
+    "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    //Identity View
+    "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
+        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
+    }
+
+    //Identity
     "/profile/identity"(platform: "/", type: TrackType.View) {}
+
+    "/profile/identity/edit"(platform: "/", type: TrackType.View) {}
+
+    "/profile/identity/edit/action"(platform: "/", type: TrackType.Event) {}
 
     //Identity Validation
     "/profile/identity/validation/action"(platform: "/", type: TrackType.Event) {}
@@ -82,7 +112,6 @@ tracks {
         event_type(type: PropertyType.String, required: true, values:["onboarding", "redirect"], description: "Indicates if is an informative or a redirect event")
     }
 
-    //Identity correction
     "/profile/identity/correction/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: true, values:["onboarding", "redirect"], description: "Indicates if is an informative or a redirect event")
     }
@@ -92,7 +121,6 @@ tracks {
         event_type(type: PropertyType.String, required: true, values:["onboarding", "redirect"], description: "Indicates if is an informative or a redirect event")
     }
 
-    //Identity fiscal_upgrade
     "/profile/identity/fiscal_upgrade/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: true, values:["onboarding", "redirect"], description: "Indicates if is an informative or a redirect event")
     }
