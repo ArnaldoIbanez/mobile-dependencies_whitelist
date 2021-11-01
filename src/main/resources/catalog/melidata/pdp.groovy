@@ -307,7 +307,7 @@ tracks {
         item_attributes(required: false, type: PropertyType.String, description: "Attributes of the winner item")
 
         // CREDITS CONSUMER
-        credits_consumer(required: false, type:PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
+        credits_consumer(required: true, type:PropertyType.Map(credits_consumer_map), description: 'Indicates Credits Consumer tracks')
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {

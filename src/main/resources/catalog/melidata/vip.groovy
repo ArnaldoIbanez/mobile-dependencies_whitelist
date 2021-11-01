@@ -139,7 +139,7 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "price of the item that is offered a protection")
     }
     def credits_consumer_map = objectSchemaDefinitions {
-        type(required: false, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
+        type(required: true, values: ["acquisition", "activation"], type: PropertyType.String, description: "Indicates the type of product")
     }
     //VIP FLOW
 
