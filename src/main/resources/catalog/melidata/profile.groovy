@@ -15,7 +15,7 @@ tracks {
         user_type(type: PropertyType.String, required: false, values:["BU", "CO"], description: "Indicates the account type in marketplace (BU, CO)")
         is_compliant(type: PropertyType.Boolean, required: false, description: "Indicates if is compliant with my-data-hub initiative (L5)", inheritable:true)
         access(type: PropertyType.String, required: false, values:["full", "partial", "restricted", "denied"], description: "Check for soft_compliant users")
-        registered_by_phone(type: PropertyType.Boolean, required: false, description: "Indicates if user was registered by new registration (true) or legacy (false)")
+        registered_by_phone(type: PropertyType.Boolean, required: false, description: "Indicates if user was registered by new registration (true) or legacy (false)", inheritable:true)
         has_identification(type: PropertyType.Boolean, required: false, description: "Indicates if the user has a non-validated identity or there is no information", inheritable:true)
         status(type: PropertyType.String, required: false, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
