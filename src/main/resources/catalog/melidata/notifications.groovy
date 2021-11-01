@@ -2431,6 +2431,19 @@ tracks {
     "/notification/credits_consumer_chatbot_cancel_loan"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
     "/notification/credits_consumer_chatbot_accredited_time"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_initial_greeting"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_match"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_match_v2"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_ask_feedback"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_sensitive_info"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_appreciate"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_multimedia"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_numeric"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_written"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_omitted"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
 
 
       //Billing

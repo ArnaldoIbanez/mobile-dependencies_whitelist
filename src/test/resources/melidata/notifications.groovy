@@ -3207,53 +3207,106 @@ trackTests {
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_requirements"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_requirements-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_how_to_pay"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_how_to_pay-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_credit_limit"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_credit_limit-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_financing_rate"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_financing_rate-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_duedate"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_duedate-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_purchase_trouble"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_purchase_trouble-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_mc_unavailable"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_mc_unavailable-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_less_money"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_less_money-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_early_payment-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_cancel_loan"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_cancel_loan-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_payment_promise_info-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_accredited_time"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_accredited_time-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_chatbot_initial_greeting"(platform: "/") {
+            news_id = "credits-consumer_chatbot_initial_greeting-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_no_match"(platform: "/") {
+            news_id = "credits-consumer_chatbot_no_match-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_no_match_v2"(platform: "/") {
+            news_id = "credits-consumer_chatbot_no_match_v2-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_ask_feedback"(platform: "/") {
+            news_id = "credits-consumer_chatbot_ask_feedback-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_sensitive_info"(platform: "/") {
+            news_id = "credits-consumer_chatbot_sensitive_info-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_appreciate"(platform: "/") {
+            news_id = "credits-consumer_chatbot_appreciate-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_no_multimedia"(platform: "/") {
+            news_id = "credits-consumer_chatbot_no_multimedia-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_feedback_numeric"(platform: "/") {
+            news_id = "credits-consumer_chatbot_feedback_numeric-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_feedback_written"(platform: "/") {
+            news_id = "credits-consumer_chatbot_feedback_written-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_feedback_omitted"(platform: "/") {
+            news_id = "credits-consumer_chatbot_feedback_omitted-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {
+            news_id = "credits-consumer_chatbot_early_payment-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {
+            news_id = "credits-consumer_chatbot_payment_promise-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {
+            news_id = "credits-consumer_chatbot_payment_promise_info-21680059-20180516"
+            event_type = "shown"
+        }
+
         
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
             news_id = "chargeback-payer_high_agree_repayment_mp-14363307744123"
