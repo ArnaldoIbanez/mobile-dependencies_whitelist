@@ -324,7 +324,7 @@ trackTests {
         "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
 
 
-        "/banking/movements/links/view"(platform: "/", type: TrackType.Event) {
+        "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
             action = 'DOWNLOAD_BILLS_TEST'
         }   
 

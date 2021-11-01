@@ -259,7 +259,7 @@ tracks {
 
     // Movements - Links
     "/banking/movements/links"(platform: "/", isAbstract: true) {}
-    "/banking/movements/links/view"(platform: "/", type: TrackType.Event) {
+    "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Indicates the actions clicked")
     }
 
