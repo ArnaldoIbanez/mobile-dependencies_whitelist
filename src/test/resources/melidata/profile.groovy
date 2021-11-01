@@ -946,55 +946,6 @@ trackTests {
             access = "full"
             has_identification = false
         }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "person"
-            user_type = "CO"
-            is_compliant = true
-            access = "full"
-            has_identification = true
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            user_type = "CO"
-            is_compliant = false
-            access = "restricted"
-            has_identification = false
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            user_type = "CO"
-            is_compliant = false
-            access = "denied"
-            has_identification = true
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "person"
-            user_type = "BU"
-            is_compliant = true
-            access = "partial"
-            has_identification = false
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            user_type = "CO"
-            is_compliant = false
-            access = "denied"
-            has_identification = true
-        }
-
-        "/profile/identity/edit"(platform: "/", type: TrackType.View) {
-            entity_type = "company"
-            user_type = "BU"
-            is_compliant = true
-            access = "full"
-            has_identification = false
-        }
-
     }
 
     test("Identity Validation") {
