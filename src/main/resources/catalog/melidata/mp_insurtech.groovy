@@ -822,7 +822,6 @@ tracks {
     
     // Congrats - Success View
     "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View, parentPropertiesInherited: false){
-        quote_id(required: false, type: PropertyType.String, description: "the id of the quote generated")
         purchase_key(required: true, type: PropertyType.String, description: "the id of the purchase generated")
     }
     "/insurtech/cards/congrats_success/go_cards"(platform: "/", type: TrackType.Event, parentPropertiesInherited: true){
