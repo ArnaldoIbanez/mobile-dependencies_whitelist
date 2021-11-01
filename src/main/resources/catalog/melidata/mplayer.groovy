@@ -38,7 +38,7 @@ tracks {
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
     "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
-       position(required: true, PropertyType.Numeric, description: "Position at the default emojis list")
+       position(required: false, PropertyType.Numeric, description: "Position at the default emojis list")
        emoji_id(required: false, PropertyType.String, description: "The emoji identifier, if available")
     }
     "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile", type: TrackType.Event) {
@@ -128,7 +128,7 @@ tracks {
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
     "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
-       position(required: true, PropertyType.Numeric, description: "Position at the default emojis list")
+       position(required: false, PropertyType.Numeric, description: "Position at the default emojis list")
        emoji_id(required: false, PropertyType.String, description: "The emoji identifier, if available")
     }
     "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
@@ -184,7 +184,7 @@ tracks {
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
     "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile", type: TrackType.Event) {
-        position(required: true, PropertyType.Numeric, description: "Position at the default emojis list")
+        position(required: false, PropertyType.Numeric, description: "Position at the default emojis list")
         emoji_id(required: false, PropertyType.String, description: "The emoji identifier, if available")
     }
     "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
