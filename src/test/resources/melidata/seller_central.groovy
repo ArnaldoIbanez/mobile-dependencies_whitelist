@@ -340,9 +340,8 @@ trackTests {
 
   // Seller coach
 
-  test("Seller coach card open") {
-    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/web", type: TrackType.Event) {
-      segment = "perfect_launch"
+  test("Seller coach recommendation open") {
+    "/seller_central/seller_coach/recommendation/open"(platform: "/web", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
@@ -357,12 +356,12 @@ trackTests {
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "listing"
     }
   }
 
-  test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/web", type: TrackType.Event) {
-      segment = "perfect_launch"
+  test("Seller coach recommendation dismiss") {
+    "/seller_central/seller_coach/recommendation/dismiss"(platform: "/web", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
@@ -371,16 +370,17 @@ trackTests {
         item_id: "15415445414",
         rules_applied: "none",
         with_random_order: false,
-        tags: ["shipping"]
+        tags: ["shipping"],
+        selected_tag: "shipping"
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
-  test("Seller coach card bookmark") {
-    "/seller_central/seller_coach/summary/recommendation/bookmark"(platform: "/web", type: TrackType.Event) {
-      segment = "perfect_launch"
+  test("Seller coach recommendation bookmark") {
+    "/seller_central/seller_coach/recommendation/bookmark"(platform: "/web", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
@@ -388,16 +388,17 @@ trackTests {
         key: "AT_014",
         rules_applied: "soft",
         with_random_order: true,
-        tags: ["publicaciones"]
+        tags: ["publicaciones"],
+        selected_tag: "publicaciones"
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
-  test("Seller coach card unbookmark") {
-    "/seller_central/seller_coach/summary/recommendation/unbookmark"(platform: "/web", type: TrackType.Event) {
-      segment = "perfect_launch"
+  test("Seller coach recommendation unbookmark") {
+    "/seller_central/seller_coach/recommendation/unbookmark"(platform: "/web", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
@@ -405,16 +406,17 @@ trackTests {
         key: "PB_001",
         rules_applied: "none",
         with_random_order: false,
-        tags: ["gestion"]
+        tags: ["gestion"],
+        selected_tag: "gestion"
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
-  test("Seller coach cards view") {
-    "/seller_central/seller_coach/summary/cards_view"(platform: "/web", type: TrackType.View) {
-      segment = "none"
+  test("Seller coach recommendations view") {
+    "/seller_central/seller_coach/recommendations/view"(platform: "/web", type: TrackType.View) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       cards = [
@@ -424,7 +426,8 @@ trackTests {
           page: 2,
           rules_applied: "hard",
           with_random_order: false,
-          tags: ["important"]
+          tags: ["important"],
+          selected_tag: "important"
         ],
         [
           type: "CONTENT",
@@ -432,17 +435,18 @@ trackTests {
           page: 2,
           rules_applied: "soft",
           with_random_order: false,
-          tags: ["important"]
+          tags: ["important"],
+          selected_tag: "important"
         ]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
   test("Seller coach tags view") {
-    "/seller_central/seller_coach/summary/tags"(platform: "/web", type: TrackType.View) {
-      segment = "none"
+    "/seller_central/seller_coach/tags/view"(platform: "/web", type: TrackType.View) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       tags = [
@@ -457,12 +461,12 @@ trackTests {
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
   test("Seller coach tag click") {
-    "/seller_central/seller_coach/summary/tags/select_tag"(platform: "/web", type: TrackType.Event) {
-      segment = "none"
+    "/seller_central/seller_coach/tag/select"(platform: "/web", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       tag = [
@@ -471,24 +475,24 @@ trackTests {
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
     test("Seller coach carousel scroll") {
-    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/web", type: TrackType.Event) {
-      segment = "perfect_launch"
+    "/seller_central/seller_coach/carousel/scroll"(platform: "/web", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       page = 2
       scroll_type = "next"
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "listing"
     }
   }
 
-  test("Seller coach card open") {
-    "/seller_central/seller_coach/summary/recommendation/open"(platform: "/mobile", type: TrackType.Event) {
-      segment = "perfect_launch"
+  test("Seller coach recommendation open") {
+    "/seller_central/seller_coach/recommendation/open"(platform: "/mobile", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
@@ -499,16 +503,17 @@ trackTests {
         item_id: "15415445414",
         rules_applied: "none",
         with_random_order: true,
-        tags: ["publications", "important"]
+        tags: ["publications", "important"],
+        selected_tag: "important"
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
-  test("Seller coach card dismiss") {
-    "/seller_central/seller_coach/summary/recommendation/dismiss"(platform: "/mobile", type: TrackType.Event) {
-      segment = "perfect_launch"
+  test("Seller coach recommendation dismiss") {
+    "/seller_central/seller_coach/recommendation/dismiss"(platform: "/mobile", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       card = [
@@ -517,16 +522,17 @@ trackTests {
         item_id: "15415445414",
         rules_applied: "none",
         with_random_order: false,
-        tags: ["publications", "important"]
+        tags: ["publications", "important"],
+        selected_tag: "important"
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
-  test("Seller coach cards view") {
-    "/seller_central/seller_coach/summary/cards_view"(platform: "/mobile", type: TrackType.View) {
-      segment = "none"
+  test("Seller coach recommendations view") {
+    "/seller_central/seller_coach/recommendations/view"(platform: "/mobile", type: TrackType.View) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       cards = [
@@ -536,7 +542,8 @@ trackTests {
           page: 2,
           rules_applied: "hard",
           with_random_order: false,
-          tags: ["publications"]
+          tags: ["publications"],
+          selected_tag: "publications"
         ],
         [
           type: "CONTENT",
@@ -544,23 +551,25 @@ trackTests {
           page: 2,
           rules_applied: "soft",
           with_random_order: false,
-          tags: ["publications"]
+          tags: ["publications"],
+          selected_tag: "publications"
         ]
       ]
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 
   test("Seller coach carousel scroll") {
-    "/seller_central/seller_coach/summary/carousel_scroll"(platform: "/mobile", type: TrackType.Event) {
-      segment = "perfect_launch"
+    "/seller_central/seller_coach/carousel/scroll"(platform: "/mobile", type: TrackType.Event) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       page = 2
       scroll_type = "next"
       seller_experience = "ADVANCED"
       user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "summary"
     }
   }
 

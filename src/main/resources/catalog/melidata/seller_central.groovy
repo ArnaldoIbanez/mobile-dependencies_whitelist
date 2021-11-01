@@ -483,6 +483,7 @@ tracks {
     }
     "/seller_central/seller_coach/recommendation"(platform: "/", isAbstract: true) {
         card(required: true, type: PropertyType.Map(sellerCoachCard), description: "Card actioned")
+    }
     "/seller_central/seller_coach/recommendation/open"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
