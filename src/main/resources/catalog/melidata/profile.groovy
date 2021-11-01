@@ -24,74 +24,54 @@ tracks {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/email/edit"(platform: "/", type: TrackType.View) {}
+
+    "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {}
 
     //Phone
     "/profile/phone"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/phone/edit"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/phone/edit"(platform: "/", type: TrackType.View) {}
 
-    "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/phone/edit/action"(platform: "/", type: TrackType.Event) {}
 
     //Contact phone
     "/profile/contact_phone"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/contact_phone/edit"(platform: "/", type: TrackType.View) {}
 
-    "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/contact_phone/edit/action"(platform: "/", type: TrackType.Event) {}
 
     //Alternative phone
     "/profile/alternative_phone"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/alternative_phone/edit"(platform: "/", type: TrackType.View) {}
 
-    "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/alternative_phone/edit/action"(platform: "/", type: TrackType.Event) {}
 
     //Preferred name
     "/profile/preferred_name"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/preferred_name/edit"(platform: "/", type: TrackType.View) {}
 
-    "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/preferred_name/edit/action"(platform: "/", type: TrackType.Event) {}
 
     //User name
     "/profile/user_name"(platform: "/", type: TrackType.View) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/user_name/edit"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/user_name/edit"(platform: "/", type: TrackType.View) {}
 
-    "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
+    "/profile/user_name/edit/action"(platform: "/", type: TrackType.Event) {}
 
     //Identity
     "/profile/identity"(platform: "/", type: TrackType.View) {}
