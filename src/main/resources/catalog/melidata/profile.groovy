@@ -24,10 +24,6 @@ tracks {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
 
-    "/profile/email/edit"(platform: "/", type: TrackType.View) {
-        status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
-    }
-
     "/profile/email/edit/action"(platform: "/", type: TrackType.Event) {
         status(type: PropertyType.String, required: true, values:["verified", "not-verified", "information"], description: "Indicates if field is verified or not (if applies) when clicking")
     }
