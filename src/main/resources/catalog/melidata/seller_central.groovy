@@ -1381,6 +1381,11 @@ tracks {
         fragment_from_webview(required: false, type: PropertyType.String, description: "The webview where is opened the fragment")
     }
 
+    "/seller_central/metrics/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
     "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales
         sellerMetricsContext

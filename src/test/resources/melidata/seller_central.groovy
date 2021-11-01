@@ -2306,6 +2306,17 @@ trackTests {
     }
   }
 
+    test("metrics section view for web") {
+    "/seller_central/metrics/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
   test("metrics section view for web") {
     "/seller_central/metrics/clear_filters"(platform: "/web", type: TrackType.Event) {
       seller_profile = "ADVANCED"
