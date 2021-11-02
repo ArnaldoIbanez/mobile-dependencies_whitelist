@@ -4545,6 +4545,7 @@ trackTests {
             ]
             fallback_disabled = false
             screenlock_method_used = "biometrics"
+            biometrics_hash = "af21213819faed1923182dfc4217"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
