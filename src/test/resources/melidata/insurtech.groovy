@@ -2640,6 +2640,20 @@ trackTests {
                 amount_fee:  10.73,
             ]
         }
+        "/insurtech/protections/detail/garex/feedback"(platform:"/", type: TrackType.Event) {
+            protection = [
+                    insurance_purchase_key: "garex-ABC124",
+                    entity_type:"quote",
+                    entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                    product_type:"roda",
+                    product_id:"MLB_RD00000000000065134TEST",
+                    has_open_claim: false,
+            ]
+            product = [
+                    amount_total: 100.73,
+                    amount_fee:  10.73,
+            ]
+        }
 
         // CARDS
         "/insurtech/protections/detail/cards"(platform:"/mobile", type: TrackType.View) {
@@ -3001,19 +3015,15 @@ trackTests {
     test('Insurtech - test CARDS CONGRATS tracking'){
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
-            quote_id = ""
             purchase_key = "8888"
         }
         "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
-            quote_id = ""
             purchase_key = "8888"
         }
         "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
-            quote_id = ""
             purchase_key = "8888"
         }
         "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
-            quote_id = ""
             purchase_key = "8888"
         }
     }

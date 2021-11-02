@@ -24,8 +24,9 @@ tracks {
 
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View that has been called")
+        view_id(required: false, type: PropertyType.String, description: "View that has been called")
         sub_view_id(required: false, type: PropertyType.String, description: "Sub view that has been called", values: ["mshops", "markeplace"])
+        origin(required:false, type: PropertyType.String, description: "View where the event has been called", name: "origin")
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Listings empty states and publications to activate channel 
@@ -56,7 +57,7 @@ tracks {
     "/seller_central/listings/row"(platform: "/", isAbstract: true){
         // TODO remove required: false after migration complete
         item_id(required: false, type: PropertyType.String, description: "Id of the publication")
-        sub_view_id(required: false,type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops"])
+        sub_view_id(required: false,type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops","only_marketplace","legacy"])
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings comparison tooltip
@@ -149,11 +150,12 @@ tracks {
     "/seller_central/listings/sort"(platform: "/") {
         id(required: true, type: PropertyType.String, description: "Index of sort applied")
         view_id(required: true, type: PropertyType.String, description: "View where the event has been called")
-
+        sub_view_id(required: false,type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops","only_marketplace","legacy"])
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
         view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        sub_view_id(required: false,type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops","only_marketplace","legacy"])
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings dropdown modify massive

@@ -2427,6 +2427,19 @@ tracks {
     "/notification/credits_consumer_chatbot_cancel_loan"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
     "/notification/credits_consumer_chatbot_accredited_time"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_initial_greeting"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_match"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_match_v2"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_ask_feedback"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_sensitive_info"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_appreciate"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_multimedia"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_numeric"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_written"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_omitted"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
 
 
       //Billing
@@ -3833,6 +3846,7 @@ tracks {
     "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_capture_after_ttl"(platform: "/") {}
     "/notification/prepaid_card_transaction_capture_less_than_amount"(platform: "/") {}
+    "/notification/card_subscription_visa_vai"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}

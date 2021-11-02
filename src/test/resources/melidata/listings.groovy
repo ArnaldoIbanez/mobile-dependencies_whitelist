@@ -9,11 +9,15 @@ trackTests {
 
   test("seller central listing main page") {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
-  }
-  test("seller central listing main page") {
+  
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
       view_id = "listing"
       sub_view_id = "mshops"
+    }
+
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id = "fulfillment"
+      origin = "metrics"
     }
   }
 
