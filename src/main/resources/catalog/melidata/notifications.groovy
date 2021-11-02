@@ -2269,6 +2269,10 @@ tracks {
     "/notification/credit_card_collection_expired_50"(platform: "/") {}
     "/notification/credit_card_collection_expired_53"(platform: "/") {}
     "/notification/credit_card_collection_expired_58"(platform: "/") {}
+    "/notification/credit_card_compulsory_debit_equal_min_payment"(platform: "/") {}
+    "/notification/credit_card_compulsory_debit_less_min_payment"(platform: "/") {}
+    "/notification/credit_card_compulsory_debit_money_refund"(platform: "/") {}
+
     // Transaction
     "/notification/credit_card_transaction_acquisition"(platform: "/") {}
     "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
