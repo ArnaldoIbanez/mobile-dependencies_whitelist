@@ -12,6 +12,33 @@ tracks {
     *    ACTIVITY TRACKS    *
     *************************/
 
+    propertyDefinitions {
+        section_id(required: false, type: PropertyType.String, description: "Identifier for the realestate to consume")
+        component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
+        content_id(required: false, type: PropertyType.String, description: "Identifier for the unique content shown")
+        audience(required: false, type: PropertyType.String, description: "The audience for which this content was prepared")
+        position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        logic(required: false, type: PropertyType.String, description: "Origin of the content")
+        business_unit(required: false, type: PropertyType.String, description: "The business unit")
+        bu_line(required: false, type: PropertyType.String, description: "The business unit related to the content")
+        flow(required: false, type: PropertyType.String, description: "The flow related to the content")
+        action_id(required: false, type: PropertyType.String, description: "The action executed")
+        link(required: false, type: PropertyType.String, description: "Link to execute")
+    }
+
+    propertyGroups {
+        eventDataTrack (
+           section_id, component_id, content_id, audience, position, logic, business_unit, bu_line, flow
+        )
+        actionEventDataTrack (
+           section_id, component_id, content_id, audience, position, logic, business_unit, bu_line, flow, action_id, link
+        )
+    }
+
+    "/mpfront/activities/detail/crossselling_print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mpfront/activities/detail/crossselling_view"(platform: "/", type: TrackType.View) { eventDataTrack }
+    "/mpfront/activities/detail/crossselling_tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+
     /********************************
     *     ACTIVITY MOBILE TRACKS    *
     *********************************/

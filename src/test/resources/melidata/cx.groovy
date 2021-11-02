@@ -207,7 +207,22 @@ trackTests {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
         }
+
+        "/support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
+            case_id = 123456
+        }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
+        buttons = ["Volver a ayuda", "Contactarse", "Devolver compra"]
+        purchase_status = "Entregado"
+        }
+
     }
 
     test("Support Widget having Content Type") {
@@ -527,6 +542,20 @@ trackTests {
             user_text = "Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars. Testing text 360 chars."
             content_ids = [123, 456, 7890]
             object_model = "‘0.0.5-com208-ctx-training"
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
+        }
+        
+        "/support/widget/casenlp"(platform: "/", type: TrackType.Event) {
+            process_id = "4ad02004-251c-11ec-8f9f-0242ac130004"
+            case_id = 123456
+        }
+
+        "/support/widget/purchases/detail"(platform: "/", type: TrackType.View) {}
+
+        "/support/widget/purchases/detail/cta"(platform: "/", type: TrackType.Event) {
+        button_label = "Volver a ayuda"
+        buttons = ["Volver a ayuda", "Contactarse", "Devolver compra"]
+        purchase_status = "Entregado"
         }
   }
 

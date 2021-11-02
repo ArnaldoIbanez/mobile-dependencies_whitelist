@@ -547,6 +547,51 @@ trackTests {
                     ordinal: 17,
                     content_type : 'complete'
             ]
+            order_status: [
+                    content_type : 'partial',
+                    ordinal: 18,
+                    items: [
+                            [
+                                    index: 0,
+                                    store_id: 30091709,
+                                    collector_id: 1234567,
+                                    name: "Mc Donalds",
+                                    purchase_id: 12345678,
+                                    purchase_state: "paid",
+                                    action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                    component_version: 3,
+                                    status_label: [
+                                            name: "en curso",
+                                            icon: "icon_key",
+                                            color: "#FFFFFF"
+                                    ],
+                                    stepper: [
+                                            stepper_version: 1,
+                                            total_steps: 4,
+                                            current_step: 2,
+                                            colors: [
+                                                    completed_steps: "#FF22FF",
+                                                    pending_steps: "#002200"
+                                            ]
+                                    ]
+                            ],
+                            [
+                                    index: 1,
+                                    store_id: 3009093,
+                                    collector_id: 125674,
+                                    name: "Mc Donalds",
+                                    purchase_id: 1234583,
+                                    purchase_state: "canceled",
+                                    action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
+                                    component_version: 2,
+                                    status_label: [
+                                            name: "en curso",
+                                            icon: "icon_key",
+                                            color: "#FFFFFF"
+                                    ]
+                            ]
+                    ]
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -977,6 +1022,39 @@ trackTests {
             component_id="user_discount_center"
             metadata_user:[
                 type: "payer"
+            ]
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Order Status - Proximity") {
+        "/wallet_home/section/tap/order_status" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="order_status"
+            component_id="card_component_0"
+            index: 0
+            store_id: 30091709
+            collector_id: 1234567
+            name: "Mc Donalds"
+            purchase_id: 12345678
+            purchase_state: "paid"
+            action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home"
+            component_version: 3
+            status_label: [
+                    name: "en curso",
+                    icon: "icon_key",
+                    color: "#FFFFFF"
+            ]
+            stepper: [
+                    stepper_version: 1,
+                    total_steps: 4,
+                    current_step: 2,
+                    colors: [
+                            completed_steps: "#FF22FF",
+                            pending_steps: "#002200"
+                    ]
+            ]
+            metadata_user:[
+                    type: "payer"
             ]
         }
     }
@@ -2453,7 +2531,7 @@ trackTests {
         }
 
         test("Mercadopago Home Tap v3 - Advertising [${business}]") {
-            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+            "/wallet_home/section/tap/pendings" (platform: "/", type: TrackType.Event) {
                 audience = "all"
                 component_id = "advertising_item1"
                 section_id = "advertising"
@@ -2467,7 +2545,7 @@ trackTests {
                 criticality = 1
                 from = "section"
             }
-            "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event) {
+            "/wallet_home/section/tap/pendings" (platform: "/", type: TrackType.Event) {
                 audience = "all"
                 component_id = "advertising_payers_recharge_sube_mp"
                 section_id = "advertising"

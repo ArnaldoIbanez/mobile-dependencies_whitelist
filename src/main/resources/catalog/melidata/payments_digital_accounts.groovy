@@ -2,7 +2,6 @@ package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
-
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -18,6 +17,7 @@ tracks {
         elements(required: false, type: PropertyType.Numeric, description: "items quantity")
         status(required: false, type: PropertyType.String, description: "component status")
         empty(required: false, type: PropertyType.Boolean, description: "quantity status")
+        last_update(required: false, type: PropertyType.String, description: "timestamp")
     }
 
     def component_definition = objectSchemaDefinitions {
@@ -30,6 +30,7 @@ tracks {
     propertyDefinitions {
         // Global variables
         action_id(required: true, type: PropertyType.String, description: "The action executed")
+        cerc_action_id(required: true, type: PropertyType.String, values: ["button_click"], description: "The action executed")
 
         // Credits Merch engine
         component_id(required: true, type: PropertyType.String, description: "Identifier for the component")
@@ -48,6 +49,18 @@ tracks {
         begin_date(required: true, type: PropertyType.String, description: "Start date of the selected period")
         end_date(required: true, type: PropertyType.String, description: "End date of the selected period")
 
+        //Banking
+        available(required: true, type: PropertyType.Boolean, description: "Indicates if the user has money available")
+        account(required: true, type: PropertyType.Boolean, description: "Indicates if the user has money in MP account")
+        invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money invested")
+        to_release(required: true, type: PropertyType.Boolean, description: "Indicates if user has money to release")
+        embargo_invested(required: true, type: PropertyType.Boolean, description: "Indicates if user has money retained by embargo")
+        retained(required: true, type: PropertyType.Boolean, description: "Indicates if user has money retained")
+        shortcuts(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Indicates the shortcuts available for the user")
+        debts(required: true, type: PropertyType.Boolean, description: "Indicates if user has debt card")
+        cerc(required: true, type: PropertyType.Boolean, description: "Indicates if user has cerc capability")
+        activities(required: true, type: PropertyType.Boolean, description: "Indicates if user has money activities")
+
         // Components
         my_money_available(required: true, type: PropertyType.Map(component_definition), description: "Available component print")
         my_money_card_available(required: true, type: PropertyType.Map(component_definition), description: "Card Available component print")
@@ -63,6 +76,11 @@ tracks {
         my_money_cerc(required: true, type: PropertyType.Map(component_definition), description: "Card CERC component print")
         my_money_open_banking(required: true, type: PropertyType.Map(component_definition), description: "Open Banking component print")
         my_money_debt_balance(required: true, type: PropertyType.Map(component_definition), description: "Debt balance component print")
+        my_money_contingency_message(required: true, type: PropertyType.Map(component_definition), description: "Contingency message component print")
+        my_money_bank_detail(required: true, type: PropertyType.Map(component_definition), description: "Bank detail component print")
+        my_money_accounts_list(required: true, type: PropertyType.Map(component_definition), description: "Bank account list component print")
+        my_money_cards_list(require: true, type: PropertyType.Map(component_definition), description: "Bank cards list component print")
+        my_money_timestamp(required: true, type: PropertyType.Map(component_definition), description: "Bank resource timestamp component print")
     }
 
     propertyGroups {
@@ -81,8 +99,14 @@ tracks {
         balanceEventClick (
                 action_id
         )
+        bankingTrack (
+                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
+        )
         cercEventClick (
                 action_type
+        )
+        cercOptinEventClick (
+                cerc_action_id
         )
         availablePrint (
                 my_money_available
@@ -126,6 +150,21 @@ tracks {
         debtBalancePrint (
                 my_money_debt_balance
         )
+        contingencyMessagePrint (
+                my_money_contingency_message
+        )
+        accountsListPrint (
+                my_money_accounts_list
+        )
+        cardsListPrint (
+                my_money_cards_list
+        )
+        timestampPrint (
+                my_money_timestamp
+        )
+        bankDetailPrint (
+                my_money_bank_detail
+        )
     }
 
     // MP Banking
@@ -142,6 +181,7 @@ tracks {
     "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) { lastActivitiesPrint }
     "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) { openBankingPrint }
     "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) { debtBalancePrint }
+    "/banking/balance/contingency_message_component"(platform: "/", type: TrackType.View) { contingencyMessagePrint }
 
     // Components ToRelease
     "/banking/to_release/print"(platform: "/", type: TrackType.View) { toReleasePrint }
@@ -151,6 +191,12 @@ tracks {
     "/banking/to_release/card_calendar_component"(platform: "/", type: TrackType.View) { cardCalendarPrint }
     "/banking/to_release/calendar_daily_component"(platform: "/", type: TrackType.View) { calendarDailyPrint }
     "/banking/to_release/cerc_component"(platform: "/", type: TrackType.View) { cercPrint }
+
+    // Components Open Finance
+    "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) { accountsListPrint }
+    "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) { cardsListPrint }
+    "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) { timestampPrint }
+    "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) { bankDetailPrint }
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) {}
@@ -171,6 +217,7 @@ tracks {
     "/banking/balance/cerc"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/cerc/optin"(platform: "/", type: TrackType.Event) { balanceEventClick }
     "/banking/balance/open_banking"(platform: "/", type: TrackType.Event) { balanceEventClick }
+    "/banking/balance/sections"(platform: "/", type: TrackType.Event) { bankingTrack }
 
     // ToRelease Events
     "/banking/to_release/calendar"(platform: "/", type: TrackType.Event) { balanceEventClick }
@@ -254,6 +301,10 @@ tracks {
     "/regulations/cerc/reply"(platform: "/", type: TrackType.View) {}
     "/regulations/cerc/reply/congrats"(platform: "/", type: TrackType.View) {}
     "/regulations/cerc/optin"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/select"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/confirm"(platform: "/", type: TrackType.View) {}
+    "/regulations/cerc/optin_form/congrats"(platform: "/", type: TrackType.View) {}
 
     // Regulations Cerc Events
     "/regulations/cerc/contracts/reply"(platform: "/", type: TrackType.Event) { cercEventClick }
@@ -262,6 +313,17 @@ tracks {
     "/regulations/cerc/reply/confirm"(platform: "/", type: TrackType.Event) { cercEventClick }
     "/regulations/cerc/reply/cancel"(platform: "/", type: TrackType.Event) { cercEventClick }
     "/regulations/cerc/congrats/return"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercEventClick }
-    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercEventClick }
+
+    "/regulations/cerc/optin/faqs"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/help"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/go_optin_form"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/optout_confirm"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/optout_cancel"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin/optout"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/select/form_submit"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_edit"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_confirm"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/confirm/form_error_close"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/congrats/form_close"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
+    "/regulations/cerc/optin_form/congrats/help"(platform: "/", type: TrackType.Event) { cercOptinEventClick }
 }

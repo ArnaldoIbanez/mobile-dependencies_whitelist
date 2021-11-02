@@ -19,6 +19,7 @@ trackTests {
             shop_status = "active"
             domain_status = "shops_domain"
             configuration = [
+                "mercado_ads": "not_configured",
                 "whatsapp": "not_configured",
                 "facebook_shop": "configured",
                 "facebook_pixel": "configuring",
@@ -113,6 +114,30 @@ trackTests {
             shop_domain = "test.mercadolibre.com.co"
             domain_status = "shops_domain"
             tool = "google_ads"
+        }
+
+        "/shops/hub/activate"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "mercado_ads"
+        }
+
+        "/shops/hub/engage"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "mercado_ads"
+        }
+
+        "/shops/hub/reactivate"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "mercado_ads"
         }
 
         "/shops/hub/configuration/show_more"(platform: "/", type: TrackType.Event) {
@@ -247,6 +272,48 @@ trackTests {
         }
     }
 
+    test("Mercado Shops seller coach") {
+        "/shops/hub/social"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            location = "footer"
+            social_network = "youtube"
+        }
+
+        "/shops/hub/play"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            tool = "tutorial"
+            video_id = "1_manage_your_shop"
+        }
+
+        "/shops/hub/inspiration_store"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            example_store = "example_store_name"
+        }
+
+        "/shops/hub/seller_central"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+
+        "/shops/hub/content_center"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+        }
+    }
+
     test("Mercado Shops tips and news") {
         "/shops/hub/more_about/show_more"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
@@ -296,6 +363,16 @@ trackTests {
             domain_status = "shops_domain"
             success = true
             sidebar_name = "whatsapp"
+        }
+
+        "/shops/hub/sidebar/save_changes"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_name = "TESTSHOP"
+            shop_domain = "test.mercadolibre.com.co"
+            domain_status = "shops_domain"
+            success = true
+            sidebar_name = "social_networks"
+            configured_fields = ["twitter", "facebook", "instagram"]
         }
     }
 }

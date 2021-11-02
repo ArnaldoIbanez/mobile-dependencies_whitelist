@@ -91,4 +91,15 @@ tracks {
     // Kyc
     "/account_fund/kyc/continue"(platform: "/", type: TrackType.Event) {}
     "/account_fund/kyc/close"(platform: "/", type: TrackType.Event) {}
+
+    //account data mlc
+
+    "/account_fund/account_data/home"(platform: "/", type: TrackType.View) {}
+    "/account_fund/account_data/faq"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/copy"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/share"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/modal/kyc"(platform: "/", type: TrackType.View) {}
+    "/account_fund/account_data/modal/kyc/close"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/account_data/modal/kyc/continue"(platform: "/", type: TrackType.Event) {}
+
 }

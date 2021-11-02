@@ -289,6 +289,7 @@ tracks {
         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/quote_fail"(platform:"/web", type: TrackType.Event, parentPropertiesInherited:false) {
@@ -297,6 +298,7 @@ tracks {
         option_selected(required: true, type:PropertyType.Map(grd_protection_option), description: "selected coverage options")
         has_roda(required: true, type: PropertyType.Boolean, description: "RODA protections are offered in sight")
         has_garex(required: true, type: PropertyType.Boolean, description: "GAREX protections are offered in sight")
+        flow_id(required: false, type: PropertyType.String, description: "Context where the screen is rendered")
     }
 
     "/insurtech/qpage_on/skip"(platform:"/web", type: TrackType.Event, parentPropertiesInherited:false) {
