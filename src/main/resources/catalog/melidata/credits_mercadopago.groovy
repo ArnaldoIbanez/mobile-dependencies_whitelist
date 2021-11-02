@@ -720,6 +720,16 @@ tracks {
                 'financial_scraping',
             ]
         )
+        provider(
+            type: PropertyType.String,
+            required: false,
+            description: "Which provider was choosen to share information",
+            values: [
+                'quanto',
+                'open_finance',
+                'unknown',
+            ]
+        )
     }
 
     "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {

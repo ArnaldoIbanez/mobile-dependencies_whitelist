@@ -1430,11 +1430,13 @@ trackTests {
         "/credits/merchant/open_market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
             flow="upsell_offer"
+            provider="unknown"
         }
 
         "/credits/merchant/open_market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
             flow="upsell_offer"
+            provider="quanto"
         }
 
         "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
