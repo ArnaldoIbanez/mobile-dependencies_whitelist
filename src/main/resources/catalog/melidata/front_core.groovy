@@ -39,7 +39,7 @@ tracks {
         walletHomePendingsFields(
             section_id, link, component_id, audience, bu, bu_line, content_id, flow, logic, position, criticality, from
         )
-        order_status_item(section_id, component_id, link, order_status_item_definition)
+        order_status_item(section_id, component_id, link)
     }
 
     def balance_definition = objectSchemaDefinitions {
@@ -218,12 +218,12 @@ tracks {
         index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
         collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
         store_id(type: PropertyType.Numeric, required: true, description: "The store id")
-        name(type: PropertyType.String, required: true, description: "The name")
+        store_name(type: PropertyType.String, required: true, description: "The store name")
         purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
         purchase_state(type: PropertyType.String, required: true, description: "The purchase state")
         purchase_detail_label(type: PropertyType.String, required: true, description: "The detail label state")
         action_target(type: PropertyType.String, required: true, description: "Target of the action link")
-        component_version(type: PropertyType.String, required: true, description: "the version of order status")
+        component_version(type: PropertyType.Numeric, required: true, description: "the version of order status")
         status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
         stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
     }
@@ -660,6 +660,17 @@ tracks {
 
     "/wallet_home/section/tap/order_status" (platform: "/mobile", type: TrackType.Event){
         order_status_item
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        store_name(type: PropertyType.String, required: true, description: "The store name")
+        purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
+        purchase_state(type: PropertyType.String, required: true, description: "The purchase state")
+        purchase_detail_label(type: PropertyType.String, required: true, description: "The detail label state")
+        action_target(type: PropertyType.String, required: true, description: "Target of the action link")
+        component_version(type: PropertyType.Numeric, required: true, description: "the version of order status")
+        status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
+        stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
     }
 
     "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {
