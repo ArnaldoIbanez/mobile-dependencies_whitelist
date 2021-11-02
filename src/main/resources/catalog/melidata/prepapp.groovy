@@ -78,7 +78,7 @@ tracks {
     propertyGroups {
         error_data(seller, context, error)
         home_data(seller, available_sections)
-        label_data(seller, label)
+        label_data(label)
         context_data(seller, context)
         pickup_data(seller, pickup)
         pickup_list(finish_enabled, items_total, items_found, items_not_found)
@@ -92,6 +92,7 @@ tracks {
         oms_list(page, page_count, filters)
         override_temperature_data(item_id, variation_id, item_temperature, parcel_temperature)
         item_ids_data(item_id, variation_id)
+        packs_data(packs)
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -257,7 +258,7 @@ tracks {
 
     "/prepapp/oms/backlog/download"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         seller_data
-        packs
+        packs_data
     }
 
     "/prepapp/oms/backlog/prioritize"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -274,6 +275,7 @@ tracks {
 
     "/prepapp/oms/routes/print"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         label_data
+        seller_data
     }
 
     "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
