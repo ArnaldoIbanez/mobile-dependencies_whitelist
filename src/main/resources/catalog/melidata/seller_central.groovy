@@ -1141,12 +1141,6 @@ tracks {
         sellerCentralSettingsGroup
     }
 
-    "/seller_central/settings/processing_time/show_row"(platform: "/", type: TrackType.Event) {
-        row_id(required: true, type: PropertyType.String, description: "Row Id displayed")
-        ui_type(required: true, type: PropertyType.String, description: "UI Type of row", values: ["row", "row_disabled", "row_error"])
-        section(required: true, type: PropertyType.String, description: "Section where the row is display")
-    }
-
     "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "The action id", values: ["CONFIRM", "CANCEL"])
         sellerCentralProcessingTimeGroup
