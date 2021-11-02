@@ -1825,6 +1825,47 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central - Processing Time
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Processing Time - render a processing time page view") {
+    "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
+      seller_profile = "advanced"
+      reputation_level = "5_green"
+    }
+  }
+
+  test("Processing Time - render a processing time row") {
+    "/seller_central/settings/processing_time/show_row"(platform: "/", type: TrackType.Event){
+      row_id = "processing_time_day_row_monday"
+      ui_type = "row"
+      section = "segment__processing_time"
+    }
+  }
+
+  test("Processing Time - user clicks Continue button of confirm modal in the processing time page view") {
+    "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
+      action_id = "CONFIRM"
+      seller_profile = "advanced"
+      reputation_level = "5_green"
+      processing_options = [
+        [
+          day: "monday",
+          processing_time: "02:00"
+        ],
+        [
+          day: "tuesday",
+          processing_time: "01:00"
+        ],
+        [
+          day: "friday",
+          processing_time: "00:30"
+        ]
+      ]
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Sales
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
