@@ -1,6 +1,8 @@
                     package src.test.resources.melidata
 
                     import com.ml.melidata.TrackType
+                    import com.ml.melidata.catalog.PropertyType
+
                     import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
                     trackTests {
@@ -468,22 +470,8 @@
                     }
 
                     test("pos seller track generics") {
-                        "/pos_seller/point/ftu/preorder"(platform:"/mobile", type:TrackType.View) {}
-                        "/pos_seller/point/ftu/buy"(platform:"/mobile", type:TrackType.Event) {}
-                        "/pos_seller/point/ftu/new_payment"(platform:"/mobile", type:TrackType.Event) {}
-                        "/pos_seller/point/device_selection"(platform:"/mobile", type:TrackType.Event) {
-                            device = "CR100"
-                        }
-                        "/pos_seller/point/pairing/selection"(platform:"/mobile", type:TrackType.Event) {}
-                        "/pos_seller/point/card_type/select"(platform:"/mobile", type:TrackType.Event) {
-                            card_type = "debit"
-                        }
-                        "/pos_seller/point/installments/select"(platform:"/mobile", type:TrackType.Event) {
-                            installment = 24
-                        }
-                        "/settings/point/device"(platform:"/mobile", type:TrackType.View) {}
-                        "/settings/ota/error/type"(platform: "/mobile", type: TrackType.View) {
-                            type = "USB"
+                        "/settings/point/device"(platform: "/mobile", type: TrackType.View) {
+                            poi_type = "DSPREAD_CR100"
                         }
                         "/pos_seller/point/ota/error/type"(platform: "/mobile", type: TrackType.View) {
                             type = "Unknown"
@@ -491,21 +479,29 @@
                     }
 
                     test("pos seller SPoC") {
-                        "/pos_seller/point/spoc/not_installed"(platform: "/mobile", type: TrackType.View) {}
-                        "/pos_seller/point/spoc/download"(platform: "/mobile", type: TrackType.Event) {}
-                        "/pos_seller/point/spoc/outdated"(platform: "/mobile", type: TrackType.View) {}
-                        "/pos_seller/point/spoc/updated"(platform: "/mobile", type: TrackType.Event) {}
-                        "/pos_seller/point/spoc/installments/method"(platform: "/mobile", type: TrackType.View) {}
+                        "/pos_seller/point/spoc/shield"(platform: "/mobile", type: TrackType.View) {
+                            shield_type = "outdated"
+                        }
+                        "/pos_seller/point/spoc/shield/select"(platform: "/mobile", type: TrackType.Event) {
+                            option = "updated"
+                        }
+                        "/pos_seller/point/spoc/installments/method"(platform: "/mobile", type: TrackType.View) {
+                            amount = 20.00
+                            items = 4
+                        }
                         "/pos_seller/point/spoc/installments/method/select"(platform: "/mobile", type: TrackType.Event) {
-                            method = "PSJ"
+                            method = "PCJ"
                         }
-                        "/pos_seller/point/spoc/entrypoint/mp"(platform: "/mobile", type: TrackType.Event) {}
-                        "/pos_seller/point/spoc/entrypoint/help"(platform: "/mobile", type: TrackType.Event) {}
-                        "/pos_seller/point/error/declined/offline"(platform: "/mobile", type: TrackType.Event) {
-                            code = 2001
+                        "/settings/ota/error/shield"(platform: "/mobile", type: TrackType.View) {
+                            type = "Unknown"
                         }
-                        "/pos_seller/point/error/declined/online"(platform: "/mobile", type: TrackType.View) {
-                            code = "cc_rejected_other_reason"
+                        "/pos_seller/point/spoc/sp_actions"(platform: "/mobile", type: TrackType.Event) {
+                            redirect = "help"
+                        }
+                        "/pos_seller/point/error/declined"(platform: "/mobile", type: TrackType.Event) {
+                            poi = "1234ABCDFG"
+                            code = "2010"
+                            error_type = "offline"
                         }
                     }
 }
