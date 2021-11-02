@@ -594,8 +594,8 @@ tracks {
     "/authenticators/face_validation/error/retry"(platform: "/", type: TrackType.Event) {}
 
     def screenlockConfigStructure = objectSchemaDefinitions {
-        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
-        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"], description: "User flow screenlock status")
+        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"], description: "User opening screenlock status")
         transaction_granularity_option(required: true, type: PropertyType.String, values: ["always", "daily_amount"], description: "Granularity option selected by user")
         transaction_accumulated_amount(required: true, type: PropertyType.String, description: "User tx accumulated amount")
         transaction_custom(required: true, type: PropertyType.String, description: "Granularity amount on which screenLock will be triggered")
@@ -619,10 +619,25 @@ tracks {
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in validation")
     }
 
-    // Biometrics / Screenlock
+    def screenlockDeviceType = objectSchemaDefinitions {
+        i(required: true, type: PropertyType.Boolean, description: "specify if the user run the application on real device or emulator")
+        b(required: true, type: PropertyType.String, values: ["compile", "runtime", "fail", "undetectable", "unknown", "off"], description: "specify how we can detect the device type")
+    }
+
+    def screenlockDeviceAdmin = objectSchemaDefinitions {
+        i(required: true, type: PropertyType.Boolean, description: "flag that we can use to specify if the device was rooted/jailbroken")
+        b(required: true, type: PropertyType.String, values: ["app_installed", "directory", "files", "symb", "fail", "undetectable", "unknown", "off"], description: "specify how we can detect the device admin")
+    }
+
+    def screenlockHealth = objectSchemaDefinitions {
+        e(type: PropertyType.Map(screenlockDeviceType), required: true, description: "current screenlock device type")
+        r(type: PropertyType.Map(screenlockDeviceAdmin), required: true, description: "current screenlock admin type")
+    }
+
+    // Biometrics / Screenlock    
     "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1375) {
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "specify user enrollment screenlock status")
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "specify security type on user device")
     }
     
     "/screenlock/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -684,8 +699,13 @@ tracks {
         response(type: PropertyType.Map(securityStatusResponse), required: false, description: "security_status request response")
     }
 
-    "/screenlock/status"(platform: "/mobile", type: TrackType.Event) {
+    "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+        h(type: PropertyType.Map(screenlockHealth), required: true, description: "screenlock device health")
     }
 
     "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
