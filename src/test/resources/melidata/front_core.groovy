@@ -562,9 +562,9 @@ trackTests {
                                     action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                     component_version: 3,
                                     status_label: [
-                                            name: "en curso",
-                                            icon: "icon_key",
-                                            color: "#FFFFFF"
+                                            status_name: "en curso",
+                                            status_icon: "icon_key",
+                                            status_color: "#FFFFFF"
                                     ],
                                     stepper: [
                                             stepper_version: 1,
@@ -587,9 +587,9 @@ trackTests {
                                     action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                     component_version: 2,
                                     status_label: [
-                                            name: "en curso",
-                                            icon: "icon_key",
-                                            color: "#FFFFFF"
+                                            status_name: "en curso",
+                                            status_icon: "icon_key",
+                                            status_color: "#FFFFFF"
                                     ]
                             ]
                     ]
@@ -1043,9 +1043,9 @@ trackTests {
             action_target= "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home"
             component_version= 3
             status_label= [
-                    name: "en curso",
-                    icon: "icon_key",
-                    color: "#FFFFFF"
+                    status_name: "en curso",
+                    status_icon: "icon_key",
+                    status_color: "#FFFFFF"
             ]
             stepper= [
                     stepper_version: 1,

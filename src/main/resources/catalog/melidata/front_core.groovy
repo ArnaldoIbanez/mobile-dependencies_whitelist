@@ -197,9 +197,9 @@ tracks {
     }
 
     def order_status_label_definition = objectSchemaDefinitions {
-        name(type: PropertyType.String, required: true, description: "The wording of order status label")
-        icon(type: PropertyType.String, required: false, description: "The icon of order status label")
-        color(type: PropertyType.String, required: true, description: "The color of order status label")
+        status_name(type: PropertyType.String, required: true, description: "The wording of order status label")
+        status_icon(type: PropertyType.String, required: false, description: "The icon of order status label")
+        status_color(type: PropertyType.String, required: true, description: "The color of order status label")
     }
 
     def stepper_colors_definition = objectSchemaDefinitions {
