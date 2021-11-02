@@ -350,4 +350,44 @@ import com.ml.melidata.TrackType
             to_flow(required: true, type: PropertyType.String, description: "Contains the result of the router's redirection", values: ["fcu","legacy"])
             reason(required: true, type: PropertyType.String, description: "Why the router chose that flow", values: ["user_in_whitelist","user_not_in_whitelist","network_request_failed"])
         }
-}
+
+        // TODO: New paths, the migration will be make in next iterations
+        "/pos_seller/point/ftu/preorder"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/point/ftu/buy"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_seller/point/ftu/new_payment"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_seller/point/device_selection"(platform: "/mobile", type: TrackType.Event) {
+            device(required: false, type: PropertyType.String, description:"PoiType device")
+        }
+        "/pos_seller/point/pairing/selection"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_seller/point/card_type/select"(platform: "/mobile", type: TrackType.Event) {
+            card_type(required: true, type: PropertyType.String, description:"Card Type option", values: ["debit", "credit", "voucher"])
+        }
+        "/pos_seller/point/installments/select"(platform: "/mobile", type: TrackType.Event) {
+            installment(required: false, type: PropertyType.Numeric, description:"Installments selected", values: [1,3,6,9,12,16,18,21,24])
+        }
+        "/settings/point/device"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/point/ota/error/type"(platform: "/mobile", type: TrackType.View) {
+            type(required: true, type: PropertyType.String, description:"Type of Error", values: ["USB", "Battery", "Disconnect", "Unknown"])
+        }
+
+        // SPoC Paths
+        "/pos_seller/point/spoc/not_installed"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/point/spoc/download"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_seller/point/spoc/outdated"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/point/spoc/updated"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_seller/point/spoc/installments/method"(platform: "/mobile", type: TrackType.View) {}
+        "/pos_seller/point/spoc/installments/method/select"(platform: "/mobile", type: TrackType.Event) {
+            method(required: true, type: PropertyType.String, description:"For Seller o Buyer", values: ["1X", "PSJ", "PCJ"])
+        }
+        "/settings/ota/error/type"(platform: "/mobile", type: TrackType.View) {
+            type(required: true, type: PropertyType.String, description:"Type of Error", values: ["USB", "Battery", "Disconnect", "Unknown"])
+        }
+        "/pos_seller/point/spoc/entrypoint/mp"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_seller/point/spoc/entrypoint/help"(platform: "/mobile", type: TrackType.Event) {}
+        "/pos_seller/point/error/declined/offline"(platform: "/mobile", type: TrackType.Event) {
+            code(required: true, type: PropertyType.Numeric, description:"Error code from SP app")
+        }
+        "/pos_seller/point/error/declined/online"(platform: "/mobile", type: TrackType.View) {
+            code(required: true, type: PropertyType.String, description:"Error status from backend")
+        }
+    }

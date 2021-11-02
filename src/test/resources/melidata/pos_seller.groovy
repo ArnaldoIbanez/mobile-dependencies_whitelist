@@ -467,5 +467,45 @@
                         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
                     }
 
-} 
+                    test("pos seller track generics") {
+                        "/pos_seller/point/ftu/preorder"(platform:"/mobile", type:TrackType.View) {}
+                        "/pos_seller/point/ftu/buy"(platform:"/mobile", type:TrackType.Event) {}
+                        "/pos_seller/point/ftu/new_payment"(platform:"/mobile", type:TrackType.Event) {}
+                        "/pos_seller/point/device_selection"(platform:"/mobile", type:TrackType.Event) {
+                            device = "CR100"
+                        }
+                        "/pos_seller/point/pairing/selection"(platform:"/mobile", type:TrackType.Event) {}
+                        "/pos_seller/point/card_type/select"(platform:"/mobile", type:TrackType.Event) {
+                            card_type = "debit"
+                        }
+                        "/pos_seller/point/installments/select"(platform:"/mobile", type:TrackType.Event) {
+                            installment = 24
+                        }
+                        "/settings/point/device"(platform:"/mobile", type:TrackType.View) {}
+                        "/settings/ota/error/type"(platform: "/mobile", type: TrackType.View) {
+                            type = "USB"
+                        }
+                        "/pos_seller/point/ota/error/type"(platform: "/mobile", type: TrackType.View) {
+                            type = "Unknown"
+                        }
+                    }
 
+                    test("pos seller SPoC") {
+                        "/pos_seller/point/spoc/not_installed"(platform: "/mobile", type: TrackType.View) {}
+                        "/pos_seller/point/spoc/download"(platform: "/mobile", type: TrackType.Event) {}
+                        "/pos_seller/point/spoc/outdated"(platform: "/mobile", type: TrackType.View) {}
+                        "/pos_seller/point/spoc/updated"(platform: "/mobile", type: TrackType.Event) {}
+                        "/pos_seller/point/spoc/installments/method"(platform: "/mobile", type: TrackType.View) {}
+                        "/pos_seller/point/spoc/installments/method/select"(platform: "/mobile", type: TrackType.Event) {
+                            method = "PSJ"
+                        }
+                        "/pos_seller/point/spoc/entrypoint/mp"(platform: "/mobile", type: TrackType.Event) {}
+                        "/pos_seller/point/spoc/entrypoint/help"(platform: "/mobile", type: TrackType.Event) {}
+                        "/pos_seller/point/error/declined/offline"(platform: "/mobile", type: TrackType.Event) {
+                            code = 2001
+                        }
+                        "/pos_seller/point/error/declined/online"(platform: "/mobile", type: TrackType.View) {
+                            code = "cc_rejected_other_reason"
+                        }
+                    }
+}
