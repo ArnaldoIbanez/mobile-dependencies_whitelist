@@ -60,6 +60,12 @@ tracks {
         collect_method_group
     }
 
+    // Hour Definition
+    def timeSchema = objectSchemaDefinitions {
+        hour(required: true,type: PropertyType.Numeric,description: "Indicates the selected hour from 0 to 23")
+        minutes(required: true,type: PropertyType.Numeric,description: "Indicates the selected minutes from 0 to 59")
+    }
+
     // Floating button paths
     "/floating_button" (platform: "/mobile/android", isAbstract: true) { // Floating button abstract base path
         session_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated when the user starts the configuration process and persist until a configuration is changed or deleted")
@@ -88,20 +94,18 @@ tracks {
     "/floating_button/scheduled_stop" (platform: "/mobile/android", type: TrackType.Event) { } // The scheduler triggered the closing of the button because it is now the configured the closing time
 
     // Gadget settings' screens paths
-    "/gadgets" (platform: "/mobile/android", isAbstract: true) { // Gadgets repository abstract base path
+    "/gadgets" (platform: "/mobile/android", isAbstract: true) { // Gadgets abstract base path
         session_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated when the user starts the configuration process and persist until a configuration is changed or deleted")
     } 
-    "/gadgets/chooser/" (platform: "/mobile/android", type: TrackType.View) { // Chooser screen showing rows for widget and floating button (if supported)
+    "/gadgets/chooser" (platform: "/mobile/android", type: TrackType.View) { // Chooser screen showing rows for widget and floating button (if supported)
         supports_floating_button(required: true, type: PropertyType.Boolean, description: "If the phone supports the floating button feature")
     }
     "/gadgets/settings/widget" (platform: "/mobile/android", type: TrackType.View) {} // Widget configuration screen
     "/gadgets/settings/floating_button" (platform: "/mobile/android", type: TrackType.View) {} // Floating button configuration screen
     "/gadgets/settings/floating_button/start_now" (platform: "/mobile/android", type: TrackType.Event) {} // The button service was started without a configurated schedule
     "/gadgets/settings/floating_button/schedule_saved" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started with a configurated schedule
-        opening_hour(required: true,type: PropertyType.Numeric,description: "Indicates the selected opening hour from 0 to 23")
-        closing_hour(required: true,type: PropertyType.Numeric,description: "Indicates the selected closing hour from 0 to 23")
-        opening_minutes(required: true,type: PropertyType.Numeric,description: "Indicates the selected opening minutes from 0 to 59")
-        closing_minutes(required: true,type: PropertyType.Numeric,description: "Indicates the selected closing minutes from 0 to 59")
+        opening_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected opening time")
+        closing_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected closing time")
         opening_days(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The scheduled opening days, possible values: (monday, tuesday, wednesday, thursday, friday, saturday, sunday)")
     }
     "/gadgets/settings/floating_button/schedule_cleared" (platform: "/mobile/android", type: TrackType.Event) {} // The previusly saved schedule was cleared
