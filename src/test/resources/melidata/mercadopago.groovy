@@ -3230,6 +3230,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/empty_state_ftu/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // empty state
         "/bill_payments/empty_state/scheduling"(platform: "/mobile") {
             mandatory()
