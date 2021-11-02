@@ -4794,6 +4794,22 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
   }
 
+  test("seller central listing massive toolbar add action") {
+    "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar delete action") {
+    "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar modify action") {
+    "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar offline flow action") {
+    "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {}
+  }
+
   test("seller central promotions massive editor") {
     "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
   }
