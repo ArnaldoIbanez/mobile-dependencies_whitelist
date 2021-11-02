@@ -67,8 +67,8 @@ tracks {
     }
     "/floating_button/button_mounted" (platform: "/mobile/android", type: TrackType.View) {  // When the floating button service renders a visible view on the screen
         trigger(required: true,type: PropertyType.String, values: ["schedule", "manual", "notification"], description: "If the button activation was triggered manually, by a notification or by the scheduler")
-        tooltip_buttons(required: true, type: PropertyType.Array(PropertyType.String), description: "The button_id of all tooltip buttons that the user has enabled (in 'seller_collect' there is one for each collection method allowed in site)")
-        side_buttons(required: true, type: PropertyType.Array(PropertyType.String), description: "The button_id of all side buttons that the user has enabled (in 'seller_collect' there is only configuration')")
+        tooltip_buttons(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The button_id of all tooltip buttons that the user has enabled (in 'seller_collect' there is one for each collection method allowed in site)")
+        side_buttons(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The button_id of all side buttons that the user has enabled (in 'seller_collect' there is only configuration')")
     }
     "/floating_button/button_view_opened" (platform: "/mobile/android", type: TrackType.View) { } // The floating button tooltip and side buttons have been opened
     "/floating_button/button_view_closed" (platform: "/mobile/android", type: TrackType.View) { } // The floating button tooltip and side buttons have been closed
@@ -102,7 +102,7 @@ tracks {
         closing_hour(required: true,type: PropertyType.Numeric,description: "Indicates the selected closing hour from 0 to 23")
         opening_minutes(required: true,type: PropertyType.Numeric,description: "Indicates the selected opening minutes from 0 to 59")
         closing_minutes(required: true,type: PropertyType.Numeric,description: "Indicates the selected closing minutes from 0 to 59")
-        opening_days(required: true, type: PropertyType.Array(PropertyType.String), description: "The scheduled opening days, possible values: (monday, tuesday, wednesday, thursday, friday, saturday, sunday)")
+        opening_days(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The scheduled opening days, possible values: (monday, tuesday, wednesday, thursday, friday, saturday, sunday)")
     }
     "/gadgets/settings/floating_button/schedule_cleared" (platform: "/mobile/android", type: TrackType.Event) {} // The previusly saved schedule was cleared
 
