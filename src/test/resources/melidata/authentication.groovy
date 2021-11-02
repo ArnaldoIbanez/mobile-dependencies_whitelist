@@ -1046,6 +1046,9 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false
+                screenlock_method_used = "biometrics"
+                biometrics_hash = "af21213819faed1923182dfc4217"
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1072,6 +1075,7 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -1092,6 +1096,8 @@ trackTests {
                         "transaction_custom": "0",
                         "opening_custom": "0"
                 ]
+                fallback_disabled = false
+                screenlock_method_used = "basic_screenlock"
             }
 
             "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {

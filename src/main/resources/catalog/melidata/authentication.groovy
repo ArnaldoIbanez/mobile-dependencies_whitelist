@@ -679,8 +679,11 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         transaction_information(type: PropertyType.Map(transactionInformationStructure), required: true, description: "transaction information")
         applock_flowlock_information(type: PropertyType.Map(applockFlowlockStructure), required: false, description: "applock flowlock information")
-        result(type: PropertyType.String, required: true, values: ["success", "error"])
-        errors(type: PropertyType.ArrayList, required: false)
+        result(type: PropertyType.String, required: true, values: ["success", "error"], description: "validation result")
+        errors(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "error description when validation fails")
+        fallback_disabled(type: PropertyType.Boolean, required: true, description: "when a screenlock validation is made, fallback may be disabled")
+        screenlock_method_used(PropertyType.String, required: false, values: ["unknown","biometrics","basic_screenlock"], description: "when validation succeeds, the screenlock method used is sent")
+        biometrics_hash(PropertyType.String, required: false, description: "when validation succeeds and user used biometrics, this is an OS automatically generated biometrics hash.")
     }
 
     "/screenlock/security_status"(platform: "/mobile/ios", isAbstract: true, initiative: 1375) {
