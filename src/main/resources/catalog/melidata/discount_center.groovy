@@ -284,9 +284,9 @@ tracks {
         purchase_state(type: PropertyType.String, required: true, description: "The purchase state")
         purchase_detail_label(type: PropertyType.String, required: true, description: "The detail label state")
         action_target(type: PropertyType.String, required: true, description: "Target of the action link")
-	component_version(type: PropertyType.String, required: true, description: "the version of order status")
-	status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
-	stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
+	    component_version(type: PropertyType.Numeric, required: true, description: "the version of order status")
+        status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
+	    stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
     }
 
     def marketplace_main_slider_definition = objectSchemaDefinitions {
