@@ -111,7 +111,7 @@ tracks {
    def vsp_actionable_item_definition = objectSchemaDefinitions {
         index(type: PropertyType.Numeric, required: true, description: "The item index in the list")
         item_id(type: PropertyType.String, required: true, description: "The item id with the site")
-        name(type: PropertyType.String, required: true, description: "The item name")
+        store_name(type: PropertyType.String, required: true, description: "The item name")
         price(type: PropertyType.String, required: true, description: "The item price")
         price_with_discount(type: PropertyType.String, required: false, description: "The item price with the discount applied")
         discount(type: PropertyType.String, required: false, description: "The item discount")
@@ -123,9 +123,9 @@ tracks {
    }
 
     def order_status_label_definition = objectSchemaDefinitions {
-	name(type: PropertyType.String, required: true, description: "The wording of order status label")
-	icon(type: PropertyType.String, required: false, description: "The icon of order status label")
-	color(type: PropertyType.String, required: true, description: "The color of order status label")
+        status_name(type: PropertyType.String, required: true, description: "The wording of order status label")
+        status_icon(type: PropertyType.String, required: false, description: "The icon of order status label")
+        status_color(type: PropertyType.String, required: true, description: "The color of order status label")
     }
     
     def stepper_colors_definition = objectSchemaDefinitions {

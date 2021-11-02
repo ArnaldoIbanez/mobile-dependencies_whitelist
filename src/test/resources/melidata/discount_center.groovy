@@ -667,16 +667,16 @@ trackTests {
                                 index: 0,
                                 store_id: 30091709,
                                 collector_id: 1234567,
-                                name: "Mc Donalds",
+                                store_name: "Mc Donalds",
                                 purchase_id: 12345678,
                                 purchase_state: "paid",
                                 purchase_detail_label: "Sigue el estado de tu pedido",
                                 action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                 component_version: 3,
                                 status_label: [
-                                                name: "en curso",
-                                                icon: "icon_key",
-                                                color: "#FFFFFF"
+                                               status_name: "en curso",
+                                               status_icon: "icon_key",
+                                               status_color: "#FFFFFF"
                                               ],
                                 stepper: [
                                           stepper_version: 1,
@@ -1038,16 +1038,16 @@ trackTests {
                                 index: 0,
                                 store_id: 30091709,
                                 collector_id: 1234567,
-                                name: "Mc Donalds",
+                                store_name: "Mc Donalds",
                                 purchase_id: 12345678,
                                 purchase_state: "paid",
                                 purchase_detail_label: "Sigue el estado de tu pedido",
                                 action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                 component_version: 2,
                                 status_label: [
-                                                name: "en curso",
-                                                icon: "icon_key",
-                                                color: "#FFFFFF"
+                                                status_name: "en curso",
+                                                status_icon: "icon_key",
+                                                status_color: "#FFFFFF"
                                               ]
                                 ]
                             ]
@@ -1208,16 +1208,16 @@ trackTests {
                                                     index: 0,
                                                     store_id: 30091709,
                                                     collector_id: 1234567,
-                                                    name: "Mc Donalds",
+                                                    store_name: "Mc Donalds",
                                                     purchase_id: 12345678,
                                                     purchase_state: "paid",
                                                     purchase_detail_label: "Sigue el estado de tu pedido",
                                                     action_target: "mercadopago://discount_center_payers/list?param1=test#fragment=mp/home",
                                                     component_version: 3,
                                                     status_label: [
-                                                            name: "en curso",
-                                                            icon: "icon_key",
-                                                            color: "#FFFFFF"
+                                                            status_name: "en curso",
+                                                            status_icon: "icon_key",
+                                                            status_color: "#FFFFFF"
                                                     ],
                                                     stepper: [
                                                             stepper_version: 1,
