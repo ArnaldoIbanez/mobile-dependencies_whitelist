@@ -1339,6 +1339,12 @@ trackTests {
             latest_news_type= "merchants_growth_reverse_screening"
             status= "read"
         }
+        "/notification_center/merchants_growth_pricing_point"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_type= "merchants_growth_pricing_point"
+            status= "read"
+        }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
@@ -3201,53 +3207,106 @@ trackTests {
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_requirements"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_requirements-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_how_to_pay"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_how_to_pay-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_credit_limit"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_credit_limit-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_financing_rate"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_financing_rate-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_duedate"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_duedate-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_purchase_trouble"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_purchase_trouble-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_mc_unavailable"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_mc_unavailable-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_less_money"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_less_money-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_early_payment-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_cancel_loan"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_cancel_loan-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_payment_promise_info-21680059-20180516"
             event_type = "shown"
         }
         "/notification/credits_consumer_chatbot_accredited_time"(platform: "/") {
-            news_id = "credits-consumer_expired_ninety_notice-21680059-20180516"
+            news_id = "credits-consumer_chatbot_accredited_time-21680059-20180516"
             event_type = "shown"
         }
+        "/notification/credits_consumer_chatbot_initial_greeting"(platform: "/") {
+            news_id = "credits-consumer_chatbot_initial_greeting-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_no_match"(platform: "/") {
+            news_id = "credits-consumer_chatbot_no_match-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_no_match_v2"(platform: "/") {
+            news_id = "credits-consumer_chatbot_no_match_v2-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_ask_feedback"(platform: "/") {
+            news_id = "credits-consumer_chatbot_ask_feedback-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_sensitive_info"(platform: "/") {
+            news_id = "credits-consumer_chatbot_sensitive_info-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_appreciate"(platform: "/") {
+            news_id = "credits-consumer_chatbot_appreciate-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_no_multimedia"(platform: "/") {
+            news_id = "credits-consumer_chatbot_no_multimedia-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_feedback_numeric"(platform: "/") {
+            news_id = "credits-consumer_chatbot_feedback_numeric-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_feedback_written"(platform: "/") {
+            news_id = "credits-consumer_chatbot_feedback_written-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_feedback_omitted"(platform: "/") {
+            news_id = "credits-consumer_chatbot_feedback_omitted-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {
+            news_id = "credits-consumer_chatbot_early_payment-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {
+            news_id = "credits-consumer_chatbot_payment_promise-21680059-20180516"
+            event_type = "shown"
+        }
+        "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {
+            news_id = "credits-consumer_chatbot_payment_promise_info-21680059-20180516"
+            event_type = "shown"
+        }
+
         
         "/notification/chargeback_payer_high_agree_repayment_mp"(platform: "/mobile") {
             news_id = "chargeback-payer_high_agree_repayment_mp-14363307744123"
@@ -6169,6 +6228,18 @@ trackTests {
             news_id = "messages_new_123"
             event_type = "open"
         }
+        "/notification/credit_card_compulsory_debit_equal_min_payment"(platform: "/mobile") {
+            news_id = "credit_card_compulsory_debit_equal_min_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_compulsory_debit_less_min_payment"(platform: "/mobile") {
+            news_id = "credit_card_compulsory_debit_less_min_payment-12345678"
+            event_type = "shown"
+        }
+        "/notification/credit_card_compulsory_debit_money_refund"(platform: "/mobile") {
+            news_id = "ccredit_card_compulsory_debit_money_refund-12345678"
+            event_type = "shown"
+        }
 
         //Merchant
         "/notification/merchants_growth_mgm"(platform: "/mobile") {
@@ -6218,6 +6289,18 @@ trackTests {
             event_type = "open"
         }
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {
             event_type = "open"
         }
 
@@ -6779,11 +6862,23 @@ trackTests {
             news_id = "claim_closed_seller_refund_decorator-186785675-76283123"
             event_type = "open"
         }
+
+        "/notification/claim_complainant_to_respondent_message"(platform: "/mobile"){
+            news_id = "claim_complainant_to_respondent_message-186785675-76283123"
+            event_type = "open"
+        }
+
+        "/notification/claim_respondent_to_complainant_message"(platform: "/mobile"){
+            news_id = "claim_respondent_to_complainant_message-186785675-76283123"
+            event_type = "open"
+        }
+
         "/notification/claim_closed_seller_refund"(platform: "/mobile"){
             news_id = "claim_closed_seller_refund-186785675-76283123"
             event_type = "open"
             order_id = 123
         }
+        
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
@@ -8681,6 +8776,12 @@ trackTests {
             newsgroup_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_id= "merchants_growth_reverse_screening-186785675-76283123"
             latest_news_type= "merchants_growth_reverse_screening"
+            status= "read"
+        }
+        "/notification_center/merchants_growth_pricing_point"(platform: "/mobile"){
+            newsgroup_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_id= "merchants_growth_pricing_point-186785675-76283123"
+            latest_news_type= "merchants_growth_pricing_point"
             status= "read"
         }
         "/notification_center/money-transfer_request"(platform: "/mobile"){
@@ -13680,6 +13781,18 @@ trackTests {
         "/notification/merchants_growth_reverse_screening_conflict"(platform: "/mobile") {
             event_type = "open"
         }
+        "/notification/merchants_growth_pricing_point_scl_down"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_onboarding"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_maintain"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/merchants_growth_pricing_point_scl_up"(platform: "/mobile") {
+            event_type = "open"
+        }
 
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
@@ -14814,6 +14927,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/card_subscription_visa_vai"(platform: "/mobile") {
+            news_id = "/notification/card_subscription_visa_vai-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
@@ -15288,6 +15407,12 @@ trackTests {
 
         "/notification/card_transactions_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "card_transactions_transaction_invalid_amount_option_express_money-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
+        "/notification/card_subscription_visa_vai"(platform: "/mobile") {
+            news_id = "/notification/card_subscription_visa_vai-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }

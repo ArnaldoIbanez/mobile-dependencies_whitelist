@@ -29,9 +29,7 @@ trackTests {
             has_reason = true
         }
 
-        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {
-            position = 2
-        }
+        "/mplayer/send_money/manual_amount/emoji_selected"(platform: "/mobile") {}
 
         "/mplayer/send_money/manual_amount/collector_info"(platform: "/mobile") {
             isAmbiguous = true
