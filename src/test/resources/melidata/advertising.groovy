@@ -2695,6 +2695,59 @@ trackTests {
             amount_invested = 2000
             adv_management_mode = "custom"
         }
+
+        "/advertising/pads2/hub/bb_campaign/modal/open"(platform: "/", type: TrackType.View) {
+            acos = 10
+            bb_quantity = 1.200
+            budget = 12500
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/continue"(platform: "/", type: TrackType.Event) {
+            acos = 10
+            bb_quantity = 1200
+            budget = 12500
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/close"(platform: "/", type: TrackType.Event) {
+            acos = 10
+            bb_quantity = 1200
+            budget = 12500
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/bb_quantity_tooltip"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/bb_campaign/modal/budget_tooltip"(platform: "/", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/card/bb_campaign"(platform: "/", type: TrackType.View) {
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/card/bb_campaign"(platform: "/", type: TrackType.Event) {
+            credit = 12500
+        }
+
+        "/advertising/pads2/hub/bb_campaign/congrats"(platform: "/", type: TrackType.View) {
+            acos = 10
+            bb_quantity = 1200
+            budget = 12500
+            credit = 12500
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/bb_campaign/view_ads"(platform: "/", type: TrackType.Event) {
+            bb_quantity = 1200
+            campaign_id = 1234
+        }
+
+        "/advertising/pads2/hub/bb_campaign/view_campaign"(platform: "/", type: TrackType.Event) {
+            bb_quantity = 1200
+            campaign_id = 1234
+        }
     }
 
 }
