@@ -816,9 +816,11 @@ tracks {
         action(type: PropertyType.String, required: true, values: ["close", "understood"], description: "Action you take in the enrollment success view")
     }
 
-    "/totp_in_app/enrollment/error"(platform: "/mobile", type: TrackType.Event) {
+    "/totp_in_app/enrollment/error"(platform: "/mobile", type: TrackType.View) {
         type_of_error(type: PropertyType.String, required: false, description: "description of the error")
     }
+
+    "/totp_in_app/enrollment/reauth"(platform: "/mobile", type: TrackType.Event) {}
 
     // QR_Token or WebMobile
     "/totp_in_app/conformity"(platform: "/mobile", isAbstract: true, type: TrackType.View) {

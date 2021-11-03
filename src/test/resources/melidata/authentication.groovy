@@ -2288,7 +2288,7 @@ trackTests {
                 action = "understood"
             }
 
-            "/totp_in_app/enrollment/error"(platform: "/mobile/android", type: TrackType.Event) {
+            "/totp_in_app/enrollment/error"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
@@ -2296,12 +2296,26 @@ trackTests {
                 type_of_error = "server_error"
             }
 
-            "/totp_in_app/enrollment/error"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/totp_in_app/enrollment/error"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
                 type_of_view = "visible"
                 type_of_error = "server_error"
+            }
+
+            "/totp_in_app/enrollment/reauth"(platform: "/mobile/android", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                type_of_view = "visible"
+            }
+
+            "/totp_in_app/enrollment/reauth"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                client_id = "security_settings"
+                type_of_view = "visible"
             }
         }
 
