@@ -9,7 +9,7 @@ tracks {
 
     initiative = "1151"
 
-    propertyDefinitions = {
+    propertyDefinitions {
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         sub_view_id(required: false,type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops","only_marketplace","legacy"])
     }
