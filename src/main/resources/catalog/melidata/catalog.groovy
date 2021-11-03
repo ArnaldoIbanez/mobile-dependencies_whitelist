@@ -131,6 +131,7 @@ catalog {
         include business, "my_purchases.groovy"
         include business, "seller_central.groovy"
         include business, "vendor_central.groovy"
+        include business, "tax_manager_1p.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
         include business, "quotation.groovy"
