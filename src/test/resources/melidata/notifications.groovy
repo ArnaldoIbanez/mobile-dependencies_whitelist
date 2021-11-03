@@ -3320,8 +3320,8 @@ trackTests {
             news_id = "credits-consumer_chatbot_payment_promise-21680059-20180516"
             event_type = "shown"
         }
-        "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {
-            news_id = "credits-consumer_chatbot_payment_promise_info-21680059-20180516"
+        "/notification/credits_consumer_chatbot_payment_promise_info_v2"(platform: "/") {
+            news_id = "credits_consumer_chatbot_payment_promise_info_v2-21680059-20180516"
             event_type = "shown"
         }
 
