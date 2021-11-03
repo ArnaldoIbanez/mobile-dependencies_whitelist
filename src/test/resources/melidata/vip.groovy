@@ -2463,4 +2463,29 @@ trackTests {
             is_ltr = true
         }
     }
+
+    test("VIS ltr onboarding") {
+        def properties = {
+            item_id = "MLC123123"
+            item_condition = "new"
+            item_status = "active"
+            item_seller_type = "real_estate_agency"
+            seller_id = 799550807
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            vertical = "realEstate"
+        }
+
+        "/vip/ltr_onboard"(platform: "/", type: TrackType.View) {
+            properties()
+        }
+
+        "/vip/ltr_onboard/ok"(platform: "/", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/ltr_onboard/close"(platform: "/", type: TrackType.Event) {
+            properties()
+        }
+    }
 }
