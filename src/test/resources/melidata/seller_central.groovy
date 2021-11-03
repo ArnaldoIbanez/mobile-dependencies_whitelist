@@ -1817,6 +1817,51 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central - Processing Time
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Processing Time - render a processing time page view") {
+    "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      reputation_level = "5_GREEN"
+    }
+  }
+
+  test("Processing Time - user clicks Continue button of confirm modal in the processing time page view") {
+    "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
+      action_id = "CONFIRM"
+      seller_profile = "ADVANCED"
+      reputation_level = "5_GREEN"
+      processing_options = [
+        [
+          day: "monday",
+          processing_time: "02:00"
+        ],
+        [
+          day: "tuesday",
+          processing_time: "01:00"
+        ],
+        [
+          day: "wednesday",
+          processing_time: "01:00"
+        ],
+        [
+          day: "thursday",
+          processing_time: "01:30"
+        ],
+        [
+          day: "friday",
+          processing_time: "00:30"
+        ],
+        [
+          day: "saturday",
+          processing_time: "01:00"
+        ],
+      ]
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Sales
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -4747,6 +4792,22 @@ test("seller central confirm leave suggestion task - optin moderated") {
 
   test("seller central promotions massive editor") {
     "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central listing massive toolbar add action") {
+    "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar delete action") {
+    "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar modify action") {
+    "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar offline flow action") {
+    "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {}
   }
 
   test("seller central promotions massive editor") {
