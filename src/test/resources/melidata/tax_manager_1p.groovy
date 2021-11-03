@@ -10,21 +10,18 @@ trackTests {
     test("1p TaxManager return success is OK"){
         "/1p_tax_manager/process/sap/return/success"(platform: "/web", type: TrackType.Event) {
             sku = "699227"
-            success_site_id = "MLB"
-            sap_user_id = ""
+            sap_user_id = "9500000327"
         }
     }
     test("1p TaxManager return fail is OK"){
         "/1p_tax_manager/process/sap/return/fail"(platform: "/web", type: TrackType.Event) {
             sku = "699227"
-            fail_site_id = "MLB"
             sap_user_id = "9500000326"
         }
     }
     test("1p TaxManager conflict creation success is OK"){
         "/1p_tax_manager/pre_process/conflict_creation"(platform: "/web", type: TrackType.Event) {
             sku = "699227"
-            conflict_creation_site_id = "MLB"
             sap_user_id = "9500000326"
             site_conflict = true
             combination_conflict = true
@@ -33,14 +30,12 @@ trackTests {
     test("1p TaxManager return spreadsheet is OK"){
         "/1p_tax_manager/process/sap/return_spreadsheet/success"(platform: "/web", type: TrackType.Event) {
             sku = "699227"
-            success_site_id = "MLB"
             sap_user_id = "9500000326"
         }
     }
     test("1p TaxManager receive tax-combination is OK"){
         "/1p_tax_manager/pre_process/tax_combination"(platform: "/web", type: TrackType.Event) {
             sku = "699227"
-            taxcombination_site_id = "MLB"
             sap_user_id = "9500000326"
         }
     }
