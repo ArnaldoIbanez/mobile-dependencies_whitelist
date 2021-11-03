@@ -72,7 +72,7 @@ tracks {
         item_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about item temperature")
         parcel_temperature(required: true, type: PropertyType.String, values: ["DRY", "FRESH", "FROZEN"], description: "Information about parcel temperature")
 
-        packs(required: true, type: PropertyType.ArrayList, description: "Packs being handled")
+        packs(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "Packs being handled")
     }
 
     propertyGroups {
