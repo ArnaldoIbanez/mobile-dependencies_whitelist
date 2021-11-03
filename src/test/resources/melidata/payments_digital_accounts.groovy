@@ -323,6 +323,11 @@ trackTests {
         }
         "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
 
+
+        "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
+            action = 'DOWNLOAD_BILLS'
+        }   
+
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
             action_type = 'income'
