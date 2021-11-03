@@ -325,7 +325,7 @@ trackTests {
 
 
         "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
-            action = 'DOWNLOAD_BILLS_TEST'
+            action = 'DOWNLOAD_BILLS'
         }   
 
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
