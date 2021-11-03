@@ -76,13 +76,18 @@ tracks {
         tooltip_buttons(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The button_id of all tooltip buttons that the user has enabled (in 'seller_collect' there is one for each collection method allowed in site)")
         side_buttons(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The button_id of all side buttons that the user has enabled (in 'seller_collect' there is only configuration')")
     }
-    "/floating_button/button_view_opened" (platform: "/mobile/android", type: TrackType.View) { } // The floating button tooltip and side buttons have been opened
-    "/floating_button/button_view_closed" (platform: "/mobile/android", type: TrackType.View) { } // The floating button tooltip and side buttons have been closed
-    "/floating_button/button_tapped" (platform: "/mobile/android", type: TrackType.Event) { // A deeplinked button from the view has been triggered
-        button_id(required: true,type: PropertyType.String, values: ["point", "qr", "link", "configuration"], description: "If id of the pressed button")
+    "/floating_button/button_view_opened" (platform: "/mobile/android", type: TrackType.View) { } // The floating button tooltip and side buttons have been opened. The opened layout is showing.
+    "/floating_button/button_view_closed" (platform: "/mobile/android", type: TrackType.View) { } // The floating button tooltip and side buttons have been closed. The draggable layout is showing.
+    "/floating_button/button_tapped" (platform: "/mobile/android", type: TrackType.Event) { // A button from the view has been pressed. We will navigate to the associated deeplink.
+        button_id(required: true,type: PropertyType.String, values: ["point", "qr", "link", "configuration"], description: "The associated id of the pressed button")
     }
-    "/floating_button/button_unmounted" (platform: "/mobile/android", type: TrackType.View) { } // The user closed the floating button view. This happends before stoping service or showing a notification.
+    "/floating_button/button_unmounted" (platform: "/mobile/android", type: TrackType.Event) { } // The user closed the floating button view. This happens before stoping service or showing a notification.
     "/floating_button/button_stopped" (platform: "/mobile/android", type: TrackType.Event) { } // The floating button service has been stopped by user action
+    "/floating_button/button_screen_dimensions_change" (platform: "/mobile/android", type: TrackType.Event) { // The underlying OS reported new screen dimensions so we need to redraw the floating button. This can be caused by a screen rotation or foldables.
+        new_width(required: true,type: PropertyType.Numeric,description: "Screen width in pixels")
+        new_height(required: true,type: PropertyType.Numeric,description: "Screen height in pixels")
+     }
+    "/floating_button/phone_reboot_reconfiguring_button" (platform: "/mobile/android", type: TrackType.Event) { } // Re-configured floating button after phone reboot
 
     // Floating buttons' notification for closing during open hours paths
     "/floating_button/reopen_button_notification_shown" (platform: "/mobile/android", type: TrackType.View) { } // Triggered a local notification inviting the user to reopen the button or close it until next day
@@ -100,20 +105,20 @@ tracks {
     "/gadgets/chooser" (platform: "/mobile/android", type: TrackType.View) { // Chooser screen showing rows for widget and floating button (if supported)
         supports_floating_button(required: true, type: PropertyType.Boolean, description: "If the phone supports the floating button feature")
     }
-    "/gadgets/settings/widget" (platform: "/mobile/android", type: TrackType.View) {} // Widget configuration screen
-    "/gadgets/settings/floating_button" (platform: "/mobile/android", type: TrackType.View) {} // Floating button configuration screen
-    "/gadgets/settings/floating_button/start_now" (platform: "/mobile/android", type: TrackType.Event) {} // The button service was started without a configurated schedule
-    "/gadgets/settings/floating_button/schedule_saved" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started with a configurated schedule
+    "/gadgets/widget_settings" (platform: "/mobile/android", type: TrackType.View) {} // Widget FAQ screen
+    "/gadgets/floating_button_settings" (platform: "/mobile/android", type: TrackType.View) {} // Floating button configuration screen
+    "/gadgets/floating_button_settings/start_now" (platform: "/mobile/android", type: TrackType.Event) {} // The button service was started without a configurated schedule
+    "/gadgets/floating_button_settings/schedule_saved" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started with a configurated schedule
         opening_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected opening time")
         closing_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected closing time")
         opening_days(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The scheduled opening days, possible values: (monday, tuesday, wednesday, thursday, friday, saturday, sunday)")
     }
-    "/gadgets/settings/floating_button/schedule_cleared" (platform: "/mobile/android", type: TrackType.Event) {} // The previusly saved schedule was cleared
+    "/gadgets/floating_button_settings/schedule_cleared" (platform: "/mobile/android", type: TrackType.Event) {} // The previusly saved schedule was cleared
 
     // Modal for requesting overlay permission paths
-    "/gadgets/settings/floating_button/draw_overlays_permission_modal_shown" (platform: "/mobile/android", type: TrackType.View) {} // Modal explaining users that require extra permissions from the user to continue and we are redirecting them to their permisison settings (system_overlay can´t be granted like other permissions)
-    "/gadgets/settings/floating_button/draw_overlays_permission_modal_continue" (platform: "/mobile/android", type: TrackType.Event) {} // Seller decided to continue to their permisison settings
-    "/gadgets/settings/floating_button/draw_overlays_permission_modal_dismiss" (platform: "/mobile/android", type: TrackType.Event) {} // Seller declined to proceed
-    "/gadgets/settings/floating_button/draw_overlays_permission_granted" (platform: "/mobile/android", type: TrackType.Event) {} // We regained control from the permission settings and we have been granted permissions
-    "/gadgets/settings/floating_button/draw_overlays_permission_denied" (platform: "/mobile/android", type: TrackType.Event) {}  // We regained control from the permission settings and we have NOT been granted permissions
+    "/gadgets/floating_button_settings/modal_permissions" (platform: "/mobile/android", type: TrackType.View) {} // Modal explaining users that require extra permissionsto draw overlays from the user to continue and we are redirecting them to their permisison settings (system_overlay can´t be granted like other permissions)
+    "/gadgets/floating_button_settings/modal_permissions/continue" (platform: "/mobile/android", type: TrackType.Event) {} // Seller decided to continue to their permission settings
+    "/gadgets/floating_button_settings/modal_permissions/dismiss" (platform: "/mobile/android", type: TrackType.Event) {} // Seller declined to proceed
+    "/gadgets/floating_button_settings/draw_overlays_permission_granted" (platform: "/mobile/android", type: TrackType.Event) {} // We regained control from the permission settings and we have been granted permissions
+    "/gadgets/floating_button_settings/draw_overlays_permission_denied" (platform: "/mobile/android", type: TrackType.Event) {}  // We regained control from the permission settings and we have NOT been granted permissions
 }
