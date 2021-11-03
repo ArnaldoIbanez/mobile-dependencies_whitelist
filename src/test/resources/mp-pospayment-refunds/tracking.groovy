@@ -1,4 +1,4 @@
-package src.test.resources.pospaymentrefunds
+package src.test.resources.pospaymentregrets
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
