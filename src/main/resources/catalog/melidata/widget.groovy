@@ -68,7 +68,7 @@ tracks {
 
     // Floating button paths
     "/floating_button" (platform: "/mobile/android", isAbstract: true) { // Floating button abstract base path
-        session_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated when the user starts the configuration process and persist until a configuration is changed or deleted")
+        button_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated for a given button configuration persisted until the configuration is changed or deleted")
         button_type(required: true, type: PropertyType.String, values: ["seller_collect"], description: "Indicates which type of floating button we are using (currently 'seller_collect' is the only one)")
     }
     "/floating_button/button_mounted" (platform: "/mobile/android", type: TrackType.View) {  // When the floating button service renders a visible view on the screen
@@ -100,15 +100,18 @@ tracks {
 
     // Gadget settings' screens paths
     "/gadgets" (platform: "/mobile/android", isAbstract: true) { // Gadgets abstract base path
-        session_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated when the user starts the configuration process and persist until a configuration is changed or deleted")
+        session_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated when the user first enters any of the gadget screens")
     } 
     "/gadgets/chooser" (platform: "/mobile/android", type: TrackType.View) { // Chooser screen showing rows for widget and floating button (if supported)
         supports_floating_button(required: true, type: PropertyType.Boolean, description: "If the phone supports the floating button feature")
     }
     "/gadgets/widget_settings" (platform: "/mobile/android", type: TrackType.View) {} // Widget FAQ screen
     "/gadgets/floating_button_settings" (platform: "/mobile/android", type: TrackType.View) {} // Floating button configuration screen
-    "/gadgets/floating_button_settings/start_now" (platform: "/mobile/android", type: TrackType.Event) {} // The button service was started without a configurated schedule
+    "/gadgets/floating_button_settings/start_now" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started without a configurated schedule
+        button_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated for a given button configuration persisted until the configuration is changed or deleted")
+    }
     "/gadgets/floating_button_settings/schedule_saved" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started with a configurated schedule
+        button_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated for a given button configuration persisted until the configuration is changed or deleted")
         opening_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected opening time")
         closing_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected closing time")
         opening_days(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The scheduled opening days, possible values: (monday, tuesday, wednesday, thursday, friday, saturday, sunday)")
@@ -116,9 +119,9 @@ tracks {
     "/gadgets/floating_button_settings/schedule_cleared" (platform: "/mobile/android", type: TrackType.Event) {} // The previusly saved schedule was cleared
 
     // Modal for requesting overlay permission paths
-    "/gadgets/floating_button_settings/modal_permissions" (platform: "/mobile/android", type: TrackType.View) {} // Modal explaining users that require extra permissionsto draw overlays from the user to continue and we are redirecting them to their permisison settings (system_overlay can´t be granted like other permissions)
-    "/gadgets/floating_button_settings/modal_permissions/continue" (platform: "/mobile/android", type: TrackType.Event) {} // Seller decided to continue to their permission settings
-    "/gadgets/floating_button_settings/modal_permissions/dismiss" (platform: "/mobile/android", type: TrackType.Event) {} // Seller declined to proceed
-    "/gadgets/floating_button_settings/draw_overlays_permission_granted" (platform: "/mobile/android", type: TrackType.Event) {} // We regained control from the permission settings and we have been granted permissions
-    "/gadgets/floating_button_settings/draw_overlays_permission_denied" (platform: "/mobile/android", type: TrackType.Event) {}  // We regained control from the permission settings and we have NOT been granted permissions
+    "/gadgets/floating_button_settings/modal_draw_overlays_permissions" (platform: "/mobile/android", type: TrackType.View) {} // Modal explaining users that require extra permissionsto draw overlays from the user to continue and we are redirecting them to their permisison settings (system_overlay can´t be granted like other permissions)
+    "/gadgets/floating_button_settings/modal_draw_overlays_permissions/continue" (platform: "/mobile/android", type: TrackType.Event) {} // Seller decided to continue to their permission settings
+    "/gadgets/floating_button_settings/modal_draw_overlays_permissions/dismiss" (platform: "/mobile/android", type: TrackType.Event) {} // Seller declined to proceed
+    "/gadgets/floating_button_settings/modal_draw_overlays_permissions/granted" (platform: "/mobile/android", type: TrackType.Event) {} // We regained control from the permission settings and we have been granted permissions
+    "/gadgets/floating_button_settings/modal_draw_overlays_permissions/denied" (platform: "/mobile/android", type: TrackType.Event) {}  // We regained control from the permission settings and we have NOT been granted permissions
 }
