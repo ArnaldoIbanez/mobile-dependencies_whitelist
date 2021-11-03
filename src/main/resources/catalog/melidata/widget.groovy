@@ -107,19 +107,19 @@ tracks {
     }
     "/gadgets/widget_settings" (platform: "/mobile/android", type: TrackType.View) {} // Widget FAQ screen
     "/gadgets/floating_button_settings" (platform: "/mobile/android", type: TrackType.View) {} // Floating button configuration screen
-    "/gadgets/floating_button_settings/start_now" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started without a configurated schedule
+    "/gadgets/floating_button_settings/start_now" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started without a configured schedule
         button_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated for a given button configuration persisted until the configuration is changed or deleted")
     }
-    "/gadgets/floating_button_settings/schedule_saved" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started with a configurated schedule
+    "/gadgets/floating_button_settings/schedule_saved" (platform: "/mobile/android", type: TrackType.Event) { // The button service was started with a configured schedule
         button_uuid(required: true, type: PropertyType.String, description: "UUID randomly generated for a given button configuration persisted until the configuration is changed or deleted")
         opening_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected opening time")
         closing_time(required: true,type: PropertyType.Map(timeSchema),description: "Selected closing time")
         opening_days(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The scheduled opening days, possible values: (monday, tuesday, wednesday, thursday, friday, saturday, sunday)")
     }
-    "/gadgets/floating_button_settings/schedule_cleared" (platform: "/mobile/android", type: TrackType.Event) {} // The previusly saved schedule was cleared
+    "/gadgets/floating_button_settings/schedule_cleared" (platform: "/mobile/android", type: TrackType.Event) {} // The previously saved schedule was cleared
 
     // Modal for requesting overlay permission paths
-    "/gadgets/floating_button_settings/modal_draw_overlays_permissions" (platform: "/mobile/android", type: TrackType.View) {} // Modal explaining users that require extra permissionsto draw overlays from the user to continue and we are redirecting them to their permisison settings (system_overlay can´t be granted like other permissions)
+    "/gadgets/floating_button_settings/modal_draw_overlays_permissions" (platform: "/mobile/android", type: TrackType.View) {} // Modal explaining users that require extra permissions to draw overlays from the user to continue and we are redirecting them to their permission settings (system_overlay can´t be granted like other permissions)
     "/gadgets/floating_button_settings/modal_draw_overlays_permissions/continue" (platform: "/mobile/android", type: TrackType.Event) {} // Seller decided to continue to their permission settings
     "/gadgets/floating_button_settings/modal_draw_overlays_permissions/dismiss" (platform: "/mobile/android", type: TrackType.Event) {} // Seller declined to proceed
     "/gadgets/floating_button_settings/modal_draw_overlays_permissions/granted" (platform: "/mobile/android", type: TrackType.Event) {} // We regained control from the permission settings and we have been granted permissions
