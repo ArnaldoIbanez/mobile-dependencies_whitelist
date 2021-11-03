@@ -260,7 +260,7 @@ tracks {
     // Movements - Links
     "/banking/movements/links"(platform: "/", isAbstract: true) {}
     "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Indicates the actions clicked")
+        action(required: true, type: PropertyType.String, values: ["DOWNLOAD_BILLS", "VIEW_MY_MONEY_DETAIL"], description: "Indicates the actions clicked")
     }
 
     // Movements - Filters
