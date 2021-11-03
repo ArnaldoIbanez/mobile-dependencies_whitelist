@@ -1627,6 +1627,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'overdue'
             offer = ['payment_not_credited', 'create_promise']
+            source_key = 'landing'
         }
 
         //Events

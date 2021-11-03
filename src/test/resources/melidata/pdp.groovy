@@ -274,6 +274,12 @@ trackTests {
             discount_reasons = ["deal"]
         }
 
+        def creditsConsumer = {
+            credits_consumer = {
+                type = "acquisition"
+            }
+        }
+
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
@@ -315,6 +321,7 @@ trackTests {
             shipping()
             pickup()
             pricingTwoPointO()
+            creditsConsumer()
         })
 
         "/pdp/buy_action"(platform: "/", {
