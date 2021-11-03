@@ -44,6 +44,14 @@ trackTests {
         	session_time = 1234
 	        issuers_quantity = 5
 	    }
+
+        "/card_form/web_view"(platform: "/mobile", type: TrackType.View) {
+            site_id = "MLC"
+            flow_id = "instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            session_time = 1234
+            url = "www.webpay.com"
+        }
     }
 
     test("CardForm - Events") {
@@ -52,13 +60,18 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
+            type = "traditional"
 	    }
 
 	    "/card_form/success"(platform: "/mobile", type: TrackType.Event) {
-	    	site_id = "MLA"
+	    	site_id = "MLC"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
+            bin = "123456"
+            issuer = 1234
+            payment_method_id = "redcompra"
+            payment_method_type = "debit_card"
 	    }
 
 	    "/card_form/next"(platform: "/mobile", type: TrackType.Event) {
@@ -237,6 +250,14 @@ trackTests {
         	session_time = 1234
 	        issuers_quantity = 5
 	    }
+
+        "/card_form/web_view"(platform: "/mobile", type: TrackType.View) {
+            site_id = "MLC"
+            flow_id = "instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            session_time = 1234
+            url = "www.webpay.com"
+        }
     }
 
     test("CardForm - Events") {
@@ -245,13 +266,18 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
+            type = "traditional"
 	    }
 
 	    "/card_form/success"(platform: "/mobile", type: TrackType.Event) {
-	    	site_id = "MLA"
+	    	site_id = "MLC"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
+            bin = "123456"
+            issuer = 1234
+            payment_method_id = "redcompra"
+            payment_method_type = "debit_card"
 	    }
 
 	    "/card_form/next"(platform: "/mobile", type: TrackType.Event) {

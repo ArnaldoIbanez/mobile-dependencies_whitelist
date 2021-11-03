@@ -29,6 +29,7 @@ trackTests {
         "/pdv/onboarding/pos_management"(platform: "/", type: TrackType.Event) {
             pos_management=true
             cash_management=true
+            external_payments=true
         }
         "/pdv/onboarding/end"(platform: "/", type: TrackType.Event) {
             path="/collections/setup/onboarding"

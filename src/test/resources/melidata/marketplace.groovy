@@ -192,10 +192,29 @@ trackTests {
             is_main_url = true
             version = "2"
         }
+        "/landing/generic"(platform: "/mobile", business: "mercadopago"){
+            url = "https://www.mercadolibre.com"
+            is_main_url = true
+            version = "2"
+        }
 
         "/webkit/deeplink_open/error"(platform: "/mobile") {
             url = "https://www.mercadolibre.com"
             deeplink = "meli://host/path/to/landing"
+        }
+    }
+
+    test("Mobile Landing loading time") {
+        "/landing/load"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com"
+            status = "success"
+            loading_time = 500
+        }
+
+        "/landing/load"(platform: "/mobile", business: "mercadopago") {
+            url = "https://www.mercadopago.com"
+            status = "error"
+            loading_time = 200
         }
     }
 
@@ -694,9 +713,13 @@ trackTests {
 
     test("sso"){
         "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/login_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
     }
 
 }

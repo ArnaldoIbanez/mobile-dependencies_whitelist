@@ -1,7 +1,8 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 metrics {
-	"vip"(description: "vip count", categorization:"important") {
+	"vip"(description: "vip count", tags:[TagType.Important, TagType.CoreMetric]) {
 		countsOn {
 			condition {
 				path("/vip", "/vip/abort", "/vip/failure")
@@ -9,7 +10,7 @@ metrics {
 		}
 	}
 
-	"search"(description: "search count") {
+	"search"(description: "search count", tags:[TagType.CoreMetric]) {
 		countsOn {
 			condition {
 				path("/search", "/search/abort", "/search/failure")
@@ -17,7 +18,7 @@ metrics {
 		}
 	}
 
-	"pdp"(description: "pdp` count") {
+	"pdp"(description: "pdp` count", tags:[TagType.CoreMetric]) {
 		countsOn {
 			condition {
 				path("/pdp", "/pdp/abort", "/pdp/failure")

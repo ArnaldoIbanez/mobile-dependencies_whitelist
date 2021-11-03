@@ -52,9 +52,13 @@ tracks {
         // status
         // status_detail
 
+        pack_id(required: false, description: "If this order is associated with a carrito/pack, the corresponding pack_id")
+        order_date_created(required: false, description: "If this orders is associated with a pack, this will have the original timestamp")
+
+        
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
-        is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
+        is_carrito(required: true, description: "Wherever this order was created by a carrito or not ")
         reservation(required: true, type: PropertyType.Boolean, description: "If the order came from a motor reservation")
         subscription(required: true, type: PropertyType.Boolean, description: "If the order was generated from a subscription")
 
@@ -65,14 +69,22 @@ tracks {
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
         has_garex(serverSide: true) // -> Lo completa Melidata automaticamente
+        auto_purchase(serverSide: true) // -> Lo completa Melidata automaticamente
         tags(serverSide: true) // -> Lo completa Melidata automaticamente
         internal_tags(serverSide: true) // -> Lo completa Melidata automaticamente
+
+        is_cbt(required: true, type:PropertyType.Boolean, description: "Indicates if the order is Cross Border Trade")
+        is_cpg(required: true, type:PropertyType.Boolean, description: "Indicates if the order is from Supermarket")
+
     }
 
     "/purchases"(platform: "/", isAbstract: true) {}
 
     "/purchases/purchasecreated"(platform: "/") {
         purchase_id(required: true, description: "purchase identifier")
+        orders( required: true, type:PropertyType.ArrayList, description: "Array of orders_ids associated to this purchase" )
+        packs ( required: true, type:PropertyType.ArrayList, description: "Array of packs_ids associated to this purchase" )
+        
         status(required: true, description: "status of this order at creation")
         status_detail(required: false, description: "status description")
         total_amount(required: true, description: "order amount, does not include shipping or interests")

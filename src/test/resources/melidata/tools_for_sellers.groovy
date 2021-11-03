@@ -15,6 +15,10 @@ trackTests {
     }
   }
 
+  test("Release options screen referrer null") {
+    "/settings/release_options"(platform: "/", type:TrackType.View) {}
+  }
+
   test("Release options screen referrer not null") {
     "/settings/release_options"(platform: "/", type:TrackType.View) {
       referrer = "https://www.mercadopago.com.ar/business"
@@ -33,6 +37,21 @@ trackTests {
   test("Release options lib get") {
     "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
       channel = "point"
+    }
+  }
+
+  // Contact Email Section
+  test("Contact email home") {
+    "/tfs_contact_email/home"(platform: "/", type:TrackType.View) {}
+  }
+
+  test("Contact email error") {
+    "/tfs_contact_email/error"(platform: "/", type:TrackType.View) {
+    }
+  }
+
+  test("Contact email congrats") {
+    "/tfs_contact_email/congrats"(platform: "/", type:TrackType.View) {
     }
   }
 }

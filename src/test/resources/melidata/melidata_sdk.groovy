@@ -28,6 +28,16 @@ trackTests {
             average_error_time=11
         }
 
+        "/melidata/statistics/experiments"(platform:"/mobile", type:TrackType.Control){
+            start_time="2015-01-21T13:14:09.415-0300"
+            duration=230
+            experiments_amount=6
+            persistence_enabled=true
+            experiment_to_retrieve="ALL"
+            execution_status="error"
+            error="error_name"
+        }
+
         "/melidata/shrink_database"(platform:"/mobile/android", type:TrackType.Control){
             delete_records=40
             current_size=69632

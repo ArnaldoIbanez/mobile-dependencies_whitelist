@@ -55,38 +55,55 @@ trackTests {
 
     def items_data = {
         [
-                [
-                        item_id              : "MLA787787584",
-                        price                : 8400,
-                        original_price       : 10000,
-                        currency_id          : "ARS",
-                        installment_info     : "6f",
-                        item_condition       : "new",
-                        sold_quantity        : 5,
-                        shipping_conditions  : "discount_gap",
-                        bo_pick_up_conditions: "no_discount",
-                        pushing_puis         : false,
-                        showing_puis         : false,
-                        official_store_id    : 231,
-                        seller_id            : 1234,
-                        seller_name          : "fulano",
-                        available_quantity   : 31,
-                        cart_content         : true,
-                        logistic_type        : "cross_docking",
-                        has_full_filment     : false
+            [
+                item_id              : "MLA787787584",
+                price                : 8400,
+                original_price       : 10000,
+                currency_id          : "ARS",
+                installment_info     : "6f",
+                item_condition       : "new",
+                sold_quantity        : 5,
+                shipping_conditions  : "discount_gap",
+                bo_pick_up_conditions: "no_discount",
+                pushing_puis         : false,
+                showing_puis         : false,
+                official_store_id    : 231,
+                seller_id            : 1234,
+                seller_name          : "fulano",
+                available_quantity   : 31,
+                cart_content         : true,
+                logistic_type        : "cross_docking",
+                has_full_filment     : false,
+                available_promotions : [
+                    [
+                        campaign_id     : "1761",
+                        type            : "DISCOUNT",
+                        original_value  : 953,
+                        value           : 643.5
+                    ]
                 ],
-                [
-                        item_id              : "MLA7877875184",
-                        shipping_conditions  : "discount_gap",
-                        bo_pick_up_conditions: "no_discount"
+                discount_reasons : ["deal"]
+            ],
+            [
+                item_id              : "MLA7877875184",
+                shipping_conditions  : "discount_gap",
+                bo_pick_up_conditions: "no_discount"
 
-                ]
+            ]
         ]
     }
 
     //PDP FLOW
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
+            best_seller_position = 3
+            highlights = [
+                "id": "id_highlight",
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
+            ]
             cac_item = false
             cac_status = "normal"
             catalog_product_id = "MLA1234"
@@ -188,8 +205,47 @@ trackTests {
             free_shipping = false
             local_pick_up = true
             store_pick_up = true
-            logistic_type = "default"
+            logistic_type = "self_service"
             shipping_conditions = "discount_mandatory"
+            shipping_promise = [
+                destination : "1430",
+                address_options : [
+                        [
+                            shipping_option_id : 7,
+                            method_type : "super_express",
+                            delivery_lower_bound : [
+                                date : "2021-07-30T03:00:00Z",
+                                days : 0,
+                            ],
+                            delivery_upper_bound : [],
+                            pay_before : "2021-07-31T16:00:00Z",
+                            offset_days : 0,
+                            price : [
+                                amount : 390.99,
+                                currency_id : "ARS",
+                                is_loyalty_discount : true
+                            ]
+                        ]
+                ],
+                agency_options : [
+                        [
+                            method_type : "standard",
+                            delivery_lower_bound : [
+                                date : "2021-08-05T03:00:00Z",
+                                days : 2
+                            ],
+                            delivery_upper_bound : [
+                                date : "2021-08-10T03:00:00Z",
+                                days : 7
+                            ],
+                            offset_days : 5,
+                            price : [
+                                currency_id : "ARS",
+                                is_loyalty_discount : false
+                            ]
+                        ]
+                ]
+            ]
         }
 
         def pickup = {
@@ -204,6 +260,18 @@ trackTests {
             buying_option_id = "PUIS"
             seller_id = 123
             seller_name = "any seller"
+        }
+
+        def pricingTwoPointO = {
+            available_promotions = [
+                {
+                    campaign_id = "1761"
+                    type = "DISCOUNT"
+                    original_value = 953
+                    value = 643.5
+                }
+            ]
+            discount_reasons = ["deal"]
         }
 
         "/pdp"(platform: "/", {
@@ -241,9 +309,12 @@ trackTests {
             multiple_offer_type="BEST_PRICE"
             multiple_offer_default_winner_item_id="MLB1432864987"
 
+            item_attributes="AVAILABLE_STOCK,DISCOUNT"
+
             cart()
             shipping()
             pickup()
+            pricingTwoPointO()
         })
 
         "/pdp/buy_action"(platform: "/", {
@@ -269,6 +340,7 @@ trackTests {
             cart()
             shipping()
             pickup()
+            pricingTwoPointO()
 
             price = 8400
             currency_id = "ARS"
@@ -298,6 +370,7 @@ trackTests {
             cart()
             shipping()
             pickup()
+            pricingTwoPointO()
 
             price = 8400
             currency_id = "ARS"
@@ -410,6 +483,50 @@ trackTests {
         "/pdp/description/show"(platform: "/", {
             catalog_product_id = "MLA1234"
         })
+
+        "/pdp/show_complete_description"(platform: "/web/desktop", {
+            catalog_product_id = "MLA1234"
+        })
+
+        "/pdp/html_description/show"(platform: "/", {catalog_product_id = "MLA1234"})
+
+        "/pdp/html_description/view_all_action"(platform: "/", {catalog_product_id = "MLA1234"})
+
+        //Insurtech
+
+        "/pdp/buy_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            seller_id = 1234
+            shipping_conditions = "free_special"
+            bo_pick_up_conditions = "free_other"
+            price = 8400
+            currency_id = "ARS"
+            credits_opensea = true
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        })
+
+        "/pdp/add_to_cart_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            seller_id = 1234
+            shipping_conditions = "free_loyal"
+            bo_pick_up_conditions = "free_loyal"
+            price = 8400
+            currency_id = "ARS"
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        })
+
+        "/pdp/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event){
+        }
     }
 
     test("mobile special actions") {
@@ -490,11 +607,27 @@ trackTests {
             type = "payment"
             context = "/qadb"
         })
+
+        "/pdp/questions/quick_access"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "credits"
+            context = "/qadb"
+        })
     }
 
     //QADB call to action
     test("Qadb call to action tracking"){
         "/pdp/qadb/call-to-action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+        })
+    }
+
+    //QADB search all action
+    test("Qadb search all action tracking"){
+        "/pdp/qadb/search-all-action"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA112341"
         })
@@ -555,5 +688,388 @@ trackTests {
 
     test("Pdp Server Side") {
         "/pdp/backend/questions_redirect"(platform: "/") {}
+    }
+
+    test("PDP onboardings") {
+
+        "/pdp/fulfillment_fs_modal/show"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+        })
+
+        "/pdp/cbt_modal/show"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+        })
+
+        "/pdp/fulfillment_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/fulfillment_fs_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/credits_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/fulfillment_fs_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/credits_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+    }
+
+    // Pricing 2.0 - Payments Modal Track
+    test("PDP Pricing 2.0 - Payments Modal track") {
+        "/pdp/pricing_rebates/modal_payments_action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB1640051252"
+            is_cash_price = true
+            original_price = 100
+            price = 85
+            currency_id = "BRL"
+            installments_value_total = 104.4
+            installments_value_each = 8.7
+            installments_amount = 12
+            is_free_installments = false
+        }
+    }
+
+    test("Pdp Advertising banners") {
+        "/pdp/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "fullscreen"
+        }
+    }
+
+    test("Technical Specs Viewport") {
+        "/pdp/technical_specs/show"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
+        }
+    }
+
+    test("Technical Specs View More") {
+        "/pdp/technical_specs/view_more"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
+        }
+    }
+
+    test("Technical Specs Features View More") {
+        "/pdp/technical_specs_features/view_more"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
+        }
+    }
+
+    test("Vertical Gallery Show") {
+        "/pdp/vertical_gallery/show"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            image_quantity = 6
+            show_more_button = true
+        }
+
+        "/pdp/vertical_gallery/show/open_image"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            order = "1"
+        }
+
+        "/pdp/vertical_gallery/show/more_images"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+        }
+    }
+
+    test("FullScreen Gallery Show") {
+        "/pdp/fullscreen_gallery"(platform: "/", type: TrackType.View) {
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            context = "vertical_gallery"
+            action = "image"
+        }
+    }
+
+    test("Back to top methods") {
+        "/pdp/back_to_top"(platform: "/", type: TrackType.View) {
+            catalog_product_id = "MLA1234"
+        }
+
+        "/pdp/back_to_top/top"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+        }
+    }
+
+    test("PDP payment methods modal view") {
+        "/pdp/payment_methods"(platform: "/", type: TrackType.View) {
+            page_vertical = "CORE"
+            category_l1 = "{'MLA1574':'Hogar, Muebles y Jardín}"
+            category_l2 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar}"
+            category_l3 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar,'MLA1623':'Otros}"
+            shipping_mode = "not_specified"
+            free_shipping = false
+            international_delivery_mode = "none"
+            item_id = "MLA786428856"
+            item_condition = "NEW"
+            buying_mode = "BUY_IT_NOW"
+            variations = false
+            collector_id = "151804293"
+            category_domain = "MLA-HOME_FURNITURE"
+            listing_source = "mercadolibre"
+            listing_type = "gold_special"
+            fulfillment = false
+            item_attributes = "DEFERRED_STOCK"
+            item_state = "NONE"
+            item_city = "NONE"
+            item_neighborhood = "NONE"
+        }
+    }
+
+    // MERCH
+    test("PDP Merch ecosystem") {
+
+        def dataSet = {
+            item_id              = "MLA787787584"
+            price                = 8400
+            original_price       = 10000
+            currency_id          = "ARS"
+            installment_info     = "6f"
+            item_condition       = "new"
+            shipping_conditions  = "discount_gap"
+            bo_pick_up_conditions = "no_discount"
+            pushing_puis         = false
+            showing_puis         = false
+            official_store_id    = 231
+            seller_id            = 1234
+            seller_name          = "fulano"
+            available_quantity   = 31
+            cart_content         = true
+            logistic_type        = "cross_docking"
+            discount_reasons = ["deal"]
+            catalog_product_id = "MLA1234"
+            domain_id = "MLA-CELLPHONES"
+            vertical = "core"
+            realestates = {
+                vip_pdp_ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/pdp"(platform: "/", dataSet)
+    }
+
+    test("Pdp tracking for item with protections"){
+        def mandatory= {
+            best_seller_position = 3
+            highlights = [
+                "id": "id_highlight",
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
+            ]
+            cac_item = false
+            cac_status = "normal"
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            seller_id = 131662738
+            pickers = pickers_data()
+
+            shipping_conditions = "free_other"
+            bo_pick_up_conditions = "free_other"
+        }
+
+        def insurtech_fields = {
+            has_roda = true
+            has_garex = false
+        }
+
+        "/pdp"(platform: "/", {
+            mandatory()
+            insurtech_fields()
+        })
+    }
+
+    test("Vip events tracking for item with protections"){
+        "/pdp/insurtech_opened"(platform: "/", type: TrackType.Event){
+            item = [
+                id: "MLA533657947",
+                domain_id: "MLC-APARTMENTS_FOR_RENT",
+                price: 130000
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/pdp/insurtech_selected"(platform: "/", type: TrackType.Event){
+            item = [
+                id: "MLA533657947",
+                domain_id: "MLC-APARTMENTS_FOR_RENT",
+                price: 130000
+            ]
+            option_selected = [
+                product_id: "GAREX",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    manufacturer_warranty: 12
+                ]
+            ]
+            has_roda = false
+            has_garex = true
+            label = "BOTTOM_SHEET"
+        }
+
+        "/pdp/insurtech_added"(platform: "/", type: TrackType.Event){
+            item = [
+                id: "MLA533657947",
+                domain_id: "MLC-APARTMENTS_FOR_RENT",
+                price: 130000
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "break",
+                    deductible_amount: 100,
+                    model: "S20 FE",
+                    size: "128GB",
+                    manufacturer_warranty: 12,
+                ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/pdp/insurtech_closed"(platform: "/", type: TrackType.Event){
+            has_roda = true
+            has_garex = true
+            label = "PICKER"
+        }
+
+        "/pdp/insurtech_terms"(platform: "/", type: TrackType.Event){
+            item = [
+                id: "MLA533657947",
+                domain_id: "MLC-APARTMENTS_FOR_RENT",
+                price: 130000
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "break",
+                    deductible_amount: 100,
+                    model: "S20 FE",
+                    size: "128GB",
+                    manufacturer_warranty: 12,
+                ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "BOTTOM_SHEET"
+        }
+
+        "/pdp/insurtech_help"(platform: "/", type: TrackType.Event){
+            item = [
+                id: "MLA533657947",
+                domain_id: "MLC-APARTMENTS_FOR_RENT",
+                price: 130000,
+            ]
+            option_selected = [
+                product_id: "RODA",
+                price: [
+                    final_amount: 242.73,
+                    discount_rate: null,
+                ],
+                period: 12,
+                option_data: [
+                    brand: "Samsung",
+                    coverage: "break",
+                    deductible_amount: 100,
+                    model: "S20 FE",
+                    size: "128GB",
+                    manufacturer_warranty: 12,
+                ],
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
     }
 }

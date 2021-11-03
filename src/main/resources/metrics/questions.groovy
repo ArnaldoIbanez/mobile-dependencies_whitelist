@@ -1,8 +1,9 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
 
 metrics {
 
-    "questions"(description: "questions count", categorization:"important") {
+    "questions"(description: "questions count", tags:[TagType.Important, TagType.CoreMetric]) {
         countsOn {
             condition {
                 path("/questions/ask/post")
@@ -14,10 +15,8 @@ metrics {
         }
     }
 
-    "qadb_search"(description: "qadb searches perform by user ") {
-	startWith {
-     	   experiment(regex("qadb/.*"))
-	}    
+    "qadb_search"(description: "qadb zqps generated ", tags:[TagType.CoreMetric]) {
+		experiment(regex("qadb/.*"))
 	    
         countsOn {
             condition {
@@ -25,9 +24,22 @@ metrics {
             }
         }
     }	
+	
+   "qadb_zqp"(description: "qadb searches perform by user ") {
+		experiment(regex("qadb/.*"))
+	    
+        countsOn {
+            condition {
+                path("/questions/qadb/search")
+       	        empty("event_data.results", true)
+            }
+        }
+    }		
 
     "questions.pdp"(description: "Track PDP questions") {
-      	countsOn {
+		experiment(regex("qadb/.*"))
+
+		countsOn {
 		condition {
 			path("/questions/ask/post")
 			and(
@@ -50,6 +62,8 @@ metrics {
     }
 
 	"questions.sameItem"(description: "questions count over same item") {
+		experiment(regex("qadb/.*"))
+
 		countsOn {
 			condition {
 				path("/questions/ask/post")

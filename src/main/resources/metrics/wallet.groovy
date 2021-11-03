@@ -1,10 +1,11 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
+import com.ml.melidata.metrics.TagType
+
+def instoreMarketplaceExperiments = "(wallet/)?cdd/.*"
 
 metrics {
   "wallet_user"(description: "Counts when a user starts using Mercado Pago app") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -14,10 +15,8 @@ metrics {
     }
   }
 
-  "payment"(description: "Counts when a user pays in any flow in any business", categorization:"important") {
-      startWith {
-        experiment(regex("wallet/.*"))
-      }
+  "payment"(description: "Counts when a user pays in any flow in any business", compute_payment: true, tags:[TagType.Important, TagType.CoreMetric]) {
+      experiment(regex("wallet/.*"))
 
       countsOn {
         condition {
@@ -26,10 +25,8 @@ metrics {
       }
     }
 
-  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business") {
-      startWith {
-        experiment(regex("wallet/.*"))
-      }
+  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business", compute_payment: true, tags:[TagType.CoreMetric]) {
+      experiment(regex("wallet/.*"))
 
       countsOn {
         condition {
@@ -39,10 +36,8 @@ metrics {
       }
     }
 
-  "payment.ml"(description: "Counts when a user pays in any flow in mercadolibre business") {
-      startWith {
-        experiment(regex("wallet/.*"))
-      }
+  "payment.ml"(description: "Counts when a user pays in any flow in mercadolibre business", compute_payment: true) {
+      experiment(regex("wallet/.*"))
 
       countsOn {
         condition {
@@ -52,10 +47,8 @@ metrics {
       }
     }
 
-  "payment.instore"(description: "Counts when a user pays in In Store in any business", categorization:"important") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.instore"(description: "Counts when a user pays in In Store in any business" , compute_payment: true, tags:[TagType.Important, TagType.CoreMetric]) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -65,10 +58,8 @@ metrics {
     }
   }
 
-  "payment.instore.mp"(description: "Counts when a user pays in In Store in mercadopago business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.instore.mp"(description: "Counts when a user pays in In Store in mercadopago business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -81,10 +72,8 @@ metrics {
     }
   }
 
-  "payment.instore.ml"(description: "Counts when a user pays in In Store in mercadolibre business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.instore.ml"(description: "Counts when a user pays in In Store in mercadolibre business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -97,10 +86,8 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge in any business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -110,10 +97,8 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.mp"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.cellphone_recharge.mp"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -126,10 +111,8 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.ml"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.cellphone_recharge.ml"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -142,10 +125,8 @@ metrics {
     }
   }
 
-  "payment.transport"(description: "Counts when a user pays in Transport in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.transport"(description: "Counts when a user pays in Transport in any business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -155,10 +136,8 @@ metrics {
     }
   }
 
-  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -172,10 +151,8 @@ metrics {
     }
   }
 
-  "payment.money_transfer"(description: "Counts when a user sends Money in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.money_transfer"(description: "Counts when a user sends Money in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -188,10 +165,8 @@ metrics {
     }
   }
 
-  "payment.services"(description: "Counts when a user pays a Service in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.services"(description: "Counts when a user pays a Service in any business", compute_payment: true, tags:[TagType.CoreMetric]) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -201,10 +176,8 @@ metrics {
     }
   }
 
-  "payment.pay_preference"(description: "Counts when a user pays a Preference in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.pay_preference"(description: "Counts when a user pays a Preference in any business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -214,10 +187,8 @@ metrics {
     }
   }
 
-  "payment.starbucks"(description: "Counts when a user recharges Starbucks card in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+  "payment.starbucks"(description: "Counts when a user recharges Starbucks card in any business", compute_payment: true) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -228,9 +199,7 @@ metrics {
   }
 
   "wallet_active_investor"(description: "Counts when a user opts in for Asset Management in any business") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -239,10 +208,28 @@ metrics {
     }
   }
 
-"discount_center.marketplace.from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint") {
-      startWith {
-        experiment(regex("cdd/.*"))
+"discount_center"(description: "Counts a user access to the any instance of the marketplace") {
+    experiment(regex(instoreMarketplaceExperiments))
+
+    countsOn {
+      condition {
+        path("/discount_center/payers/marketplace", "/discount_center/payers/marketplace/components", "/discount_center/payers/detail")
       }
+    }
+  }
+
+  "discount_center.detail"(description: "Counts a user access to the detail") {
+    experiment(regex(instoreMarketplaceExperiments))
+
+    countsOn {
+      condition {
+        path("/discount_center/payers/detail")
+      }
+    }
+  }
+
+"discount_center.marketplace.from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint") {
+      experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
         condition {
@@ -260,9 +247,7 @@ metrics {
     }
 
   "discount_center.marketplace.from_home_mp"(description: "Counts a user access to the discount center from home mp") {
-      startWith {
-        experiment(regex("cdd/.*"))
-      }
+      experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
         condition {
@@ -272,10 +257,19 @@ metrics {
       }
     }
 
-    "discount_center.detail.from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint") {
-      startWith {
-        experiment(regex("cdd/.*"))
+  "discount_center.marketplace.from_marketplace"(description: "Counts a user access to the marketplace from the same marketplace") {
+      experiment(regex(instoreMarketplaceExperiments))
+
+      countsOn {
+        condition {
+          path(regex("/discount_center/payers/marketplace(/components)?"))
+          equals("platform.fragment.from", "/discount_center_payers/list")
+        }
       }
+    }
+
+    "discount_center.detail.from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint") {
+      experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
         condition {
@@ -293,9 +287,7 @@ metrics {
     }
 
     "discount_center.detail.from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
-      startWith {
-        experiment(regex("cdd/.*"))
-      }
+      experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
         condition {
@@ -306,9 +298,7 @@ metrics {
     }
 
     "discount_center.detail.from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
-      startWith {
-        experiment(regex("cdd/.*"))
-      }
+      experiment(regex(instoreMarketplaceExperiments))
 
       countsOn {
         condition {
@@ -318,10 +308,19 @@ metrics {
       }
     }
 
-  "charge"(description: "Counts when a user makes a Charge in Wallet") {
-    startWith {
-      experiment(regex("wallet/.*"))
+    "discount_center.detail.from_detail"(description: "Counts a user access to the discount detail from another detail") {
+      experiment(regex(instoreMarketplaceExperiments))
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", "/discount_center_payers/detail")
+        }
+      }
     }
+
+  "charge"(description: "Counts when a user makes a Charge in Wallet", tags:[TagType.CoreMetric]) {
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -334,10 +333,8 @@ metrics {
     }
   }
 
-  "charge.point"(description: "Counts when a user makes a Charge with Point") {
-      startWith {
-        experiment(regex("wallet/.*"))
-      }
+  "charge.point"(description: "Counts when a user makes a Charge with Point", tags:[TagType.CoreMetric]) {
+      experiment(regex("wallet/.*"))
 
       countsOn {
         condition {
@@ -347,9 +344,7 @@ metrics {
   }
 
   "charge.link"(description: "Counts when a user makes a Charge with Link") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
@@ -359,9 +354,7 @@ metrics {
   }
 
   "charge.qr"(description: "Counts when a user makes a Charge with QR") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+    experiment(regex("wallet/.*"))
     
     countsOn {
       condition {
@@ -371,13 +364,33 @@ metrics {
   }
 
   "charge.cash"(description: "Counts when a user makes a Charge with Cash") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
+    experiment(regex("wallet/.*"))
 
     countsOn {
       condition {
         path("/point_payment/cash/congrats")
+      }
+    }
+  }
+
+  "payment_intent.first_payment_method"(description: "Counts when a user confirms pay with first suggested payment method", compute_payment: true) {
+    experiment("px_nativo/payment_method_recommendation")
+
+    countsOn {
+      condition {
+        path("/px_checkout/review/confirm")
+        equals("event_data.payment_method_selected_index", 0)
+      }
+    }
+  }
+
+  "payment_intent.second_payment_method"(description: "Counts when a user confirms pay with second suggested payment method", compute_payment: true) {
+    experiment("px_nativo/payment_method_recommendation")
+
+    countsOn {
+      condition {
+        path("/px_checkout/review/confirm")
+        equals("event_data.payment_method_selected_index", 1)
       }
     }
   }
