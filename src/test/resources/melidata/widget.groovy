@@ -151,14 +151,14 @@ trackTests {
         '/gadgets/floating_button_settings/schedule_saved'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
             button_uuid = '111-111-111-111'
-            opening_time = {
-                hour = 1
-                minutes = 30
-            }
-            closing_time = {
-                hour = 11
-                minutes = 30
-            }
+            opening_time = [
+                hour:1,
+                minutes: 30,
+            ]
+            closing_time = [
+                hour: 11,
+                minutes: 30,
+            ]
             opening_days = ['monday', 'wednesday']
         }
         '/gadgets/floating_button_settings/schedule_cleared'(platform: '/mobile/android', type: TrackType.Event) {
@@ -177,14 +177,14 @@ trackTests {
         '/gadgets/floating_button_settings/schedule_saved'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
             button_uuid = '111-111-111-111'
-            opening_time = {
-                hour = 1
-                minutes = 30
-            }
-            closing_time = {
-                hour = 11
-                minutes = 30
-            }
+            opening_time = [
+                hour:1,
+                minutes: 30,
+            ]
+            closing_time = [
+                hour: 11,
+                minutes: 30,
+            ]
             opening_days = ['monday', 'wednesday']
         }
         '/floating_button/scheduled_start'(platform: '/mobile/android', type: TrackType.Event) {
