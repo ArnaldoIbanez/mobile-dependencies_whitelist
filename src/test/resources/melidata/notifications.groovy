@@ -15261,6 +15261,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/balance_inquiry-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
@@ -15794,6 +15800,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/balance_inquiry"(platform: "/mobile") {
+            news_id = "/notification/balance_inquiry-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
             event_type = "open"
