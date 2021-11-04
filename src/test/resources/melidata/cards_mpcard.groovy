@@ -166,6 +166,12 @@ trackTests {
             action = "header_help"
         }
     }
+
+    // Dasboard Header Help  
+    test("cards mpcard dashboard header help") {
+        "/cards/mpcard/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
+    }
+
     // DASHBOARD Physical Unlock
     test("cards mpcard dashboard physical unlock") {
         "/cards/mpcard/dashboard/physical/unlock"(platform:"/", type: TrackType.Event) {
