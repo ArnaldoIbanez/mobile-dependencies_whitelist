@@ -81,7 +81,7 @@ tracks {
     "/floating_button/button_tapped" (platform: "/mobile/android", type: TrackType.Event) { // A button from the view has been pressed. We will navigate to the associated deeplink.
         button_id(required: true,type: PropertyType.String, values: ["point", "qr", "link", "configuration"], description: "The associated id of the pressed button")
     }
-    "/floating_button/button_unmounted" (platform: "/mobile/android", type: TrackType.Event) { } // The user closed the floating button view. This happens before stoping service or showing a notification.
+    "/floating_button/button_unmounted" (platform: "/mobile/android", type: TrackType.View) { } // The user closed the floating button view. This happens before stoping service or showing a notification.
     "/floating_button/button_stopped" (platform: "/mobile/android", type: TrackType.Event) { } // The floating button service has been stopped by user action
     "/floating_button/button_screen_dimensions_change" (platform: "/mobile/android", type: TrackType.Event) { // The underlying OS reported new screen dimensions so we need to redraw the floating button. This can be caused by a screen rotation or foldables.
         new_width(required: true,type: PropertyType.Numeric,description: "Screen width in pixels")
