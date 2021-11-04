@@ -6850,7 +6850,7 @@ trackTests {
         "/crypto/transaction_summary" (platform: "/mobile", type: TrackType.View) {
             id = "9e588da2-f853-4266-a933-0f62f960345c"
         }
-        "crypto/complete_transaction" (platform: "/mobile", type: TrackType.Event) {
+        "/crypto/complete_transaction" (platform: "/mobile", type: TrackType.Event) {
             id = "9e588da2-f853-4266-a933-0f62f960345c"
             amount =  2305.32
             ticker = "BTC"

@@ -10,7 +10,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks
         {
-            initiative = ""
+            initiative = "1047"
 
               //Crypto tracks
 
@@ -38,5 +38,12 @@ tracks
             }
             "/crypto/transaction_summary" (platform: "/mobile", type: TrackType.View) {
               id(type: PropertyType.String, required: true, description: 'transaction identifier')
+            }
+            "/crypto/complete_transaction" (platform: "/mobile", type: TrackType.Event) {
+              id(type: PropertyType.String, required: true, description: 'transaction identifier')
+              amount(type: PropertyType.Numeric, required: true, description: 'amount of the operation in local currency')
+              ticker(type: PropertyType.String, required: true, description: 'cryptocurrency abbreviation')
+              market(type: PropertyType.String, required: true, description: 'the market of the cryptoCurrency')
+              amount_crypto(type: PropertyType.Numeric, required: true, description: 'amount of the cryptoCurrency')
             }
         }
