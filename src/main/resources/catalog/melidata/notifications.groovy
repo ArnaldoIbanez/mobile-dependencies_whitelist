@@ -3879,6 +3879,15 @@ tracks {
     "/notification/prepaid_card_transaction_capture_after_ttl"(platform: "/") {}
     "/notification/prepaid_card_transaction_capture_less_than_amount"(platform: "/") {}
     "/notification/card_subscription_visa_vai"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization_nfc"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization_nfc_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
+
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}
