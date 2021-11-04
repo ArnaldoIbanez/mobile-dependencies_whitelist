@@ -14359,11 +14359,6 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-
-
-
-
-
         "/notification/card_prepaid_tracking_ready_to_ship"(platform: "/mobile") {
             news_id = "card_prepaid_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
