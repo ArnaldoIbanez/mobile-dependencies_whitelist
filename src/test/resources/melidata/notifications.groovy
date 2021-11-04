@@ -2913,6 +2913,7 @@ trackTests {
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            execution_id = 123456
         }
 
         "/notification/campaigns_generic"(platform: "/") {
@@ -11398,6 +11399,16 @@ trackTests {
             sent_date = "20180516"
             batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
             deal_id = "RMK_MCO"
+            execution_id = 123456
+        }
+        "/notification/campaigns_control_group"(platform: "/mobile") {
+            news_id = "CIbDQhDb3hMYCQ==-5e22992d1b3518a"
+            event_type = "discarded"
+            campaign_id = "RECOVERY_CHECKOUT_MLB_60m-65m_20180516_CG"
+            communication_id = "test"
+            sent_date = "20180516"
+            batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
+            deal_id = "RMK_MCO"
         }
 
         "/notification/questions_new"(platform: "/mobile") {
@@ -13542,6 +13553,7 @@ trackTests {
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            execution_id = 123456
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
