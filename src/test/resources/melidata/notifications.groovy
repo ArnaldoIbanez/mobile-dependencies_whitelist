@@ -15211,6 +15211,55 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        
+        "/notification/card_transactions_approved_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+
+        "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
@@ -15692,6 +15741,55 @@ trackTests {
         
         "/notification/card_subscription_visa_vai"(platform: "/mobile") {
             news_id = "/notification/card_subscription_visa_vai-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+
+        "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
