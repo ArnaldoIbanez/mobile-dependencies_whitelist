@@ -14313,6 +14313,57 @@ trackTests {
             branch_time_elapsed = true
         }
 
+
+
+        "/notification/card_first_use_incentive_nfc_first_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_first_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_fifth_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_nfc_fifth_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_nfc_fifth_day_am_virtual_inactive"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-fifth_day_am_virtual_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-fifth_day_no_am_virtual_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_nfc_seventh_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-seventh_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_seventh_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-seventh_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+
+
+
+
+
         "/notification/card_prepaid_tracking_ready_to_ship"(platform: "/mobile") {
             news_id = "card_prepaid_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
