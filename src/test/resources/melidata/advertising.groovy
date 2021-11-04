@@ -2727,7 +2727,7 @@ trackTests {
             credit = 12500
         }
 
-        "/advertising/pads2/hub/card/bb_campaign"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/hub/card/bb_campaign/go"(platform: "/", type: TrackType.Event) {
             credit = 12500
         }
 
