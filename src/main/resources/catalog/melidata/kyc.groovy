@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = '1172'
+    initiative = '1362'
 
     "/kyc"(platform: "/", isAbstract: true) {}
 
@@ -101,12 +101,15 @@ tracks {
     }
 
     // Errors
-    "/kyc/error"(platform: "/", type: TrackType.Event) {
-        type (required: false, type: PropertyType.String, description: "The segmented error type")
+    "/kyc/error"(platform: "/", type: TrackType.Event, isAbstract: true) {
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
-        kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
+        kyc_flow_id(required: true, type: PropertyType.String, description: "The kyc flow identifier")
         error_id(required: false, type: PropertyType.String, description: "Kyc on screen error id")
     }
+
+    "/kyc/error/service"(platform: "/", type: TrackType.Event) {}
+    "/kyc/error/timeout"(platform: "/", type: TrackType.Event) {}
+    "/kyc/error/parsing"(platform: "/", type: TrackType.Event) {}
 
     "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
         image (required: false, type: PropertyType.String, description: "The Image name to the current event")
@@ -207,9 +210,9 @@ tracks {
     "/kyc/iv/permissions/accepted"(platform: "/mobile", type: TrackType.Event) {}
 
     "/kyc/iv/camera_init_state"(platform: "/mobile", type: TrackType.Event) {
-        default_flash(type: PropertyType.String, required: true, description: "Default flash configuration")
+        default_flash(type: PropertyType.String, required: false, description: "Default flash configuration")
         switch_flash(type: PropertyType.Boolean, required: false, description: "Possibility of switch flash enable")
-        default_lens(type: PropertyType.String, required: true, description: "Default camera mode")
+        default_lens(type: PropertyType.String, required: false, description: "Default camera mode")
         switch_lens(type: PropertyType.Boolean, required: false, description: "Possibility of switch camera mode enable")
         compression_rate(type: PropertyType.Numeric, required: true, description: "Compression rate")
         max_size(type: PropertyType.Numeric, required: true, description: "Max side size")
@@ -241,12 +244,16 @@ tracks {
     }
 
     "/kyc/iv/object_detection/validation"(platform: "/mobile", type: TrackType.Event) {
-        validation(required: true, values: ["error", "pending", "confidence", "aspect_ratio", "label_check", "denied_label_check", "brightness", "darkness", "ok"], type: PropertyType.String, description: "Validation type")
+        validation(required: true, values: ["error", "pending", "confidence", "aspect_ratio", "label_check", "denied_label_check", "brightness", "darkness", "blurry", "ok"], type: PropertyType.String, description: "Validation type")
         value(type: PropertyType.String, required: true, description: "Value of validation")
     }
 
     "/kyc/iv/object_detection/error"(platform: "/mobile", type: TrackType.Event) {
         error(type: PropertyType.String, required: true, description: "Error of interpreter")
+    }
+
+    "/kyc/iv/object_detection/blurryfallback"(platform: "/mobile", type: TrackType.Event) {
+        blurry_count_out(type: PropertyType.Numeric, required: true, description: "Blurry count out")
     }
 
     "/kyc/iv/activity/check_step"(platform: "/mobile", type: TrackType.View) {}

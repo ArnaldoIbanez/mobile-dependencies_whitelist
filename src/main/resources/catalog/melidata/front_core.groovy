@@ -39,6 +39,7 @@ tracks {
         walletHomePendingsFields(
             section_id, link, component_id, audience, bu, bu_line, content_id, flow, logic, position, criticality, from
         )
+        order_status_item(section_id, component_id, link)
     }
 
     def balance_definition = objectSchemaDefinitions {
@@ -160,6 +161,12 @@ tracks {
         items(required: false, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
     }
 
+    def order_status_definition = objectSchemaDefinitions {
+        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'],  description: "The content type information")
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        items(required: false, type: PropertyType.ArrayList(PropertyType.Map(order_status_item_definition)), description: "The discount center items information")
+    }
+
     def paragraph_definition = objectSchemaDefinitions {
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
@@ -187,6 +194,38 @@ tracks {
         collector_id(type: PropertyType.Numeric, required: false, description: "The collector_id of the campaign")
         has_logo(type: PropertyType.Boolean, required: true, description: "If the discount has a logo or not")
         coupon_used(type: PropertyType.Boolean, required: true, description: "If the coupon is used")
+    }
+
+    def order_status_label_definition = objectSchemaDefinitions {
+        status_name(type: PropertyType.String, required: true, description: "The wording of order status label")
+        status_icon(type: PropertyType.String, required: false, description: "The icon of order status label")
+        status_color(type: PropertyType.String, required: true, description: "The color of order status label")
+    }
+
+    def stepper_colors_definition = objectSchemaDefinitions {
+        completed_steps(type: PropertyType.Numeric, required: true, description: "The version of stepper")
+        pending_steps(type: PropertyType.Numeric, required: true, description: "The total steps to do")
+    }
+
+    def stepper_definition = objectSchemaDefinitions {
+        stepper_version(type: PropertyType.Numeric, required: true, description: "The version of stepper")
+        total_steps(type: PropertyType.Numeric, required: true, description: "The total steps to do")
+        current_step(type: PropertyType.Numeric, required: true, description: "The current step")
+        colors(type: PropertyType.Map(stepper_colors_definition), required: true, description: "The color showed on stepper")
+    }
+
+    def order_status_item_definition = objectSchemaDefinitions {
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        store_name(type: PropertyType.String, required: true, description: "The store name")
+        purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
+        purchase_state(type: PropertyType.String, required: true, description: "The purchase state")
+        purchase_detail_label(type: PropertyType.String, required: true, description: "The detail label state")
+        action_target(type: PropertyType.String, required: true, description: "Target of the action link")
+        component_version(type: PropertyType.Numeric, required: true, description: "the version of order status")
+        status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
+        stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
     }
 
     def loyalty_header_definition = objectSchemaDefinitions {
@@ -412,6 +451,7 @@ tracks {
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
+        order_status(required: false, type: PropertyType.Map(order_status_definition), description: "The order status section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
@@ -440,6 +480,7 @@ tracks {
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
+        order_status(required: false, type: PropertyType.Map(order_status_definition), description: "The order status section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
@@ -617,6 +658,21 @@ tracks {
 
     "/wallet_home/section/tap/discount_center" (platform: "/mobile", type: TrackType.Event){}
 
+    "/wallet_home/section/tap/order_status" (platform: "/mobile", type: TrackType.Event){
+        order_status_item
+        index(type: PropertyType.Numeric, required: true, description: "The index of the actionable info item")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        store_name(type: PropertyType.String, required: true, description: "The store name")
+        purchase_id(type: PropertyType.Numeric, required: true, description: "The purchase id")
+        purchase_state(type: PropertyType.String, required: true, description: "The purchase state")
+        purchase_detail_label(type: PropertyType.String, required: true, description: "The detail label state")
+        action_target(type: PropertyType.String, required: true, description: "Target of the action link")
+        component_version(type: PropertyType.Numeric, required: true, description: "the version of order status")
+        status_label(type: PropertyType.Map(order_status_label_definition), required: true, description: "The status label information")
+        stepper(type: PropertyType.Map(stepper_definition), required: false, description: "The stepper information")
+    }
+
     "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {
         level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
         percentage(type: PropertyType.Numeric, required: true, description: "The user's loyalty level percentage")
@@ -669,7 +725,7 @@ tracks {
         walletHomeMerchEngineFields
     }
 
-    "/wallet_home/section/tap/pendings" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+    "/wallet_home/section/tap/pendings" (platform: "/", type: TrackType.Event, initiative: "1176") {
         walletHomePendingsFields
     }
 

@@ -209,6 +209,15 @@ trackTests {
             option = 30
             product_type = 'sales_percentage_loan'
         }
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            require_optin = false
+        }
 
         //Summary event
         "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile/android", type: TrackType.Event) {
@@ -242,6 +251,17 @@ trackTests {
             product_type = 'sales_percentage_loan'
             has_prepaid = false
             loan_created_with_retry = false
+        }
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            has_prepaid = false
+            loan_created_with_retry = false
+            require_optin = false
         }
 
         "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {}
@@ -1110,6 +1130,17 @@ trackTests {
             default_amount = 1000
         }
 
+        "/credits/express_money/summary"(platform: "/mobile/android", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+            default_amount = 1000
+            require_optin = true
+        }
+
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
@@ -1180,6 +1211,18 @@ trackTests {
             selected_payment_term = "7"
             payment_terms = ["7", "14", "21"]
             default_amount = 500
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = false
+            default_payment_term = "7"
+            selected_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
+            default_amount = 500
+            require_optin = true
         }
 
         "/credits/express_money/error"(platform: "/web/desktop") {
@@ -1576,6 +1619,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'overdue'
             offer = ['payment_not_credited', 'create_promise']
+            source_key = 'landing'
         }
 
         //Events
@@ -1661,6 +1705,9 @@ trackTests {
         "/credits/consumer/administrator_v2/onboarding/go_mc"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/onboarding/close"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+            dashboard_status = "on_time"
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
             dashboard_status = "on_time"
             list_status = "black_list"
         }

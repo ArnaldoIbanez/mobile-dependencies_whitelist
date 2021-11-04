@@ -914,11 +914,17 @@ tracks {
             type: PropertyType.Boolean,
             required: false,
         )
+        require_optin(
+            description: "User required opt ins flow",
+            type: PropertyType.Boolean,
+            required: false,
+        )
     }
 
     //Error
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {
         reason(
+            description: "Error reason",
             type: PropertyType.String,
             required: true,
             values: [
@@ -929,6 +935,7 @@ tracks {
                 'unknown-error',
                 'admin-is-restricted',
                 'kyc_error',
+                'loan_request_is_null',
                 'default'
             ],
             inheritable: false
@@ -1149,6 +1156,11 @@ tracks {
             description: "Credit line maximum allowed option",
             type: PropertyType.Numeric,
             required: true,
+        )
+        require_optin(
+            description: "User required opt ins flow",
+            type: PropertyType.Boolean,
+            required: false,
         )
     }
 
@@ -1528,6 +1540,11 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
         )
+        require_optin(
+                description: "User required opt ins flow",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     "/credits/express_money/congrats"(platform: "/web", type: TrackType.View) {
@@ -1609,6 +1626,11 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
         )
+        require_optin(
+                description: "User required opt ins flow",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     "/credits/express_money/error"(platform: "/", type: TrackType.View) {
@@ -1636,7 +1658,8 @@ tracks {
                 'invalid_first_due_date',
                 'insufficient_credit_balance',
                 'conflict',
-                'external_api_error'
+                'external_api_error',
+                'payment_rejected'
             ]
         )
     }
@@ -1792,6 +1815,11 @@ tracks {
                         "not visible"
                 ]
         )
+        source_key(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -1806,6 +1834,19 @@ tracks {
 
     //Events
     "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
+    "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
         dashboard_status(
                 required: true,
                 description: "Defines if the user accesses the FAQ of the button Know more",

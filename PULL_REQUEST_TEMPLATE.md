@@ -13,3 +13,6 @@ You need to fill all these checks in order to merge your Pull Request
 
 ## Catalog documentation
 https://sites.google.com/mercadolibre.com/melidata/tracking/melidata-catalog
+
+## Linter documentation and common issues
+https://github.com/mercadolibre/fury_melidata-catalog-definitions/wiki/Catalog-Linter-validation

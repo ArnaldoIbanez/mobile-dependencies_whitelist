@@ -729,6 +729,7 @@ trackTests {
 
     test("Home sellers - form - how to") {
         "/discount_sellers/v2/form/how_to" (platform: "/", type: TrackType.Event) {
+            traffic_from = "mp"
             session_id = "qowejqboej1b11klasdsjal"
         }
     }

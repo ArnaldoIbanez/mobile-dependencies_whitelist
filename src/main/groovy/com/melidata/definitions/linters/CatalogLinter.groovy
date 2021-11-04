@@ -17,7 +17,7 @@ class CatalogLinter {
         linters.add(new ObligatoryPropertiesLinter(["required", "description", "type", "name"]))
         linters.add(new MinimumRequiredTrueLinter(4))
         linters.add(new NamingLinter())
-        linters.add(new ViewsAndEventsLinter(["show", "click", "action", "view", "tap"]))
+        linters.add(new ViewsAndEventsLinter(["show", "click", "view", "tap"]))
         //linters.add(new RequireValuesLinter(["mode", "type"]))
         linters.add(new DeprecatedTypesLinter([PropertyType.Map, PropertyType.ArrayList]))
         linters.add(new PropertyNameBlackListLinter(
@@ -40,7 +40,7 @@ class CatalogLinter {
         localDefinitions.forEach {newDefinition ->
             excludeParentProperties(newDefinition, localDefinitions)
 
-            def prodDef = prodDefinitions.findAll {it -> it.path == newDefinition.path && it.platform == newDefinition.platform}.toList()
+            def prodDef = prodDefinitions.findAll {it -> it.path == newDefinition.path }.toList()
 
             //Local definition is new to prod
             if(prodDef.isEmpty()) {
@@ -74,7 +74,7 @@ class CatalogLinter {
         List<String> splitPath = localDefinition.path.split("/")
         String parentPath = splitPath.take(splitPath.size() - 1).join("/")
 
-        def parentDef = prodDefinitions.findAll {it -> it.path == parentPath && it.platform == localDefinition.platform}.toList()
+        def parentDef = prodDefinitions.findAll {it -> it.path == parentPath }.toList()
 
         Map<String, TrackDefinitionProperty> propertiesMerge = [:]
 

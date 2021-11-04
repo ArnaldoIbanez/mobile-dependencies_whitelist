@@ -11,6 +11,7 @@ trackTests {
   test("Reservation view") {
     "/instore/coupon_reservation/reservation" (platform: "/", type: TrackType.View) {
       event_id = 12333
+      traffic_from = "modal"
       session_id = "231dd1-dgkkñp0"
       coupons = [
         [

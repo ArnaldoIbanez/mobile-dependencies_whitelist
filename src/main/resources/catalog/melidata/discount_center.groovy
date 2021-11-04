@@ -28,6 +28,7 @@ tracks {
         discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
         delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
         category_id(type: PropertyType.String, required: true, description: "The Category item id")
+        category_path(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "Category path of the item. For ex: ['MLA1051', 'MLA1055']")
         item_id(type: PropertyType.String, required: true, description: "The item id")
         item_name(type: PropertyType.String, required: true, description: "The item title")
     }
@@ -35,7 +36,7 @@ tracks {
     propertyGroups {
         storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
         moreInfoGroup(store_id, collector_id, brand_id, session_id)
-        vipGroup(collector_id, category_id, item_id, item_name, session_id)
+        vipGroup(collector_id, category_id, category_path, item_id, item_name, session_id)
     }
 
     def store_review_definition = objectSchemaDefinitions {
@@ -138,7 +139,6 @@ tracks {
         components(required: true, type: PropertyType.Map(vsp_components_definition), description: "VSP components")
    }
 
-
     // LOCATION REQUEST
 
     "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {
@@ -154,7 +154,7 @@ tracks {
 
     // MORE INFO
 
-    "/discount_center/payers/more_info" (platform: "/mobile", type: TrackType.View) {
+    "/discount_center/payers/vsp/more_info" (platform: "/mobile", type: TrackType.View) {
         moreInfoGroup
     }
 

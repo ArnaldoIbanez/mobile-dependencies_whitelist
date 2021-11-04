@@ -174,6 +174,36 @@ trackTests {
                  ]
              ]
          }
+
+        "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) {
+            my_money_accounts_list = [
+                  component_id: 'accounts_list',
+                  content_id: ['account']
+            ]
+        }
+
+        "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) {
+            my_money_cards_list = [
+                  component_id: 'cards_list',
+                  content_id: ['card']
+            ]
+        }
+
+        "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) {
+            my_money_timestamp = [
+                  component_id: 'timestamp',
+                  component_data: [
+                      last_update: '01/01/2021 00:00'
+                  ]
+            ]
+        }
+
+        "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) {
+            my_money_bank_detail = [
+                  component_id: 'bank_detail',
+                  content_id: ['cards_list', 'accounts_list']
+            ]
+        }
     }
 
     test("Balance to release") {
@@ -292,6 +322,11 @@ trackTests {
             end_date = '2021-01-06T23:59:59.999Z'
         }
         "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
+
+
+        "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
+            action = 'DOWNLOAD_BILLS'
+        }   
 
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {
