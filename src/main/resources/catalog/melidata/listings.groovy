@@ -9,6 +9,15 @@ tracks {
 
     initiative = "1151"
 
+    propertyDefinitions {
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
+        sub_view_id(required: false,type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops","only_marketplace","legacy"])
+    }
+
+    propertyGroups {
+        channelGroup(view_id, sub_view_id)
+    }
+
     def rowItemStructure = objectSchemaDefinitions {
         item_id(type: PropertyType.String, required: true)
         reason(type: PropertyType.String, required: true)
@@ -22,10 +31,15 @@ tracks {
         listing_type(type: PropertyType.String, description:"publication type, change for site")
     }
 
+    def applyFiltersStructure = objectSchemaDefinitions {
+        filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of filters applied")
+        sort(required: false, type: PropertyType.String, description: "Sorting applied")
+    }
+
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View that has been called")
-        sub_view_id(required: false, type: PropertyType.String, description: "Sub view that has been called", values: ["mshops", "markeplace"])
+        channelGroup
+        origin(required:false, type: PropertyType.String, description: "View where the event has been called", name: "origin")
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Listings empty states and publications to activate channel 
@@ -56,7 +70,7 @@ tracks {
     "/seller_central/listings/row"(platform: "/", isAbstract: true){
         // TODO remove required: false after migration complete
         item_id(required: false, type: PropertyType.String, description: "Id of the publication")
-        sub_view_id(required: false,type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops"])
+        channelGroup
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings comparison tooltip
@@ -84,13 +98,10 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings Secondary Actions Click
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    "/seller_central/listings/row/secondary_actions"(platform: "/", type: TrackType.Event) {
-        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
-    }
+    "/seller_central/listings/row/secondary_actions"(platform: "/", type: TrackType.Event) { }
 
     "/seller_central/listings/row/secondary_actions/selected"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
-        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id to which the action is executed")
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
         message(required: false, type: PropertyType.String, description: "Text input from actions with user feedback")
@@ -117,14 +128,18 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings Item Description
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {
+        channelGroup
+    }
 
     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
         moderation_id(required: true, type: PropertyType.String, description: "Moderation id")
+        channelGroup
     }
 
     "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
         health_id(required: true, type: PropertyType.String, description: "Health id")
+        channelGroup
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings Filters
@@ -137,23 +152,23 @@ tracks {
         sort(required: false, type: PropertyType.String, description: "Sorting applied")
         search(required: false, type: PropertyType.String, description: "Query for id or title")
         origin(required: false, type: PropertyType.String, description: "component that emit the action")
-        sub_view_id(required: false, type: PropertyType.String, description: "current subview", values: ["marketplace", "mshops", "only_marketplace"])
+        channelGroup
     }
 
     "/seller_central/listings/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
-        checked_filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of filters applied")
+        before_apply_filters(required: false, type: PropertyType.Map(applyFiltersStructure), description: "Current list of filters and sort param before click action")
+        after_apply_filters(required: false, type: PropertyType.Map(applyFiltersStructure), description: "List of filters and sort param applied after click action")
+        channelGroup
     }
 
     "/seller_central/listings/sort"(platform: "/") {
         id(required: true, type: PropertyType.String, description: "Index of sort applied")
-        view_id(required: true, type: PropertyType.String, description: "View where the event has been called")
-
+        channelGroup
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        channelGroup
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS listings dropdown modify massive

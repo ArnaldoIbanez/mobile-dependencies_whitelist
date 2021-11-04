@@ -712,6 +712,18 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/asset_management_underage_approved"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/asset_management_underage_rejected"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/asset_management_underage_request"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/billing_mpoff"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -2269,6 +2281,10 @@ tracks {
     "/notification/credit_card_collection_expired_50"(platform: "/") {}
     "/notification/credit_card_collection_expired_53"(platform: "/") {}
     "/notification/credit_card_collection_expired_58"(platform: "/") {}
+    "/notification/credit_card_compulsory_debit_equal_min_payment"(platform: "/") {}
+    "/notification/credit_card_compulsory_debit_less_min_payment"(platform: "/") {}
+    "/notification/credit_card_compulsory_debit_money_refund"(platform: "/") {}
+
     // Transaction
     "/notification/credit_card_transaction_acquisition"(platform: "/") {}
     "/notification/credit_card_transaction_choff_purchase"(platform: "/") {}
@@ -2427,6 +2443,19 @@ tracks {
     "/notification/credits_consumer_chatbot_cancel_loan"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
     "/notification/credits_consumer_chatbot_accredited_time"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_initial_greeting"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_match"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_match_v2"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_ask_feedback"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_sensitive_info"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_appreciate"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_no_multimedia"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_numeric"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_written"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_feedback_omitted"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise_info_v2"(platform: "/") {}
 
 
       //Billing
@@ -3422,6 +3451,10 @@ tracks {
     "/notification/asset_management_disabled"(platform: "/mobile") {}
     "/notification/asset_management_failed"(platform: "/mobile") {}
     "/notification/asset_management_rejected"(platform: "/mobile") {}
+    "/notification/asset_management_underage_approved"(platform: "/mobile") {}
+    "/notification/asset_management_underage_rejected"(platform: "/mobile") {}
+    "/notification/asset_management_underage_request"(platform: "/mobile") {}
+
 
     //Campañas
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
@@ -3833,6 +3866,7 @@ tracks {
     "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_capture_after_ttl"(platform: "/") {}
     "/notification/prepaid_card_transaction_capture_less_than_amount"(platform: "/") {}
+    "/notification/card_subscription_visa_vai"(platform: "/mobile") {}
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}

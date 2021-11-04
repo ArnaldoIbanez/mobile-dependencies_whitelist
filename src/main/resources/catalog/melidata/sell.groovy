@@ -117,6 +117,7 @@ tracks {
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, business, platform)
+        sellGroupSYI(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type)
         sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
         categoryFlowMobile(categorization_flow_successful, category_id, category_path, chosen_categorization_model, title_predicted)
@@ -859,8 +860,8 @@ tracks {
     "/sell/hub"(platform: "/web", type: TrackType.View) {}
     "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event) {
         sellGroup
-        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        vertical(required: true, type: PropertyType.String, description: "item vertical", values: ["core", "motors", "real_estate", "services"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
     }
     "/sell/list/hub/select_vertical"(platform: "/mobile", type: TrackType.Event) {
@@ -868,11 +869,10 @@ tracks {
     }
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
-        sellGroup
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
-        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL/LIST AGAIN/CHANGE_CATEGORY  V4 flows.", PropertyType.Map(item_from_map))
+        sellGroupSYI
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
+        item_from(required: false, type: PropertyType.Map(item_from_map), description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL/LIST AGAIN/CHANGE_CATEGORY  V4 flows.")
         mshopsGroup
-
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
@@ -1076,11 +1076,11 @@ tracks {
     }
 
     "/sell/item_data/kilometers"(platform: "/web", parentPropertiesInherited: false, isAbstract: true) {
-        seller_profile(required: true, description: "Type of seller", type: PropertyType.String)
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        vertical(required: false, type: PropertyType.String, description: "item vertical", values: ["core", "motors", "real_estate", "services"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
         category_id(required: false, type: PropertyType.String, description: "Category Id")
@@ -1089,11 +1089,11 @@ tracks {
     "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/license_plate"(platform: "/web", parentPropertiesInherited: false, isAbstract: true) {
-        seller_profile(required: true, description: "Type of seller", type: PropertyType.String)
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        vertical(required: false, type: PropertyType.String, description: "item vertical", values: ["core", "motors", "real_estate", "services"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
     }
@@ -1151,8 +1151,8 @@ tracks {
     //--------------------------------------------------------------------------------------------------------------------
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
-        sellGroup
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        sellGroupSYI
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
     }
     "/sell/item_conditions/prices"(platform: "/web", isAbstract: true) {}
@@ -1163,7 +1163,7 @@ tracks {
     "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/listing_types"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/listing_types/show"(platform: "/web", type: TrackType.Event) {
-        has_free(required: true, type: PropertyType.Boolean)
+        has_free(required: true, type: PropertyType.Boolean, description: "has free listing type")
     }
     "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/listing_types/free"(platform: "/web", type: TrackType.Event) {}
@@ -1241,22 +1241,22 @@ tracks {
     "/sell/item_data/pictures/delete"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/upload_errors"(platform: "/web", type: TrackType.Event) {
-        limit_errors(required: true, description: "The quantity of pictures uploaded was exceeded", type: PropertyType.Boolean)
-        format_errors(required: true, description: "How many files didn't match the allowed format", type: PropertyType.Numeric)
-        size_errors(required: true, description: "How many files didn't match the minimum size", type: PropertyType.Numeric)
+        limit_errors(required: true, type: PropertyType.Boolean, description: "The quantity of pictures uploaded was exceeded")
+        format_errors(required: true, type: PropertyType.Numeric, description: "How many files didn't match the allowed format")
+        size_errors(required: true, type: PropertyType.Numeric, description: "How many files didn't match the minimum size")
     }
     "/sell/item_data/pictures/upload"(platform: "/web", type: TrackType.Event) {
-        quantity(required: true, description: "The quantity of pictures uploaded successfully", type: PropertyType.Numeric)
+        quantity(required: true, type: PropertyType.Numeric, description: "The quantity of pictures uploaded successfully")
     }
     "/sell/item_data/pictures_with_validations"(platform: "/", isAbstract: true) {}
     "/sell/item_data/pictures_with_validations/show"(platform: "/", type: TrackType.Event) {
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
-        sellGroup
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
+        sellGroupSYI
         mshopsGroup
     }
     "/sell/item_data/pictures_with_validations/confirm"(platform: "/", type: TrackType.Event) {
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
-        sellGroup
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
+        sellGroupSYI
         mshopsGroup
     }
 
@@ -1266,34 +1266,34 @@ tracks {
     "/sell/item_conditions/seller_contact/whatsapp/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
-        sellGroup
+        sellGroupSYI
         categoryFlow
         productFinderGroup
         listingTypeFlow
-        item_id(required: true, type: PropertyType.String)
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        item_id(required: true, type: PropertyType.String, description: "item id")
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         health_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for Health card")
         kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
         share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
-        decision_flow_label(required: false,  values:["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"], type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing")
+        decision_flow_label(required: false, type: PropertyType.String, description: "Which path (ctl / mk) selected for the listing", values: ["BY_MARKETPLACE", "BY_CATALOG", "BY_CATALOG_AND_MARKETPLACE", "NONE"])
         mshopsGroup
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
-        sellGroup
+        sellGroupSYI
         categoryFlow
         productFinderGroup
-        item_id(required: false, type: PropertyType.String)
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        item_id(required: false, type: PropertyType.String, description: "item id")
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
     }
     "/sell/congrats/listing_types"(platform: "/web", isAbstract: true) {}
     "/sell/congrats/listing_types/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
-        sellGroup
+        sellGroupSYI
         categoryFlow
         productFinderGroup
-        item_id(required: false, type: PropertyType.String)
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
-        has_free(required: true, type: PropertyType.Boolean)
+        item_id(required: false, type: PropertyType.String, description: "item id")
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
+        has_free(required: true, type: PropertyType.Boolean, description: "has free listing type")
         mshopsGroup
     }
     "/sell/congrats/congrats_catalog_items"(platform: "/web", isAbstract: true) {}
@@ -1319,16 +1319,16 @@ tracks {
     }
 
     "/sell/presip"(platform: "/web", type: TrackType.View) {
-        sellGroup
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        sellGroupSYI
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
     }
     "/sell/presip/review"(platform: "/web", type: TrackType.Event) {}
     "/sell/presip/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
-        sellGroup
+        sellGroupSYI
         listingTypeFlow
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values: ["default", "product", "item_plus", "no_prediction"])
         mshopsGroup
     }
     "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -1506,30 +1506,4 @@ tracks {
         has_validation_error(required: true, description: "Other suggestion has personal validation error or not", type: PropertyType.Boolean)
         error_references(required: true, description: "List of validation error references", PropertyType.ArrayList(PropertyType.String))
     }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS SYI v4 - Motors
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    // Flash Offer Experiment
-    "/sell/flash_offer"(platform: "/web", isAbstract: true) {}
-    "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View) {}
-    "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
-    "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}
-    "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
-    "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
-
-    // Fake Door Experiment
-    "/sell/item_conditions/fake_door_challenge"(platform: "/web", isAbstract: true) {
-        sellGroup
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
-    }
-    "/sell/item_conditions/fake_door_challenge/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/fake_door_challenge/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/fake_door_feedback"(platform: "/web", isAbstract: true) {
-        sellGroup
-        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product", "item_plus", "no_prediction"])
-    }
-    "/sell/item_conditions/fake_door_feedback/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/fake_door_feedback/confirm"(platform: "/web", type: TrackType.Event) {}
 }

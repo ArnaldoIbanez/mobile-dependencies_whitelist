@@ -339,6 +339,11 @@ trackTests {
             action = "header_help"
         }
     }
+
+    // Dasboard Header Help  
+    test("cards hybrid dashboard header help") {
+        "/cards/hybrid/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
+    }
     
     //Mini card: Tracking
     test("cards hybrid dashboard mini card tracking") {

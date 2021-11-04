@@ -192,6 +192,11 @@ tracks {
         domain_id(required: false, type: PropertyType.String, description: "The category domain id")
     }
 
+    def processingOptionStructure = objectSchemaDefinitions {
+        day(required: true, type: PropertyType.String, description: "The day of the week", values: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"])
+        processing_time(required: true, type: PropertyType.String, description: "The processing time")
+    }
+
     // --------------------------------------------------------------------------------------------------------------
     //  LANDING PRODUCTS STRUCTURE
     // --------------------------------------------------------------------------------------------------------------
@@ -226,10 +231,18 @@ tracks {
     //  Seller Central Verifications Structure
     // --------------------------------------------------------------------------------------------------------------
 
-    def verificationAttributesStructure = objectSchemaDefinitions {
+    def attributesStructure = objectSchemaDefinitions {
         attribute_id(required: true, type: PropertyType.String, description: "atribute id to verificate")
         attribute_value(required: true, type: PropertyType.String, description: "atribute value to verificate")
         attribute_name(required: false, type: PropertyType.String, description: "attribute name to verificate")
+    }
+
+    def pricesBandsStructure = objectSchemaDefinitions {
+        lower_band (required:true, type: PropertyType.String, description: "Lower band from price suggestion")
+        lower_limit (required:true, type: PropertyType.String, description: "lower limit band from price suggestion")
+        upper_band (required:true, type: PropertyType.String, description: "Upper band from price suggestion")
+        upper_limit (required:true, type: PropertyType.String, description: "Upper limit band from price suggestion")
+        estimated_price (required:true, type: PropertyType.String, description: "Estimated price from price suggestion")
     }
 
     def syiVerificationStructure = objectSchemaDefinitions {
@@ -237,12 +250,12 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
         domain_id(required: true, type: PropertyType.String, description: "to know which category belong the identifier")
         verification_site(required: true, type: PropertyType.String, description: "to know which site belong the identifier")
-        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes to verificate")
     }
 
     def dratStructure = objectSchemaDefinitions {
         flow_id(required: true, type: PropertyType.String, description: "flow type is used to know which logic could be implemented to verificate")
-        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(verificationAttributesStructure)), description: "attributes to verificate")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes to verificate")
     }
 
     propertyDefinitions {
@@ -345,14 +358,19 @@ tracks {
         packs(required: false, type: PropertyType.ArrayList(PropertyType.Map(packStructure)), description: "List of packs")
         categories(required: true, type: PropertyType.ArrayList(PropertyType.Map(categoryStructure)), description: "List of categories")
         logistic_type(required: true, type: PropertyType.String, description: "Logistic type of the shipment")
+
+        // Processing Time
+        processing_options(required: true, type: PropertyType.ArrayList(PropertyType.Map(processingOptionStructure)), description: "List of processing time options")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
         sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type, business, platform)
+        sellerCentralModifyCardsGroupMotors(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
+        sellerCentralProcessingTimeGroup(seller_profile, reputation_level, processing_options)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
 
@@ -568,7 +586,7 @@ tracks {
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start", "reopen"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
-        viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+        viewId(required: false, type: PropertyType.String, description: "Onboarding id if applies")
         user_type(required: false, type: PropertyType.String, description: "Authenticated user type")
     }
 
@@ -580,7 +598,7 @@ tracks {
 
 
     "/seller_central/listings/hunting"(platform: "/", isAbstract: true) {
-        view_id(required: true, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: true, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {}
@@ -593,21 +611,21 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
         action(required: false, type: PropertyType.String, description: "The action used in the communication if applies")
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
@@ -638,7 +656,7 @@ tracks {
     }
 
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/quantity/change_tab"(platform: "/", type: TrackType.Event) {
@@ -647,8 +665,8 @@ tracks {
     }
 
     "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, descritpion: "Id of the remedy applied to solve moderation")
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        id(required: true, type: PropertyType.String, description: "Id of the remedy applied to solve moderation")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/show"(platform: "/", type: TrackType.View) {
@@ -669,7 +687,7 @@ tracks {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Advertasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/survey"(platform: "/", type: TrackType.Event) {
@@ -773,7 +791,7 @@ tracks {
     }
 
     "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
         sellerCentralModifyGroupTableForPdp
     }
 
@@ -782,12 +800,11 @@ tracks {
     }
 
     "/seller_central/modify/variations_custom"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
     }
 
-
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
         sellerCentralModifyGroupTableForPdp
     }
 
@@ -1003,19 +1020,16 @@ tracks {
         hint_id(required: true, type: PropertyType.String, description: "Id del hint que se mostro, pueden cambiar o generarse nuevos por lo que no conocemos todos los valores posibles.")
     }
 
-    "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {
+    "/seller_central/modify/technical_specifications/hints/available"(platform: "/", type: TrackType.Event) {}
 
-    }
-
-    "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {
-    }
+    "/seller_central/modify/technical_specifications/hints/showed"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/modify/technical_specifications/hints/completed"(platform: "/", type: TrackType.Event) {
         user_action(required: false, type: PropertyType.String, description: "Type of user action", values: ["click", "write"])
     }
 
     "/seller_central/modify/optin_flex_subflow"(platform: "/", type: TrackType.View) {
-        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupMotors
     }
 
     "/seller_central/bulk/technical_specifications"(platform: "/", isAbstract: true) {}
@@ -1119,6 +1133,17 @@ tracks {
         from(required: false, type: PropertyType.String, description: "Previous value of the row")
         section_id(required: true, type: PropertyType.String, description: "Section of the row")
         row_id(required: true, type: PropertyType.String, description: "Row Id")
+    }
+
+    // PROCESSING TIME SECTION
+
+    "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
+        sellerCentralSettingsGroup
+    }
+
+    "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["CONFIRM", "CANCEL"])
+        sellerCentralProcessingTimeGroup
     }
 
     // SALES SECTION
@@ -1373,6 +1398,11 @@ tracks {
         fragment_from_webview(required: false, type: PropertyType.String, description: "The webview where is opened the fragment")
     }
 
+    "/seller_central/metrics/personalized_period"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        days_count(required: true, type: PropertyType.Numeric, description: "Custom period days count")
+    }
+
     "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales
         sellerMetricsContext
@@ -1576,6 +1606,23 @@ tracks {
     "/seller_central/metrics/attention/delayed_shippings/open_onboarding"(platform: "/web", type: TrackType.Event) {
         sellerCentralUserSales
     }
+
+    // METRICS STOCK-FULL SECTION
+
+    "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
+        sellerCentralUserSales
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin", values: ["metrics", "fulfillment", "stranded", "aging", "fee_storage", "summary" ])
+    }
+
+    "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/stock_full"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/stock_full/click_help"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        section_name(required: true, type: PropertyType.String, description: "Section where the button is placed")
+    }
+
 
     // CATALOG OPTIN SECTION
 
@@ -2234,28 +2281,28 @@ tracks {
         original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
         original_dod(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original deal_of_they_day promotion data")
         context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING", "CREATE_DOD"])
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING", "CONFIRM_DOD"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required: true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: true, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING", "CONFIRM_DOD"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required: true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: true, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/delete"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DELETE", "DELETE_LIGHTNING", "DELETE_DOD"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required: true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: true, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event) {
@@ -2263,7 +2310,7 @@ tracks {
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
         error(required: false, type: PropertyType.String, description: "Error saving the promotion")
-        origin(required: true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: true, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
@@ -2280,9 +2327,9 @@ tracks {
 
     "/seller_central/promotions/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
@@ -2291,7 +2338,7 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         operator_id(required: false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
         promo_id(required: false, type: PropertyType.String, description: "Deals co-funded campaign identifier")
         seller_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by the seller")
         meli_pct(required: false, type: PropertyType.Numeric, description: "percentage of discount assumed by meli")
@@ -2303,7 +2350,7 @@ tracks {
         view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         item_id(required: false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
         promoId(required: false, type: PropertyType.String, description: "Card that was applied at the moment of confirmation, if any")
         promo_id(required: false, type: PropertyType.String, description: "Deals co-funded campaign identifier")
     }
@@ -2323,22 +2370,22 @@ tracks {
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/promotions/list"(platform: "/", type: TrackType.Event) {}
 
     //LISTING - Secondary Actions Click
     "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {
-        view_id(required: false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required: false, type: PropertyType.String, description: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     //LISTING - Candidates information
     "/seller_central/promotions/list/info"(platform: "/", type: TrackType.Event) {
         candidates(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Candidates for each type of promotion")
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
@@ -2358,7 +2405,7 @@ tracks {
     "/seller_central/promotions/onboarding/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
-        viewId(required: false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+        viewId(required: false, type: PropertyType.String, description: "Onboarding id if applies")
     }
 
     "/seller_central/promotions/collapsible"(platform: "/", type: TrackType.View) {}
@@ -2367,32 +2414,40 @@ tracks {
 
     "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
 
+    "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/promotions/massive/editor/open"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
         type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
-        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        useFilters(required: true, type: PropertyType.Boolean, description: "If has filters applied")
     }
 
     "/seller_central/promotions/massive/editor/confirm"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
         type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
-        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        useFilters(required: true, type: PropertyType.Boolean, description: "If has filters applied")
         deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
     }
 
     "/seller_central/promotions/massive/editor/cancel"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
         type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
-        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        useFilters(required: true, type: PropertyType.Boolean, description: "If has filters applied")
         deleted(required: true, type: PropertyType.String, description: "Quantity of deleted items")
     }
 
     "/seller_central/promotions/massive/editor/delete"(platform: "/", type: TrackType.Event) {
         items(required: true, type: PropertyType.String, description: "Quantity of items")
         type(required: true, type: PropertyType.String, description: "Promotion type", values: ["deal_of_the_day", "lightning", "pre_negotiated", "tiers", "co_funded", "volume"])
-        useFilters(required: true, type: PropertyType.Boolean, descritpion: "If has filters applied")
+        useFilters(required: true, type: PropertyType.Boolean, description: "If has filters applied")
     }
 
     "/seller_central/promotions/massive/editor/toolbar"(platform: "/", type: TrackType.View) {}
@@ -2429,11 +2484,11 @@ tracks {
     "/seller_central/promotions/massive/modal"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/promotions/massive/modal/add"(platform: "/", type: TrackType.Event) {
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/massive/modal/delete"(platform: "/", type: TrackType.Event) {
-        origin(required: false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/widget"(platform: "/", type: TrackType.View) {}
@@ -2654,5 +2709,14 @@ tracks {
     "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event) {
         use_gema (required:true, type: PropertyType.Boolean, description: "Validate if the user use our new application")
         seller_reputation (required:true, type: PropertyType.String, description: "Seller Reputation")
+    }
+
+    "/seller_central/price_suggestion/bands"(platform: "/", type: TrackType.Event){
+        app_name (required:true, type: PropertyType.String, description: "App name from each app which uses price suggestion")
+        client_id (required:false, type: PropertyType.Numeric, description: "Client id from each app which uses price suggestion")
+        item_id (required:false, type: PropertyType.String, description: "Item id")
+        attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributesStructure)), description: "attributes")
+        prices_bands (required: true, type: PropertyType.Map(pricesBandsStructure), description: "bands from suggestion")
+        price (required:true, type: PropertyType.String, description: "Item price")
     }
 }

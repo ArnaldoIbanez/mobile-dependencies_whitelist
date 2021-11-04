@@ -3230,6 +3230,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/empty_state_ftu/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // empty state
         "/bill_payments/empty_state/scheduling"(platform: "/mobile") {
             mandatory()
@@ -4543,6 +4547,9 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
+            screenlock_method_used = "biometrics"
+            biometrics_hash = "af21213819faed1923182dfc4217"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4564,6 +4571,7 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -4584,6 +4592,30 @@ trackTests {
                 "transaction_custom": "0",
                 "opening_custom": "0"
             ]
+            fallback_disabled = false
+            screenlock_method_used = "basic_screenlock"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "success"
+            transaction_information = [
+                "amount": "0",
+                "type": "other"
+            ]
+            config = [
+                "transaction_granularity_option": "always",
+                "transaction_accumulated_amount": "100",
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+            fallback_disabled = true
+            screenlock_method_used = "unknown"
         }
 
         "/screenlock/security_status/get"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -5441,12 +5473,183 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
-                "transaction_granularity_option": "daily_amount",
-                "transaction_accumulated_amount": "150",
-                "transaction": "disabled",
-                "opening_lock": "enabled",
-                "transaction_custom": "0",
-                "opening_custom": "0"
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "compile",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "app_installed",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "runtime",
+                        "i": true,
+                ],
+                "r": [
+                        "b": "directory",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "files",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "symb",
+                        "i": true,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "fail",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "fail",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "undetectable",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "undetectable",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                "e": [
+                        "b": "unknown",
+                        "i": false,
+                ],
+                "r": [
+                        "b": "unknown",
+                        "i": false,
+                ]
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction_granularity_option": "always",
+                    "transaction_accumulated_amount": "150",
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            h = [
+                    "e": [
+                            "b": "off",
+                            "i": false,
+                    ],
+                    "r": [
+                            "b": "off",
+                            "i": false,
+                    ]
             ]
         }
     }

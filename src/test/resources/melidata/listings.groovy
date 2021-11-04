@@ -9,11 +9,15 @@ trackTests {
 
   test("seller central listing main page") {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
-  }
-  test("seller central listing main page") {
+  
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
       view_id = "listing"
       sub_view_id = "mshops"
+    }
+
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id = "fulfillment"
+      origin = "metrics"
     }
   }
 
@@ -59,7 +63,41 @@ trackTests {
     }
     "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
       action = "apply"
-      checked_filters = ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"]
+      before_apply_filters = [
+        filters: ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      after_apply_filters = [
+        filters: ["WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+    }
+
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+      before_apply_filters = [
+        filters: ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      after_apply_filters = [
+        filters: ["WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      sub_view_id = "mshops"
+      view_id = "listings"
+    }
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "clear"
+       before_apply_filters = [
+        filters: ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      after_apply_filters = [
+        filters: [],
+        sort: ''
+      ]
+      sub_view_id = "mshops"
+      view_id = "listings"
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
