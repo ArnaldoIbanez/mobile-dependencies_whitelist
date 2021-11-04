@@ -812,7 +812,10 @@ tracks {
         option_selected(required: true, type: PropertyType.Map(card_protection_option), description: "Option selected")
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
-    "/insurtech/cards/back"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/insurtech/cards/back"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
+    }
+    "/insurtech/cards/close"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){
         flow_id(required: true, type: PropertyType.String, description: "Product id of insurtech")
     }
     "/insurtech/cards/retry"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false){

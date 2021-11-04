@@ -3005,7 +3005,10 @@ trackTests {
             ]
             flow_id = "PRECONGRATS"
         }
-        "/insurtech/cards/back"(platform:"/", type: TrackType.Event) {
+        "/insurtech/cards/back"(platform:"/mobile", type: TrackType.Event) {
+           flow_id = "POSTCONGRATS"
+        }
+        "/insurtech/cards/close"(platform:"/", type: TrackType.Event) {
            flow_id = "PRECONGRATS"
         }
     }
