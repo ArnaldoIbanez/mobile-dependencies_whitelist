@@ -49,8 +49,6 @@ catalog {
 
     def mercadoads = ["mercadoads"]
 
-    def portalinmobiliario = ["portalinmobiliario"]
-
     def extra_marketplace = [
             "tucarro",
             "tumoto",
@@ -59,7 +57,7 @@ catalog {
             "portalinmobiliario"
     ]
 
-    def all = mercadolibre + mercadopago + portalinmobiliario
+    def all = mercadolibre + mercadopago
 
     all.each { business ->
         include business, "mp_frontend.groovy"
@@ -357,6 +355,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "collaborators.groovy"
     }
 
 }
