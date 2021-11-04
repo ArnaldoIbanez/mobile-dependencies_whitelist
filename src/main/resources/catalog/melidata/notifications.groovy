@@ -2455,7 +2455,7 @@ tracks {
     "/notification/credits_consumer_chatbot_feedback_omitted"(platform: "/") {}
     "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {}
-    "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise_info_v2"(platform: "/") {}
 
 
       //Billing
