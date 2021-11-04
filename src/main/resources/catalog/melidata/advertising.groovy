@@ -2254,5 +2254,48 @@ tracks {
         adv_management_mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
     }
 
+    //Buybox Modal
+
+    "/advertising/pads2/hub/bb_campaign/modal"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        acos(required: true, type: PropertyType.Numeric, description: "ACOS related to the new campaign")
+        bb_quantity(required: true, type: PropertyType.Numeric, description: "Buybox quantity items related to the new campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Budget related to the new campaign")
+        credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+
+    "/advertising/pads2/hub/bb_campaign/modal/open"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/continue"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/close"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/bb_quantity_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/advertising/pads2/hub/bb_campaign/modal/budget_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    //Buybox Card
+
+    "/advertising/pads2/hub/card/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+
+    "/advertising/pads2/hub/card/bb_campaign/go"(platform: "/", type: TrackType.Event) {}
+
+    //Buybox Congrats
+
+    "/advertising/pads2/hub/bb_campaign"(platform: "/", type: TrackType.View, parentPropertiesInherited: false, isAbstract: true) {
+        bb_quantity(required: true, type: PropertyType.Numeric, description: "Buybox quantity items related to the new campaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/hub/bb_campaign/congrats"(platform: "/", type: TrackType.View) {
+        acos(required: true, type: PropertyType.Numeric, description: "ACOS related to the new campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Budget related to the new campaign")
+        credit(required: true, type: PropertyType.Numeric, description: "Amount of credit available to spend")
+    }
+
+    "/advertising/pads2/hub/bb_campaign/view_ads"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/bb_campaign/view_campaign"(platform: "/", type: TrackType.Event) {}
 
 }
