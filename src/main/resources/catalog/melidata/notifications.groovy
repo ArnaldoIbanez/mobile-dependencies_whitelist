@@ -3805,9 +3805,6 @@ tracks {
     "/notification/card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_nfc_seventh_day_no_am"(platform: "/mobile") {}
     "/notification/card_first_use_incentive_nfc_seventh_day_am"(platform: "/mobile") {}
-
-
-
     "/notification/card_request_challenge_pending"(platform: "/") {}
     "/notification/card_request_challenge_pre_expired"(platform: "/") {}
     "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
