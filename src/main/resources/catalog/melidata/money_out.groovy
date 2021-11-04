@@ -314,7 +314,7 @@ tracks {
     "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
 
     "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
-        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector"])
+        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector", "invalid_account_type"])
     }
     "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {}

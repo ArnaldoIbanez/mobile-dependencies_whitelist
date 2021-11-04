@@ -200,6 +200,11 @@ tracks {
                         "not visible"
                 ]
         )
+        source_key(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -227,6 +232,7 @@ tracks {
                 ]
         )
     }
+    "/credits/consumer/administrator_v2/go_where_can_use"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
         dashboard_status(
                 required: true,
