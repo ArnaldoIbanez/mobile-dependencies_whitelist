@@ -2859,6 +2859,7 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           communication_id(required: false, type: PropertyType.String, description: "Hermes communication id.")
+          execution_id(required: false, type: PropertyType.String, description: "Execution id.")
       }
 
       "/notification/campaigns_sms"(platform: "/") {
@@ -3331,6 +3332,7 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
+          execution_id(required: false, type: PropertyType.String, description: "Execution id.")
       }
 
       "/notification/campaigns_schedule"(platform: "/") {
@@ -3464,6 +3466,7 @@ tracks {
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
         campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
+        execution_id(required: false, type: PropertyType.String, description: "Execution id.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -3473,6 +3476,7 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
+        execution_id(required: false, type: PropertyType.String, description: "Execution id.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -3797,6 +3801,14 @@ tracks {
     }
 
     //Cards Hybrid
+    "/notification/card_first_use_incentive_nfc_first_day_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_first_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_am_virtual_inactive"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_seventh_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_seventh_day_am"(platform: "/mobile") {}
     "/notification/card_request_challenge_pending"(platform: "/") {}
     "/notification/card_request_challenge_pre_expired"(platform: "/") {}
     "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
