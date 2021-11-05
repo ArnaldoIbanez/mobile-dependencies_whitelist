@@ -252,7 +252,7 @@ trackTests {
 
      "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
       moderation_id = "ID"
-      sub_view_id = "shops"
+      sub_view_id = "mshops"
       item_id = "MCO212144fdfa"
     }
 
