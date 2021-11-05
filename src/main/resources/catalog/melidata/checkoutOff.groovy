@@ -43,7 +43,7 @@ tracks {
         shipping_method(required: false, description: "The shipping method selected by the user, e.g: 'standard|express|six_days'", type: PropertyType.String, values: ["super_express", "same_day", "next_day", "two_days", "express", "three_days", "four_days", "five_days", "six_days", "sedex", "standard"])
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
-        preference(required: true, description: "Every non PII contain within a preference", type: PropertyType.Map)
+        preference(required: true, description: "Every non PII contain within a preference", type: PropertyType.Map(PropertyType.String, PropertyType.String))
     }
 
     // EVENTS
@@ -167,7 +167,7 @@ tracks {
         shipping_method(required: false, description: "The shipping method selected by the user, e.g: 'standard|express|six_days'", type: PropertyType.String, values: ["super_express", "same_day", "next_day", "two_days", "express", "three_days", "four_days", "five_days", "six_days", "sedex", "standard"])
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
-        preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map)
+        preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(PropertyType.String, PropertyType.String))
     }
 
     // For this path, none is required
@@ -180,7 +180,7 @@ tracks {
         total_amount(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         currency_id(required: false, description: "currency according to https://api.mercadolibre.com/currencies", type: PropertyType.String)
         items_quantity(required: false, description: "quantity of items configured in the preference, e.g: 2", type: PropertyType.Numeric)
-        preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map)
+        preference(required: false, description: "Every non PII contain within a preference", type: PropertyType.Map(PropertyType.String, PropertyType.String))
     }
 
     //Final Views

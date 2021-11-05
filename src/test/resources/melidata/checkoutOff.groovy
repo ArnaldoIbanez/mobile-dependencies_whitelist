@@ -1,4 +1,4 @@
-package src.test.resources.melidata
+package melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -508,7 +508,6 @@ trackTests {
         "/checkout_off/error"(platform: "/web/mobile") {
             product_id = "BC32A4JU643001OI3920"
             productive = true
-            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : "0"]
         }
 
         // Properties not necessary
@@ -1046,7 +1045,6 @@ trackTests {
         "/checkout_off/error"(platform: "/web/mobile") {
             product_id = "BC32A4JU643001OI3920"
             productive = true
-            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : "0"]
         }
 
         // Properties not necessary
