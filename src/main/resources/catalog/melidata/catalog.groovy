@@ -100,7 +100,6 @@ catalog {
         include business, "bulk_edit.groovy"
         include business, "pdf_viewer.groovy"
         include business, "fraud_challenges.groovy"
-        include business, "reauthentication.groovy"
     }
 
     mercadolibre.each { business ->
@@ -306,7 +305,6 @@ catalog {
         include business, "vip.groovy"
         include business, "hub_mshops.groovy"
         include business, "myml_mercadoshops.groovy"
-        include business, "reauthentication.groovy"
     }
 
     mercadoads.each { business ->
@@ -325,7 +323,6 @@ catalog {
         include business, "kyc.groovy"
         include business, "authentication.groovy"
         include business, "liveness.groovy"
-        include business, "reauthentication.groovy"
         include business, "prepapp.groovy"
     }
 
@@ -358,7 +355,6 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
-        include business, "reauthentication.groovy"
         include business, "collaborators.groovy"
     }
 
