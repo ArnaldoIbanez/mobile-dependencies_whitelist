@@ -21,20 +21,20 @@ tracks {
     "/tax_manager/process/sap/return/success"(platform: "/web", type: TrackType.Event) {
         sku(required: true, type: PropertyType.String, description: "this property indicates the sku")
         taxes_site_id(required: true, type: PropertyType.String, description: "this property indicates the site_id where taxes come from")
-        sap_user_id(required: true, type: PropertyType.String, description: "this property indicates the sap_user_id")
+        sap_user_id(required: true, type: PropertyType.Numeric, description: "this property indicates the sap_user_id")
     }
 
     "/tax_manager/process/sap/return/fail"(platform: "/web", type: TrackType.Event) {
         sku(required: true, type: PropertyType.String, description: "this property indicates the sku")
         taxes_site_id(required: true, type: PropertyType.String, description: "this property indicates the site_id where taxes come from")
-        sap_user_id(required: true, type: PropertyType.String, description: "this property indicates the sap_user_id")
+        sap_user_id(required: true, type: PropertyType.Numeric, description: "this property indicates the sap_user_id")
     }
 
     "/tax_manager/pre_process"(platform: "/", isAbstract: true) {}
     "/tax_manager/pre_process/conflict_creation"(platform: "/web", type: TrackType.Event) {
         sku(required: true, type: PropertyType.String, description: "this property indicates the sku")
         taxes_site_id(required: true, type: PropertyType.String, description: "this property indicates the site_id where taxes come from")
-        sap_user_id(required: true, type: PropertyType.String, description: "this property indicates the sap_user_id")
+        sap_user_id(required: true, type: PropertyType.Numeric, description: "this property indicates the sap_user_id")
         site_conflict(required: true, type: PropertyType.Boolean, description: "this property indicates the site_conflict")
         combination_conflict(required: true, type: PropertyType.Boolean, description: "this property indicates the combination_conflict")
     }
@@ -43,12 +43,12 @@ tracks {
     "/tax_manager/process/sap/return_spreadsheet/success"(platform: "/web", type: TrackType.Event) {
         sku(required: true, type: PropertyType.String, description: "this property indicates the sku")
         taxes_site_id(required: true, type: PropertyType.String, description: "this property indicates the site_id where taxes come from")
-        sap_user_id(required: true, type: PropertyType.String, description: "this property indicates the sap_user_id")
+        sap_user_id(required: true, type: PropertyType.Numeric, description: "this property indicates the sap_user_id")
     }
 
     "/tax_manager/pre_process/tax_combination"(platform: "/web", type: TrackType.Event) {
         sku(required: true, type: PropertyType.String, description: "this property indicates the sku")
         taxes_site_id(required: true, type: PropertyType.String, description: "this property indicates the site_id where taxes come from")
-        sap_user_id(required: true, type: PropertyType.String, description: "this property indicates the sap_user_id")
+        sap_user_id(required: true, type: PropertyType.Numeric, description: "this property indicates the sap_user_id")
     }
 }
