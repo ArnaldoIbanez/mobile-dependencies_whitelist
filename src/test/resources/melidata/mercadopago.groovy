@@ -6852,10 +6852,10 @@ trackTests {
         }
         "/crypto/complete_transaction" (platform: "/mobile", type: TrackType.Event) {
             id = "9e588da2-f853-4266-a933-0f62f960345c"
-            amount =  2305.32
             ticker = "BTC"
-            market = "BTCBRL"
-            amount_crypto = 0.00000051
+            action = "BUY"
+            local_currency = "BRL"
+            state = "SUCCESS"
         }
     }
 }

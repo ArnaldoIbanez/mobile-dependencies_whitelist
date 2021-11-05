@@ -41,9 +41,9 @@ tracks
             }
             "/crypto/complete_transaction" (platform: "/mobile", type: TrackType.Event) {
               id(type: PropertyType.String, required: true, description: 'transaction identifier')
-              amount(type: PropertyType.Numeric, required: true, description: 'amount of the operation in local currency')
               ticker(type: PropertyType.String, required: true, description: 'cryptocurrency abbreviation')
-              market(type: PropertyType.String, required: true, description: 'the market of the cryptoCurrency')
-              amount_crypto(type: PropertyType.Numeric, required: true, description: 'amount of the cryptoCurrency')
+              action(type: PropertyType.String, required: true, description: 'type of transaction')
+              local_currency(type: PropertyType.String, required: true, description: 'Local currency')
+              state(type: PropertyType.String, required: true, description: 'state of transaction')
             }
         }
