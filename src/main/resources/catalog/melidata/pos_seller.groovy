@@ -388,7 +388,7 @@ import com.ml.melidata.TrackType
             method(required: true, type: PropertyType.String, description:"For Seller o Buyer", values: ["1X", "PSJ", "PCJ"])
         }
         "/pos_seller/point/installments/select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-            installment(required: true, type: PropertyType.String, description:"Installment selected", values: [1,3,6,9,12,16,18,21,24])
+            installment(required: true, type: PropertyType.Numeric, description:"Installment selected", values: [1,3,6,9,12,16,18,21,24])
         }
         "/settings/ota/error/shield"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
             type(required: true, type: PropertyType.String, description:"Type of Error", values: ["USB", "Battery", "Disconnect", "Unknown"])
