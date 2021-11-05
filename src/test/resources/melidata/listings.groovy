@@ -235,14 +235,39 @@ trackTests {
 
   test("seller central listings row description") {
     "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {}
+  }
 
-    "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
+  test("seller central listings row 4ta cell") {
+     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
       moderation_id = "ID"
     }
 
     "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
       health_id = "ID"
     }
+
+     "/seller_central/listings/row/catalog_killers"(platform: "/", type: TrackType.Event) {
+      catalog_id = "WIN_CATALOG"
+    }
+
+     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
+      moderation_id = "ID"
+      sub_view_id = "shops"
+      item_id = "MCO212144fdfa"
+    }
+
+    "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
+      health_id = "ID"
+      sub_view_id = "only_marketplace"
+      item_id = "MCO212144fdfa"
+    }
+
+     "/seller_central/listings/row/catalog_killers"(platform: "/", type: TrackType.Event) {
+      catalog_id = "WIN_CATALOG"
+      sub_view_id = "marketplace"
+      item_id = "MCO212144fdfa"
+    }
+
   }
 
   test("seller central listings call to actions of row") {

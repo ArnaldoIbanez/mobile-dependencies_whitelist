@@ -126,11 +126,15 @@ tracks {
     }    
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS listings Item Description
+    // TRACKS listings Item Modify detail
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {
         channelGroup
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS listings situacional cell
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
         moderation_id(required: true, type: PropertyType.String, description: "Moderation id")
@@ -139,6 +143,11 @@ tracks {
 
     "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
         health_id(required: true, type: PropertyType.String, description: "Health id")
+        channelGroup
+    }
+
+     "/seller_central/listings/row/catalog_killers"(platform: "/", type: TrackType.Event) {
+        catalog_id(required: true, type: PropertyType.String, description: "type of action for the catalog item")
         channelGroup
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
