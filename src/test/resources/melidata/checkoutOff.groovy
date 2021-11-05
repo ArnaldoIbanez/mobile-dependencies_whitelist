@@ -41,7 +41,7 @@ trackTests {
             shipping_method = "standard"
             shipping_local_pickup = false
             shipping_free = true
-            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : 0, "purpose_description" : null]
+            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : "0", "purpose_description" : null]
         }
 
         def launchingDefaultProperties = {
@@ -79,7 +79,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             items_quantity = 2
-            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : 0, "purpose_description" : null]
+            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : "0", "purpose_description" : null]
         }
 
         def launchingOnlyRequiredProperties = {
@@ -577,7 +577,7 @@ trackTests {
             shipping_method = "standard"
             shipping_local_pickup = false
             shipping_free = true
-            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : 0, "purpose_description" : null]
+            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : "0", "purpose_description" : null]
         }
 
         def launchingDefaultProperties = {
@@ -615,7 +615,7 @@ trackTests {
             total_amount = 100.00
             currency_id = "ARS"
             items_quantity = 2
-            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : 0, "purpose_description" : null]
+            preference = ["id" : "302297249-92327722-3a05-46da-9be3-5793416d03c2", "market_place_fee" : "0", "purpose_description" : null]
         }
 
         def launchingOnlyRequiredProperties = {
