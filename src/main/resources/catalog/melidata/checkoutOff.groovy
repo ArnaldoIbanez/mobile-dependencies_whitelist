@@ -43,7 +43,7 @@ tracks {
         shipping_method(required: false, description: "The shipping method selected by the user, e.g: 'standard|express|six_days'", type: PropertyType.String, values: ["super_express", "same_day", "next_day", "two_days", "express", "three_days", "four_days", "five_days", "six_days", "sedex", "standard"])
         shipping_local_pickup(required: false, description: "Whether or not the user chose local pickup", type: PropertyType.Boolean)
         shipping_free(required: false, description: "Wether or not the payer is exempt from additional shipping taxes and the seller pays for it", type: PropertyType.Boolean)
-        preference(required: true, description: "Every non PII contain within a preference", type: PropertyType.Map(PropertyType.String))
+        preference(required: true, description: "Every non PII contain within a preference", type: PropertyType.Map)
     }
 
     // EVENTS
