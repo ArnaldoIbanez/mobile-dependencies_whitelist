@@ -426,7 +426,9 @@ trackTests {
         }
 
         "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
             status = 'no_prepaid'
+            source_key = 'admin-ml'
         }
 
         "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {

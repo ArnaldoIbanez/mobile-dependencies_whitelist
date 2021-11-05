@@ -446,6 +446,8 @@ tracks {
          credits (required:false, type: PropertyType.Map(credits_data), description: "Credit Card", inheritable: false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
+
+    "/cards/hybrid/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
     
     "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {

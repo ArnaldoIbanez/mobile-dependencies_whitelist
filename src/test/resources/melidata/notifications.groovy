@@ -2913,6 +2913,7 @@ trackTests {
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            execution_id = 123456
         }
 
         "/notification/campaigns_generic"(platform: "/") {
@@ -3320,8 +3321,8 @@ trackTests {
             news_id = "credits-consumer_chatbot_payment_promise-21680059-20180516"
             event_type = "shown"
         }
-        "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {
-            news_id = "credits-consumer_chatbot_payment_promise_info-21680059-20180516"
+        "/notification/credits_consumer_chatbot_payment_promise_info_v2"(platform: "/") {
+            news_id = "credits_consumer_chatbot_payment_promise_info_v2-21680059-20180516"
             event_type = "shown"
         }
 
@@ -11398,6 +11399,16 @@ trackTests {
             sent_date = "20180516"
             batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
             deal_id = "RMK_MCO"
+            execution_id = 123456
+        }
+        "/notification/campaigns_control_group"(platform: "/mobile") {
+            news_id = "CIbDQhDb3hMYCQ==-5e22992d1b3518a"
+            event_type = "discarded"
+            campaign_id = "RECOVERY_CHECKOUT_MLB_60m-65m_20180516_CG"
+            communication_id = "test"
+            sent_date = "20180516"
+            batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
+            deal_id = "RMK_MCO"
         }
 
         "/notification/questions_new"(platform: "/mobile") {
@@ -13542,6 +13553,7 @@ trackTests {
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            execution_id = 123456
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -14313,6 +14325,207 @@ trackTests {
             branch_time_elapsed = true
         }
 
+
+        "/notification/card_first_use_incentive_nfc_first_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_first_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_fifth_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_nfc_fifth_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-first_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_nfc_fifth_day_am_virtual_inactive"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-fifth_day_am_virtual_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-fifth_day_no_am_virtual_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_nfc_seventh_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-seventh_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/card_first_use_incentive_nfc_seventh_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_nfc-seventh_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc-first_day_am-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc-first_day_am-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc-first_day_am"
+            status= "read"
+        }
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc_first_day_no_am-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc_first_day_no_am-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc_first_day_no_am"
+            status= "read"
+        }
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc_fifth_day_am-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc_fifth_day_am-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc_fifth_day_am"
+            status= "read"
+        }
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc_fifth_day_no_am-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc_fifth_day_no_am-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc_fifth_day_no_am"
+            status= "read"
+        }
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc_fifth_day_am_virtual_inactive-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc_fifth_day_am_virtual_inactive-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc_fifth_day_am_virtual_inactive"
+            status= "read"
+        }
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc-seventh_day_am-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc-seventh_day_am-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc-seventh_day_am"
+            status= "read"
+        }
+        "/notification_center/card_first_use_incentive_nfc"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_nfc-seventh_day_no_am-186785675-76283123"
+            latest_news_id= "card_first_use_incentive_nfc-seventh_day_no_am-186785675-76283123"
+            latest_news_type= "card_first_use_incentive_nfc-seventh_day_no_am"
+            status= "read"
+        }
+
+        // Notification Center - First Use Incentive Virtual
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-first_day_am"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-first_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-first_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-first_day_no_am"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-fifth_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-fifth_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-fifth_day_am"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-fifth_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-fifth_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-fifth_day_no_am"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-fifth_day_am_nfc_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-fifth_day_am_nfc_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-fifth_day_am_nfc_inactive"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-fifth_day_no_am_nfc_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-fifth_day_no_am_nfc_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-fifth_day_no_am_nfc_inactive"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-seventh_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-seventh_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-seventh_day_no_am"
+            status= "read"
+        }
+
+        "/notification_center/card_first_use_incentive_virtual"(platform: "/mobile"){
+            newsgroup_id= "card_first_use_incentive_virtual-seventh_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_id= "card_first_use_incentive_virtual-seventh_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            latest_news_type= "card_first_use_incentive_virtual-seventh_day_am"
+            status= "read"
+        }
+
+        // Notification - First Use Incentive Virtual
+        "/notification/card_first_use_incentive_virtual_first_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-first_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_virtual_first_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-first_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_virtual_fifth_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-fifth_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_virtual_fifth_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-fifth_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_virtual_fifth_day_am_nfc_inactive"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-fifth_day_am_nfc_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_virtual_fifth_day_no_am_nfc_inactive"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-fifth_day_no_am_nfc_inactive-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_virtual_seventh_day_no_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-seventh_day_no_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_first_use_incentive_virtual_seventh_day_am"(platform: "/mobile") {
+            news_id = "card_first_use_incentive_virtual-seventh_day_am-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_prepaid_tracking_ready_to_ship"(platform: "/mobile") {
             news_id = "card_prepaid_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -14998,6 +15211,55 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        
+        "/notification/card_transactions_approved_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+
+        "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/prepaid_card_transaction_invalid_amount_option_express_money"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_invalid_amount_option_express_money-186785675"
@@ -15479,6 +15741,55 @@ trackTests {
         
         "/notification/card_subscription_visa_vai"(platform: "/mobile") {
             news_id = "/notification/card_subscription_visa_vai-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_approved_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_approved_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+
+        "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc_mute-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {
+            news_id = "/notification/card_transactions_cancelled_partial_authorization_nfc-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
