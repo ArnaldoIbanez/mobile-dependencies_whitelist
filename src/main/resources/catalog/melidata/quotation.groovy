@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1075"
+    initiative = "1041"
 
     propertyDefinitions {
         seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
