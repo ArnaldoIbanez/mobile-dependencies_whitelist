@@ -351,7 +351,19 @@ import com.ml.melidata.TrackType
             reason(required: true, type: PropertyType.String, description: "Why the router chose that flow", values: ["user_in_whitelist","user_not_in_whitelist","network_request_failed"])
         }
 
-        // Device Paths
+        // Flow Paths
+        "/pos_seller/point/ftu/continue"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            is_ftu(required: true, type: PropertyType.Boolean, description: "User is FTU")
+        }
+
+        "/pos_seller/point/ftu/buy"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            url(required: true, type: PropertyType.String, description: "Url to buy device")
+        }
+
+        "/pos_seller/point/pairing/selection"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            poi_type(required: true, type: PropertyType.String, description: "poi device type selected")
+        }
+
         "/settings/point/device"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
             poi_type(required: true, type: PropertyType.String, description: "poi device type")
         }
@@ -375,17 +387,28 @@ import com.ml.melidata.TrackType
         "/pos_seller/point/spoc/installments/method/select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             method(required: true, type: PropertyType.String, description:"For Seller o Buyer", values: ["1X", "PSJ", "PCJ"])
         }
+        "/pos_seller/point/installments/select"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+            installment(required: true, type: PropertyType.String, description:"Installment selected", values: [1,3,6,9,12,16,18,21,24])
+        }
         "/settings/ota/error/shield"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
             type(required: true, type: PropertyType.String, description:"Type of Error", values: ["USB", "Battery", "Disconnect", "Unknown"])
         }
 
         "/pos_seller/point/spoc/sp_actions"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-            redirect(required: true, type: PropertyType.String, description:"Redirect to view", values: ["mp", "help"])
+            redirect(required: true, type: PropertyType.String, description:"Redirect to view", values: ["payment", "help"])
         }
 
         "/pos_seller/point/error/declined"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
             poi(required: true, type: PropertyType.String, description: "serial device")
             code(required: true, type: PropertyType.String, description: "Error code")
             error_type(required: true, type: PropertyType.String, description: "Error declined type ", values: ["offline", "online"])
+        }
+
+        "/pos_seller/point/signature"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            payment_id(required: true, type: PropertyType.String, description: "payment id")
+        }
+
+        "/pos_seller/point/congrats"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+            payment_id(required: true, type: PropertyType.String, description: "payment id")
         }
     }

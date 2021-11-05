@@ -470,6 +470,19 @@
                     }
 
                     test("pos seller track generics") {
+
+                        "/pos_seller/point/ftu/continue"(platform: "/mobile", type: TrackType.Event) {
+                            is_ftu = true
+                        }
+
+                        "/pos_seller/point/ftu/buy"(platform: "/mobile", type: TrackType.Event) {
+                            url = "https://mercadopago.com"
+                        }
+
+                        "/pos_seller/point/pairing/selection"(platform: "/mobile", type: TrackType.Event) {
+                            poi_type = "DSPREAD_CR100"
+                        }
+
                         "/settings/point/device"(platform: "/mobile", type: TrackType.View) {
                             poi_type = "DSPREAD_CR100"
                         }
@@ -502,6 +515,15 @@
                             poi = "1234ABCDFG"
                             code = "2010"
                             error_type = "offline"
+                        }
+                        "/pos_seller/point/installments/select"(platform: "/mobile", type: TrackType.Event) {
+                            installment = 24
+                        }
+                        "/pos_seller/point/signature"(platform: "/mobile", type: TrackType.View) {
+                            payment_id = "700123456"
+                        }
+                        "/pos_seller/point/congrats"(platform: "/mobile", type: TrackType.View) {
+                            payment_id = "70012345"
                         }
                     }
 }
