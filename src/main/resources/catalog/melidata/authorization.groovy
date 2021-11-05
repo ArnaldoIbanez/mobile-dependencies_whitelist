@@ -7,8 +7,6 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-     initiative = "1046"
-
     "/open_banking"(platform: "/", isAbstract: true) {}
     
     "/appstore"(platform: "/", isAbstract: true) {}
