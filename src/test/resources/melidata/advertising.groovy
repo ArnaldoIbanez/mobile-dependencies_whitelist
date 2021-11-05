@@ -2515,8 +2515,6 @@ trackTests {
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
-            type = "ads"
-
         }
     }
 
