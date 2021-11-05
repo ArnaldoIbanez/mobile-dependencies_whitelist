@@ -2096,7 +2096,6 @@ tracks {
     "/advertising/pads2/manager/report"(platform: "/", type: TrackType.Event) {
         mode(required: true, type: PropertyType.String, description: "user mode", values: ['custom', 'automatic'])
         campaign_id(required: true, description: "Id related to the campaign")
-        type(required: true, type: PropertyType.String, description: "report type")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         filters(required: false, type: PropertyType.Map(filters_definition), description: "List of applied filters")
         days(required: false, type: PropertyType.String,  description: "Days Quantity", values: ['7_days','15_days', '30_days', '60_days', '90_days','custom'] )
