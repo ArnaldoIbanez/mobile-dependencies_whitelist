@@ -816,7 +816,7 @@ tracks {
         operation_id(required: true, type: PropertyType.String, description: "operation flow identifier")
         reauth_id(required: true, type: PropertyType.String, description: "reauthentication identifier")
         reauth_type(required: true, type: PropertyType.String, description: "reauthentication type")
-        flow_type(required: true, type: PropertyType.String, description: "type of operating flow")
+        flow_type(required: true, type: PropertyType.String, values: ["OTHER", "PAYMENT"], description: "type of operating flow")
         reauth_status(required: true, type: PropertyType.String, description: "reauthentication status")
         reauth_risk(required: true, type: PropertyType.String, description: "reauthentication risk")
         elapsed_time(required: false, type: PropertyType.String, description: "elapsed time in the operation")
