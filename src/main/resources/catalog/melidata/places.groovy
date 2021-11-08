@@ -160,7 +160,7 @@ tracks {
         mandatory
     }
 
-	"/places/operations/eturns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
+	"/places/operations/returns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
         mandatory
     }
 

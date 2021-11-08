@@ -358,7 +358,7 @@ trackTests {
             place_id = "123456"
         }
 
-        "/places/operations/eturns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
+        "/places/operations/returns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
             defaultTrackInformation()
         }
     }
