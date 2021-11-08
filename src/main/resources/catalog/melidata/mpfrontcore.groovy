@@ -121,6 +121,16 @@ tracks {
         destination (type: PropertyType.String, required: true, description: "Link to execute")
     }
 
+    //MP Home - Educational Banner
+    "/mp_home/sections/educational_banner"(platform:"/", type: TrackType.View) {
+        userProfile (required: false, type: PropertyType.String, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        type (required: false, type: PropertyType.String, description: "The educational banner type")
+    }
+    "/mp_home/sections/educational_banner/tap"(platform:"/", type: TrackType.Event) {
+        userProfile (required: false, type: PropertyType.String, description: "User profile type", values: ['newbie', 'collector', 'payer'])
+        type (required: false, type: PropertyType.String, description: "The educational banner type")
+    }
+
     // MP Profile
     "/profile"(platform: "/", type: TrackType.View) {}
 
