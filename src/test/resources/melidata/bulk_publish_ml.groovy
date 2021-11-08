@@ -94,7 +94,6 @@ trackTests {
 
     test("seller central bulk publish images") {
         "/seller_central/bulk/publish/images"(platform: "/web", type: TrackType.Event) {
-            item_id = "MLA12334455"
             source = "GEMA"
             quantity = 10
         }

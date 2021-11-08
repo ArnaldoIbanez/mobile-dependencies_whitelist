@@ -2455,7 +2455,7 @@ tracks {
     "/notification/credits_consumer_chatbot_feedback_omitted"(platform: "/") {}
     "/notification/credits_consumer_chatbot_early_payment"(platform: "/") {}
     "/notification/credits_consumer_chatbot_payment_promise"(platform: "/") {}
-    "/notification/credits_consumer_chatbot_payment_promise_info"(platform: "/") {}
+    "/notification/credits_consumer_chatbot_payment_promise_info_v2"(platform: "/") {}
 
 
       //Billing
@@ -2859,6 +2859,7 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           communication_id(required: false, type: PropertyType.String, description: "Hermes communication id.")
+          execution_id(required: false, type: PropertyType.String, description: "Execution id.")
       }
 
       "/notification/campaigns_sms"(platform: "/") {
@@ -3331,6 +3332,7 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
+          execution_id(required: false, type: PropertyType.String, description: "Execution id.")
       }
 
       "/notification/campaigns_schedule"(platform: "/") {
@@ -3464,6 +3466,7 @@ tracks {
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
         campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
+        execution_id(required: false, type: PropertyType.String, description: "Execution id.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -3473,6 +3476,7 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
+        execution_id(required: false, type: PropertyType.String, description: "Execution id.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -3797,6 +3801,14 @@ tracks {
     }
 
     //Cards Hybrid
+    "/notification/card_first_use_incentive_nfc_first_day_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_first_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_am_virtual_inactive"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_fifth_day_no_am_virtual_inactive"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_seventh_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_nfc_seventh_day_am"(platform: "/mobile") {}
     "/notification/card_request_challenge_pending"(platform: "/") {}
     "/notification/card_request_challenge_pre_expired"(platform: "/") {}
     "/notification/card_first_use_incentive_thirdth_day"(platform: "/") {}
@@ -3867,6 +3879,16 @@ tracks {
     "/notification/prepaid_card_transaction_capture_after_ttl"(platform: "/") {}
     "/notification/prepaid_card_transaction_capture_less_than_amount"(platform: "/") {}
     "/notification/card_subscription_visa_vai"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization_nfc"(platform: "/mobile") {}
+    "/notification/card_transactions_approved_partial_authorization_nfc_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization_mute"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization_nfc"(platform: "/mobile") {}
+    "/notification/card_transactions_cancelled_partial_authorization_nfc_mute"(platform: "/mobile") {}
+    "/notification/balance_inquiry"(platform: "/mobile") {}
+
 
     // PREPAID, HYBRID, MPCARD
     "/notification/card_transactions_payment_authorization"(platform: "/mobile") {}
@@ -4251,4 +4273,24 @@ tracks {
     }
     "/notification/moneyin_cca_approved"(platform: "/") {}
     "/notification/moneyin_cca_rejected"(platform: "/") {}
+
+    // Cards virtual
+    "/notification/card_first_use_incentive_virtual_first_day_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_virtual_first_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_virtual_fifth_day_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_virtual_fifth_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_virtual_fifth_day_am_nfc_inactive"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_virtual_fifth_day_no_am_nfc_inactive"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_virtual_seventh_day_no_am"(platform: "/mobile") {}
+    "/notification/card_first_use_incentive_virtual_seventh_day_am"(platform: "/mobile") {}
+
+    "/notification_center/card_first_use_incentive_virtual"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    "/notification_center/card_first_use_incentive_nfc"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
 }

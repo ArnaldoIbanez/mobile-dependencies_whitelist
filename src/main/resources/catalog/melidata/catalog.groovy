@@ -191,7 +191,6 @@ catalog {
         include business, "tendencies.groovy"
         include business, "authorization.groovy"
         include business, "hub_mshops.groovy"
-        include business, "prepapp.groovy"
         include business, "melilive.groovy"
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
@@ -325,6 +324,7 @@ catalog {
         include business, "kyc.groovy"
         include business, "authentication.groovy"
         include business, "liveness.groovy"
+        include business, "prepapp.groovy"
     }
 
     extra_marketplace.each { business ->
@@ -356,6 +356,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "collaborators.groovy"
     }
 
 }

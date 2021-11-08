@@ -405,6 +405,13 @@ tracks {
     "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/share"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/new"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/qr"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/detail"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Action Keys
+    "/pix/home/keys/action"(platform: "/", isAbstract: true) {}
+    "/pix/home/keys/action/cpf"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/action/pix_keys"(platform: "/", type: TrackType.Event) {}
 
     //Home Pix MLB - Cadastrar Keys
     "/pix/home/banner"(platform: "/", isAbstract: true) {}
@@ -434,4 +441,7 @@ tracks {
     "/pix/home/ftu/close"(platform: "/", type: TrackType.Event) {}  
     "/pix/home/ftu/confirm"(platform: "/", type: TrackType.Event) {}
     "/pix/home/ftu/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Insurtech Banner
+    "/pix/home/insurtech_banner"(platform: "/", type: TrackType.Event) {}
 }
