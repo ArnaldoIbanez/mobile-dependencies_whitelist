@@ -1,4 +1,4 @@
-package src.test.resources.pospaymentregrets
+package src.test.resources.melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -7,12 +7,18 @@ import com.ml.melidata.TrackType
 trackTests {
     defaultBusiness = 'mercadopago'
 
-    test('Test Refund paths') {
+    test('Test Pospayment paths') {
     '/' (platform: '/', type: TrackType.View) { }
 
-    '/pospayment/refunds' (platform: '/', type: TrackType.View) { }
-
     '/pospayment' (platform: '/', type: TrackType.View) { }
+
+    '/pospayment/home' (platform: '/', type: TrackType.View) { }
+
+    '/pospayment/home/regret' (platform: '/', type: TrackType.View) { }
+
+    '/pospayment/home/regret' (platform: '/', type: TrackType.View) { user_profile = 'newbie' }
+
+    '/pospayment/refunds' (platform: '/', type: TrackType.View) { }
 
     '/pospayment/refunds/confirm' (platform: '/', type: TrackType.View) { }
 

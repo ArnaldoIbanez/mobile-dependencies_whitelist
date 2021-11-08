@@ -1,13 +1,26 @@
-package src.main.resources.catalog.pospaymentrefunds
+package catalog.melidata
 
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
-    '/' (platform: '/', type: TrackType.View) { }
+    // Pospayment Refunds
+    '/' (platform: '/', type: TrackType.View) {
+      user_profile(
+        required: false,
+        type: PropertyType.String,
+        values: ['guest', 'no_offer', 'seller', 'payer', 'newbie', 'collector', 'sellers', 'payers', 'collectors', 'undefined'],
+        description: 'Tracks the user profile')
+    }
 
-    '/pospayment' (platform: '/', type: TrackType.View) { }
+    '/pospayment' (platform: '/', type: TrackType.View) {
+      user_profile(
+        required: false,
+        type: PropertyType.String,
+        values: ['guest', 'no_offer', 'seller', 'payer', 'newbie', 'collector', 'sellers', 'payers', 'collectors', 'undefined'],
+        description: 'Tracks the user profile')
+    }
 
     '/pospayment/refunds' (platform: '/', type: TrackType.View) { }
 
@@ -67,5 +80,22 @@ tracks {
         type: PropertyType.String,
         description: 'Tracks the result of the refund transaction',
         values: ['success', 'warning', 'error'])
+    }
+
+    // Pospayment Regrets
+    '/pospayment/home' (platform: '/', type: TrackType.View) {
+      user_profile(
+        required: false,
+        type: PropertyType.String,
+        values: ['guest', 'no_offer', 'seller', 'payer', 'newbie', 'collector', 'sellers', 'payers', 'collectors', 'undefined'],
+        description: 'Tracks the user profile')
+    }
+
+    '/pospayment/home/regret' (platform: '/', type: TrackType.View) {
+      user_profile(
+        required: false,
+        type: PropertyType.String,
+        values: ['guest', 'no_offer', 'seller', 'payer', 'newbie', 'collector', 'sellers', 'payers', 'collectors', 'undefined'],
+        description: 'Tracks the user profile')
     }
 }
