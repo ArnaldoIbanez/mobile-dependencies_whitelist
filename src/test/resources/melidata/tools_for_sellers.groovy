@@ -39,4 +39,19 @@ trackTests {
       channel = "point"
     }
   }
+
+  // Contact Email Section
+  test("Contact email home") {
+    "/tfs_contact_email/home"(platform: "/", type:TrackType.View) {}
+  }
+
+  test("Contact email error") {
+    "/tfs_contact_email/error"(platform: "/", type:TrackType.View) {
+    }
+  }
+
+  test("Contact email congrats") {
+    "/tfs_contact_email/congrats"(platform: "/", type:TrackType.View) {
+    }
+  }
 }

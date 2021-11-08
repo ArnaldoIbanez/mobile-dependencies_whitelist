@@ -172,6 +172,26 @@ trackTests {
         }
     }
 
+    test("IDFA Permission dialog") {
+        "/permissions/idfa"(platform: "/mobile") {}
+        "/permissions/idfa"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog shown") {
+        "/permissions/idfa/shown"(platform: "/mobile") {}
+        "/permissions/idfa/shown"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog accepted") {
+        "/permissions/idfa/accept"(platform: "/mobile") {}
+        "/permissions/idfa/accept"(platform: "/mobile", business: "mercadopago") {}
+    }
+
+    test("IDFA Permission dialog denied") {
+        "/permissions/idfa/denied"(platform: "/mobile") {}
+        "/permissions/idfa/denied"(platform: "/mobile", business: "mercadopago") {}
+    }
+
     test("Devices Metadata") {
         "/devices/metadata"(platform:"/mobile") {
             total_storage = 12582912
@@ -180,6 +200,9 @@ trackTests {
             app_cache = 76800
             app_data = 230400
             dark_mode_status = "enabled"
+            font_scale = "large"
+            voice_over = false
+            high_contrast = true
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"
@@ -187,6 +210,13 @@ trackTests {
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
             nfc_enabled = false
+            battery_charging = true
+            battery_percentage_available = "90%"
+            device_is_emulator = false
+            total_ram_memory = 1567367168
+            available_ram_memory = 612724736
+            vpn_connected = false
+            bluetooth_enabled = true
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
@@ -196,6 +226,9 @@ trackTests {
             app_cache = 76800
             app_data = 230400
             dark_mode_status = "enabled"
+            font_scale = "medium"
+            voice_over = true
+            high_contrast = false
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"
@@ -203,6 +236,13 @@ trackTests {
             carrier_name = "Personal"
             nfc_compatible = ["nfc_mifare"]
             nfc_enabled = true
+            battery_charging = true
+            battery_percentage_available = "90%"
+            device_is_emulator = false
+            total_ram_memory = 1567367168
+            available_ram_memory = 612724736
+            vpn_connected = false
+            bluetooth_enabled = true
         }
     }
 
@@ -268,11 +308,27 @@ trackTests {
         "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="WITHDRAW"
         }
-        "/apprater/error_service_rules"(platform: "/mobile") {}
-        "/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile", business: "mercadopago") {}
         "/apprater/popup"(platform: "/mobile") {}
         "/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/accept"(platform: "/mobile") {}
+        "/apprater/accept"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/cancel"(platform: "/mobile") {}
+        "/apprater/cancel"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile", business: "mercadopago") {}
+        "/inappreview/completed"(platform: "/mobile") {}
+        "/inappreview/completed"(platform: "/mobile", business: "mercadopago") {}
     }
+
+    test("MercadoLibre apprater") {
+        "/apprater/popup"(platform: "/mobile") {}
+        "/apprater/accept"(platform: "/mobile") {}
+        "/apprater/remind_me_later"(platform: "/mobile") {}
+        "/apprater/appstore_rate_app"(platform: "/mobile") {}
+        "/inappreview/completed"(platform: "/mobile") {}
+    } 
 
     test("Landing Deeplinks in Mobile") {
         "/landing/deeplinks"(platform:"/mobile") {

@@ -1,5 +1,7 @@
 package src.test.resources.melidata
 
+import com.ml.melidata.catalog.PropertyType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType;
 
@@ -169,12 +171,12 @@ trackTests {
 
     test("Loyalty CrossSellingComponent") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
-            origin = "home"
+            origin = "ml_home"
             item_number = 2
         }
 
         "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
-            origin = "central-descuentos"
+            origin = "mp_home"
             title = "HBO"
             level = 3
             button_deeplink = "deeplink"
@@ -183,18 +185,18 @@ trackTests {
 
     test("Loyalty CrossSellingComponent in mercadopago") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "deals"
+            origin = "ml_home"
             item_number = 2
         }
 
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "deals"
+            origin = "mp_home"
             item_number = 0
             item_link = "meli://loyalty"
         }
 
         "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
-            origin = "central-descuentos"
+            origin = "mp_home"
             title = "Paramount"
             level = 1
             button_deeplink = "deeplink"
@@ -433,6 +435,7 @@ trackTests {
             subscription_partner = "HBO"
             level = 4
             subscription_status = "active"
+            subscribed_plans = ["ESPN", "combo"]
         }
 
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -444,14 +447,14 @@ trackTests {
             subscription_partner = "HBO"
             subscription_status = "active"
             level = 4
-            type = "detail-action"
+            type = "primary"
         }
 
         "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
-            subscription_status = "ended"
+            subscription_status = "inactive"
             level = 4
-            type = "modify-action"
+            type = "close"
         }
 
         "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadolibre") {
@@ -470,5 +473,76 @@ trackTests {
             subscription_partner = "HBO Go"
             discount_percent = 30
         }
+
+        "/loyalty/partners/comboplus"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 4
+            subscribed_plans = ["disneyplus"]
+        }
+
+        "/loyalty/partners/comboplus/modal"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "secondary"
+            level = 4
+            subscribed_plans = []
+            selected_option = "option-1"
+        }
+
+        "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "login"
+            level = 8
+            subscribed_plans = ["ESPN", "combo"]
+        }
+
+        "/loyalty/partners/comboplus/modal/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "login"
+            level = 8
+            subscribed_plans = ["ESPN", "STAR+"]
+            selected_option = "option-3"
+        }
+    }
+
+    test("Loyalty Interstitial") {
+        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            status = "timeout"
+        }
+
+        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            status = "timeout"
+        }
+    }
+
+    test("Loyalty Level Buy") {
+        "/loyalty/buylevel"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 1
+        }
+        "/loyalty/buylevel/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            type = "activate"
+            level = 2
+            subscription_status ="pending"
+        }
+        "/loyalty/buylevel/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 4
+            subscription_status ="inactive"
+            subscription_partner = "level-6"
+        }
+
+        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            level = 5
+            subscription_type = "pack-6-months"
+            loyalty_level = 3
+            payment_status_detail = "freetrial-activated"
+            payment_id = "42323"
+            payment_status = "success"
+        }
+
+        "/loyalty/buylevel/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            level = 5
+            subscription_type = "pack-6-months"
+            loyalty_level = 3
+            payment_status_detail = "freetrial-activated"
+            payment_id = "42323"
+            payment_status = "success"
+            content = "special-promo"
+        }
+
     }
 }

@@ -36,4 +36,12 @@ trackTests {
         }
     }
 
+    test("Landing mercadopago online payments shopify") {
+        "/landing/shopify" (platform: "/web") {}
+    }
+
+    test("Landing external online payments cliento") {
+        "/landing/online-payments/checkout-cliento" (platform: "/web") {}
+    }
+
 }

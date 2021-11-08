@@ -48,6 +48,7 @@ trackTests {
             loyalty_level = 2
             price_comparison_available = true
             has_good_price = true
+            has_highlighted_sale_specs=true
             price_comparison_position =  0.75
             catalog_market_price =  37855
             whatsapp_available = "false"
@@ -62,6 +63,7 @@ trackTests {
             vip_version = "new"
             best_seller_position = 5
             highlights = [
+                "id": "id_highlight",
                 "best_seller_position": 5,
                 "melichoice_domain": "CELLPHONES",
                 "melichoice_origin": "killer",
@@ -69,6 +71,13 @@ trackTests {
             ]
             has_seller_level_kyc = true
             seller_type = 'normal'
+            apparel = [
+                    "has_size_chart": true
+            ]
+            is_ltr: false
+            credits_consumer = {
+                type = "acquisition"
+            }
         }
 
         Object items_attributes = {
@@ -179,6 +188,7 @@ trackTests {
             deal_ids = []
             item_condition= "new"
             has_good_price= true
+            has_highlighted_sale_specs=true
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -229,6 +239,7 @@ trackTests {
             item_condition = "new"
             listing_type_id = "gold_premium"
             has_good_price = false
+            has_highlighted_sale_specs=false
             seller_id = 210183916
         })
 
@@ -376,6 +387,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source = "description"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/web/mobile", type: TrackType.Event, {
@@ -385,6 +397,7 @@ trackTests {
             event_source = "technicalSpecs"
             source = "htmlView"
             item_seller_type="car_dealer"
+            from_view = "questions"
         })
 
         "/vip/question_intention"(platform: "/mobile", type: TrackType.Event, {
@@ -403,6 +416,8 @@ trackTests {
             unregistered_contact= false
             unregistered_contact_context= false
             has_good_price= false
+            has_highlighted_sale_specs=false
+            from_view = "questions"
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -424,6 +439,7 @@ trackTests {
             mandatory()
             optionals()
             item_seller_type = "AB001"
+            source = "primary"
         }
 
 	  	"/vip/quote_demand_intention_lower"(platform: "/mobile", type: TrackType.Event) {
@@ -484,6 +500,7 @@ trackTests {
 	        item_seller_type = "AB001"
 	        from_view="vip"
 	        resolution = "high"
+            source = "primary"
     	}
 
         //with deals_ids
@@ -527,6 +544,7 @@ trackTests {
             item_seller_type = "AB001"
             from_view = "vip"
             resolution = "high"
+            source = "primary"
         }
     }
     test("Vip web mobile tracking without reviews") {
@@ -580,6 +598,7 @@ trackTests {
             description_type = "plain_text"
             quantity_models = null
             domain_id = "MLC-APARTMENTS_FOR_RENT"
+            item_seller_type = "normal"
         }
 
         def tourOption = {
@@ -597,15 +616,76 @@ trackTests {
             video_type = "NONE"
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             tourOption()
         }
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             videoOption()
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "TOUR360"
+        }
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIDEO"
+        }
+    }
+
+    test("vip - view 360") {
+
+        def dataSet = {
+            item_id = "MLA924707090"
+            category_id = "MLA1744"
+            buying_mode = "classified"
+            category_path = [
+                    "MLA1743",
+                    "MLA1744"]
+            vertical = "motors"
+            item_condition = "used"
+            listing_type_id = "gold"
+            item_status = "active"
+            deal_ids = []
+            catalog_listing = false
+            city = "Alberti"
+            neighborhood = "Alberti"
+            state = "Buenos Aires Interior"
+            seller_id = 692365350
+            contract_available = false
+            comparator_available = false
+            gallery_pattern = "X"
+            price_comparison_available = null
+            price_comparison_position = null
+            whatsapp_available = "false"
+            quote_demand_available = false
+            description_type = "plain_text"
+            quantity_models = null
+            domain_id = "MLA-CARS_AND_VANS"
+            item_seller_type = "normal"
+        }
+
+        def viewOption = {
+            dataSet()
+            video_type = "VIEW360"
+        }
+
+        def noneOption = {
+            dataSet()
+            video_type = "NONE"
+        }
+
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            viewOption()
+        }
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
+            noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile") {
+            video_type = "VIEW360"
         }
     }
 
@@ -696,9 +776,14 @@ trackTests {
 
         "/vip/sizechart"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
+            referer = "vip"
         }
 
         "/vip/sizechart/tutorial"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA533657947"
+        }
+
+        "/vip/sizechart/preview"(platform: "/", type: TrackType.View) {
             item_id = "MLA533657947"
         }
 
@@ -801,6 +886,8 @@ trackTests {
             listing_type_id = "gold_premium"
             seller_id= 86995812
             vertical= "services"
+            deal_ids = []
+            source = ""
         }
 
         "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
@@ -814,7 +901,7 @@ trackTests {
         "/vip/similar_vehicles"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
-        
+
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
 
@@ -825,6 +912,7 @@ trackTests {
         "/vip/show_all_description"(platform: "/", type: TrackType.Event){
             item_id = "MLA213512313"
             has_good_price = true
+            has_highlighted_sale_specs=false
         }
 
         "/vip/technical_specs"(platform: "/web", type: TrackType.View){
@@ -832,6 +920,16 @@ trackTests {
             vertical = "core"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
+        }
+
+        "/vip/technical_specs/show"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            vertical = "core"
+            vip_version = "new"
+            has_good_price = false
+            has_highlighted_sale_specs=false
+            is_highlighted = false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -846,6 +944,8 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
+            is_highlighted = false
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -860,12 +960,15 @@ trackTests {
                     "MLA401803"
             ]
             has_good_price = true
+            has_highlighted_sale_specs=true
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
             has_good_price = false
+            has_highlighted_sale_specs=false
+            from_view = "questions"
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -873,6 +976,7 @@ trackTests {
             unregistered_contact = false
             unregistered_contact_context = false
             event_source= "description"
+            from_view = "questions"
         }
 
         "/vip/questions/show"(platform: "/", type: TrackType.View) {
@@ -880,6 +984,8 @@ trackTests {
             catalog_product_id="MLA123456"
             vip_version = "new"
             has_good_price = true
+            has_highlighted_sale_specs=true
+            from_view = "questions"
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -890,9 +996,23 @@ trackTests {
             vip_version = "new"
         }
 
+        "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "credits"
+            context = "/qadb"
+            vip_version = "new"
+        }
+
         "/vip/qadb/call-to-action"(platform: "/", {
             item_id = "MLA112341"
         })
+
+        "/vip/apparel/fit_as_expected/open"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA112341"
+        }
+
+        "/vip/apparel/size_chart_preview"(platform: "/", type: TrackType.View) {}
     }
 
     test("New Shipping calculator"){
@@ -977,7 +1097,7 @@ trackTests {
             otherShipping
         ]
         }
-    
+
     }
 
     test("VIP Web Classifieds services track click on link to landing_services") {
@@ -1146,8 +1266,8 @@ trackTests {
             variationInformation()
             shipping_pay_before = false
         }
-        
-        def shipping_method = { 
+
+        def shipping_method = {
             shipping_method = {
                 id = 531332827
                 name = "Retiro en Correo Argentino"
@@ -1168,7 +1288,7 @@ trackTests {
                         date =  "2018-12-10T00:00:00.000-03:00"
                         shipping = 48
                     }
-                }      
+                }
             }
         }
 
@@ -1200,6 +1320,37 @@ trackTests {
             pricingTwoPointO()
             vip_version = "new"
          }
+
+        //Insurtech
+        "/vip/buy_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            credits_opensea = true
+            vip_version = "new"
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
+
+        "/vip/add_cart_action"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            variationInformation()
+            shipping_pay_before = false
+            option_selected = [
+                    product_id: "GAREX",
+                    option_price: 242.73,
+                    option_id: "GAR0010213123MLA"
+            ]
+        }
+
+        "/vip/insurtech_fallback_opened"(platform: "/mobile", type: TrackType.Event){
+        }
+
     }
 
     test("VIP zipcode") {
@@ -1210,18 +1361,6 @@ trackTests {
     }
 
     test("VIP fulfillment onboardings") {
-
-        "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
-            item_id = "MLA533657947"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            item_condition = "new"
-            seller_id = 131662738
-            price = 15.3
-            currency_id = "ARS"
-            original_price = 18.0
-            vip_version = "new"
-        }
 
         "/vip/show_fulfillment_tooltip"(platform: "/") {
             item_id = "MLA533657947"
@@ -1326,10 +1465,10 @@ trackTests {
             model()
             shipping_method()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
              model()
         }
@@ -1347,15 +1486,15 @@ trackTests {
         "/vip/shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
             model()
         }
-        
+
         "/vip/shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
         }
-        
+
         "/vip/shipping_calculator/show_map"(platform: "/web/desktop", type: TrackType.Event) {
              model()
         }
-        
-        
+
+
         //Apps
         "/vip/shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
             model()
@@ -1369,12 +1508,92 @@ trackTests {
         "/vip/shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
         }
 
-    
+
         "/vip/shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
         }
-                
+
         "/vip/shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
             model()
+        }
+    }
+
+    test("VIP NEW Shipping Calculator"){
+
+        def shipping_promises = {
+            item_id = "MLU474386325"
+            quantity = 1
+            shipping_promises = [
+                    {
+                        type = "address"
+                        display = "recommended"
+                        discount_type = "ratio"
+                        free_shipping = true
+                        shipping_preference = "Rápido a domicilio"
+                        after_dispatch = false
+                        min_days = 0
+                        max_days = 0
+                        list_cost = 199
+                        cost = 0
+                        shipping_method_type = "super_express"
+                        estimated_delivery_time = {
+                            type = "known"
+                            date = "2021-05-20T03:00:00Z"
+                            shipping = 0
+                            handling = 0
+                            schedule = 0
+                            offset = {
+                                shipping = 0
+                            }
+                            time_frame = {}
+                            pay_before = "2021-05-20T19:00:00Z"
+                        }
+                    }
+            ]
+        }
+
+
+        "/vip/new_shipping_calculator"(platform: "/", type: TrackType.View) {
+            shipping_promises()
+            item_id = "MLA533657947"
+            quantity = 1
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+        }
+
+        "/vip/new_shipping_calculator/show_map"(platform: "/", type: TrackType.Event) {
+        }
+
+
+        "/vip/new_shipping_calculator"(platform: "/web/desktop", type: TrackType.View) {
+            shipping_promises()
+        }
+
+        "/vip/new_shipping_calculator/cancel"(platform: "/web/desktop", type: TrackType.Event) {
+
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/web/desktop", type: TrackType.Event) {
+            item_id = "MLA533657947"
+        }
+
+        //Apps
+        "/vip/new_shipping_calculator"(platform: "/mobile/ios", type: TrackType.View) {
+            shipping_promises()
+            item_id = "MLA533657947"
+            quantity = 1
+        }
+
+        "/vip/new_shipping_calculator/modify"(platform: "/mobile/ios", type: TrackType.Event) {
+            item_id = "MLA533657947"
+        }
+
+
+        "/vip/new_shipping_calculator/cancel"(platform: "/mobile/ios", type: TrackType.Event) {
+        }
+
+        "/vip/new_shipping_calculator/show_map"(platform: "/mobile/ios", type: TrackType.Event) {
         }
     }
 
@@ -1512,6 +1731,24 @@ trackTests {
         }
     }
 
+    test("VIP link denounce RealEstate"){
+
+        def properties = {
+            item_id = "MLC123456"
+            context = "/vip"
+            reason = "unavailable_property"
+            vertical = "realEstate"
+        }
+
+        "/vip/denounce"(platform: "/web", type: TrackType.View){
+           properties()
+        }
+
+        "/vip/denounce"(platform: "/mobile", type: TrackType.View){
+           properties()
+        }
+    }
+
     test("VIP preload MainAction Contact from search"){
         def properties = {
             item_id = "MLA792156560"
@@ -1555,7 +1792,7 @@ trackTests {
             vip_version = "new"
         }
     }
-	
+
     test("VIP prevent stock question for mobile") {
         "/vip/question/ask/prevent_stock"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA792156560"
@@ -1635,23 +1872,22 @@ trackTests {
         }
 
         "/vip/classi_credits_onboard"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/ok"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
 
         "/vip/classi_credits_onboard/close"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
             vip_version = "new"
         }
     }
 
    //END - Classifieds Credits
-
-    test("VIP denounce") {
-        "/vip/denounce"(platform: "/", type: TrackType.Event) {}
-    }
 
     test("VIP cbt") {
         "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event) {
@@ -1790,6 +2026,16 @@ trackTests {
         }
     }
 
+    test("VIP item mercado credits"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/item/mercado_credits_modal"(platform: "/", type: TrackType.View) {
+            properties()
+        }
+    }
+
     // Server side
 
     test("VIP Server side tracking"){
@@ -1882,6 +2128,7 @@ trackTests {
             buying_mode = "classified"
             deal_ids = []
             points_interest_available = true
+            item_seller_type = "normal"
         }
 
         "/vip/points_of_interest/transport"(platform: "/web/desktop", type: TrackType.Event) {
@@ -1914,7 +2161,334 @@ trackTests {
         "/vip/points_of_interest/health"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
+        "/vip/points_of_interest/link_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/location/dynamic_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/print_file_pdf"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+    }
 
+    test("Test Official Store link"){
+        "/vip/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            official_store_id = 123
+        }
+    }
 
+    test("Vip back to top methods") {
+        "/vip/back_to_top/top"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB533657947"
+        }
+
+        "/vip/back_to_top"(platform: "/", type: TrackType.View) {
+            item_id = "MLB533657947"
+        }
+    }
+
+    test("VIP payment methods modal view") {
+        "/vip/payment_methods"(platform: "/", type: TrackType.View) {
+            page_vertical = "CORE"
+            category_l1 = "{'MLA1574':'Hogar, Muebles y Jardín}"
+            category_l2 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar}"
+            category_l3 = "{'MLA1574':'Hogar, Muebles y Jardín,'MLA436380':'Muebles para el Hogar,'MLA1623':'Otros}"
+            shipping_mode = "not_specified"
+            free_shipping = false
+            international_delivery_mode = "none"
+            item_id = "MLA786428856"
+            item_condition = "NEW"
+            buying_mode = "BUY_IT_NOW"
+            variations = false
+            collector_id = "151804293"
+            category_domain = "MLA-HOME_FURNITURE"
+            listing_source = "mercadolibre"
+            listing_type = "gold_special"
+            fulfillment = false
+            item_attributes = "DEFERRED_STOCK"
+            item_state = "NONE"
+            item_city = "NONE"
+            item_neighborhood = "NONE"
+        }
+    }
+
+    // MERCH
+    test("Vip Merch ecosystem") {
+
+        def dataSet = {
+            item_id = "MLB533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+            catalog_listing = false
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
+            realestates = {
+                vip_pdp_ecosystem = {
+                    audience = '1'
+                    bu = '1'
+                    bu_line = '1'
+                    component_id = '2'
+                    content_id = '1'
+                    flow = '2'
+                    logic = '2'
+                    position = 2
+                }
+            }
+        }
+
+        "/vip"(platform: "/", dataSet)
+    }
+
+    test("Vip tracking for item with protections"){
+        def mandatory= {
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            buying_mode = "buy_it_now"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "core"
+            item_condition = "new"
+            listing_type_id = "gold_special"
+            item_status = "active"
+            deal_ids = []
+            seller_id = 131662738
+            catalog_listing = false
+
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            discount_reasons = ["loyalty","deal"]
+        }
+
+        def insurtech_fields = {
+            has_roda = true
+            has_garex = false
+        }
+
+        "/vip"(platform: "/", {
+            mandatory()
+            insurtech_fields()
+        })
+    }
+
+    test("Vip events tracking for item with protections"){
+        "/vip/insurtech_opened"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_selected"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "BOTTOM_SHEET"
+        }
+
+        "/vip/insurtech_added"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "GAREX",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_closed"(platform: "/", type: TrackType.Event){
+            has_roda = true
+            has_garex = true
+            label = "PICKER"
+        }
+
+        "/vip/insurtech_terms"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "BOTTOM_SHEET"
+        }
+
+        "/vip/insurtech_help"(platform: "/", type: TrackType.Event){
+            item = [
+                    id: "MLA533657947",
+                    domain_id: "MLC-APARTMENTS_FOR_RENT",
+                    price: 130000,
+            ]
+            option_selected = [
+                    product_id: "RODA",
+                    price: [
+                            final_amount: 242.73,
+                            discount_rate: null,
+                    ],
+                    period: 12,
+                    option_data: [
+                            brand: "Samsung",
+                            coverage: "break",
+                            deductible_amount: 100,
+                            model: "S20 FE",
+                            size: "128GB",
+                            manufacturer_warranty: 12,
+                    ]
+            ]
+            has_roda = true
+            has_garex = false
+            label = "PICKER"
+        }
+    }
+
+    test("VIS scheduling item") {
+        "/vip/scheduling_intention"(platform: "/", type: TrackType.Event) {
+            item_id = "MLC123123"
+            item_condition = "new"
+            item_status = "active"
+            item_seller_type = "real_estate_agency"
+            category_path = [
+                    "MLC1459",
+                    "MLC1472",
+                    "MLC6407",
+                    "MLC183186"]
+            seller_id = 799550807
+            listing_type_id = "gold_special"
+            deal_ids = []
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            vertical = "realEstate"
+            source = "main-action"
+            is_ltr = true
+        }
+    }
+
+    test("VIS return policy") {
+        "/vip/return_policy"(platform: "/", type: TrackType.Event) {
+            item_id = "MLC123123"
+            vertical = "realEstate"
+        }
+    }
+
+    test("VIS reservation item") {
+        "/vip/reservation_intention"(platform: "/", type: TrackType.Event) {
+            item_id = "MLC123123"
+            item_condition = "new"
+            item_status = "active"
+            item_seller_type = "real_estate_agency"
+            category_path = [
+                    "MLC1459",
+                    "MLC1472",
+                    "MLC6407",
+                    "MLC183186"]
+            seller_id = 799550807
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            vertical = "realEstate"
+            source = "main-action"
+            unregistered_contact = false
+            is_ltr = true
+        }
+    }
+
+    test("VIS ltr onboarding") {
+        def properties = {
+            item_id = "MLC123123"
+            item_condition = "new"
+            item_status = "active"
+            item_seller_type = "real_estate_agency"
+            seller_id = 799550807
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            vertical = "realEstate"
+        }
+
+        "/vip/ltr_onboard"(platform: "/", type: TrackType.View) {
+            properties()
+        }
+
+        "/vip/ltr_onboard/ok"(platform: "/", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/ltr_onboard/close"(platform: "/", type: TrackType.Event) {
+            properties()
+        }
     }
 }

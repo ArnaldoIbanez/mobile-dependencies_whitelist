@@ -17,6 +17,7 @@ tracks {
         checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
         collector_id(required: false, description: "Collector external id")
         security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
+        device_secured(required: false, type: PropertyType.Boolean, description: "If the user has pin/pattern/password in the device, only tracked in android by decision")
         experiments(required: false, type: PropertyType.String, description: "Active experiments")
 
         payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
@@ -24,11 +25,11 @@ tracks {
         card_id(required: false, type: PropertyType.String, description: "Card id")
         issuer_id(required: false, type: PropertyType.String, description: "Issuer id")
         bin(required: false, type: PropertyType.String, description: "Bin")
-        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason"])
+        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason", "ESC_CAP", "SAVED_CARD", "CALL_FOR_AUTH", "DISABLED_CARD", "INVALID_ESC", "INVALID_FINGERPRINT", "UNEXPECTED_TOKENIZATION_ERROR", "ESC_DISABLED", "NO_REASON"])
     }
 
     propertyGroups {
-        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, experiments)
+        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, device_secured, experiments)
         securityCodeViewData(payment_method_id, card_id, reason)
         securityCodeData(payment_method_id, payment_method_type, card_id, issuer_id, bin, reason)
     }
@@ -264,6 +265,10 @@ tracks {
     "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View){
         error_message(required: false, type: PropertyType.String, description: "Screen error message")
         api_error(required: false, description: "Api error description")
+    }
+
+    "/px_checkout/result/error/remedy/modal"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        externalData
     }
 
     // Events:
@@ -524,6 +529,10 @@ tracks {
         externalData
     }
 
+    "/px_checkout/combo_switch"(platform: "/mobile", type: TrackType.Event) {
+        option_selected(required: true, type: PropertyType.String, description: "selected option in the switch", values: ["debit_card", "credit_card", "account_money"])
+    }
+
     // Review:
     "/px_checkout/review/confirm"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
@@ -532,6 +541,10 @@ tracks {
         review_type(required: true, type: PropertyType.String, description: "Review screen type", values: ["one_tap" , "traditional"])
         extra_info(required: false, description: "Extra payment method info")
         externalData
+    }
+
+    "/px_checkout/program_validation"(platform: "/mobile", type: TrackType.Event) {
+        validation_program_used(required: false, type: PropertyType.String, description: "validaton program executed if there was one", values: ["STP"])
     }
 
     // Congrats:
@@ -631,6 +644,7 @@ tracks {
     // Rejected payment
     "/px_checkout/result/error/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
+        from(required: false, type: PropertyType.String, values: ["modal", "view"], description: "Tap change payment method from the result error screen or from modal view")
     }
     "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
@@ -643,7 +657,12 @@ tracks {
         index(required: true, type: PropertyType.Numeric , description: "Selected remedy index")
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
+        from(required: false, type: PropertyType.String, values: ["modal", "view"], description: "Tap pay from the result error screen or from modal view")
       }
+
+    "/px_checkout/result/error/remedy/modal/abort"(platform: "/mobile", type: TrackType.Event) {
+        externalData
+    }
 
     // Approved business
     "/px_checkout/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {

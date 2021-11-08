@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1026"
+    initiative = "1053"
 
     def pageStructure = objectSchemaDefinitions {
       limit(required: true, type: PropertyType.Numeric, description: "max number of items per page")
@@ -85,6 +85,7 @@ tracks {
       sold_quantity(required: false, type: PropertyType.Numeric)
       available_quantity(required: false, type: PropertyType.Numeric)
       tags(required: false, type: PropertyType.ArrayList(PropertyType.String))
+      deal_ids(required: true, type: PropertyType.ArrayList(PropertyType.String))
       warranty(required: false, type: PropertyType.String)
       accepts_mercadopago(required: false, type: PropertyType.Boolean)
       health(required: false, type: PropertyType.Numeric, 
@@ -103,6 +104,8 @@ tracks {
       lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")
       deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
       dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
+      pos(required: false, type: PropertyType.Numeric, description: "Position of the item in the response")
+      international_delivery_mode(required: false, type: PropertyType.String, description: "International delivery mode")
     }
 
     def shortcutsStructure = objectSchemaDefinitions {

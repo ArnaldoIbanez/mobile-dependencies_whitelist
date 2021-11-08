@@ -6,9 +6,7 @@ metrics {
 
 	
 	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best", deprecation_date:"2020/08/12") {
-        startWith {
-            experiment("loyalty/buy-level-installments")
-        }
+        experiment("loyalty/buy-level-installments")
 
 		countsOn {
 			condition {
@@ -21,9 +19,7 @@ metrics {
 	}
 
 	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user", deprecation_date:"2020/08/12") {
-		startWith {
-			experiment("auth/identity-validation_recommendation")
-		}
+		experiment("auth/identity-validation_recommendation")
 
 		countsOn {
 			condition {
@@ -38,7 +34,43 @@ metrics {
 		}
 	}
 
+	"idfa.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10") {
+		experiment("mobile/IDFA_Banner")
 
+		countsOn {
+			condition {
+				path("/permissions/idfa/denied")
+			}
+		}
+	}
 
+	"idfa.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10") {
+		experiment("mobile/IDFA_Banner")
 
+		countsOn {
+			condition {
+				path("/permissions/idfa/accept")
+			}
+		}
+	}
+
+	"idfa.mp.deny"(description: "IDFA alert shown", deprecation_date:"2022/01/10") {
+		experiment("mobile/IDFA_Banner_MP")
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/denied")
+			}
+		}
+	}
+
+	"idfa.mp.accept"(description: "IDFA permission accepted", deprecation_date:"2022/01/10") {
+		experiment("mobile/IDFA_Banner_MP")
+
+		countsOn {
+			condition {
+				path("/permissions/idfa/accept")
+			}
+		}
+	}
 }

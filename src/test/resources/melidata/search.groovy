@@ -20,6 +20,26 @@ trackTests {
             url              : "http://example.com"
     ]
 
+    def domainExample = "MLA-CELULARES"
+
+    def displayed_filters_mock = [
+            [
+                id: "official_store",
+                name: "Tiendas oficiales",
+                type: "text",
+                position: -1,
+                values_quantity: 8,
+                enhanced_position: 0
+            ],
+            [
+                id: "discount",
+                name: "Descuentos",
+                type: "range",
+                position: -1,
+                values_quantity: 5
+            ]
+    ]
+
     def bestSellerInfo = [
             candidates   : 3,
             selected     : [ "MLB2" ],
@@ -50,6 +70,18 @@ trackTests {
         meli_choice : [
                 [item_id: "MLB510446223", position: 1, origin:"killer_matched"],
                 [item_id: "MLB510446224", position: 4, product_id:"MLB1333", origin:"killer_matched"]
+        ],
+        highlights :[
+                [item_id: "MLB510446223", position: 1, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 2, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722"]
+        ],
+        discount_volume : [],
+        same_day : [],
+        next_day : [],
+        supermarket_partnership: [
+          [item_id: "MLB510446224", position: 3, type: "sometype", seller_id: 742220069]
         ]
     ]
 
@@ -58,6 +90,27 @@ trackTests {
             nextday: ["MLA12345645"]
     ]
 
+    def originalSearchFilterInfo = [
+            filter_id  : "cpg",
+            filter_value: "yes",
+    ]
+
+    def enhancedInterventionInfoMock = [
+            [
+                    intervention_type: "FILTER_INTERVENTION",
+                    class_type: "BRAND",
+                    component_type: "pill",
+                    position: 0,
+                    results: []
+            ],
+            [
+                    intervention_type: "FILTER_INTERVENTION",
+                    class_type: "GENDER",
+                    component_type: "pill",
+                    position: 6,
+                    results: []
+            ]
+    ]
 
     test("Search core tracking") {
 
@@ -66,6 +119,7 @@ trackTests {
             limit = 20
             query = "iphone"
             category_path = ["MLA1051", "MLA1055", "MLA32089"]
+            domain = domainExample
             category_id = "MLA32089"
             filters = []
             pads = []
@@ -80,6 +134,7 @@ trackTests {
             sort_id = "relevance"
             view_mode = "MOSAIC"
             results = ["232232000", "232232001", "232232002"]
+            displayed_filters = displayed_filters_mock
             backend_data = {
                 sm = "sm"
                 ab = "1"
@@ -108,6 +163,9 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            original_search_filter: originalSearchFilterInfo
+            containers_flow: "N/A"
+            enhanced_intervention_info: enhancedInterventionInfoMock
         }
 
         def defaultWebTrack = {
@@ -175,10 +233,53 @@ trackTests {
             ]
             carousel_filters = []
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ],
+                    seo_experiments: [
+                            status: "OK",
+                            experiment_list:
+                                    [
+                                            {
+                                                id: "EXP1"
+                                                is_enabled: true
+                                                is_active: true
+                                                should_apply: true
+                                                executed_successfully: true
+                                                group: "Control"
+                                            },
+                                            {
+                                                id: "EXP2"
+                                                is_enabled: true
+                                                is_active: false
+                                                should_apply: false
+                                                executed_successfully: true
+                                                group: "A"
+                                            },
+                                            {
+                                                id: "EXP3"
+                                                is_enabled: false
+                                                is_active: false
+                                                should_apply: false
+                                                executed_successfully: true
+                                                group: "B"
+                                            },
+                                            {
+                                                id: "EXP4"
+                                                is_enabled: true
+                                                is_active: true
+                                                should_apply: true
+                                                executed_successfully: true
+                                                group: "A"
+                                            }
+                                    ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -204,6 +305,7 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            enhanced_intervention_info: enhancedInterventionInfoMock
         }
 
         def category_definition = {
@@ -212,6 +314,16 @@ trackTests {
                     selected   : [
                             name       : "Hogar, Muebles y Jardin",
                             selected_id: "MLA1574"
+                    ]
+            ]
+        }
+
+        def filter_definition = {
+            [
+                    carousel_id: "GENDER",
+                    selected   : [
+                            name       : "Sin género",
+                            selected_id: "110461"
                     ]
             ]
         }
@@ -313,10 +425,20 @@ trackTests {
             ]
             carousel_filters = ["BRAND", "official_store", "STYLE"]
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                    query_and_category_strategy : true,
+                                    exact_query_strategy        : true
+                            ]
+                    ],
+                    seo_experiments: [
+                            status: "ERROR",
+                            experiment_list:
+                                    []
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -352,7 +474,6 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
-            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -381,6 +502,40 @@ trackTests {
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
             carousel_categories_shown = true
+            filter_carousel_shown = false
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
+        })
+
+        "/search"(platform: "/mobile", {
+            total = 258
+            limit = 0
+            view_mode = "MAP"
+            results = []
+            billboards = []
+            category_path = []
+            offset = 50.0
+            sort_id = "relevance"
+            filters = { official_store = "140" }
+            autoselected_filters = ["official_store"]
+            geo_search = "false"
+            filter_tags = "locationFromHistory"
+            pads = []
+            pads_info = {
+                ids = []
+                printed_positions = []
+                printed_positions_size = 0
+            }
+            carousel_filters = ["BRAND", "official_store", "STYLE"]
+            pdp_grouped_search = true
+            pdp_info = pdpInfo
+            promoted_items = ["MLA1", "MLA2"]
+            carousel_categories_shown = true
+            filter_carousel_shown = true
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -421,6 +576,10 @@ trackTests {
 
         "/search/category_carousel"(platform: "/mobile", type: TrackType.Event) {
             carousels = category_definition()
+        }
+
+        "/search/filter_carousel"(platform: "/mobile", type: TrackType.Event) {
+            carousels = filter_definition()
         }
 
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
@@ -506,6 +665,38 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/map"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/carousel"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/vip_access"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/pagination"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/faceted_search"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }       
+        "/search/search_map"(platform: "/") {
+            defaultSearchInformation()
+        }
+        "/search/back_listing"(platform: "/") {
+            defaultSearchInformation()
+        }
+       "/search/map_link"(platform: "/mobile") {
+        }
+        "/search/search_map"(platform: "/mobile") {
+        }
+        "/search/back_listing"(platform: "/mobile") {
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }
@@ -521,6 +712,10 @@ trackTests {
         "/search/official_store_logo/click"(platform: "/web") {
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
+        }
+        "/search/official_store/official_store_link"(platform: "/", type: TrackType.Event) {
+            defaultSearchInformation()
+            official_store_id = "123"
         }
         "/search/banner"(platform: "/web", defaultWebTrack)
         "/search/banner/click"(platform: "/web", type: TrackType.Event) {
@@ -617,10 +812,15 @@ trackTests {
             pdp_rows = []
             carousel_filters = []
             seo = [
-                    is_whitelisted         : true,
-                    check_mode             : "GMV",
-                    value                  : 15,
-                    is_default             : false
+                    allowlist: [
+                            seo_is_allowlisted          : false,
+                            seo_apply_no_index          : true,
+                            search_no_index_applied     : false,
+                            results_by_strategy: [
+                                query_and_category_strategy : true,
+                                exact_query_strategy        : true
+                            ]
+                    ]
             ]
             merch_data = [
                     audience         : "all",
@@ -681,4 +881,21 @@ trackTests {
         }
     }
 
+    test("Search shop dimentions") {
+        "/search"(platform: "/") {
+            limit = 50
+            offset = 0
+            total = 0
+            sort_id = "relevance"
+            filters = []
+            view_mode = "LIST"
+            results = []
+            shop_status = "active"
+            shop_id = 144517917
+            shop_name = "legionextranjera"
+            shop_domain = "www.legionextranjera.com.ar"
+        }
+    }
 }
+
+

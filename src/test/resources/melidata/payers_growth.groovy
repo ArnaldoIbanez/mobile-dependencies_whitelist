@@ -49,7 +49,7 @@ trackTests {
 		}
 		
 		// Covid19 Marketing Performance landing
-		"/payers_growth/mkt_landing/codoacodo"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo"(platform: "/"){
 			campaign = 'generic'
 		}
 		"/payers_growth/mkt_landing/codoacodo/sms"(platform: "/web"){
@@ -63,15 +63,15 @@ trackTests {
 			campaign = 'generic'
 			position = "steps"
 		} 
-		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/"){
 			campaign = 'generic'
 			position = "hero"
 		} 
-		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/"){
 			campaign = 'generic'
 			position = "fixed"
 		} 
-		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/"){
 			campaign = 'generic'
 			position = "footer"
 		}
@@ -96,6 +96,70 @@ trackTests {
 			action = 'recharge_mp'
 		}
 	}
+
+	test("Services Marketing landings ML") {
+        "/services/mkt_landing"(platform: "/"){
+            campaign = "generic"
+        }
+        "/services/mkt_landing"(platform: "/"){
+            campaign = "personal"
+        }
+        "/services/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/services/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/services/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/services/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
+    test("QR Payers Marketing landings ML") {
+        "/qr_payers/mkt_landing"(platform: "/"){
+            campaign = "generic"
+        }
+        "/qr_payers/mkt_landing"(platform: "/"){
+            campaign = "personal"
+        }
+        "/qr_payers/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
 
     defaultBusiness = "mercadopago"
     
@@ -187,4 +251,68 @@ trackTests {
 			action = 'recharge_mp'
 		}
 	}
+
+	test("Services Marketing landings MP") {
+        "/services/mkt_landing"(platform: "/"){
+            campaign = "generic"
+        }
+        "/services/mkt_landing"(platform: "/"){
+            campaign = "personal"
+        }
+        "/services/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/services/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/services/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/services/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+	
+    test("QR Payers Marketing landings MP") {
+        "/qr_payers/mkt_landing"(platform: "/"){
+            campaign = "generic"
+        }
+        "/qr_payers/mkt_landing"(platform: "/"){
+            campaign = "personal"
+        }
+        "/qr_payers/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
 }

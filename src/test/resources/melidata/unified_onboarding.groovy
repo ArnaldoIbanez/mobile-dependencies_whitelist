@@ -187,4 +187,73 @@ trackTests {
             component_type = "action"
         }
     }   
+    // Onboarding Unificado Sellers
+    //Component Tap
+    test("Unified Onboarding Continue With Component Tap") {
+        "/unified_onboarding/challenge/component/tap" (platform: "/web", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "sellers_cover_image"
+            challenge_type = "ou_cover_image"
+            from = "SellersPM"
+            value = "Continuar"
+            component_id = "action_continue_with"
+            component_type = "action"
+        }
+    }   
+
+    //View
+
+    test("Unified Onboarding Cover Image Challenge view") {
+        "/unified_onboarding/challenge" (platform: "/web", type: TrackType.View) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "sellers_cover_image"
+            challenge_type = "ou_cover_image"
+            from = "SellersPM"
+            progress = "{\"current\": 1, \"total\": 7}"
+        }
+    }    
+
+    //Open
+
+    test("Unified Onboarding Brand Name Challenge open") {
+        "/unified_onboarding/challenge/open" (platform: "/web", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "sellers_cover_image"
+            challenge_type = "ou_cover_image"
+            from = "SellersPM"
+        }
+    }
+
+    //Confirm
+
+    test("Unified Onboarding Cover Image Challenge Confirm") {
+        "/unified_onboarding/challenge/confirm" (platform: "/web", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "sellers_cover_image"
+            challenge_type = "ou_cover_image"
+            from = "SellersPM"
+            is_last_challenge = true
+        }
+    }
+
+    //Error 
+
+    test("Unified Onboarding Cover Image Challenge Error") {
+        "/unified_onboarding/challenge/component/error" (platform: "/web", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "sellers_cover_image"
+            challenge_type = "ou_cover_image"
+            from = "SellersPM"
+            value = "1.5"
+            component_id = "main_action"
+            component_type = "action"
+            error = "{\"error\":\"Debe seleccionar una imagen rectangular\", \"validation\": \"image_aspect_ratio\"}"
+        }
+    }
+
 }

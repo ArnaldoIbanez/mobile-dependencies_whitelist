@@ -5,6 +5,23 @@ import com.ml.melidata.TrackType;
 trackTests {
     defaultBusiness = "mercadopago"
 
+
+    /*****************************
+    *    ACTIVITY TEST TRACKS    *
+    *****************************/
+
+    test("Mercadopago Activities Merch Engine Events") {
+        "/mpfront/activities/detail/crossselling_print" (platform: "/", type: TrackType.Event) {
+            component_id = "cross_selling_activities_mp"
+        }
+        "/mpfront/activities/detail/crossselling_view" (platform: "/", type: TrackType.View) {
+            component_id = "cross_selling_activities_mp"
+        }
+        "/mpfront/activities/detail/crossselling_tap" (platform: "/", type: TrackType.Event) {
+            component_id = "cross_selling_activities_mp"
+        }
+    }
+
     /************************************
     *    ACTIVITY MOBILE TEST TRACKS    *
     ************************************/
@@ -86,6 +103,12 @@ trackTests {
         "/listing/activities/real_time/push" (platform: "/mobile", type: TrackType.View) {
             activity_id = "merch-001234"
             date_created = "2019/09/08"
+        }
+    }
+
+    test("Mercadopago Activities Real Time in list Mobile") {
+        "/listing/activities/show_rta" (platform: "/mobile", type: TrackType.Event) {
+            has_rta = true
         }
     }
 }

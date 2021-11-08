@@ -73,23 +73,24 @@ trackTests {
         }
 
         // Error
-        "/kyc/error"(platform: "/mobile") {
-            label = "service_error_generic"
+        "/kyc/error/timeout"(platform: "/mobile") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
-        "/kyc/error"(platform: "/mobile") {
-            label = "service_error"
+        "/kyc/error/parsing"(platform: "/mobile") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
-        "/kyc/error"(platform: "/mobile") {
-            label = "service_error_connection"
-            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
+        "/kyc/error"(platform: "/web/desktop") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            error_id = "BGOR4MSZTA-210622"
         }
-        "/kyc/error"(platform: "/mobile") {
-            label = "date_validation_underage"
+        "/kyc/error/service"(platform: "/web/desktop") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            verbose = "User not active"
         }
-        "/kyc/error"(platform: "/mobile") {
-            label = "date_validation_invalid"
+        "/kyc/connection_error"(platform: "/web/desktop") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
         }
 
         "/kyc/odr_error"(platform: "/") {
@@ -325,23 +326,24 @@ trackTests {
         }
 
         // Error
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "service_error_generic"
+        "/kyc/error/timeout"(platform: "/mobile", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             verbose = "SE AGOTO EL TIEMPO DE ESPERA"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "service_error"
+        "/kyc/error/parsing"(platform: "/mobile", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
             verbose = "THE JSON APPEARS TO BE MALFORMED"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "service_error_connection"
-            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
+        "/kyc/error"(platform: "/web/desktop", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            error_id = "BGOR4MSZTA-210622"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "date_validation_underage"
+        "/kyc/error/service"(platform: "/web/desktop", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
+            verbose = "User not active"
         }
-        "/kyc/error"(platform: "/mobile", business: "mercadolibre") {
-            label = "date_validation_invalid"
+        "/kyc/connection_error"(platform: "/web/desktop", business: "mercadolibre") {
+            kyc_flow_id = "b930c36b-c789-40f6-a3e1-ec10e5c0afdb"
         }
 
         "/kyc/challenge/validation_fail"(platform: "/mobile", business: "mercadolibre") {
@@ -351,6 +353,22 @@ trackTests {
             input = "birthdate"
             value = "20/__/____"
             reason = "Por favor ingrese una fecha válida"
+        }
+
+        "/kyc/challenge/tap"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_proof_of_income"
+            initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
+            component = "linkable_label"
+            link = "https://www.mercadolibre.com/"
+        }
+
+        "/kyc/challenge/tap"(platform: "/mobile", business: "mercadopago") {
+            id = "user_proof_of_income"
+            initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
+            component = "linkable_label"
+            link = "https://www.mercadopago.com/"
         }
 
         "/kyc/challenge/validation_fail"(platform: "/mobile", business: "mercadopago") {

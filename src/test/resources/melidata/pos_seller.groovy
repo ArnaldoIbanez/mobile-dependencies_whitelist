@@ -140,6 +140,18 @@
                                 payment_channel= "point"
                             }
 
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "fcu"
+                                reason = "user_in_whitelist"
+                            }
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "legacy"
+                                reason = "network_request_failed"
+                            }
+                            "/pos_seller/flow_redirection"(platform: "/mobile", type: TrackType.Event) {
+                                to_flow = "legacy"
+                                reason = "user_not_in_whitelist"
+                            }
                         }
 
 
@@ -403,9 +415,10 @@
                         }
 
                         //Vouchers
-                        "/pos_seller/vouchers/sodexo"(platform: "/web", type: TrackType.View) {}
-                        "/pos_seller/vouchers/access-denied"(platform: "/web", type: TrackType.View) {}
-                        "/pos_seller/vouchers/error"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/vouchers"(platform: "/", type: TrackType.View) {}
+                        "/pos_seller/vouchers/detail"(platform: "/", type: TrackType.View) { voucher_name = "alelo" }
+                        "/pos_seller/vouchers/access_denied"(platform: "/", type: TrackType.View) {}
+                        "/pos_seller/vouchers/error"(platform: "/", type: TrackType.View) {}
                          
                         /**
                         *MISC

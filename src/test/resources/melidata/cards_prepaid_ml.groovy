@@ -314,4 +314,20 @@ trackTests {
         "/prepaid/acquisition/adapt_kyc/congrats/tap"(platform: "/", type: TrackType.Event) { deeplink = "deeplink" }
         "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
     }
+    
+    test ("Prepaid Detail Regret") {
+        "/prepaid/regret" (platform: "/", type: TrackType.View) { }
+        "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+             action = "cancel_card"
+             cardStatus = "blocked"
+             cardStatusDetail = "user requested"
+             blockStatus = "apiError"
+        }
+        "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+             action = "back"
+             cardStatus = "blocked"
+             cardStatusDetail = "user requested"
+             blockStatus = "localError"
+        }
+    }
 }

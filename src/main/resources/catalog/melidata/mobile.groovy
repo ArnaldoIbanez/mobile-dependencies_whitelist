@@ -77,6 +77,11 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
+    
+    "/permissions/idfa"(platform: "/mobile", isAbstract: true){}
+    "/permissions/idfa/accept"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/denied"(platform: "/mobile", type: TrackType.Event){}
+    "/permissions/idfa/shown"(platform: "/mobile", type: TrackType.Event){}
 
     "/settings"(platform: "/mobile", isAbstract: true){}
     "/settings/about"(platform: "/mobile", type: TrackType.View){}
@@ -97,6 +102,12 @@ tracks {
         message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
     }
 
+    "/landing/load"(platform: "/mobile") {
+        status(required: true, type: PropertyType.String, values: ["success", "cancelled", "error"], description: "Loading finish status")
+        url(required: true, type: PropertyType.String, description: "The url to be loaded in the landing webview")
+        loading_time(required: true, type: PropertyType.Numeric, description: "Loading time in milliseconds")
+    }
+
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
@@ -111,13 +122,18 @@ tracks {
     
     // Device Metadata sent from backend (Notifications ACK) & application startup
     "/devices/metadata"(platform: "/", type: TrackType.Event) {
-        total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
+        total_storage(required: true, type: PropertyType.Numeric, description: "The total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
         app_cache(required: false, type: PropertyType.Numeric, description: "Application cache occupied storage in bytes")
         app_data(required: false, type: PropertyType.Numeric, description: "Application data occupied storage in bytes")
         dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
-         description: "Dark Mode status")
+        description: "Dark Mode status")
+        font_scale(required: false, type: PropertyType.String, values: ["xsmall", "small", "medium", "large", "xlarge", "xxlarge", "xxxlarge", 
+        "accessibilityMedium", "accessibilityLarge", "accessibilityXLarge", "accessibilityXXLarge", "accessibilityXXXLarge", "undefined"], 
+        description: "Font scale")
+        voice_over(required: false, type: PropertyType.Boolean, description: "Voice over is enabled or not")
+        high_contrast(required: false, type: PropertyType.Boolean, description: "High contrast is enabled or not")
         battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
         data_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled", "whitelisted", "undefined"], description: "Data Save mode")
         do_not_disturb_mode(required: false, type: PropertyType.String, values: ["disabled", "important_interruptions", "no_interruptions", "alarms_only", "undefined"], description: "Do Not Disturb mode")
@@ -125,6 +141,13 @@ tracks {
         carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
         nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
         nfc_enabled(required: false, type: PropertyType.Boolean, description: "Nfc is enabled or not")
+        battery_charging(required: false, type: PropertyType.Boolean, description: "Battery is charging or not")
+        battery_percentage_available(required: false, type: PropertyType.String, description: "Battery percentage available")
+        device_is_emulator(required: false, type: PropertyType.Boolean, description: "Device is an emulator or not")
+        total_ram_memory(required: false, type: PropertyType.Numeric, description: "Device total ram memory in bytes")
+        available_ram_memory(required: false, type: PropertyType.Numeric, description: "Device available ram memory in bytes")
+        vpn_connected(required: false, type: PropertyType.Boolean, description: "Device is connected to VPN or not")
+        bluetooth_enabled(required: false, type: PropertyType.Boolean, description: "Bluetooth is enabled or not")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
@@ -161,8 +184,18 @@ tracks {
     "/apprater/add_track"(platform: "/mobile") {
         type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
     }
-    "/apprater/error_service_rules"(platform: "/mobile") {
+    "/apprater/appstore_rate_app"(platform: "/mobile") {
     }
     "/apprater/popup"(platform: "/mobile") {
+    }
+    // Track is accepted, remind me leater or cancel(only mp) qualification in popup app rater.
+    "/apprater/accept"(platform: "/mobile") {
+    }
+    // Only track for MP.
+    "/apprater/cancel"(platform: "/mobile") {
+    }
+    "/apprater/remind_me_later"(platform: "/mobile") {
+    }
+    "/inappreview/completed"(platform: "/mobile") {
     }
 }

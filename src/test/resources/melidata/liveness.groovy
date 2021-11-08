@@ -11,10 +11,18 @@ trackTests {
         "/liveness/enrollment"(platform: "/mobile/android") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/authentication"(platform: "/mobile/android") {
             params = "test=true"
+        }
+
+        "/liveness/validation"(platform: "/mobile/android") {
+            params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+            initiative_id = "iv"
         }
 
         "/liveness/initialization"(platform: "/mobile/android") {
@@ -22,6 +30,7 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/challenge"(platform: "/mobile/android") {
@@ -35,6 +44,8 @@ trackTests {
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/redirect"(platform: "/mobile/android") {
@@ -54,9 +65,21 @@ trackTests {
             type = "close"
         }
 
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/android") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/android") {}
+
+        "/liveness/permissions/accepted"(platform: "/mobile/android") {}
+
         "/liveness/landing"(platform: "/mobile/android") {}
 
         "/liveness/fallback"(platform: "/mobile/android") {}
+
+        "/liveness/permission"(platform: "/mobile/android") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -65,9 +88,14 @@ trackTests {
 
         "/liveness/enrollment"(platform: "/mobile/ios") {
             params = "test=true"
+            initiative_id = "iv"
         }
 
         "/liveness/authentication"(platform: "/mobile/ios") {
+            params = "test=true"
+        }
+
+        "/liveness/validation"(platform: "/mobile/ios") {
             params = "test=true"
         }
 
@@ -76,6 +104,8 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/challenge"(platform: "/mobile/ios") {
@@ -97,6 +127,7 @@ trackTests {
         "/liveness/bussines_error"(platform: "/mobile/ios") {
             error_message = "error 200"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/generic_error"(platform: "/mobile/ios") {
@@ -107,9 +138,21 @@ trackTests {
             type = "close"
         }
 
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/ios") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/ios") {}
+        
+        "/liveness/permissions/accepted"(platform: "/mobile/ios") {}
+
         "/liveness/landing"(platform: "/mobile/ios") {}
 
         "/liveness/fallback"(platform: "/mobile/ios") {}
+
+        "/liveness/permission"(platform: "/mobile/ios") {}        
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }
@@ -119,11 +162,22 @@ trackTests {
         "/liveness/enrollment"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/authentication"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
+        }
+        
+        "/liveness/validation"(platform: "/web") {
+            params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/initialization"(platform: "/web") {
@@ -131,6 +185,8 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/challenge"(platform: "/web") {
@@ -138,6 +194,8 @@ trackTests {
             challenge_result = 0
             challenge_result_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/result"(platform: "/web") {
@@ -145,39 +203,55 @@ trackTests {
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/redirect"(platform: "/web") {
             url = "www.mercadolibre.com"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/bussines_error"(platform: "/web") {
             error_message = "error 200"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/action"(platform: "/web") {
             type = "close"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/landing"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/fallback"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/unsupported"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
     }
 
@@ -193,11 +267,16 @@ trackTests {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
         }
+        
+        "/liveness/validation"(platform: "/mobile/android") {
+            params = "test=true"
+        }
 
         "/liveness/initialization"(platform: "/mobile/android") {
             initialization_result = true
             initialization_status = 0
             initialization_description = "test"
+            initiative_id = "iv"
         }
 
         "/liveness/challenge"(platform: "/mobile/android") {
@@ -205,6 +284,7 @@ trackTests {
             challenge_result = 0
             challenge_result_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            initiative_id = "iv"
         }
 
         "/liveness/result"(platform: "/mobile/android") {
@@ -239,9 +319,21 @@ trackTests {
             type = "start_liveness"
         }
 
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/android") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/android") {}
+        
+        "/liveness/permissions/accepted"(platform: "/mobile/android") {}
+
         "/liveness/landing"(platform: "/mobile/android") {}
 
         "/liveness/fallback"(platform: "/mobile/android") {}
+
+        "/liveness/permission"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -256,11 +348,16 @@ trackTests {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
         }
+        
+        "/liveness/validation"(platform: "/mobile/ios") {
+            params = "test=true"
+        }
 
         "/liveness/initialization"(platform: "/mobile/ios") {
             initialization_result = true
             initialization_status = 0
             initialization_description = "test"
+            initiative_id = "iv"
         }
 
         "/liveness/challenge"(platform: "/mobile/ios") {
@@ -268,6 +365,7 @@ trackTests {
             challenge_result = 0
             challenge_result_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            initiative_id = "iv"
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
@@ -302,9 +400,21 @@ trackTests {
             type = "start_liveness"
         }
 
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "activate_camera"
+        }
+
+        "/liveness/permissions/ask"(platform: "/mobile/ios") {}
+
+        "/liveness/permissions/denied"(platform: "/mobile/ios") {}
+        
+        "/liveness/permissions/accepted"(platform: "/mobile/ios") {}
+
         "/liveness/landing"(platform: "/mobile/ios") {}
 
         "/liveness/fallback"(platform: "/mobile/ios") {}
+
+        "/liveness/permission"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }
@@ -314,11 +424,22 @@ trackTests {
         "/liveness/enrollment"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/authentication"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
+        }
+        
+        "/liveness/validation"(platform: "/web") {
+            params = "test=true"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/initialization"(platform: "/web") {
@@ -326,6 +447,8 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/challenge"(platform: "/web") {
@@ -333,6 +456,8 @@ trackTests {
             challenge_result = 0
             challenge_result_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/result"(platform: "/web") {
@@ -340,49 +465,76 @@ trackTests {
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/redirect"(platform: "/web") {
             url = "www.mercadopago.com"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/bussines_error"(platform: "/web") {
             error_message = "error 200"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/action"(platform: "/web") {
             type = "close"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/action"(platform: "/web") {
             type = "back"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/action"(platform: "/web") {
             type = "start_liveness"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
+        }
+
+        "/liveness/action"(platform: "/web") {
+            type = "redirect"
+            transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/landing"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/fallback"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
 
         "/liveness/unsupported"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            initiative_id = "iv"
         }
     }
 }
