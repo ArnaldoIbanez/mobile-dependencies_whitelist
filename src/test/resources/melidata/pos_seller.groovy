@@ -485,7 +485,7 @@
                         "/settings/point/device"(platform: "/mobile", type: TrackType.View) {
                             poi_type = "DSPREAD_CR100"
                         }
-                        "/pos_seller/point/ota/error/type"(platform: "/mobile", type: TrackType.View) {
+                        "/pos_seller/point/device/update/error/type"(platform: "/mobile", type: TrackType.View) {
                             type = "Unknown"
                         }
                     }
@@ -504,7 +504,7 @@
                         "/pos_seller/point/spoc/installments/method/select"(platform: "/mobile", type: TrackType.Event) {
                             method = "PCJ"
                         }
-                        "/settings/ota/error/shield"(platform: "/mobile", type: TrackType.View) {
+                        "/settings/device/update/error/shield"(platform: "/mobile", type: TrackType.View) {
                             type = "Unknown"
                         }
                         "/pos_seller/point/spoc/sp_actions"(platform: "/mobile", type: TrackType.Event) {
