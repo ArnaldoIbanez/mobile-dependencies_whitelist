@@ -6830,34 +6830,34 @@ trackTests {
         }
     }
 
-    test("Crypto SELL/BUY and Hold") {
+    test("Crypto Sell/Buy and Hold") {
         "/crypto/dashboard" (platform: "/mobile", type: TrackType.View) {}
         "/crypto/detail" (platform: "/mobile", type: TrackType.View) {
             market = "BTCBRL"
         }
         "/crypto/calculate" (platform: "/mobile", type: TrackType.View) {
-            action = "BUY"
+            operation = "BUY"
             market = "BTCBRL"
         }
         "/crypto/review" (platform: "/mobile", type: TrackType.View) {
-            action = "BUY"
+            operation = "BUY"
             market = "BTCBRL"
             amount = 23.32
 
         }
-        "/crypto/transaction_detail" (platform: "/mobile", type: TrackType.View) {
+        "/crypto/transaction/detail" (platform: "/mobile", type: TrackType.View) {
             id = "9e588da2-f853-4266-a933-0f62f960345c"
         }
-        "/crypto/transactions_list" (platform: "/mobile", type: TrackType.View) {
+        "/crypto/transaction/list" (platform: "/mobile", type: TrackType.View) {
             ticker = "BTC"
         }
-        "/crypto/transaction_summary" (platform: "/mobile", type: TrackType.View) {
+        "/crypto/transaction/summary" (platform: "/mobile", type: TrackType.View) {
             id = "9e588da2-f853-4266-a933-0f62f960345c"
         }
-        "/crypto/complete_transaction" (platform: "/mobile", type: TrackType.Event) {
+        "/crypto/transaction/complete" (platform: "/mobile", type: TrackType.Event) {
             id = "9e588da2-f853-4266-a933-0f62f960345c"
             ticker = "BTC"
-            action = "BUY"
+            operation = "SELL"
             local_currency = "BRL"
             state = "SUCCESS"
         }
