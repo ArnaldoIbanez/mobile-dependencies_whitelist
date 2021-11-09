@@ -3034,6 +3034,7 @@ tracks {
           purchase_id(required: true, type: PropertyType.Numeric)
       }
 
+
     //Payment Ticket
     "/notification/payments_ticket_boleto_pending_reminder"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric)
@@ -3142,6 +3143,8 @@ tracks {
           item_id(required: true, type: PropertyType.String)
           order_id(required: true, type: PropertyType.Numeric)
       }
+
+      "/notification/vouchers-payments_refund"(platform: "/mobile") {}
 
       /* ============================================================ */
       /* Team: IT Payments - Payroll | Initiative: Salary Portability */
