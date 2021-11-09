@@ -1802,9 +1802,12 @@ tracks {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
         item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
                 description: "Whenever the items is active, closed or paused")
-        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/vip/ltr_onboard/ok"(platform: "/", type: TrackType.Event) {
