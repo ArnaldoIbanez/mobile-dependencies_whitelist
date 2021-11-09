@@ -60,6 +60,7 @@ tracks {
         debts(required: true, type: PropertyType.Boolean, description: "Indicates if user has debt card")
         cerc(required: true, type: PropertyType.Boolean, description: "Indicates if user has cerc capability")
         activities(required: true, type: PropertyType.Boolean, description: "Indicates if user has money activities")
+        crypto(required: true, type: PropertyType.Boolean, description: "Indicates if user has cryptocoin flow")
 
         // Components
         my_money_available(required: true, type: PropertyType.Map(component_definition), description: "Available component print")
@@ -100,7 +101,7 @@ tracks {
                 action_id
         )
         bankingTrack (
-                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
+                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc, crypto
         )
         cercEventClick (
                 action_type
