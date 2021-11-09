@@ -27,6 +27,7 @@ tracks {
                         "itau",
                         "votorantim",
                         "not_specified",
+                        "bbva",
                 ]
         )
         domain_id(required: false, type: PropertyType.String, description: "Id of the product")
@@ -173,6 +174,16 @@ tracks {
     }
 
     "/vis_credits/application_form/step_4/next_button"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/application_form/step_5"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/application_form/step_5/next_button"(platform: "/", type: TrackType.Event) {
         vis_credits_required
         vis_credits_optional
     }

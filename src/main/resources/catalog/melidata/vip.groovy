@@ -264,8 +264,6 @@ tracks {
                         "Scotiabank",
                         "Votorantim",
                         "Volkswagen",
-                        "BBVA",
-                        "CrediHome",
                 ]
         )
         is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
