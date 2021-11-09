@@ -8,13 +8,7 @@ tracks {
     initiative = "1171"
     // Pospayment Refunds
 
-    '/pospayment' (platform: '/', type: TrackType.View) {
-      user_profile(
-        required: false,
-        type: PropertyType.String,
-        values: ['guest', 'no_offer', 'seller', 'payer', 'newbie', 'collector', 'sellers', 'payers', 'collectors', 'undefined'],
-        description: 'Tracks the user profile')
-    }
+    '/pospayment' (platform: '/', type: TrackType.View) { }
 
     '/pospayment/refunds' (platform: '/', type: TrackType.View) { }
 
@@ -77,17 +71,10 @@ tracks {
     }
 
     // Pospayment Regrets
-    '/pospayment/home' (platform: '/', type: TrackType.View) {
-      user_profile(
-        required: false,
-        type: PropertyType.String,
-        values: ['guest', 'no_offer', 'seller', 'payer', 'newbie', 'collector', 'sellers', 'payers', 'collectors', 'undefined'],
-        description: 'Tracks the user profile')
-    }
+    '/pospayment/home' (platform: '/', type: TrackType.View) { }
 
     '/pospayment/home/regret' (platform: '/', type: TrackType.View) {
       user_profile(
-        required: false,
         type: PropertyType.String,
         values: ['guest', 'no_offer', 'seller', 'payer', 'newbie', 'collector', 'sellers', 'payers', 'collectors', 'undefined'],
         description: 'Tracks the user profile')

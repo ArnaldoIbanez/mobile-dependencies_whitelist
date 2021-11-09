@@ -14,7 +14,7 @@ trackTests {
 
     '/pospayment/home' (platform: '/', type: TrackType.View) { }
 
-    '/pospayment/home/regret' (platform: '/', type: TrackType.View) { }
+    '/pospayment/home/regret' (platform: '/', type: TrackType.View) { user_profile = 'undefined' }
 
     '/pospayment/home/regret' (platform: '/', type: TrackType.View) { user_profile = 'newbie' }
 
