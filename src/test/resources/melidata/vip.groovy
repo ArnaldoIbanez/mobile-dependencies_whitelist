@@ -2469,14 +2469,15 @@ trackTests {
 
     test("VIS ltr onboarding") {
         def properties = {
-            item_id = "MLC123123"
-            item_condition = "new"
-            item_status = "active"
-            item_seller_type = "real_estate_agency"
-            seller_id = 799550807
             buying_mode= "classified"
             category_id = "MLC1234"
+            item_condition = "new"
+            item_id = "MLC123123"
+            item_seller_type = "real_estate_agency"
+            item_status = "active"
+            listing_type_id = "free"
             vertical = "realEstate"
+            vip_version = "new"
         }
 
         "/vip/ltr_onboard"(platform: "/", type: TrackType.View) {
