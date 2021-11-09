@@ -246,8 +246,9 @@ trackTests {
       health_id = "ID"
     }
 
-     "/seller_central/listings/row/catalog_killers"(platform: "/", type: TrackType.Event) {
-      catalog_id = "WIN_CATALOG"
+     "/seller_central/listings/row/win_catalog"(platform: "/", type: TrackType.Event) {
+      push_id = "WIN_CATALOG"
+      item_state = "win_without_rebate"
     }
 
      "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
@@ -262,8 +263,9 @@ trackTests {
       item_id = "MCO212144fdfa"
     }
 
-     "/seller_central/listings/row/catalog_killers"(platform: "/", type: TrackType.Event) {
-      catalog_id = "WIN_CATALOG"
+     "/seller_central/listings/row/win_catalog"(platform: "/", type: TrackType.Event) {
+      push_id = "WIN_CATALOG"
+      item_state = "win_without_rebate"
       sub_view_id = "marketplace"
       item_id = "MCO212144fdfa"
     }
