@@ -1430,38 +1430,46 @@ trackTests {
         "/credits/merchant/open_market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
             flow="upsell_offer"
+            provider="unknown"
         }
 
         "/credits/merchant/open_market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
             flow="upsell_offer"
+            provider="quanto"
         }
 
         "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
+            provider="open_finance"
             flow="upsell_offer"
         }
+        
+        "/credits/merchant/open_market/financial_scraping_started"(platform: "/", type: TrackType.Event) {
+            provider="quanto"
+            flow="request_offer"
+        }
 
-        "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
             reason = "integration_error"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
             reason = "finished_flow"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
             reason = "finished_session"
             flow="upsell_offer"
         }
 
-        "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+        "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
             reason = "not_available"
             flow="upsell_offer"
         }
