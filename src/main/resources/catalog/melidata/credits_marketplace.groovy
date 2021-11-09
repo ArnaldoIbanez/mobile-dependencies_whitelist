@@ -989,9 +989,13 @@ tracks {
     *    Start: Car Loan
     ******************************************/
     //Views
-    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {}
+    "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+        flow(description: "Flow of the test", type: PropertyType.String, required: true, values: ["A", "B", "C"])
+    }
     //Events
-    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {}
+    "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+        flow(description: "Flow of the test", type: PropertyType.String, required: true, values: ["A", "B", "C"])
+    }
     /******************************************
     *    End: Car Loan
     ******************************************/

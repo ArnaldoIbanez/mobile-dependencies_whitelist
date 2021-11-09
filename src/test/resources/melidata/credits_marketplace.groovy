@@ -737,7 +737,11 @@ trackTests {
     }
 
     test("Credits Car Loan") {
-        "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {}
-        "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {}
+        "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+            flow = "A"
+        }
+        "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+            flow = "A"
+        }
     }
 }
