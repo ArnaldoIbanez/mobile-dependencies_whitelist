@@ -297,6 +297,7 @@ trackTests {
             shortcuts = ['money_in', 'money_out']
             debts = true
             cerc = true
+            crypto = false
             activities = false
         }
     }
