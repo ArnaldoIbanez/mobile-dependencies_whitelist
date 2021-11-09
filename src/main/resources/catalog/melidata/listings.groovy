@@ -137,18 +137,18 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
-        moderation_id(type: PropertyType.String, description: "Moderation id")
+        moderation_id(required: true, type: PropertyType.String, description: "Moderation id")
         channelGroup
     }
 
     "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
-        health_id(type: PropertyType.String, description: "Health id")
+        health_id(required: true, type: PropertyType.String, description: "Health id")
         channelGroup
     }
 
      "/seller_central/listings/row/win_catalog"(platform: "/", type: TrackType.Event) {
-        push_id(type: PropertyType.String, description: "push for win or improve in catalog publications")
-        item_state(type: PropertyType.String, description: "condition of item ")
+        push_id(required: true, type: PropertyType.String, description: "push for win or improve in catalog publications")
+        item_state(required: true, type: PropertyType.String, description: "condition of item ")
         channelGroup
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
