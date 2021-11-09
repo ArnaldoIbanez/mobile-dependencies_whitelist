@@ -251,7 +251,7 @@ tracks {
     }
 
     def buy_level_subscription_section_definition = objectSchemaDefinitions {
-        content_type(type: PropertyType.String, required: false, values: ['partial','default','complete'])
+        content_type(type: PropertyType.String, required: false, values: ['partial','default','complete'],  description: "Content information type")
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         level(type: PropertyType.Numeric, required: false, description: "The user's loyalty level")
     }
