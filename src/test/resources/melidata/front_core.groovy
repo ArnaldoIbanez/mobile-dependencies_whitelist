@@ -1085,13 +1085,12 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Subscription") {
+    test("Mercadopago Home Tap v3 - Buy Level Subscription") {
         "/wallet_home/section/tap/buy_level_subscription" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://loyalty"
             section_id="buy_level_subscription"
             component_id="cta"
             level=4
-            partner="multi-partner"
             metadata_user:[
                     type: "payer"
             ]
