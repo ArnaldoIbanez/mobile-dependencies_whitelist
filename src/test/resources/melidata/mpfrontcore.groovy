@@ -63,11 +63,11 @@ trackTests {
 
     test("Mercadopago Home Educational Banner") {
         "/mp_home/sections/educational_banner"(platform: "/", type: TrackType.View) {
-            userProfile = "newbie"
+            user_profile = "newbie"
             type = "payments"
         }
-        "/mp_home/sections/educational_banner/tap"(platform: "/", type: TrackType.Event) {
-            userProfile = "newbie"
+        "/mp_home/sections/educational_banner"(platform: "/", type: TrackType.Event) {
+            user_profile = "newbie"
             type = "payments"
         }
     }
