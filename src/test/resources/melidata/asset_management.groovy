@@ -561,5 +561,19 @@ trackTests {
         "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
             blocker_type = 'pending'
         }
+
+        // Underage Onboarding
+        "/asset_management/underage_onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/underage_onboarding"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/underage_onboarding/send_approval_request"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/underage_onboarding/send_approval_request"(platform: "/mobile", business: "mercadolibre") {}
+        
+        // TYC Tutor
+        "/asset_management/terms_and_conditions_tutor"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/terms_and_conditions_tutor"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/terms_and_conditions_tutor/accepted_tyc_tutor"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/terms_and_conditions_tutor/accepted_tyc_tutor"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/terms_and_conditions_tutor/rejected_tyc_tutor"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/terms_and_conditions_tutor/rejected_tyc_tutor"(platform: "/mobile", business: "mercadolibre") {}
     }
 }
