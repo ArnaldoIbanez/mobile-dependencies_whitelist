@@ -3034,7 +3034,6 @@ tracks {
           purchase_id(required: true, type: PropertyType.Numeric)
       }
 
-
     //Payment Ticket
     "/notification/payments_ticket_boleto_pending_reminder"(platform: "/") {
         order_id(required: true, type: PropertyType.Numeric)
