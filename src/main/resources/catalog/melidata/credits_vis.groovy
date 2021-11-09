@@ -20,14 +20,14 @@ tracks {
                 type: PropertyType.String,
                 description: "bank identifier",
                 values: [
-                        "caixa",
-                        "santander",
                         "banco_do_brasil",
-                        "bradesco",
-                        "itau",
-                        "votorantim",
-                        "not_specified",
                         "bbva",
+                        "bradesco",
+                        "caixa",
+                        "itau",
+                        "not_specified",
+                        "santander",
+                        "votorantim",
                 ]
         )
         domain_id(required: false, type: PropertyType.String, description: "Id of the product")
