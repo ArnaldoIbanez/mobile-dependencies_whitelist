@@ -131,6 +131,7 @@ catalog {
         include business, "my_purchases.groovy"
         include business, "seller_central.groovy"
         include business, "vendor_central.groovy"
+        include business, "tax_manager_1p.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
         include business, "quotation.groovy"
@@ -172,6 +173,7 @@ catalog {
         include business, "sp_prepaid.groovy"
         include business, "official_stores.groovy"
         include business, "notifications.groovy"
+        include business, "notifications_center.groovy"
         include business, "post_purchase.groovy"
         include business, "cdn_metrics.groovy"
         include business, "splinter.groovy"
@@ -190,7 +192,6 @@ catalog {
         include business, "tendencies.groovy"
         include business, "authorization.groovy"
         include business, "hub_mshops.groovy"
-        include business, "prepapp.groovy"
         include business, "melilive.groovy"
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
@@ -252,6 +253,7 @@ catalog {
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
         include business, "notifications.groovy"
+        include business, "notifications_center.groovy"
         include business, "data_privacy.groovy"
         include business, "wallet.groovy"
         include business, "mp_insurtech.groovy"
@@ -285,6 +287,8 @@ catalog {
         include business, "add_to_cart.groovy"
         include business, "funds_movements.groovy"
         include business, "cost_simulator.groovy"
+        include business, "pospayment.groovy"
+        include business, "crypto.groovy"
     }
 
     mercadoshops.each { business ->
@@ -323,6 +327,7 @@ catalog {
         include business, "kyc.groovy"
         include business, "authentication.groovy"
         include business, "liveness.groovy"
+        include business, "prepapp.groovy"
     }
 
     extra_marketplace.each { business ->
@@ -354,6 +359,7 @@ catalog {
         include business, "vis_scheduling.groovy"
         include business, "vis_reservation.groovy"
         include business, "listings.groovy"
+        include business, "collaborators.groovy"
     }
 
 }

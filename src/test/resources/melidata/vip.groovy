@@ -75,6 +75,9 @@ trackTests {
                     "has_size_chart": true
             ]
             is_ltr: false
+            credits_consumer = {
+                type = "acquisition"
+            }
         }
 
         Object items_attributes = {
@@ -2461,6 +2464,32 @@ trackTests {
             source = "main-action"
             unregistered_contact = false
             is_ltr = true
+        }
+    }
+
+    test("VIS ltr onboarding") {
+        def properties = {
+            buying_mode= "classified"
+            category_id = "MLC1234"
+            item_condition = "new"
+            item_id = "MLC123123"
+            item_seller_type = "real_estate_agency"
+            item_status = "active"
+            listing_type_id = "free"
+            vertical = "realEstate"
+            vip_version = "new"
+        }
+
+        "/vip/ltr_onboard"(platform: "/", type: TrackType.View) {
+            properties()
+        }
+
+        "/vip/ltr_onboard/ok"(platform: "/", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/ltr_onboard/close"(platform: "/", type: TrackType.Event) {
+            properties()
         }
     }
 }

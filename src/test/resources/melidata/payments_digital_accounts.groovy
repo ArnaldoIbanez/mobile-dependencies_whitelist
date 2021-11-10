@@ -297,6 +297,7 @@ trackTests {
             shortcuts = ['money_in', 'money_out']
             debts = true
             cerc = true
+            crypto = false
             activities = false
         }
     }
@@ -322,6 +323,11 @@ trackTests {
             end_date = '2021-01-06T23:59:59.999Z'
         }
         "/banking/movements/filters/open_datepicker"(platform: "/", type: TrackType.Event) {}
+
+
+        "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
+            action = 'DOWNLOAD_BILLS'
+        }   
 
         "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
         "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) {

@@ -60,6 +60,7 @@ tracks {
         debts(required: true, type: PropertyType.Boolean, description: "Indicates if user has debt card")
         cerc(required: true, type: PropertyType.Boolean, description: "Indicates if user has cerc capability")
         activities(required: true, type: PropertyType.Boolean, description: "Indicates if user has money activities")
+        crypto(required: true, type: PropertyType.Boolean, description: "Indicates if user has cryptocoin flow")
 
         // Components
         my_money_available(required: true, type: PropertyType.Map(component_definition), description: "Available component print")
@@ -100,7 +101,7 @@ tracks {
                 action_id
         )
         bankingTrack (
-                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
+                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc, crypto
         )
         cercEventClick (
                 action_type
@@ -256,6 +257,12 @@ tracks {
     // Movements - Pagination
     "/banking/movements/pagination"(platform: "/", isAbstract: true) {}
     "/banking/movements/pagination/change"(platform: "/", type: TrackType.Event) {}
+
+    // Movements - Links
+    "/banking/movements/links"(platform: "/", isAbstract: true) {}
+    "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values: ["DOWNLOAD_BILLS", "VIEW_MY_MONEY_DETAIL"], description: "Indicates the actions clicked")
+    }
 
     // Movements - Filters
     "/banking/movements/filters"(platform: "/", isAbstract: true) {}

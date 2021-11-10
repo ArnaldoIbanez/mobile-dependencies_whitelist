@@ -430,6 +430,7 @@ tracks {
     "/bill_payments/empty_state_ftu/scheduling"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/empty_state_ftu/scheduling/faq"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/empty_state_ftu/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/empty_state_ftu/scheduling/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // empty state
     "/bill_payments/empty_state/scheduling"(platform: "/mobile", type: TrackType.View) {}

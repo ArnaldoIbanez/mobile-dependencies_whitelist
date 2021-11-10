@@ -192,6 +192,11 @@ tracks {
         domain_id(required: false, type: PropertyType.String, description: "The category domain id")
     }
 
+    def processingOptionStructure = objectSchemaDefinitions {
+        day(required: true, type: PropertyType.String, description: "The day of the week", values: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"])
+        processing_time(required: true, type: PropertyType.String, description: "The processing time")
+    }
+
     // --------------------------------------------------------------------------------------------------------------
     //  LANDING PRODUCTS STRUCTURE
     // --------------------------------------------------------------------------------------------------------------
@@ -353,6 +358,9 @@ tracks {
         packs(required: false, type: PropertyType.ArrayList(PropertyType.Map(packStructure)), description: "List of packs")
         categories(required: true, type: PropertyType.ArrayList(PropertyType.Map(categoryStructure)), description: "List of categories")
         logistic_type(required: true, type: PropertyType.String, description: "Logistic type of the shipment")
+
+        // Processing Time
+        processing_options(required: true, type: PropertyType.ArrayList(PropertyType.Map(processingOptionStructure)), description: "List of processing time options")
     }
 
     propertyGroups {
@@ -362,6 +370,7 @@ tracks {
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
+        sellerCentralProcessingTimeGroup(seller_profile, reputation_level, processing_options)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
 
@@ -1126,6 +1135,17 @@ tracks {
         row_id(required: true, type: PropertyType.String, description: "Row Id")
     }
 
+    // PROCESSING TIME SECTION
+
+    "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
+        sellerCentralSettingsGroup
+    }
+
+    "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "The action id", values: ["CONFIRM", "CANCEL"])
+        sellerCentralProcessingTimeGroup
+    }
+
     // SALES SECTION
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
@@ -1591,7 +1611,7 @@ tracks {
 
     "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
-        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin", values: ["metrics", "fulfillment", "stranded", "aging", "fee_storage", "summary" ])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin")
     }
 
     "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}

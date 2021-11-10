@@ -7,7 +7,7 @@ import com.ml.melidata.TrackType
 
     tracks {
 
-        initiative = "1046"
+        initiative = "1296"
 
         /**
         * pos seller screen tracks

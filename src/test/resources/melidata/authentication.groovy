@@ -2370,6 +2370,33 @@ trackTests {
             }
         }
 
+        test("Reauthentication event ") {
+            "/reauthentication"(platform: "/", type: TrackType.Event) {
+                operation_id = "change_password"
+                reauth_id = "a4f835e5-27ee-47a7-af74-e5f01afc0a72"
+                reauth_type = "DEFAULT"
+                flow_type = "OTHER"
+                reauth_status = "OPEN"
+                reauth_risk = "LOW"
+                user_ato_risk = "LOW"
+                recently_logged_in = true
+            }
+
+            "/reauthentication"(platform: "/", type: TrackType.Event) {
+                operation_id = "payment-operation"
+                reauth_id = "a4f835e5-27ee-47a7-af74-e5f01afc0a72"
+                reauth_type = "DEFAULT"
+                flow_type = "PAYMENT"
+                reauth_status = "CLOSED"
+                reauth_risk = "HIGH"
+                elapsed_time = "1234567899"
+                user_ato_risk = "LOW"
+                amount = "500"
+                recently_logged_in = false
+                requested_factors = "ENTER_PASSWORD/TOTP"
+            }
+        }
+
         test("Enrollment TotpInApp in Login") {
             "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"

@@ -160,6 +160,7 @@ trackTests {
             item_id = "MLM2222222"
             model_id = "102B"
             unit_id = "54321"
+            source = "vip"
         }
 
         "/quotation/quote_intention"(platform: "/web", type: TrackType.Event) {
