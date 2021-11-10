@@ -2701,6 +2701,14 @@ trackTests {
             news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_overlimit_active"(platform: "/") {
+            news_id = "credit_card_overlimit_active-12"
+            event_type = "dismiss"
+        }
+        "/notification/credit_card_overlimit_inactive"(platform: "/") {
+            news_id = "credit_card_overlimit_inactive-12"
+            event_type = "dismiss"
+        }
         "/notification/credit_card_transaction_chout_purchase"(platform: "/") {
             news_id = "credit_card-transaction_chout_purchase-12"
             event_type = "dismiss"
@@ -5559,6 +5567,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credit_card_overlimit_active"(platform: "/") {
+            news_id = "credit_card_overlimit_active-12"
+            event_type = "dismiss"
+        }
+
+        "/notification/credit_card_overlimit_inactive"(platform: "/") {
+            news_id = "credit_card_overlimit_inactive-12"
+            event_type = "dismiss"
+        }
+
         "/notification/credit_card_transaction_chout_purchase"(platform: "/") {
             news_id = "credit_card-transaction_chout_purchase-12"
             event_type = "dismiss"
@@ -5773,6 +5791,10 @@ trackTests {
         "/notification_center/credit_card_collection"(platform: "/") {
             latest_news_type= "credit_card_collection"
             latest_news_id= "credit_card-collection-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_overlimit"(platform: "/") {
+            latest_news_type= "credit_card_overlimit"
+            latest_news_id= "credit_card_overlimit-148801678-free-annuity-20211405"
         }
         "/notification_center/credit_card_transaction_acquisition"(platform: "/") {
             latest_news_type= "credit_card_transaction_acquisition"
@@ -10370,6 +10392,14 @@ trackTests {
             news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
         }
+        "/notification/credit_card_overlimit_active"(platform: "/") {
+            news_id = "credit_card_overlimit_active-12"
+            event_type = "dismiss"
+        }
+        "/notification/credit_card_overlimit_inactive"(platform: "/") {
+            news_id = "credit_card_overlimit_inactive-12"
+            event_type = "dismiss"
+        }
         "/notification/credit_card_transaction_chout_purchase"(platform: "/") {
             news_id = "credit_card-transaction_chout_purchase-12"
             event_type = "dismiss"
@@ -10582,6 +10612,10 @@ trackTests {
         "/notification_center/credit_card_collection"(platform: "/") {
             latest_news_type= "credit_card_collection"
             latest_news_id= "credit_card-collection-148801678-free-annuity-20211405"
+        }
+        "/notification_center/credit_card_overlimit"(platform: "/") {
+            latest_news_type= "credit_card_overlimit"
+            latest_news_id= "credit_card_overlimit-148801678-free-annuity-20211405"
         }
         "/notification_center/credit_card_transaction_acquisition"(platform: "/") {
             latest_news_type= "credit_card_transaction_acquisition"
@@ -13258,6 +13292,14 @@ trackTests {
         "/notification/account_balance_create_ted_account"(platform: "/mobile") {
             news_id = "account_balance_create_ted_account-12345678"
             event_type = "shown"
+        }
+        "/notification/credit_card_overlimit_active"(platform: "/") {
+            news_id = "credit_card_overlimit_active-12"
+            event_type = "dismiss"
+        }
+        "/notification/credit_card_overlimit_inactive"(platform: "/") {
+            news_id = "credit_card_overlimit_inactive-12"
+            event_type = "dismiss"
         }
         "/notification/credit_card_transaction_chout_purchase"(platform: "/") {
             news_id = "credit_card-transaction_chout_purchase-12"
