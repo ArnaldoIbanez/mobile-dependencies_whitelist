@@ -7014,26 +7014,44 @@ trackTests {
             notification_type= "deep_linking"
         }
 
-        "/notification/pix_mediations_blocked_amount"(platform: "/mobile") {
+        "/notification/pix_mediation_blocked_amount"(platform: "/mobile") {
             activity_id = "merchant_order_purchase-5c306f621d857f0dddf355d957eb8f2ee9eb14c9"
             news_id = "pix_mediation-blocked_amount-186785675-17811118042"
             payment_id = "17811118042"
             event_type = "open"
             notification_type= "deep_linking"
         }
-        "/notification/pix_mediations_unblocked_amount"(platform: "/mobile") {
+        "/notification/pix_mediation_unblocked_amount"(platform: "/mobile") {
             activity_id = "merchant_order_purchase-5c306f621d857f0dddf355d957eb8f2ee9eb14c9"
             news_id = "pix_mediation-unblocked_amount-186785675-17811118042"
             payment_id = "17811118042"
             event_type = "open"
             notification_type= "deep_linking"
         }
-        "/notification/pix_mediations_refunded"(platform: "/mobile") {
+        "/notification/pix_mediation_refunded"(platform: "/mobile") {
             activity_id = "merchant_order_purchase-5c306f621d857f0dddf355d957eb8f2ee9eb14c9"
             news_id = "pix_mediation-refunded-186785675-17811118042"
             payment_id = "17811118042"
             event_type = "open"
             notification_type= "deep_linking"
+        }
+        "/notification_center/pix_mediation_blocked_amount"(platform: "/mobile") {
+            activity_id = "merchant_order_purchase-5c306f621d857f0dddf355d957eb8f2ee9eb14c9"
+            latest_news_type= "pix_mediation_blocked_amount"
+            latest_news_id= "pix_mediation-blocked_amount-186785675-17811118042"
+            payment_id = "17811118042"
+        }
+        "/notification_center/pix_mediation_unblocked_amount"(platform: "/mobile") {
+            activity_id = "merchant_order_purchase-5c306f621d857f0dddf355d957eb8f2ee9eb14c9"
+            latest_news_type= "pix_mediation_unblocked_amount"
+            latest_news_id= "pix_mediation-unblocked_amount-186785675-17811118042"
+            payment_id = "17811118042"
+        }
+        "/notification_center/pix_mediation_refunded"(platform: "/mobile") {
+            activity_id = "merchant_order_purchase-5c306f621d857f0dddf355d957eb8f2ee9eb14c9"
+            latest_news_type= "pix_mediation_refunded"
+            latest_news_id= "pix_mediation-refunded-186785675-17811118042"
+            payment_id = "17811118042"
         }
 
 

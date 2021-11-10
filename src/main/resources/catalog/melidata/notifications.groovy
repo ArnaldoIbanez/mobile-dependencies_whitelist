@@ -4004,15 +4004,34 @@ tracks {
     "/notification/pix_key_claim_approved"(platform: "/mobile") {}
 
     // Pix mediations
-    "/notification/pix_mediations_blocked_amount"(platform: "/mobile") {
+    "/notification/pix_mediation_blocked_amount"(platform: "/mobile") {
         payment_id(required: true, type: PropertyType.String, description: "Payment Id")
         activity_id(required: true, type: PropertyType.String, description: "Activity Id")
     }
-    "/notification/pix_mediations_unblocked_amount"(platform: "/mobile") {
+    "/notification/pix_mediation_unblocked_amount"(platform: "/mobile") {
         payment_id(required: true, type: PropertyType.String, description: "Payment Id")
         activity_id(required: true, type: PropertyType.String, description: "Activity Id")
     }
-    "/notification/pix_mediations_refunded"(platform: "/mobile") {
+    "/notification/pix_mediation_refunded"(platform: "/mobile") {
+        payment_id(required: true, type: PropertyType.String, description: "Payment Id")
+        activity_id(required: true, type: PropertyType.String, description: "Activity Id")
+    }
+
+    "/notification_center/pix_mediation_blocked_amount"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        payment_id(required: true, type: PropertyType.String, description: "Payment Id")
+        activity_id(required: true, type: PropertyType.String, description: "Activity Id")
+    }
+    "/notification_center/pix_mediation_unblocked_amount"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        payment_id(required: true, type: PropertyType.String, description: "Payment Id")
+        activity_id(required: true, type: PropertyType.String, description: "Activity Id")
+    }
+    "/notification_center/pix_mediation_refunded"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         payment_id(required: true, type: PropertyType.String, description: "Payment Id")
         activity_id(required: true, type: PropertyType.String, description: "Activity Id")
     }
