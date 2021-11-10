@@ -265,6 +265,10 @@ tracks {
         seller_data
     }
 
+    "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        seller_data
+    }
+
     "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
         oms_list
     }
@@ -278,7 +282,8 @@ tracks {
         seller_data
     }
 
-    "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
+    "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        seller_data
     }
 
 }
