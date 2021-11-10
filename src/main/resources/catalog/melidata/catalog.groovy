@@ -329,6 +329,7 @@ catalog {
         include business, "authentication.groovy"
         include business, "liveness.groovy"
         include business, "prepapp.groovy"
+        include business, "melidata_sdk.groovy"
     }
 
     extra_marketplace.each { business ->
