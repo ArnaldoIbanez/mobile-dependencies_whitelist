@@ -303,11 +303,19 @@ trackTests {
             status = congrats_pending_status
         }
 
-        "/credits/credit_card/upgrade/congrats/go_physical_card_shipment_tracking"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/upgrade/congrats/go_physical_card_shipment_tracking"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
             status = congrats_approved_status
         }
 
-        "/credits/credit_card/upgrade/congrats/go_physical_card_shipment_tracking"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/upgrade/congrats/go_physical_card_shipment_tracking"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_pending_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_request_in_unlock"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/physical_card_request_in_unlock"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
             status = congrats_pending_status
         }
 

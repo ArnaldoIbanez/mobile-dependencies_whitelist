@@ -180,6 +180,18 @@ tracks {
         )
     }
 
+    "/credits/credit_card/upgrade/congrats/physical_card_request_in_unlock"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from tap in physical_card_request_in_unlock",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
     // Error
     "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
         reason(type: PropertyType.String, required: false)
