@@ -2087,6 +2087,9 @@ tracks {
 
     //Under age
     "/notification/under_age_responsible_info"(platform: "/") {}
+    "/notification/under_age_responsible_authorization_legacy"(platform: "/") {}
+    "/notification/under_age_minor_rejected"(platform: "/") {}
+    "/notification/under_age_minor_approved"(platform: "/") {}
 
     "/notification/institutional_generic"(platform: "/") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
