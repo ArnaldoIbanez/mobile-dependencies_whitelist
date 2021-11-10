@@ -16,6 +16,8 @@ trackTests {
     
     "/cashout"(platform: "/") {}
     "/cashout/hub/kyc"(platform: "/") {}
+    "/cashout/hub/lighthouses"(platform: "/") {}
+    "/cashout/hub/lighthouses/details"(platform: "/") {}
 
     "/cashout/hub"(platform: "/", type: TrackType.View) {}
     "/cashout/hub/select"(platform: "/", type: TrackType.Event) {
