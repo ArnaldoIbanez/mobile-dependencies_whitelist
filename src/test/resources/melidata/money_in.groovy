@@ -732,5 +732,25 @@ trackTests {
         "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
         "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
         "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
+
+        //News Alert Messages (da-components)
+        "/alert_news"(platform:"/", type: TrackType.View){}
+        "/alert_news/message"(platform:"/", type: TrackType.View){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+            message_description = "Test Message"
+        }
+        "/alert_news/message/primary_action"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
+        "/alert_news/message/secondary_action"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
+        "/alert_news/message/dismiss"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
     }
 }

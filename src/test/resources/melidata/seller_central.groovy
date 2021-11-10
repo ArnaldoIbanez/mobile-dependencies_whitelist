@@ -814,14 +814,12 @@ trackTests {
 
   test("SYI V4 RE Modificar - seller central detail try technical_specifications intent"){
     "/seller_central/modify/detail/technical_specifications/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -941,14 +939,12 @@ trackTests {
 
   test("SYI V4 RE Modificar - seller central detail try location intent"){
     "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -958,14 +954,12 @@ trackTests {
     }
 
     "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -975,14 +969,12 @@ trackTests {
     }
 
     "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -1825,6 +1817,51 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central - Processing Time
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Processing Time - render a processing time page view") {
+    "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      reputation_level = "5_GREEN"
+    }
+  }
+
+  test("Processing Time - user clicks Continue button of confirm modal in the processing time page view") {
+    "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
+      action_id = "CONFIRM"
+      seller_profile = "ADVANCED"
+      reputation_level = "5_GREEN"
+      processing_options = [
+        [
+          day: "monday",
+          processing_time: "02:00"
+        ],
+        [
+          day: "tuesday",
+          processing_time: "01:00"
+        ],
+        [
+          day: "wednesday",
+          processing_time: "01:00"
+        ],
+        [
+          day: "thursday",
+          processing_time: "01:30"
+        ],
+        [
+          day: "friday",
+          processing_time: "00:30"
+        ],
+        [
+          day: "saturday",
+          processing_time: "01:00"
+        ],
+      ]
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Sales
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -2306,6 +2343,17 @@ trackTests {
     }
   }
 
+    test("metrics section view for web") {
+    "/seller_central/metrics/personalized_period"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      days_count = 35
+    }
+  }
+
   test("metrics section view for web") {
     "/seller_central/metrics/clear_filters"(platform: "/web", type: TrackType.Event) {
       seller_profile = "ADVANCED"
@@ -2762,6 +2810,41 @@ trackTests {
       user_type = "real_estate_agency"
     }
   }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central METRICS STOCK-FULL SECTION
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("metrics stock-full section view for web") {
+    "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      origin = "stranded"
+    }
+  }
+
+  test("metrics stock-full section view for web mobile") {
+    "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics stock-full section view for mobile") {
+    "/seller_central/metrics/stock_full"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics stock-full help button click track for web") {
+    "/seller_central/metrics/stock_full/click_help"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      mercado_lider = false
+      seller_segment = "MEDIUM_SELLERS_III"
+      user_type = "real_estate_agency"
+      section_name = "main_problems"
+    }
+  }
+
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
@@ -4711,6 +4794,22 @@ test("seller central confirm leave suggestion task - optin moderated") {
     "/seller_central/promotions/massive"(platform: "/", type: TrackType.View) {}
   }
 
+  test("seller central listing massive toolbar add action") {
+    "/seller_central/promotions/massive/add"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar delete action") {
+    "/seller_central/promotions/massive/delete"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar modify action") {
+    "/seller_central/promotions/massive/modify"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing massive toolbar offline flow action") {
+    "/seller_central/promotions/massive/offline"(platform: "/", type: TrackType.Event) {}
+  }
+
   test("seller central promotions massive editor") {
     "/seller_central/promotions/massive/editor"(platform: "/", type: TrackType.View) {}
   }
@@ -5082,8 +5181,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5100,8 +5197,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5118,8 +5213,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5136,8 +5229,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5154,8 +5245,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5172,8 +5261,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5190,8 +5277,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5208,8 +5293,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5226,8 +5309,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5244,8 +5325,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5262,21 +5341,17 @@ test("seller central confirm leave suggestion task - optin moderated") {
       session_id = "571359341-updateres-7c63145ea255"
       vertical = "real_estate"
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
   test("SYI V4 RE Modificar - seller central - try quick_edit_standard photos intent") {
     "/seller_central/modify/detail/quick_edit_standard/intent"(platform: "/", type: TrackType.Event) {
-      business = 'classified'
       category_domain = "MLC-HOUSES_FOR_RENT"
       category_id = "MLM27420"
       category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
       item_id = "MLC534088624"
       item_type = "default"
       listing_type = "silver"
-      platform = "pi"
       seller_profile = "NEWBIE"
       seller_reputation = "NO_REPUTATION"
       session_id = "516954617-updateres-b5e3bdf5d0d7"
@@ -5319,9 +5394,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "real_estate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
-
     }
   }
 
@@ -5338,8 +5410,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5356,8 +5426,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5374,8 +5442,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5392,8 +5458,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5410,8 +5474,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5428,8 +5490,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -5446,8 +5506,6 @@ test("seller central confirm leave suggestion task - optin moderated") {
       vertical = "realEstate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
-      business = "classified"
-      platform = "pi"
     }
   }
 
@@ -6491,6 +6549,22 @@ test("seller central catalog optin v2 item plus card show") {
     "/seller_central/gema/usage"(platform: "/web", type: TrackType.Event){
       use_gema = false
       seller_reputation = "NEWBIE"
+    }
+  }
+
+  test("Price suggestion result") {
+    "/seller_central/price_suggestion/bands"(platform: "/", type: TrackType.Event) {
+      app_name = "update-desktop"
+      client_id = "3282472529718136"
+      item_id = "MLA1106939454"
+      attributes = [
+        [attribute_id: "BRAND", attribute_value: "Chevrolet", attribute_name: "Marca"],
+        [attribute_id: "MODEL", attribute_value: "Onix", attribute_name: "Modelo"],
+        [attribute_id: "TRIM", attribute_value: "1.0 Turbo Premier Ii At", attribute_name: "Version"]
+      ]
+      prices_bands = [lower_band: "1500000", lower_limit: "1000000", upper_band: "3500000", upper_limit: "4000000",
+        estimated_price: "2500000"]
+      price = "2500000"
     }
   }
 }

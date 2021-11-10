@@ -9,11 +9,15 @@ trackTests {
 
   test("seller central listing main page") {
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
-  }
-  test("seller central listing main page") {
+  
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
       view_id = "listing"
       sub_view_id = "mshops"
+    }
+
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id = "fulfillment"
+      origin = "metrics"
     }
   }
 
@@ -59,7 +63,41 @@ trackTests {
     }
     "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
       action = "apply"
-      checked_filters = ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"]
+      before_apply_filters = [
+        filters: ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      after_apply_filters = [
+        filters: ["WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+    }
+
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+      before_apply_filters = [
+        filters: ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      after_apply_filters = [
+        filters: ["WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      sub_view_id = "mshops"
+      view_id = "listings"
+    }
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "clear"
+       before_apply_filters = [
+        filters: ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"],
+        sort: 'DEFAULT'
+      ]
+      after_apply_filters = [
+        filters: [],
+        sort: ''
+      ]
+      sub_view_id = "mshops"
+      view_id = "listings"
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
@@ -197,14 +235,41 @@ trackTests {
 
   test("seller central listings row description") {
     "/seller_central/listings/row/item_description"(platform: "/", type: TrackType.Event) {}
+  }
 
-    "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
+  test("seller central listings row 4ta cell") {
+     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
       moderation_id = "ID"
     }
 
     "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
       health_id = "ID"
     }
+
+     "/seller_central/listings/row/win_catalog"(platform: "/", type: TrackType.Event) {
+      push_id = "WIN_CATALOG"
+      item_state = "win_without_rebate"
+    }
+
+     "/seller_central/listings/row/moderation"(platform: "/", type: TrackType.Event) {
+      moderation_id = "ID"
+      sub_view_id = "mshops"
+      item_id = "MCO212144fdfa"
+    }
+
+    "/seller_central/listings/row/health"(platform: "/", type: TrackType.Event) {
+      health_id = "ID"
+      sub_view_id = "only_marketplace"
+      item_id = "MCO212144fdfa"
+    }
+
+     "/seller_central/listings/row/win_catalog"(platform: "/", type: TrackType.Event) {
+      push_id = "WIN_CATALOG"
+      item_state = "win_without_rebate"
+      sub_view_id = "marketplace"
+      item_id = "MCO212144fdfa"
+    }
+
   }
 
   test("seller central listings call to actions of row") {
@@ -284,6 +349,30 @@ trackTests {
       action_id = "MODIFY_SHIPPING"
       item_id = "MLA23345252"
       sub_view_id = "mshops"
+    }
+  }
+
+  test("setup mercado shops") {
+    "/seller_central/listings/setup_mshop"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listings list description legacy") {
+    "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/list/moderation"(platform: "/", type: TrackType.Event) {
+      moderation_id = "ID"
+    }
+
+    "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+      health_id = "ID"
+    }
+  }
+
+   test("seller central listing secondary actions legacy") {
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/list/action"(platform: "/", type: TrackType.Event) {
+      action_id = "MODIFY"
     }
   }
 

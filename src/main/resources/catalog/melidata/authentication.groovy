@@ -594,8 +594,8 @@ tracks {
     "/authenticators/face_validation/error/retry"(platform: "/", type: TrackType.Event) {}
 
     def screenlockConfigStructure = objectSchemaDefinitions {
-        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
-        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"], description: "User flow screenlock status")
+        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"], description: "User opening screenlock status")
         transaction_granularity_option(required: true, type: PropertyType.String, values: ["always", "daily_amount"], description: "Granularity option selected by user")
         transaction_accumulated_amount(required: true, type: PropertyType.String, description: "User tx accumulated amount")
         transaction_custom(required: true, type: PropertyType.String, description: "Granularity amount on which screenLock will be triggered")
@@ -619,10 +619,25 @@ tracks {
         screenlock_validated(type: PropertyType.Boolean, required: true, description: "Identify if screenlock was used in validation")
     }
 
-    // Biometrics / Screenlock
+    def screenlockDeviceType = objectSchemaDefinitions {
+        i(required: true, type: PropertyType.Boolean, description: "specify if the user run the application on real device or emulator")
+        b(required: true, type: PropertyType.String, values: ["compile", "runtime", "fail", "undetectable", "unknown", "off"], description: "specify how we can detect the device type")
+    }
+
+    def screenlockDeviceAdmin = objectSchemaDefinitions {
+        i(required: true, type: PropertyType.Boolean, description: "flag that we can use to specify if the device was rooted/jailbroken")
+        b(required: true, type: PropertyType.String, values: ["app_installed", "directory", "files", "symb", "fail", "undetectable", "unknown", "off"], description: "specify how we can detect the device admin")
+    }
+
+    def screenlockHealth = objectSchemaDefinitions {
+        e(type: PropertyType.Map(screenlockDeviceType), required: true, description: "current screenlock device type")
+        r(type: PropertyType.Map(screenlockDeviceAdmin), required: true, description: "current screenlock admin type")
+    }
+
+    // Biometrics / Screenlock    
     "/screenlock"(platform: "/mobile", isAbstract: true, initiative: 1375) {
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "specify user enrollment screenlock status")
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "specify security type on user device")
     }
     
     "/screenlock/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -664,8 +679,11 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         transaction_information(type: PropertyType.Map(transactionInformationStructure), required: true, description: "transaction information")
         applock_flowlock_information(type: PropertyType.Map(applockFlowlockStructure), required: false, description: "applock flowlock information")
-        result(type: PropertyType.String, required: true, values: ["success", "error"])
-        errors(type: PropertyType.ArrayList, required: false)
+        result(type: PropertyType.String, required: true, values: ["success", "error"], description: "validation result")
+        errors(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "error description when validation fails")
+        fallback_disabled(type: PropertyType.Boolean, required: true, description: "when a screenlock validation is made, fallback may be disabled")
+        screenlock_method_used(PropertyType.String, required: false, values: ["unknown","biometrics","basic_screenlock"], description: "when validation succeeds, the screenlock method used is sent")
+        biometrics_hash(PropertyType.String, required: false, description: "when validation succeeds and user used biometrics, this is an OS automatically generated biometrics hash.")
     }
 
     "/screenlock/security_status"(platform: "/mobile/ios", isAbstract: true, initiative: 1375) {
@@ -684,8 +702,13 @@ tracks {
         response(type: PropertyType.Map(securityStatusResponse), required: false, description: "security_status request response")
     }
 
-    "/screenlock/status"(platform: "/mobile", type: TrackType.Event) {
+    "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+        h(type: PropertyType.Map(screenlockHealth), required: true, description: "screenlock device health")
     }
 
     "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
@@ -787,6 +810,20 @@ tracks {
     "/login/identification"(platform: "/mobile") {}
     "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "When user login success in ios")
+    }
+
+    "/reauthentication"(platform: "/", type: TrackType.Event, initiative: 1375) {
+        operation_id(required: true, type: PropertyType.String, description: "operation flow identifier")
+        reauth_id(required: true, type: PropertyType.String, description: "reauthentication identifier")
+        reauth_type(required: true, type: PropertyType.String, description: "reauthentication type")
+        flow_type(required: true, type: PropertyType.String, values: ["OTHER", "PAYMENT"], description: "type of operating flow")
+        reauth_status(required: true, type: PropertyType.String, description: "reauthentication status")
+        reauth_risk(required: true, type: PropertyType.String, description: "reauthentication risk")
+        elapsed_time(required: false, type: PropertyType.String, description: "elapsed time in the operation")
+        user_ato_risk(required: false, type: PropertyType.String, description: "user ATO risk")
+        amount(required: false, type: PropertyType.String, description: "amount of the operation")
+        recently_logged_in(required: false, type: PropertyType.Boolean, description: "Indicates if the user recently logged in")
+        requested_factors(required: false, type: PropertyType.String, description: "factors requested for reauthentication")
     }
 
 }

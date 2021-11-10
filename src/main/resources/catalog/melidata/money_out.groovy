@@ -314,7 +314,7 @@ tracks {
     "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {}
 
     "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
-        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector"])
+        type(required:true, description:"Indicate type of restriction for example: rate_limit_pix", values=["rate_limit_pix", "rate_limit_p2p", "rate_limit_pix_p2p", "inactive_account", "user_blacklist", "same_sender_collector", "collector", "invalid_account_type"])
     }
     "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {}
@@ -405,6 +405,13 @@ tracks {
     "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/share"(platform: "/", type: TrackType.Event) {}
     "/pix/home/keys/new"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/qr"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/detail"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Action Keys
+    "/pix/home/keys/action"(platform: "/", isAbstract: true) {}
+    "/pix/home/keys/action/cpf"(platform: "/", type: TrackType.Event) {}
+    "/pix/home/keys/action/pix_keys"(platform: "/", type: TrackType.Event) {}
 
     //Home Pix MLB - Cadastrar Keys
     "/pix/home/banner"(platform: "/", isAbstract: true) {}
@@ -434,4 +441,7 @@ tracks {
     "/pix/home/ftu/close"(platform: "/", type: TrackType.Event) {}  
     "/pix/home/ftu/confirm"(platform: "/", type: TrackType.Event) {}
     "/pix/home/ftu/cancel"(platform: "/", type: TrackType.Event) {}
+
+    //Home Pix MLB - Insurtech Banner
+    "/pix/home/insurtech_banner"(platform: "/", type: TrackType.Event) {}
 }

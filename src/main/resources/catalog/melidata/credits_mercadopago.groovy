@@ -334,6 +334,13 @@ tracks {
                 inheritable: false,
                 description: "products"
         )
+        from_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false,
+            description: "optin validation"
+        )
+        source_tracking
     }
 
     "/credits/merchant/administrator/contextual_help_click"(platform: "/", type: TrackType.Event) {
@@ -753,11 +760,43 @@ tracks {
                 'financial_scraping',
             ]
         )
+        provider(
+            type: PropertyType.String,
+            required: false,
+            description: "Which provider was choosen to share information",
+            values: [
+                'quanto',
+                'open_finance',
+                'unknown',
+            ]
+        )
     }
 
-    "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
+        provider(
+            type: PropertyType.String,
+            required: true,
+            description: "Which provider was choosen to share information",
+            values: [
+                'quanto',
+                'open_finance',
+            ]
+        )
+    }
 
-    "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_started"(platform: "/", type: TrackType.Event) {
+        provider(
+            type: PropertyType.String,
+            required: true,
+            description: "Which provider was choosen to share information",
+            values: [
+                'quanto',
+                'open_finance',
+            ]
+        )
+    }
+
+    "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -769,7 +808,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -1847,6 +1886,11 @@ tracks {
                         "visible",
                         "not visible"
                 ]
+        )
+        source_key(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
         )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {

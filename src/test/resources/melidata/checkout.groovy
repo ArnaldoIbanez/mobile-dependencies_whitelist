@@ -951,6 +951,9 @@ trackTests {
         "/checkout/error"(platform:"/mobile", type:TrackType.View) {
             error_code = "internal_server_error"
         }
+
+        "/checkout/generic_error"(platform:"/web", type:TrackType.View) {}
+        "/checkout/session_expired"(platform:"/web", type:TrackType.View) {}
         "/checkout/show_ticket"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -2130,6 +2133,8 @@ trackTests {
         }
         "/checkout/items_not_available"(platform:"/web", dataSet)
         "/checkout/error"(platform:"/web", dataSet)
+        "/checkout/generic_error"(platform:"/web", dataSet)
+        "/checkout/session_expired"(platform:"/web", dataSet)
         "/checkout/payment/select_type"(platform:"/web", type: TrackType.View){
             dataSet()
         }
@@ -2237,7 +2242,7 @@ trackTests {
         "/checkout/call_for_auth/input_code"(platform:"/web", dataSet)
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/edit_address"(platform:"/web", dataSet)
-        "/checkout/session_expire"(platform:"/", dataSet)
+        "/checkout/session_expired"(platform:"/", dataSet)
         "/checkout/loading"(platform: "/web", dataSet)
         "/checkout/loading/error"(platform: "/web", dataSet)
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
