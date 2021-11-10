@@ -650,6 +650,9 @@ trackTests {
                 fixed_term_map(),
                 sales_percentage_map()
             ]
+            from_optins = true
+            additional_info= 'collection_access'
+            from= 'home_mp'
         }
 
         "/credits/merchant/administrator/late_debt"(platform: "/mobile") {
@@ -772,7 +775,7 @@ trackTests {
             amount_to_pay = '12345'
             fixed_term()
         }
-        
+
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/summary"(platform: "/web/desktop") {
@@ -1348,7 +1351,7 @@ trackTests {
         "/credits/express_money/info"(platform: "/mobile/android") {
             reason = 'already_taken_credit_line'
         }
-        
+
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 
@@ -1443,7 +1446,7 @@ trackTests {
             provider="open_finance"
             flow="upsell_offer"
         }
-        
+
         "/credits/merchant/open_market/financial_scraping_started"(platform: "/", type: TrackType.Event) {
             provider="quanto"
             flow="request_offer"

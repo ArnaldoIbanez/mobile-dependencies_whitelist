@@ -334,6 +334,13 @@ tracks {
                 inheritable: false,
                 description: "products"
         )
+        from_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false,
+            description: "optin validation"
+        )
+        source_tracking
     }
 
     "/credits/merchant/administrator/contextual_help_click"(platform: "/", type: TrackType.Event) {
@@ -743,7 +750,7 @@ tracks {
             ]
         )
     }
-    
+
     "/credits/merchant/open_market/financial_scraping_started"(platform: "/", type: TrackType.Event) {
         provider(
             type: PropertyType.String,
