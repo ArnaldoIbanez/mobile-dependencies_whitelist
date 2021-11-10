@@ -2126,6 +2126,18 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount_for_fee"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount_for_fee-GN92YzFJJQk15V1xg4YfpcCNQMcySlp5LxXAVyS3IPx9sCMYy8Zf5ty4fQNOt3VI"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount_for_fee-GN92YzFJJQk15V1xg4YfpcCNQMcySlp5LxXAVyS3IPx9sCMYy8Zf5ty4fQNOt3VI"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount_for_fee"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee-GN92YzFJJQk15V1xg4YfpcCNQMcySlp5LxXAVyS3IPx9sCMYy8Zf5ty4fQNOt3VI"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee-GN92YzFJJQk15V1xg4YfpcCNQMcySlp5LxXAVyS3IPx9sCMYy8Zf5ty4fQNOt3VI"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee"
+            status= "read"
+        }
         "/notification_center/point_qr_login_new"(platform: "/mobile") {
             latest_news_type= "point_qr_login_new"
             latest_news_id= "point-qr_login_new-a34rb3"
@@ -6568,6 +6580,16 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_for_fee"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_for_fee-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_approved_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
@@ -9682,6 +9704,18 @@ trackTests {
             newsgroup_id= "pprepaid_card_transaction_rejected_invalid_pin-186785675-76283123"
             latest_news_id= "prepaid_card_transaction_rejected_invalid_pin-186785675-76283123"
             latest_news_type= "prepaid_card_transaction_rejected_invalid_pin"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount_for_fee"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount_for_fee-186785675-76283123"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount_for_fee-186785675-76283123"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount_for_fee"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee-186785675-76283123"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee-186785675-76283123"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee"
             status= "read"
         }
         "/notification_center/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile"){
@@ -14048,6 +14082,18 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_invalid_pin-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_for_fee"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_for_fee-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_smaller_that_fee-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
