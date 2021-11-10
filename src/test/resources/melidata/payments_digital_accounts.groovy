@@ -340,6 +340,8 @@ trackTests {
             begin_date = '2020-12-22T00:00:00.000Z'
             end_date = '2021-01-06T23:59:59.999Z'
         }
+
+        "/banking/movements/message_uf/close_message"(platform: "/", type: TrackType.Event) {}
     }
 
     test("PNF") {
