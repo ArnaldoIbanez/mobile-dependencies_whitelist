@@ -313,6 +313,10 @@ tracks
                 location
             }
 
+            "/crowd/registration/city/paused"(platform: "/mobile", type: TrackType.View) {
+                location
+            }
+
             "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
                 location
             }
@@ -332,4 +336,77 @@ tracks
             "/crowd/registration/boaas/landing/deeplink"(platform: "/mobile", type: TrackType.Event) {
                 location
             }
+
+            //Tracks for preferences flow in crowd app
+
+            "/crowd/preferences/amount_work_hours"(platform: "/mobile", type: TrackType.View) {
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/amount_work_hours/selected"(platform: "/mobile", type: TrackType.Event) {
+                amount_work_hours(required: true, type: PropertyType.String, description: "Specifies the current amount work hours selected")
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/service_center"(platform: "/mobile", type: TrackType.View) {
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/service_center/selected"(platform: "/mobile", type: TrackType.Event) {
+                service_center(required: true, type: PropertyType.String, description: "Specifies the current service centers selected")
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/week_days"(platform: "/mobile", type: TrackType.View) {
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/week_days/selected"(platform: "/mobile", type: TrackType.Event) {
+                week_days(required: true, type: PropertyType.String, description: "Specifies the current week days selected")
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/work_shift"(platform: "/mobile", type: TrackType.View) {
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/work_shift/selected"(platform: "/mobile", type: TrackType.Event) {
+                work_shift(required: true, type: PropertyType.String, description: "Specifies the current amount work shift selected")
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/start"(platform: "/mobile", type: TrackType.View) {
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/success"(platform: "/mobile", type: TrackType.View) {
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
+            "/crowd/preferences/hub"(platform: "/mobile", type: TrackType.View) {
+                flow(required: true, type: PropertyType.String,
+                        description: "Describes flow that execute from preferences")
+                location
+            }
+
         }

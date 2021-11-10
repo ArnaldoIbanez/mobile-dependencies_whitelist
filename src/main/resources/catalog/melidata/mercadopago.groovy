@@ -20,12 +20,6 @@ import com.ml.melidata.TrackType
 /**/
 tracks {
 
-    def utm_definition = objectSchemaDefinitions {
-        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
-        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
-        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
-    }
-
     "/"(platform: "/", isAbstract: true) {
     }
 
@@ -43,6 +37,12 @@ tracks {
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 
     "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
+
+    def utm_definition = objectSchemaDefinitions {
+        utm_source(type: PropertyType.String, required: false, description: "Tracking source")
+        utm_medium(type: PropertyType.String, required: false, description: "Tracking medium")
+        utm_campaign(type: PropertyType.String, required: false, description: "Tracking campaign")
+    }
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
@@ -155,7 +155,7 @@ tracks {
     "/ftu_release/point_app"(platform: "/mobile", type: TrackType.View) {}
     "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
 
-    "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1046") {}
+    "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1296") {}
     "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
     "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
     "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
@@ -164,11 +164,11 @@ tracks {
 
     // MP Point Standalone (a eliminar cuando inhabilitemos la app de point)
 
-    "/card"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/card_number"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/card_type"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/card_name"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
-    "/help_web_view"(platform: "/mobile", type: TrackType.View, initiative: "1046") {}
+    "/card"(platform: "/mobile", type: TrackType.View, initiative: "1296") {} 
+    "/card_number"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
+    "/card_type"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
+    "/card_name"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
+    "/help_web_view"(platform: "/mobile", type: TrackType.View, initiative: "1296") {}
 
     // MP Mobile Point Catalog
 
@@ -269,7 +269,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/get_member"(platform: "/mobile", isAbstract: true, initiative: "1046") {
+    "/get_member"(platform: "/mobile", isAbstract: true, initiative: "1296") { 
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }

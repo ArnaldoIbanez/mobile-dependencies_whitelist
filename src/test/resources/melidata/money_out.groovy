@@ -120,6 +120,7 @@ trackTests {
       "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_pix"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/unified_transfers_p2p"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
@@ -276,6 +277,11 @@ trackTests {
         type = "datos_conta"
       }
 
+      //Bottom Sheet - Unified P2P
+      "/money_out/transfers/bottom_sheet"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/bottom_sheet/confirm"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/bottom_sheet/cancel"(platform: "/", type: TrackType.Event) {}
+    
       //Cashout - Modals
       "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
       "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
@@ -340,12 +346,52 @@ trackTests {
       "/money_out/transfers/home/restrictions/dismiss"(platform: "/", type: TrackType.Event) {
          type="credits"
       }
+      "/money_out/transfers/bottom_sheet/restrictions"(platform:"/", type: TrackType.View){
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/bottom_sheet/restrictions/continue"(platform: "/", type: TrackType.Event) {
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/bottom_sheet/restrictions/back"(platform: "/", type: TrackType.Event) {
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/bottom_sheet/restrictions/dismiss"(platform: "/", type: TrackType.Event) {
+         type="rate_limit_pix"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions"(platform:"/", type: TrackType.View){
+         type="same_user"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions/continue"(platform: "/", type: TrackType.Event) {
+         type="same_user"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions/back"(platform: "/", type: TrackType.Event) {
+         type="same_user"
+      }
+      "/money_out/transfers/calculator_p2p/restrictions/dismiss"(platform: "/", type: TrackType.Event) {
+         type="same_user"
+      }
     
+      //Transfer Hub - FTU Unified transfers
+      "/money_out/transfers/home/unified_transfers_ftu"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/unified_transfers_ftu/continue"(platform: "/", type: TrackType.Event) {}
+
       //Transfer Hub - Modal KYC
       "/money_out/transfers/home/kyc_modal"(platform:"/", type: TrackType.View){}
       "/money_out/transfers/home/kyc_modal/continue"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/kyc_modal/back"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/kyc_modal/dismiss"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - Banners
+      "/money_out/transfers/home/banners"(platform: "/", type: TrackType.Event) {
+         banner_type="money_advance"
+      }
+      //Transfer Hub - VOC
+      "/money_out/transfers/home/voice_of_customer"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - MLM - Account Form
+      "/money_out/transfers/mlm/account_form"(platform: "/", type: TrackType.View){}
+      "/money_out/transfers/mlm/account_form/faq"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/mlm/account_form/continue"(platform: "/", type: TrackType.Event) {}
 
       //Pix Limits MLB
       "/pix"(platform: "/", type: TrackType.View) {}
@@ -398,6 +444,12 @@ trackTests {
        "/pix/home/keys/copy"(platform: "/", type: TrackType.Event) {}
        "/pix/home/keys/share"(platform: "/", type: TrackType.Event) {}
        "/pix/home/keys/new"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/keys/qr"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/keys/detail"(platform: "/", type: TrackType.Event) {}
+
+       //Home Pix MLB - Action Keys
+       "/pix/home/keys/action/cpf"(platform: "/", type: TrackType.Event) {}
+       "/pix/home/keys/action/pix_keys"(platform: "/", type: TrackType.Event) {}
 
        //Home Pix MLB - Cadastrar Keys
        "/pix/home/banner/new_key"(platform: "/", type: TrackType.Event) {}
@@ -425,5 +477,8 @@ trackTests {
        "/pix/home/ftu/close"(platform: "/", type: TrackType.Event) {}  
        "/pix/home/ftu/confirm"(platform: "/", type: TrackType.Event) {}
        "/pix/home/ftu/cancel"(platform: "/", type: TrackType.Event) {}
+
+        //Home Pix MLB - Insurtech Banner
+        "/pix/home/insurtech_banner"(platform: "/", type: TrackType.Event) {}
     }
 }
