@@ -27,6 +27,7 @@ trackTests {
         def congrats_status_not_linked = "not_linked_card"
         def congrats_status_not_requested = "physical_not_requested"
         def congrats_status_kyc_user_in_review = "kyc_user_in_review"
+        def congrats_status_physical_card_shipped = "physical_card_shipped"
         def stop_page_no_proposal = "no_proposal_match"
         def stop_page_invalid_proposal = "invalid_proposal_status"
         def stop_page_kyc_not_compliant = "kyc_not_compliant"
@@ -169,6 +170,22 @@ trackTests {
             from = facebook_source
         }
 
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_a
+            is_card_active = true
+            status = congrats_approved_status
+            congrats_status = congrats_status_physical_card_shipped
+            from = facebook_source
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            proposal = account_rating_a
+            is_card_active = true
+            status = congrats_pending_status
+            congrats_status = congrats_status_physical_card_shipped
+            from = facebook_source
+        }
+
         "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
 
         "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event) {}
@@ -275,6 +292,22 @@ trackTests {
         }
 
         "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_pending_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/go_virtual_credit_card"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/go_virtual_credit_card"(platform: "/", type: TrackType.Event, business: 'mercadopago') {
+            status = congrats_pending_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/go_physical_card_shipment_tracking"(platform: "/", type: TrackType.Event) {
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/go_physical_card_shipment_tracking"(platform: "/", type: TrackType.Event) {
             status = congrats_pending_status
         }
 
