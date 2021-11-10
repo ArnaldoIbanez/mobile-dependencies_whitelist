@@ -285,5 +285,4 @@ tracks {
     "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         seller_data
     }
-
 }
