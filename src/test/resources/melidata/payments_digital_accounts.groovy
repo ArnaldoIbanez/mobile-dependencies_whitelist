@@ -204,6 +204,15 @@ trackTests {
                   content_id: ['cards_list', 'accounts_list']
             ]
         }
+
+        "/banking/balance/crypto_balance_component"(platform: "/", type: TrackType.View) {
+             my_money_crypto_balance = [
+                  component_id: 'crypto',
+                  component_data: [
+                      status: 'printed'
+                 ]
+             ]
+         }
     }
 
     test("Balance to release") {
