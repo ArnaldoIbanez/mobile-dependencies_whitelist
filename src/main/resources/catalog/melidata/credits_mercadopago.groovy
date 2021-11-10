@@ -429,14 +429,47 @@ tracks {
     }
 
     //Checkout
-    "/credits/merchant/checkout"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/checkout"(platform: "/web", type: TrackType.Event) {
         amount_to_pay(
            type: PropertyType.String,
            required: true,
            description: "Redirect to checkout with amount to pay",
            inheritable: false
         )
-        products_with_status
+        products(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(with_status)
+            ),
+            required: false,
+            inheritable: false,
+            description: "products"
+        )
+    }
+
+    "/credits/merchant/checkout"(platform: "/mobile", type: TrackType.View) {
+        amount_to_pay(
+           type: PropertyType.String,
+           required: true,
+           description: "Redirect to checkout with amount to pay",
+           inheritable: false
+        )
+        products(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(with_status)
+            ),
+            required: true,
+            inheritable: false,
+            description: "products"
+        )
+    }
+
+    "/credits/merchant/checkout/error"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false,
+            description: "error"
+        )
     }
 
     //Voluntary Payment
