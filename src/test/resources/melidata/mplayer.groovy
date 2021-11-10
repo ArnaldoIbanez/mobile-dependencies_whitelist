@@ -117,7 +117,9 @@ trackTests {
             has_reason = true
         }
 
-        "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile") {}
+        "/mplayer/closed_request/manual_amount/emoji_selected"(platform: "/mobile") {
+             position = 3
+        }
 
         "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
@@ -174,7 +176,9 @@ trackTests {
             has_reason = true
         }
 
-        "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile") {}
+        "/mplayer/open_request/manual_amount/emoji_selected"(platform: "/mobile") {
+            position = 4
+        }
 
         "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile") {}
         "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
@@ -359,6 +363,20 @@ trackTests {
             cause = "warning"
             message_id = "error-01"
         }
+
+
+        // Tracing Status
+        "/mplayer/request/status"(platform: "/mobile") {
+            type = "closed_request"
+            type_person = "payer"
+        }
+
+        "/mplayer/request/status/event"(platform: "/mobile") {
+            type = "money_split"
+            type_person = "collector"
+            action = "send"
+        }
+
     }
 }
 

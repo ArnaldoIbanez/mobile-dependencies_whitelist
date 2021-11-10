@@ -20,18 +20,19 @@ tracks {
                 type: PropertyType.String,
                 description: "bank identifier",
                 values: [
-                        "caixa",
-                        "santander",
                         "banco_do_brasil",
+                        "bbva",
                         "bradesco",
+                        "caixa",
                         "itau",
-                        "votorantim",
                         "not_specified",
+                        "santander",
+                        "votorantim",
                 ]
         )
         domain_id(required: false, type: PropertyType.String, description: "Id of the product")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree", serverSide: true)
+        category_path(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree", serverSide: true)
         city(required: false, type: PropertyType.String, description: "Item city name")
         flow_type(
                 required: false,
@@ -44,6 +45,16 @@ tracks {
                         "CORBAN_ITAU",
                 ]
         )
+        context(
+                required: false,
+                type: PropertyType.String,
+                description: "Context of type of approve in congrats",
+                values: [
+                        "LOW_SCORE",
+                        "MIDDLE_SCORE",
+                        "HIGH_SCORE"
+                ]
+         )
         item_condition(required: false, type: PropertyType.String, description: "Indicates whether the item is new, used or refurbished", values: ["new", "used", "refurbished", "not_specified"])
         item_id(required: true, type: PropertyType.String, description: "Item id")
         item_seller_type(required: false, type: PropertyType.String, description: "Seller type: normal, real_estate_user, etc", values: ["branch", "brand", "car_dealer", "franchise", "normal", "real_estate_agency"])
@@ -65,6 +76,7 @@ tracks {
                 city,
                 domain_id,
                 flow_type,
+                context,
                 item_condition,
                 item_seller_type,
                 map_item_attributes
@@ -166,9 +178,18 @@ tracks {
         vis_credits_optional
     }
 
+    "/vis_credits/application_form/step_5"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/application_form/step_5/next_button"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
     "/vis_credits/congrats"(platform: "/", type: TrackType.View) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -176,7 +197,6 @@ tracks {
 
     "/vis_credits/congrats/whatsapp_intention"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -184,7 +204,6 @@ tracks {
 
     "/vis_credits/congrats/call_intention"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -192,7 +211,6 @@ tracks {
 
     "/vis_credits/congrats/contact_intention"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -200,7 +218,6 @@ tracks {
 
     "/vis_credits/congrats/dni_retry_button"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -208,7 +225,6 @@ tracks {
 
     "/vis_credits/congrats/similar_items_button"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -216,7 +232,6 @@ tracks {
 
     "/vis_credits/congrats/item_return_button"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -224,7 +239,6 @@ tracks {
 
     "/vis_credits/congrats/dni_change_button"(platform: "/", type: TrackType.Event) {
         congrats_status(required: true, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
-        context( required: false, type: PropertyType.String, description: "Context of type of approve in congrats" , values: ["high_score", "high_score"])
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
         vis_credits_required
         vis_credits_optional
@@ -232,6 +246,21 @@ tracks {
 
     "/vis_credits/not_found"(platform: "/", type: TrackType.View) {
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user")
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact"(platform: "/", type: TrackType.View) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact/call_intention"(platform: "/", type: TrackType.Event) {
+        vis_credits_required
+        vis_credits_optional
+    }
+
+    "/vis_credits/landings/buyer_contact/email_intention"(platform: "/", type: TrackType.Event) {
         vis_credits_required
         vis_credits_optional
     }

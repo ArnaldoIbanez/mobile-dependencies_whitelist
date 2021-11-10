@@ -483,6 +483,7 @@ trackTests {
             type = "secondary"
             level = 4
             subscribed_plans = []
+            selected_option = "option-1"
         }
 
         "/loyalty/partners/comboplus/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -495,6 +496,17 @@ trackTests {
             type = "login"
             level = 8
             subscribed_plans = ["ESPN", "STAR+"]
+            selected_option = "option-3"
+        }
+    }
+
+    test("Loyalty Interstitial") {
+        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            status = "timeout"
+        }
+
+        "/loyalty/interstitial/modal"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            status = "timeout"
         }
     }
 

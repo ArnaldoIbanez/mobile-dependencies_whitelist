@@ -25,6 +25,7 @@ tracks {
   "/instore/coupon_reservation" (platform: "/", isAbstract: true) {
     event_id(required: false, type: PropertyType.Numeric, description: "Event id")
     session_id(required: true, type: PropertyType.String, description: "Session identifier")
+    traffic_from(required: false, values:["push", "modal", "banner", "pom", "mp"], type: PropertyType.String, description: "Traffic identifier")
   }
 
   // ----- reservation stage -----
@@ -33,7 +34,14 @@ tracks {
   }
 
   "/instore/coupon_reservation/reservation/reserve" (platform: "/", type: TrackType.Event) {}
-  "/instore/coupon_reservation/reservation/tyc" (platform: "/", type: TrackType.Event) {}
+  "/instore/coupon_reservation/reservation/how_to_use" (platform: "/", type: TrackType.Event) {}
+
+  "/instore/coupon_reservation/reservation/is_waiting/how_to_use" (platform: "/", type: TrackType.Event) {}
+  "/instore/coupon_reservation/reservation/is_waiting/find_stores" (platform: "/", type: TrackType.Event) {}
+
+  "/instore/coupon_reservation/reservation/is_waiting/ftu/how_to_use/tyc" (platform: "/", type: TrackType.Event) {}
+
+  "/instore/coupon_reservation/reservation/coupon_detail" (platform: "/", type: TrackType.Event) {}
 
   "/instore/coupon_reservation/reservation/congrats" (platform: "/", type: TrackType.Event) {
     result(required: true, values:["success", "error", "sold_out"], type: PropertyType.String, description: "The congrats result: success, error, or sold_out")
@@ -52,7 +60,10 @@ tracks {
 
   "/instore/coupon_reservation/redeem/how_to_use" (platform: "/", type: TrackType.Event) {}
 
-  "/instore/coupon_reservation/redeem/tyc" (platform: "/", type: TrackType.Event) {}
+  "/instore/coupon_reservation/redeem/find_stores" (platform: "/", type: TrackType.Event) {}
+
+  "/instore/coupon_reservation/redeem/coupon_detail" (platform: "/", type: TrackType.Event) {}
+
   // --------------------------
   
   // ----- FTU pages -----
@@ -78,7 +89,7 @@ tracks {
 
   "/instore/coupon_reservation/ftu/how_to/pay_qr" (platform: "/", type: TrackType.Event) {}
 
-  "/instore/coupon_reservation/ftu/how_to/find_stores" (platform: "/", type: TrackType.Event) {}
+  "/instore/coupon_reservation/ftu/how_to/tyc" (platform: "/", type: TrackType.Event) {}
 
   // -- Exchange Used --
   "/instore/coupon_reservation/ftu/used" (platform: "/", type: TrackType.View) {}

@@ -347,9 +347,7 @@ metrics {
 	}
 
 	"promotions-pads-row"(description: "Measure the intention of joining the promotion with pads by clicking on buttons distributed in promotion flow") {
-		startWith {
-			experiment("deals/promotionsPadsRow")
-		}
+		experiment("deals/promotionsPadsRow")
 
 		countsOn {
 			condition {

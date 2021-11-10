@@ -95,6 +95,23 @@ trackTests {
             filter_value: "yes",
     ]
 
+    def enhancedInterventionInfoMock = [
+            [
+                    intervention_type: "FILTER_INTERVENTION",
+                    class_type: "BRAND",
+                    component_type: "pill",
+                    position: 0,
+                    results: []
+            ],
+            [
+                    intervention_type: "FILTER_INTERVENTION",
+                    class_type: "GENDER",
+                    component_type: "pill",
+                    position: 6,
+                    results: []
+            ]
+    ]
+
     test("Search core tracking") {
 
         def defaultSearchInformation = {
@@ -147,6 +164,8 @@ trackTests {
                     "user_zone": "X1"
             ]
             original_search_filter: originalSearchFilterInfo
+            containers_flow: "N/A"
+            enhanced_intervention_info: enhancedInterventionInfoMock
         }
 
         def defaultWebTrack = {
@@ -286,6 +305,7 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            enhanced_intervention_info: enhancedInterventionInfoMock
         }
 
         def category_definition = {
@@ -454,7 +474,6 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
-            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -646,9 +665,26 @@ trackTests {
         "/search/map_link"(platform: "/") {
             defaultSearchInformation()
         }
-        "/search/map/carousel"(platform: "/") {
+        "/search/map"(platform: "/web") {
             defaultSearchInformation()
+            defaultWebTrack()
         }
+        "/search/map/carousel"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/vip_access"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/pagination"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }
+        "/search/map/faceted_search"(platform: "/web") {
+            defaultSearchInformation()
+            defaultWebTrack()
+        }       
         "/search/search_map"(platform: "/") {
             defaultSearchInformation()
         }

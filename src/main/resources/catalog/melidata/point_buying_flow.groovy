@@ -4,27 +4,34 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def utmProperties = objectSchemaDefinitions {
+        utm_campaign(required: false, type: PropertyType.String, description: "UTM campaign given")
+        utm_medium(required: false, type: PropertyType.String, description: "UTM medium given")
+        utm_source(required: false, type: PropertyType.String, description: "UTM source given")
+    }
+
     propertyDefinitions {
         flow_id (type: PropertyType.String, required: true, description: "Flow ID")
         product_id (type: PropertyType.String, required: true, description: "Product identifier")
         product (type: PropertyType.String, required: false, description: "Product Name")
-        coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic")
+        coupon_type (type: PropertyType.String, required: false, description: "Coupon type - Ex: mgm, organic", values: ["organic", "mgm", "resellers", "partners", "campaign"])
         currency (type: PropertyType.String, required: true, description: "ISO Currency")
         price (type: PropertyType.Numeric, required: true, description: "Price of device")
         discount_code (type: PropertyType.String, required: true, description: "Discount code")
         is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
         e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
-        bu (type: PropertyType.String, required: false, description: "business unit")
+        bunit (type: PropertyType.String, required: false, description: "business unit")
         ch (type: PropertyType.String, required: false, description: "sales channel")
         camp (type: PropertyType.String, required: false, description: "campaign")
         strategy (type: PropertyType.String, required: false, description: "strategy")
+        utm (type: PropertyType.Map(utmProperties), required: false, description: "UTM info")
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bu, ch, camp, strategy)
+        groupCheckoutProperties(flow_id, product_id, product, coupon_type, currency, price, discount_code, is_guest, e2e_test, bunit, ch, camp, strategy, utm)
     }
 
-    "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
+    "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1262") {}
     "/point/buyingflow/shipping"(platform: "/", isAbstract: true) {}
     "/point/buyingflow/payment"(platform: "/", isAbstract: true) {}
 
@@ -38,6 +45,12 @@ tracks {
     }
 
     "/point/buyingflow/shipping/new_address"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
+    "/point/buyingflow/shipping/new_address/goto_zipcode_finder"(platform: "/", type: TrackType.Event) {}
+    
+    "/point/buyingflow/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
     }
 
@@ -90,11 +103,12 @@ tracks {
         groupCheckoutProperties
         has_account_money (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has enough money in account")
         has_consumer_credits (type: PropertyType.Boolean, required: false, description: "Flag that shows if the user has credit balance")
-        payment_status_detail (type: PropertyType.Boolean, required: false, description: "Flag that shows payment status detail")
-        payment_status (type: PropertyType.Boolean, required: false, description: "Flag that shows payment status detail")
-        payment_method_id (type: PropertyType.Boolean, required: false, description: "Flag that shows the selected payment method")
-        payment_installments (type: PropertyType.Boolean, required: false, description: "Flag that shows the quantity of installments")
-        payment_type_id (type: PropertyType.Boolean, required: false, description: "Flag that shows the type of selected payment")
+        payment_status_detail (type: PropertyType.String, required: false, description: "Flag that shows payment status detail")
+        payment_status (type: PropertyType.String, required: false, description: "Flag that shows payment status detail")
+        payment_method_id (type: PropertyType.String, required: false, description: "Flag that shows the selected payment method")
+        payment_installments (type: PropertyType.Numeric, required: false, description: "Flag that shows the quantity of installments")
+        payment_type_id (type: PropertyType.String, required: false, description: "Flag that shows the type of selected payment")
+        payment_id (type: PropertyType.Numeric, required: false, description: "ID that identifies the payment")
     }
 
     "/point/buyingflow/shipping/invalid_address"(platform: "/", type: TrackType.View) {
