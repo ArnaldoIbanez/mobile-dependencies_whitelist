@@ -2371,191 +2371,176 @@ trackTests {
         }
 
         test("Enrollment TotpInApp in Login") {
-            "/totp_in_app/enrollment"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
-                type_of_view = "transparent"
             }
 
-            "/totp_in_app/enrollment"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
-                type_of_view = "transparent"
             }
 
-            "/totp_in_app/enrollment/end"(platform: "/mobile/android", type: TrackType.Event) {
+            "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
-                type_of_view = "transparent"
                 status = false
                 type_of_error = "server_error"
             }
 
-            "/totp_in_app/enrollment/end"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
-                type_of_view = "transparent"
                 status = false
                 type_of_error = "server_error"
             }
         }
 
         test("Enrollment TotpInApp from Security Settings") {
-            "/totp_in_app/enrollment"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
             }
 
-            "/totp_in_app/enrollment"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
             }
 
-            "/totp_in_app/enrollment/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+            "/authenticators/totp_in_app/enrollment/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
                 action = "activate"
             }
 
-            "/totp_in_app/enrollment/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/enrollment/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
                 action = "activate"
             }
 
-            "/totp_in_app/enrollment/success"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment/success"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
             }
 
-            "/totp_in_app/enrollment/success"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment/success"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
             }
-            "/totp_in_app/enrollment/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+
+            "/authenticators/totp_in_app/enrollment/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
                 action = "understood"
             }
 
-            "/totp_in_app/enrollment/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/enrollment/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
                 action = "understood"
             }
 
-            "/totp_in_app/enrollment/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment/error"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
                 type_of_error = "server_error"
             }
 
-            "/totp_in_app/enrollment/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/enrollment/error"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
                 type_of_error = "server_error"
             }
 
-            "/totp_in_app/enrollment/reauth"(platform: "/mobile/android", type: TrackType.Event) {
+            "/authenticators/totp_in_app/enrollment/reauth"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
             }
 
-            "/totp_in_app/enrollment/reauth"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/enrollment/reauth"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "security_settings"
-                type_of_view = "visible"
             }
         }
 
         test("TotpInApp / Qr Token") {
-            "/totp_in_app/conformity"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
             }
 
-            "/totp_in_app/conformity"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
             }
 
-            "/totp_in_app/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
-                id = "552590784532425222"
-                group_id = "4321-32211-567890"
-                flow = "qr_token"
-                action = "confirm"
-            }
-
-            "/totp_in_app/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
                 action = "confirm"
             }
 
-            "/totp_in_app/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "qr_token"
+                action = "confirm"
+            }
+
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
             }
 
-            "/totp_in_app/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
             }
 
-            "/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
                 action = "not_now"
             }
 
-            "/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
                 action = "not_now"
             }
 
-            "/totp_in_app/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
                 type_of_error = "invalid_code"
             }
 
-            "/totp_in_app/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "qr_token"
@@ -2564,93 +2549,93 @@ trackTests {
         }
 
         test("TotpInApp / WebMobile") {
-            "/totp_in_app/conformity"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
                 referrer = "org.mozilla.firefox"
             }
 
-            "/totp_in_app/conformity"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
             }
 
-            "/totp_in_app/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
-                id = "552590784532425222"
-                group_id = "4321-32211-567890"
-                flow = "web_mobile"
-                action = "cancel"
-            }
-
-            "/totp_in_app/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
                 action = "cancel"
             }
 
-            "/totp_in_app/conformity/success"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "cancel"
+            }
+
+            "/authenticators/totp_in_app/conformity/success"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
             }
 
-            "/totp_in_app/conformity/success"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/success"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
             }
 
-            "/totp_in_app/conformity/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
+            "/authenticators/totp_in_app/conformity/success/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
                 action = "understood"
             }
 
-            "/totp_in_app/conformity/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/conformity/success/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
                 action = "understood"
             }
 
-            "/totp_in_app/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
             }
 
-            "/totp_in_app/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
             }
 
-            "/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
-                id = "552590784532425222"
-                group_id = "4321-32211-567890"
-                flow = "web_mobile"
-                action = "not_now"
-            }
-
-            "/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
                 action = "not_now"
             }
 
-            "/totp_in_app/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile/ios", type: TrackType.Event) {
+                id = "552590784532425222"
+                group_id = "4321-32211-567890"
+                flow = "web_mobile"
+                action = "not_now"
+            }
+
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/android", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
                 type_of_error = "invalid_code"
             }
 
-            "/totp_in_app/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
+            "/authenticators/totp_in_app/conformity/error"(platform: "/mobile/ios", type: TrackType.View) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 flow = "web_mobile"
@@ -2659,7 +2644,7 @@ trackTests {
         }
 
         test("Buid Code") {
-            "/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
@@ -2668,7 +2653,7 @@ trackTests {
                 time_of_code = 1613587194
             }
 
-            "/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
                 id = "552590784532425222"
                 group_id = "4321-32211-567890"
                 client_id = "login"
@@ -2677,7 +2662,7 @@ trackTests {
                 time_of_code = 1613587194
             }
 
-            "/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/android", type: TrackType.Event) {
                 group_id = "4321-32211-567890"
                 operation = "transactional"
                 client_id = "meli_px"
@@ -2685,7 +2670,7 @@ trackTests {
                 time_of_code = 1613587194
             }
 
-            "/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/authenticators/totp_in_app/build_code"(platform: "/mobile/ios", type: TrackType.Event) {
                 group_id = "4321-32211-567890"
                 operation = "transactional"
                 client_id = "meli_px"
