@@ -380,6 +380,13 @@ tracks {
             description: "Carousel item swiped"
           )
     }
+    "/cards/mpcard/dashboard/dynamic_carousel/show_item"(platform:"/", type: TrackType.Event) {
+        description (
+            required: true,
+            type: PropertyType.Map(dynamic_carousel_description),
+            description: "Carousel item displayed"
+          )
+    }
     "/cards/mpcard/dashboard/dynamic_carousel/close"(platform:"/", type: TrackType.Event) {
         description (
             required: true,
