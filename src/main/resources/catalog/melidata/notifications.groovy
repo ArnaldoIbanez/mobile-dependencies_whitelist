@@ -3143,7 +3143,7 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
-      "/notification/vouchers-payments_refund"(platform: "/mobile") {}
+      "/notification/vouchers_payments_refund"(platform: "/mobile") {}
 
       /* ============================================================ */
       /* Team: IT Payments - Payroll | Initiative: Salary Portability */
