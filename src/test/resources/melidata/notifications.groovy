@@ -112,6 +112,18 @@ trackTests {
             latest_news_type= "under_age_responsible_info"
             latest_news_id= "under_age-responsible_info-186785675"
         }
+        "/notification_center/under_age_responsible_authorization_legacy"(platform: "/") {
+            latest_news_type= "under_age_responsible_authorization_legacy"
+            latest_news_id= "under_age_responsible_authorization_legacy-186785675"
+        }
+        "/notification_center/under_age_minor_rejected"(platform: "/") {
+            latest_news_type= "under_age_minor_rejected"
+            latest_news_id= "under_age_minor_rejected-186785675"
+        }
+        "/notification_center/under_age_minor_approved"(platform: "/") {
+            latest_news_type= "under_age_minor_approved"
+            latest_news_id= "under_age_minor_approved-186785675"
+        }
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id= "LOYALTY-48422892"
             status= "unread"
@@ -7542,6 +7554,21 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/under_age_responsible_authorization_legacy"(platform: "/") {
+            news_id = "under_age_responsible_authorization_legacy-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_rejected"(platform: "/") {
+            news_id = "under_age_minor_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_approved"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         //NFC
 
@@ -7671,6 +7698,18 @@ trackTests {
         "/notification_center/under_age_responsible_info"(platform: "/") {
             latest_news_type= "under_age_responsible_info"
             latest_news_id= "under_age-responsible_info-186785675"
+        }
+        "/notification_center/under_age_responsible_authorization_legacy"(platform: "/") {
+            latest_news_type= "under_age_responsible_authorization_legacy"
+            latest_news_id= "under_age_responsible_authorization_legacy-186785675"
+        }
+        "/notification_center/under_age_minor_rejected"(platform: "/") {
+            latest_news_type= "under_age_minor_rejected"
+            latest_news_id= "under_age_minor_rejected-186785675"
+        }
+        "/notification_center/under_age_minor_approved"(platform: "/") {
+            latest_news_type= "under_age_minor_approved"
+            latest_news_id= "under_age_minor_approved-186785675"
         }
         "/notification_center/loyalty"(platform: "/mobile"){
             newsgroup_id= "LOYALTY-48422892"
@@ -16029,6 +16068,21 @@ trackTests {
         //Under Age
         "/notification/under_age_responsible_info"(platform: "/") {
             news_id = "under_age-responsible_info-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_responsible_authorization_legacy"(platform: "/") {
+            news_id = "under_age_responsible_authorization_legacy-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_rejected"(platform: "/") {
+            news_id = "under_age_minor_rejected-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/under_age_minor_approved"(platform: "/") {
+            news_id = "under_age_minor_approved-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
