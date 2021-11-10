@@ -4003,6 +4003,21 @@ tracks {
     "/notification/pix_key_claim_key_deleted"(platform: "/mobile") {}
     "/notification/pix_key_claim_approved"(platform: "/mobile") {}
 
+    // Pix mediations
+    "/notification/pix_mediations_blocked_amount"(platform: "/mobile") {
+        payment_id(required: true, type: PropertyType.String, description: "Payment Id")
+        activity_id(required: true, type: PropertyType.String, description: "Activity Id")
+    }
+    "/notification/pix_mediations_unblocked_amount"(platform: "/mobile") {
+        payment_id(required: true, type: PropertyType.String, description: "Payment Id")
+        activity_id(required: true, type: PropertyType.String, description: "Activity Id")
+    }
+    "/notification/pix_mediations_refunded"(platform: "/mobile") {
+        payment_id(required: true, type: PropertyType.String, description: "Payment Id")
+        activity_id(required: true, type: PropertyType.String, description: "Activity Id")
+    }
+
+
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
     "/notification/point_shipping_shipped"(platform: "/mobile") {}
