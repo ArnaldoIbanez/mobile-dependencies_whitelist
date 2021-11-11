@@ -498,6 +498,7 @@ tracks {
     "/seller_central/seller_coach/recommendation/dismiss"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/unbookmark"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/seller_coach/recommendation/apply"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendations/view"(platform: "/", type: TrackType.View) {
         cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Cards viewed")
     }

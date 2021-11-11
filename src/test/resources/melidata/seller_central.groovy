@@ -415,6 +415,24 @@ trackTests {
     }
   }
 
+  test("Seller coach recommendation apply") {
+    "/seller_central/seller_coach/recommendation/apply"(platform: "/web", type: TrackType.Event) {
+      power_seller_status = "4_light_green"
+      reputation = "4_light_green"
+      card = [
+        type: "RECOMMENDATION",
+        key: "UNDER_REVIEW",
+        item_id: "4383587829",
+        rules_applied: "none",
+        with_random_order: false,
+        tags: ["gestion"]
+      ]
+      seller_experience = "ADVANCED"
+      user_session_id = "1d0c94ed-b994-42c3-8eec-49230b5fb1ab"
+      source = "modify"
+    }
+  }
+
   test("Seller coach recommendations view") {
     "/seller_central/seller_coach/recommendations/view"(platform: "/web", type: TrackType.View) {
       power_seller_status = "4_light_green"
