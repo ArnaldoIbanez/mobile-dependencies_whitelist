@@ -485,7 +485,7 @@
                         "/settings/point/device"(platform: "/mobile", type: TrackType.View) {
                             poi_type = "DSPREAD_CR100"
                         }
-                        "/pos_seller/point/device/update/error/type"(platform: "/mobile", type: TrackType.View) {
+                        "/pos_seller/point/device/update/error"(platform: "/mobile", type: TrackType.View) {
                             type = "Unknown"
                         }
                     }

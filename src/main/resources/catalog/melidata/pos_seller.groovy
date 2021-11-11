@@ -367,7 +367,7 @@ import com.ml.melidata.TrackType
         "/settings/point/device"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
             poi_type(required: true, type: PropertyType.String, description: "poi device type")
         }
-        "/pos_seller/point/device/update/error/type"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        "/pos_seller/point/device/update/error"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
             type(required: true, type: PropertyType.String, description:"Type of Error", values: ["USB", "Battery", "Disconnect", "Unknown"])
         }
 
