@@ -284,6 +284,11 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/recommended_products/info_balance"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
+            view_time()
+        }
 
 
         // Add alias
@@ -1053,6 +1058,11 @@ trackTests {
         }
         "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/info_balance"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
             view_time()
         }
 

@@ -28,7 +28,8 @@ tracks {
     }
 
 	"/places/operations/init_validation/error/invalid_user"(platform: "/web", type: TrackType.View) {
-        mandatory
+         place_id(required: false, type: PropertyType.String,
+            	description: "ID of place (agency) user operates in.")
     }
 
 	// Unified Screens
@@ -160,7 +161,7 @@ tracks {
         mandatory
     }
 
-	"/places/operations/eturns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
+	"/places/operations/returns/error/invalid_package_for_return"(platform: "/web", type: TrackType.View) {
         mandatory
     }
 

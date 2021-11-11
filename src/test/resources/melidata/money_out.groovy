@@ -126,6 +126,13 @@ trackTests {
       "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
          type = "ted"
+         search_account_filter = "false"
+         search_account_value = "22343242"
+      }
+      "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
+         type = "ted"
+         search_account_filter = "false"
+         search_account_value = "22343242"
       }
       "/money_out/transfers/home/account_mark_favorite"(platform: "/", type: TrackType.Event) {
          type = "ted"
@@ -480,5 +487,12 @@ trackTests {
 
         //Home Pix MLB - Insurtech Banner
         "/pix/home/insurtech_banner"(platform: "/", type: TrackType.Event) {}
+
+        //Dashboard Filters MLM-MLB
+        "/money_out/transfers/home/recent_filter_button_clicked"(platform: "/", type: TrackType.Event) {}
+        "/money_out/transfers/home/filter_recents"(platform: "/", type: TrackType.View) {}
+        "/money_out/transfers/home/filter_recents/back_button_clicked"(platform: "/", type: TrackType.Event) {}
+        "/money_out/transfers/home/filter_recents/clear_field_button_clicked"(platform: "/", type: TrackType.Event) {}
+        "/money_out/transfers/home/filter_recents/empty_view"(platform: "/", type: TrackType.View) {}
     }
 }
