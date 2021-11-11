@@ -23,4 +23,11 @@ trackTests {
         "/investment-cdb/pre_suitability" (platform: "/mobile", type: TrackType.View) {}
 
     }
+
+    test("Investment Suitability") {
+        "/investment_suitability/questions" (platform: "/mobile", type: TrackType.View) {}
+        "/investment_suitability/investor_profile" (platform: "/mobile", type: TrackType.View) {}
+
+    }
+    
 }
