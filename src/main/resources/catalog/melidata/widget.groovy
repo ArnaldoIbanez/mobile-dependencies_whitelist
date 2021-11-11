@@ -98,6 +98,7 @@ tracks {
     "/gadgets/floating_button/reopen_button_notification/cancel" (platform: "/mobile/android", type: TrackType.Event) { } // The user closed the button for today from the notification
 
     // Floating buttons' scheduler paths
+    "/gadgets/floating_button/scheduler" (platform: "/mobile/android", isAbstract: true) { }
     "/gadgets/floating_button/scheduler/start" (platform: "/mobile/android", type: TrackType.Event) { } // The scheduler triggered the opening of the button because it is now the configured the opening time
     "/gadgets/floating_button/scheduler/stop" (platform: "/mobile/android", type: TrackType.Event) { } // The scheduler triggered the closing of the button because it is now the configured the closing time
 
