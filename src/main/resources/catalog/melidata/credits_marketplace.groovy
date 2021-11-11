@@ -990,11 +990,19 @@ tracks {
     ******************************************/
     //Views
     "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
-        flow(description: "Flow of the test", type: PropertyType.String, required: true, values: ["A", "B", "C", "Z"])
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
     }
     //Events
     "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
-        flow(description: "Flow of the test", type: PropertyType.String, required: true, values: ["A", "B", "C", "Z"])
+        push_variant(
+            required: true,
+            description: "Identifier for the flow of the push A, B or C",
+            type: PropertyType.String
+        )
     }
     /******************************************
     *    End: Car Loan

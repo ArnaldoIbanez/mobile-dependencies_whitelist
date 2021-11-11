@@ -738,10 +738,10 @@ trackTests {
 
     test("Credits Car Loan") {
         "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
-            flow = "A"
+            push_variant = "A"
         }
         "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
-            flow = "A"
+            push_variant = "A"
         }
     }
 }
