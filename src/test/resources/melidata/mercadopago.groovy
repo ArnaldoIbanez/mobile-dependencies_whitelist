@@ -628,7 +628,6 @@ trackTests {
         }
     }
 
-	
 
 	test("Share MGM Invite and Win") {
         "/merchant_acquisition/flows/share_mgm/invite_and_win"(platform:"/", type: TrackType.View) {}
@@ -638,14 +637,14 @@ trackTests {
         }
 
         "/merchant_acquisition/flows/share_mgm/invite_and_win/click_button_social_network"(platform:"/", type: TrackType.Event) {
-		  media = "WhatsApp" 
+		  media = "WhatsApp"
 		  product = "Point Plus"
         }
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_dashboard_awards" (platform: "/", type: TrackType.Event) {}
 
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_terms_of_use" (platform: "/", type: TrackType.Event) {}
-		
+
 		"/merchant_acquisition/flows/share_mgm/invite_and_win/click_mgm_wallet" (platform: "/", type: TrackType.Event) {}
     }
 
@@ -3227,6 +3226,10 @@ trackTests {
         }
 
         "/bill_payments/empty_state_ftu/scheduling/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/empty_state_ftu/scheduling/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -6827,4 +6830,36 @@ trackTests {
         }
     }
 
+    test("Crypto Sell/Buy and Hold") {
+        "/crypto/dashboard" (platform: "/mobile", type: TrackType.View) {}
+        "/crypto/detail" (platform: "/mobile", type: TrackType.View) {
+            market = "BTCBRL"
+        }
+        "/crypto/calculate" (platform: "/mobile", type: TrackType.View) {
+            operation = "BUY"
+            market = "BTCBRL"
+        }
+        "/crypto/review" (platform: "/mobile", type: TrackType.View) {
+            operation = "BUY"
+            market = "BTCBRL"
+            amount = 23.32
+
+        }
+        "/crypto/transaction/detail" (platform: "/mobile", type: TrackType.View) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
+        "/crypto/transaction/list" (platform: "/mobile", type: TrackType.View) {
+            ticker = "BTC"
+        }
+        "/crypto/transaction/summary" (platform: "/mobile", type: TrackType.View) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
+        "/crypto/transaction/complete" (platform: "/mobile", type: TrackType.Event) {
+            id = "9e588da2-f853-4266-a933-0f62f960345c"
+            ticker = "BTC"
+            operation = "SELL"
+            local_currency = "BRL"
+            state = "SUCCESS"
+        }
+    }
 }

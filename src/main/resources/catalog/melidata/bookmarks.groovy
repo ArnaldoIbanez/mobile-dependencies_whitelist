@@ -65,8 +65,8 @@ tracks {
     //Bookmarks Go to Login
     "/bookmarks/go_to_login"(platform: "/", type: TrackType.Event) {}
 
-    //Bookmarks show ZRP
-    "/bookmarks/show_ZRP"(platform: "/", type: TrackType.Event) {}
+    //Bookmarks show zrp
+    "/bookmarks/show_zrp"(platform: "/", type: TrackType.Event) {}
 
 
 

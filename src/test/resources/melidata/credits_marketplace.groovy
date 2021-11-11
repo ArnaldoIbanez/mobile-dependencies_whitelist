@@ -735,4 +735,13 @@ trackTests {
         *    End: Self Service
         ******************************************/
     }
+
+    test("Credits Car Loan") {
+        "/credits/car_loan/contact"(platform: "/", type: TrackType.View) {
+            push_variant = "A"
+        }
+        "/credits/car_loan/contact/confirm"(platform: "/", type: TrackType.Event) {
+            push_variant = "A"
+        }
+    }
 }
