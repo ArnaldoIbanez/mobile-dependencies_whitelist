@@ -248,11 +248,11 @@ tracks {
                         "Autofin",
                         "Banco De Bogota S.A.",
                         "Banco do Brasil",
-                        "Bbva",
+                        "BBVA",
                         "Bradesco",
                         "Credicuotas",
                         "Caixa",
-                        "Credihome",
+                        "CrediHome",
                         "Credimejora",
                         "Creditel",
                         "Daycoval",
@@ -264,8 +264,6 @@ tracks {
                         "Scotiabank",
                         "Votorantim",
                         "Volkswagen",
-                        "BBVA",
-                        "CrediHome",
                 ]
         )
         is_ltr(required: false, type: PropertyType.Boolean, description: "Indicates if the item is a long term rental property")
