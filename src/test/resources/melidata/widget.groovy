@@ -247,7 +247,7 @@ trackTests {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/gadgets/floating_button/reopen_button_notification/close'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/reopen_button_notification/cancel'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
