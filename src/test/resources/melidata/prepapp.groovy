@@ -377,11 +377,11 @@ trackTests {
             sellerDataSet()
         }
 
-        "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
-            omsListDataSet()
+        "/prepapp/oms/backlog/unbind"(platform:"/", type: TrackType.Event) {
+            sellerDataSet()
         }
 
-        "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.Event) {
+        "/prepapp/oms/routes"(platform:"/", type: TrackType.View) {
             omsListDataSet()
         }
 
@@ -395,7 +395,7 @@ trackTests {
         }
 
         "/prepapp/oms/routes/upload"(platform:"/", type: TrackType.View) {
-            omsListDataSet()
+            sellerDataSet()
         }
     }
 }

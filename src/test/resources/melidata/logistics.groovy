@@ -255,6 +255,11 @@ trackTests {
           vehicle_id = 1234
           carrier_id = 1234
         }
+
+        // Login by ML route sharing scanner qr in helper flow
+        "/logistics/login_ml/helper/route_sharing_disclaimer/qr_detected"(platform: "/mobile", type: TrackType.View){
+            status ="invalid_format"
+        }
     }
 
     test("Testing Logistics Last Mile") {

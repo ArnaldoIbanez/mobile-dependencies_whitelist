@@ -257,6 +257,15 @@ tracks {
     "/asset_management/blocker_v2/know_requirements"(platform: "/", type: TrackType.Event) { }
     "/asset_management/blocker_v2/contact_bind"(platform: "/", type: TrackType.Event) { }
     "/asset_management/blocker_v2"(platform: "/", type: TrackType.View) {
-        blocker_type (required: true, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF"], inheritable: false)
+        blocker_type (required: true, type: PropertyType.String, description: "Blocker Type", values: ["bind", "bannedPJ", "pending", "titularityChange", "kyc", "noEligible", "failed", "rejected", "bannedPF", "underagePending"], inheritable: false)
     }
+
+    // Underage Onboarding
+    "/asset_management/underage_onboarding"(platform: "/", type: TrackType.View) {}
+    "/asset_management/underage_onboarding/send_approval_request"(platform: "/", type: TrackType.Event) {}
+
+    // TYC Tutor
+    "/asset_management/terms_and_conditions_tutor"(platform: "/", type: TrackType.View) {}
+    "/asset_management/terms_and_conditions_tutor/accepted_tyc_tutor"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/terms_and_conditions_tutor/rejected_tyc_tutor"(platform: "/", type: TrackType.Event) {}
 }
