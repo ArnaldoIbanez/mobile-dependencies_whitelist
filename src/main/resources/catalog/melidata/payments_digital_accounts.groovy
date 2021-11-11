@@ -280,6 +280,10 @@ tracks {
     "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) { movementsReportsCreate }
     "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
 
+    // Movements - Message for Unified Billing
+    "/banking/movements/message_uf/close_message"(platform: "/", type: TrackType.Event) {}
+
+
     // MP Balance - Merch Engine Events Credits
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
