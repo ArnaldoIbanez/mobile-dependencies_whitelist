@@ -14,8 +14,6 @@ tracks {
 
     "/cashout"(platform: "/", isAbstract: true) {}
     "/cashout/hub/kyc"(platform: "/", isAbstract: true) {}
-    "/cashout/hub/lighthouses"(platform: "/", isAbstract: true) {}
-    "/cashout/hub/lighthouses/details"(platform: "/", isAbstract: true) {}
 
     "/cashout/hub"(platform: "/", type: TrackType.View) {}
     "/cashout/hub/select"(platform: "/", type: TrackType.Event) {
