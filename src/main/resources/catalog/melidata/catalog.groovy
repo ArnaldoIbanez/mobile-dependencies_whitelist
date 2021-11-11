@@ -173,6 +173,7 @@ catalog {
         include business, "sp_prepaid.groovy"
         include business, "official_stores.groovy"
         include business, "notifications.groovy"
+        include business, "notifications_center.groovy"
         include business, "post_purchase.groovy"
         include business, "cdn_metrics.groovy"
         include business, "splinter.groovy"
@@ -252,6 +253,7 @@ catalog {
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
         include business, "notifications.groovy"
+        include business, "notifications_center.groovy"
         include business, "data_privacy.groovy"
         include business, "wallet.groovy"
         include business, "mp_insurtech.groovy"
@@ -270,6 +272,7 @@ catalog {
         include business, "fees_installments.groovy"
         include business, "point_devices.groovy"
         include business, "proximity_marketplace.groovy"
+        include business, "proximity_order_manager.groovy"
         include business, "my_business_challenges.groovy"
         include business, "point_receipts.groovy"
         include business, "disbursements_wu.groovy"
@@ -327,6 +330,7 @@ catalog {
         include business, "authentication.groovy"
         include business, "liveness.groovy"
         include business, "prepapp.groovy"
+        include business, "melidata_sdk.groovy"
     }
 
     extra_marketplace.each { business ->
