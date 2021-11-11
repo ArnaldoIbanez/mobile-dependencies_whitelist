@@ -4783,6 +4783,11 @@ trackTests {
             order_id = 1234321
         }
 
+        "/notification/vouchers_payments_refund"(platform: "/mobile") {
+            news_id = "vouchers_payment_refund-123"
+            event_type = "open"
+        }
+
         "/notification/payments_rejected"(platform: "/mobile") {
             news_id = "123"
             event_type = "dismiss"
