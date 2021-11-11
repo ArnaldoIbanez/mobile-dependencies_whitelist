@@ -60,78 +60,78 @@ trackTests {
     }
 
     test('User goes to check widget faq') {
-        '/gadgets/chooser'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
             supports_floating_button = false
         }
-        '/gadgets/widget_settings'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/widget'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
     }
 
     test("User goes to activate the floating button but doesn't have permissions") {
-        '/gadgets/chooser'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
             supports_floating_button = true
         }
-        '/gadgets/floating_button_settings'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
     }
 
     test('User dismissed permission modal') {
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions/dismiss'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions/dismiss'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
         }
     }
 
     test('User continues inside permission modal but doesnt grant permissions') {
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions/continue'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions/continue'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions/denied'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions/denied'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
         }
     }
 
     test('User grants permission for the floating button') {
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions/continue'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions/continue'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/modal_draw_overlays_permissions/granted'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/modal_draw_overlays_permissions/granted'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/start_now'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/start_now'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
             button_uuid = '000-000-000-000'
         }
     }
 
     test('User with permissions goes to activate the floating button without schedule') {
-        '/gadgets/chooser'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
             supports_floating_button = true
         }
-        '/gadgets/floating_button_settings'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/start_now'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/start_now'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
             button_uuid = '111-111-111-111'
         }
-        '/floating_button/button_mounted'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/mount'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
             trigger = 'manual'
@@ -141,14 +141,14 @@ trackTests {
     }
 
     test('User with permissions goes to schedule the floating button but then decides to delete it') {
-        '/gadgets/chooser'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
             supports_floating_button = true
         }
-        '/gadgets/floating_button_settings'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/schedule_saved'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/schedule_save'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
             button_uuid = '111-111-111-111'
             opening_time = [
@@ -161,20 +161,20 @@ trackTests {
             ]
             opening_days = ['monday', 'wednesday']
         }
-        '/gadgets/floating_button_settings/schedule_cleared'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/schedule_clear'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
         }
     }
 
     test('User with permissions goes to activate the floating button with schedule inside opening hours') {
-        '/gadgets/chooser'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
             supports_floating_button = true
         }
-        '/gadgets/floating_button_settings'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/settings/floating_button'(platform: '/mobile/android', type: TrackType.View) {
             session_uuid = '000-000-000-000'
         }
-        '/gadgets/floating_button_settings/schedule_saved'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/settings/floating_button/schedule_save'(platform: '/mobile/android', type: TrackType.Event) {
             session_uuid = '000-000-000-000'
             button_uuid = '111-111-111-111'
             opening_time = [
@@ -187,11 +187,11 @@ trackTests {
             ]
             opening_days = ['monday', 'wednesday']
         }
-        '/floating_button/scheduled_start'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/scheduler/start'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/button_mounted'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/mount'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
             trigger = 'schedule'
@@ -201,35 +201,35 @@ trackTests {
     }
 
     test('User with the button running opens it and starts a payment with point') {
-        '/floating_button/button_view_opened'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/button_menu'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/button_tapped'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/button_menu/go_to'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
             button_id = 'point'
         }
-        '/floating_button/button_view_closed'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/button_menu/close'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
     }
 
     test('User closes the button during opening hours but reopens it from the notification') {
-        '/floating_button/button_unmounted'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/unmount'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/reopen_button_notification_shown'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/reopen_button_notification'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/reopen_button_notification_accepted'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/reopen_button_notification/accept'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/button_mounted'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/mount'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
             trigger = 'notification'
@@ -239,26 +239,26 @@ trackTests {
     }
 
     test('User closes the button during opening hours and decides to close it for today') {
-        '/floating_button/button_unmounted'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/unmount'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/reopen_button_notification_shown'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/reopen_button_notification'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/reopen_button_notification_dismissed'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/reopen_button_notification/close'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/button_stopped'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/stop'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
     }
 
     test('User is using the floating button and starts watching a video in landscape mode') {
-        '/floating_button/button_screen_dimensions_change'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/redraw'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
             new_width = 1200
@@ -267,15 +267,15 @@ trackTests {
     }
 
     test("User reboots it's phone while having a saved schedule") {
-        '/floating_button/phone_reboot_reconfiguring_button'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/phone_reboot_reconfiguring'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/scheduled_start'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/scheduler/start'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/button_mounted'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/mount'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
             trigger = 'schedule'
@@ -285,19 +285,19 @@ trackTests {
     }
 
     test('User is using the button and later in the day the configured closing hour arrives') {
-        '/floating_button/button_view_opened'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/button_menu'(platform: '/mobile/android', type: TrackType.View) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/button_view_closed'(platform: '/mobile/android', type: TrackType.View) {
+        '/gadgets/floating_button/button_menu/close'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/scheduled_stop'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/scheduler/stop'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
-        '/floating_button/button_stopped'(platform: '/mobile/android', type: TrackType.Event) {
+        '/gadgets/floating_button/stop'(platform: '/mobile/android', type: TrackType.Event) {
             button_uuid = '111-111-111-111'
             button_type = 'seller_collect'
         }
