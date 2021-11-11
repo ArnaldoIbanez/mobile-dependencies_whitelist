@@ -3006,6 +3006,9 @@ trackTests {
             flow_id = "PRECONGRATS"
         }
         "/insurtech/cards/back"(platform:"/", type: TrackType.Event) {
+           flow_id = "POSTCONGRATS"
+        }
+        "/insurtech/cards/close"(platform:"/", type: TrackType.Event) {
            flow_id = "PRECONGRATS"
         }
     }
@@ -3015,19 +3018,15 @@ trackTests {
     test('Insurtech - test CARDS CONGRATS tracking'){
         //Success
         "/insurtech/cards/congrats_success"(platform:"/", type: TrackType.View) {
-            quote_id = ""
             purchase_key = "8888"
         }
         "/insurtech/cards/congrats_success/go_cards"(platform:"/", type: TrackType.Event){
-            quote_id = ""
             purchase_key = "8888"
         }
         "/insurtech/cards/congrats_success/go_protections"(platform:"/", type: TrackType.Event){
-            quote_id = ""
             purchase_key = "8888"
         }
         "/insurtech/cards/congrats_success/close"(platform:"/", type: TrackType.Event){
-            quote_id = ""
             purchase_key = "8888"
         }
     }

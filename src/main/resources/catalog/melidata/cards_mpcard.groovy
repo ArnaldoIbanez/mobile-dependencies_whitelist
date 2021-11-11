@@ -189,6 +189,8 @@ tracks {
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
          dynamic_carousel (required: false, type: PropertyType.ArrayList, description: "Carousel Cards description", inheritable:false)
      }
+
+    "/cards/mpcard/dashboard/header_help"(platform:"/mobile", type: TrackType.Event) {}
     
     "/cards/mpcard/dashboard/virtual"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {

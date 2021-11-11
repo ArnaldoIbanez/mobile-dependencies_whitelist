@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1205"
+    initiative = "1319"
 
     def proposal_data = objectSchemaDefinitions {
         rating(
@@ -115,7 +115,8 @@ tracks {
                         "linked_card",
                         "not_linked_card",
                         "physical_not_requested",
-                        "kyc_user_in_review"
+                        "kyc_user_in_review",
+                        "physical_card_shipped"
                 ]
         )
         from(
@@ -146,6 +147,42 @@ tracks {
     "/credits/credit_card/upgrade/congrats/physical_card_unlock"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         status(
                 description: "Status from the physical card unlock",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/congrats/go_virtual_credit_card"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from tap in go_virtual_credit_card",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/congrats/go_physical_card_shipment_tracking"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from tap in go_physical_card_shipment_tracking",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "approved",
+                        "pending"
+                ]
+        )
+    }
+
+    "/credits/credit_card/upgrade/congrats/physical_card_request_in_unlock"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        status(
+                description: "Status from tap in physical_card_request_in_unlock",
                 type: PropertyType.String,
                 required: true,
                 values: [

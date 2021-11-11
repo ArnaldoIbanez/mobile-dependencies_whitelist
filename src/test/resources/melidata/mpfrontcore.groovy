@@ -61,6 +61,17 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Educational Banner") {
+        "/mp_home/sections/educational_banner"(platform: "/", type: TrackType.View) {
+            user_profile = "newbie"
+            type = "payments"
+        }
+        "/mp_home/sections/educational_banner"(platform: "/", type: TrackType.Event) {
+            user_profile = "newbie"
+            type = "payments"
+        }
+    }
+
     test("Mercadopago Profile") {
         "/profile" (platform: "/", type: TrackType.View) {}
     }

@@ -234,6 +234,11 @@ tracks {
         step_information
         view_time
     }
+    "/single_player/prepaid/recommended_products/info_balance"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+    }
 
 
     // Add alias
