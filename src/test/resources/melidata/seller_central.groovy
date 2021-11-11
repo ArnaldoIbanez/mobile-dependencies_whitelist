@@ -434,7 +434,7 @@ trackTests {
   }
 
   test("Seller coach recommendations view") {
-    "/seller_central/seller_coach/recommendations/view"(platform: "/web", type: TrackType.View) {
+    "/seller_central/seller_coach/recommendations/display"(platform: "/web", type: TrackType.View) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       cards = [
@@ -464,7 +464,7 @@ trackTests {
   }
 
   test("Seller coach tags view") {
-    "/seller_central/seller_coach/tags/view"(platform: "/web", type: TrackType.View) {
+    "/seller_central/seller_coach/tags/display"(platform: "/web", type: TrackType.View) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       tags = [
@@ -550,7 +550,7 @@ trackTests {
   }
 
   test("Seller coach recommendations view") {
-    "/seller_central/seller_coach/recommendations/view"(platform: "/mobile", type: TrackType.View) {
+    "/seller_central/seller_coach/recommendations/display"(platform: "/mobile", type: TrackType.View) {
       power_seller_status = "4_light_green"
       reputation = "4_light_green"
       cards = [

@@ -499,13 +499,13 @@ tracks {
     "/seller_central/seller_coach/recommendation/bookmark"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/unbookmark"(platform: "/", type: TrackType.Event) {}
     "/seller_central/seller_coach/recommendation/apply"(platform: "/", type: TrackType.Event) {}
-    "/seller_central/seller_coach/recommendations/view"(platform: "/", type: TrackType.View) {
+    "/seller_central/seller_coach/recommendations/display"(platform: "/", type: TrackType.View) {
         cards(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachCard)), description: "Cards viewed")
     }
     "/seller_central/seller_coach/tag/select"(platform: "/", type: TrackType.Event) {
         tag(required: true, type: PropertyType.Map(sellerCoachTag), description: "Tag clicked")
     }
-    "/seller_central/seller_coach/tags/view"(platform: "/", type: TrackType.View) {
+    "/seller_central/seller_coach/tags/display"(platform: "/", type: TrackType.View) {
         tags(required: true, type: PropertyType.ArrayList(PropertyType.Map(sellerCoachTag)), description: "Tags viewed")
     }
     "/seller_central/seller_coach/carousel/scroll"(platform: "/", type: TrackType.Event) {
