@@ -826,4 +826,72 @@ tracks {
         requested_factors(required: false, type: PropertyType.String, description: "factors requested for reauthentication")
     }
 
+    // TOTP-IN-APP
+    "/authenticators/totp_in_app"(platform: "/mobile", isAbstract: true, initiative: 1374) {
+        id(type: PropertyType.String, required: true, description: "identifier of the transaction or challenge")
+        group_id(type: PropertyType.String, required: true, description: "identifier of the device that made the transaction")
+    }
+
+    // Enrollment
+    "/authenticators/totp_in_app/enrollment"(platform: "/mobile", isAbstract: true, type: TrackType.View) {
+        client_id(type: PropertyType.String, required: true, description: "equipment identifier")
+    }
+
+    "/authenticators/totp_in_app/enrollment/transparent"(platform: "/mobile", type: TrackType.View) {}
+
+    "/authenticators/totp_in_app/enrollment/transparent/end"(platform: "/mobile", type: TrackType.Event) {
+        status(type: PropertyType.Boolean, required: true, description: "status of whether the enrollment was successful or not")
+        type_of_error(type: PropertyType.String, required: false, description: "description of the error")
+    }
+
+    "/authenticators/totp_in_app/enrollment/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["back", "activate"], description: "action you take in enrollment view")
+    }
+
+    "/authenticators/totp_in_app/enrollment/success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/authenticators/totp_in_app/enrollment/success/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["close", "understood"], description: "Action you take in the enrollment success view")
+    }
+
+    "/authenticators/totp_in_app/enrollment/error"(platform: "/mobile", type: TrackType.View) {
+        type_of_error(type: PropertyType.String, required: false, description: "description of the error")
+    }
+
+    "/authenticators/totp_in_app/enrollment/reauth"(platform: "/mobile", type: TrackType.Event) {}
+
+    // QR_Token or WebMobile
+    "/authenticators/totp_in_app/conformity"(platform: "/mobile", isAbstract: true, type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, values: ["qr_token", "web_mobile"], description: "field describing the conformity flow")
+        referrer(type: PropertyType.String, required: false, inheritable:false, description: "application ID that opened the Conformity view")
+    }
+
+    "/authenticators/totp_in_app/conformity/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["confirm", "cancel", "close"], description: "action you take in conformity view")
+    }
+
+    "/authenticators/totp_in_app/conformity/cancel"(platform: "/mobile", type: TrackType.View) {}
+
+    "/authenticators/totp_in_app/conformity/cancel/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, description: "action you take in view to cancel conformity")
+    }
+
+    "/authenticators/totp_in_app/conformity/error"(platform: "/mobile", type: TrackType.View) {
+        type_of_error(type: PropertyType.String, required: true, description: "description of the error")
+    }
+
+    "/authenticators/totp_in_app/conformity/success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/authenticators/totp_in_app/conformity/success/on_click"(platform: "/mobile", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true, values: ["background", "understood"], description: "action you take in view to success conformity")
+    }
+
+    // Build Code
+    "/authenticators/totp_in_app/build_code"(platform: "/mobile", type: TrackType.Event) {
+        id(type: PropertyType.String, required: false, description: "identifier of the transaction or challenge")
+        client_id(type: PropertyType.String, required: false, description: "equipment identifier that uses the OTP code")
+        operation(type: PropertyType.String, required: true, values:["enrollment", "transactional"], description: "type of operation")
+        type_of_code(type: PropertyType.String, required: true, values:["transparent", "interactive"], description: "OTP code type")
+        time_of_code(type: PropertyType.Numeric, required: true, description: "time used to calculate if the code expired")
+    }
 }
