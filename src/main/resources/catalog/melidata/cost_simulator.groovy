@@ -20,7 +20,7 @@ tracks {
             description: "Indicates an ID of error when simulation flow fails"
         )
         error_message(
-            required: true,
+            required: false,
             type: PropertyType.String,
             description: "Indicates an error message when simulation flow fails"
         )
@@ -64,7 +64,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Indicates the selected detail in result",
-            values: ["Ver más detalles", "Ver menos detalles"]
+            values: ["view_more", "view_less"]
         )
     }
 

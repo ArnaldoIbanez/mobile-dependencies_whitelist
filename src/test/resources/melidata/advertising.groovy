@@ -2412,7 +2412,7 @@ trackTests {
     test("Advertising Reports"){
         "/advertising/pads2/reports"(platform: "/", type: TrackType.View) {
             mode = "custom"
-            type = "ads"
+            type = "pads_report"
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
@@ -2432,10 +2432,12 @@ trackTests {
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/group"(platform: "/", type: TrackType.Event) {
             group_by = "monthly"
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/filters"(platform: "/", type: TrackType.Event) {
@@ -2448,11 +2450,12 @@ trackTests {
                     sll: "true",
                     date_created: "2020-07-01"
             ]
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/create"(platform: "/", type: TrackType.Event) {
             mode = "custom"
-            type = "ads"
+            type = "pads_report"
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
@@ -2471,9 +2474,11 @@ trackTests {
 
         "/advertising/pads2/reports/rows_warning"(platform: "/", type: TrackType.Event) {
             rows = 9999
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/confirmation"(platform: "/", type: TrackType.Event) {
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/empty_state"(platform: "/", type: TrackType.Event) {
@@ -2481,6 +2486,7 @@ trackTests {
 
         "/advertising/pads2/reports/download"(platform: "/", type: TrackType.Event) {
             status = "success"
+            type = "pads_report"
         }
 
         "/advertising/pads2/reports/delete_text_filter"(platform: "/", type: TrackType.Event) {
@@ -2509,7 +2515,6 @@ trackTests {
             days = "15_days"
             from = "2021-02-02"
             to = "2021-05-02"
-
         }
     }
 

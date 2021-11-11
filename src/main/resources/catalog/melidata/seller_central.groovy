@@ -1611,7 +1611,7 @@ tracks {
 
     "/seller_central/metrics/stock_full"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
-        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin", values: ["metrics", "fulfillment", "stranded", "aging", "fee_storage", "summary" ])
+        origin(required: false, type: PropertyType.String, description: "View where the event has been called",  name: "origin")
     }
 
     "/seller_central/metrics/stock_full"(platform: "/web/mobile", type: TrackType.View) {}
