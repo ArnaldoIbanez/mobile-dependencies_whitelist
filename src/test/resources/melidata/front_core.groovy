@@ -1085,6 +1085,18 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - Buy Level Subscription") {
+        "/wallet_home/section/tap/buy_level_subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="buy_level_subscription"
+            component_id="cta"
+            level=4
+            metadata_user:[
+                    type: "payer"
+            ]
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Survey") {
         "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1857,6 +1869,11 @@ trackTests {
                     ordinal: 16,
                     content_type : 'complete'
             ]
+            buy_level_subscription= [
+                    content_type : 'complete',
+                    ordinal: 17,
+                    level: 2,
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -2038,6 +2055,11 @@ trackTests {
             complaints_book= [
                     ordinal: 16,
                     content_type : 'complete'
+            ]
+            buy_level_subscription= [
+                    content_type : 'complete',
+                    ordinal: 17,
+                    level: 2,
             ]
             metadata = [
                 accessibility_voice: true
@@ -2263,6 +2285,14 @@ trackTests {
         "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://loyalty"
             section_id="subscription"
+            component_id="cta"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Buy Level Subscription") {
+        "/wallet_home/section/tap/buy_level_subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="buy_level_subscription"
             component_id="cta"
         }
     }
