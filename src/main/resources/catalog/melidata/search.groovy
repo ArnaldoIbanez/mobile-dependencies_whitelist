@@ -152,6 +152,7 @@ tracks {
     }
 
     def enhanced_intervention_info = objectSchemaDefinitions {
+        intervention_tracking_id(type: PropertyType.String, required: true, description: "unique identifier of the intervention")
         intervention_type(type: PropertyType.String, required: true, description: "type of intervention", values: ["QUERY_INTERVENTION", "FILTER_INTERVENTION", "CONTENT_INTERVENTION"])
         class_type(type: PropertyType.String, required: true, description: "sub-type of intervention, example: filter [BRAND, GENDER, etc,etc], content [best_seller, offers, etc]")
         component_type(type: PropertyType.String, required: true, description: "visual component in which the intervention is shown, example: pill de texto, carrousel imagenes, cards, banners, etc")
