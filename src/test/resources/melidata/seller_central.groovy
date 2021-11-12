@@ -1782,33 +1782,32 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-  // TRACKS Seller central settings
+  // TRACKS Seller Central - Settings
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  test("seller central settings view"){
-    "/seller_central/settings"(platform: "/", type: TrackType.View){
+  test("seller central settings view") {
+    "/seller_central/settings"(platform: "/", type: TrackType.View) {
       reputation_level = "5_green"
       seller_profile = "advanced"
     }
   }
 
-
-  test("seller central empty settings view"){
-    "/seller_central/empty_settings"(platform: "/", type: TrackType.View){
+  test("seller central empty settings view") {
+    "/seller_central/empty_settings"(platform: "/", type: TrackType.View) {
       seller_profile = "newbie"
     }
   }
 
-  test("seller central settings view event when a row is displayed"){
-    "/seller_central/settings/show_row"(platform: "/", type: TrackType.Event){
+  test("seller central settings view event when a row is displayed") {
+    "/seller_central/settings/show_row"(platform: "/", type: TrackType.Event) {
       row_id = "row_shipping_address"
       ui_type = "row"
       section = "shipping"
     }
   }
 
-  test("seller central settings view event when a row is updated"){
-    "/seller_central/settings/update_row"(platform: "/", type: TrackType.Event){
+  test("seller central settings view event when a row is updated") {
+    "/seller_central/settings/update_row"(platform: "/", type: TrackType.Event) {
       to = "DEFAULT"
       from = "THERMAL"
       row_id = "row_printer_method"
@@ -1822,16 +1821,20 @@ trackTests {
 
   test("Processing Time - render a processing time page view") {
     "/seller_central/settings/processing_time"(platform: "/", type: TrackType.View) {
+      user_type = "NORMAL"
       seller_profile = "ADVANCED"
       reputation_level = "5_GREEN"
+      logistic_types = ["XD_DROP_OFF"]
     }
   }
 
   test("Processing Time - user clicks Continue button of confirm modal in the processing time page view") {
     "/seller_central/settings/processing_time/action"(platform: "/", type: TrackType.Event) {
       action_id = "CONFIRM"
+      user_type = "NORMAL"
       seller_profile = "ADVANCED"
       reputation_level = "5_GREEN"
+      logistic_types = ["CROSS_DOCKING", "SELF_SERVICE"]
       processing_options = [
         [
           day: "monday",
@@ -1856,7 +1859,7 @@ trackTests {
         [
           day: "saturday",
           processing_time: "01:00"
-        ],
+        ]
       ]
     }
   }
