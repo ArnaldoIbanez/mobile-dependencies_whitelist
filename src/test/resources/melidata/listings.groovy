@@ -55,6 +55,11 @@ trackTests {
   }
 
   test("seller central listing filters actions and search") {
+    "/seller_central/listings/list/filters"(platform: "/", type: TrackType.View) {}
+    "/seller_central/listings/list/filters"(platform: "/", type: TrackType.View) {
+      sub_view_id = "marketplace"
+    }
+
     "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
       action = "apply"
     }

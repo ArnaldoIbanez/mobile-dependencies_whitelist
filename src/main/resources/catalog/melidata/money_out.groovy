@@ -115,14 +115,16 @@ tracks {
     "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
     "/money_out/transfers/home/account_selected"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required_:false, description: "Indicate if account is bank account")
         search_account_filter (required_:false, description: "Indicate if filter view")
-        search_account_value (required_:false, description: "Indicate if account id")
+        search_account_value (required_:false, description: "Indicate if text filter")
+        account_id (required_:false, description: "Indicate if account id")
     }
     "/money_out/transfers/home/delete_account_button_clicked"(platform: "/", type: TrackType.Event) {
-        type (required_:false, description: "Indicate if account is ted or mp")
+        type (required_:false, description: "Indicate if account is bank account")
         search_account_filter (required_:false, description: "Indicate if filter view")
-        search_account_value (required_:false, description: "Indicate if account id")
+        search_account_value (required_:false, description: "Indicate if text filter")
+        account_id (required_:false, description: "Indicate if account id")
     }
     "/money_out/transfers/home/account_mark_favorite"(platform: "/", type: TrackType.Event) {
         type (required_:false, description: "Indicate if account is ted or mp")
