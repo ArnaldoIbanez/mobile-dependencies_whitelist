@@ -717,5 +717,40 @@ trackTests {
         "/money_in/hub/widget/action_selected"(platform:"/", type: TrackType.Event){
             action_id = "qr"
         }
+
+        //MLB Calculator
+        "/money_in/calculator/card_info/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/bacen/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/init/cap_reached/go_to_payment_methods_dashboard"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/go_to_pix"(platform: "/", type: TrackType.Event) {}
+        "/money_in/calculator/finish/edit_amount"(platform: "/", type: TrackType.Event) {}
+
+        //News Alert Messages (da-components)
+        "/alert_news"(platform:"/", type: TrackType.View){}
+        "/alert_news/message"(platform:"/", type: TrackType.View){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+            message_description = "Test Message"
+        }
+        "/alert_news/message/primary_action"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
+        "/alert_news/message/secondary_action"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
+        "/alert_news/message/dismiss"(platform:"/", type: TrackType.Event){
+            flow_id = "hub-moneyin-debin"
+            message_id = "1"
+        }
     }
 }

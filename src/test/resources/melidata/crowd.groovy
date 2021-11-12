@@ -362,6 +362,10 @@ trackTests {
             defaultLocation()
         }
 
+        "/crowd/registration/city/paused"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
         "/crowd/registration/create/driver/error"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
@@ -382,5 +386,73 @@ trackTests {
             defaultLocation()
         }
 
+    }
+
+    test("MercadoEnvios - Crowd App - Testing preferences tracks") {
+
+        def defaultLocation =
+                {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
+
+        "/crowd/preferences/amount_work_hours"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/amount_work_hours/selected"(platform: "/mobile", type: TrackType.Event) {
+            amount_work_hours = "2_4"
+            flow = "registration"
+            defaultLocation
+        }
+
+        "/crowd/preferences/service_center"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation
+        }
+
+        "/crowd/preferences/service_center/selected"(platform: "/mobile", type: TrackType.Event) {
+            service_center = "SMX1, SMX2"
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/week_days"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/week_days/selected"(platform: "/mobile", type: TrackType.Event) {
+            week_days = "Lunes, Martes, Miércoles"
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/work_shift"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/work_shift/selected"(platform: "/mobile", type: TrackType.Event) {
+            work_shift = "MORNING"
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/start"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/success"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
+
+        "/crowd/preferences/hub"(platform: "/mobile", type: TrackType.View) {
+            flow = "registration"
+            defaultLocation()
+        }
     }
 }

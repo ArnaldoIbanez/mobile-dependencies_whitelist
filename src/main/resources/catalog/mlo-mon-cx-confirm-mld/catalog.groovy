@@ -11,12 +11,8 @@ catalog {
 
     platforms = [
             "/",
-            "/web",
-            "/web/desktop",
-            "/web/mobile",
-            "/mobile",
-            "/mobile/android",
-            "/mobile/ios",
+            "/api",
+            "/backend"
     ]
 
     def marketplace = ["mercadolibre"]

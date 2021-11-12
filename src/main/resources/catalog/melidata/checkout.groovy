@@ -279,6 +279,9 @@ tracks {
     "/checkout/shipping"(platform: "/", type: TrackType.View) {
     }
 
+    "/checkout/session_expired"(platform: "/", type: TrackType.View) {}
+    "/checkout/generic_error"(platform: "/", type: TrackType.View) {}
+
     //Address Hub
     "/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
@@ -1151,7 +1154,7 @@ tracks {
 
     "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
-    "/checkout/session_expire"(platform:"/", type: TrackType.View) {}
+    "/checkout/session_expired"(platform:"/", type: TrackType.View) {}
     "/checkout/loading"(platform: "/", type: TrackType.View) {}
     "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}

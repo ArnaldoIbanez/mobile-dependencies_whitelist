@@ -17,6 +17,7 @@ tracks {
         elements(required: false, type: PropertyType.Numeric, description: "items quantity")
         status(required: false, type: PropertyType.String, description: "component status")
         empty(required: false, type: PropertyType.Boolean, description: "quantity status")
+        last_update(required: false, type: PropertyType.String, description: "timestamp")
     }
 
     def component_definition = objectSchemaDefinitions {
@@ -59,6 +60,7 @@ tracks {
         debts(required: true, type: PropertyType.Boolean, description: "Indicates if user has debt card")
         cerc(required: true, type: PropertyType.Boolean, description: "Indicates if user has cerc capability")
         activities(required: true, type: PropertyType.Boolean, description: "Indicates if user has money activities")
+        crypto(required: true, type: PropertyType.Boolean, description: "Indicates if user has cryptocoin flow")
 
         // Components
         my_money_available(required: true, type: PropertyType.Map(component_definition), description: "Available component print")
@@ -75,6 +77,12 @@ tracks {
         my_money_cerc(required: true, type: PropertyType.Map(component_definition), description: "Card CERC component print")
         my_money_open_banking(required: true, type: PropertyType.Map(component_definition), description: "Open Banking component print")
         my_money_debt_balance(required: true, type: PropertyType.Map(component_definition), description: "Debt balance component print")
+        my_money_contingency_message(required: true, type: PropertyType.Map(component_definition), description: "Contingency message component print")
+        my_money_bank_detail(required: true, type: PropertyType.Map(component_definition), description: "Bank detail component print")
+        my_money_accounts_list(required: true, type: PropertyType.Map(component_definition), description: "Bank account list component print")
+        my_money_cards_list(require: true, type: PropertyType.Map(component_definition), description: "Bank cards list component print")
+        my_money_timestamp(required: true, type: PropertyType.Map(component_definition), description: "Bank resource timestamp component print")
+        my_money_crypto_balance(required: true, type: PropertyType.Map(component_definition), description: "Crypto balance component print")
     }
 
     propertyGroups {
@@ -94,7 +102,7 @@ tracks {
                 action_id
         )
         bankingTrack (
-                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc
+                available, account, debts, retained, embargo_invested, invested, to_release, shortcuts, activities, cerc, crypto
         )
         cercEventClick (
                 action_type
@@ -144,6 +152,24 @@ tracks {
         debtBalancePrint (
                 my_money_debt_balance
         )
+        contingencyMessagePrint (
+                my_money_contingency_message
+        )
+        accountsListPrint (
+                my_money_accounts_list
+        )
+        cardsListPrint (
+                my_money_cards_list
+        )
+        timestampPrint (
+                my_money_timestamp
+        )
+        bankDetailPrint (
+                my_money_bank_detail
+        )
+        cardCryptoPrint (
+                my_money_crypto_balance
+        )
     }
 
     // MP Banking
@@ -160,6 +186,8 @@ tracks {
     "/banking/balance/last_activities_component"(platform: "/", type: TrackType.View) { lastActivitiesPrint }
     "/banking/balance/open_banking_component"(platform: "/", type: TrackType.View) { openBankingPrint }
     "/banking/balance/debt_balance_component"(platform: "/", type: TrackType.View) { debtBalancePrint }
+    "/banking/balance/contingency_message_component"(platform: "/", type: TrackType.View) { contingencyMessagePrint }
+    "/banking/balance/crypto_balance_component"(platform: "/", type: TrackType.View) { cardCryptoPrint }
 
     // Components ToRelease
     "/banking/to_release/print"(platform: "/", type: TrackType.View) { toReleasePrint }
@@ -169,6 +197,12 @@ tracks {
     "/banking/to_release/card_calendar_component"(platform: "/", type: TrackType.View) { cardCalendarPrint }
     "/banking/to_release/calendar_daily_component"(platform: "/", type: TrackType.View) { calendarDailyPrint }
     "/banking/to_release/cerc_component"(platform: "/", type: TrackType.View) { cercPrint }
+
+    // Components Open Finance
+    "/banking/balance/accounts_list_component"(platform: "/", type: TrackType.View) { accountsListPrint }
+    "/banking/balance/cards_list_component"(platform: "/", type: TrackType.View) { cardsListPrint }
+    "/banking/balance/timestamp_component"(platform: "/", type: TrackType.View) { timestampPrint }
+    "/banking/balance/bank_detail_component"(platform: "/", type: TrackType.View) { bankDetailPrint }
 
     // Balance Views
     "/banking/balance"(platform: "/", type: TrackType.View) {}
@@ -229,6 +263,12 @@ tracks {
     "/banking/movements/pagination"(platform: "/", isAbstract: true) {}
     "/banking/movements/pagination/change"(platform: "/", type: TrackType.Event) {}
 
+    // Movements - Links
+    "/banking/movements/links"(platform: "/", isAbstract: true) {}
+    "/banking/movements/links/enter"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values: ["DOWNLOAD_BILLS", "VIEW_MY_MONEY_DETAIL"], description: "Indicates the actions clicked")
+    }
+
     // Movements - Filters
     "/banking/movements/filters"(platform: "/", isAbstract: true) {}
     "/banking/movements/filters/action"(platform: "/", type: TrackType.Event) { movementsFiltersAction }
@@ -239,6 +279,10 @@ tracks {
     "/banking/movements/reports"(platform: "/", isAbstract: true) {}
     "/banking/movements/reports/create"(platform: "/", type: TrackType.Event) { movementsReportsCreate }
     "/banking/movements/reports/view"(platform: "/", type: TrackType.Event) {}
+
+    // Movements - Message for Unified Billing
+    "/banking/movements/message_uf/close_message"(platform: "/", type: TrackType.Event) {}
+
 
     // MP Balance - Merch Engine Events Credits
     "/banking/balance/credits"(platform: "/", isAbstract: true) {}

@@ -921,6 +921,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/price_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -930,6 +931,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "mshops"
         }
         "/sell/list/seller_registration"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1329,6 +1331,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/free_shipping_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1338,6 +1341,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "mshops"
         }
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1945,6 +1949,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/draft/listing_types"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2148,6 +2153,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "mshops"
         }
         "/sell/list/draft/price_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2157,6 +2163,7 @@ trackTests {
             vertical = "core"
             user_shops_status = "none"
             sale_channels = ["mshops", "marketplace"]
+            channel_context = "marketplace"
         }
         "/sell/list/draft/price_modality"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -2867,6 +2874,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            channel_context = "marketplace"
         }
         "/sell/update/title"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -3031,6 +3039,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            channel_context = "marketplace"
         }
         "/sell/update/condition_confirmation_landing"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -3878,6 +3887,20 @@ trackTests {
     test("SYI v4 item variations card confirmed"){
         "/sell/item_data/variations/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            user_shops_status = "active"
+            sales_channels = ["marketplace", "mshops"]
+        }
+    }
+    test("SYI moda item variations pictures-education redirect"){
+        "/sell/item_data/variations/pictures_education"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            domain_id = "MLA_SNEAKERS"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "core"
@@ -5534,8 +5557,6 @@ trackTests {
             session_id = "571359341-listres-7afd00a54af7"
             vertical = "real_estate"
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5552,8 +5573,6 @@ trackTests {
             session_id = "571359341-listres-7afd00a54af7"
             vertical = "real_estate"
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             listing_type_id = "silver"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
@@ -5571,8 +5590,6 @@ trackTests {
             session_id = "571359341-listres-7afd00a54af7"
             vertical = "real_estate"
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             listing_type_id = "silver"
             intent_type = "pictures_upload"
             pictures_info = [
@@ -5613,8 +5630,6 @@ trackTests {
             listing_type_id = "gold_premium"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
         }
     }
 
@@ -5630,8 +5645,6 @@ trackTests {
             listing_type_id = "gold_premium"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
         }
     }
 
@@ -5647,8 +5660,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5665,8 +5676,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5683,8 +5692,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5701,8 +5708,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             item_from = null
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
@@ -5720,8 +5725,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             listing_type_id = "silver"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
@@ -5739,8 +5742,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5758,8 +5759,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             intent_type = "invalid_intent"
             field_intent_ids = ["CONTACT_SCHEDULE", "OPERATION_SUBTYPE", "TOTAL_AREA"]
             user_shops_status = "active"
@@ -5779,8 +5778,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5797,8 +5794,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5815,8 +5810,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5833,8 +5826,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5851,8 +5842,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5870,8 +5859,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5889,8 +5876,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5907,8 +5892,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5925,8 +5908,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
@@ -5945,8 +5926,6 @@ trackTests {
             vertical = "real_estate"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             listing_type_id = "silver"
             debug_domain_discovery = [{debug_model_name:{model_name:"DOMAINSEARCH" score:0.33333334}}]
             user_shops_status = "active"
@@ -5967,8 +5946,6 @@ trackTests {
             session_id = "571359341-listres-718003de5fdc"
             vertical = "real_estate"
             user_type = "real_estate_agency"
-            business = "classified"
-            platform = "pi"
             listing_type_id = "silver"
             decision_flow_label = "BY_CATALOG"
             user_shops_status = "active"
@@ -6010,11 +5987,9 @@ trackTests {
     test("SYI v4 publicar - wrong category") {
         "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {
             seller_reputation = "NO_REPUTATION"
-            business = "classified"
             item_type = "default"
             session_id = "583247067-listres-08604897e645"
             vertical = "real_estate"
-            platform = "pi"
             category_id = "MLC183186"
             seller_segment = ""
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
@@ -6028,13 +6003,11 @@ trackTests {
         "/sell/congrats/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {
             seller_reputation = "NO_REPUTATION"
             categorization_flow_successful = true
-            business = "classified"
             item_id = "MLC533953132"
             item_type = "default"
             title_predicted = ""
             session_id = "583247067-listres-0a5ad0c976ff"
             vertical = "real_estate"
-            platform = "pi"
             seller_segment = ""
             seller_profile = "NEWBIE"
             listing_type_id = "free"
@@ -6128,11 +6101,9 @@ trackTests {
     test("SYI V4 Publicar - Paso Uno - Card de pictures  y Ver Planes") {
         def dataSet = {
             seller_reputation = "NO_REPUTATION"
-            business = "classified"
             item_type = "default"
             session_id = "600095330-listres-5a85212250cd"
             vertical = "real_estate"
-            platform = "pi"
             seller_segment = ""
             category_id = "MLC183186"
             seller_profile = "NEWBIE"
@@ -6272,23 +6243,5 @@ trackTests {
             user_shops_status = "active"
             sales_channels = ["marketplace", "mshops"]
         }
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS SYI v4 - Motors
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-    test("SYI v4 Flash Offer Experiment"){
-
-        "/sell/flash_offer/hub"(platform: "/web", type: TrackType.View){}
-
-        "/sell/flash_offer/hub/sell_by_my_self"(platform: "/web", type: TrackType.Event){}
-
-        "/sell/flash_offer/hub/sell_fast"(platform: "/web", type: TrackType.Event){}
-
-        "/sell/flash_offer/info"(platform: "/web", type: TrackType.View){}
-
-        "/sell/flash_offer/info/go_to_sell"(platform: "/web", type: TrackType.Event){}
     }
 }

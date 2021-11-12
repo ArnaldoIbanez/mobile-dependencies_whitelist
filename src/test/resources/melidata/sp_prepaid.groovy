@@ -250,6 +250,7 @@ trackTests {
             mandatory()
             step_information()
             view_time()
+            item_structure()
         }
 
 
@@ -282,6 +283,11 @@ trackTests {
         }
         "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/info_balance"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            step_information()
             view_time()
         }
 
@@ -467,6 +473,11 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        "/single_player/prepaid/break_pre_one_tap/checkout"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1022,6 +1033,7 @@ trackTests {
             mandatory()
             step_information()
             view_time()
+            item_structure()
         }
 
 
@@ -1053,6 +1065,11 @@ trackTests {
         }
         "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/info_balance"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            step_information()
             view_time()
         }
 
@@ -1238,6 +1255,10 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/break_pre_one_tap/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/break_pre_one_tap/checkout"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -3254,6 +3275,105 @@ trackTests {
             view_time()
         }
         "/single_player/paygo/update_device_number/timeout/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Tag obtaining methods
+        "/single_player/paygo/tag_obtaining_methods"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/tag_obtaining_methods/marketplace"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_obtaining_methods/free_pick_up"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_obtaining_methods/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Interest point list
+        "/single_player/paygo/interest_point_list"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/interest_point_list/selected_interest_point"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/interest_point_list/confirm_pick_up"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/interest_point_list/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Create tag pick up success
+        "/single_player/paygo/tag_pick_up/create/success"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/tag_pick_up/create/success/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_pick_up/create/success/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_pick_up/create/success/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Create tag pick up error
+        "/single_player/paygo/tag_pick_up/create/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/tag_pick_up/create/error/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_pick_up/create/error/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_pick_up/create/error/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Tag pick up already exists
+        "/single_player/paygo/tag_pick_up/already_exists"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            step_information()
+        }
+
+        "/single_player/paygo/tag_pick_up/already_exists/new_pick_up"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_pick_up/already_exists/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_pick_up/already_exists/close"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/tag_pick_up/already_exists/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }

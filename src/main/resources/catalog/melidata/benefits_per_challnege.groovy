@@ -18,15 +18,16 @@ tracks {
   "/instore/challenge" (platform: "/", isAbstract: true) {
     challenge_id(required: true, type: PropertyType.String, description: "Challenge id")
     session_id(required: true, type: PropertyType.String, description: "Session identifier")
+    traffic_from(required: false, type: PropertyType.String, description: "Traffic identifier")
   }
   "/instore/challenge/summary" (platform: "/", type: TrackType.View) {
     payment_status(required: true, type:PropertyType.Map(payment_status_object), description: "state of payments")
   }
   
-  "/instore/challenge/find_stores" (platform: "/", type: TrackType.Event) {}
-  "/instore/challenge/use_benefit" (platform: "/", type: TrackType.Event) {}
-  "/instore/challenge/other_discounts" (platform: "/", type: TrackType.Event) {}
-  "/instore/challenge/terms_and_conditions" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/find_stores" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/use_benefit" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/other_discounts" (platform: "/", type: TrackType.Event) {}
+  "/instore/challenge/summary/terms_and_conditions" (platform: "/", type: TrackType.Event) {}
 
   
   // ----- FTU pages -----

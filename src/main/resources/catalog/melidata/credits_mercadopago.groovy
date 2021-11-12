@@ -334,6 +334,13 @@ tracks {
                 inheritable: false,
                 description: "products"
         )
+        from_optins(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false,
+            description: "optin validation"
+        )
+        source_tracking
     }
 
     "/credits/merchant/administrator/contextual_help_click"(platform: "/", type: TrackType.Event) {
@@ -422,14 +429,47 @@ tracks {
     }
 
     //Checkout
-    "/credits/merchant/checkout"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/checkout"(platform: "/web", type: TrackType.Event) {
         amount_to_pay(
            type: PropertyType.String,
            required: true,
            description: "Redirect to checkout with amount to pay",
            inheritable: false
         )
-        products_with_status
+        products(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(with_status)
+            ),
+            required: false,
+            inheritable: false,
+            description: "products"
+        )
+    }
+
+    "/credits/merchant/checkout"(platform: "/mobile", type: TrackType.View) {
+        amount_to_pay(
+           type: PropertyType.String,
+           required: true,
+           description: "Redirect to checkout with amount to pay",
+           inheritable: false
+        )
+        products(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(with_status)
+            ),
+            required: true,
+            inheritable: false,
+            description: "products"
+        )
+    }
+
+    "/credits/merchant/checkout/error"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false,
+            description: "error"
+        )
     }
 
     //Voluntary Payment
@@ -720,11 +760,43 @@ tracks {
                 'financial_scraping',
             ]
         )
+        provider(
+            type: PropertyType.String,
+            required: false,
+            description: "Which provider was choosen to share information",
+            values: [
+                'quanto',
+                'open_finance',
+                'unknown',
+            ]
+        )
     }
 
-    "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/open_market/financial_scraping_click"(platform: "/", type: TrackType.Event) {
+        provider(
+            type: PropertyType.String,
+            required: true,
+            description: "Which provider was choosen to share information",
+            values: [
+                'quanto',
+                'open_finance',
+            ]
+        )
+    }
 
-    "/credits/merchant/open_market/financial_scraping/error"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_started"(platform: "/", type: TrackType.Event) {
+        provider(
+            type: PropertyType.String,
+            required: true,
+            description: "Which provider was choosen to share information",
+            values: [
+                'quanto',
+                'open_finance',
+            ]
+        )
+    }
+
+    "/credits/merchant/open_market/financial_scraping_error"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -736,7 +808,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/open_market/financial_scraping/message"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/open_market/financial_scraping_message_shown"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
             required: true,
@@ -914,11 +986,17 @@ tracks {
             type: PropertyType.Boolean,
             required: false,
         )
+        require_optin(
+            description: "User required opt ins flow",
+            type: PropertyType.Boolean,
+            required: false,
+        )
     }
 
     //Error
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {
         reason(
+            description: "Error reason",
             type: PropertyType.String,
             required: true,
             values: [
@@ -929,6 +1007,7 @@ tracks {
                 'unknown-error',
                 'admin-is-restricted',
                 'kyc_error',
+                'loan_request_is_null',
                 'default'
             ],
             inheritable: false
@@ -1149,6 +1228,11 @@ tracks {
             description: "Credit line maximum allowed option",
             type: PropertyType.Numeric,
             required: true,
+        )
+        require_optin(
+            description: "User required opt ins flow",
+            type: PropertyType.Boolean,
+            required: false,
         )
     }
 
@@ -1528,6 +1612,11 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
         )
+        require_optin(
+                description: "User required opt ins flow",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     "/credits/express_money/congrats"(platform: "/web", type: TrackType.View) {
@@ -1609,6 +1698,11 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
         )
+        require_optin(
+                description: "User required opt ins flow",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     "/credits/express_money/error"(platform: "/", type: TrackType.View) {
@@ -1636,7 +1730,8 @@ tracks {
                 'invalid_first_due_date',
                 'insufficient_credit_balance',
                 'conflict',
-                'external_api_error'
+                'external_api_error',
+                'payment_rejected'
             ]
         )
     }
@@ -1653,7 +1748,25 @@ tracks {
         )
     }
 
-    "/credits/express_money/kyc_onboarding"(platform: "/", type: TrackType.View) { }
+    "/credits/express_money/kyc_onboarding"(platform: "/web", type: TrackType.View) { }
+
+    "/credits/express_money/kyc_onboarding"(platform: "/mobile", type: TrackType.View) {
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+    }
 
     "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) { }
 
@@ -1774,6 +1887,11 @@ tracks {
                         "not visible"
                 ]
         )
+        source_key(
+                required: false,
+                description: "Identifies the origin of the user",
+                type: PropertyType.String,
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -1788,6 +1906,19 @@ tracks {
 
     //Events
     "/credits/consumer/administrator_v2/dashboard/go_know_more_faq"(platform: "/", type: TrackType.Event) {
+        dashboard_status(
+                required: true,
+                description: "Defines if the user accesses the FAQ of the button Know more",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue",
+                        "finished"
+                ]
+        )
+    }
+    "/credits/consumer/administrator_v2/dashboard/go_upsell_cx"(platform: "/", type: TrackType.Event) {
         dashboard_status(
                 required: true,
                 description: "Defines if the user accesses the FAQ of the button Know more",
