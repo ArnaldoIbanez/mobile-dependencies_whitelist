@@ -23,7 +23,7 @@ class CatalogLinter {
         linters.add(new PropertyNameBlackListLinter(
                 ["data", "extra_info", "extra_data", "extra", "event_data"],
                 ["platform", "user", "device", "name", "required", "description", "mode"],
-                ["user_id", "site_id", "colaborator_id", "bu", "business", "site", "experiment", "experiments"])
+                ["user_id", "site_id", "colaborator_id", "business", "site", "experiment", "experiments"])
         )
     }
 
